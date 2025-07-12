@@ -13,8 +13,8 @@ Hooks.once("ready", async function () {
     if (!msg?.flags?.pf2e?.origin?.rollOptions?.includes("summon")) return;
     let level = 20;
 
-    const summoner = msg.speakerActor;
-    const alliance = msg.speakerActor.system.details.alliance;
+    const summoner = ChatMessage.getSpeakerActor(msg.speaker);
+    const alliance = summoner.system.details.alliance;
 
     const details = getTraditionalSummonerSpellDetails(uuid, rank);
     const traits = details.traits;
@@ -144,4 +144,3 @@ function getTraditionalSummonerSpellDetails(uuid, rank) {
 //   const name = fromUuidSync(uuid).name.toUpperCase().split(' ').join('_')
 //       console.log(`${name}: "${uuid}",`)
 //   }
-
