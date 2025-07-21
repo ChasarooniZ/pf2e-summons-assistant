@@ -30,6 +30,11 @@
           "minimum": "2.3.1",
           "verified": "2.3.1"
         }
+      },
+      {
+        "id": "socketlib",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
       }
     ],
     "recommends": [
@@ -61,6 +66,7 @@
       "path": "languages/fr.json"
     }
   ],
+  "socket": true,
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",

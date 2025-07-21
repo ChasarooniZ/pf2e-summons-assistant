@@ -1,4 +1,4 @@
-import { messageItemHasRollOption } from "./helpers.js";
+import { messageItemHasRollOption } from "../helpers.js";
 
 export function isMechanic(msg){
     return messageItemHasRollOption(msg, "origin:item:trait:mechanic");

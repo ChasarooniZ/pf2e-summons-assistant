@@ -1,17 +1,24 @@
 import { EFFECTS, MODULE_ID, SOURCES, SUMMON_LEVELS_BY_RANK } from "./const.js";
-import { addTraits, compFromUuid, messageItemHasRollOption } from "./helpers.js";
+import { addTraits, compFromUuid, getTokenImage, messageItemHasRollOption } from "./helpers.js";
 import { extractDCValueRegex, isIncarnate } from "./incarnate.js";
-import { isMechanic, setMechanicRelevantInfo } from "./mechanic.js";
+import { setupSocket } from "./lib/socket.js";
+import { isMechanic, setMechanicRelevantInfo } from "./specificClasses/mechanic.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
 import { setupSettings } from "./settings.js";
 import { getSpecificSummonDetails } from "./specificSummons.js";
 import { handleUpdateMessage } from "./updateMessage.js";
+import { isBindHeroicSpiritHit } from "./specificClasses/necromancer.js";
 
 Hooks.once("init", async function () {
   loadTemplates([
     `modules/${MODULE_ID}/templates/updateMessage.hbs`,
   ])
   setupSettings();
+});
+
+Hooks.once("setup", function () {
+  if (!setupSocket())
+    console.error("Error: Unable to set up socketlib for Genga");
 });
 
 Hooks.once("ready", async function () {
@@ -26,8 +33,6 @@ Hooks.once("ready", async function () {
 
     if (!itemUuid) return;
 
-    // TODO handle Incarnate spells at a later date
-    //if (!chatMessage?.flags?.pf2e?.origin?.rollOptions?.includes("summon")) return;
     let summonLevel = 20;
     //attributes.classDC.value
 
@@ -132,44 +137,53 @@ Hooks.once("ready", async function () {
         });
       }
 
-      const summonType = isMechanic(chatMessage) ? "mechanic" : (messageItemHasRollOption(chatMessage, "thrall") ? "thrall" : "summon")
+      const summonType = getSummonType(chatMessage.toObject())
       const additionalTraits = addTraits(summonType);
 
-      const selectedActor = await compFromUuid(selectedActorUuid);
-      const originalActorLevel = selectedActor.level;
-
-      const houseRuleUpdates = await getHouseRuleUpdates(selectedActor, summonLevel, chatMessage, itemUuid);
-
-      const actorUpdateData = {
-        'system.details.alliance': summonerAlliance,
-        'system.traits.value': [...selectedActor.system.traits.value, ...additionalTraits],
-        ...houseRuleUpdates,
-        ...actorModifications
-      };
-
-      if (game.settings.get(MODULE_ID, "name-ownership")) {
-        actorUpdateData.name = `${summonerActor.name}'s ${selectedActor.name}`;
-        actorUpdateData["prototypeToken.name"] = `${summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
-      }
-
-      for (let i = 0; i < amount; i++) {
-        const tokDoc = await foundrySummons.pick({
-          uuid: selectedActorUuid,
-          updateData: actorUpdateData,
-        });
-
-        if (isMaxSummonLevelRuleActive(selectedActor, summonLevel, chatMessage, itemUuid)) {
-          await scaleActorItems(tokDoc.actor, originalActorLevel, summonLevel)
-        }
-
-        if (itemsToAdd.length > 0) {
-          await tokDoc.actor.createEmbeddedDocuments("Item", itemsToAdd)
-        }
+      const params = { selectedActorUuid, summonLevel, chatMessage: chatMessage.toObject(), itemUuid, summonerAlliance, additionalTraits, actorModifications, summonerActor: summonerActor.toObject(), amount, itemsToAdd };
+      if (game.settings.get(MODULE_ID, "gm-places-summons")) {
+        socketlib.modules.get(MODULE_ID).executeAsGM("gmHandleSummon", params)
+      } else {
+        await handleSummonPlacingAndPost(params);
       }
     }
   });
 });
 
+
+export async function handleSummonPlacingAndPost({ selectedActorUuid, summonLevel, chatMessage, itemUuid, summonerAlliance, additionalTraits, actorModifications, summonerActor, amount, itemsToAdd }) {
+  const selectedActor = await compFromUuid(selectedActorUuid);
+  const originalActorLevel = selectedActor.level;
+
+  const houseRuleUpdates = await getHouseRuleUpdates(selectedActor, summonLevel, chatMessage, itemUuid);
+
+  const actorUpdateData = {
+    'system.details.alliance': summonerAlliance,
+    'system.traits.value': [...selectedActor.system.traits.value, ...additionalTraits],
+    ...houseRuleUpdates,
+    ...actorModifications
+  };
+
+  if (game.settings.get(MODULE_ID, "name-ownership")) {
+    actorUpdateData.name = `${summonerActor.name}'s ${selectedActor.name}`;
+    actorUpdateData["prototypeToken.name"] = `${summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
+  }
+
+  for (let i = 0; i < amount; i++) {
+    const tokDoc = await foundrySummons.pick({
+      uuid: selectedActorUuid,
+      updateData: actorUpdateData,
+    });
+
+    if (isMaxSummonLevelRuleActive(selectedActor, summonLevel, chatMessage, itemUuid)) {
+      await scaleActorItems(tokDoc.actor, originalActorLevel, summonLevel);
+    }
+
+    if (itemsToAdd.length > 0) {
+      await tokDoc.actor.createEmbeddedDocuments("Item", itemsToAdd);
+    }
+  }
+}
 
 /**
  * 
@@ -227,23 +241,14 @@ function getTraditionalSummonerSpellDetails(uuid, rank) {
 }
 
 
-function isBindHeroicSpiritHit(chatMessage) {
-  return chatMessage?.flags?.pf2e?.context?.type === 'attack-roll'
-    && ['success', 'criticalSuccess'].includes(chatMessage?.flags?.pf2e?.context?.outcome)
-    && chatMessage?.flags?.pf2e?.context?.options?.includes("self:effect:bind-heroic-spirit")
+function getSummonType(chatMessage) {
+  if (isMechanic(chatMessage)) {
+    return "mechanic"
+  } else if (messageItemHasRollOption(chatMessage, "thrall")) {
+    return "thrall"
+  }
+  return "summon"
 }
-
-function getTokenImage(prototypeToken) {
-  const art = prototypeToken?.ring?.enabled
-    ? prototypeToken?.ring?.subject?.texture ?? prototypeToken?.texture?.src
-    : prototypeToken?.texture?.src || "icons/svg/cowled.svg";
-
-  // Handles Wildcard
-  if (art?.includes("*")) return 'icons/magic/symbols/star-yellow.webp'
-
-  return art;
-}
-
 
 function getMaxSummonLevel(spellRank) {
   if (game.settings.get(MODULE_ID, "house-rule.rank-upgrade")) {

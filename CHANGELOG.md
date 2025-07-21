@@ -1,3 +1,11 @@
+## 1.7.0
+
+- **New**
+  - `GM Places Summons`
+    - Added a new game setting that allows the GM to handle the placement of summons (🧠💰 @Dufus)
+- **Updates**
+  - Now requires `socketlib` due to the above setting
+
 ## 1.6.2
 
 - Handle exception for the Effect Ownership settings, when the token is a wildcard token

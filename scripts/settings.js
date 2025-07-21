@@ -38,6 +38,16 @@ export function setupSettings() {
         type: Boolean,
     });
 
+    game.settings.register(MODULE_ID, "gm-places-summons", {
+        name: `${MODULE_ID}.module-settings.gm-places-summons.name`,
+        hint: `${MODULE_ID}.module-settings.gm-places-summons.hint`,
+        requiresReload: false,
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+    });
+
     game.settings.register(MODULE_ID, "last-version", {
         name: "last-version",
         hint: "last-version",

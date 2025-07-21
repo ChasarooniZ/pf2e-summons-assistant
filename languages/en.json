@@ -19,6 +19,10 @@
           "name": "[House Rule] Summon Spells Scale to Max Level",
           "hint": "Warning: I take no responsibility for how this might impact the balance of your games. This uses PF2e Workbench's Scale to level code to scale creatures summoned via traditional summoning spells (IE Summon Animals etc.) to the stats of a creature of the highest level that spell rank can summon."
         }
+      },
+      "gm-places-summons": {
+        "name": "GM Places Summons",
+        "hint": "When this is enabled, the GM will be the one that places summons (the player is the on that picks the summons though)"
       }
     }
   }

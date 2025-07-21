@@ -31,3 +31,13 @@ export function hasNoTargets() {
 export function onlyHasJB2AFree() {
     return game.modules.get("JB2A_DnD5e")?.active && !game.modules.get("jb2a_patreon")?.active
 }
+export function getTokenImage(prototypeToken) {
+  const art = prototypeToken?.ring?.enabled
+    ? prototypeToken?.ring?.subject?.texture ?? prototypeToken?.texture?.src
+    : prototypeToken?.texture?.src || "icons/svg/cowled.svg";
+
+  // Handles Wildcard
+  if (art?.includes("*")) return 'icons/magic/symbols/star-yellow.webp';
+
+  return art;
+}

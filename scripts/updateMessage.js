@@ -5,11 +5,15 @@ const sampleData = {
 };
 
 const updateData = {
-    new: [
-    ],
-    update: [
-        { item: "Handle exception for the Effect Ownership settings, when the token is a wildcard token" },
-    ],
+    '1.7.0': {
+        new: [
+            { item: "GM Places Summons", feat: true },
+            { children: ["Added a new game setting that allows the GM to handle the placement of summons (🧠💰 @Dufus)"] }
+        ],
+        update: [
+            { item: "Now requires `socketlib` due to the above setting" },
+        ],
+    }
 };
 
 export async function handleUpdateMessage() {
@@ -24,11 +28,16 @@ export async function handleUpdateMessage() {
         last_version === game.modules.get(MODULE_ID).version
     )
         return;
+
+    const updateStuff = updateData?.[game.modules.get(MODULE_ID).version];
+
+    if (!updateStuff) return;
+
     const updateMessage = {
         name: game.modules.get(MODULE_ID).title,
         icon: "fa-solid fa-wand-magic-sparkles",
         version: game.modules.get(MODULE_ID).version,
-        ...updateData,
+        ...updateStuff,
     };
     updateMessage.isNew = updateMessage?.new && updateMessage?.new?.length > 0
     updateMessage.isUpdate = updateMessage?.update && updateMessage?.update?.length > 0
