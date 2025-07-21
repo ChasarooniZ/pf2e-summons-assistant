@@ -23,6 +23,18 @@
       "gm-places-summons": {
         "name": "GM Places Summons",
         "hint": "When this is enabled, the GM will be the one that places summons (the player is the on that picks the summons though)"
+      },
+      "necromancer": {
+        "handle-living-graveyard-movement": {
+          "name": "[Necromancer] Handle Living Graveyard Movement",
+          "hint": "If enabled when a Living Graveyard is moved it will send a chat message which when clicked will cause the graveyard to spawn a thrall (as in accordance with the rules)"
+        }
+      }
+    },
+    "message": {
+      "living-graveyard": {
+        "thralls": "The Living Graveyard has moved. If this was from Sustain, Do you want to summon 3 new Thralls along its path?",
+        "summon": "Summon!"
       }
     }
   }

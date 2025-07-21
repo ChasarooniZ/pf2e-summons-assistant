@@ -8,7 +8,9 @@ const updateData = {
     '1.7.0': {
         new: [
             { item: "GM Places Summons", feat: true },
-            { children: ["Added a new game setting that allows the GM to handle the placement of summons (🧠💰 @Dufus)"] }
+            { children: ["Added a new game setting that allows the GM to handle the placement of summons (🧠💰 @Dufus)"] },
+            { item: "Living Gravyard - Movement Summon", feat: true },
+            { children: ["On Movement ask the user if they want to summon 3 thralls from the living graveyard"] },
         ],
         update: [
             { item: "Now requires `socketlib` due to the above setting" },

@@ -101,7 +101,7 @@ export const ALT_ART = {
 
 export const EFFECTS = {
   NECROMANCER: {
-    THRALL_EXPIRATION: {
+    THRALL_EXPIRATION: (duration) => ({
       "name": "Effect: Thrall Expiration Date",
       "type": "effect",
       "system": {
@@ -119,16 +119,17 @@ export const EFFECTS = {
           "value": 1
         },
         "duration": {
-          "value": 1,
-          "unit": "minutes",
+          "value": duration?.value ?? 1,
+          "unit": duration?.unit ?? "minutes",
           "expiry": "turn-start",
         },
         "tokenIcon": {
           "show": true
         },
+        "slug": "effect-thrall-expiration-date"
       },
       "img": "icons/magic/death/grave-tombstone-glow-teal.webp",
-    },
+    }),
   },
   SUMMON_OWNER: (imagePath) => ({
     "name": "Summon's Owner",
@@ -156,6 +157,7 @@ export const EFFECTS = {
       "tokenIcon": {
         "show": true
       },
+      "slug": "effect-summons-owner"
     },
     "img": imagePath,
   })

@@ -73,40 +73,40 @@ export function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 
                 specific_uuids: [CREATURES.NECROMANCER.THRALL],
                 rank: data.rank,
                 amount: getNecromancerProf(data.summonerLevel),
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
             }]
         case SOURCES.NECROMANCER.PERFECTED_THRALL:
             return [{
                 specific_uuids: [CREATURES.NECROMANCER.PERFECTED_THRALL],
                 rank: data.rank,
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
             }]
         case SOURCES.NECROMANCER.SKELETAL_LANCERS:
             return [{
                 specific_uuids: [CREATURES.NECROMANCER.SKELETAL_LANCERS],
                 rank: data.rank,
                 amount: 5,
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
             }]
         case SOURCES.NECROMANCER.LIVING_GRAVEYARD:
             return [
                 {
                     specific_uuids: [CREATURES.NECROMANCER.LIVING_GRAVEYARD],
                     rank: data.rank,
-                    itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                    itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
                 },
                 {
                     specific_uuids: [CREATURES.NECROMANCER.THRALL],
                     rank: data.rank,
                     amount: 5,
-                    itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                    itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
                 }
             ]
         case SOURCES.NECROMANCER.RECURRING_NIGHTMARE:
             return [{
                 specific_uuids: [CREATURES.NECROMANCER.RECURRING_NIGHTMARE],
                 rank: data.rank,
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
             }]
 
         case SOURCES.NECROMANCER.INEVITABLE_RETURN:
@@ -114,13 +114,13 @@ export function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 
                 specific_uuids: [CREATURES.NECROMANCER.THRALL],
                 rank: data.rank,
                 amount: 1,
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
             }]
         case SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE:
             return [{
                 specific_uuids: [CREATURES.NECROMANCER.THRALL],
                 rank: 1,
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
             }]
         case SOURCES.MECHANIC.DEPLOY_MINE:
             return [{ specific_uuids: [CREATURES.MECHANIC.MINE], rank: data.rank, 

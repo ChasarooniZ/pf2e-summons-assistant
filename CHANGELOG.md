@@ -3,6 +3,8 @@
 - **New**
   - `GM Places Summons`
     - Added a new game setting that allows the GM to handle the placement of summons (🧠💰 @Dufus)
+  - `Living Gravyard - Movement Summon`
+    - On Movement ask the user if they want to summon 3 thralls from the living graveyard (🖥️ @Sasane)
 - **Updates**
   - Now requires `socketlib` due to the above setting
 
