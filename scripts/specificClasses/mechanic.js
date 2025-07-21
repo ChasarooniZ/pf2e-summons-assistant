@@ -1,3 +1,4 @@
+import { FEATS } from "../const.js";
 import { messageItemHasRollOption } from "../helpers.js";
 
 export function isMechanic(msg){
@@ -7,5 +8,5 @@ export function isMechanic(msg){
 export function setMechanicRelevantInfo(mechanicActor, spellRelevantInfo){    
     spellRelevantInfo.classDC = mechanicActor.system.proficiencies.classDCs.mechanic?.value;
     spellRelevantInfo.int = mechanicActor.system.abilities.int.mod;
-    spellRelevantInfo.hasCriticalExplosion = mechanicActor.itemTypes.feat.some(p=>p._stats.compendiumSource == "Compendium.starfinder-field-test-for-pf2e.feats.Item.zsXV8mcHVZqx6FVj");
+    spellRelevantInfo.hasCriticalExplosion = mechanicActor.itemTypes.feat.some(p=>p._stats.compendiumSource === FEATS.MECHANIC.CRITICAL_EXPLOSION);
 }

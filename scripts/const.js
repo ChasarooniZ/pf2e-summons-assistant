@@ -87,6 +87,12 @@ export const CREATURES = {
   }
 }
 
+export const FEATS = {
+  MECHANIC: {
+    CRITICAL_EXPLOSION: "Compendium.starfinder-field-test-for-pf2e.feats.Item.zsXV8mcHVZqx6FVj"
+  }
+}
+
 export const SUMMON_LEVELS_BY_RANK = {
   1: -1, 2: 1, 3: 2, 4: 3, 5: 5, 6: 7, 7: 9, 8: 11, 9: 13, 10: 15
 };
@@ -165,30 +171,30 @@ export const EFFECTS = {
 
 export const ACTIONS = {
   MECHANIC: {
-  CRITICAL_EXPLOSION:{
-    "name": "Critical Explosion",
-    "type": "action",
-    "system": {
-    "actionType": {
-      "value": "passive"
-    },
-    "description": {
-      "value": "<p>Your mines explode in a cloud of shrapnel that shreds through a creature's weakest points to cause lasting harm. Add your Intelligence modifier to your mines' damage. A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier. If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine.</p>",
-      "gm": ""
-    },
-    "publication": {
-      "title": "PF2e Summons Assistant",
-      "authors": "",
-      "license": "OGL",
-      "remaster": true
-    },        
-    "rules":[{"key":"RollOption", "option":"critical-explosion"}],        
-    "actions": {
-      "value": 1
-    },
-    "category": null
-    },
-    "img": "systems/pf2e/icons/actions/Passive.webp",
-  }
+    CRITICAL_EXPLOSION: {
+      "name": "Critical Explosion",
+      "type": "action",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>Your mines explode in a cloud of shrapnel that shreds through a creature's weakest points to cause lasting harm. Add your Intelligence modifier to your mines' damage. A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier. If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "PF2e Summons Assistant",
+          "authors": "",
+          "license": "OGL",
+          "remaster": true
+        },
+        "rules": [{ "key": "RollOption", "option": "critical-explosion" }],
+        "actions": {
+          "value": 1
+        },
+        "category": null
+      },
+      "img": "systems/pf2e/icons/actions/Passive.webp",
+    }
   }
 }

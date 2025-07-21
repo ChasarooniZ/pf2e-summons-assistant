@@ -52,14 +52,14 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
           name: "Sort order",
           options: [{ label: "Level descending", value: 0 }, { label: "Level", value: 1 }],
           sort: (actorA, actorB, sortIndex) => {
-            if (sortIndex == 0) {
-              if (actorA.system.details.level.value == actorB.system.details.level.value)
+            if (sortIndex === 0) {
+              if (actorA.system.details.level.value === actorB.system.details.level.value)
                 return actorA.name.localeCompare(actorB.name);
               else
                 return (actorB.system.details.level.value - actorA.system.details.level.value);
             }
             else {
-              if (actorA.system.details.level.value == actorB.system.details.level.value)
+              if (actorA.system.details.level.value === actorB.system.details.level.value)
                 return actorA.name.localeCompare(actorB.name);
               else
                 return (actorA.system.details.level.value - actorB.system.details.level.value);
@@ -71,7 +71,7 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
           name: "Trait",
           options: [{ label: '', value: '' }, ...requiredTraits.toSorted().map(traitName => ({ label: traitName, value: traitName }))],
           func: (filterActor, selectedTrait) => {
-            return !selectedTrait || filterActor.system.traits.value.some(actorTrait => selectedTrait.toLowerCase() == actorTrait.toLowerCase());
+            return !selectedTrait || filterActor.system.traits.value.some(actorTrait => selectedTrait.toLowerCase() === actorTrait.toLowerCase());
           }
         }],
         toggles: [{
@@ -221,7 +221,7 @@ async function getHouseRuleUpdates(actor, maxSummonLevel, summonType, itemUuid) 
 
 function isMaxSummonLevelRuleActive(actor, maxSummonLevel, summonType, itemUuid) {
   return game.settings.get(MODULE_ID, "house-rule.scale-to-max-summon-level-for-rank")
-    && summonType == "summon"
+    && summonType === "summon"
     && itemUuid !== SOURCES.SUMMON.PHANTASMAL_MINION
     && actor.level < maxSummonLevel
 }
