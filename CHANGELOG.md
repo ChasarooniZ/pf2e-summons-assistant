@@ -1,3 +1,23 @@
+### Upcoming
+- **New**
+  - Support for the following:
+    - `Conglomerate of Limbs`
+
+## 1.7.0
+
+- **New**
+  - `Living Graveyard - Movement Summon`
+    - On Movement ask the user if they want to summon 3 thralls from the living graveyard (🖥️ @Sasane)
+  - `Show Only Token With Art`
+    - Adds a setting to default the picker to show only tokens with art
+- **Updates**
+  - Added localization to some action
+  - Updated required version of **Foundry Summons** to `2.3.3`
+ 
+## 1.6.2
+
+- Handle exception for the Effect Ownership settings, when the token is a wildcard token
+
 ## 1.6.1
 
 - Fixed update message not firing for previous version

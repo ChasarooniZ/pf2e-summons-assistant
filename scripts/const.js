@@ -34,6 +34,7 @@ export const SOURCES = {
     SKELETAL_LANCERS: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.qtgps2eYcmWueed1",
     LIVING_GRAVEYARD: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.SK8vQklaSQGd5DXw",
     RECURRING_NIGHTMARE: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.ZVQziQ2l2vdZ5Wfr",
+    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.OOmk0XI3lzhn42JT",
 
     INEVITABLE_RETURN: "Compendium.pf2e-playtest-data.impossible-playtest-actions.Item.jyhYP51XI09DFSqy",
 
@@ -79,11 +80,18 @@ export const CREATURES = {
     PERFECTED_THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.SX5QACMD5SvH9oeZ",
     SKELETAL_LANCERS: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.d1333zUKqydfJM9b",
     LIVING_GRAVEYARD: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.CN6TMEeEd0Wmvkct",
-    RECURRING_NIGHTMARE: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.uu7VA9eIwi1tUZVs"
+    RECURRING_NIGHTMARE: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.uu7VA9eIwi1tUZVs",
+    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.I0MZYNwAOoHrueu2"
   },
 
   MECHANIC: {
     MINE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.sAVuxP25VE126TdZ",
+  }
+}
+
+export const FEATS = {
+  MECHANIC: {
+    CRITICAL_EXPLOSION: "Compendium.starfinder-field-test-for-pf2e.feats.Item.zsXV8mcHVZqx6FVj"
   }
 }
 
@@ -101,12 +109,12 @@ export const ALT_ART = {
 
 export const EFFECTS = {
   NECROMANCER: {
-    THRALL_EXPIRATION: {
-      "name": "Effect: Thrall Expiration Date",
+    THRALL_EXPIRATION: (duration) => ({
+      "name": game.i18n.localize("pf2e-summons-assistant.items.effects.thrall-expiration.name"),
       "type": "effect",
       "system": {
         "description": {
-          "value": "<p>This measures how long till this thrall expires.</p>",
+          "value": `<p>${game.i18n.localize("pf2e-summons-assistant.items.effects.thrall-expiration.description")}</p>`,
           "gm": ""
         },
         "publication": {
@@ -119,19 +127,20 @@ export const EFFECTS = {
           "value": 1
         },
         "duration": {
-          "value": 1,
-          "unit": "minutes",
+          "value": duration?.value ?? 1,
+          "unit": duration?.unit ?? "minutes",
           "expiry": "turn-start",
         },
         "tokenIcon": {
           "show": true
         },
+        "slug": "effect-thrall-expiration-date"
       },
       "img": "icons/magic/death/grave-tombstone-glow-teal.webp",
-    },
+    }),
   },
   SUMMON_OWNER: (imagePath) => ({
-    "name": "Summon's Owner",
+    "name": game.i18n.localize("pf2e-summons-assistant.items.effects.summon's-owner.name"),
     "type": "effect",
     "system": {
       "description": {
@@ -156,6 +165,7 @@ export const EFFECTS = {
       "tokenIcon": {
         "show": true
       },
+      "slug": "effect-summons-owner"
     },
     "img": imagePath,
   })
@@ -163,30 +173,30 @@ export const EFFECTS = {
 
 export const ACTIONS = {
   MECHANIC: {
-  CRITICAL_EXPLOSION:{
-    "name": "Critical Explosion",
-    "type": "action",
-    "system": {
-    "actionType": {
-      "value": "passive"
-    },
-    "description": {
-      "value": "<p>Your mines explode in a cloud of shrapnel that shreds through a creature's weakest points to cause lasting harm. Add your Intelligence modifier to your mines' damage. A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier. If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine.</p>",
-      "gm": ""
-    },
-    "publication": {
-      "title": "PF2e Summons Assistant",
-      "authors": "",
-      "license": "OGL",
-      "remaster": true
-    },        
-    "rules":[{"key":"RollOption", "option":"critical-explosion"}],        
-    "actions": {
-      "value": 1
-    },
-    "category": null
-    },
-    "img": "systems/pf2e/icons/actions/Passive.webp",
-  }
+    CRITICAL_EXPLOSION: () => ({
+      "name": game.i18n.localize("pf2e-summons-assistant.items.actions.mechanic.critical-explosion.name"),
+      "type": "action",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": `<p>${game.i18n.localize("pf2e-summons-assistant.items.actions.mechanic.critical-explosion.description")}</p>`,
+          "gm": ""
+        },
+        "publication": {
+          "title": "PF2e Summons Assistant",
+          "authors": "",
+          "license": "OGL",
+          "remaster": true
+        },
+        "rules": [{ "key": "RollOption", "option": "critical-explosion" }],
+        "actions": {
+          "value": 1
+        },
+        "category": null
+      },
+      "img": "systems/pf2e/icons/actions/Passive.webp",
+    })
   }
 }

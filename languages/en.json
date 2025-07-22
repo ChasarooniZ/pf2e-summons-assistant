@@ -19,6 +19,45 @@
           "name": "[House Rule] Summon Spells Scale to Max Level",
           "hint": "Warning: I take no responsibility for how this might impact the balance of your games. This uses PF2e Workbench's Scale to level code to scale creatures summoned via traditional summoning spells (IE Summon Animals etc.) to the stats of a creature of the highest level that spell rank can summon."
         }
+      },
+      "necromancer": {
+        "handle-living-graveyard-movement": {
+          "name": "[Necromancer] Handle Living Graveyard Movement",
+          "hint": "If enabled when a Living Graveyard is moved it will send a chat message which when clicked will cause the graveyard to spawn a thrall (as in accordance with the rules)"
+        }
+      },
+      "filter": {
+        "default": {
+          "token-with-art": {
+            "name": "[Filter] Default to Tokens with Art Only",
+            "hint": "Have the actor picker default to showing only actors with art by default"
+          }
+        }
+      }
+    },
+    "message": {
+      "living-graveyard": {
+        "thralls": "The Living Graveyard has moved. If this was from Sustain, Do you want to summon 3 new Thralls along its path?",
+        "summon": "Summon!"
+      }
+    },
+    "items": {
+      "actions": {
+        "mechanic": {
+          "critical-explosion": {
+            "name": "Critical Explosion",
+            "description": "Your mines explode in a cloud of shrapnel that shreds through a creature's weakest points to cause lasting harm. Add your Intelligence modifier to your mines' damage. A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier. If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine."
+          }
+        }
+      },
+      "effects": {
+        "summon's-owner": {
+          "name": "Summon's Owner"
+        },
+        "thrall-expiration": {
+          "name": "Effect: Thrall Expiration Date",
+          "description": "This measures how long till this thrall expires."
+        }
       }
     }
   }

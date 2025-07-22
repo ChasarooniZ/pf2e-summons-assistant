@@ -5,20 +5,18 @@ const sampleData = {
 };
 
 const updateData = {
-    new: [
-        {
-            item: "Support for for SF2e's Mechanic's `Mines` (🎨 @Sasane, 🖥️ @Sasane)",
-        },
-        {
-            item: "Update Messages", feat: true, children: [
-                "Little update messages for each new update will appear the first time you open a server after an update",
-            ],
-        },
-    ],
-    update: [
-        { item: "Updated French translation (@rectulo)" },
-        { item: "Updated Polish Translation (@Lioheart)" },
-    ],
+    '1.7.0': {
+        new: [
+            { item: "Living Graveyard - Movement Summon", feat: true },
+            { children: ["On Movement ask the user if they want to summon 3 thralls from the living graveyard (🖥️ @Sasane)"] },
+            { item: "Show Only Token With Art", feat: true },
+            { children: ["Adds a setting to default the picker to show only tokens with art"] },
+        ],
+        update: [
+            { item: "Added localization to some action" },
+            { item: "Updated required version of **Foundry Summons** to `2.3.3`" }
+        ],
+    }
 };
 
 export async function handleUpdateMessage() {
@@ -31,13 +29,19 @@ export async function handleUpdateMessage() {
     );
     if (
         last_version === game.modules.get(MODULE_ID).version
-    )
+    ) {
         return;
+    }
+
+    const updateStuff = updateData?.[game.modules.get(MODULE_ID).version];
+
+    if (!updateStuff) return;
+
     const updateMessage = {
         name: game.modules.get(MODULE_ID).title,
         icon: "fa-solid fa-wand-magic-sparkles",
         version: game.modules.get(MODULE_ID).version,
-        ...updateData,
+        ...updateStuff,
     };
     updateMessage.isNew = updateMessage?.new && updateMessage?.new?.length > 0
     updateMessage.isUpdate = updateMessage?.update && updateMessage?.update?.length > 0

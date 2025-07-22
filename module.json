@@ -27,8 +27,8 @@
         "type": "module",
         "manifest": "https://github.com/MrVauxs/foundry-summons-2/releases/latest/download/module.json",
         "compatibility": {
-          "minimum": "2.3.1",
-          "verified": "2.3.1"
+          "minimum": "2.3.3",
+          "verified": "2.3.3"
         }
       }
     ],
