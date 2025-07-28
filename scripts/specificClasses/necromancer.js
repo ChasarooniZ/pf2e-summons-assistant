@@ -1,4 +1,5 @@
 import { MODULE_ID, SOURCES, CREATURES } from "../const.js";
+import { capitalizeDamageType } from "../helpers.js";
 import { getSpecificSummonDetails } from "../specificSummons.js";
 import { summon } from "../summon.js";
 
@@ -38,6 +39,9 @@ $(document).on('click', ".living-graveyard-move-yes", async function () {
         await t.delete();
     }
 });
+
+
+const SPIRIT_MONGER_DAMAGE_TYPES = ["spirit", "void"];
 
 export function setNecromancerHooks() {
     Hooks.on("preUpdateToken", (tokenDoc, data, id) => {
@@ -104,4 +108,104 @@ export function isBindHeroicSpiritHit(chatMessage) {
     return chatMessage?.flags?.pf2e?.context?.type === 'attack-roll'
         && ['success', 'criticalSuccess'].includes(chatMessage?.flags?.pf2e?.context?.outcome)
         && chatMessage?.flags?.pf2e?.context?.options?.includes("self:effect:bind-heroic-spirit");
+}
+
+function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
+    const damageTypes = [...baseDamageTypes];
+
+    // Add spirit-monger damage types if the feature is present
+    if (rollOptions.includes("feature:spirit-monger")) {
+        damageTypes.push(...SPIRIT_MONGER_DAMAGE_TYPES);
+    }
+
+    const ruleElements = [];
+    for (const type of damageTypes) {
+        ruleElements.push(
+            getStrikeREs({
+                ...config,
+                name: `${config.name} (${capitalizeDamageType(type)})`,
+                damageType: type
+            })
+        );
+    }
+
+    return ruleElements.flat();
+}
+
+export function createThrallAttackInfo(uuid, castRank, rollOptions) {
+    // Configuration map for each thrall type
+    const thrallConfigs = {
+        [SOURCES.NECROMANCER.CREATE_THRALL]: {
+            baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+            config: {
+                die: "d6",
+                dice: Math.floor(castRank / 2) + 1,
+                traits: ["magical"],
+                name: "Thrall Strike"
+            }
+        },
+        [SOURCES.NECROMANCER.PERFECTED_THRALL]: {
+            baseDamageTypes: ["bludgeoning"],
+            config: {
+                die: "d10",
+                dice: 7,
+                traits: ["magical"],
+                name: "Perfect Thrall Strike"
+            }
+        },
+        [SOURCES.NECROMANCER.SKELETAL_LANCERS]: {
+            baseDamageTypes: ["piercing"],
+            config: {
+                mod: 0,
+                traits: ["magical", "reach"],
+                name: "Skeletal Lancer Strike"
+            }
+        }
+    };
+
+    const thrallConfig = thrallConfigs[uuid];
+    if (!thrallConfig) {
+        return []; // or throw an error if preferred
+    }
+
+    return createThrallStrikeRuleElements(
+        thrallConfig.baseDamageTypes,
+        rollOptions,
+        thrallConfig.config
+    );
+}
+
+export function getStrikeREs(config) {
+    const slug = game.pf2e.system.sluggify(config.name);
+    const base = {
+        "damage": {
+            "base": {
+                "die": config?.die ?? "d4",
+                "dice": config?.dice ?? 0,
+                "damageType": config.damageType,
+                "modifier": config?.mod ?? 0
+            }
+        },
+        "attackModifier": 1,
+        "traits": config?.traits ?? [],
+        "img": config?.image ?? "icons/magic/death/hand-undead-skeleton-fire-green.webp",
+        "key": "Strike",
+        "slug": slug,
+        "label": config?.name,
+        "priority": 95
+    };
+
+    if (config?.group) base.group = config.group;
+    if (config?.range) base.range = { increment: config.range };
+
+    const attackMod = {
+        "key": "FlatModifier",
+        "selector": "attack",
+        "value": "@item.origin.system.attributes.spellDC.value - 9",
+        "predicate": [`item:slug:${slug}`],
+        "hideIfDisabled": true,
+        "label": "Thrall"
+    };
+
+    return [base, attackMod];
 }

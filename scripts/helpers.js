@@ -31,3 +31,6 @@ export function hasNoTargets() {
 export function onlyHasJB2AFree() {
     return game.modules.get("JB2A_DnD5e")?.active && !game.modules.get("jb2a_patreon")?.active
 }
+export function capitalizeDamageType(type) {
+    return type.charAt(0).toUpperCase() + type.slice(1);
+}
