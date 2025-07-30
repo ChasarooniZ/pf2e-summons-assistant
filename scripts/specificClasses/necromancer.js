@@ -110,29 +110,8 @@ export function isBindHeroicSpiritHit(chatMessage) {
         && chatMessage?.flags?.pf2e?.context?.options?.includes("self:effect:bind-heroic-spirit");
 }
 
-function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
-    const damageTypes = [...baseDamageTypes];
-
-    // Add spirit-monger damage types if the feature is present
-    if (rollOptions.includes("feature:spirit-monger")) {
-        damageTypes.push(...SPIRIT_MONGER_DAMAGE_TYPES);
-    }
-
-    const ruleElements = [];
-    for (const type of damageTypes) {
-        ruleElements.push(
-            getStrikeREs({
-                ...config,
-                name: `${config.name} (${capitalizeDamageType(type)})`,
-                damageType: type
-            })
-        );
-    }
-
-    return ruleElements.flat();
-}
-
-export function createThrallAttackInfo(uuid, castRank, rollOptions) {
+export function createThrallAttackInfo({ uuid = '', castRank = 1, rollOptions = [] }) {
+    if (!uuid) return [];
     // Configuration map for each thrall type
     const thrallConfigs = {
         [SOURCES.NECROMANCER.CREATE_THRALL]: {
@@ -175,8 +154,35 @@ export function createThrallAttackInfo(uuid, castRank, rollOptions) {
     );
 }
 
-export function getStrikeREs(config) {
-    const slug = game.pf2e.system.sluggify(config.name);
+function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
+    const damageTypes = [...baseDamageTypes];
+
+    // Add spirit-monger damage types if the feature is present
+    if (rollOptions.includes("feature:spirit-monger")) {
+        damageTypes.push(...SPIRIT_MONGER_DAMAGE_TYPES);
+    }
+
+    const ruleElements = [];
+    const slugs = [];
+    for (const type of damageTypes) {
+        const damageName = game.i18n.localize(`PF2E.Trait${capitalizeDamageType(type)}`)
+        const name = `${config.name} (${damageName})`;
+        const slug = game.pf2e.system.sluggify(name);
+        slugs.push(slug)
+        ruleElements.push(
+            getStrikeRE({
+                ...config,
+                name: name,
+                slug: slug,
+                damageType: type
+            })
+        );
+    }
+    ruleElements.push(getStrikeMod(slugs));
+    return ruleElements;
+}
+
+export function getStrikeRE(config) {
     const base = {
         "damage": {
             "base": {
@@ -190,7 +196,7 @@ export function getStrikeREs(config) {
         "traits": config?.traits ?? [],
         "img": config?.image ?? "icons/magic/death/hand-undead-skeleton-fire-green.webp",
         "key": "Strike",
-        "slug": slug,
+        "slug": config.slug,
         "label": config?.name,
         "priority": 95
     };
@@ -198,14 +204,18 @@ export function getStrikeREs(config) {
     if (config?.group) base.group = config.group;
     if (config?.range) base.range = { increment: config.range };
 
-    const attackMod = {
+    return base;
+}
+
+export function getStrikeMod(slugs) {
+    return {
         "key": "FlatModifier",
         "selector": "attack",
         "value": "@item.origin.system.attributes.spellDC.value - 9",
-        "predicate": [`item:slug:${slug}`],
+        "predicate": [{
+            "or": slugs.map(slug => `item:slug:${slug}`)
+        }],
         "hideIfDisabled": true,
         "label": "Thrall"
     };
-
-    return [base, attackMod];
 }
