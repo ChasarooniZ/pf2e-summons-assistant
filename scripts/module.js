@@ -43,7 +43,7 @@ Hooks.once("ready", async function () {
     if (isMechanic(chatMessage)) {
       setMechanicRelevantInfo(summonerActor, spellRelevantInfo);
     }
-    if (isSummoner(chatMessage)){
+    if (isSummoner(chatMessage)) {
       setSummonerRelevantInfo(summonerActor, spellRelevantInfo);
     }
 
@@ -52,12 +52,26 @@ Hooks.once("ready", async function () {
       summonDetailsGroup = getTraditionalSummonerSpellDetails(itemUuid, spellRank);
     }
 
+    summonDetailsGroup.forEach(group => {
+      group?.itemsToAdd?.forEach(item => {
+        if (item?.system) {
+          item.system.context = {
+            origin: {
+              actor: chatMessage?.actor?.uuid,
+              token: chatMessage?.token?.uuid,
+              item: chatMessage?.item?.uuid
+            }
+          };
+        }
+      });
+    });
+
     const summonType = getSummonType(chatMessage);
     await summon(summonerActor, itemUuid, summonType, summonDetailsGroup);
   });
 });
 
-function getSummonType(chatMessage){
+function getSummonType(chatMessage) {
   if (isMechanic(chatMessage))
     return "mechanic";
   if (messageItemHasRollOption(chatMessage, "thrall"))

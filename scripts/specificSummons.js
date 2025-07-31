@@ -28,7 +28,8 @@ export async function getSpecificSummonDetails(uuid, data = { rank: 0, summonerL
                         onlyHasJB2AFree() ?
                             { "prototypeToken.texture.src": ALT_ART.JB2A_FREE.FLOATING_FLAME }
                             : {}
-                    )
+                    ),
+                    "system.details.level.value": data.rank
                 }
             }]
 

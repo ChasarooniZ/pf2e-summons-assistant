@@ -15,10 +15,19 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
     const itemsToAdd = summonDetails?.itemsToAdd || [];
     const isCharacter = summonDetails?.isCharacter;
     if (game.settings.get(MODULE_ID, "effect-ownership") && !isCharacter) {
+      const effect = EFFECTS.SUMMON_OWNER(
+        getTokenImage(summonerActor.prototypeToken)
+      );
+
+      effect.system.context = {
+        origin: {
+          actor: summonerActor?.uuid,
+          item: itemUuid
+        }
+      }
+
       itemsToAdd.unshift(
-        EFFECTS.SUMMON_OWNER(
-          getTokenImage(summonerActor.prototypeToken)
-        )
+        effect
       );
     }
     const amount = summonDetails?.amount || 1;
