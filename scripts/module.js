@@ -41,7 +41,11 @@ Hooks.once("ready", async function () {
     const summonerActor = ChatMessage.getSpeakerActor(chatMessage.speaker);
 
     const spellRank = chatMessage?.flags?.pf2e?.origin?.castRank ?? 0;
-    const spellRelevantInfo = { rank: spellRank, summonerLevel: summonerActor.level }
+    const spellRelevantInfo = {
+      rank: spellRank,
+      summonerLevel: summonerActor.level,
+      summonerRollOptions: Object.keys(summonerActor?.flags?.pf2e?.rollOptions?.all)
+    }
     //Grab DC for Incarnate spells
     if (isIncarnate(chatMessage)) spellRelevantInfo.dc = extractDCValueRegex(chatMessage.content) ?? 0;
     if (isMechanic(chatMessage)) {
@@ -55,6 +59,20 @@ Hooks.once("ready", async function () {
     if (!summonDetailsGroup) {
       summonDetailsGroup = getTraditionalSummonerSpellDetails(itemUuid, spellRank);
     }
+
+    summonDetailsGroup.forEach(group => {
+      group?.itemsToAdd?.forEach(item => {
+        if (item?.system) {
+          item.system.context = {
+            origin: {
+              actor: chatMessage?.actor?.uuid,
+              token: chatMessage?.token?.uuid,
+              item: chatMessage?.item?.uuid
+            }
+          };
+        }
+      });
+    });
 
     const summonType = getSummonType(chatMessage);
     await summon(summonerActor, itemUuid, summonType, summonDetailsGroup);

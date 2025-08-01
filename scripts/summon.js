@@ -1,4 +1,4 @@
-import { EFFECTS, MODULE_ID, SOURCES, SUMMON_LEVELS_BY_RANK } from "./const.js";
+import { CREATURES, EFFECTS, MODULE_ID, SOURCES, SUMMON_LEVELS_BY_RANK } from "./const.js";
 import { addTraits, compFromUuid } from "./helpers.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
 
@@ -7,6 +7,8 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
   const summonerAlliance = summonerActor.system.details.alliance;
   // No Summon Spell Found
   if (summonDetailsGroup === null) return;
+
+  const summonActorUUIDList = [];
 
   for (const summonDetails of summonDetailsGroup) {
     const requiredTraits = summonDetails?.traits || [];
@@ -120,12 +122,20 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
         await scaleActorItems(summonedActor, originalActorLevel, summonLevel)
       }
 
+      if (isLinkedSummon(selectedActorUuid)) {
+        summonActorUUIDList.push(summonedActor.uuid);
+      }
+
       if (itemsToAdd.length > 0) {
         await summonedActor?.createEmbeddedDocuments("Item", itemsToAdd)
       }
       await summonedActor?.setFlag(MODULE_ID, 'summoner', { uuid: summonerActor.uuid, id: summonerActor.id });
     }
   }
+
+  const currentSummons = summonerActor.getFlag(MODULE_ID, 'linkedSummons') || [];
+  await summonerActor.setFlag(MODULE_ID, 'linkedSummons', [...currentSummons, ...summonActorUUIDList])
+  // TODO when the token that corresponds to this UUID is removed update the flags
 }
 
 /**
@@ -218,4 +228,13 @@ function isMaxSummonLevelRuleActive(actor, maxSummonLevel, summonType, itemUuid)
     && summonType === "summon"
     && itemUuid !== SOURCES.SUMMON.PHANTASMAL_MINION
     && actor.level < maxSummonLevel
+}
+
+
+function isLinkedSummon(summonUUID) {
+  return [
+    CREATURES.NECROMANCER.THRALL,
+    CREATURES.NECROMANCER.PERFECTED_THRALL,
+    CREATURES.NECROMANCER.SKELETAL_LANCERS
+  ].includes(summonUUID);
 }
