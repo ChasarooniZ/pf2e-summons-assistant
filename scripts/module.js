@@ -56,6 +56,20 @@ Hooks.once("ready", async function () {
       summonDetailsGroup = getTraditionalSummonerSpellDetails(itemUuid, spellRank);
     }
 
+    summonDetailsGroup.forEach(group => {
+      group?.itemsToAdd?.forEach(item => {
+        if (item?.system) {
+          item.system.context = {
+            origin: {
+              actor: chatMessage?.actor?.uuid,
+              token: chatMessage?.token?.uuid,
+              item: chatMessage?.item?.uuid
+            }
+          };
+        }
+      });
+    });
+
     const summonType = getSummonType(chatMessage);
     await summon(summonerActor, itemUuid, summonType, summonDetailsGroup);
   });

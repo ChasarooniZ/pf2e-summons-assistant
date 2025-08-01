@@ -14,7 +14,7 @@ export function incarnateDetails({ uuids, rank, dc }) {
         specific_uuids: uuids,
         rank,
         modifications: {
-            "level": rank,
+            "system.details.level.value": rank,
             "system.resources.dc.value": dc
         }
     }
