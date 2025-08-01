@@ -1,3 +1,9 @@
+## 1.8.2
+
+- **Updates**
+  - Updated `Conglomerate of Limbs` to use the actor from `Pf2e Playtest`
+  - Fixed issue where rolls were being counted as a message the summons (@Loki123)
+
 ## 1.8.1
 
 - **Updates**
