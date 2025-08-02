@@ -179,6 +179,9 @@ export function getTraditionalSummonerSpellDetails(uuid, rank) {
     case SOURCES.SUMMON.SUMMON_MONITOR:
       details.traits = ["monitor"];
       break;
+    case SOURCES.SUMMON.SUMMON_ROBOT:
+      details.traits = ["tech"];
+      break;
     default:
       return null;
   }

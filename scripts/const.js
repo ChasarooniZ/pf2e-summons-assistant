@@ -15,6 +15,7 @@ export const SOURCES = {
     SUMMON_FIEND: "Compendium.pf2e.spells-srd.Item.29ytKctjg7qSW2ff",
     SUMMON_GIANT: "Compendium.pf2e.spells-srd.Item.e9UJoVYUd5kJWUpi",
     SUMMON_MONITOR: "Compendium.pf2e.spells-srd.Item.ZbEHglw5tkJ3grQZ",
+    SUMMON_ROBOT: "Compendium.sf2e-anachronism.spells.Item.KlJEDmAOk1ztdNFf",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk"
   },
   INCARNATE: {
