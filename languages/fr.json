@@ -14,10 +14,54 @@
         "rank-upgrade": {
           "name": "[Règle maison] Les sorts de convocation sont de Rang +1",
           "hint": "Avertissement : Je ne prends pas la responsabilité sur la manière dont cela peut affecter l'équilibre de votre partie. Cette règle considère que les sorts de convocation sont d'un rang de plus pour déterminer quelle créature est conjurée."
-      },
+        },
         "scale-to-max-summon-level-for-rank": {
           "name": "[Règle maison] Les sorts de convocation sont élevés au niveau Max",
           "hint": "Avertissement : Je ne prends pas la responsabilité sur la manière dont cela peut affecter l'équilibre de votre partie. Ceci utilise le code Élever au niveau Max du module PF2e Workbench pour élever les créatures convoquées par des sorts de convocation traditionnels (ex Convocation d'animaux etc.) aux stats d'une créature du plus haut niveau possible que ce rang de sort peut convoquer."
+        }
+      },
+      "necromancer": {
+        "handle-living-graveyard-movement": {
+          "name": "[Necromancer] Handle Living Graveyard Movement",
+          "hint": "En cas d'activation, lorsqu'un Cimetière vivant est déplacé , il enverra un message dans la conversation. En cliquant dessus, cela provoquera l'apparition d'un thrall du cimetière (comme prévu par les règles)"
+        }
+      },
+      "filter": {
+        "default": {
+          "token-with-art": {
+            "name": "[Filtre] Par défaut, jetons avec illustration uniquement",
+            "hint": "Faire en sorte que le sélecteur d'acteur affiche par défaut uniquement les acteurs avec des illustrations par défaut"
+          }
+        }
+      }
+    },
+    "message": {
+      "living-graveyard": {
+        "thralls": "Le cimetière vivant s'est déplacé. Si cela résulte de son Maintien, souhaitez-vous invoquer 3 nouveaux thralls sur son passage ?",
+        "summon": "Invoquer!"
+      }
+    },
+    "notification": {
+      "summoner": {
+        "too-many-eidolons": "Vous possédez trop d'eidolons."
+      }
+    },
+    "items": {
+      "actions": {
+        "mechanic": {
+          "critical-explosion": {
+            "name": "Explosion critique",
+            "description": "Vos mines explosent dans un nuage de shrapnels qui passent par les points les plus faibles d'une créature pour provoquer des dégâts durables. Ajoutez votre modificateur d'Intelligence aux dégâts de vos mines. Une créature qui obtient un écehc critique sur son jet de sauvegarde contre une de vos mines se voit infligé des dégâts persistants égaux à votre modificateur d'Intelligence. Si la mine a infligé des dégâts physiques, il s'agit de dégâts de saignement. Autrement, les dégâts persistants sont du même type que ceux infligés par la mine."
+          }
+        }
+      },
+      "effects": {
+        "summon's-owner": {
+          "name": "Propriétaire de l'invocation"
+        },
+        "thrall-expiration": {
+          "name": "Effet : Date d'expiration du thrall",
+          "description": "Ceci mesure combien de temps avant que ce thrall n'expire."
         }
       }
     }

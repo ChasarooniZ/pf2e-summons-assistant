@@ -1,9 +1,5 @@
-2025/07/17-19:33:18.857167 ffff7affd0c0 Log #21: 0 ops saved to Table #34 OK
-2025/07/17-19:33:18.857223 ffff7affd0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-actors/000021.log: OK
-2025/07/17-19:33:18.859479 ffff7affd0c0 Log #33: 4 ops saved to Table #35 OK
-2025/07/17-19:33:18.859508 ffff7affd0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-actors/000033.log: OK
-2025/07/17-19:33:18.859678 ffff7affd0c0 Table #23: 96 entries OK
-2025/07/17-19:33:18.859697 ffff7affd0c0 Table #35: 4 entries OK
-2025/07/17-19:33:18.859752 ffff7affd0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-actors/MANIFEST-000032: OK
-2025/07/17-19:33:18.859766 ffff7affd0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-actors/MANIFEST-000018: OK
-2025/07/17-19:33:18.861562 ffff7affd0c0 **** Repaired leveldb /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-actors; recovered 2 files; 81642 bytes. Some data may have been lost. ****
+2025/08/04-00:06:05.009 1c5f0 Recovering log #41
+2025/08/04-00:06:05.009 1c5f0 Level-0 table #43: started
+2025/08/04-00:06:05.068 1c5f0 Level-0 table #43: 48865 bytes OK
+2025/08/04-00:06:05.201 1c5f0 Delete type=0 #41
+2025/08/04-00:06:05.201 1c5f0 Delete type=3 #40

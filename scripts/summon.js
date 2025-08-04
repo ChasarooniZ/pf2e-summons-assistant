@@ -13,7 +13,9 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
     const allowedSpecificUuids = summonDetails?.specific_uuids || [];
     const actorModifications = summonDetails?.modifications || {};
     const itemsToAdd = summonDetails?.itemsToAdd || [];
-    if (game.settings.get(MODULE_ID, "effect-ownership")) {
+    const isCharacter = summonDetails?.isCharacter;
+    const crosshairParameters = summonDetails?.crosshairParameters || {};
+    if (game.settings.get(MODULE_ID, "effect-ownership") && !isCharacter) {
       itemsToAdd.unshift(
         EFFECTS.SUMMON_OWNER(
           getTokenImage(summonerActor.prototypeToken)
@@ -112,6 +114,7 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
+        crosshairParameters: crosshairParameters
       });
 
       const summonedActor = tokDoc.actor ?? game.actors.get(tokDoc.actorId);
@@ -175,6 +178,9 @@ export function getTraditionalSummonerSpellDetails(uuid, rank) {
       break;
     case SOURCES.SUMMON.SUMMON_MONITOR:
       details.traits = ["monitor"];
+      break;
+    case SOURCES.SUMMON.SUMMON_ROBOT:
+      details.traits = ["tech"];
       break;
     default:
       return null;

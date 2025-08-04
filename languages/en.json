@@ -41,6 +41,11 @@
         "summon": "Summon!"
       }
     },
+    "notification": {
+      "summoner": {
+        "too-many-eidolons": "You own too many eidolons."
+      }
+    },
     "items": {
       "actions": {
         "mechanic": {

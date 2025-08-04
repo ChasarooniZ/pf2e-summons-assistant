@@ -1,7 +1,55 @@
-### Upcoming
+## 1.10.2
+
+- Actually Fixed the `Commander - Plant Banner`
+
+## 1.10.1
+
+- Cleaned up the packages again
+
+## 1.10.0
+
+- **New**
+  - Support for the following:
+    - `SF2e - Summon Robot` (🖥️ @Sasane)
+- **Updates**
+  - Fix for `Commander - Plant Banner`
+  - Fixed `Necromancer - Summon Thrall` activating on `attack rolls` and `Damage Applied` messages
+  - Added CLI to clear up the packs thanks to (@Vauxs)
+  - Updated french translation (@rectulo, @Sasane)
+
+## 1.9.0
+
+- **New**
+  - **Support For** `Commander - Plant Banner`
+    - This is only the start of automation (IE handles the base case but not other effects modifying the banner itself)
+    - Those may / hopefully will be handled at a later time
+    - Also bless @Vauxs for thinking of crosshairParams to begin with
+- **Updates**
+  - Fix for missing logic to handle `Bind Heroic Spirit` (@Loki123)
+  - Fix for `Light` spell not properly handling higher level casts
+
+## 1.8.3
+
+- **Updates**
+  - Fixed bug causing all summons to fail (🐛@Le Chat Lunatique)
+
+## 1.8.2
+
+- **Updates**
+  - Updated `Conglomerate of Limbs` to use the actor from `Pf2e Playtest`
+  - Fixed issue where rolls were being counted as a message the summons (@Loki123)
+
+## 1.8.1
+
+- **Updates**
+  - Fixed issue with some properties not being optionally chained causing `Manifest Eidolon` to fail
+
+## 1.8.0
+
 - **New**
   - Support for the following:
     - `Conglomerate of Limbs`
+    - `Manifest Eidolon` (🖥️ @Sasane)
 
 ## 1.7.0
 
@@ -13,7 +61,7 @@
 - **Updates**
   - Added localization to some action
   - Updated required version of **Foundry Summons** to `2.3.3`
- 
+
 ## 1.6.2
 
 - Handle exception for the Effect Ownership settings, when the token is a wildcard token

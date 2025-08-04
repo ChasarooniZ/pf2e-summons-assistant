@@ -15,6 +15,7 @@ export const SOURCES = {
     SUMMON_FIEND: "Compendium.pf2e.spells-srd.Item.29ytKctjg7qSW2ff",
     SUMMON_GIANT: "Compendium.pf2e.spells-srd.Item.e9UJoVYUd5kJWUpi",
     SUMMON_MONITOR: "Compendium.pf2e.spells-srd.Item.ZbEHglw5tkJ3grQZ",
+    SUMMON_ROBOT: "Compendium.sf2e-anachronism.spells.Item.KlJEDmAOk1ztdNFf",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk"
   },
   INCARNATE: {
@@ -41,9 +42,17 @@ export const SOURCES = {
     BIND_HEROIC_SPIRIT_STRIKE: "Compendium.pf2e-playtest-data.impossible-playtest-effects.Item.MTYxqIqJVzza1Lro"
   },
 
+  COMMANDER: {
+    PLANTED_BANNER: "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1"
+  },
+
   MECHANIC: {
     DEPLOY_MINE: "Compendium.starfinder-field-test-for-pf2e.actions.Item.ccVcznj9KVYHLVaY",
     DOUBLE_DEPLOYMENT: "Compendium.starfinder-field-test-for-pf2e.feats.Item.x5rhl6ThqqjHGglD"
+  },
+
+  SUMMONER: {
+    MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp"
   }
 };
 
@@ -75,18 +84,22 @@ export const CREATURES = {
   POLAR_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.UqFObUjgFAlWrriA",
   CAVE_BEAR: "Compendium.pf2e.pathfinder-monster-core.Actor.AZIG0COCaDBronJa",
 
+  COMMANDER: {
+    PLANTED_BANNER: 'Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW'
+  },
+
+  MECHANIC: {
+    MINE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.sAVuxP25VE126TdZ",
+  },
+
   NECROMANCER: {
     THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.ISmLeI8zNc6YWysQ",
     PERFECTED_THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.SX5QACMD5SvH9oeZ",
     SKELETAL_LANCERS: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.d1333zUKqydfJM9b",
     LIVING_GRAVEYARD: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.CN6TMEeEd0Wmvkct",
     RECURRING_NIGHTMARE: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.uu7VA9eIwi1tUZVs",
-    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.I0MZYNwAOoHrueu2"
+    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.XCOfL4Bx7BHwAXoa"
   },
-
-  MECHANIC: {
-    MINE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.sAVuxP25VE126TdZ",
-  }
 }
 
 export const FEATS = {

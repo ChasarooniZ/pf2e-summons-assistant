@@ -56,6 +56,8 @@ You can access the changelog [here](/CHANGELOG.md).
     - Summon Healing Servitor
     - Summon Elemental Herald - Art requires `Pathfinder Tokens: Bestiary`
     - Call Fluxwraith
+  - Commander
+    - Plant Banner - Basic Case (no handling of feat interactions beyond base case atm)
   - Necromancer
     - Create Thrall
     - Perfected Thrall
@@ -70,7 +72,10 @@ You can access the changelog [here](/CHANGELOG.md).
 - Feats
   - Call Ursine Ally
 - SF2e
-  - Mechanic's Mines
+  - Spells
+    - Summon Robot
+  - Mechanic
+    - Mine
 
 ### House Rules
 
@@ -86,3 +91,4 @@ You can see everyone else who contributed to the module [here](CONTRIBUTORS.md)
 - `Tempest of Shades` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Healing Servitor` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Mechanic Mines` - (credit @Sasane, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Plant Banner` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)

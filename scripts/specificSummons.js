@@ -1,8 +1,9 @@
 import { ACTIONS, ALT_ART, CREATURES, EFFECTS, SOURCES } from "./const.js";
 import { hasNoTargets, onlyHasJB2AFree } from "./helpers.js";
 import { incarnateDetails } from "./incarnate.js";
+import { getEidolon } from "./specificClasses/summoner.js"
 
-export function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 0, dc: 0 }) {
+export async function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 0, dc: 0 }) {
     switch (uuid) {
         case SOURCES.SUMMON.PHANTASMAL_MINION:
             return [{ specific_uuids: [CREATURES.PHANTASMAL_MINION], rank: data.rank }]
@@ -10,7 +11,7 @@ export function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 
             if (hasNoTargets()) {
                 return [{
                     specific_uuids: Object.values(CREATURES.LIGHT), rank: data.rank, modifications: {
-                        "level": data.rank,
+                        "system.details.level.value": data.rank,
                         ...(
                             onlyHasJB2AFree() ?
                                 { "prototypeToken.texture.src": ALT_ART.JB2A_FREE.LIGHT }
@@ -130,23 +131,45 @@ export function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 
                 itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
             }]
         case SOURCES.MECHANIC.DEPLOY_MINE:
-            return [{ specific_uuids: [CREATURES.MECHANIC.MINE], rank: data.rank, 
+            return [{
+                specific_uuids: [CREATURES.MECHANIC.MINE], rank: data.rank,
                 modifications: {
                     'system.details.level.value': data.summonerLevel,
-                    'system.resources.dc.value': data.classDC, 
+                    'system.resources.dc.value': data.classDC,
                     'system.abilities.int.mod': data.int
                 },
                 itemsToAdd: data.hasCriticalExplosion ? [ACTIONS.MECHANIC.CRITICAL_EXPLOSION()] : []
             }]
         case SOURCES.MECHANIC.DOUBLE_DEPLOYMENT:
-            return [{ specific_uuids: [CREATURES.MECHANIC.MINE], rank: data.rank, amount: 2,                 
+            return [{
+                specific_uuids: [CREATURES.MECHANIC.MINE], rank: data.rank, amount: 2,
                 modifications: {
                     'system.details.level.value': data.summonerLevel,
-                    'system.resources.dc.value': data.classDC, 
+                    'system.resources.dc.value': data.classDC,
                     'system.abilities.int.mod': data.int
                 },
                 itemsToAdd: data.hasCriticalExplosion ? [ACTIONS.MECHANIC.CRITICAL_EXPLOSION()] : []
-            }]	
+            }]
+        case SOURCES.SUMMONER.MANIFEST_EIDOLON:
+            const uuid = await getEidolon(data.summonerActorId);
+            if (uuid)
+                return [{ specific_uuids: [uuid], isCharacter: true }];
+            return null;
+        case SOURCES.COMMANDER.PLANTED_BANNER:
+            return [{
+                specific_uuids: [CREATURES.COMMANDER.PLANTED_BANNER],
+                modifications: {
+                    'system.details.level.value': data.summonerLevel,
+                    'system.abilities.int.mod': data.int
+                },
+                crosshairParameters: {
+                    snap: {
+                        position: CONST.GRID_SNAPPING_MODES.CORNER
+                    }
+                }
+            }]
+
+
         default:
             return null;
     }
