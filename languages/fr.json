@@ -23,7 +23,7 @@
       "necromancer": {
         "handle-living-graveyard-movement": {
           "name": "[Necromancer] Handle Living Graveyard Movement",
-          "hint": "En cas d'activation, lorsqu'un Cimetière vivant est déplacé , il enverra un message dans la conversation. En cliquant dessus, cela provoquera l'apparition d'un rejeton du cimetière (comme prévu par les règles)"
+          "hint": "En cas d'activation, lorsqu'un Cimetière vivant est déplacé , il enverra un message dans la conversation. En cliquant dessus, cela provoquera l'apparition d'un thrall du cimetière (comme prévu par les règles)"
         }
       },
       "filter": {
