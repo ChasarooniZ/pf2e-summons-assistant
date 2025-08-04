@@ -1,3 +1,5 @@
+import { createThrallAttackInfo } from "./specificClasses/necromancer.js";
+
 export const MODULE_ID = 'pf2e-summons-assistant';
 
 export const SOURCES = {
@@ -122,7 +124,7 @@ export const ALT_ART = {
 
 export const EFFECTS = {
   NECROMANCER: {
-    THRALL_EXPIRATION: (duration) => ({
+    THRALL_EXPIRATION: (duration, config = {}) => ({
       "name": game.i18n.localize("pf2e-summons-assistant.items.effects.thrall-expiration.name"),
       "type": "effect",
       "system": {
@@ -144,6 +146,7 @@ export const EFFECTS = {
           "unit": duration?.unit ?? "minutes",
           "expiry": "turn-start",
         },
+        rules: createThrallAttackInfo(config),
         "tokenIcon": {
           "show": true
         },

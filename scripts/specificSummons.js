@@ -3,7 +3,10 @@ import { hasNoTargets, onlyHasJB2AFree } from "./helpers.js";
 import { incarnateDetails } from "./incarnate.js";
 import { getEidolon } from "./specificClasses/summoner.js"
 
-export async function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 0, dc: 0 }) {
+export async function getSpecificSummonDetails(uuid, data = {
+    rank: 0, summonerLevel: 0, dc: 0, rollOptions
+        : []
+}) {
     switch (uuid) {
         case SOURCES.SUMMON.PHANTASMAL_MINION:
             return [{ specific_uuids: [CREATURES.PHANTASMAL_MINION], rank: data.rank }]
@@ -74,20 +77,35 @@ export async function getSpecificSummonDetails(uuid, data = { rank: 0, summonerL
                 specific_uuids: [CREATURES.NECROMANCER.THRALL],
                 rank: data.rank,
                 amount: getNecromancerProf(data.summonerLevel),
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+                    uuid: SOURCES.NECROMANCER.CREATE_THRALL,
+                    castRank: data.rank,
+                    rollOptions: data.summonerRollOptions
+                })]
             }]
         case SOURCES.NECROMANCER.PERFECTED_THRALL:
             return [{
                 specific_uuids: [CREATURES.NECROMANCER.PERFECTED_THRALL],
                 rank: data.rank,
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+                    uuid: SOURCES.NECROMANCER.PERFECTED_THRALL,
+                    castRank: data.rank,
+                    rollOptions: data.summonerRollOptions
+                })]
             }]
         case SOURCES.NECROMANCER.SKELETAL_LANCERS:
             return [{
                 specific_uuids: [CREATURES.NECROMANCER.SKELETAL_LANCERS],
                 rank: data.rank,
                 amount: 5,
-                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
+                itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(
+                    data.duration,
+                    {
+                        uuid: SOURCES.NECROMANCER.SKELETAL_LANCERS,
+                        castRank: data.rank,
+                        rollOptions: data.summonerRollOptions
+                    }
+                )]
             }]
         case SOURCES.NECROMANCER.LIVING_GRAVEYARD:
             return [
@@ -100,7 +118,13 @@ export async function getSpecificSummonDetails(uuid, data = { rank: 0, summonerL
                     specific_uuids: [CREATURES.NECROMANCER.THRALL],
                     rank: data.rank,
                     amount: 5,
-                    itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)]
+                    itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration,
+                        {
+                            uuid: SOURCES.NECROMANCER.CREATE_THRALL,
+                            castRank: data.rank,
+                            rollOptions: data.summonerRollOptions
+                        }
+                    )]
                 }
             ]
         case SOURCES.NECROMANCER.RECURRING_NIGHTMARE:
