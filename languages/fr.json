@@ -57,7 +57,7 @@
       },
       "effects": {
         "summon's-owner": {
-          "name": "Propriétaire de la convocation"
+          "name": "Propriétaire de l'invocation"
         },
         "thrall-expiration": {
           "name": "Effet : Date d'expiration du thrall",
