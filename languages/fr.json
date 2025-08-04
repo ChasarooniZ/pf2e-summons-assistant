@@ -37,8 +37,8 @@
     },
     "message": {
       "living-graveyard": {
-        "thralls": "Le cimetière vivant s'est déplacé. Si cela résulte de son Maintien, souhaitez-vous convoquer 3 nouveaux rejetons sur son passage ?",
-        "summon": "Convocation !"
+        "thralls": "Le cimetière vivant s'est déplacé. Si cela résulte de son Maintien, souhaitez-vous invoquer 3 nouveaux thralls sur son passage ?",
+        "summon": "Invoquer!"
       }
     },
     "notification": {
