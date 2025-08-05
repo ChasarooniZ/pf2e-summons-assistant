@@ -54,6 +54,10 @@ Hooks.once("ready", async function () {
     }
     if (itemUuid === SOURCES.COMMANDER.PLANTED_BANNER) {
       spellRelevantInfo.int = summonerActor.system.abilities.int.mod;
+    } else if (itemUuid === SOURCES.MISC.DUPLICATE_FOE) {
+      setMechanicRelevantInfo.targetTokenUUID =
+        chatMessage?.flags["pf2e-toolbelt"]?.targetHelper?.targets?.[0] ??
+        game?.user?.targets?.first()?.document?.uuid
     }
 
     let summonDetailsGroup = await getSpecificSummonDetails(itemUuid, spellRelevantInfo)

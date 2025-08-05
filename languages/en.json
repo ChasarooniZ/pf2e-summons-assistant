@@ -46,6 +46,9 @@
         "too-many-eidolons": "You own too many eidolons."
       }
     },
+    "dialog": {
+      "duplicate-foe": "Did the target fail their save?"
+    },
     "items": {
       "actions": {
         "mechanic": {
@@ -62,6 +65,13 @@
         "thrall-expiration": {
           "name": "Effect: Thrall Expiration Date",
           "description": "This measures how long till this thrall expires."
+        },
+        "duplicate-foe": {
+          "name": "Effect: Duplicate Foe",
+          "successful-save": {
+            "title": "Duplicate Foe - Successful Save",
+            "text": "Due to the successful save, targets only take half the damage of this duplicate's strikes"
+          }
         }
       }
     }

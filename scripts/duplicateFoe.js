@@ -1,4 +1,4 @@
-async function getFoeInfo(actor, rank) {
+export async function getFoeInfo(actor, rank) {
 
     const damagePromises = actor.system.actions.map(action =>
         action.damage({ getFormula: true })
@@ -25,16 +25,6 @@ async function getFoeInfo(actor, rank) {
                 value: actor.system.traits.value,
                 size: actor.system.traits.size
             },
-            actions: actor.system.traits.actions.map((act, index) => ({
-                traits: act.weaponTraits.map(t => t.name),
-                slug: act.slug,
-                totalModifier: act.modifiers
-                    .filter(mod => mod.type === 'circumstance')
-                    .map(mod => mod.modifier)
-                    .reduce((sum, val) => sum - val, act.totalModifier),
-                damage: parseDamageComponent(damages[index]),
-                label: act.label
-            })),
             skills: Object.keys(actor.system.skills).reduce((accumulator, skill) => {
                 accumulator[skill] = {
                     slug: skill,
@@ -46,10 +36,25 @@ async function getFoeInfo(actor, rank) {
         }
     }
 
+    const actions = actor.system.traits.actions.map((act, index) => ({
+        traits: act.weaponTraits.map(t => t.name),
+        slug: act.slug,
+        totalModifier: act.modifiers
+            .filter(mod => mod.type === 'circumstance')
+            .map(mod => mod.modifier)
+            .reduce((sum, val) => sum - val, act.totalModifier),
+        damage: parseDamageString(damages[index]),
+        label: act.label
+    }));
+
+
     for (const skill in actor.system.skills) {
         data.system.skills[skill.slug] = getValueWithoutCircumstance(skill);
     }
-
+    return {
+        changes: data,
+        strikeRules: actionsToStrikeRE(actions)
+    }
 }
 
 
@@ -68,7 +73,10 @@ function parseDamageString(damageStr) {
     for (const component of components) {
         const parsed = parseDamageComponent(component.trim());
         if (parsed) {
-            results.push(parsed);
+            results.push({
+                ...parsed,
+                damage: parseDamageREItems(parsed.damage),
+            });
         }
     }
 
@@ -80,8 +88,8 @@ function smartSplit(str, delimiter) {
     let current = '';
     let parenCount = 0;
 
-    for (let i = 0; i < str.length; i++) {
-        const char = str[i];
+    for (const element of str) {
+        const char = element;
 
         if (char === '(') parenCount++;
         else if (char === ')') parenCount--;
@@ -135,4 +143,107 @@ function parseDamageComponent(component) {
             category: null
         };
     }
+}
+
+function parseDamageREItems(damageString) {
+    // Remove all spaces from the string
+    const cleanString = damageString.replace(/\s/g, '');
+
+    // Regular expression to match dice notation: XdY+Z or XdY-Z or just XdY
+    const diceRegex = /^(\d+)?d(\d+)([+-]\d+)?$/;
+    const match = cleanString.match(diceRegex);
+
+    if (!match) {
+        throw new Error(`Invalid damage string format: ${damageString}`);
+    }
+
+    const [, diceCount, dieType, modifier] = match;
+
+    return {
+        dice: parseInt(diceCount) || 1, // Default to 1 if no number before 'd'
+        die: `d${dieType}`,
+        mod: modifier ? parseInt(modifier) : 0 // Default to 0 if no modifier
+    };
+}
+
+function actionsToStrikeRE(actions) {
+    const rules = [];
+    for (const action of actions) {
+        const { slug, traits, totalModifier, label } = action;
+        let id = 1;
+        for (const dmg of action.damage) {
+            const { dice, die, mod, } = dmg.damage;
+            const { damageType, category } = dmg;
+            if (id === 1) {
+                rules.push(getStrikeAction({
+                    slug,
+                    label,
+                    traits,
+                    attackModifier: totalModifier,
+                    damageType,
+                    dice,
+                    die,
+                    modifier: mod,
+                    category
+                }))
+            } else {
+                rules.push(
+                    ...getExtraDamageDiceRE({
+                        slug,
+                        id,
+                        damageType,
+                        dice,
+                        die,
+                        category,
+                        modifier: mod,
+                    })
+                )
+            }
+            id++;
+        }
+    }
+    return rules;
+}
+
+function getStrikeAction(config) {
+    return {
+        "damage": {
+            "base": {
+                "damageType": config.damageType,
+                "dice": config.dice,
+                "die": config.die,
+                "modifier": config.modifier
+            }
+        },
+        "attackModifier": config.attackModifier,
+        "traits": config.traits,
+        "key": "Strike",
+        "slug": config.slug,
+        "label": config.label
+    }
+}
+
+function getExtraDamageDiceRE(config) {
+    return [
+        {
+            "key": "DamageDice",
+            "selector": `${config.slug}-damage`,
+            "label": "_",
+            "diceNumber": config.dice,
+            "dieSize": config.die,
+            "damageType": config.damageType,
+            "damageCategory": config?.category,
+            "predicate": [],
+            "slug": config.id
+        },
+        {
+            "key": "FlatModifier",
+            "selector": `${config.slug}-damage`,
+            "value": config.modifier4,
+            "damageType": config.damageType,
+            "damageCategory": config?.category,
+            "hideIfDisabled": true,
+            "label": "_"
+        }
+    ]
 }

@@ -1,9 +1,16 @@
+import { modifierNames } from "chalk";
 import { ACTIONS, ALT_ART, CREATURES, EFFECTS, SOURCES } from "./const.js";
+import { getFoeInfo } from "./duplicateFoe.js";
 import { hasNoTargets, onlyHasJB2AFree } from "./helpers.js";
 import { incarnateDetails } from "./incarnate.js";
 import { getEidolon } from "./specificClasses/summoner.js"
 
-export async function getSpecificSummonDetails(uuid, data = { rank: 0, summonerLevel: 0, dc: 0 }) {
+export async function getSpecificSummonDetails(uuid, data = {
+    rank: 0,
+    summonerLevel: 0,
+    dc: 0,
+    targetTokenUUID: null
+}) {
     switch (uuid) {
         case SOURCES.SUMMON.PHANTASMAL_MINION:
             return [{ specific_uuids: [CREATURES.PHANTASMAL_MINION], rank: data.rank }]
@@ -69,6 +76,24 @@ export async function getSpecificSummonDetails(uuid, data = { rank: 0, summonerL
                 return [{ specific_uuids: [CREATURES.CAVE_BEAR], rank: 6 }]
             }
 
+        case SOURCES.MISC.DUPLICATE_FOE:
+            const token = await fromUuid(data.targetTokenUUID);
+            if (token) {
+                const { changes, strikeRules } = getFoeInfo(token.actor, data.rank)
+                const isFail = await foundry.applications.api.DialogV2.confirm({
+                    content: game.i18n.localize("pf2e-summons-assistant.dialog.duplicate-foe"),
+                    rejectClose: false
+                  });
+                const effect = EFFECTS.DUPLICATE_FOE(isFail);
+                effect.rules.push(...strikeRules);
+                return [{
+                    specific_uuids: [CREATURES.DUPLICATE_FOE],
+                    rank: data.rank,
+                    modifications: changes,
+                    itemsToAdd: [effect]
+                }]
+            }
+            break;
         case SOURCES.NECROMANCER.CREATE_THRALL:
             return [{
                 specific_uuids: [CREATURES.NECROMANCER.THRALL],

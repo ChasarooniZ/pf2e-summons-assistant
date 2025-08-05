@@ -1,0 +1,358 @@
+{
+	"folder": "gGy6LNAsZa9IaIjf",
+	"name": "Duplicated Foe",
+	"type": "npc",
+	"ownership": {
+		"default": 0,
+		"vj8VUT8j7Wtzy3Y2": 3
+	},
+	"prototypeToken": {
+		"flags": {
+			"pf2e": {
+				"linkToActorSize": true,
+				"autoscale": true
+			}
+		},
+		"height": 1,
+		"width": 1,
+		"name": "Duplicated Foe",
+		"displayName": 20,
+		"actorLink": false,
+		"texture": {
+			"src": "systems/pf2e/icons/default-icons/npc.svg",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"offsetX": 0,
+			"offsetY": 0,
+			"fit": "contain",
+			"scaleX": 1,
+			"scaleY": 1,
+			"rotation": 0,
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
+		},
+		"lockRotation": true,
+		"rotation": 0,
+		"alpha": 1,
+		"disposition": -1,
+		"displayBars": 20,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"light": {
+			"negative": false,
+			"priority": 0,
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"attenuation": 0.5,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"type": null,
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			}
+		},
+		"sight": {
+			"enabled": false,
+			"range": 0,
+			"angle": 360,
+			"visionMode": "basic",
+			"color": null,
+			"attenuation": 0.1,
+			"brightness": 0,
+			"saturation": 0,
+			"contrast": 0
+		},
+		"detectionModes": [],
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		},
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null,
+		"randomImg": false,
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"effects": [],
+	"system": {
+		"attributes": {
+			"hp": {
+				"value": 10,
+				"temp": 0,
+				"max": 10,
+				"details": ""
+			},
+			"speed": {
+				"value": 25,
+				"otherSpeeds": [],
+				"details": ""
+			},
+			"ac": {
+				"value": 10,
+				"details": ""
+			},
+			"allSaves": {
+				"value": ""
+			}
+		},
+		"initiative": {
+			"statistic": "perception"
+		},
+		"details": {
+			"languages": {
+				"value": [],
+				"details": ""
+			},
+			"level": {
+				"value": 1
+			},
+			"blurb": "",
+			"publicNotes": "",
+			"privateNotes": "",
+			"publication": {
+				"title": "",
+				"authors": "",
+				"license": "OGL",
+				"remaster": false
+			}
+		},
+		"resources": {},
+		"_migration": {
+			"version": 0.941,
+			"previous": null
+		},
+		"abilities": {
+			"str": {
+				"mod": 0
+			},
+			"dex": {
+				"mod": 0
+			},
+			"con": {
+				"mod": 0
+			},
+			"int": {
+				"mod": 0
+			},
+			"wis": {
+				"mod": 0
+			},
+			"cha": {
+				"mod": 0
+			}
+		},
+		"perception": {
+			"details": "",
+			"mod": 0,
+			"senses": [],
+			"vision": true
+		},
+		"saves": {
+			"fortitude": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"reflex": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"will": {
+				"value": 0,
+				"saveDetail": ""
+			}
+		},
+		"skills": {},
+		"traits": {
+			"value": [],
+			"rarity": "common",
+			"size": {
+				"value": "med"
+			}
+		}
+	},
+	"_id": "03gFpid5kBiI3vXS",
+	"img": "systems/pf2e/icons/default-icons/npc.svg",
+	"items": [
+		{
+			"img": "systems/pf2e/icons/unarmed-attacks/tail.webp",
+			"name": "Whip Tail",
+			"system": {
+				"description": {
+					"gm": "",
+					"value": "<p>You have a strong, prehensile tail. You gain a tail unarmed attack that deals 1d6 bludgeoning damage. This tail is in the brawling group. You gain a +1 item bonus to Acrobatics checks to @UUID[Compendium.pf2e.actionspf2e.Item.M76ycLAqHoAgbcej]{Balance} and to Athletics checks to Climb. You can also use your tail for the @UUID[Compendium.pf2e.actionspf2e.Item.3yoajuKjwHZ9ApUY]{Grab an Edge} action, even if your hands are otherwise occupied.</p>"
+				},
+				"rules": [
+					{
+						"category": "unarmed",
+						"damage": {
+							"base": {
+								"damageType": "bludgeoning",
+								"dice": 1,
+								"die": "d6"
+							}
+						},
+						"group": "brawling",
+						"img": "systems/pf2e/icons/unarmed-attacks/tail.webp",
+						"key": "Strike",
+						"label": "PF2E.BattleForm.Attack.Tail",
+						"slug": "tail",
+						"traits": [
+							"unarmed"
+						]
+					},
+					{
+						"key": "FlatModifier",
+						"predicate": [
+							{
+								"or": [
+									"action:balance",
+									"action:climb"
+								]
+							}
+						],
+						"selector": [
+							"athletics",
+							"acrobatics"
+						],
+						"type": "item",
+						"value": 1
+					}
+				],
+				"slug": "whip-tail",
+				"_migration": {
+					"version": 0.941,
+					"lastMigration": null,
+					"previous": null
+				},
+				"traits": {
+					"otherTags": [],
+					"value": [
+						"graft",
+						"invested",
+						"magical"
+					],
+					"rarity": "common"
+				},
+				"publication": {
+					"title": "Pathfinder Howl of the Wild",
+					"authors": "",
+					"license": "ORC",
+					"remaster": true
+				},
+				"level": {
+					"value": 3
+				},
+				"quantity": 1,
+				"baseItem": null,
+				"bulk": {
+					"value": 0
+				},
+				"hp": {
+					"value": 0,
+					"max": 0
+				},
+				"hardness": 0,
+				"price": {
+					"value": {
+						"gp": 45
+					}
+				},
+				"equipped": {
+					"carryType": "worn",
+					"invested": null
+				},
+				"containerId": null,
+				"size": "med",
+				"material": {
+					"type": null,
+					"grade": null
+				},
+				"identification": {
+					"status": "identified",
+					"unidentified": {
+						"name": "",
+						"img": "systems/pf2e/icons/unarmed-attacks/tail.webp",
+						"data": {
+							"description": {
+								"value": ""
+							}
+						}
+					},
+					"misidentified": {}
+				},
+				"usage": {
+					"value": "implanted"
+				},
+				"subitems": []
+			},
+			"type": "equipment",
+			"_stats": {
+				"compendiumSource": "Compendium.pf2e.equipment-srd.Item.ACdeqHG0cnSHoaOB",
+				"duplicateSource": null,
+				"exportSource": null,
+				"coreVersion": "13.346",
+				"systemId": "pf2e",
+				"systemVersion": "7.3.1",
+				"createdTime": 1754325877958,
+				"modifiedTime": 1754325877958,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"vj8VUT8j7Wtzy3Y2": 3
+			},
+			"flags": {},
+			"_id": "qa5uAxecNVqgVzvD",
+			"_key": "!actors.items!03gFpid5kBiI3vXS.qa5uAxecNVqgVzvD"
+		}
+	],
+	"sort": 0,
+	"flags": {},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null,
+		"coreVersion": "13.346",
+		"systemId": "pf2e",
+		"systemVersion": "7.3.1",
+		"createdTime": 1754325220878,
+		"modifiedTime": 1754325220878,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+	},
+	"_key": "!actors!03gFpid5kBiI3vXS"
+}

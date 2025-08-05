@@ -27,7 +27,8 @@ export const SOURCES = {
   MISC: {
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
     FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
-    CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu"
+    CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
+    DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6"
   },
   NECROMANCER: {
     CREATE_THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.77lglowVpcnRRh3g",
@@ -66,6 +67,8 @@ export const CREATURES = {
     YELLOW: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.wth1JZ22hGEusEC5"
   },
   FLOATING_FLAME: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HOq9yGxQLhhZcEAP",
+
+  DUPLICATE_FOE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.03gFpid5kBiI3vXS",
 
   HEALING_SERVITOR: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gqrW5aGfnjqNse2T",
   TEMPEST_OF_SHADES: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.EwmHOiQTdCEmBKfA",
@@ -181,6 +184,52 @@ export const EFFECTS = {
       "slug": "effect-summons-owner"
     },
     "img": imagePath,
+  }),
+  DUPLICATE_FOE: (isFail) => ({
+    "name": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.name"),
+    "type": "effect",
+    "system": {
+      "description": {
+        "value": "Granted by @UUID[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]",
+        "gm": ""
+      },
+      "publication": {
+        "title": "PF2e Summons Assistant",
+        "authors": "",
+        "license": "OGL",
+        "remaster": true
+      },
+      "level": {
+        "value": 1
+      },
+      "duration": {
+        "value": isFail ? 1 : 2,
+        "unit": isFail ? "minute" : "round",
+        "expiry": null,
+        "sustained": true
+      },
+      "tokenIcon": {
+        "show": true
+      },
+      "rules": [
+        {
+          "key": "TokenImage",
+          "value": "",
+          "tint": "#fea9a9",
+          "ring": null
+        },
+        ...(isFail ? [] :
+          [{
+            "key": "Note",
+            "title": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.title"),
+            "selector": "strike-damage",
+            "text": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.successful-save")
+          }]
+        )
+      ],
+      "slug": "effect-duplicate-foe"
+    },
+    "img": "systems/pf2e/icons/spells/duplicate-foe.webp",
   })
 }
 
