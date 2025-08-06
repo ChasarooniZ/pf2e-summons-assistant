@@ -190,7 +190,7 @@ export const EFFECTS = {
     "type": "effect",
     "system": {
       "description": {
-        "value": "Granted by @UUID[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]",
+        "value": "<p>Granted by @UUID[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]</p><p>@Embed[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]</p>",
         "gm": ""
       },
       "publication": {
@@ -204,7 +204,7 @@ export const EFFECTS = {
       },
       "duration": {
         "value": isFail ? 1 : 2,
-        "unit": isFail ? "minute" : "round",
+        "unit": isFail ? "minutes" : "rounds",
         "expiry": null,
         "sustained": true
       },
@@ -214,16 +214,15 @@ export const EFFECTS = {
       "rules": [
         {
           "key": "TokenImage",
-          "value": "",
+          "value": "{actor|prototypeToken.texture.src}",
           "tint": "#fea9a9",
-          "ring": null
         },
         ...(isFail ? [] :
           [{
             "key": "Note",
-            "title": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.title"),
+            "title": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.title"),
             "selector": "strike-damage",
-            "text": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.successful-save")
+            "text": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.text")
           }]
         )
       ],

@@ -31,3 +31,11 @@ export function hasNoTargets() {
 export function onlyHasJB2AFree() {
     return game.modules.get("JB2A_DnD5e")?.active && !game.modules.get("jb2a_patreon")?.active
 }
+
+export function getAllDamageSlugs() {
+    return [
+        'acid', 'bludgeoning', 'cold', 'electricity', 'fire', 'force', 'mental',
+        'piercing', 'poison', 'slashing', 'sonic', 'spirit', 'untyped', 'vitality', 'void',
+        ...(game.settings.get("pf2e", "homebrew.damageTypes") ?? []).map(type => game.pf2e.system.sluggify(type.label))
+    ]
+}

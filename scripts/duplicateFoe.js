@@ -1,4 +1,7 @@
-export async function getFoeInfo(actor, rank) {
+import { getAllDamageSlugs } from "./helpers.js";
+
+export async function getFoeInfo(token, rank) {
+    const actor = token.actor;
 
     const damagePromises = actor.system.actions.map(action =>
         action.damage({ getFormula: true })
@@ -7,45 +10,96 @@ export async function getFoeInfo(actor, rank) {
     const damages = await Promise.all(damagePromises);
 
     const data = {
-        "armorClass": getValueWithoutCircumstance(actor.armorClass),
+        img: actor.img,
         system: {
-            perception: getValueWithoutCircumstance(actor.system.saves.perception),
+            perception: {
+                ...actor.system.perception,
+                mod: getValueWithoutCircumstance(actor.system.perception)
+            },
             attributes: {
                 hp: {
                     max: 70 + (rank - 7) * 10,
                     value: 70 + (rank - 7) * 10
+                },
+                ac: {
+                    value: getValueWithoutCircumstance(actor.system.attributes.ac)
+                },
+                speed: {
+                    ...actor.system.attributes.speed,
+                    value: getValueWithoutCircumstance(actor.system.attributes.speed)
                 }
             },
             saves: {
-                fortitude: getValueWithoutCircumstance(actor.system.saves.fortitude),
-                reflex: getValueWithoutCircumstance(actor.system.saves.reflex),
-                will: getValueWithoutCircumstance(actor.system.saves.will)
+                fortitude: {
+                    value: getValueWithoutCircumstance(actor.system.saves.fortitude)
+                },
+                reflex: {
+                    value: getValueWithoutCircumstance(actor.system.saves.reflex)
+                },
+                will: {
+                    value: getValueWithoutCircumstance(actor.system.saves.will)
+                }
+            },
+            abilities: {
+                cha: {
+                    mod: actor.system.abilities.cha.mod
+                },
+                con: {
+                    mod: actor.system.abilities.con.mod
+                },
+                wis: {
+                    mod: actor.system.abilities.wis.mod
+                },
+                dex: {
+                    mod: actor.system.abilities.dex.mod
+                },
+                int: {
+                    mod: actor.system.abilities.int.mod
+                },
+                str: {
+                    mod: actor.system.abilities.str.mod
+                },
             },
             traits: {
-                value: actor.system.traits.value,
+                value: [...actor.system.traits.value, 'minion'],
                 size: actor.system.traits.size
             },
             skills: Object.keys(actor.system.skills).reduce((accumulator, skill) => {
-                accumulator[skill] = {
-                    slug: skill,
-                    label: actor.system.skills[skill].label,
-                    value: getValueWithoutCircumstance(actor.system.skills[skill])
+                if (skill) {
+                    accumulator[skill] = {
+                        ...actor.system.skills[skill],
+                        mod: getValueWithoutCircumstance(actor.system.skills[skill]),
+                        value: getValueWithoutCircumstance(actor.system.skills[skill]),
+                        base: getValueWithoutCircumstance(actor.system.skills[skill]),
+                    }
                 }
                 return accumulator
             }, {})
+        },
+        prototypeToken: {
+            ring: token.ring,
+            texture: token.texture
         }
     }
 
-    const actions = actor.system.traits.actions.map((act, index) => ({
+    const actions = actor.system.actions.map((act, index) => ({
         traits: act.weaponTraits.map(t => t.name),
         slug: act.slug,
         totalModifier: act.modifiers
-            .filter(mod => mod.type === 'circumstance')
+            .filter(mod => mod.type === 'circumstance' && mod.enabled)
             .map(mod => mod.modifier)
             .reduce((sum, val) => sum - val, act.totalModifier),
         damage: parseDamageString(damages[index]),
-        label: act.label
+        label: act.label,
+        img: act?.item?.img
     }));
+
+    const items = actor.items.contents.filter(item => !item.traits?.has("magical") &&
+        !item.traits?.has("arcane") &&
+        !item.traits?.has("divine") &&
+        !item.traits?.has("occult") &&
+        !item.traits?.has("primal") &&
+        ["equipment", "backpack", "consumable", "weapon", "armor"].includes(item.type));
 
 
     for (const skill in actor.system.skills) {
@@ -53,21 +107,21 @@ export async function getFoeInfo(actor, rank) {
     }
     return {
         changes: data,
-        strikeRules: actionsToStrikeRE(actions)
+        strikeRules: [...actionsToStrikeRE(actions), damagePerTurn],
+        items
     }
 }
 
 
 function getValueWithoutCircumstance(basePath) {
-    return basePath.modifiers
-        .filter(mod => mod.type === 'circumstance')
-        .map(mod => mod.modifier)
-        .reduce((sum, val) => sum - val, basePath.value);
+    return basePath?.modifiers
+        ?.filter(mod => mod.type === 'circumstance' && mod.enabled)
+        ?.map(mod => mod.modifier)
+        ?.reduce((sum, val) => sum - val, basePath?.total ?? basePath?.value ?? basePath.mod);
 }
 
 function parseDamageString(damageStr) {
-    // Split by '+' but handle parentheses properly
-    const components = smartSplit(damageStr, '+');
+    const components = smartSplitDamage(damageStr);
     const results = [];
 
     for (const component of components) {
@@ -83,26 +137,39 @@ function parseDamageString(damageStr) {
     return results;
 }
 
-function smartSplit(str, delimiter) {
+function smartSplitDamage(str) {
+    const damageTypes = getAllDamageSlugs();
+
     const parts = [];
     let current = '';
     let parenCount = 0;
+    const words = str.split(/\s+/);
 
-    for (const element of str) {
-        const char = element;
+    for (const element of words) {
+        const word = element;
 
-        if (char === '(') parenCount++;
-        else if (char === ')') parenCount--;
 
-        if (char === delimiter && parenCount === 0) {
+        parenCount += (word.match(/\(/g) || []).length;
+        parenCount -= (word.match(/\)/g) || []).length;
+
+
+        if (parenCount === 0 && damageTypes.includes(word.toLowerCase())) {
+            current += (current ? ' ' : '') + word;
             parts.push(current);
             current = '';
         } else {
-            current += char;
+            if (current === '' && word === '+') {
+                continue;
+            }
+            current += (current ? ' ' : '') + word;
         }
     }
 
-    if (current) parts.push(current);
+    // Add any remaining content
+    if (current.trim()) {
+        parts.push(current);
+    }
+
     return parts;
 }
 
@@ -111,14 +178,11 @@ function parseDamageComponent(component) {
 
     if (words.length < 2) return null;
 
-    // Last 1 or 2 words are damage type (with optional category)
     if (words.length >= 3) {
-        // Check if we have category + damage type (last 2 words)
         const possibleCategory = words[words.length - 2];
         const damageType = words[words.length - 1];
         const damage = words.slice(0, -2).join(' ');
 
-        // Categories are words like "persistent", "ongoing", etc.
         const categories = ['persistent', 'precision', 'splash'];
 
         if (categories.includes(possibleCategory.toLowerCase())) {
@@ -128,7 +192,6 @@ function parseDamageComponent(component) {
                 category: possibleCategory.toLowerCase()
             };
         } else {
-            // No category, last word is damage type
             return {
                 damage: words.slice(0, -1).join(' '),
                 damageType: words[words.length - 1],
@@ -136,7 +199,6 @@ function parseDamageComponent(component) {
             };
         }
     } else {
-        // Only 2 words: damage and type
         return {
             damage: words[0],
             damageType: words[1],
@@ -146,30 +208,34 @@ function parseDamageComponent(component) {
 }
 
 function parseDamageREItems(damageString) {
-    // Remove all spaces from the string
-    const cleanString = damageString.replace(/\s/g, '');
+    const cleanString = damageString.replace(/[\s()]/g, '');
 
-    // Regular expression to match dice notation: XdY+Z or XdY-Z or just XdY
+    const modifierOnlyRegex = /^[+-]?\d+$/;
+    if (modifierOnlyRegex.test(cleanString)) {
+        return {
+            dice: 0,
+            die: 'd4',
+            mod: parseInt(cleanString)
+        };
+    }
+
     const diceRegex = /^(\d+)?d(\d+)([+-]\d+)?$/;
     const match = cleanString.match(diceRegex);
-
     if (!match) {
         throw new Error(`Invalid damage string format: ${damageString}`);
     }
-
     const [, diceCount, dieType, modifier] = match;
-
     return {
-        dice: parseInt(diceCount) || 1, // Default to 1 if no number before 'd'
+        dice: parseInt(diceCount) || 1,
         die: `d${dieType}`,
-        mod: modifier ? parseInt(modifier) : 0 // Default to 0 if no modifier
+        mod: modifier ? parseInt(modifier) : 0
     };
 }
 
 function actionsToStrikeRE(actions) {
     const rules = [];
     for (const action of actions) {
-        const { slug, traits, totalModifier, label } = action;
+        const { slug, traits, totalModifier, label, img } = action;
         let id = 1;
         for (const dmg of action.damage) {
             const { dice, die, mod, } = dmg.damage;
@@ -184,7 +250,8 @@ function actionsToStrikeRE(actions) {
                     dice,
                     die,
                     modifier: mod,
-                    category
+                    category,
+                    img
                 }))
             } else {
                 rules.push(
@@ -219,13 +286,14 @@ function getStrikeAction(config) {
         "traits": config.traits,
         "key": "Strike",
         "slug": config.slug,
-        "label": config.label
+        "label": config.label,
+        "img": config.img
     }
 }
 
 function getExtraDamageDiceRE(config) {
     return [
-        {
+        ...(config.dice !== 0 ? [{
             "key": "DamageDice",
             "selector": `${config.slug}-damage`,
             "label": "_",
@@ -234,16 +302,39 @@ function getExtraDamageDiceRE(config) {
             "damageType": config.damageType,
             "damageCategory": config?.category,
             "predicate": [],
-            "slug": config.id
-        },
+            "slug": String(config.id)
+        }] : []),
         {
             "key": "FlatModifier",
             "selector": `${config.slug}-damage`,
-            "value": config.modifier4,
+            "value": config.modifier,
             "damageType": config.damageType,
             "damageCategory": config?.category,
             "hideIfDisabled": true,
             "label": "_"
         }
     ]
+}
+
+const damagePerTurn = {
+    "key": "GrantItem",
+    "uuid": "Compendium.pf2e.conditionitems.Item.lDVqvLKA6eF3Df60",
+    "alterations": [
+        {
+            "mode": "override",
+            "property": "persistent-damage",
+            "value": {
+                "damageType": "untyped",
+                "formula": "4d6"
+            }
+        },
+        {
+            "mode": "override",
+            "property": "pd-recovery-dc",
+            "value": 21
+        }
+    ],
+    "onDeleteActions": {
+        "grantee": "cascade"
+    }
 }

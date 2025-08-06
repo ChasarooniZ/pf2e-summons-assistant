@@ -1,4 +1,3 @@
-import { modifierNames } from "chalk";
 import { ACTIONS, ALT_ART, CREATURES, EFFECTS, SOURCES } from "./const.js";
 import { getFoeInfo } from "./duplicateFoe.js";
 import { hasNoTargets, onlyHasJB2AFree } from "./helpers.js";
@@ -79,18 +78,18 @@ export async function getSpecificSummonDetails(uuid, data = {
         case SOURCES.MISC.DUPLICATE_FOE:
             const token = await fromUuid(data.targetTokenUUID);
             if (token) {
-                const { changes, strikeRules } = getFoeInfo(token.actor, data.rank)
+                const info = await getFoeInfo(token, data.rank)
                 const isFail = await foundry.applications.api.DialogV2.confirm({
                     content: game.i18n.localize("pf2e-summons-assistant.dialog.duplicate-foe"),
                     rejectClose: false
-                  });
+                });
                 const effect = EFFECTS.DUPLICATE_FOE(isFail);
-                effect.rules.push(...strikeRules);
+                effect.system.rules.push(...info.strikeRules);
                 return [{
                     specific_uuids: [CREATURES.DUPLICATE_FOE],
                     rank: data.rank,
-                    modifications: changes,
-                    itemsToAdd: [effect]
+                    modifications: info.changes,
+                    itemsToAdd: [effect, ...(info?.items ?? [])]
                 }]
             }
             break;
