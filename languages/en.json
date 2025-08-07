@@ -44,6 +44,9 @@
     "notification": {
       "summoner": {
         "too-many-eidolons": "You own too many eidolons."
+      },
+      "duplicate-foe": {
+        "too-high": "The foe is too high level for this rank of Duplicate Foe"
       }
     },
     "dialog": {

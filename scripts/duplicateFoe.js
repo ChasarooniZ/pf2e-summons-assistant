@@ -127,15 +127,19 @@ function parseDamageString(damageStr) {
     for (const component of components) {
         const parsed = parseDamageComponent(component.trim());
         if (parsed) {
-            results.push({
-                ...parsed,
-                damage: parseDamageREItems(parsed.damage),
-            });
+            const damageArray = parseDamageREItems(parsed.damage);
+            for (const damageItem of damageArray) {
+                results.push({
+                    ...damageItem,
+                    damageType: parsed.damageType,
+                    category: parsed.category
+                });
+            }
         }
     }
-
     return results;
 }
+
 
 function smartSplitDamage(str) {
     const damageTypes = getAllDamageSlugs();
@@ -210,26 +214,70 @@ function parseDamageComponent(component) {
 function parseDamageREItems(damageString) {
     const cleanString = damageString.replace(/[\s()]/g, '');
 
-    const modifierOnlyRegex = /^[+-]?\d+$/;
-    if (modifierOnlyRegex.test(cleanString)) {
-        return {
-            dice: 0,
-            die: 'd4',
-            mod: parseInt(cleanString)
-        };
+    const parts = [];
+    let current = '';
+    let i = 0;
+
+    if (cleanString[0] !== '+' && cleanString[0] !== '-') {
+        while (i < cleanString.length && cleanString[i] !== '+' && cleanString[i] !== '-') {
+            current += cleanString[i];
+            i++;
+        }
+        if (current) {
+            parts.push(current);
+            current = '';
+        }
     }
 
-    const diceRegex = /^(\d+)?d(\d+)([+-]\d+)?$/;
-    const match = cleanString.match(diceRegex);
-    if (!match) {
-        throw new Error(`Invalid damage string format: ${damageString}`);
+    while (i < cleanString.length) {
+        const char = cleanString[i];
+        if (char === '+' || char === '-') {
+            if (current) {
+                parts.push(current);
+                current = '';
+            }
+            parts.push(char);
+        } else {
+            current += char;
+        }
+        i++;
     }
-    const [, diceCount, dieType, modifier] = match;
-    return {
-        dice: parseInt(diceCount) || 1,
-        die: `d${dieType}`,
-        mod: modifier ? parseInt(modifier) : 0
-    };
+    if (current) {
+        parts.push(current);
+    }
+
+    const results = [];
+    let currentSign = 1;
+
+    for (const part of parts) {
+        if (part === '+') {
+            currentSign = 1;
+        } else if (part === '-') {
+            currentSign = -1;
+        } else {
+            const diceRegex = /^(\d+)?d(\d+)$/;
+            const modifierRegex = /^\d+$/;
+
+            if (diceRegex.test(part)) {
+                const match = part.match(diceRegex);
+                const [, diceCount, dieType] = match;
+                results.push({
+                    dice: (parseInt(diceCount) || 1) * (currentSign >= 0 ? 1 : currentSign),
+                    die: `d${dieType}`,
+                    mod: 0
+                });
+            } else if (modifierRegex.test(part)) {
+                results.push({
+                    dice: 0,
+                    die: 'd1',
+                    mod: parseInt(part) * currentSign
+                });
+            }
+            currentSign = 1;
+        }
+    }
+
+    return results;
 }
 
 function actionsToStrikeRE(actions) {
@@ -238,7 +286,7 @@ function actionsToStrikeRE(actions) {
         const { slug, traits, totalModifier, label, img } = action;
         let id = 1;
         for (const dmg of action.damage) {
-            const { dice, die, mod, } = dmg.damage;
+            const { dice, die, mod, } = dmg;
             const { damageType, category } = dmg;
             if (id === 1) {
                 rules.push(getStrikeAction({

@@ -1,3 +1,9 @@
+## 1.12.1
+
+- **Updated**
+  - Fixed bug causing `Duplicate Foe` to fail on certain strikes (🐛 @Maple)
+  - Added a check for the level of the target for `Duplicate Foe`
+
 ## 1.12.0
 
 - **New**
@@ -55,7 +61,7 @@
 ## 1.8.3
 
 - **Updates**
-  - Fixed bug causing all summons to fail (🐛@Le Chat Lunatique)
+  - Fixed bug causing all summons to fail (🐛 @Le Chat Lunatique)
 
 ## 1.8.2
 

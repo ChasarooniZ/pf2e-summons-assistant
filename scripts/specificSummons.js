@@ -108,7 +108,13 @@ export async function getSpecificSummonDetails(uuid, data = {
 
         case SOURCES.MISC.DUPLICATE_FOE:
             const token = await fromUuid(data.targetTokenUUID);
+            const maxLevel = (data.rank - 7) * 2 + 15
             if (token) {
+                if (token?.actor?.level <= maxLevel) {
+                    ui.notifications.error(game.i18n.localize("pf2e-summons-assistant.notification.duplicate-foe.too-high"))
+                    return null;
+                }
+
                 const info = await getFoeInfo(token, data.rank)
                 const isFail = await foundry.applications.api.DialogV2.confirm({
                     content: game.i18n.localize("pf2e-summons-assistant.dialog.duplicate-foe"),

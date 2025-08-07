@@ -35,10 +35,7 @@ Hooks.once("ready", async function () {
 
     if (chatMessage?.flags?.pf2e?.appliedDamage) return;
 
-    // TODO handle Incarnate spells at a later date
-    //if (!chatMessage?.flags?.pf2e?.origin?.rollOptions?.includes("summon")) return;
     let summonLevel = 20;
-    //attributes.classDC.value
 
     const summonerActor = ChatMessage.getSpeakerActor(chatMessage.speaker);
 
