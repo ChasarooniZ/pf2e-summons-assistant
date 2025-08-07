@@ -110,7 +110,7 @@ export async function getSpecificSummonDetails(uuid, data = {
             const token = await fromUuid(data.targetTokenUUID);
             const maxLevel = (data.rank - 7) * 2 + 15
             if (token) {
-                if (token?.actor?.level <= maxLevel) {
+                if (token?.actor?.level > maxLevel) {
                     ui.notifications.error(game.i18n.localize("pf2e-summons-assistant.notification.duplicate-foe.too-high"))
                     return null;
                 }
