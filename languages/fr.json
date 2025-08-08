@@ -44,7 +44,14 @@
     "notification": {
       "summoner": {
         "too-many-eidolons": "Vous possédez trop d'eidolons."
+      },
+      "duplicate-foe": {
+        "too-high": "L'ennemi est de trop haut niveau pour ce rang de Dupliquer l'ennemi"
       }
+    },
+    "dialog": {
+      "duplicate-foe": "La cible a t-elle manqué son jet de sauvegarde ?",
+      "telekinetic-hand": "Choisissez vous de rendre invisible la main que vous convoquez ?"
     },
     "items": {
       "actions": {
@@ -62,6 +69,13 @@
         "thrall-expiration": {
           "name": "Effet : Date d'expiration du thrall",
           "description": "Ceci mesure combien de temps avant que ce thrall n'expire."
+        },
+        "duplicate-foe": {
+          "name": "Effet : Dupliquer l'ennemi",
+          "successful-save": {
+            "title": "Dupliquer l'ennemi - Jet de sauvegarde réussi",
+            "text": "Compte tenu de la réussite du jet de sauvegarde, les cibles ne subissent que la moitié des dégâts des Frappes de ce duplicata"
+          }
         }
       }
     }
