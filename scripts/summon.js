@@ -39,7 +39,8 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
 
           const hasValidTraits = requiredTraits.length === 0 ||
             candidateActor.system.traits.value.some(actorTrait =>
-              requiredTraits.some(requiredTrait => requiredTrait.toLowerCase() === actorTrait.toLowerCase())
+              requiredTraits.some(requiredTrait =>
+                requiredTrait.toLowerCase() === actorTrait.toLowerCase())
             );
 
           const hasValidUuid = allowedSpecificUuids.length > 0 &&
@@ -54,17 +55,12 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
           name: "Sort order",
           options: [{ label: "Level descending", value: 0 }, { label: "Level", value: 1 }],
           sort: (actorA, actorB, sortIndex) => {
-            if (sortIndex === 0) {
-              if (actorA.system.details.level.value === actorB.system.details.level.value)
-                return actorA.name.localeCompare(actorB.name);
-              else
-                return (actorB.system.details.level.value - actorA.system.details.level.value);
-            }
-            else {
-              if (actorA.system.details.level.value === actorB.system.details.level.value)
-                return actorA.name.localeCompare(actorB.name);
-              else
-                return (actorA.system.details.level.value - actorB.system.details.level.value);
+            const aLevel = actorA.system.details.level.value;
+            const bLevel = actorB.system.details.level.value;
+            if (aLevel === bLevel) {
+              return actorA.name.localeCompare(actorB.name)
+            } else {
+              return sortIndex === 0 ? bLevel - aLevel : aLevel - bLevel;
             }
           }
         },

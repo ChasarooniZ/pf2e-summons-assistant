@@ -1,6 +1,7 @@
 {
   "I18N.LANGUAGE": "English",
   "pf2e-summons-assistant": {
+    "name": "PF2e Summon's Assistant",
     "module-settings": {
       "name-ownership": {
         "name": "Add Summoner's Name to Summon's Name",

@@ -57,7 +57,7 @@ export function setNecromancerHooks() {
             if (game?.skipMoveTrigger?.[id]) {
                 return
             }
-            if (tokenDoc.actor._stats.compendiumSource === CREATURES.NECROMANCER.LIVING_GRAVEYARD) {
+            if (tokenDoc.actor.sourceId === CREATURES.NECROMANCER.LIVING_GRAVEYARD) {
                 checkLivingGraveyardMovement(tokenDoc);
             }
         }
@@ -67,7 +67,7 @@ export function setNecromancerHooks() {
 function checkLivingGraveyardMovement(tokenDoc) {
     const combatant = game.combat.combatant;
     const check = {
-        cId: combatant._id,
+        cId: combatant.id,
         sceneId: tokenDoc.scene.id,
         tokenId: tokenDoc.id,
         actorId: tokenDoc.actorId,

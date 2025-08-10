@@ -1,4 +1,4 @@
-import { MODULE_ID, SOURCES } from "./const.js";
+import { MODULE_ID, SLUG_TO_SOURCE, SOURCES } from "./const.js";
 import { messageItemHasRollOption } from "./helpers.js";
 import { extractDCValueRegex, isIncarnate } from "./incarnate.js";
 import { isMechanic, setMechanicRelevantInfo } from "./specificClasses/mechanic.js";
@@ -27,11 +27,14 @@ Hooks.once("ready", async function () {
     if (chatMessage.isRoll && !isBindHeroicSpiritSuccess) return;
 
     // Handle Specific Case Bind Heroic Spirit
-    const itemUuid = isBindHeroicSpiritSuccess
+    let itemUuid = isBindHeroicSpiritSuccess
       ? SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE
       : chatMessage?.item?.sourceId;
 
-    if (!itemUuid) return;
+    if (!itemUuid) {
+      itemUuid = itemUuid || SLUG_TO_SOURCE[chatMessage?.item?.slug];
+      if (!itemUuid) return;
+    }
 
     if (chatMessage?.flags?.pf2e?.appliedDamage) return;
 
@@ -49,7 +52,7 @@ Hooks.once("ready", async function () {
     if (isSummoner(chatMessage)) {
       setSummonerRelevantInfo(summonerActor, spellRelevantInfo);
     }
-    if (itemUuid === SOURCES.COMMANDER.PLANTED_BANNER) {
+    if (itemUuid === SOURCES.COMMANDER.PLANT_BANNER) {
       spellRelevantInfo.int = summonerActor.system.abilities.int.mod;
     } else if (itemUuid === SOURCES.MISC.DUPLICATE_FOE) {
       spellRelevantInfo.targetTokenUUID =

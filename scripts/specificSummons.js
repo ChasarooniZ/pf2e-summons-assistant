@@ -1,6 +1,6 @@
 import { ACTIONS, ALT_ART, CREATURES, EFFECTS, SOURCES } from "./const.js";
 import { getFoeInfo } from "./duplicateFoe.js";
-import { hasNoTargets, onlyHasJB2AFree } from "./helpers.js";
+import { errorNotification, hasNoTargets, onlyHasJB2AFree } from "./helpers.js";
 import { incarnateDetails } from "./incarnate.js";
 import { getEidolon } from "./specificClasses/summoner.js"
 
@@ -111,7 +111,7 @@ export async function getSpecificSummonDetails(uuid, data = {
             const maxLevel = (data.rank - 7) * 2 + 15
             if (token) {
                 if (token?.actor?.level > maxLevel) {
-                    ui.notifications.error(game.i18n.localize("pf2e-summons-assistant.notification.duplicate-foe.too-high"))
+                    errorNotification("pf2e-summons-assistant.notification.duplicate-foe.too-high")
                     return null;
                 }
 
@@ -219,7 +219,7 @@ export async function getSpecificSummonDetails(uuid, data = {
             if (uuid)
                 return [{ specific_uuids: [uuid], isCharacter: true }];
             return null;
-        case SOURCES.COMMANDER.PLANTED_BANNER:
+        case SOURCES.COMMANDER.PLANT_BANNER:
             return [{
                 specific_uuids: [CREATURES.COMMANDER.PLANTED_BANNER],
                 modifications: {

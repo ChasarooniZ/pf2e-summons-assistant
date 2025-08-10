@@ -39,3 +39,14 @@ export function getAllDamageSlugs() {
         ...(game.settings.get("pf2e", "homebrew.damageTypes") ?? []).map(type => game.pf2e.system.sluggify(type.label))
     ]
 }
+
+
+export function warnNotification(text) {
+    const localizedText = game.i18n.localize(text);
+    ui.notifications.warn(`『${game.i18n.localize('pf2e-summons-assistant.name')}』 ${localizedText}`)
+}
+
+export function errorNotification(text) {
+    const localizedText = game.i18n.localize(text);
+    ui.notifications.error(`『${game.i18n.localize('pf2e-summons-assistant.name')}』 ${localizedText}`)
+}

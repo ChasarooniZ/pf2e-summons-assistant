@@ -41,11 +41,12 @@ export const SOURCES = {
 
     INEVITABLE_RETURN: "Compendium.pf2e-playtest-data.impossible-playtest-actions.Item.jyhYP51XI09DFSqy",
 
+    // Does not need slug, special case
     BIND_HEROIC_SPIRIT_STRIKE: "Compendium.pf2e-playtest-data.impossible-playtest-effects.Item.MTYxqIqJVzza1Lro"
   },
 
   COMMANDER: {
-    PLANTED_BANNER: "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1"
+    PLANT_BANNER: "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1"
   },
 
   MECHANIC: {
@@ -57,6 +58,44 @@ export const SOURCES = {
     MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp"
   }
 };
+
+export const SLUG_TO_SOURCE = {
+  "call-fluxwraith": "Compendium.pf2e.spells-srd.Item.i6GUJCWdNu2278oA",
+  "call-ursine-ally": "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
+  "conglomerate-of-limbs": "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.OOmk0XI3lzhn42JT",
+  "create-thrall": "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.77lglowVpcnRRh3g",
+  "deploy-mine": "Compendium.starfinder-field-test-for-pf2e.actions.Item.ccVcznj9KVYHLVaY",
+  "double-deployment": "Compendium.starfinder-field-test-for-pf2e.feats.Item.x5rhl6ThqqjHGglD",
+  "duplicate-foe": "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
+  "floating-flame": "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
+  "inevitable-return": "Compendium.pf2e-playtest-data.impossible-playtest-actions.Item.jyhYP51XI09DFSqy",
+  "light": "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
+  "living-graveyard": "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.SK8vQklaSQGd5DXw",
+  "manifest-eidolon": "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp",
+  "perfected-thrall": "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.kFkhtDYsR9fE0pAr",
+  "phantasmal-minion": "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
+  "plant-banner": "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1",
+  "recurring-nightmare": "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.ZVQziQ2l2vdZ5Wfr",
+  "skeletal-lancers": "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.qtgps2eYcmWueed1",
+  "summon-animal": "Compendium.pf2e.spells-srd.Item.4YnON9JHYqtLzccu",
+  "summon-celestial": "Compendium.pf2e.spells-srd.Item.lTDixrrNKaCvLKwX",
+  "summon-construct": "Compendium.pf2e.spells-srd.Item.lKcsmeOrgHtK4xQa",
+  "summon-dragon": "Compendium.pf2e.spells-srd.Item.kghwmH3tQjMIhdH1",
+  "summon-elemental": "Compendium.pf2e.spells-srd.Item.lpT6LotUaQPfinjj",
+  "summon-elemental-herald": "Compendium.pf2e.spells-srd.Item.kVNo3ga0lwLKPrem",
+  "summon-entity": "Compendium.pf2e.spells-srd.Item.i1TvBID5QLyXrUCa",
+  "summon-fey": "Compendium.pf2e.spells-srd.Item.hs7h8f4Z1ZNdUt3s",
+  "summon-fiend": "Compendium.pf2e.spells-srd.Item.29ytKctjg7qSW2ff",
+  "summon-giant": "Compendium.pf2e.spells-srd.Item.e9UJoVYUd5kJWUpi",
+  "summon-healing-servitor": "Compendium.pf2e.spells-srd.Item.3r897dYO8oYvuyn5",
+  "summon-lesser-servitor": "Compendium.pf2e.spells-srd.Item.B0FZLkoHsiRgw7gv",
+  "summon-monitor": "Compendium.pf2e.spells-srd.Item.ZbEHglw5tkJ3grQZ",
+  "summon-plant-or-fungus": "Compendium.pf2e.spells-srd.Item.jSRAyd57kd4WZ4yE",
+  "summon-robot": "Compendium.sf2e-anachronism.spells.Item.KlJEDmAOk1ztdNFf",
+  "summon-undead": "Compendium.pf2e.spells-srd.Item.9WGeBwIIbbUuWKq0",
+  "telekinetic-hand": "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w",
+  "tempest-of-shades": "Compendium.pf2e.spells-srd.Item.JLdbyGKhjwAAoRLs"
+}
 
 export const CREATURES = {
   PHANTASMAL_MINION: "Compendium.pf2e.pathfinder-bestiary.Actor.j7NNPfZwD19BwSEZ",

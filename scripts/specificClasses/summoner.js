@@ -1,5 +1,5 @@
 import { MODULE_ID } from "../const.js";
-import { messageItemHasRollOption } from "../helpers.js";
+import { messageItemHasRollOption, warnNotification } from "../helpers.js";
 
 const EIDOLON_CLASS_UUID = "Compendium.pf2e-animal-companions.AC-Features.Item.xPn27nNxcLOByTXJ";
 
@@ -17,19 +17,20 @@ export async function getEidolon(summonerActorId) {
 
     const eidolons = game.actors
         .filter(act =>
-            act.type == 'character' &&
-            act?.class?.sourceId == EIDOLON_CLASS_UUID &&
+            act.type === 'character' &&
+            (act?.class?.sourceId === EIDOLON_CLASS_UUID ||
+                act?.class?.slug === 'eidolon') &&
             getNonGMOwnerStringified(act) === getNonGMOwnerStringified(summonerActor)
         )
-        .map(act => ({ name: act.name, uuid: act.uuid, selected: defaultEidolonUUID && act.uuid == defaultEidolonUUID }));
+        .map(act => ({ name: act.name, uuid: act.uuid, selected: defaultEidolonUUID && act.uuid === defaultEidolonUUID }));
 
     //TODO: When the Shared Data option of Toolbelt is back, check if there are any eidolons whose master are the summoner and, in that case, return them
-    if (eidolons.length == 1) {
+    if (eidolons.length === 1) {
         const eidolonUUID = eidolons[0].uuid;
         await summonerActor.setFlag(MODULE_ID, 'eidolonUUID', eidolonUUID);
         return eidolonUUID;
     } else if (eidolons.length > 1) {
-        ui.notifications.warn(game.i18n.localize("pf2e-summons-assistant.notification.summoner.too-many-eidolons"));
+        warnNotification("pf2e-summons-assistant.notification.summoner.too-many-eidolons");
     }
     return null;
 }
