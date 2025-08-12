@@ -1,6 +1,7 @@
 {
   "I18N.LANGUAGE": "Français",
   "pf2e-summons-assistant": {
+    "name": "PF2e Assistant de convocation",
     "module-settings": {
       "name-ownership": {
         "name": "Ajouter le nom du convocateur au nom de la convocation",
