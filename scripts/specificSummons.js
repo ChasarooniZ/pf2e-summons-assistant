@@ -8,7 +8,9 @@ export async function getSpecificSummonDetails(uuid, data = {
     rank: 0,
     summonerLevel: 0,
     dc: 0,
-    targetTokenUUID: null
+    targetTokenUUID: null,
+    tokenWidth: 1,
+    tokenHeight: 1
 }) {
     switch (uuid) {
         case SOURCES.SUMMON.PHANTASMAL_MINION:
@@ -236,7 +238,36 @@ export async function getSpecificSummonDetails(uuid, data = {
             return [{
                 specific_uuids: [CREATURES.GIANT_VIPER]
             }]
-
+        case SOURCES.MISC.WOODEN_DOUBLE:
+            return [{
+                specific_uuids: [CREATURES.WOODEN_DOUBLE],
+                modifications: {
+                    'system.details.level.value': data.rank,
+                    'system.attributes.hp.max': 20 + ((data.rank - 3) * 10),
+                    'system.attributes.hp.value': 20 + ((data.rank - 3) * 10),
+                    'prototypeToken.width': tokenWidth,
+                    'prototypeToken.height': tokenHeight,
+                },
+                crosshairParameters: {
+                    snap: {
+                        position: tokenWidth % 2 === 1
+                            ? CONST.GRID_SNAPPING_MODES.CENTER
+                            : CONST.GRID_SNAPPING_MODES.VERTEX
+                    },
+                    label: {
+                        text: game.i18n.localize("pf2e-summons-assistant.display-text.wooden-double.place-double")
+                    },
+                    ...(position
+                        ? {
+                            location: {
+                                obj: position,
+                                limitMaxRange: 1,
+                                showRange: true
+                            }
+                        }
+                        : {})
+                }
+            }]
 
         default:
             return null;

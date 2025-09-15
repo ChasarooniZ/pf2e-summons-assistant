@@ -54,6 +54,12 @@
       "duplicate-foe": "Did the target fail their save?",
       "telekinetic-hand": "Do you choose to make the hand you summon invisible?"
     },
+    "display-text": {
+      "wooden-double": {
+        "place-double": "Left Click to place your Wooden Double",
+        "step": "Choose where to Step to"
+      }
+    },
     "items": {
       "actions": {
         "mechanic": {

@@ -34,7 +34,8 @@ export const SOURCES = {
     TELEKINETIC_HAND: "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w",
     FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
     CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
-    DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6"
+    DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
+    WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed"
   },
 
   NECROMANCER: {
@@ -103,6 +104,7 @@ export const SLUG_TO_SOURCE = {
   "tempest-of-shades": SOURCES.INCARNATE.TEMPEST_OF_SHADES,
   "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
   "activation-wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
+  "wooden-double": SOURCES.MISC.WOODEN_DOUBLE
 }
 
 export const CREATURES = {
@@ -118,6 +120,8 @@ export const CREATURES = {
   TELEKINETIC_HAND: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.llXyX6eS8UHGqpnn",
 
   DUPLICATE_FOE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.03gFpid5kBiI3vXS",
+
+  WOODEN_DOUBLE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HItOCcAEKmJWVVko",
 
   HEALING_SERVITOR: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gqrW5aGfnjqNse2T",
   TEMPEST_OF_SHADES: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.EwmHOiQTdCEmBKfA",

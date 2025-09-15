@@ -1,4 +1,11 @@
+- **New**
+  - Support for the following:
+    - `Wooden Double`
+- **Updated**
+  - Added an additional fallback for when the `sourceID` and `slug` fail, it will attempt to stringify the name to see if it matches a slug
+
 ## 1.13.0
+
 - **New**
   - Support for the following:
     - `Wondrous Figurine: Jade Serpent` - Also supports the Item Activation version

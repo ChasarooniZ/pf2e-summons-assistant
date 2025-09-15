@@ -5,6 +5,7 @@ import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
 
 export async function summon(summonerActor, itemUuid, summonType, summonDetailsGroup) {
   const additionalTraits = addTraits(summonType);
+  const summonerToken = summonerActor.getActiveTokens()[0];
   const summonerAlliance = summonerActor.system.details.alliance;
   // No Summon Spell Found
   if (summonDetailsGroup === null) return;
@@ -123,7 +124,7 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
         await summonedActor?.createEmbeddedDocuments("Item", itemsToAdd)
       }
       await summonedActor?.setFlag(MODULE_ID, 'summoner', { uuid: summonerActor.uuid, id: summonerActor.id });
-      await handlePostSummon(itemUuid, summonedActor.uuid);
+      await handlePostSummon(itemUuid, summonedActor.uuid, summonerToken);
     }
   }
 }
