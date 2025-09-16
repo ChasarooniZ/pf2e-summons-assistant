@@ -10,6 +10,7 @@ import { summon, getTraditionalSummonerSpellDetails } from "./summon.js";
 import { isBindHeroicSpiritHit, setNecromancerHooks } from "./specificClasses/necromancer.js";
 import { setupCommanderHooks } from "./specificClasses/commander.js";
 import { setupSocket } from "./lib/socket.js";
+import { setupWoodDoubleHooks } from "./specificCases/woodenDouble.js";
 
 Hooks.once("init", async function () {
   loadTemplates([

@@ -245,22 +245,22 @@ export async function getSpecificSummonDetails(uuid, data = {
                     'system.details.level.value': data.rank,
                     'system.attributes.hp.max': 20 + ((data.rank - 3) * 10),
                     'system.attributes.hp.value': 20 + ((data.rank - 3) * 10),
-                    'prototypeToken.width': tokenWidth,
-                    'prototypeToken.height': tokenHeight,
+                    'prototypeToken.width': data.tokenWidth,
+                    'prototypeToken.height': data.tokenHeight,
                 },
                 crosshairParameters: {
                     snap: {
-                        position: tokenWidth % 2 === 1
+                        position: data.tokenWidth % 2 === 1
                             ? CONST.GRID_SNAPPING_MODES.CENTER
                             : CONST.GRID_SNAPPING_MODES.VERTEX
                     },
                     label: {
                         text: game.i18n.localize("pf2e-summons-assistant.display-text.wooden-double.place-double")
                     },
-                    ...(position
+                    ...(data.position
                         ? {
                             location: {
-                                obj: position,
+                                obj: data.position,
                                 limitMaxRange: 1,
                                 showRange: true
                             }
