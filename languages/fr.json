@@ -27,6 +27,14 @@
           "hint": "En cas d'activation, lorsqu'un Cimetière vivant est déplacé , il enverra un message dans la conversation. En cliquant dessus, cela provoquera l'apparition d'un thrall du cimetière (comme prévu par les règles)"
         }
       },
+      "specific-case": {
+        "handle": {
+          "wooden-double": {
+            "name": "Gérer les dégâts du Double de bois",
+            "hint": "Lorsqu'un Double de Bois subit des dégâts supérieurs à sa santé maximale, il lancera des dégâts équivalents aux dégâts supplémentaires (ces dégâts sont non typés)"
+          }
+        }
+      },
       "filter": {
         "default": {
           "token-with-art": {
@@ -40,7 +48,8 @@
       "living-graveyard": {
         "thralls": "Le cimetière vivant s'est déplacé. Si cela résulte de son Maintien, souhaitez-vous invoquer 3 nouveaux thralls sur son passage ?",
         "summon": "Invoquer!"
-      }
+      },
+      "wooden-double": "Les dégâts du Double en Bois sont transmis au lanceur du sort"
     },
     "notification": {
       "summoner": {
@@ -53,6 +62,12 @@
     "dialog": {
       "duplicate-foe": "La cible a t-elle manqué son jet de sauvegarde ?",
       "telekinetic-hand": "Choisissez vous de rendre invisible la main que vous convoquez ?"
+    },
+    "display-text": {
+      "wooden-double": {
+        "place-double": "Clic gauche pour placer votre Double de bois",
+        "step": "Choisissez où Faire un pas"
+      }
     },
     "items": {
       "actions": {
