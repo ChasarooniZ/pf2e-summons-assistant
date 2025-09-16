@@ -1,6 +1,11 @@
+## 1.14.0
+
 - **New**
   - Support for the following:
     - `Wooden Double`
+      - 1. Click is a one to summon the double in your place
+      - 2. Choose where your token steps to
+      - Also adds a setting to support damage overflowing as its own damage message if the damage overflows the `Wooden Double`'s health
 - **Updated**
   - Added an additional fallback for when the `sourceID` and `slug` fail, it will attempt to stringify the name to see if it matches a slug
 

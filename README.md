@@ -69,6 +69,7 @@ You can access the changelog [here](/CHANGELOG.md).
     - Floating Flame - Art Requires JB2a
     - Duplicate Foe - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
     - Telekinetic Hand - Art Requires JB2a
+    - Wooden Double - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
 - Feats
   - Commander
     - Plant Banner - Basic Case (no handling of feat interactions beyond base case atm)
