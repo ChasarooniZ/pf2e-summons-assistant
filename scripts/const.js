@@ -156,7 +156,7 @@ export const CREATURES = {
     SKELETAL_LANCERS: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.d1333zUKqydfJM9b",
     LIVING_GRAVEYARD: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.CN6TMEeEd0Wmvkct",
     RECURRING_NIGHTMARE: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.uu7VA9eIwi1tUZVs",
-    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.XCOfL4Bx7BHwAXoa"
+    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.Xuy2zf3qpsmm8wbb"
   },
 }
 
