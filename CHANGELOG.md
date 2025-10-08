@@ -1,3 +1,7 @@
+## 1.14.5
+
+- Update `Conglomerate of Limbs` UUID to use the one from the Playtest module (💻🐛 @pv42)
+
 ## 1.14.4
 
 - Fixed bug causing every message to show as `Wooden Double`
