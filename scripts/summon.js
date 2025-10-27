@@ -1,9 +1,11 @@
 import { CREATURES, EFFECTS, MODULE_ID, SOURCES, SUMMON_LEVELS_BY_RANK } from "./const.js";
+import { handlePostSummon } from "./handlePostSummon.js";
 import { addTraits, compFromUuid } from "./helpers.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
 
 export async function summon(summonerActor, itemUuid, summonType, summonDetailsGroup) {
   const additionalTraits = addTraits(summonType);
+  const summonerToken = summonerActor.getActiveTokens()[0];
   const summonerAlliance = summonerActor.system.details.alliance;
   // No Summon Spell Found
   if (summonDetailsGroup === null) return;
@@ -16,6 +18,7 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
     const actorModifications = summonDetails?.modifications || {};
     const itemsToAdd = summonDetails?.itemsToAdd || [];
     const isCharacter = summonDetails?.isCharacter;
+    const crosshairParameters = summonDetails?.crosshairParameters || {};
     if (game.settings.get(MODULE_ID, "effect-ownership") && !isCharacter) {
       itemsToAdd.unshift(
         EFFECTS.SUMMON_OWNER(
@@ -40,7 +43,8 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
 
           const hasValidTraits = requiredTraits.length === 0 ||
             candidateActor.system.traits.value.some(actorTrait =>
-              requiredTraits.some(requiredTrait => requiredTrait.toLowerCase() === actorTrait.toLowerCase())
+              requiredTraits.some(requiredTrait =>
+                requiredTrait.toLowerCase() === actorTrait.toLowerCase())
             );
 
           const hasValidUuid = allowedSpecificUuids.length > 0 &&
@@ -55,17 +59,12 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
           name: "Sort order",
           options: [{ label: "Level descending", value: 0 }, { label: "Level", value: 1 }],
           sort: (actorA, actorB, sortIndex) => {
-            if (sortIndex === 0) {
-              if (actorA.system.details.level.value === actorB.system.details.level.value)
-                return actorA.name.localeCompare(actorB.name);
-              else
-                return (actorB.system.details.level.value - actorA.system.details.level.value);
-            }
-            else {
-              if (actorA.system.details.level.value === actorB.system.details.level.value)
-                return actorA.name.localeCompare(actorB.name);
-              else
-                return (actorA.system.details.level.value - actorB.system.details.level.value);
+            const aLevel = actorA.system.details.level.value;
+            const bLevel = actorB.system.details.level.value;
+            if (aLevel === bLevel) {
+              return actorA.name.localeCompare(actorB.name)
+            } else {
+              return sortIndex === 0 ? bLevel - aLevel : aLevel - bLevel;
             }
           }
         },
@@ -115,6 +114,7 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
+        crosshairParameters: crosshairParameters
       });
 
       const summonedActor = tokDoc.actor ?? game.actors.get(tokDoc.actorId);
@@ -130,6 +130,7 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
         await summonedActor?.createEmbeddedDocuments("Item", itemsToAdd)
       }
       await summonedActor?.setFlag(MODULE_ID, 'summoner', { uuid: summonerActor.uuid, id: summonerActor.id });
+      await handlePostSummon(itemUuid, summonedActor.uuid, summonerToken);
     }
   }
 
@@ -186,6 +187,9 @@ export function getTraditionalSummonerSpellDetails(uuid, rank) {
       break;
     case SOURCES.SUMMON.SUMMON_MONITOR:
       details.traits = ["monitor"];
+      break;
+    case SOURCES.SUMMON.SUMMON_ROBOT:
+      details.traits = ["tech"];
       break;
     default:
       return null;

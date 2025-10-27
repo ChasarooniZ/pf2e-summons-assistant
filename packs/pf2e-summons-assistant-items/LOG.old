@@ -1,8 +1,5 @@
-2025/07/17-19:33:18.870650 ffff7a7fc0c0 Log #9: 0 ops saved to Table #18 OK
-2025/07/17-19:33:18.870700 ffff7a7fc0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-items/000009.log: OK
-2025/07/17-19:33:18.870720 ffff7a7fc0c0 Log #17: 0 ops saved to Table #19 OK
-2025/07/17-19:33:18.870734 ffff7a7fc0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-items/000017.log: OK
-2025/07/17-19:33:18.870769 ffff7a7fc0c0 Table #11: 7 entries OK
-2025/07/17-19:33:18.870807 ffff7a7fc0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-items/MANIFEST-000007: OK
-2025/07/17-19:33:18.870819 ffff7a7fc0c0 Archiving /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-items/MANIFEST-000016: OK
-2025/07/17-19:33:18.873424 ffff7a7fc0c0 **** Repaired leveldb /home/ubuntu/foundryuserdata/Data/modules/pf2e-summons-assistant/packs/pf2e-summons-assistant-items; recovered 1 files; 3047 bytes. Some data may have been lost. ****
+2025/09/16-11:16:55.838 7dfc Recovering log #147
+2025/09/16-11:16:56.063 7dfc Delete type=0 #146
+2025/09/16-11:16:56.063 7dfc Delete type=0 #147
+2025/09/16-11:16:56.064 7dfc Delete type=3 #144
+2025/09/16-11:16:56.064 7dfc Delete type=3 #146

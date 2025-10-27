@@ -1,0 +1,468 @@
+{
+  "name": "Mine",
+  "type": "npc",
+  "ownership": {
+    "default": 1,
+    "qeC1C8pWj1JsmO7z": 3
+  },
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": true
+      },
+      "perfect-vision": {
+        "sight": {
+          "range": null
+        }
+      },
+      "Rideable": {
+        "issetRideableFlag": true,
+        "MaxRiderFlag": null,
+        "CustomRidingheightFlag": null,
+        "UseRidingHeightFlag": true,
+        "RidersScaleFlag": 1,
+        "RiderPositioningFlag": "RowPlacement",
+        "RiderOffsetFlag": [
+          0,
+          0
+        ],
+        "TokenFormFlag": "TokenFormCircle",
+        "InsideMovementFlag": false,
+        "SpawnRidersFlag": "",
+        "WorldMEffectOverrideFlag": false,
+        "MountingEffectsFlag": "",
+        "SelfApplyEffectsFlag": false,
+        "forMountEffectsFlag": "",
+        "CanbePilotedFlag": false,
+        "CheckPilotedCollisionFlag": false,
+        "PilotedbyDefaultFlag": false
+      }
+    },
+    "height": 1,
+    "width": 1,
+    "actorLink": false,
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "name": "Mine",
+    "displayName": 20,
+    "texture": {
+      "src": "modules/pf2e-summons-assistant/assets/tokens/subject/landmine.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": "modules/pf2e-summons-assistant/assets/tokens/subject/landmine.webp"
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "temp": 0,
+        "max": 10,
+        "details": ""
+      },
+      "speed": {
+        "value": 0,
+        "otherSpeeds": [],
+        "details": ""
+      },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      }
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 1
+      },
+      "blurb": "",
+      "publicNotes": "",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.94,
+      "previous": {
+        "schema": 0.939,
+        "foundry": "13.345",
+        "system": "7.2.0"
+      }
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "size": {
+        "value": "med"
+      }
+    }
+  },
+  "img": "modules/pf2e-summons-assistant/assets/tokens/subject/landmine.webp",
+  "items": [
+    {
+      "type": "action",
+      "name": "Detonate Mine",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "description": {
+          "value": "<p><strong>Requirements</strong> A mine you deployed is within 100 feet. With a moment's thought, you trigger the detonation of a mine you deployed within 100 feet, causing it to explode in a @Template[type:burst|distance:10]. This mine deals @Damage[(1+ceil(@actor.level/2))d6[fire]] damage, based on the damage type you selected when that mine was deployed. Creatures in the area can attempt a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save against your class DC.</p><hr /><p>You can Detonate Mine as a reaction, with the following trigger.</p><p><strong>Trigger</strong> A creature enters or leaves a square within the burst area of a mine you have deployed.</p><hr /><p>At 3rd level and every 2 levels thereafter, the damage increases by [[/r 1d6]].</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "RollOption",
+            "toggleable": true,
+            "option": "damage-customizations",
+            "label": "Damage Customizations Mod",
+            "suboptions": [
+              {
+                "label": "Energy Versatility",
+                "value": "energy"
+              },
+              {
+                "label": "Physical Versatility",
+                "value": "physical"
+              }
+            ],
+            "predicate": [
+              {
+                "gte": [
+                  "self:level",
+                  5
+                ]
+              }
+            ],
+            "value": false,
+            "selection": "energy"
+          },
+          {
+            "key": "RollOption",
+            "toggleable": true,
+            "alwaysActive": true,
+            "option": "mine-damage-type",
+            "suboptions": [
+              {
+                "label": "Fire",
+                "value": "fire",
+                "predicate": [
+                  {
+                    "not": "damage-customizations:physical"
+                  }
+                ]
+              },
+              {
+                "label": "Acid",
+                "value": "acid",
+                "predicate": [
+                  "damage-customizations:energy"
+                ]
+              },
+              {
+                "label": "Cold",
+                "value": "cold",
+                "predicate": [
+                  "damage-customizations:energy"
+                ]
+              },
+              {
+                "label": "Electricity",
+                "value": "electricity",
+                "predicate": [
+                  "damage-customizations:energy"
+                ]
+              },
+              {
+                "label": "Sonic",
+                "value": "sonic",
+                "predicate": [
+                  "damage-customizations:energy"
+                ]
+              },
+              {
+                "label": "Piercing",
+                "value": "piercing",
+                "predicate": [
+                  {
+                    "not": "damage-customizations:energy"
+                  }
+                ]
+              },
+              {
+                "label": "Bludgeoning",
+                "value": "bludgeoning",
+                "predicate": [
+                  "damage-customizations:physical"
+                ]
+              },
+              {
+                "label": "Slashing",
+                "value": "slashing",
+                "predicate": [
+                  "damage-customizations:physical"
+                ]
+              }
+            ],
+            "value": true
+          },
+          {
+            "key": "DamageAlteration",
+            "selectors": [
+              "detonate-mine-inline-damage"
+            ],
+            "mode": "override",
+            "property": "damage-type",
+            "value": "{item|flags.pf2e.rulesSelections.mineDamageType}",
+            "predicate": [
+              {
+                "not": "critical-explosion-persistent-damage"
+              }
+            ]
+          },
+          {
+            "key": "FlatModifier",
+            "selector": "detonate-mine-inline-damage",
+            "value": "@actor.system.abilities.int.mod",
+            "label": "Critical Explosion",
+            "predicate": [
+              "critical-explosion"
+            ]
+          },
+          {
+            "key": "ItemAlteration",
+            "mode": "add",
+            "property": "description",
+            "itemId": "{item|id}",
+            "predicate": [
+              "critical-explosion"
+            ],
+            "value": [
+              {
+                "text": "A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier @Damage[(@actor.system.abilities.int.mod)[bleed]|options:critical-explosion-persistent-damage].",
+                "predicate": [
+                  {
+                    "or": [
+                      "mine-damage-type:bludgeoning",
+                      "mine-damage-type:piercing",
+                      "mine-damage-type:slashing"
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier @Damage[(@actor.system.abilities.int.mod)[persistent, {item|flags.pf2e.rulesSelections.mineDamageType}]|options:critical-explosion-persistent-damage].",
+                "predicate": [
+                  {
+                    "nor": [
+                      "mine-damage-type:bludgeoning",
+                      "mine-damage-type:piercing",
+                      "mine-damage-type:slashing"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "slug": "detonate-mine",
+        "traits": {
+          "otherTags": [],
+          "value": [
+            "concentrate",
+            "mechanic"
+          ]
+        },
+        "_migration": {
+          "version": 0.94,
+          "previous": {
+            "schema": 0.939,
+            "foundry": "13.345",
+            "system": "7.2.0"
+          }
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "F55drfj9a3bXeUv4",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.346",
+        "systemId": "pf2e",
+        "systemVersion": "7.2.3",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!sAVuxP25VE126TdZ.F55drfj9a3bXeUv4"
+    }
+  ],
+  "folder": "gGy6LNAsZa9IaIjf",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "pf2e",
+    "systemVersion": "7.2.3",
+    "createdTime": 1752750798522,
+    "modifiedTime": 1752750802840,
+    "lastModifiedBy": "qeC1C8pWj1JsmO7z"
+  },
+  "_id": "sAVuxP25VE126TdZ",
+  "sort": 100000,
+  "_key": "!actors!sAVuxP25VE126TdZ"
+}

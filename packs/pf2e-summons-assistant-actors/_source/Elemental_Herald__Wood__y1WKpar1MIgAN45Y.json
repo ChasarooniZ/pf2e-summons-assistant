@@ -1,0 +1,379 @@
+{
+  "folder": "1BtMFQJ89xw9Bp62",
+  "name": "Elemental Herald (Wood)",
+  "type": "npc",
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": false
+      },
+      "Rideable": {
+        "issetRideableFlag": true,
+        "MountonEnterFlag": false,
+        "AutoMountBlackListFlag": "",
+        "AutoMountWhiteListFlag": "",
+        "MaxRiderFlag": null,
+        "CustomRidingheightFlag": null,
+        "UseRidingHeightFlag": true,
+        "RidersScaleFlag": 1,
+        "RiderPositioningFlag": "RowPlacement",
+        "RiderOffsetFlag": [
+          0,
+          0
+        ],
+        "TokenFormFlag": "TokenFormCircle",
+        "InsideMovementFlag": false,
+        "SpawnRidersFlag": "",
+        "WorldMEffectOverrideFlag": false,
+        "MountingEffectsFlag": "",
+        "SelfApplyEffectsFlag": false,
+        "forMountEffectsFlag": "",
+        "CanbePilotedFlag": false,
+        "CheckPilotedCollisionFlag": false,
+        "PilotedbyDefaultFlag": false
+      }
+    },
+    "height": 3,
+    "width": 3,
+    "name": "Elemental Herald",
+    "displayName": 20,
+    "actorLink": false,
+    "texture": {
+      "src": "modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/arboreal-archive.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1.5,
+      "scaleY": 1.5,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1.5,
+        "texture": "modules/pf2e-tokens-bestiaries/subjects/plant/arboreal/arboreal-archive.webp"
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": "fly",
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "temp": 0,
+        "max": 10,
+        "details": ""
+      },
+      "speed": {
+        "value": 50,
+        "otherSpeeds": [
+          {
+            "type": "burrow",
+            "value": 30
+          }
+        ],
+        "details": ""
+      },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      }
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 8
+      },
+      "blurb": "",
+      "publicNotes": "<p>Your meditation into the different elemental planes connects you to them deeply, and this connection allows you to summon a herald of an elemental lord. The herald arrives in the form of a natural disaster centralized on your enemies. The herald occupies the space of a Huge creature. When you Cast this Spell, choose one of the elemental heralds below to summon; if you're a divine spellcaster who worships an elemental lord, you must choose the option matching your deity's element. This spell gains the trait (air, earth, fire, metal, water, or wood) matching your choice.</p>",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.94,
+      "previous": null
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "size": {
+        "value": "huge"
+      }
+    }
+  },
+  "img": "modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/arboreal-archive.webp",
+  "items": [
+    {
+      "type": "action",
+      "name": "Advantageous Roots (Arrive)",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p><strong>Arrive </strong>(plant, wood) <em>Advantageous Roots</em> The herald of wood bursts forth from the ground as a complex root system. Each enemy in a @Template[emanation|distance:50] takes @Damage[6d10[piercing]] damage with a @Check[reflex|basic:true|dc:resolve(@actor.system.resources.dc.value)|name:Elemental Herald Wood Arrive|traits:plant,wood] as the roots skewer its limbs and body. Each enemy that fails its save takes a –10-foot status penalty to its Speeds until the herald departs.</p><p>@UUID[Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.8Bx6DgJ391LItD98]{Effect: Advantageous Roots}</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": [
+            "plant",
+            "wood"
+          ]
+        },
+        "_migration": {
+          "version": 0.94,
+          "previous": {
+            "schema": null,
+            "foundry": "13.346",
+            "system": "7.2.3"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": null,
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.THi6QWZwDMJNC88a",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.THi6QWZwDMJNC88a",
+        "exportSource": null,
+        "coreVersion": "13.346",
+        "systemId": "pf2e",
+        "systemVersion": "7.2.3",
+        "createdTime": 1752616455143,
+        "modifiedTime": 1752643108481,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+      },
+      "_id": "XpnxyGTuBqcS0i57",
+      "_key": "!actors.items!y1WKpar1MIgAN45Y.XpnxyGTuBqcS0i57"
+    },
+    {
+      "type": "action",
+      "name": "Retreat to Soil (Depart)",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "description": {
+          "value": "<p><strong>Depart</strong>(plant, wood) <em>Retreat to Soil</em> The roots retreat into the ground, dealing @Damage[6d10[piercing]] damage to each enemy in a @Template[emanation|distance:50] with a @Check[reflex|basic:true|dc:resolve(@actor.system.resources.dc.value)|name:Elemental Herald Wood Depart|traits:plant,wood]. Any creature with a penalty to Speeds from its initial save automatically takes @Damage[2d6[persistent,bleed]] damage. The ground in the emanation is difficult terrain after the roots retreat.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": [
+            "plant",
+            "wood"
+          ]
+        },
+        "_migration": {
+          "version": 0.94,
+          "previous": {
+            "schema": null,
+            "foundry": "13.346",
+            "system": "7.2.3"
+          }
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.dVqTgjsYy8F4tX18",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.dVqTgjsYy8F4tX18",
+        "exportSource": null,
+        "coreVersion": "13.346",
+        "systemId": "pf2e",
+        "systemVersion": "7.2.3",
+        "createdTime": 1752616461174,
+        "modifiedTime": 1752642844786,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+      },
+      "_id": "cElD66nUmi4oune7",
+      "_key": "!actors.items!y1WKpar1MIgAN45Y.cElD66nUmi4oune7"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "pf2e",
+    "systemVersion": "7.2.3",
+    "createdTime": 1752615576061,
+    "modifiedTime": 1752644496500,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "_id": "y1WKpar1MIgAN45Y",
+  "sort": 150000,
+  "_key": "!actors!y1WKpar1MIgAN45Y"
+}

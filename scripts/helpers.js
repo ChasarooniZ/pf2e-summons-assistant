@@ -34,3 +34,22 @@ export function onlyHasJB2AFree() {
 export function capitalizeDamageType(type) {
     return type.charAt(0).toUpperCase() + type.slice(1);
 }
+
+export function getAllDamageSlugs() {
+    return [
+        'acid', 'bludgeoning', 'cold', 'electricity', 'fire', 'force', 'mental',
+        'piercing', 'poison', 'slashing', 'sonic', 'spirit', 'untyped', 'vitality', 'void',
+        ...(game.settings.get("pf2e", "homebrew.damageTypes") ?? []).map(type => game.pf2e.system.sluggify(type.label))
+    ]
+}
+
+
+export function warnNotification(text) {
+    const localizedText = game.i18n.localize(text);
+    ui.notifications.warn(`『${game.i18n.localize('pf2e-summons-assistant.name')}』 ${localizedText}`)
+}
+
+export function errorNotification(text) {
+    const localizedText = game.i18n.localize(text);
+    ui.notifications.error(`『${game.i18n.localize('pf2e-summons-assistant.name')}』 ${localizedText}`)
+}

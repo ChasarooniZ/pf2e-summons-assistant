@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Special",
+  "color": "#569cb3",
+  "sorting": "a",
+  "_id": "mVjwgM2wn6PBRVzp",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "pf2e",
+    "systemVersion": "7.2.3",
+    "createdTime": 1752469382679,
+    "modifiedTime": 1752469382679,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "_key": "!folders!mVjwgM2wn6PBRVzp"
+}

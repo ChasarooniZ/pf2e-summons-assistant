@@ -1,6 +1,7 @@
 {
   "I18N.LANGUAGE": "English",
   "pf2e-summons-assistant": {
+    "name": "PF2e Summon's Assistant",
     "module-settings": {
       "name-ownership": {
         "name": "Add Summoner's Name to Summon's Name",
@@ -26,6 +27,14 @@
           "hint": "If enabled when a Living Graveyard is moved it will send a chat message which when clicked will cause the graveyard to spawn a thrall (as in accordance with the rules)"
         }
       },
+      "specific-case": {
+        "handle": {
+          "wooden-double": {
+            "name": "Handle Wooden Double's Damage",
+            "hint": "When a Wooden Double takes damage above its max health it will roll damage equivalent to the extra damage (this damage is typeless)"
+          }
+        }
+      },
       "filter": {
         "default": {
           "token-with-art": {
@@ -39,11 +48,25 @@
       "living-graveyard": {
         "thralls": "The Living Graveyard has moved. If this was from Sustain, Do you want to summon 3 new Thralls along its path?",
         "summon": "Summon!"
-      }
+      },
+      "wooden-double": "Wooden Double's Damage Passed to the Caster"
     },
     "notification": {
       "summoner": {
         "too-many-eidolons": "You own too many eidolons."
+      },
+      "duplicate-foe": {
+        "too-high": "The foe is too high level for this rank of Duplicate Foe"
+      }
+    },
+    "dialog": {
+      "duplicate-foe": "Did the target fail their save?",
+      "telekinetic-hand": "Do you choose to make the hand you summon invisible?"
+    },
+    "display-text": {
+      "wooden-double": {
+        "place-double": "Left Click to place your Wooden Double",
+        "step": "Choose where to Step to"
       }
     },
     "items": {
@@ -62,6 +85,13 @@
         "thrall-expiration": {
           "name": "Effect: Thrall Expiration Date",
           "description": "This measures how long till this thrall expires."
+        },
+        "duplicate-foe": {
+          "name": "Effect: Duplicate Foe",
+          "successful-save": {
+            "title": "Duplicate Foe - Successful Save",
+            "text": "Due to the successful save, targets only take half the damage of this duplicate's strikes"
+          }
         }
       }
     }

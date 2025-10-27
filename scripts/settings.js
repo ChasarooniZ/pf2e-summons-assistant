@@ -30,16 +30,6 @@ export function setupSettings() {
         type: Boolean,
     });
 
-    game.settings.register(MODULE_ID, "necromancer.handle-living-graveyard-movement", {
-        name: `${MODULE_ID}.module-settings.necromancer.handle-living-graveyard-movement.name`,
-        hint: `${MODULE_ID}.module-settings.necromancer.handle-living-graveyard-movement.hint`,
-        requiresReload: false,
-        scope: "world",
-        config: true,
-        default: true,
-        type: Boolean,
-    });
-
     game.settings.register(MODULE_ID, "house-rule.rank-upgrade", {
         name: `${MODULE_ID}.module-settings.house-rule.rank-upgrade.name`,
         hint: `${MODULE_ID}.module-settings.house-rule.rank-upgrade.hint`,
@@ -56,6 +46,28 @@ export function setupSettings() {
         scope: "world",
         config: true,
         default: false,
+        type: Boolean,
+    });
+
+
+    game.settings.register(MODULE_ID, "necromancer.handle-living-graveyard-movement", {
+        name: `${MODULE_ID}.module-settings.necromancer.handle-living-graveyard-movement.name`,
+        hint: `${MODULE_ID}.module-settings.necromancer.handle-living-graveyard-movement.hint`,
+        requiresReload: false,
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+    });
+
+
+    game.settings.register(MODULE_ID, "specific-case.handle.wooden-double", {
+        name: `${MODULE_ID}.module-settings.specific-case.handle.wooden-double.name`,
+        hint: `${MODULE_ID}.module-settings.specific-case.handle.wooden-double.hint`,
+        requiresReload: true,
+        scope: "world",
+        config: true,
+        default: true,
         type: Boolean,
     });
 

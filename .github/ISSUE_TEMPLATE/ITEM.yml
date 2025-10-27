@@ -1,0 +1,34 @@
+name: "Support for a new Item/Spell/Feat"
+description: Request support for a new feature
+title: "[Item] "
+labels: ["new-item"]
+assignees: ["chasarooniZ"]
+body:
+  - type: input
+    id: feature_link
+    attributes:
+      label: "Feature/Spell Link"
+      description: "Please provide a link to the feature you want added (Archives of Nethys etc.)"
+      placeholder: "https://2e.aonprd.com/Spells.aspx?ID=864"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Provide a detailed description of what you want it to do. Include information about automation, use cases, expected behavior, etc."
+      placeholder: "Describe the feature you'd like to see implemented..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: "Pre-submission Checklist"
+      description: "Please confirm you have completed the following:"
+      options:
+        - label: "I have verified that this feature is not already available in the module"
+          required: true
+        - label: "I have searched existing issues to ensure this request hasn't been made before"
+          required: true

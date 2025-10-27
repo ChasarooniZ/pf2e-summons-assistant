@@ -1,0 +1,23 @@
+{
+	"type": "Actor",
+	"folder": "mVjwgM2wn6PBRVzp",
+	"name": "Telekinetic Hand",
+	"color": "#33506b",
+	"sorting": "a",
+	"_id": "jMyP3FYoUcuBKz4u",
+	"description": "",
+	"sort": 0,
+	"flags": {},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null,
+		"coreVersion": "13.346",
+		"systemId": "pf2e",
+		"systemVersion": "7.3.1",
+		"createdTime": 1754506530027,
+		"modifiedTime": 1754506530027,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+	},
+	"_key": "!folders!jMyP3FYoUcuBKz4u"
+}

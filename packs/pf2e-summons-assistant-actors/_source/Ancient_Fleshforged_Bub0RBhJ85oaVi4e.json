@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "Bbkt5XGxBdx0Jgj0",
+  "name": "Ancient Fleshforged",
+  "color": "#5e1c33",
+  "sorting": "a",
+  "_id": "Bub0RBhJ85oaVi4e",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "pf2e",
+    "systemVersion": "7.2.3",
+    "createdTime": 1752646163049,
+    "modifiedTime": 1752646173025,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "_key": "!folders!Bub0RBhJ85oaVi4e"
+}

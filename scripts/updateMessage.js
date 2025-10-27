@@ -5,6 +5,75 @@ const sampleData = {
 };
 
 const updateData = {
+    '1.13.0': {
+        new: [
+            { item: "Support for the following:" },
+            {
+                children: [
+                    "`Wondrous Figurine: Jade Serpent` - Also supports the Item Activation version"
+                ]
+            },
+        ],
+        update: [
+            { item: "Added a more accurate implementation of the **Commander's** `Plant Banner` using sockets (💡 @ducke)" },
+            {
+                children: ["Specifically accurately adding the Temp HP on creation, and then at the start of a creature's turn"]
+            },
+            { item: "Updated extract/pack scripts to use @Owave's scripts" },
+            { item: "Updated french translation (@rectulo)" }, {
+                item: "Now requires `socketlib` as a dependency"
+            }
+        ],
+    },
+    '1.12.0': {
+        new: [
+            { item: "Support for the following:", feat: true },
+            {
+                children: [
+                    "Telekinetic Hand"
+                ]
+            },
+        ],
+        update: [
+            { item: "`Duplicate Foe`'s Level is now the spell rank" },
+            { item: "`Light` & `Floating Flame` now handle the actor image for users of free JB2a" },
+        ],
+    },
+    '1.11.0': {
+        new: [{ item: 'Support for `Duplicate Foe` spell' }]
+    },
+    '1.10.0': {
+        new: [
+            { item: "Support for the following:", feat: true },
+            {
+                children: [
+                    "`SF2e - Summon Robot` (🖥️ @Sasane)"
+                ]
+            },
+        ],
+        update: [
+            { item: "Fix for `Commander - Plant Banner`" },
+            { item: "Fixed `Necromancer - Summon Thrall` activating on `attack rolls` and `Damage Applied` messages" },
+            { item: "Added CLI to clear up the packs thanks to (@Vauxs)" },
+            { item: "Updated french translation (@rectulo, @Sasane)" },
+        ],
+    },
+    '1.9.0': {
+        new: [
+            { item: "Support For Commander - Plant Banner", feat: true },
+            {
+                children: [
+                    "This is only the start of automation (IE handles the base case but not other effects modifying the banner itself)",
+                    "Those may / hopefully will be handled at a later time",
+                    "Also bless @Vauxs for thinking of crosshairParams to begin with"
+                ]
+            },
+        ],
+        update: [
+            { item: "Fix for missing logic to handle `Bind Heroic Spirit` (@Loki123)" },
+            { item: "Fix for `Light` spell not properly handling higher level casts" }
+        ],
+    },
     '1.8.0': {
         new: [
             { item: "Added Support for the following" },

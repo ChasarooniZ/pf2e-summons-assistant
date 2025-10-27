@@ -1,0 +1,76 @@
+{
+  "img": "icons/sundries/flags/banner-standard-moon.webp",
+  "name": "Effect: Plant Banner",
+  "system": {
+    "description": {
+      "value": "<p>Granted by @UUID[Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1]{Plant Banner}</p>\n<p>You gain 4 temporary Hit Points, plus an additional 4 temporary Hit Points if the origin is 4th level and every 4 levels thereafter.</p>",
+      "gm": ""
+    },
+    "duration": {
+      "expiry": "turn-start",
+      "sustained": false,
+      "unit": "rounds",
+      "value": 1
+    },
+    "fromSpell": false,
+    "level": {
+      "value": 1
+    },
+    "publication": {
+      "license": "ORC",
+      "remaster": true,
+      "title": "Pathfinder Battlecry!",
+      "authors": ""
+    },
+    "rules": [
+      {
+        "events": {
+          "onCreate": true
+        },
+        "key": "TempHP",
+        "value": "4*(1 + floor(@actor.flags.pf2eSummonsAssistant.champion.plantBanner.level / 4))"
+      }
+    ],
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "value": [],
+      "otherTags": []
+    },
+    "slug": "effect-plant-banner",
+    "_migration": {
+      "version": 0.942,
+      "previous": null
+    },
+    "unidentified": false,
+    "badge": null,
+    "context": null
+  },
+  "type": "effect",
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "pf2e",
+    "systemVersion": "7.4.1",
+    "createdTime": 1755811805167,
+    "modifiedTime": 1755848395449,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "effects": [],
+  "folder": "Jgr03TNBCPio6tdA",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_id": "uxS1nDflB45y3PPl",
+  "sort": 100000,
+  "_key": "!items!uxS1nDflB45y3PPl"
+}

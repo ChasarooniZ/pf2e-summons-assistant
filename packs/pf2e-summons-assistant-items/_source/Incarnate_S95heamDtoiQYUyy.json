@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "Jgr03TNBCPio6tdA",
+  "name": "Incarnate",
+  "color": "#762d7c",
+  "sorting": "a",
+  "_id": "S95heamDtoiQYUyy",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "pf2e",
+    "systemVersion": "7.2.3",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!S95heamDtoiQYUyy"
+}

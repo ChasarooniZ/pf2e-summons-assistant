@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/fe9a9176-fda4-4fae-8b43-073618ad63d7
   - [Table of Contents](#table-of-contents)
   - [Changelog](#changelog)
   - [Handled Spells and Features](#handled-spells-and-features)
-    - [House Rules](#house-rules)
+    - [Supported House Rules](#supported-house-rules)
   - [Contributors](#contributors)
   - [Assets](#assets)
 
@@ -67,12 +67,25 @@ You can access the changelog [here](/CHANGELOG.md).
   - Misc
     - Light - Only works when not targetting anyone (Art Requires JB2a)
     - Floating Flame - Art Requires JB2a
+    - Duplicate Foe - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
+    - Telekinetic Hand - Art Requires JB2a
+    - Wooden Double - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
 - Feats
-  - Call Ursine Ally
+  - Commander
+    - Plant Banner - Basic Case (no handling of feat interactions beyond base case atm)
+  - Misc
+    - Call Ursine Ally
+- Items
+  - Wondrous Figurine
+    - Jade Serpent
 - SF2e
-  - Mechanic's Mines
+  - Spells
+    - Summon Robot
+  - Mechanic
+    - Mine
+    - Double Deploy
 
-### House Rules
+### Supported House Rules
 
 - **Summon Spells are Rank + 1**. - Treat summon spells as rank + 1 for creatures it summons
 - **Summon Spells Scale to Max Level** - This uses PF2e Workbench's Scale to level code to scale creatures summoned via traditional summoning spells (IE Summon Animals etc.) to the stats of a creature of the highest level that spell rank can summon.
@@ -86,3 +99,4 @@ You can see everyone else who contributed to the module [here](CONTRIBUTORS.md)
 - `Tempest of Shades` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Healing Servitor` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Mechanic Mines` - (credit @Sasane, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Plant Banner` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)

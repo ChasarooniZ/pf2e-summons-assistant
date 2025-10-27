@@ -1,0 +1,73 @@
+{
+  "folder": "S95heamDtoiQYUyy",
+  "name": "Effect: Aura of Redemption",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.94,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>While within 100 feet of the herald, you and your allies gain the champion's @UUID[Compendium.pf2e.actionspf2e.Item.tuZnRWHixLArvaIf]{Glimpse of Redemption} reaction</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "key": "GrantItem",
+        "uuid": "Compendium.pf2e.actionspf2e.Item.tuZnRWHixLArvaIf"
+      }
+    ],
+    "slug": "effect-aura-of-retribution",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 16
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "pf2e",
+    "systemVersion": "7.2.3",
+    "createdTime": 1752640945761,
+    "modifiedTime": 1752643071940,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "_id": "X8x21l54sK8kf6HR",
+  "sort": 200000,
+  "_key": "!items!X8x21l54sK8kf6HR"
+}

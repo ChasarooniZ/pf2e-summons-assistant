@@ -1,3 +1,136 @@
+##  Unreleased
+- Updated
+  - Updated polish translation (@lioheart)
+
+## 1.14.5
+
+- Update `Conglomerate of Limbs` UUID to use the one from the Playtest module (💻🐛 @pv42)
+
+## 1.14.4
+
+- Fixed bug causing every message to show as `Wooden Double`
+
+## 1.14.3
+
+- Actual fix this issue
+
+## 1.14.2
+
+- **Updated**
+  - Fix for summons not working
+  - Updated french translation (@rectulo)
+
+## 1.14.1
+
+- Attempted fix
+
+## 1.14.0
+
+- **New**
+  - Support for the following:
+    - `Wooden Double`
+      - 1. Click is a one to summon the double in your place
+      - 2. Choose where your token steps to
+      - Also adds a setting to support damage overflowing as its own damage message if the damage overflows the `Wooden Double`'s health
+- **Updated**
+  - Added an additional fallback for when the `sourceID` and `slug` fail, it will attempt to stringify the name to see if it matches a slug
+  - Updated french translation (@rectulo)
+
+## 1.13.0
+
+- **New**
+  - Support for the following:
+    - `Wondrous Figurine: Jade Serpent` - Also supports the Item Activation version
+- **Updated**
+  - Added a more accurate implementation of the **Commander's** `Plant Banner` using sockets (💡 @ducke)
+    - Specifically accurately adding the Temp HP on creation, and then at the start of a creature's turn
+  - Updated extract/pack scripts to use @Owave's scripts
+  - Updated french translation (@rectulo)
+  - Now requires `socketlib` as a dependency
+
+## 1.12.2
+
+- **Updated**
+  - Misc code fixes
+  - Added a fallback to slug for if the source Item UUID can't be found
+  - Updated french translation (@rectulo)
+
+## 1.12.1
+
+- **Updated**
+  - Fixed bug causing `Duplicate Foe` to fail on certain strikes (🐛 @Maple)
+  - Added a check for the level of the target for `Duplicate Foe`
+
+## 1.12.0
+
+- **New**
+  - Support for the following:
+    - `Telekinetic Hand`
+- **Updated**
+  - `Duplicate Foe`'s Level is now the spell rank
+  - `Light` & `Floating Flame` now handle the actor image for users of free JB2a
+
+## 1.11.2
+
+- **Updated**
+  - Fixed handling of NPC Strikes with `Duplicate Foe`, but actually this time
+
+## 1.11.1
+
+- **Updated**
+  - Fixed handling of NPC Strikes with `Duplicate Foe`
+
+## 1.11.0
+
+- **New**
+  - Support for `Duplicate Foe` spell
+
+## 1.10.2
+
+- Actually Fixed the `Commander - Plant Banner`
+
+## 1.10.1
+
+- Cleaned up the packages again
+
+## 1.10.0
+
+- **New**
+  - Support for the following:
+    - `SF2e - Summon Robot` (🖥️ @Sasane)
+- **Updates**
+  - Fix for `Commander - Plant Banner`
+  - Fixed `Necromancer - Summon Thrall` activating on `attack rolls` and `Damage Applied` messages
+  - Added CLI to clear up the packs thanks to (@Vauxs)
+  - Updated french translation (@rectulo, @Sasane)
+
+## 1.9.0
+
+- **New**
+  - **Support For** `Commander - Plant Banner`
+    - This is only the start of automation (IE handles the base case but not other effects modifying the banner itself)
+    - Those may / hopefully will be handled at a later time
+    - Also bless @Vauxs for thinking of crosshairParams to begin with
+- **Updates**
+  - Fix for missing logic to handle `Bind Heroic Spirit` (@Loki123)
+  - Fix for `Light` spell not properly handling higher level casts
+
+## 1.8.3
+
+- **Updates**
+  - Fixed bug causing all summons to fail (🐛 @Le Chat Lunatique)
+
+## 1.8.2
+
+- **Updates**
+  - Updated `Conglomerate of Limbs` to use the actor from `Pf2e Playtest`
+  - Fixed issue where rolls were being counted as a message the summons (@Loki123)
+
+## 1.8.1
+
+- **Updates**
+  - Fixed issue with some properties not being optionally chained causing `Manifest Eidolon` to fail
+
 ## 1.8.0
 
 - **New**

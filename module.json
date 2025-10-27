@@ -30,6 +30,11 @@
           "minimum": "2.3.3",
           "verified": "2.3.3"
         }
+      },
+      {
+        "id": "socketlib",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
       }
     ],
     "recommends": [
@@ -66,6 +71,7 @@
   "download": "#{DOWNLOAD}#",
   "license": "LICENSE",
   "readme": "README.md",
+  "socket": true,
   "packs": [
     {
       "name": "pf2e-summons-assistant-actors",
