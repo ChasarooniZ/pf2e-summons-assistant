@@ -1,3 +1,7 @@
+##  Unreleased
+- Updated
+  - Updated polish translation (@lioheart)
+
 ## 1.14.5
 
 - Update `Conglomerate of Limbs` UUID to use the one from the Playtest module (💻🐛 @pv42)
