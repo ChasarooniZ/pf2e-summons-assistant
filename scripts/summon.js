@@ -14,6 +14,7 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
     const requiredTraits = summonDetails?.traits || [];
     const allowedSpecificUuids = summonDetails?.specific_uuids || [];
     const actorModifications = summonDetails?.modifications || {};
+    const summonerCustomizationFlags = summonerActor?.getFlag(MODULE_ID, "customization")
     const itemsToAdd = summonDetails?.itemsToAdd || [];
     const isCharacter = summonDetails?.isCharacter;
     const crosshairParameters = summonDetails?.crosshairParameters || {};
@@ -100,7 +101,8 @@ export async function summon(summonerActor, itemUuid, summonType, summonDetailsG
       'system.details.alliance': summonerAlliance,
       'system.traits.value': [...selectedActor.system.traits.value, ...additionalTraits],
       ...houseRuleUpdates,
-      ...actorModifications
+      ...actorModifications,
+      ...(summonerCustomizationFlags?.[itemUuid]?.[selectedActorUuid] ?? summonerCustomizationFlags?.[itemUuid] ?? {})
     };
 
     if (game.settings.get(MODULE_ID, "name-ownership")) {

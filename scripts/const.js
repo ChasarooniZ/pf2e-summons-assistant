@@ -1,3 +1,5 @@
+import { getAllStringProperties } from "./helpers.js";
+
 export const MODULE_ID = 'pf2e-summons-assistant';
 
 export const SOURCES = {
@@ -65,6 +67,8 @@ export const SOURCES = {
     MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp"
   }
 };
+
+export const SOURCE_SET = getAllStringProperties(SOURCES);
 
 export const SLUG_TO_SOURCE = {
   "call-fluxwraith": SOURCES.CALL_FLUXWRAITH,

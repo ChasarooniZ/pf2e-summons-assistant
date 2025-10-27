@@ -1,0 +1,49 @@
+<div>
+  <h4>
+    {{localize "pf2e-summons-assistant.dialog.customize.header"}}
+  </h4>
+  <div>
+    {{#each source}}
+      <div class="customization">
+        <div class="quick-buttons">
+          <button
+            action="name"
+            data-toolip="{{
+              localize
+              "pf2e-summons-assistant.dialog.customize.buttons.helper.name.hint"
+            }}"
+          >
+            {{localize
+              "pf2e-summons-assistant.dialog.customize.buttons.helper.name.title"
+            }}
+          </button>
+          <button
+            action="token"
+            data-toolip="{{
+              localize
+              "pf2e-summons-assistant.dialog.customize.buttons.helper.token.hint"
+            }}"
+          >
+            {{localize
+              "pf2e-summons-assistant.dialog.customize.buttons.helper.token.title"
+            }}
+          </button>
+          <button
+            action="subject"
+            data-toolip="{{
+              localize
+              "pf2e-summons-assistant.dialog.customize.buttons.helper.subject.hint"
+            }}"
+          >
+            {{localize
+              "pf2e-summons-assistant.dialog.customize.buttons.helper.subject.title"
+            }}
+          </button>
+        </div>
+        <div class="data">
+            
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

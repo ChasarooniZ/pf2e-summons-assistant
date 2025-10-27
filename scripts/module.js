@@ -1,5 +1,5 @@
-import { MODULE_ID, SLUG_TO_SOURCE, SOURCES } from "./const.js";
-import { messageItemHasRollOption } from "./helpers.js";
+import { MODULE_ID, SOURCES } from "./const.js";
+import { getSourceID, messageItemHasRollOption } from "./helpers.js";
 import { extractDCValueRegex, isIncarnate } from "./specificCases/incarnate.js";
 import { isMechanic, setMechanicRelevantInfo } from "./specificClasses/mechanic.js";
 import { isSummoner, setSummonerRelevantInfo } from "./specificClasses/summoner.js";
@@ -40,7 +40,7 @@ Hooks.once("ready", async function () {
       : chatMessage?.item?.sourceId;
 
     if (!itemUuid) {
-      itemUuid = itemUuid || SLUG_TO_SOURCE[chatMessage?.item?.slug || game.pf2e.system.sluggify(chatMessage?.item?.name || "")];
+      itemUuid = getSourceID(chatMessage?.item, itemUuid);
       if (!itemUuid) return;
     }
 
@@ -68,8 +68,8 @@ Hooks.once("ready", async function () {
         game?.user?.targets?.first()?.document?.uuid
     } else if (itemUuid = SOURCES.MISC.WOODEN_DOUBLE) {
       const token = canvas.tokens.get(chatMessage.speaker.token)
-      spellRelevantInfo.tokenWidth = token ?token.document.width : 1;
-      spellRelevantInfo.tokenHeight = token ?token.document.height : 1;
+      spellRelevantInfo.tokenWidth = token ? token.document.width : 1;
+      spellRelevantInfo.tokenHeight = token ? token.document.height : 1;
       spellRelevantInfo.position = token ? token.center : null;
     }
 

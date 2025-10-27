@@ -61,7 +61,26 @@
     },
     "dialog": {
       "duplicate-foe": "Did the target fail their save?",
-      "telekinetic-hand": "Do you choose to make the hand you summon invisible?"
+      "telekinetic-hand": "Do you choose to make the hand you summon invisible?",
+      "customize": {
+        "header": "Customize PF2e Summons",
+        "buttons": {
+          "helper": {
+            "name": {
+              "title": "Name",
+              "hint": "Quickly add the config to change the name"
+            },
+            "token": {
+              "title": "Token",
+              "hint": "Quickly add the config to change the base token"
+            },
+            "subject": {
+              "title": "Dynamic Token",
+              "hint": "Quickly add the config to change the Dynamic Token Subject"
+            }
+          }
+        }
+      }
     },
     "display-text": {
       "wooden-double": {
@@ -92,6 +111,14 @@
             "title": "Duplicate Foe - Successful Save",
             "text": "Due to the successful save, targets only take half the damage of this duplicate's strikes"
           }
+        }
+      }
+    },
+    "header": {
+      "buttons": {
+        "customize": {
+          "actor": "Customize Summon Data",
+          "item": "Customize Summon Data (For this Item)"
         }
       }
     }

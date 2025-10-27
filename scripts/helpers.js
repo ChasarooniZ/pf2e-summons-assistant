@@ -50,3 +50,29 @@ export function errorNotification(text) {
     const localizedText = game.i18n.localize(text);
     ui.notifications.error(`『${game.i18n.localize('pf2e-summons-assistant.name')}』 ${localizedText}`)
 }
+
+export function getSourceID(item, itemUUID = "") {
+    if (!itemUuid) {
+        return itemUuid || SLUG_TO_SOURCE[item?.slug || game.pf2e.system.sluggify(item?.name || "")];
+    }
+    return itemUUID
+}
+
+export function getAllStringProperties(obj) {
+    const strings = new Set();
+    const stack = [obj];
+
+    while (stack.length > 0) {
+        const current = stack.pop();
+
+        if (typeof current === 'string') {
+            strings.add(current);
+        } else if (typeof current === 'object' && current !== null) {
+            for (const key in current) {
+                stack.push(current[key]);
+            }
+        }
+    }
+
+    return strings;
+}
