@@ -1,5 +1,8 @@
 import { MODULE_ID, SLUG_TO_SOURCE, SOURCES } from "./const.js";
-import { messageItemHasRollOption, setupSummonedTokenRefreshHooks } from "./helpers.js";
+import {
+  messageItemHasRollOption,
+  setupSummonedTokenRefreshHooks,
+} from "./helpers.js";
 import { extractDCValueRegex, isIncarnate } from "./specificCases/incarnate.js";
 import {
   isMechanic,
@@ -36,7 +39,11 @@ Hooks.once("setup", function () {
 Hooks.once("ready", async function () {
   handleUpdateMessage();
   setupSpecificHooks();
-  setupSummonedTokenRefreshHooks();
+
+  if (game.settings.get(MODULE_ID, "refresh.summons")) {
+    setupSummonedTokenRefreshHooks();
+  }
+
   Hooks.on("createChatMessage", async (chatMessage, _info, userID) => {
     if (userID !== game.user.id) return;
 

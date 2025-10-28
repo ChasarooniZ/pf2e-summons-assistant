@@ -59,7 +59,7 @@ const SPIRIT_MONGER_DAMAGE_TYPES = ["spirit", "void"];
 export function setNecromancerHooks() {
   Hooks.on("preUpdateToken", livingGraveyardMovementHook);
 
-  if (game.settings.get(MODULE_ID, "necromancer.auto-delete.thrall")) {
+  if (game.settings.get(MODULE_ID, "necromancer.thrall.auto-expire")) {
     setupAutoDeleteThrallHook();
   }
 }
