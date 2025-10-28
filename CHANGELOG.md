@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 1.15.1
+
+- **Updated**
+  - Updated polish translation (🌐 @lioheart)
+  - Updated french translation (🌐 @rectulo)
+
 ## 1.15.0
 
 - **New**
