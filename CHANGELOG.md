@@ -10,7 +10,6 @@
     - Added a new setting that when enabled will cause Necromancer's Thralls to be deleted when their expiration date effect is removed (either naturally or manually)
   - `Refresh Summons`
     - In correlation with the other features added a new setting which when enabled will cause conditions that manipulate the actor's Spell DC (IE frightened, sickened, stupefied) to refresh their summons and thus updating any DCs/Attacks on them (**Note.** this does **not** catch all cases so eye any DCs/Attacks on Summons that are based off the Summoner with caution to confirm it is being handled properly)
-
 - **Updated**
   - Updated polish translation (@lioheart)
 
