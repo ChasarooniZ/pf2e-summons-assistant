@@ -211,7 +211,7 @@ export function getStrikeMod(slugs) {
     return {
         "key": "FlatModifier",
         "selector": "attack",
-        "value": "@item.origin.system.attributes.spellDC.value - 9",
+        "value": "@item.origin.system.attributes.spellDC.value - 11",
         "predicate": [{
             "or": slugs.map(slug => `item:slug:${slug}`)
         }],
