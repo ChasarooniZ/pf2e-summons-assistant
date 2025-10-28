@@ -27,6 +27,7 @@ https://github.com/user-attachments/assets/fe9a9176-fda4-4fae-8b43-073618ad63d7
   - [Changelog](#changelog)
   - [Handled Spells and Features](#handled-spells-and-features)
     - [Supported House Rules](#supported-house-rules)
+    - [Other Settings/Support](#other-settingssupport)
   - [Contributors](#contributors)
   - [Assets](#assets)
 
@@ -89,6 +90,11 @@ You can access the changelog [here](/CHANGELOG.md).
 
 - **Summon Spells are Rank + 1**. - Treat summon spells as rank + 1 for creatures it summons
 - **Summon Spells Scale to Max Level** - This uses PF2e Workbench's Scale to level code to scale creatures summoned via traditional summoning spells (IE Summon Animals etc.) to the stats of a creature of the highest level that spell rank can summon.
+
+### Other Settings/Support
+
+- `Thrall Expiration Date` - Setting to have thralls auto expire (delete themselves when their effect is removed)
+- `Refresh Summons` - setting which when enabled will cause conditions that manipulate the actor's Spell DC (IE frightened, sickened, stupefied) to refresh their summons and thus updating any DCs/Attacks on them
 
 ## Contributors
 
