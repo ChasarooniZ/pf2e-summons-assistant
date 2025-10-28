@@ -1,6 +1,6 @@
 import { createThrallAttackInfo } from "./specificClasses/necromancer.js";
 
-export const MODULE_ID = 'pf2e-summons-assistant';
+export const MODULE_ID = "pf2e-summons-assistant";
 
 export const SOURCES = {
   SUMMON: {
@@ -18,7 +18,7 @@ export const SOURCES = {
     SUMMON_GIANT: "Compendium.pf2e.spells-srd.Item.e9UJoVYUd5kJWUpi",
     SUMMON_MONITOR: "Compendium.pf2e.spells-srd.Item.ZbEHglw5tkJ3grQZ",
     SUMMON_ROBOT: "Compendium.sf2e-anachronism.spells.Item.KlJEDmAOk1ztdNFf",
-    PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk"
+    PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
   },
   INCARNATE: {
     TEMPEST_OF_SHADES: "Compendium.pf2e.spells-srd.Item.JLdbyGKhjwAAoRLs",
@@ -28,7 +28,7 @@ export const SOURCES = {
   },
 
   WONDROUS_FIGURINE: {
-    JADE_SERPENT: "Compendium.pf2e.equipment-srd.Item.RjJw7iHantxqeJu1"
+    JADE_SERPENT: "Compendium.pf2e.equipment-srd.Item.RjJw7iHantxqeJu1",
   },
 
   MISC: {
@@ -37,35 +37,45 @@ export const SOURCES = {
     FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
     CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
-    WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed"
+    WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed",
   },
 
   NECROMANCER: {
-    CREATE_THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.77lglowVpcnRRh3g",
-    PERFECTED_THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.kFkhtDYsR9fE0pAr",
-    SKELETAL_LANCERS: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.qtgps2eYcmWueed1",
-    LIVING_GRAVEYARD: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.SK8vQklaSQGd5DXw",
-    RECURRING_NIGHTMARE: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.ZVQziQ2l2vdZ5Wfr",
-    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.OOmk0XI3lzhn42JT",
+    CREATE_THRALL:
+      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.77lglowVpcnRRh3g",
+    PERFECTED_THRALL:
+      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.kFkhtDYsR9fE0pAr",
+    SKELETAL_LANCERS:
+      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.qtgps2eYcmWueed1",
+    LIVING_GRAVEYARD:
+      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.SK8vQklaSQGd5DXw",
+    RECURRING_NIGHTMARE:
+      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.ZVQziQ2l2vdZ5Wfr",
+    CONGLOMERATE_OF_LIMBS:
+      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.OOmk0XI3lzhn42JT",
 
-    INEVITABLE_RETURN: "Compendium.pf2e-playtest-data.impossible-playtest-actions.Item.jyhYP51XI09DFSqy",
+    INEVITABLE_RETURN:
+      "Compendium.pf2e-playtest-data.impossible-playtest-actions.Item.jyhYP51XI09DFSqy",
 
     // Does not need slug, special case
-    BIND_HEROIC_SPIRIT_STRIKE: "Compendium.pf2e-playtest-data.impossible-playtest-effects.Item.MTYxqIqJVzza1Lro"
+    BIND_HEROIC_SPIRIT_STRIKE:
+      "Compendium.pf2e-playtest-data.impossible-playtest-effects.Item.MTYxqIqJVzza1Lro",
   },
 
   COMMANDER: {
-    PLANT_BANNER: "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1"
+    PLANT_BANNER: "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1",
   },
 
   MECHANIC: {
-    DEPLOY_MINE: "Compendium.starfinder-field-test-for-pf2e.actions.Item.ccVcznj9KVYHLVaY",
-    DOUBLE_DEPLOYMENT: "Compendium.starfinder-field-test-for-pf2e.feats.Item.x5rhl6ThqqjHGglD"
+    DEPLOY_MINE:
+      "Compendium.starfinder-field-test-for-pf2e.actions.Item.ccVcznj9KVYHLVaY",
+    DOUBLE_DEPLOYMENT:
+      "Compendium.starfinder-field-test-for-pf2e.feats.Item.x5rhl6ThqqjHGglD",
   },
 
   SUMMONER: {
-    MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp"
-  }
+    MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp",
+  },
 };
 
 export const SLUG_TO_SOURCE = {
@@ -78,7 +88,7 @@ export const SLUG_TO_SOURCE = {
   "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
   "floating-flame": SOURCES.MISC.FLOATING_FLAME,
   "inevitable-return": SOURCES.NECROMANCER.INEVITABLE_RETURN,
-  "light": SOURCES.MISC.LIGHT,
+  light: SOURCES.MISC.LIGHT,
   "living-graveyard": SOURCES.NECROMANCER.LIVING_GRAVEYARD,
   "manifest-eidolon": SOURCES.SUMMONER.MANIFEST_EIDOLON,
   "perfected-thrall": SOURCES.NECROMANCER.PERFECTED_THRALL,
@@ -105,47 +115,65 @@ export const SLUG_TO_SOURCE = {
   "telekinetic-hand": SOURCES.MISC.TELEKINETIC_HAND,
   "tempest-of-shades": SOURCES.INCARNATE.TEMPEST_OF_SHADES,
   "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
-  "activation-wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
-  "wooden-double": SOURCES.MISC.WOODEN_DOUBLE
-}
+  "activation-wondrous-figurine-jade-serpent":
+    SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
+  "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
+};
 
 export const CREATURES = {
-  PHANTASMAL_MINION: "Compendium.pf2e.pathfinder-bestiary.Actor.j7NNPfZwD19BwSEZ",
+  PHANTASMAL_MINION:
+    "Compendium.pf2e.pathfinder-bestiary.Actor.j7NNPfZwD19BwSEZ",
   LIGHT: {
     BLUE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.REPqt5wULBcqIM97",
-    DARK_BLUE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.5nY61gR66kynnp5q",
-    GREEN: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.oESGKDON1Fi3dETS",
-    WHITE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.pRL4h1K1hHBkEbIE",
-    YELLOW: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.wth1JZ22hGEusEC5"
+    DARK_BLUE:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.5nY61gR66kynnp5q",
+    GREEN:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.oESGKDON1Fi3dETS",
+    WHITE:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.pRL4h1K1hHBkEbIE",
+    YELLOW:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.wth1JZ22hGEusEC5",
   },
-  FLOATING_FLAME: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HOq9yGxQLhhZcEAP",
-  TELEKINETIC_HAND: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.llXyX6eS8UHGqpnn",
+  FLOATING_FLAME:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HOq9yGxQLhhZcEAP",
+  TELEKINETIC_HAND:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.llXyX6eS8UHGqpnn",
 
-  DUPLICATE_FOE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.03gFpid5kBiI3vXS",
+  DUPLICATE_FOE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.03gFpid5kBiI3vXS",
 
-  WOODEN_DOUBLE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
+  WOODEN_DOUBLE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
 
-  HEALING_SERVITOR: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gqrW5aGfnjqNse2T",
-  TEMPEST_OF_SHADES: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.EwmHOiQTdCEmBKfA",
+  HEALING_SERVITOR:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gqrW5aGfnjqNse2T",
+  TEMPEST_OF_SHADES:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.EwmHOiQTdCEmBKfA",
   ELEMENTAL_HERALD: {
     AIR: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW",
-    EARTH: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.9UfzRa3RWxk0CiJU",
+    EARTH:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.9UfzRa3RWxk0CiJU",
     FIRE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.RYXePI8AGXkOIOm0",
-    METAL: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.etj1RoPaZdXWsiDL",
-    WATER: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.5pPl44PJyTu14aZM",
+    METAL:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.etj1RoPaZdXWsiDL",
+    WATER:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.5pPl44PJyTu14aZM",
     WOOD: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.y1WKpar1MIgAN45Y",
   },
-  FLUXWRAITH: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.3wO8dqpYCdGhIUla",
+  FLUXWRAITH:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.3wO8dqpYCdGhIUla",
 
   BLACK_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.xxP5FJotshmUQNtY",
-  GRIZZLY_BEAR: "Compendium.pf2e.pathfinder-monster-core.Actor.6K4RWus85o8iqy0t",
+  GRIZZLY_BEAR:
+    "Compendium.pf2e.pathfinder-monster-core.Actor.6K4RWus85o8iqy0t",
   POLAR_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.UqFObUjgFAlWrriA",
   CAVE_BEAR: "Compendium.pf2e.pathfinder-monster-core.Actor.AZIG0COCaDBronJa",
 
   GIANT_VIPER: "Compendium.pf2e.pathfinder-monster-core.Actor.AJ5LuNMVPLCydryP",
 
   COMMANDER: {
-    PLANTED_BANNER: 'Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW'
+    PLANTED_BANNER:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
   },
 
   MECHANIC: {
@@ -153,192 +181,236 @@ export const CREATURES = {
   },
 
   NECROMANCER: {
-    THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.ISmLeI8zNc6YWysQ",
-    PERFECTED_THRALL: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.SX5QACMD5SvH9oeZ",
-    SKELETAL_LANCERS: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.d1333zUKqydfJM9b",
-    LIVING_GRAVEYARD: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.CN6TMEeEd0Wmvkct",
-    RECURRING_NIGHTMARE: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.uu7VA9eIwi1tUZVs",
-    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.Xuy2zf3qpsmm8wbb"
+    THRALL:
+      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.ISmLeI8zNc6YWysQ",
+    PERFECTED_THRALL:
+      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.SX5QACMD5SvH9oeZ",
+    SKELETAL_LANCERS:
+      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.d1333zUKqydfJM9b",
+    LIVING_GRAVEYARD:
+      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.CN6TMEeEd0Wmvkct",
+    RECURRING_NIGHTMARE:
+      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.uu7VA9eIwi1tUZVs",
+    CONGLOMERATE_OF_LIMBS:
+      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.Xuy2zf3qpsmm8wbb",
   },
-}
+};
 
 export const FEATS = {
   MECHANIC: {
-    CRITICAL_EXPLOSION: "Compendium.starfinder-field-test-for-pf2e.feats.Item.zsXV8mcHVZqx6FVj"
-  }
-}
+    CRITICAL_EXPLOSION:
+      "Compendium.starfinder-field-test-for-pf2e.feats.Item.zsXV8mcHVZqx6FVj",
+  },
+};
 
 export const SUMMON_LEVELS_BY_RANK = {
-  1: -1, 2: 1, 3: 2, 4: 3, 5: 5, 6: 7, 7: 9, 8: 11, 9: 13, 10: 15
+  1: -1,
+  2: 1,
+  3: 2,
+  4: 3,
+  5: 5,
+  6: 7,
+  7: 9,
+  8: 11,
+  9: 13,
+  10: 15,
 };
 
 export const ALT_ART = {
   JB2A_FREE: {
     LIGHT: {
-      TOKEN: "modules/JB2A_DnD5e/Library/Generic/Marker/MarkerLightOrbLoop_01_Regular_Blue_400x400.webm",
-      ACTOR: "modules/JB2A_DnD5e/Library/Generic/Marker/MarkerLightOrbLoop_01_Regular_Blue_Thumb.webp"
+      TOKEN:
+        "modules/JB2A_DnD5e/Library/Generic/Marker/MarkerLightOrbLoop_01_Regular_Blue_400x400.webm",
+      ACTOR:
+        "modules/JB2A_DnD5e/Library/Generic/Marker/MarkerLightOrbLoop_01_Regular_Blue_Thumb.webp",
     },
     FLOATING_FLAME: {
-      TOKEN: "modules/JB2A_DnD5e/Library/2nd_Level/Flaming_Sphere/FlamingSphere_02_Orange_400x400.webm",
-      ACTOR: "modules/JB2A_DnD5e/Library/2nd_Level/Flaming_Sphere/FlamingSphere_02_Orange_Thumb.webp"
+      TOKEN:
+        "modules/JB2A_DnD5e/Library/2nd_Level/Flaming_Sphere/FlamingSphere_02_Orange_400x400.webm",
+      ACTOR:
+        "modules/JB2A_DnD5e/Library/2nd_Level/Flaming_Sphere/FlamingSphere_02_Orange_Thumb.webp",
     },
     TELEKINETIC_HAND: {
-      TOKEN: "modules/JB2A_DnD5e/Library/5th_Level/Arcane_Hand/ArcaneHand_Human_01_Idle_Blue_400x400.webm",
-      ACTOR: "modules/JB2A_DnD5e/Library/5th_Level/Arcane_Hand/ArcaneHand_Human_01_Idle_Blue_Thumb.webp"
-    }
-  }
-}
-
+      TOKEN:
+        "modules/JB2A_DnD5e/Library/5th_Level/Arcane_Hand/ArcaneHand_Human_01_Idle_Blue_400x400.webm",
+      ACTOR:
+        "modules/JB2A_DnD5e/Library/5th_Level/Arcane_Hand/ArcaneHand_Human_01_Idle_Blue_Thumb.webp",
+    },
+  },
+};
 
 export const EFFECTS = {
   NECROMANCER: {
     THRALL_EXPIRATION: (duration, config = {}) => ({
-      "name": game.i18n.localize("pf2e-summons-assistant.items.effects.thrall-expiration.name"),
-      "type": "effect",
-      "system": {
-        "description": {
-          "value": `<p>${game.i18n.localize("pf2e-summons-assistant.items.effects.thrall-expiration.description")}</p>`,
-          "gm": ""
+      name: game.i18n.localize(
+        "pf2e-summons-assistant.items.effects.thrall-expiration.name"
+      ),
+      type: "effect",
+      system: {
+        description: {
+          value: `<p>${game.i18n.localize("pf2e-summons-assistant.items.effects.thrall-expiration.description")}</p>`,
+          gm: "",
         },
-        "publication": {
-          "title": "PF2e Summons Assistant",
-          "authors": "",
-          "license": "OGL",
-          "remaster": true
+        publication: {
+          title: "PF2e Summons Assistant",
+          authors: "",
+          license: "OGL",
+          remaster: true,
         },
-        "level": {
-          "value": 1
+        level: {
+          value: 1,
         },
-        "duration": {
-          "value": duration?.value ?? 1,
-          "unit": duration?.unit ?? "minutes",
-          "expiry": "turn-start",
+        duration: {
+          value: duration?.value ?? 1,
+          unit: duration?.unit ?? "minutes",
+          expiry: "turn-start",
         },
         rules: createThrallAttackInfo(config),
-        "tokenIcon": {
-          "show": true
+        tokenIcon: {
+          show: true,
         },
-        "slug": "effect-thrall-expiration-date"
+        slug: "effect-thrall-expiration-date",
       },
-      "img": "icons/magic/death/grave-tombstone-glow-teal.webp",
+      img: "icons/magic/death/grave-tombstone-glow-teal.webp",
     }),
   },
   COMMANDER: {
-    IN_PLANT_BANNER_RANGE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.vnFV2b3aYdvGeVkM",
-    PLANT_BANNER: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.uxS1nDflB45y3PPl"
+    IN_PLANT_BANNER_RANGE:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.vnFV2b3aYdvGeVkM",
+    PLANT_BANNER:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.uxS1nDflB45y3PPl",
   },
   SUMMON_OWNER: (imagePath) => ({
-    "name": game.i18n.localize("pf2e-summons-assistant.items.effects.summon's-owner.name"),
-    "type": "effect",
-    "system": {
-      "description": {
-        "value": "",
-        "gm": ""
+    name: game.i18n.localize(
+      "pf2e-summons-assistant.items.effects.summon's-owner.name"
+    ),
+    type: "effect",
+    system: {
+      description: {
+        value: "",
+        gm: "",
       },
-      "publication": {
-        "title": "PF2e Summons Assistant",
-        "authors": "",
-        "license": "OGL",
-        "remaster": true
+      publication: {
+        title: "PF2e Summons Assistant",
+        authors: "",
+        license: "OGL",
+        remaster: true,
       },
-      "level": {
-        "value": 1
+      level: {
+        value: 1,
       },
-      "duration": {
-        "value": -1,
-        "unit": "unlimited",
-        "expiry": null,
-        "sustained": false
+      duration: {
+        value: -1,
+        unit: "unlimited",
+        expiry: null,
+        sustained: false,
       },
-      "tokenIcon": {
-        "show": true
+      tokenIcon: {
+        show: true,
       },
-      "slug": "effect-summons-owner"
+      slug: "effect-summons-owner",
     },
-    "img": imagePath,
+    img: imagePath,
   }),
   DUPLICATE_FOE: (isFail) => ({
-    "name": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.name"),
-    "type": "effect",
-    "system": {
-      "description": {
-        "value": "<p>Granted by @UUID[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]</p><p>@Embed[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]</p>",
-        "gm": ""
+    name: game.i18n.localize(
+      "pf2e-summons-assistant.items.effects.duplicate-foe.name"
+    ),
+    type: "effect",
+    system: {
+      description: {
+        value:
+          "<p>Granted by @UUID[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]</p><p>@Embed[Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6]</p>",
+        gm: "",
       },
-      "publication": {
-        "title": "PF2e Summons Assistant",
-        "authors": "",
-        "license": "OGL",
-        "remaster": true
+      publication: {
+        title: "PF2e Summons Assistant",
+        authors: "",
+        license: "OGL",
+        remaster: true,
       },
-      "level": {
-        "value": 1
+      level: {
+        value: 1,
       },
-      "duration": {
-        "value": isFail ? 1 : 2,
-        "unit": isFail ? "minutes" : "rounds",
-        "expiry": null,
-        "sustained": true
+      duration: {
+        value: isFail ? 1 : 2,
+        unit: isFail ? "minutes" : "rounds",
+        expiry: null,
+        sustained: true,
       },
-      "tokenIcon": {
-        "show": true
+      tokenIcon: {
+        show: true,
       },
-      "rules": [
+      rules: [
         {
-          "key": "TokenImage",
-          "value": "{actor|prototypeToken.texture.src}",
-          "tint": "#fea9a9",
+          key: "TokenImage",
+          value: "{actor|prototypeToken.texture.src}",
+          tint: "#fea9a9",
         },
-        ...(isFail ? [] :
-          [{
-            "key": "Note",
-            "title": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.title"),
-            "selector": "strike-damage",
-            "text": game.i18n.localize("pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.text")
-          }]
-        )
+        ...(isFail
+          ? []
+          : [
+              {
+                key: "Note",
+                title: game.i18n.localize(
+                  "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.title"
+                ),
+                selector: "strike-damage",
+                text: game.i18n.localize(
+                  "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.text"
+                ),
+              },
+            ]),
       ],
-      "slug": "effect-duplicate-foe"
+      slug: "effect-duplicate-foe",
     },
-    "img": "systems/pf2e/icons/spells/duplicate-foe.webp",
+    img: "systems/pf2e/icons/spells/duplicate-foe.webp",
   }),
   CONDITIONS: {
-    INVISIBLE: 'Compendium.pf2e.conditionitems.Item.zJxUflt9np0q4yML'
-  }
-}
-
+    INVISIBLE: "Compendium.pf2e.conditionitems.Item.zJxUflt9np0q4yML",
+  },
+};
+flags["pf2e-summons-assistant"].summoner.uuid;
 export const ACTIONS = {
   MECHANIC: {
     CRITICAL_EXPLOSION: () => ({
-      "name": game.i18n.localize("pf2e-summons-assistant.items.actions.mechanic.critical-explosion.name"),
-      "type": "action",
-      "system": {
-        "actionType": {
-          "value": "passive"
+      name: game.i18n.localize(
+        "pf2e-summons-assistant.items.actions.mechanic.critical-explosion.name"
+      ),
+      type: "action",
+      system: {
+        actionType: {
+          value: "passive",
         },
-        "description": {
-          "value": `<p>${game.i18n.localize("pf2e-summons-assistant.items.actions.mechanic.critical-explosion.description")}</p>`,
-          "gm": ""
+        description: {
+          value: `<p>${game.i18n.localize("pf2e-summons-assistant.items.actions.mechanic.critical-explosion.description")}</p>`,
+          gm: "",
         },
-        "publication": {
-          "title": "PF2e Summons Assistant",
-          "authors": "",
-          "license": "OGL",
-          "remaster": true
+        publication: {
+          title: "PF2e Summons Assistant",
+          authors: "",
+          license: "OGL",
+          remaster: true,
         },
-        "rules": [{ "key": "RollOption", "option": "critical-explosion" }],
-        "actions": {
-          "value": 1
+        rules: [{ key: "RollOption", option: "critical-explosion" }],
+        actions: {
+          value: 1,
         },
-        "category": null
+        category: null,
       },
-      "img": "systems/pf2e/icons/actions/Passive.webp",
-    })
-  }
-}
+      img: "systems/pf2e/icons/actions/Passive.webp",
+    }),
+  },
+};
 
 export const ROLL_OPTION = {
   COMMANDER: {
-    IN_PLANT_BANNER_RANGE: "self:effect:in-plant-banner-range"
-  }
-}
+    IN_PLANT_BANNER_RANGE: "self:effect:in-plant-banner-range",
+  },
+};
+
+export const CONDITIONS_AFFECTING_SPELL_DC = new Set([
+  "frightened",
+  "sickened",
+  "stupefied",
+]);

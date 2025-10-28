@@ -1,32 +1,42 @@
 import { MODULE_ID, SLUG_TO_SOURCE, SOURCES } from "./const.js";
-import { messageItemHasRollOption } from "./helpers.js";
+import { messageItemHasRollOption, setupSummonedTokenRefreshHooks } from "./helpers.js";
 import { extractDCValueRegex, isIncarnate } from "./specificCases/incarnate.js";
-import { isMechanic, setMechanicRelevantInfo } from "./specificClasses/mechanic.js";
-import { isSummoner, setSummonerRelevantInfo } from "./specificClasses/summoner.js";
+import {
+  isMechanic,
+  setMechanicRelevantInfo,
+} from "./specificClasses/mechanic.js";
+import {
+  isSummoner,
+  setSummonerRelevantInfo,
+} from "./specificClasses/summoner.js";
 import { setupSettings } from "./settings.js";
 import { getSpecificSummonDetails } from "./specificSummons.js";
 import { handleUpdateMessage } from "./updateMessage.js";
 import { summon, getTraditionalSummonerSpellDetails } from "./summon.js";
-import { isBindHeroicSpiritHit, setNecromancerHooks } from "./specificClasses/necromancer.js";
+import {
+  isBindHeroicSpiritHit,
+  setNecromancerHooks,
+} from "./specificClasses/necromancer.js";
 import { setupCommanderHooks } from "./specificClasses/commander.js";
 import { setupSocket } from "./lib/socket.js";
 import { setupWoodDoubleHooks } from "./specificCases/woodenDouble.js";
 
 Hooks.once("init", async function () {
-  loadTemplates([
-    `modules/${MODULE_ID}/templates/updateMessage.hbs`,
-  ])
+  loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
   setupSettings();
 });
 
 Hooks.once("setup", function () {
   if (!setupSocket())
-    console.error("Error: Unable to set up socket lib for PF2e Summons Assistant");
+    console.error(
+      "Error: Unable to set up socket lib for PF2e Summons Assistant"
+    );
 });
 
 Hooks.once("ready", async function () {
   handleUpdateMessage();
   setupSpecificHooks();
+  setupSummonedTokenRefreshHooks();
   Hooks.on("createChatMessage", async (chatMessage, _info, userID) => {
     if (userID !== game.user.id) return;
 
@@ -40,7 +50,12 @@ Hooks.once("ready", async function () {
       : chatMessage?.item?.sourceId;
 
     if (!itemUuid) {
-      itemUuid = itemUuid || SLUG_TO_SOURCE[chatMessage?.item?.slug || game.pf2e.system.sluggify(chatMessage?.item?.name || "")];
+      itemUuid =
+        itemUuid ||
+        SLUG_TO_SOURCE[
+          chatMessage?.item?.slug ||
+            game.pf2e.system.sluggify(chatMessage?.item?.name || "")
+        ];
       if (!itemUuid) return;
     }
 
@@ -54,10 +69,13 @@ Hooks.once("ready", async function () {
     const spellRelevantInfo = {
       rank: spellRank,
       summonerLevel: summonerActor.level,
-      summonerRollOptions: Object.keys(summonerActor?.flags?.pf2e?.rollOptions?.all)
-    }
+      summonerRollOptions: Object.keys(
+        summonerActor?.flags?.pf2e?.rollOptions?.all
+      ),
+    };
     //Grab DC for Incarnate spells
-    if (isIncarnate(chatMessage)) spellRelevantInfo.dc = extractDCValueRegex(chatMessage.content) ?? 0;
+    if (isIncarnate(chatMessage))
+      spellRelevantInfo.dc = extractDCValueRegex(chatMessage.content) ?? 0;
     if (isMechanic(chatMessage)) {
       setMechanicRelevantInfo(summonerActor, spellRelevantInfo);
     }
@@ -69,28 +87,34 @@ Hooks.once("ready", async function () {
     } else if (itemUuid === SOURCES.MISC.DUPLICATE_FOE) {
       spellRelevantInfo.targetTokenUUID =
         chatMessage?.flags["pf2e-toolbelt"]?.targetHelper?.targets?.[0] ??
-        game?.user?.targets?.first()?.document?.uuid
+        game?.user?.targets?.first()?.document?.uuid;
     } else if (itemUuid === SOURCES.MISC.WOODEN_DOUBLE) {
-      const token = canvas.tokens.get(chatMessage.speaker.token)
-      spellRelevantInfo.tokenWidth = token ?token.document.width : 1;
-      spellRelevantInfo.tokenHeight = token ?token.document.height : 1;
+      const token = canvas.tokens.get(chatMessage.speaker.token);
+      spellRelevantInfo.tokenWidth = token ? token.document.width : 1;
+      spellRelevantInfo.tokenHeight = token ? token.document.height : 1;
       spellRelevantInfo.position = token ? token.center : null;
     }
 
-    let summonDetailsGroup = await getSpecificSummonDetails(itemUuid, spellRelevantInfo)
+    let summonDetailsGroup = await getSpecificSummonDetails(
+      itemUuid,
+      spellRelevantInfo
+    );
     if (!summonDetailsGroup) {
-      summonDetailsGroup = getTraditionalSummonerSpellDetails(itemUuid, spellRank);
+      summonDetailsGroup = getTraditionalSummonerSpellDetails(
+        itemUuid,
+        spellRank
+      );
     }
 
-    summonDetailsGroup.forEach(group => {
-      group?.itemsToAdd?.forEach(item => {
+    summonDetailsGroup.forEach((group) => {
+      group?.itemsToAdd?.forEach((item) => {
         if (item?.system) {
           item.system.context = {
             origin: {
               actor: chatMessage?.actor?.uuid,
               token: chatMessage?.token?.uuid,
-              item: chatMessage?.item?.uuid
-            }
+              item: chatMessage?.item?.uuid,
+            },
           };
         }
       });
@@ -102,15 +126,11 @@ Hooks.once("ready", async function () {
 });
 
 function getSummonType(chatMessage) {
-  if (isMechanic(chatMessage))
-    return "mechanic";
-  if (messageItemHasRollOption(chatMessage, "thrall"))
-    return "thrall";
-  if (isSummoner(chatMessage))
-    return "summoner";
+  if (isMechanic(chatMessage)) return "mechanic";
+  if (messageItemHasRollOption(chatMessage, "thrall")) return "thrall";
+  if (isSummoner(chatMessage)) return "summoner";
   return "summon";
 }
-
 
 function setupSpecificHooks() {
   //Classes

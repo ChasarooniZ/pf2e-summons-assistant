@@ -25,6 +25,18 @@
         "handle-living-graveyard-movement": {
           "name": "[Necromancer] Handle Living Graveyard Movement",
           "hint": "If enabled when a Living Graveyard is moved it will send a chat message which when clicked will cause the graveyard to spawn a thrall (as in accordance with the rules)"
+        },
+        "thrall": {
+          "auto-expire": {
+            "name": "[Necromancer] Automatically Delete Expired Thralls",
+            "hint": "When enabled if the thrall expiration date effect expires it will automatically delete the thrall"
+          }
+        }
+      },
+      "refresh": {
+        "summons": {
+          "name": "Refresh Summons Attacks/Saves",
+          "hint": "When this is active it will cause any updates to the Summoner's Spell DC (Currently only conditions) to trigger a refresh of their summons, thus updating the DC/attacks to match properly"
         }
       },
       "specific-case": {
