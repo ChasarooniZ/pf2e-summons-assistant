@@ -25,6 +25,18 @@
         "handle-living-graveyard-movement": {
           "name": "[Necromancien] Se charge du déplacement du Cimetière vivant",
           "hint": "En cas d'activation, lorsqu'un Cimetière vivant est déplacé , il enverra un message dans la conversation. En cliquant dessus, cela provoquera l'apparition d'un thrall du cimetière (comme prévu par les règles)"
+        },
+        "thrall": {
+          "auto-expire": {
+            "name": "[Nécromancien] Supprimer automatiquement les esclaves expirés",
+            "hint": "Lorsqu'elle est activée, si l'effet de la date d'expiration de l'esclave expire, il supprimera automatiquement l'esclave"
+          }
+        }
+      },
+      "refresh": {
+        "summons": {
+          "name": "Rafraîchir les attaques et les jets de sauvegarde des invocations",
+          "hint": "Lorsque cette option est active, toutes les mises à jour du DD des sorts de l'invocateur (actuellement uniquement les états) déclencheront une actualisation de leurs invocations, mettant ainsi à jour le DD/les attaques pour qu'ils correspondent."
         }
       },
       "specific-case": {
