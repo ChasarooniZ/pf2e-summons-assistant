@@ -370,7 +370,7 @@ export const EFFECTS = {
     INVISIBLE: "Compendium.pf2e.conditionitems.Item.zJxUflt9np0q4yML",
   },
 };
-flags["pf2e-summons-assistant"].summoner.uuid;
+
 export const ACTIONS = {
   MECHANIC: {
     CRITICAL_EXPLOSION: () => ({
