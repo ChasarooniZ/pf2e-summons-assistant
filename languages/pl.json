@@ -25,6 +25,18 @@
         "handle-living-graveyard-movement": {
           "name": "[Nekromanta] Obsługa ruchu Żywego Cmentarzyska",
           "hint": "Jeśli opcja jest włączona, po przeniesieniu Żywego Cmentarzyska zostanie wysłana wiadomość na czacie, która po kliknięciu spowoduje pojawienie się niewolnika (zgodnie z zasadami)."
+        },
+        "thrall": {
+          "auto-expire": {
+            "name": "[Nekromanta] Automatyczne usuwanie wygasłych pomiotów",
+            "hint": "Po włączeniu tej opcji, jeśli efekt wygaśnięcia pomiotu wygaśnie, zostanie on automatycznie usunięty"
+          }
+        }
+      },
+      "refresh": {
+        "summons": {
+          "name": "Odśwież ataki / rzuty obronne Przywołanych stworzeń",
+          "hint": "Gdy ta opcja jest aktywna, wszelkie aktualizacje ST zaklęcia przywołującego (obecnie tylko stanów) spowodują odświeżenie przywołanych stworów, aktualizując ST/ataki tak, aby były odpowiednio dopasowane"
         }
       },
       "specific-case": {
