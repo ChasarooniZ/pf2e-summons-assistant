@@ -113,6 +113,8 @@ Hooks.once("ready", async function () {
       );
     }
 
+    if (!summonDetailsGroup || summonDetailsGroup?.length === 0) return;
+
     summonDetailsGroup.forEach((group) => {
       group?.itemsToAdd?.forEach((item) => {
         if (item?.system) {

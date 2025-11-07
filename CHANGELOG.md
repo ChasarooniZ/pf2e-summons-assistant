@@ -1,11 +1,15 @@
 ## Unreleased
 
+## 1.15.1
+
+- Handled error that popped up for things cast that have no summons
+
 ## 1.15.0
 
 - **New**
   - `Attack of the Thralls`
     - Necromancer's Thralls that have attacks now actually come with them!
-    - This also handles the `Spirit Monger` granting them attacks in additional damage types
+  - This also handles the `Spirit Monger` granting them attacks in additional damage typ
   - `True Thrall Expiration Date`
     - Added a new setting that when enabled will cause Necromancer's Thralls to be deleted when their expiration date effect is removed (either naturally or manually)
   - `Refresh Summons`
