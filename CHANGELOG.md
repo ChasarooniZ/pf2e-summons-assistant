@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 1.15.2
+
+- Handled error that popped up for things cast that have no summons
+
 ## 1.15.1
 
 - **Updated**
