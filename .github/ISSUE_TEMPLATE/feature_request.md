@@ -1,5 +1,5 @@
 ---
-name: New Feature
+name: 💡 New Feature
 about: Suggest an idea for this project (not a request for support of a New Item/Spell/Feat)
 title: '[FEATURE]  '
 labels: ['enhancement']
