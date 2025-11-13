@@ -1,9 +1,9 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+name: 🐛 Bug Report
+about: Report a bug to help get it fixed!
+title: '[Bug] '
+labels: 'bug'
+assignees: 'ChasarooniZ'
 
 ---
 
