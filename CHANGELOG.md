@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 1.16.1
+
+- **New**
+  - Added chinese translation (🌐 @AlphaStarguide)
+- **Update**
+  - Fixed issue where disabled summons setting was visible
+
 ## 1.16.0
 
 - **New**

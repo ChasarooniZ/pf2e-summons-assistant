@@ -19,10 +19,10 @@ export function setupSettings() {
     default: true,
     type: Boolean,
   });
-
-  game.settings.register(MODULE_ID, "filter.default.token-with-art", {
-    name: `${MODULE_ID}.module-settings.filter.default.token-with-art.name`,
-    hint: `${MODULE_ID}.module-settings.filter.default.token-with-art.hint`,
+  
+  game.settings.register(MODULE_ID, "refresh.summons", {
+    name: `${MODULE_ID}.module-settings.refresh.summons.name`,
+    hint: `${MODULE_ID}.module-settings.refresh.summons.hint`,
     requiresReload: false,
     scope: "world",
     config: true,
@@ -30,9 +30,10 @@ export function setupSettings() {
     type: Boolean,
   });
 
-  game.settings.register(MODULE_ID, "refresh.summons", {
-    name: `${MODULE_ID}.module-settings.refresh.summons.name`,
-    hint: `${MODULE_ID}.module-settings.refresh.summons.hint`,
+
+  game.settings.register(MODULE_ID, "filter.default.token-with-art", {
+    name: `${MODULE_ID}.module-settings.filter.default.token-with-art.name`,
+    hint: `${MODULE_ID}.module-settings.filter.default.token-with-art.hint`,
     requiresReload: false,
     scope: "world",
     config: true,
@@ -102,7 +103,7 @@ export function setupSettings() {
     hint: `${MODULE_ID}.module-settings.disabled-items.hint`,
     requiresReload: true,
     scope: "world",
-    config: true,
+    config: false,
     default: true,
     type: Object,
   });
