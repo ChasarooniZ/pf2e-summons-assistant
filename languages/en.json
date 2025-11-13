@@ -69,11 +69,22 @@
       },
       "duplicate-foe": {
         "too-high": "The foe is too high level for this rank of Duplicate Foe"
+      },
+      "disable-items": {
+        "saved": "Saved! The following Summons Assistant Automation have been disabled {list}"
       }
     },
     "dialog": {
       "duplicate-foe": "Did the target fail their save?",
-      "telekinetic-hand": "Do you choose to make the hand you summon invisible?"
+      "telekinetic-hand": "Do you choose to make the hand you summon invisible?",
+      "disable-specific": {
+        "title": "Select Summon Sources to Disable",
+        "search": "Search...",
+        "button": {
+          "title": "Configure Enabled Summon Triggers",
+          "hint": "Configure what summon sources are active"
+        }
+      }
     },
     "display-text": {
       "wooden-double": {
