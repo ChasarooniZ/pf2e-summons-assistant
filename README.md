@@ -8,6 +8,8 @@
 
 [![gitlocalized ](https://gitlocalize.com/repo/10293/whole_project/badge.svg)](https://gitlocalize.com/repo/10293?utm_source=badge) [![](https://img.shields.io/badge/ko--fi-donate-%23FF5E5B?style=flat-square&logo=ko-fi&logoColor=white)](https://ko-fi.com/Chasarooni)
 
+[![](https://img.shields.io/badge/Add-Request_A_New_Summon-008000?style=flat-square&logo=github&logoColor=white)](https://github.com/ChasarooniZ/pf2e-summons-assistant/issues/new?template=1-item.yml)
+
 <!--- Forge Bazaar Install % Badge -->
 <!--- replace <your-module-name> with the `name` in your manifest -->
 <!--- [![](https://img.shields.io/badge/ko--fi-donate-%23FF5E5B?style=flat-square&logo=ko-fi&logoColor=white)](https://ko-fi.com/<Kofi Username>)-->
