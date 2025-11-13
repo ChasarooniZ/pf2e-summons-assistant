@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 1.16.0
+
+- **New**
+  - `Disable Specific Summons Automation`
+    - Adds a new button in settings to disable specific summons automation
+
 ## 1.15.2
 
 - Handled error that popped up for things cast that have no summons

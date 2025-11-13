@@ -69,6 +69,9 @@
       },
       "duplicate-foe": {
         "too-high": "The foe is too high level for this rank of Duplicate Foe"
+      },
+      "disable-items": {
+        "saved": "Saved! The following Summons Assistant Automation have been disabled {list}"
       }
     },
     "dialog": {

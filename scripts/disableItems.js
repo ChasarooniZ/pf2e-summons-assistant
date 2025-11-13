@@ -5,6 +5,14 @@ export function disableItemsDialog() {
     getAllSpecificOptions(),
     (result) => {
       console.log(result);
+      ui.notifications.notify(
+        game.i18n.format(
+          "pf2e-summons-assistant.notification.disable-items.saved",
+          {
+            list: Object.keys(result)?.map((uuid) => getItemName(uuid)).join(', '),
+          }
+        )
+      );
       game.settings.set(MODULE_ID, "disabled-items", result);
     },
     { disabled: game.settings.get(MODULE_ID, "disabled-items") }
@@ -20,7 +28,7 @@ export function setupDisableItemHooks() {
         `
         <a
           class='button'
-          data-tooltip="${game.i18n.localize("pf2e-summons-assistant.dialog.disable-specific.button.hint")}"
+          data-tooltip="${game.i18n.localize("pf2e-summon s-assistant.dialog.disable-specific.button.hint")}"
           onclick="window['${MODULE_ID}'].disableItemsDialog()"
         >
           <i class="fa-solid fa-gears"></i>
@@ -72,12 +80,13 @@ async function createToggleDialog(items, callback, options = {}) {
         label: "Save",
         icon: "fa-solid fa-check",
         default: true,
-        callback: (event, button, dialog) => {
+        callback: (_event, _button, dialog) => {
           const resultObj = {};
+          const html = dialog.element;
           items.forEach((item) => {
-            const checkbox = dialog.querySelector(`input[uuid="${item.uuid}"]`);
+            const checkbox = html.querySelector(`input[name ="${item.uuid}"]`);
             // Only include items that are unchecked (disabled)
-            if (!checkbox.checked) {
+            if (!checkbox?.checked) {
               resultObj[item.uuid] = true;
             }
           });
@@ -90,7 +99,8 @@ async function createToggleDialog(items, callback, options = {}) {
         icon: "fa-solid fa-times",
       },
     ],
-    render: (event, html) => {
+    render: (event) => {
+      const html = event.target.element;
       const searchInput = html.querySelector("#search-input");
       const container = html.querySelector("#items-container");
 
@@ -99,7 +109,7 @@ async function createToggleDialog(items, callback, options = {}) {
         const labels = container.querySelectorAll("label");
 
         labels.forEach((label) => {
-          const name = label.dataset.name;
+          const name = label.dataset.name.toLowerCase();
           if (name.includes(searchTerm)) {
             label.style.display = "flex";
           } else {
@@ -123,14 +133,19 @@ function getAllSpecificOptions() {
       uuid,
       name: getItemName(uuid),
     }))
-    .filter((item) => item?.name);
+    .filter((item) => item?.name)
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function getItemName(uuid) {
   const [pack, id] = uuid.replace("Compendium.", "").split(".Item.");
-  return game?.packs?.get(pack)?.index?.get(id)?.name ?? uuid;
+  return game?.packs?.get(pack)?.index?.get(id)?.name;
 }
 
 function getSourceValues(sources) {
   return Object.values(sources).flatMap((category) => Object.values(category));
+}
+
+export function isSummonSourceDisabled(uuid) {
+  return game.settings.get(MODULE_ID, "disabled-items")[uuid];
 }
