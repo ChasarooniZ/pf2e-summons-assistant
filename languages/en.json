@@ -78,7 +78,7 @@
         "title": "Select Summon Sources to Disable",
         "search": "Search...",
         "button": {
-          "text": "Customize Summon Triggers",
+          "title": "Customize Summon Triggers",
           "hint": "Configure what summons are active"
         }
       }

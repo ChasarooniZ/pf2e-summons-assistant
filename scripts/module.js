@@ -24,10 +24,12 @@ import { setupCommanderHooks } from "./specificClasses/commander.js";
 import { setupSocket } from "./lib/socket.js";
 import { setupWoodDoubleHooks } from "./specificCases/woodenDouble.js";
 import { setupDisableItemHooks } from "./disableItems.js";
+import { setupAPI } from "./api.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
   setupSettings();
+  setupAPI();
 });
 
 Hooks.once("setup", function () {

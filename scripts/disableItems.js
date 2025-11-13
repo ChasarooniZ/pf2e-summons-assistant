@@ -1,6 +1,6 @@
 import { MODULE_ID, SOURCES } from "./const.js";
 
-function disableItemsDialog() {
+export function disableItemsDialog() {
   createToggleDialog(
     getAllSpecificOptions(),
     (result) => {
@@ -21,7 +21,7 @@ export function setupDisableItemHooks() {
         <a
           class='button'
           data-tooltip="${game.i18n.localize("pf2e-summons-assistant.dialog.disable-specific.button.hint")}"
-          onclick="disableItemsDialog()"
+          onclick="window[${MODULE_ID}].disableItemsDialog()"
         >
           <i class="fa-solid fa-gears"></i>
           ${game.i18n.localize("pf2e-summons-assistant.dialog.disable-specific.button.title")}
