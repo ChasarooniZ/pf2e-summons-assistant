@@ -81,8 +81,8 @@
         "title": "Select Summon Sources to Disable",
         "search": "Search...",
         "button": {
-          "title": "Customize Summon Triggers",
-          "hint": "Configure what summons are active"
+          "title": "Configure Enabled Summon Triggers",
+          "hint": "Configure what summon sources are active"
         }
       }
     },
