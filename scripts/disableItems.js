@@ -5,11 +5,14 @@ export function disableItemsDialog() {
     getAllSpecificOptions(),
     (result) => {
       console.log(result);
+      if (result === "cancel") return;
       ui.notifications.notify(
         game.i18n.format(
           "pf2e-summons-assistant.notification.disable-items.saved",
           {
-            list: Object.keys(result)?.map((uuid) => getItemName(uuid)).join(', '),
+            list: Object.keys(result)
+              ?.map((uuid) => getItemName(uuid))
+              .join(", "),
           }
         )
       );

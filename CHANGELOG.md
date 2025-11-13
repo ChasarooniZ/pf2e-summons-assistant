@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 1.16.2
+
+- Fixed bug where clicking cancel on the `Disableable Summon Triggers` menu
+
 ## 1.16.1
 
 - **New**
