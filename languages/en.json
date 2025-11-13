@@ -73,7 +73,15 @@
     },
     "dialog": {
       "duplicate-foe": "Did the target fail their save?",
-      "telekinetic-hand": "Do you choose to make the hand you summon invisible?"
+      "telekinetic-hand": "Do you choose to make the hand you summon invisible?",
+      "disable-specific": {
+        "title": "Select Summon Sources to Disable",
+        "search": "Search...",
+        "button": {
+          "text": "Customize Summon Triggers",
+          "hint": "Configure what summons are active"
+        }
+      }
     },
     "display-text": {
       "wooden-double": {

@@ -23,6 +23,7 @@ import {
 import { setupCommanderHooks } from "./specificClasses/commander.js";
 import { setupSocket } from "./lib/socket.js";
 import { setupWoodDoubleHooks } from "./specificCases/woodenDouble.js";
+import { setupDisableItemHooks } from "./disableItems.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -39,6 +40,7 @@ Hooks.once("setup", function () {
 Hooks.once("ready", async function () {
   handleUpdateMessage();
   setupSpecificHooks();
+  setupDisableItemHooks();
 
   if (game.settings.get(MODULE_ID, "refresh.summons")) {
     setupSummonedTokenRefreshHooks();

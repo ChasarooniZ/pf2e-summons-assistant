@@ -97,6 +97,16 @@ export function setupSettings() {
     type: Boolean,
   });
 
+  game.settings.register(MODULE_ID, "disabled-items", {
+    name: `${MODULE_ID}.module-settings.disabled-items.name`,
+    hint: `${MODULE_ID}.module-settings.disabled-items.hint`,
+    requiresReload: true,
+    scope: "world",
+    config: true,
+    default: true,
+    type: Object,
+  });
+
   game.settings.register(MODULE_ID, "last-version", {
     name: "last-version",
     hint: "last-version",
