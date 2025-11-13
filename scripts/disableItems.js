@@ -21,7 +21,7 @@ export function setupDisableItemHooks() {
         <a
           class='button'
           data-tooltip="${game.i18n.localize("pf2e-summons-assistant.dialog.disable-specific.button.hint")}"
-          onclick="window[${MODULE_ID}].disableItemsDialog()"
+          onclick="window['${MODULE_ID}'].disableItemsDialog()"
         >
           <i class="fa-solid fa-gears"></i>
           ${game.i18n.localize("pf2e-summons-assistant.dialog.disable-specific.button.title")}
@@ -51,7 +51,7 @@ async function createToggleDialog(items, callback, options = {}) {
             ${items
               .map(
                 (item) => `
-              <label data-uuid="${item.uuid}" data-name="${item.name.toLowerCase()}" style="display: flex; align-items: center; gap: 8px;">
+              <label data-uuid="${item.uuid}" data-name="${item.name}" style="display: flex; align-items: center; gap: 8px;">
                 <input 
                   type="checkbox" 
                   name="${item.uuid}" 
@@ -75,7 +75,7 @@ async function createToggleDialog(items, callback, options = {}) {
         callback: (event, button, dialog) => {
           const resultObj = {};
           items.forEach((item) => {
-            const checkbox = dialog.querySelector(`input[name="${item.uuid}"]`);
+            const checkbox = dialog.querySelector(`input[uuid="${item.uuid}"]`);
             // Only include items that are unchecked (disabled)
             if (!checkbox.checked) {
               resultObj[item.uuid] = true;
@@ -118,15 +118,17 @@ async function createToggleDialog(items, callback, options = {}) {
 }
 
 function getAllSpecificOptions() {
-  return getSourceValues(SOURCES).map((uuid) => ({
-    uuid,
-    name: getItemName(uuid),
-  }));
+  return getSourceValues(SOURCES)
+    .map((uuid) => ({
+      uuid,
+      name: getItemName(uuid),
+    }))
+    .filter((item) => item?.name);
 }
 
 function getItemName(uuid) {
-  const [pack, id] = uuid.replace("Compendium.").split(".Item.");
-  return game?.packs?.get(pack)?.index?.get(id)?.name;
+  const [pack, id] = uuid.replace("Compendium.", "").split(".Item.");
+  return game?.packs?.get(pack)?.index?.get(id)?.name ?? uuid;
 }
 
 function getSourceValues(sources) {
