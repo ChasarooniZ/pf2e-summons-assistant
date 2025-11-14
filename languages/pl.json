@@ -69,11 +69,22 @@
       },
       "duplicate-foe": {
         "too-high": "Wróg jest zbyt wysoki dla rangi Duplikacji Wroga"
+      },
+      "disable-items": {
+        "saved": "Zapisano! Następujące funkcje automatyzacji asystenta przywołań zostały wyłączone {list}"
       }
     },
     "dialog": {
       "duplicate-foe": "Czy cel nie wykonał rzutu obronnego?",
-      "telekinetic-hand": "Czy chcesz, aby przywołana ręka była niewidoczna?"
+      "telekinetic-hand": "Czy chcesz, aby przywołana ręka była niewidoczna?",
+      "disable-specific": {
+        "title": "Wybierz źródła przywołań, które chcesz wyłączyć",
+        "search": "Szukaj...",
+        "button": {
+          "title": "Skonfiguruj aktywne wyzwalacze przywołań",
+          "hint": "Skonfiguruj, które źródła przywoływania są aktywne"
+        }
+      }
     },
     "display-text": {
       "wooden-double": {
