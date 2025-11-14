@@ -114,3 +114,7 @@ async function refreshTokensBasedOnItem(item, userID) {
     return await Promise.all(refreshList);
   }
 }
+
+export function getGridUnitsFromFeet(feet) {
+  return (feet * canvas.grid.distance) / 5;
+}
