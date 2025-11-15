@@ -69,11 +69,22 @@
       },
       "duplicate-foe": {
         "too-high": "L'ennemi est de trop haut niveau pour ce rang de Dupliquer l'ennemi"
+      },
+      "disable-items": {
+        "saved": "Enregistré ! Les automatisations suivantes de l’assistant d’invocation ont été désactivées : {list}"
       }
     },
     "dialog": {
       "duplicate-foe": "La cible a t-elle manqué son jet de sauvegarde ?",
-      "telekinetic-hand": "Choisissez vous de rendre invisible la main que vous convoquez ?"
+      "telekinetic-hand": "Choisissez vous de rendre invisible la main que vous convoquez ?",
+      "disable-specific": {
+        "title": "Sélectionnez les sources d'invocation à désactiver",
+        "search": "Recherche...",
+        "button": {
+          "title": "Configurer les déclencheurs d'invocation activés",
+          "hint": "Configurez les sources d'invocation actives."
+        }
+      }
     },
     "display-text": {
       "wooden-double": {
