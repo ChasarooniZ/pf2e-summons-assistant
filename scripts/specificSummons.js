@@ -27,6 +27,7 @@ export async function getSpecificSummonDetails(
     return null;
   }
 
+  const SUMMON_HANDLERS = getSummonHandlers();
   const handler = SUMMON_HANDLERS[uuid];
   if (handler) {
     return await handler(data);
@@ -35,7 +36,7 @@ export async function getSpecificSummonDetails(
   return null;
 }
 
-const SUMMON_HANDLERS = {
+const getSummonHandlers = () => ({
   // Commander
   [SOURCES.COMMANDER.PLANT_BANNER]: handlers.commander.handlePlantBanner,
 
@@ -87,7 +88,7 @@ const SUMMON_HANDLERS = {
   // Wondrous Figurine
   [SOURCES.WONDROUS_FIGURINE.JADE_SERPENT]:
     handlers.wondrousFigurine.handleJadeSerpent,
-};
+});
 
 const handlers = {
   commander: {
