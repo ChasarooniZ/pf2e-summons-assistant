@@ -1,6 +1,13 @@
 ## Unreleased
+
+- **New**
+  - Added basic support for `Protector Tree`
+    - Also adds support for `Timber Sentinel`
+  - Any actualy automation aside from summoning one will be handled on a seperate release
 - **Updated**
   - Updated polish translation (🌐 @lioheart)
+  - Epdated chinese translation (🌐 @AlphaStarguide)
+
 ## 1.16.2
 
 - Fixed bug where clicking cancel on the `Disableable Summon Triggers` menu
