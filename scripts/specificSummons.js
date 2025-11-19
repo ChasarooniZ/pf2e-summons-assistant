@@ -49,6 +49,9 @@ const getSummonHandlers = () => ({
   [SOURCES.INCARNATE.TEMPEST_OF_SHADES]:
     handlers.incarnate.handleTempestOfShades,
 
+  // Kineticist
+  [SOURCES.KINETICIST.TIMBER_SENTINEL]: handlers.kineticist.handleTimberSentinel,
+
   // Mechanic
   [SOURCES.MECHANIC.DEPLOY_MINE]: handlers.mechanic.handleDeployMine,
   [SOURCES.MECHANIC.DOUBLE_DEPLOYMENT]:
@@ -61,6 +64,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
   [SOURCES.MISC.TELEKINETIC_HAND]: handlers.misc.handleTelekineticHand,
   [SOURCES.MISC.WOODEN_DOUBLE]: handlers.misc.handleWoodenDouble,
+  [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
 
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
@@ -269,10 +273,10 @@ const handlers = {
           modifications: {
             ...(onlyHasJB2AFree()
               ? {
-                  "prototypeToken.texture.src":
-                    ALT_ART.JB2A_FREE.FLOATING_FLAME.TOKEN,
-                  img: ALT_ART.JB2A_FREE.FLOATING_FLAME.ACTOR,
-                }
+                "prototypeToken.texture.src":
+                  ALT_ART.JB2A_FREE.FLOATING_FLAME.TOKEN,
+                img: ALT_ART.JB2A_FREE.FLOATING_FLAME.ACTOR,
+              }
               : {}),
           },
         },
@@ -289,9 +293,9 @@ const handlers = {
               "system.details.level.value": data.rank,
               ...(onlyHasJB2AFree()
                 ? {
-                    "prototypeToken.texture.src": ALT_ART.JB2A_FREE.LIGHT.TOKEN,
-                    img: ALT_ART.JB2A_FREE.LIGHT.ACTOR,
-                  }
+                  "prototypeToken.texture.src": ALT_ART.JB2A_FREE.LIGHT.TOKEN,
+                  img: ALT_ART.JB2A_FREE.LIGHT.ACTOR,
+                }
                 : {}),
             },
           },
@@ -319,10 +323,10 @@ const handlers = {
           modifications: {
             ...(onlyHasJB2AFree()
               ? {
-                  "prototypeToken.texture.src":
-                    ALT_ART.JB2A_FREE.TELEKINETIC_HAND.TOKEN,
-                  img: ALT_ART.JB2A_FREE.TELEKINETIC_HAND.ACTOR,
-                }
+                "prototypeToken.texture.src":
+                  ALT_ART.JB2A_FREE.TELEKINETIC_HAND.TOKEN,
+                img: ALT_ART.JB2A_FREE.TELEKINETIC_HAND.ACTOR,
+              }
               : {}),
           },
           itemsToAdd,
@@ -355,12 +359,12 @@ const handlers = {
             },
             ...(data.position
               ? {
-                  location: {
-                    obj: data.position,
-                    limitMaxRange: 1,
-                    showRange: true,
-                  },
-                }
+                location: {
+                  obj: data.position,
+                  limitMaxRange: 1,
+                  showRange: true,
+                },
+              }
               : {}),
           },
         },

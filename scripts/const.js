@@ -178,6 +178,8 @@ export const CREATURES = {
 
   GIANT_VIPER: "Compendium.pf2e.pathfinder-monster-core.Actor.AJ5LuNMVPLCydryP",
 
+  PROTECTOR_TREE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
+
   COMMANDER: {
     PLANTED_BANNER:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
