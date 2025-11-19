@@ -5,6 +5,7 @@
     - Also adds support for `Timber Sentinel`
   - Any actualy automation aside from summoning one will be handled on a seperate release
 - **Updated**
+  - Refactored some of the Specific Summons code to be more readable
   - Updated polish translation (🌐 @lioheart)
   - Epdated chinese translation (🌐 @AlphaStarguide)
 
