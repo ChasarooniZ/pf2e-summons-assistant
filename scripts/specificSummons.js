@@ -160,13 +160,13 @@ const handlers = {
     handleTimberSentinel: (data) => {
       return [
         {
-          //TODO make this real
           specific_uuids: [CREATURES.PROTECTOR_TREE],
           modifications: {
             "system.attributes.hp.max":
               10 + (Math.round(data.summonerLevel / 2) - 1) * 10,
             "system.attributes.hp.value":
               10 + (Math.round(data.summonerLevel / 2) - 1) * 10,
+            "level": data.summonerLevel,
           },
           crosshairParameters: {
             location: {
@@ -379,6 +379,7 @@ const handlers = {
           modifications: {
             "system.attributes.hp.max": 10 + (data.rank - 1) * 10,
             "system.attributes.hp.value": 10 + (data.rank - 1) * 10,
+            "level": data.rank,
           },
           crosshairParameters: {
             location: {
