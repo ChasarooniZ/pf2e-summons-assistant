@@ -270,3 +270,15 @@ async function autoDeleteThrall(effect, info) {
   const tokDoc = info?.parent?.parent;
   return await tokDoc.delete();
 }
+
+export function getNecromancerProf(lvl) {
+  if (lvl < 7) {
+    return 1;
+  } else if (lvl < 15) {
+    return 2;
+  } else if (lvl < 19) {
+    return 3;
+  } else {
+    return 4;
+  }
+}

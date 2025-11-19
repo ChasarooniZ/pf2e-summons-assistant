@@ -38,6 +38,11 @@ export const SOURCES = {
     CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
     WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed",
+    PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
+  },
+
+  KINETICIST: {
+    TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
   },
 
   NECROMANCER: {
@@ -94,6 +99,7 @@ export const SLUG_TO_SOURCE = {
   "perfected-thrall": SOURCES.NECROMANCER.PERFECTED_THRALL,
   "phantasmal-minion": SOURCES.MISC.PHANTASMAL_MINION,
   "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
+  "protector-tree": SOURCES.MISC.PROTECTOR_TREE,
   "recurring-nightmare": SOURCES.NECROMANCER.RECURRING_NIGHTMARE,
   "skeletal-lancers": SOURCES.NECROMANCER.SKELETAL_LANCERS,
   "summon-animal": SOURCES.SUMMON.SUMMON_ANIMAL,
@@ -114,6 +120,7 @@ export const SLUG_TO_SOURCE = {
   "summon-undead": SOURCES.SUMMON.SUMMON_UNDEAD,
   "telekinetic-hand": SOURCES.MISC.TELEKINETIC_HAND,
   "tempest-of-shades": SOURCES.INCARNATE.TEMPEST_OF_SHADES,
+  "timber-sentinel": SOURCES.KINETICIST.TIMBER_SENTINEL,
   "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
   "activation-wondrous-figurine-jade-serpent":
     SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
@@ -170,6 +177,8 @@ export const CREATURES = {
   CAVE_BEAR: "Compendium.pf2e.pathfinder-monster-core.Actor.AZIG0COCaDBronJa",
 
   GIANT_VIPER: "Compendium.pf2e.pathfinder-monster-core.Actor.AJ5LuNMVPLCydryP",
+
+  PROTECTOR_TREE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
 
   COMMANDER: {
     PLANTED_BANNER:

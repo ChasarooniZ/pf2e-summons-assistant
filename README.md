@@ -20,7 +20,7 @@ A module that allows summoning in pf2e to be a lot easier!
 
 _a Thanks to Vauxs for updating [Foundry Summons](https://foundryvtt.com/packages/foundry-summons) and Sasano for the original macro to handle this partially_
 
-https://github.com/user-attachments/assets/fe9a9176-fda4-4fae-8b43-073618ad63d7
+<https://github.com/user-attachments/assets/fe9a9176-fda4-4fae-8b43-073618ad63d7>
 
 ## Table of Contents
 
@@ -28,8 +28,12 @@ https://github.com/user-attachments/assets/fe9a9176-fda4-4fae-8b43-073618ad63d7
   - [Table of Contents](#table-of-contents)
   - [Changelog](#changelog)
   - [Handled Spells and Features](#handled-spells-and-features)
-    - [Supported House Rules](#supported-house-rules)
-    - [Other Settings/Support](#other-settingssupport)
+    - [Spells](#spells)
+    - [Feats](#feats)
+    - [Items](#items)
+    - [SF2e](#sf2e)
+  - [Supported House Rules](#supported-house-rules)
+  - [Other Settings/Support](#other-settingssupport)
   - [Contributors](#contributors)
   - [Assets](#assets)
 
@@ -39,61 +43,71 @@ You can access the changelog [here](/CHANGELOG.md).
 
 ## Handled Spells and Features
 
-- Spells
-  - Summon
-    - Summon Dragon
-    - Summon Undead
-    - Summon Celestial
-    - Summon Fey
-    - Summon Animal
-    - Summon Construct
-    - Summon Lesser Servitor
-    - Summon Plant or Fungus
-    - Summon Elemental
-    - Summon Entity
-    - Summon Giant
-    - Summon Monitor
-    - Phantasmal Minion
-  - Incarnate
-    - Tempest of Shades
-    - Summon Healing Servitor
-    - Summon Elemental Herald - Art requires `Pathfinder Tokens: Bestiary`
-    - Call Fluxwraith
-  - Necromancer
-    - Create Thrall
-    - Perfected Thrall
-    - Skeletal Lancers
-    - Living Graveyard
-    - Recurring Nightmare
-    - Inevitable Return
-    - Bind Heroic Spirit - On Successful Attack
-  - Misc
-    - Light - Only works when not targetting anyone (Art Requires JB2a)
-    - Floating Flame - Art Requires JB2a
-    - Duplicate Foe - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
-    - Telekinetic Hand - Art Requires JB2a
-    - Wooden Double - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
-- Feats
-  - Commander
-    - Plant Banner - Basic Case (no handling of feat interactions beyond base case atm)
-  - Misc
-    - Call Ursine Ally
-- Items
-  - Wondrous Figurine
-    - Jade Serpent
-- SF2e
-  - Spells
-    - Summon Robot
-  - Mechanic
-    - Mine
-    - Double Deploy
+### Spells
 
-### Supported House Rules
+- **Summon**
+  - `Summon Dragon`
+  - `Summon Undead`
+  - `Summon Celestial`
+  - `Summon Fey`
+  - `Summon Animal`
+  - `Summon Construct`
+  - `Summon Lesser Servitor`
+  - `Summon Plant or Fungus`
+  - `Summon Elemental`
+  - `Summon Entity`
+  - `Summon Giant`
+  - `Summon Monitor`
+  - `Phantasmal Minion`
+- **Incarnate**
+  - `Tempest of Shades`
+  - `Summon Healing Servitor`
+  - `Summon Elemental Herald` - Art requires `Pathfinder Tokens: Bestiary`
+  - `Call Fluxwraith`
+- **Necromancer**
+  - `Create Thrall`
+  - `Perfected Thrall`
+  - `Skeletal Lancers`
+  - `Living Graveyard`
+  - `Recurring Nightmare`
+  - `Inevitable Return`
+  - `Bind Heroic Spirit` - On Successful Attack
+- **Misc**
+  - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)
+  - `Floating Flame` - Art Requires `JB2a`
+  - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
+  - `Telekinetic Hand` - Art Requires `JB2a`
+  - `Wooden Double` - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
+  - `Protector Tree` - Does not do any automation as of yet
+
+### Feats
+
+- **Commander**
+  - `Plant Banner` - Basic Case (no handling of feat interactions beyond base case atm)
+- **Kineticist**
+  - `Timber Sentinel` - Does not do any automation as of yet
+- **Misc**
+  - `Call Ursine Ally`
+
+### Items
+
+- **Wondrous Figurine**
+  - `Jade Serpent`
+
+### SF2e
+
+- **Spells**
+  - `Summon Robot`
+- **Mechanic**
+  - `Mine`
+  - `Double Deploy`
+
+## Supported House Rules
 
 - **Summon Spells are Rank + 1**. - Treat summon spells as rank + 1 for creatures it summons
 - **Summon Spells Scale to Max Level** - This uses PF2e Workbench's Scale to level code to scale creatures summoned via traditional summoning spells (IE Summon Animals etc.) to the stats of a creature of the highest level that spell rank can summon.
 
-### Other Settings/Support
+## Other Settings/Support
 
 - `Thrall Expiration Date` - Setting to have thralls auto expire (delete themselves when their effect is removed)
 - `Refresh Summons` - setting which when enabled will cause conditions that manipulate the actor's Spell DC (IE frightened, sickened, stupefied) to refresh their summons and thus updating any DCs/Attacks on them
