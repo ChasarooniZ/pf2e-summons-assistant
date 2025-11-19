@@ -1,5 +1,5 @@
 {
-    "I18N.LANGUAGE": "英语",
+    "I18N.LANGUAGE": "简体中文",
     "pf2e-summons-assistant": {
         "module-settings": {
             "name-ownership": {
@@ -69,11 +69,22 @@
             },
             "duplicate-foe": {
                 "too-high": "对于该环级的“仿敌拟像”法术而言，该敌人的等级太高了"
+            },
+            "disable-items": {
+                "saved": "已保存！以下召唤自动化选项已被禁用 {list}"
             }
         },
         "dialog": {
             "duplicate-foe": "该目标豁免失败了吗？",
-            "telekinetic-hand": "你是否选择让你召唤的魔法手隐形？"
+            "telekinetic-hand": "你是否选择让你召唤的魔法手隐形？",
+            "disable-specific": {
+                "search": "搜索…",
+                "button": {
+                    "title": "召唤自动化选项启用配置",
+                    "hint": "对是否激活召唤自动化选项进行配置"
+                },
+                "title": "取消勾选，以禁用该召唤自动化"
+            }
         },
         "display-text": {
             "wooden-double": {
