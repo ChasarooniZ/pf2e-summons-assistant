@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 0.17.1
+
+- **Updated**
+  - Updated required `Foundry Summons` version to `2.5.0`
+
 ## 0.17.0
 
 - **New**
