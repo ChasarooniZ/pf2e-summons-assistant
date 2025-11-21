@@ -1,5 +1,14 @@
 ## Unreleased
 
+- **New**
+  - Added Support for the following
+    - `Avenging Wildwood`
+- **Updated**
+  - Added a save/damage roll to `Floating Flame`
+    - (as with any save/damage roll related to spells will not always grabt he full nuance of any other modifications aside from conditions modifying the save DC ie Frightened)
+  - Added an effect to `Summon Healing Servitor's` Arrival ability `Servitor's Protection`
+  - `Plant Banner` now also will handle any relevant summons/ non combat minions as well
+
 ## 0.17.1
 
 - **Updated**

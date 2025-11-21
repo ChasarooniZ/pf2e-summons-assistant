@@ -459,3 +459,13 @@ export const CONDITIONS_AFFECTING_SPELL_DC = new Set([
   "sickened",
   "stupefied",
 ]);
+
+
+export const RULE_ELEMENTS = {
+  SPELL_DC_FLAG: {
+    "key": "ActiveEffectLike",
+    "mode": "add",
+    "path": "flags.pf2e-summons-assistant.dc",
+    "value": "@item.origin.system.attributes.spellDC.value"
+  }
+}
