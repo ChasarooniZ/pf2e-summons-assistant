@@ -16,7 +16,7 @@ async function handlePlantBannerStartOfTurn(combatant) {
 
     const owners = Object.entries(combatant?.actor?.ownership)?.filter(([userID, permission]) => !game.users.get(userID)?.isGM && permission === CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER).map(([userID, _permission]) => userID)
     if (owners.length === 1) {
-        const minions = getNonCombatTrackerCombatants(owners[0]).filter(m => m?.actor?.rollOptions?.all
+        const minions = getNonCombatTrackerCombatants(owners[0], combatant.actor.id).filter(m => m?.actor?.rollOptions?.all
             ?.[ROLL_OPTION.COMMANDER.IN_PLANT_BANNER_RANGE]);
         for (const minion of minions) {
             setTimeout(async function () {
@@ -26,9 +26,9 @@ async function handlePlantBannerStartOfTurn(combatant) {
     }
 }
 
-function getNonCombatTrackerCombatants(userID) {
+function getNonCombatTrackerCombatants(userID, actorID) {
     const combatTokens = new Set(game.combat.combatants.contents.map(c => c.tokenId));
-    return canvas.tokens.placeables.filter(t => !combatTokens.has(t.id) && t.actor.ownership?.[userID] === CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER)
+    return canvas.tokens.placeables.filter(t => !combatTokens.has(t.id) && (t.actor.ownership?.[userID] === CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER || t.actor?.getFlag('pf2e-summons-assistant', 'summoner')?.id === actorID))
 }
 
 async function addPlantBanner(actor) {
