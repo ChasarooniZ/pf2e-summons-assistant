@@ -1,7 +1,7 @@
 name: "👾 Add a Summon"
 description: Request support for a new summon trigger (IE Item/Spell/Feat/ETC.)
 title: "[Item] "
-labels: ["new-item"]
+labels: ["New-Item"]
 assignees: ["chasarooniZ"]
 body:
   - type: input
