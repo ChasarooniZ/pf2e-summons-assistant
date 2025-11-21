@@ -1,57 +1,32 @@
 {
-  "folder": "Bbkt5XGxBdx0Jgj0",
-  "name": "Healing Servitor",
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Avenging Wildwood",
   "type": "npc",
   "ownership": {
     "default": 0,
-    "vj8VUT8j7Wtzy3Y2": 3
+    "QxDObmx87OPbZTK7": 3
   },
   "prototypeToken": {
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
-        "autoscale": true
-      },
-      "Rideable": {
-        "issetRideableFlag": true,
-        "MountonEnterFlag": false,
-        "AutoMountBlackListFlag": "",
-        "AutoMountWhiteListFlag": "",
-        "MaxRiderFlag": null,
-        "CustomRidingheightFlag": null,
-        "UseRidingHeightFlag": true,
-        "RidersScaleFlag": 1,
-        "RiderPositioningFlag": "RowPlacement",
-        "RiderOffsetFlag": [
-          0,
-          0
-        ],
-        "TokenFormFlag": "TokenFormCircle",
-        "InsideMovementFlag": false,
-        "SpawnRidersFlag": "",
-        "WorldMEffectOverrideFlag": false,
-        "MountingEffectsFlag": "",
-        "SelfApplyEffectsFlag": false,
-        "forMountEffectsFlag": "",
-        "CanbePilotedFlag": false,
-        "CheckPilotedCollisionFlag": false,
-        "PilotedbyDefaultFlag": false
+        "autoscale": false
       }
     },
-    "height": 3,
-    "width": 3,
-    "name": "Healing Servitor",
+    "height": 1,
+    "width": 1,
+    "name": "Avenging WIldood",
     "displayName": 20,
     "actorLink": false,
     "texture": {
-      "src": "modules/pf2e-summons-assistant/assets/tokens/token/healing-servitor.webp",
+      "src": "modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/awakened-tree.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
       "offsetY": 0,
       "fit": "contain",
-      "scaleX": 1,
-      "scaleY": 1,
+      "scaleX": 1.5,
+      "scaleY": 1.5,
       "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
@@ -115,8 +90,8 @@
       },
       "effects": 1,
       "subject": {
-        "scale": 1,
-        "texture": "modules/pf2e-summons-assistant/assets/tokens/subject/healing-servitor.webp"
+        "scale": 1.5,
+        "texture": "modules/pf2e-tokens-bestiaries/subjects/plant/arboreal/awakened-tree.webp"
       }
     },
     "turnMarker": {
@@ -134,9 +109,9 @@
   "system": {
     "attributes": {
       "hp": {
-        "value": 10,
+        "value": 20,
         "temp": 0,
-        "max": 10,
+        "max": 20,
         "details": ""
       },
       "ac": {
@@ -161,10 +136,10 @@
         "details": ""
       },
       "level": {
-        "value": 5
+        "value": 1
       },
       "blurb": "",
-      "publicNotes": "<p>You call forth a servitor forged from raw vitality energy to heal and bolster your allies.</p>",
+      "publicNotes": "",
       "privateNotes": "",
       "publication": {
         "title": "",
@@ -175,7 +150,7 @@
     },
     "resources": {},
     "_migration": {
-      "version": 0.94,
+      "version": 0.953,
       "previous": null
     },
     "abilities": {
@@ -223,22 +198,22 @@
       "value": [],
       "rarity": "common",
       "size": {
-        "value": "huge"
+        "value": "med"
       }
     }
   },
-  "_id": "gqrW5aGfnjqNse2T",
-  "img": "modules/pf2e-summons-assistant/assets/tokens/subject/healing-servitor.webp",
+  "_id": "LB2e6ze90XNiwFcW",
+  "img": "modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/awakened-tree.webp",
   "items": [
     {
       "type": "action",
-      "name": "Servitor's Protection (Arrive)",
+      "name": "Pass Through",
       "system": {
         "actionType": {
-          "value": "free"
+          "value": "passive"
         },
         "description": {
-          "value": "<p>The servitor appears in a flash of light, moving from ally to ally and granting them a temporary reprieve. All allies within @Template[emanation|distance:20]{20 feet} of the Servitor gain [[/r 20 + max(@actor.level - 5, 0)*8]] temporary Hit Points until the servitor departs.</p><p>@UUID[Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.I58Co0qSpo60m61O]{Effect: Servitor's Protection}</p><hr /><p><strong>Heightened (+2)</strong> The Arrive effect's temporary Hit Points increase by 8, and the Depart effect's healing and damage to undead increase by 1d8.</p>",
+          "value": "<p>Other creatures can’t occupy its space, but allies can pass through its space.</p>",
           "gm": ""
         },
         "publication": {
@@ -248,20 +223,17 @@
           "remaster": false
         },
         "rules": [],
-        "slug": "servitors-protection-arrive",
+        "slug": null,
         "traits": {
           "otherTags": [],
-          "value": [
-            "healing",
-            "vitality"
-          ]
+          "value": []
         },
         "_migration": {
-          "version": 0.94,
+          "version": 0.953,
           "previous": {
             "schema": null,
-            "foundry": "13.346",
-            "system": "7.2.3"
+            "foundry": "13.351",
+            "system": "7.7.4"
           }
         },
         "actions": {
@@ -271,13 +243,13 @@
         "deathNote": false
       },
       "effects": [],
-      "_id": "RK1GBD6FHapmRlkp",
+      "_id": "EEzWMY1HiWS7JIeA",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
       "ownership": {
         "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
+        "QxDObmx87OPbZTK7": 3
       },
       "flags": {},
       "_stats": {
@@ -287,21 +259,23 @@
         "coreVersion": "13.351",
         "systemId": "pf2e",
         "systemVersion": "7.7.4",
-        "createdTime": 1752518514604,
-        "modifiedTime": 1763755110225,
+        "createdTime": 1763738802061,
+        "modifiedTime": 1763738826748,
         "lastModifiedBy": "QxDObmx87OPbZTK7"
       },
-      "_key": "!actors.items!gqrW5aGfnjqNse2T.RK1GBD6FHapmRlkp"
+      "_key": "!actors.items!LB2e6ze90XNiwFcW.EEzWMY1HiWS7JIeA"
     },
     {
-      "type": "action",
-      "name": "Servitor's Blessing (Depart)",
+      "type": "melee",
+      "name": "New Attack",
+      "effects": [],
       "system": {
-        "actionType": {
-          "value": "free"
+        "_migration": {
+          "version": 0.953,
+          "previous": null
         },
         "description": {
-          "value": "<p>The servitor disappears in a @Template[emanation|distance:30] of vitality energy. All willing living creatures within heal @Damage[ceil(@actor.level/2)d8[healing,vitality]] Hit Points. All undead within take that much damage, with a @Check[fortitude|basic:true|dc:resolve(@actor.system.resources.dc.value)|name:Healing Servitor Depart|traits:healing,vitality] save.</p><hr /><p><strong>Heightened (+2)</strong> The Arrive effect's temporary Hit Points increase by 8, and the Depart effect's healing and damage to undead increase by 1d8.</p>",
+          "value": "",
           "gm": ""
         },
         "publication": {
@@ -315,32 +289,27 @@
         "traits": {
           "otherTags": [],
           "value": [
-            "healing",
-            "vitality"
+            "reach-15"
           ]
         },
-        "_migration": {
-          "version": 0.94,
-          "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.2.3"
-          }
+        "action": "strike",
+        "area": null,
+        "damageRolls": {},
+        "bonus": {
+          "value": 0
         },
-        "actions": {
-          "value": null
+        "attackEffects": {
+          "value": []
         },
-        "category": null,
-        "deathNote": false
+        "range": null
       },
-      "effects": [],
-      "_id": "gZs94A2dq6OWbEDw",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "_id": "AWb2GIoYDNLC9lMC",
+      "img": "systems/pf2e/icons/default-icons/melee.svg",
       "folder": null,
       "sort": 0,
       "ownership": {
         "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
+        "QxDObmx87OPbZTK7": 3
       },
       "flags": {},
       "_stats": {
@@ -350,14 +319,14 @@
         "coreVersion": "13.351",
         "systemId": "pf2e",
         "systemVersion": "7.7.4",
-        "createdTime": 1752518870338,
-        "modifiedTime": 1763754550731,
+        "createdTime": 1763738834191,
+        "modifiedTime": 1763738859628,
         "lastModifiedBy": "QxDObmx87OPbZTK7"
       },
-      "_key": "!actors.items!gqrW5aGfnjqNse2T.gZs94A2dq6OWbEDw"
+      "_key": "!actors.items!LB2e6ze90XNiwFcW.AWb2GIoYDNLC9lMC"
     }
   ],
-  "sort": 200000,
+  "sort": -100000,
   "flags": {},
   "_stats": {
     "compendiumSource": null,
@@ -366,9 +335,9 @@
     "coreVersion": "13.351",
     "systemId": "pf2e",
     "systemVersion": "7.7.4",
-    "createdTime": 1752469382792,
-    "modifiedTime": 1763754988506,
+    "createdTime": 1763668272525,
+    "modifiedTime": 1763744395326,
     "lastModifiedBy": "QxDObmx87OPbZTK7"
   },
-  "_key": "!actors!gqrW5aGfnjqNse2T"
+  "_key": "!actors!LB2e6ze90XNiwFcW"
 }

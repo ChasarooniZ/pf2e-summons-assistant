@@ -139,17 +139,17 @@
         "max": 10,
         "details": ""
       },
-      "speed": {
-        "value": 25,
-        "otherSpeeds": [],
-        "details": ""
-      },
       "ac": {
         "value": 10,
         "details": ""
       },
       "allSaves": {
         "value": ""
+      },
+      "speed": {
+        "value": 10,
+        "otherSpeeds": [],
+        "details": ""
       }
     },
     "initiative": {
@@ -161,7 +161,7 @@
         "details": ""
       },
       "level": {
-        "value": 1
+        "value": 2
       },
       "blurb": "",
       "publicNotes": "",
@@ -229,19 +229,82 @@
   },
   "_id": "HOq9yGxQLhhZcEAP",
   "img": "modules/jb2a_patreon/Library/2nd_Level/Flaming_Sphere/FlamingSphere_02_Orange_Thumb.webp",
-  "items": [],
+  "items": [
+    {
+      "type": "action",
+      "name": "On Sustain",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "description": {
+          "value": "<p>When you Sustain this spell, you can levitate the flame up to 10 feet. It then deals @Damage[(@actor.level + 1)d6[fire]] damage to each creature whose space it shared at any point during its flight with a @Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:concentrate,fire,manipulate]. This uses the same damage and save, and you roll the damage once each time you Sustain. A given creature can take damage from floating flame only once per round.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": [
+            "fire"
+          ]
+        },
+        "_migration": {
+          "version": 0.953,
+          "previous": {
+            "schema": null,
+            "foundry": "13.351",
+            "system": "7.7.4"
+          }
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "HppZJrvCLXD4FllO",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "QxDObmx87OPbZTK7": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "pf2e",
+        "systemVersion": "7.7.4",
+        "createdTime": 1763743064115,
+        "modifiedTime": 1763750408335,
+        "lastModifiedBy": "QxDObmx87OPbZTK7"
+      },
+      "_key": "!actors.items!HOq9yGxQLhhZcEAP.HppZJrvCLXD4FllO"
+    }
+  ],
   "sort": 0,
   "flags": {},
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.346",
+    "coreVersion": "13.351",
     "systemId": "pf2e",
-    "systemVersion": "7.2.3",
+    "systemVersion": "7.7.4",
     "createdTime": 1752613329426,
-    "modifiedTime": 1752613374227,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+    "modifiedTime": 1763743816999,
+    "lastModifiedBy": "QxDObmx87OPbZTK7"
   },
   "_key": "!actors!HOq9yGxQLhhZcEAP"
 }

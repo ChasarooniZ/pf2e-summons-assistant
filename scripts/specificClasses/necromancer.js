@@ -228,7 +228,7 @@ export function getStrikeRE(config) {
         modifier: config?.mod ?? 0,
       },
     },
-    attackModifier: 1,
+    attackModifier: config?.attackModifier ?? 1,
     traits: config?.traits ?? [],
     img:
       config?.image ?? "icons/magic/death/hand-undead-skeleton-fire-green.webp",
@@ -244,7 +244,7 @@ export function getStrikeRE(config) {
   return base;
 }
 
-export function getStrikeMod(slugs) {
+export function getStrikeMod(slugs, label = "Thrall") {
   return {
     key: "FlatModifier",
     selector: "attack",
@@ -255,7 +255,7 @@ export function getStrikeMod(slugs) {
       },
     ],
     hideIfDisabled: true,
-    label: "Thrall",
+    label: label,
   };
 }
 

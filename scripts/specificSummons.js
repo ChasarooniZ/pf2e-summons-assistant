@@ -1,7 +1,8 @@
-import { ACTIONS, ALT_ART, CREATURES, EFFECTS, SOURCES } from "./const.js";
+import { ACTIONS, ALT_ART, CREATURES, EFFECTS, RULE_ELEMENTS, SOURCES } from "./const.js";
 import { getFoeInfo } from "./specificCases/duplicateFoe.js";
 import {
   errorNotification,
+  getAvengingWildwoodStrikeRuleElements,
   getGridUnitsFromFeet,
   hasNoTargets,
   onlyHasJB2AFree,
@@ -58,6 +59,7 @@ const getSummonHandlers = () => ({
     handlers.mechanic.handleDoubleDeployment,
 
   // Misc
+  [SOURCES.MISC.AVENGING_WILDWOOD]: handlers.misc.handleAvengingWildwood,
   [SOURCES.MISC.CALL_URSINE_ALLY]: handlers.misc.handleCallUrsineAlly,
   [SOURCES.MISC.DUPLICATE_FOE]: handlers.misc.handleDuplicateFoe,
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
@@ -218,6 +220,26 @@ const handlers = {
   },
 
   misc: {
+    handleAvengingWildwood: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.AVENGING_WILDWOOD],
+          modifications: {
+            "system.attributes.hp.max": 20 + (data.rank - 2) * 10,
+            "system.attributes.hp.value": 20 + (data.rank - 2) * 10,
+            "system.attributes.ac.value": data.dc,
+            "system.saves.fortitude.value": data.dc - 10,
+            "system.saves.reflex.value": data.dc - 10,
+            "system.saves.will.value": data.dc - 10,
+          },
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT
+              (getAvengingWildwoodStrikeRuleElements({ rank: data.rank })
+              )
+          ]
+        }
+      ]
+    },
     handleCallUrsineAlly: (data) => {
       if (data.summonerLevel < 10) {
         return [{ specific_uuids: [CREATURES.BLACK_BEAR], rank: 3 }];
@@ -271,6 +293,7 @@ const handlers = {
           specific_uuids: [CREATURES.FLOATING_FLAME],
           rank: data.rank,
           modifications: {
+            "system.details.level.value": data.rank,
             ...(onlyHasJB2AFree()
               ? {
                 "prototypeToken.texture.src":
@@ -279,6 +302,10 @@ const handlers = {
               }
               : {}),
           },
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT
+              ([RULE_ELEMENTS.SPELL_DC_FLAG])
+          ]
         },
       ];
     },
@@ -374,7 +401,6 @@ const handlers = {
     handleProtectorTree: (data) => {
       return [
         {
-          //TODO make this real
           specific_uuids: [CREATURES.PROTECTOR_TREE],
           modifications: {
             "system.attributes.hp.max": 10 + (data.rank - 1) * 10,

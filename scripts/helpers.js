@@ -1,4 +1,5 @@
 import { CONDITIONS_AFFECTING_SPELL_DC, MODULE_ID } from "./const.js";
+import { getStrikeMod, getStrikeRE } from "./specificClasses/necromancer.js";
 
 /**
  * From UUID function to maintain V12 & 13 Compatab ility
@@ -117,4 +118,27 @@ async function refreshTokensBasedOnItem(item, userID) {
 
 export function getGridUnitsFromFeet(feet) {
   return (feet * canvas.grid.distance) / 5;
+}
+
+export function getAvengingWildwoodStrikeRuleElements({ rank }) {
+  const rulesElements = ["bludgeoning", "piercing", "slashing"].map(type => {
+
+    const damageName = game.i18n.localize(
+      `PF2E.Trait${capitalizeDamageType(type)}`
+    );
+    const name = `Branch (${damageName})`;
+    const slug = game.pf2e.system.sluggify(name);
+    return getStrikeRE({
+      die: "d8",
+      dice: 2 + (rank - 1),
+      damageType: type,
+      traits: ["reach-15"],
+      image: "icons/magic/nature/root-vine-entwined-thorns.webp",
+      slug,
+      label: name,
+    })
+  })
+  rulesElements.push(
+    getStrikeMod([rulesElements.map(re => re.slug)], 'Branch'))
+  return rulesElements;
 }
