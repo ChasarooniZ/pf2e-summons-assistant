@@ -109,6 +109,10 @@
           "name": "Effect: Thrall Expiration Date",
           "description": "This measures how long till this thrall expires."
         },
+        "rule-elements": {
+          "name": "Effect: Rule Elements",
+          "description": "This effect adds various rule elements to a particular summon in order to add automation like strikes etc."
+        },
         "duplicate-foe": {
           "name": "Effect: Duplicate Foe",
           "successful-save": {

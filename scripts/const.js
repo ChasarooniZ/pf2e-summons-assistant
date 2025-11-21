@@ -39,6 +39,7 @@ export const SOURCES = {
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
     WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed",
     PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
+    AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW"
   },
 
   KINETICIST: {
@@ -84,6 +85,7 @@ export const SOURCES = {
 };
 
 export const SLUG_TO_SOURCE = {
+  "avenging-wildwood": SOURCES.MISC.AVENGING_WILDWOOD,
   "call-fluxwraith": SOURCES.CALL_FLUXWRAITH,
   "call-ursine-ally": SOURCES.CALL_URSINE_ALLY,
   "conglomerate-of-limbs": SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS,
@@ -148,6 +150,8 @@ export const CREATURES = {
 
   DUPLICATE_FOE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.03gFpid5kBiI3vXS",
+
+  AVENGING_WILDWOOD: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.LB2e6ze90XNiwFcW",
 
   WOODEN_DOUBLE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
@@ -359,21 +363,53 @@ export const EFFECTS = {
         ...(isFail
           ? []
           : [
-              {
-                key: "Note",
-                title: game.i18n.localize(
-                  "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.title"
-                ),
-                selector: "strike-damage",
-                text: game.i18n.localize(
-                  "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.text"
-                ),
-              },
-            ]),
+            {
+              key: "Note",
+              title: game.i18n.localize(
+                "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.title"
+              ),
+              selector: "strike-damage",
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.text"
+              ),
+            },
+          ]),
       ],
       slug: "effect-duplicate-foe",
     },
     img: "systems/pf2e/icons/spells/duplicate-foe.webp",
+  }),
+  RULE_EFFECT: (ruleconfig) => ({
+    name: game.i18n.localize(
+      "pf2e-summons-assistant.items.effects.rule-elements.name"
+    ),
+    type: "effect",
+    system: {
+      description: {
+        value: `<p>${game.i18n.localize("pf2e-summons-assistant.items.effects.rule-elements.description")}</p>`,
+        gm: "",
+      },
+      publication: {
+        title: "PF2e Summons Assistant",
+        authors: "",
+        license: "OGL",
+        remaster: true,
+      },
+      level: {
+        value: 1,
+      },
+      duration: {
+        value: -1,
+        unit: "unlimited",
+        expiry: null,
+      },
+      rules: ruleconfig,
+      tokenIcon: {
+        show: false,
+      },
+      slug: "effect-rule-elements",
+    },
+    img: "icons/commodities/tech/cog-steel-grey.webp",
   }),
   CONDITIONS: {
     INVISIBLE: "Compendium.pf2e.conditionitems.Item.zJxUflt9np0q4yML",
