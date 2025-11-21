@@ -207,7 +207,7 @@
   "_id": "jVsAEp6bR4mXtwHQ",
   "img": "modules/pf2e-summons-assistant/assets/actors/protector_tree.webp",
   "items": [],
-  "sort": 0,
+  "sort": -50000,
   "flags": {},
   "_stats": {
     "compendiumSource": null,
@@ -217,7 +217,7 @@
     "systemId": "pf2e",
     "systemVersion": "7.7.4",
     "createdTime": 1763581590667,
-    "modifiedTime": 1763581644366,
+    "modifiedTime": 1763744396663,
     "lastModifiedBy": "QxDObmx87OPbZTK7"
   },
   "_key": "!actors!jVsAEp6bR4mXtwHQ"
