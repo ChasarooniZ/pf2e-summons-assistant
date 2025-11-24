@@ -469,3 +469,49 @@ export const RULE_ELEMENTS = {
     "value": "@item.origin.system.attributes.spellDC.value"
   }
 }
+
+export const WEAPON_DAMAGE_TYPE_MODIFIERS = {
+  RUNES: {
+    "ashen": "fire",
+    "greater-ashen": "fire",
+    "astral": "spirit",
+    "greater-astral": "spirit",
+    "brilliant": "fire",
+    "greater-brilliant": "fire",
+    "corrosive": "acid",
+    "greater-corrosive": "acid",
+    "decaying": "void",
+    "greater-decaying": "void",
+    "flaming": "fire",
+    "greater-flaming": "fire",
+    "frost": "cold",
+    "greater-frost": "cold",
+    "holy": "spirit",
+    "impactful": "force",
+    "greater-impactful": "force",
+    "nightmare": "mental",
+    "shock": "electricity",
+    "greater-shock": "electricity",
+    "thundering": "sonic",
+    "greater-thundering": "sonic",
+    "unholy": "spirit",
+    "vitalizing": "vitality",
+    "greater-vitalizing": "vitality",
+  },
+  TRAITS: {
+    "versatile-b": "bludgeoning",
+    "versatile-p": "piercing",
+    "versatile-s": "slashing",
+    "versatile-acid": "acid",
+    "versatile-cold": "cold",
+    "versatile-electricity": "electricity",
+    "versatile-fire": "fire",
+    "versatile-force": "force",
+    "versatile-mental": "mental",
+    "versatile-poison": "poison",
+    "versatile-sonic": "sonic",
+    "versatile-spirit": "spirit",
+    "versatile-vitality": "vitality",
+    "versatile-void": "void",
+  }
+}
