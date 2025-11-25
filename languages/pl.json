@@ -109,6 +109,10 @@
           "name": "Efekt: Wygasanie Zniewolenia",
           "description": "Mierzy czas pozostały do wygaśnięcia niewoli."
         },
+        "rule-elements": {
+          "name": "Efekt: Elementy reguł",
+          "description": "Efekt ten dodaje różne elementy reguł do konkretnego przywołania, aby dodać automatyzację, taką jak uderzenia itp."
+        },
         "duplicate-foe": {
           "name": "Efekt: Duplikacja Wroga",
           "successful-save": {
