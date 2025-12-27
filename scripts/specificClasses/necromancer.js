@@ -264,11 +264,21 @@ function setupAutoDeleteThrallHook() {
 }
 
 async function autoDeleteThrall(effect, info) {
-  if (!game.user.isGM) return;
-  if (effect.rollOptionSlug !== "thrall-expiration-date") return;
+  if (!game.user.isGM || effect.rollOptionSlug !== "thrall-expiration-date") return;
 
-  const tokDoc = info?.parent?.parent;
-  return await tokDoc.delete();
+  const actor = info?.parent?.parent?.constructor?.name === "TokenDocumentPF2e"
+    ? game.actors.get(info.parent.parent.actorId)
+    : info?.parent?.constructor?.name === "NPCPF2e"
+    ? info.parent
+    : null;
+
+  if (!actor) return;
+
+  try {
+    await game.tcal.deleteTransientActor(actor);
+  } catch (error) {
+    console.warn(`${MODULE_ID} | Could not delete transient actor:`, error);
+  }
 }
 
 export function getNecromancerProf(lvl) {
