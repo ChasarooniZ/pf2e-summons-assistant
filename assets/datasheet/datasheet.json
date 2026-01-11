@@ -1,0 +1,39 @@
+[
+  {
+    "label": "Protector Tree",
+    "key": "PF2e-summons-assistant_protector_tree",
+    "source": "PF2e-summons-assistant",
+    "art": {
+      "portrait": "modules/pf2e-summons-assistant/assets/actors/protector_tree.webp",
+      "thumb": "modules/pf2e-summons-assistant/assets/thumb/protector_tree.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/token/protector_tree.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/protector_tree.webp",
+      "scale": 1
+    },
+    "tags": {
+      "category": [
+        "plant"
+      ]
+    }
+  },
+    {
+    "label": "Healing Servitor",
+    "key": "PF2e-summons-assistant_healing-servitor",
+    "source": "PF2e-summons-assistant",
+    "art": {
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/healing-servitor.webp",
+      "thumb": "modules/pf2e-summons-assistant/assets/thumb/healing-servitor.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/token/healing-servitor.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/healing-servitor.webp",
+      "scale": 1
+    },
+    "tags": {
+      "category": [
+        "monitor"
+      ],
+      "features": [
+        "winged"
+      ]
+    }
+  }
+]

@@ -100,5 +100,14 @@
       },
       "system": "pf2e"
     }
-  ]
+  ],
+  "flags": {
+    "galleryDatasheets": {
+      "pf2e-summons-assistant": {
+        "label": "PF2e Summons Assistant Artwork",
+        "hint": "Artwork from PF2e Summons Assistant.",
+        "sheet": "modules/pf2e-summons-assistant/assets/datasheet/datasheet.json"
+      }
+    }
+  }
 }

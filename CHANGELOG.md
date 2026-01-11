@@ -1,5 +1,8 @@
 ## Unreleased
 
+- **Updated**
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+
 ## 0.18.0
 
 - **New**
