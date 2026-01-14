@@ -11,12 +11,10 @@
       "scale": 1
     },
     "tags": {
-      "category": [
-        "plant"
-      ]
+      "category": ["plant"]
     }
   },
-    {
+  {
     "label": "Healing Servitor",
     "key": "PF2e-summons-assistant_healing-servitor",
     "source": "PF2e-summons-assistant",
@@ -28,12 +26,69 @@
       "scale": 1
     },
     "tags": {
-      "category": [
-        "monitor"
-      ],
-      "features": [
-        "winged"
-      ]
+      "category": ["monitor"],
+      "features": ["winged"]
+    }
+  },
+  {
+    "label": "Landmine",
+    "key": "PF2e-summons-assistant_landmine",
+    "source": "PF2e-summons-assistant",
+    "art": {
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/landmine.webp",
+      "thumb": "modules/pf2e-summons-assistant/assets/thumb/landmine.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/landmine.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/landmine.webp",
+      "scale": 1
+    },
+    "tags": {
+      "category": ["constructed"],
+      "features": ["tech"]
+    }
+  },
+  {
+    "label": "Banner (Planted)",
+    "key": "PF2e-summons-assistant_plant-banner",
+    "source": "PF2e-summons-assistant",
+    "art": {
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/plant-banner.webp",
+      "thumb": "modules/pf2e-summons-assistant/assets/thumb/plant-banner.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/plant-banner.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/plant-banner.webp",
+      "scale": 1
+    },
+    "tags": {
+      "category": ["constructed"]
+    }
+  },
+  {
+    "label": "Tempest of Shades",
+    "key": "PF2e-summons-assistant_tempest-of-shades",
+    "source": "PF2e-summons-assistant",
+    "art": {
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/tempest-of-shades.webp",
+      "thumb": "modules/pf2e-summons-assistant/assets/thumb/tempest-of-shades.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/tempest-of-shades.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/tempest-of-shades.webp",
+      "scale": 1
+    },
+    "tags": {
+      "category": ["undead"]
+    }
+  },
+  {
+    "label": "Wooden Double",
+    "key": "PF2e-summons-assistant_wooden_double",
+    "source": "PF2e-summons-assistant",
+    "art": {
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/wooden_double.webp",
+      "thumb": "modules/pf2e-summons-assistant/assets/thumb/wooden_double.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/wooden_double.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/wooden_double.webp",
+      "scale": 1
+    },
+    "tags": {
+      "category": ["plant"]
     }
   }
 ]
