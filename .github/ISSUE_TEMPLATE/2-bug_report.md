@@ -4,7 +4,7 @@ about: Report a bug to help get it fixed!
 title: '[Bug] '
 labels: 'bug'
 assignees: 'ChasarooniZ'
-
+projects: ["ChasarooniZ/2"]
 ---
 
 **Describe the bug**

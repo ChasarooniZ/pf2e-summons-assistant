@@ -3,6 +3,7 @@ description: Request support for a new summon trigger (IE Item/Spell/Feat/ETC.)
 title: "[Item] "
 labels: ["New-Item"]
 assignees: ["chasarooniZ"]
+projects: ["ChasarooniZ/2"]
 body:
   - type: input
     id: feature_link
