@@ -53,22 +53,22 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "languages/en.json"
+      "path": "langs/en.json"
     },
     {
       "lang": "pl",
       "name": "Polski",
-      "path": "languages/pl.json"
+      "path": "langs/pl.json"
     },
     {
       "lang": "fr",
       "name": "Français",
-      "path": "languages/fr.json"
+      "path": "langs/fr.json"
     },
     {
       "lang": "cn",
       "name": "简体中文",
-      "path": "languages/cn.json"
+      "path": "langs/cn.json"
     }
   ],
   "url": "#{URL}#",
