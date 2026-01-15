@@ -11,6 +11,7 @@ import {
   errorNotification,
   getAvengingWildwoodStrikeRuleElements,
   getGridUnitsFromFeet,
+  hasAnyJB2A,
   hasNoTargets,
   onlyHasJB2AFree,
 } from "./helpers.js";
