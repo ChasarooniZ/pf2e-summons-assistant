@@ -445,10 +445,12 @@ const handlers = {
           {
             label: "Circle",
             action: "circle",
+            icon: "fa-regular fa-circle"
           },
           {
             label: "Line",
             action: "line",
+            icon: "fa-regular fa-direction-up-down"
           },
         ],
       });

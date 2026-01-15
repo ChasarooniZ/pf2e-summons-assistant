@@ -51,7 +51,7 @@ export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
       break;
     case SOURCES.WALL.WALL_OF_FIRE:
       const summonedToken = canvas.tokens.placeables.find(
-        (tok) => (tok.actor.uuid = actorUUID)
+        (tok) => (tok.actor.uuid === actorUUID)
       );
 
       if (summonedToken.actor.details.blurb === "circle") {
