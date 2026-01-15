@@ -78,7 +78,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
 
   // Walls
-  [SOURCES.MISC.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
+  [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
 
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
