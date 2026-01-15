@@ -33,6 +33,14 @@ export function onlyHasJB2AFree() {
     !game.modules.get("jb2a_patreon")?.active
   );
 }
+
+export function hasAnyJB2A() {
+  return (
+    game.modules.get("JB2A_DnD5e")?.active ||
+    game.modules.get("jb2a_patreon")?.active
+  );
+}
+
 export function capitalizeDamageType(type) {
   return type.charAt(0).toUpperCase() + type.slice(1);
 }
@@ -121,8 +129,7 @@ export function getGridUnitsFromFeet(feet) {
 }
 
 export function getAvengingWildwoodStrikeRuleElements({ rank }) {
-  const rulesElements = ["bludgeoning", "piercing", "slashing"].map(type => {
-
+  const rulesElements = ["bludgeoning", "piercing", "slashing"].map((type) => {
     const damageName = game.i18n.localize(
       `PF2E.Trait${capitalizeDamageType(type)}`
     );
@@ -136,9 +143,18 @@ export function getAvengingWildwoodStrikeRuleElements({ rank }) {
       image: "icons/magic/nature/root-vine-entwined-thorns.webp",
       slug,
       label: name,
-    })
-  })
+    });
+  });
   rulesElements.push(
-    getStrikeMod([rulesElements.map(re => re.slug)], 'Branch'))
+    getStrikeMod([rulesElements.map((re) => re.slug)], "Branch")
+  );
   return rulesElements;
+}
+
+export function notifyRayControls() {
+  ui.notifications.info(`
+          <b>${game.i18n.localize("pf2e-summons-assistant.controls.adjust-length")}:</b> <span class='reference'>${game.i18n.localize("CONTROLS.Alt")} + ${game.i18n.localize("pf2e-summons-assistant.controls.scroll")}</span>
+          <br>
+          <br>
+          <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`);
 }

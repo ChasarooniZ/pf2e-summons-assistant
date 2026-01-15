@@ -1,16 +1,14 @@
-2025/11/21-16:15:39.288 6e74 Recovering log #213
-2025/11/21-16:15:39.294 6e74 Delete type=0 #213
-2025/11/21-16:15:39.294 6e74 Delete type=3 #212
-2025/11/21-16:15:39.306 5830 Level-0 table #217: started
-2025/11/21-16:15:39.313 5830 Level-0 table #217: 94614 bytes OK
-2025/11/21-16:15:39.315 5830 Delete type=0 #215
-2025/11/21-16:15:39.315 5830 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at '!actors.items!LB2e6ze90XNiwFcW.EEzWMY1HiWS7JIeA' @ 1043 : 1
-2025/11/21-16:15:39.315 5830 Compacting 3@0 + 1@1 files
-2025/11/21-16:15:39.324 5830 Generated table #218@0: 111 keys, 94614 bytes
-2025/11/21-16:15:39.324 5830 Compacted 3@0 + 1@1 files => 94614 bytes
-2025/11/21-16:15:39.325 5830 compacted to: files[ 0 1 0 0 0 0 0 ]
-2025/11/21-16:15:39.325 5830 Delete type=2 #201
-2025/11/21-16:15:39.326 5830 Delete type=2 #205
-2025/11/21-16:15:39.326 5830 Delete type=2 #208
-2025/11/21-16:15:39.326 5830 Delete type=2 #217
-2025/11/21-16:15:39.327 5830 Manual compaction at level-0 from '!actors.items!LB2e6ze90XNiwFcW.EEzWMY1HiWS7JIeA' @ 1043 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at (end)
+2026/01/15-13:52:59.138 65f0 Recovering log #352
+2026/01/15-13:52:59.732 65f0 Delete type=0 #352
+2026/01/15-13:52:59.732 65f0 Delete type=3 #351
+2026/01/15-13:52:59.766 b33c Level-0 table #356: started
+2026/01/15-13:52:59.834 b33c Level-0 table #356: 94944 bytes OK
+2026/01/15-13:52:59.899 b33c Delete type=0 #354
+2026/01/15-13:52:59.899 b33c Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1
+2026/01/15-13:52:59.899 b33c Compacting 1@0 + 1@1 files
+2026/01/15-13:52:59.934 b33c Generated table #357@0: 114 keys, 94944 bytes
+2026/01/15-13:52:59.935 b33c Compacted 1@0 + 1@1 files => 94944 bytes
+2026/01/15-13:52:59.998 b33c compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/01/15-13:52:59.999 b33c Delete type=2 #346
+2026/01/15-13:52:59.999 b33c Delete type=2 #356
+2026/01/15-13:52:59.999 b33c Manual compaction at level-0 from '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at (end)

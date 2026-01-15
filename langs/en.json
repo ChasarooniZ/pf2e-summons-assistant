@@ -84,12 +84,16 @@
           "title": "Configure Enabled Summon Triggers",
           "hint": "Configure what summon sources are active"
         }
-      }
+      },
+      "choose-type-of": "Choose the type of"
     },
     "display-text": {
       "wooden-double": {
         "place-double": "Left Click to place your Wooden Double",
         "step": "Choose where to Step to"
+      },
+      "wall": {
+        "start-point": "Select the start point of your wall"
       }
     },
     "items": {
@@ -121,6 +125,11 @@
           }
         }
       }
+    },
+    "controls": {
+      "scroll": "Scroll",
+      "adjust-length": "Adjust Length",
+      "rotate-wall": "Rotate Wall"
     }
   }
 }

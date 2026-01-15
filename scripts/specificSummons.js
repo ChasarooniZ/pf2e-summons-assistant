@@ -1,4 +1,11 @@
-import { ACTIONS, ALT_ART, CREATURES, EFFECTS, RULE_ELEMENTS, SOURCES } from "./const.js";
+import {
+  ACTIONS,
+  ALT_ART,
+  CREATURES,
+  EFFECTS,
+  RULE_ELEMENTS,
+  SOURCES,
+} from "./const.js";
 import { getFoeInfo } from "./specificCases/duplicateFoe.js";
 import {
   errorNotification,
@@ -51,7 +58,8 @@ const getSummonHandlers = () => ({
     handlers.incarnate.handleTempestOfShades,
 
   // Kineticist
-  [SOURCES.KINETICIST.TIMBER_SENTINEL]: handlers.kineticist.handleTimberSentinel,
+  [SOURCES.KINETICIST.TIMBER_SENTINEL]:
+    handlers.kineticist.handleTimberSentinel,
 
   // Mechanic
   [SOURCES.MECHANIC.DEPLOY_MINE]: handlers.mechanic.handleDeployMine,
@@ -67,6 +75,9 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.TELEKINETIC_HAND]: handlers.misc.handleTelekineticHand,
   [SOURCES.MISC.WOODEN_DOUBLE]: handlers.misc.handleWoodenDouble,
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
+
+  // Walls
+  [SOURCES.MISC.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
 
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
@@ -168,7 +179,7 @@ const handlers = {
               10 + (Math.round(data.summonerLevel / 2) - 1) * 10,
             "system.attributes.hp.value":
               10 + (Math.round(data.summonerLevel / 2) - 1) * 10,
-            "level": data.summonerLevel,
+            level: data.summonerLevel,
           },
           crosshairParameters: {
             location: {
@@ -233,12 +244,12 @@ const handlers = {
             "system.saves.will.value": data.dc - 10,
           },
           itemsToAdd: [
-            EFFECTS.RULE_EFFECT
-              (getAvengingWildwoodStrikeRuleElements({ rank: data.rank })
-              )
-          ]
-        }
-      ]
+            EFFECTS.RULE_EFFECT(
+              getAvengingWildwoodStrikeRuleElements({ rank: data.rank })
+            ),
+          ],
+        },
+      ];
     },
     handleCallUrsineAlly: (data) => {
       if (data.summonerLevel < 10) {
@@ -296,16 +307,13 @@ const handlers = {
             "system.details.level.value": data.rank,
             ...(onlyHasJB2AFree()
               ? {
-                "prototypeToken.texture.src":
-                  ALT_ART.JB2A_FREE.FLOATING_FLAME.TOKEN,
-                img: ALT_ART.JB2A_FREE.FLOATING_FLAME.ACTOR,
-              }
+                  "prototypeToken.texture.src":
+                    ALT_ART.JB2A_FREE.FLOATING_FLAME.TOKEN,
+                  img: ALT_ART.JB2A_FREE.FLOATING_FLAME.ACTOR,
+                }
               : {}),
           },
-          itemsToAdd: [
-            EFFECTS.RULE_EFFECT
-              ([RULE_ELEMENTS.SPELL_DC_FLAG])
-          ]
+          itemsToAdd: [EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG])],
         },
       ];
     },
@@ -320,9 +328,9 @@ const handlers = {
               "system.details.level.value": data.rank,
               ...(onlyHasJB2AFree()
                 ? {
-                  "prototypeToken.texture.src": ALT_ART.JB2A_FREE.LIGHT.TOKEN,
-                  img: ALT_ART.JB2A_FREE.LIGHT.ACTOR,
-                }
+                    "prototypeToken.texture.src": ALT_ART.JB2A_FREE.LIGHT.TOKEN,
+                    img: ALT_ART.JB2A_FREE.LIGHT.ACTOR,
+                  }
                 : {}),
             },
           },
@@ -350,10 +358,10 @@ const handlers = {
           modifications: {
             ...(onlyHasJB2AFree()
               ? {
-                "prototypeToken.texture.src":
-                  ALT_ART.JB2A_FREE.TELEKINETIC_HAND.TOKEN,
-                img: ALT_ART.JB2A_FREE.TELEKINETIC_HAND.ACTOR,
-              }
+                  "prototypeToken.texture.src":
+                    ALT_ART.JB2A_FREE.TELEKINETIC_HAND.TOKEN,
+                  img: ALT_ART.JB2A_FREE.TELEKINETIC_HAND.ACTOR,
+                }
               : {}),
           },
           itemsToAdd,
@@ -386,12 +394,12 @@ const handlers = {
             },
             ...(data.position
               ? {
-                location: {
-                  obj: data.position,
-                  limitMaxRange: 1,
-                  showRange: true,
-                },
-              }
+                  location: {
+                    obj: data.position,
+                    limitMaxRange: 1,
+                    showRange: true,
+                  },
+                }
               : {}),
           },
         },
@@ -405,7 +413,7 @@ const handlers = {
           modifications: {
             "system.attributes.hp.max": 10 + (data.rank - 1) * 10,
             "system.attributes.hp.value": 10 + (data.rank - 1) * 10,
-            "level": data.rank,
+            level: data.rank,
           },
           crosshairParameters: {
             location: {
@@ -414,6 +422,64 @@ const handlers = {
               showRange: true,
             },
           },
+        },
+      ];
+    },
+  },
+
+  wall: {
+    handleWallOfFire: async (data) => {
+      if (!hasAnyJB2A()) {
+        return null;
+      }
+
+      const type = await foundry.applications.api.DialogV2.wait({
+        window: { title: "Wall of Fire" },
+        content: await enrichHTML(
+          `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu]</p>`
+        ),
+        // This example does not use i18n strings for the button labels,
+        // but they are automatically localized.
+        buttons: [
+          {
+            label: "Circle",
+            action: "circle",
+          },
+          {
+            label: "Line",
+            action: "line",
+          },
+        ],
+      });
+
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_FIRE],
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.details.blurb": type,
+          },
+          ...(type === "circle"
+            ? {
+                crosshairParameters: {
+                  distance: 10.5,
+                  snap: {
+                    position:
+                      CONST.GRID_SNAPPING_MODES.VERTEX |
+                      CONST.GRID_SNAPPING_MODES.CENTER,
+                  },
+                },
+              }
+            : {
+                crosshairParameters: {
+                  label: {
+                    text: game.i18n.localize(
+                      "pf2e-summons-assistant.display-text.wall.start-point"
+                    ),
+                  },
+                },
+              }),
         },
       ];
     },

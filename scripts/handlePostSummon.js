@@ -1,4 +1,5 @@
 import { SOURCES, EFFECTS, MODULE_ID } from "./const.js";
+import { notifyRayControls } from "./helpers.js";
 
 export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
   switch (itemUUID) {
@@ -47,6 +48,49 @@ export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
         .on(summonerToken)
         .moveTowards(mvmntLocation, { relativeToCenter: true })
         .play();
+      break;
+    case SOURCES.WALL.WALL_OF_FIRE:
+      const summonedToken = canvas.tokens.placeables.find(
+        (tok) => (tok.actor.uuid = actorUUID)
+      );
+
+      if (summonedToken.actor.details.blurb === "circle") {
+        let squaresWide = 5.5;
+        if (canvas.grid.units === "ft") {
+          squaresWide *= canvas.grid.distance / 5;
+        }
+
+        new Sequence()
+          .effect()
+          .file("jb2a.wall_of_fire.500x100.yellow")
+          .tieToDocuments(summonedToken)
+          .attachTo(summonedToken, { bindScale: false })
+          .size(squaresWide, { gridUnits: true })
+          .persist()
+          .play();
+      } else if (summonedToken.actor.details.blurb === "line") {
+        notifyRayControls();
+        const startingDistance = 30;
+        const ch = await Sequencer.Crosshair.show({
+          t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
+          distance: startingDistance,
+          snap: {
+            direction: 10,
+          },
+          distanceMin: 0,
+          distanceMax: 60,
+        });
+
+        new Sequence()
+          .effect()
+          .atLocation(ch)
+          .file("jb2a.wall_of_fire.300x100.yellow")
+          .tieToDocuments(summonedToken)
+          .scale({ x: 1, y: 3 })
+          .stretchTo(ch, { onlyX: true })
+          .persist()
+          .play();
+      }
       break;
     //TO do set
     default:

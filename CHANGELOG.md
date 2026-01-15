@@ -1,6 +1,12 @@
 ## Unreleased
 
+## 0.19.0
+
+- **Added**
+  - Added all included art to the `Pathfinder Tokens: Character Gallery`
+  - Support for `Wall of Fire` (Requires `JB2a` of some kind)
 - **Updated**
+  - Changed filepath for `languages` to `lang` to support VS code extension for localization
   - Updated chinese translation (🌐 @AlphaStarGuide)
 
 ## 0.18.0

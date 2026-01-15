@@ -42,6 +42,10 @@ export const SOURCES = {
     AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW"
   },
 
+  WALL: {
+    WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu"
+  },
+
   KINETICIST: {
     TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
   },
@@ -126,6 +130,7 @@ export const SLUG_TO_SOURCE = {
   "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
   "activation-wondrous-figurine-jade-serpent":
     SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
+  "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
   "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
 };
 
@@ -173,6 +178,8 @@ export const CREATURES = {
   },
   FLUXWRAITH:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.3wO8dqpYCdGhIUla",
+
+  WALL_OF_FIRE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
 
   BLACK_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.xxP5FJotshmUQNtY",
   GRIZZLY_BEAR:

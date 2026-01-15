@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Walls",
+  "color": "#57661e",
+  "sorting": "a",
+  "_id": "L8iTXojMnoiabKyR",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "pf2e",
+    "systemVersion": "7.8.0",
+    "createdTime": 1768420838185,
+    "modifiedTime": 1768420845397,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "_key": "!folders!L8iTXojMnoiabKyR"
+}
