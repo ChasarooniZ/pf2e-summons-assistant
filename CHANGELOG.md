@@ -8,6 +8,7 @@
 - **Updated**
   - Changed filepath for `languages` to `lang` to support VS code extension for localization
   - Updated chinese translation (🌐 @AlphaStarGuide)
+  - Updated french translation (🌐 @rectulo)
 
 ## 0.18.0
 

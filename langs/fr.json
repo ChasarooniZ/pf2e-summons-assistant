@@ -109,6 +109,10 @@
           "name": "Effet : Date d'expiration du thrall",
           "description": "Ceci mesure combien de temps avant que ce thrall n'expire."
         },
+        "rule-elements": {
+          "name": "Effet : Éléments de règle",
+          "description": "Cet effet ajoute divers éléments de règle à une invocation particulière afin d'y intégrer des automatisations telles que des frappes, etc."
+        },
         "duplicate-foe": {
           "name": "Effet : Dupliquer l'ennemi",
           "successful-save": {
