@@ -54,7 +54,7 @@ export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
         (tok) => (tok.actor.uuid === actorUUID)
       );
 
-      if (summonedToken.actor.details.blurb === "circle") {
+      if (summonedToken.actor.system.details.blurb === "circle") {
         let squaresWide = 5.5;
         if (canvas.grid.units === "ft") {
           squaresWide *= canvas.grid.distance / 5;
@@ -68,7 +68,7 @@ export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
           .size(squaresWide, { gridUnits: true })
           .persist()
           .play();
-      } else if (summonedToken.actor.details.blurb === "line") {
+      } else if (summonedToken.actor.system.details.blurb === "line") {
         notifyRayControls();
         const startingDistance = 30;
         const ch = await Sequencer.Crosshair.show({

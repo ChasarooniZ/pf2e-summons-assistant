@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- License: MIT. Made by artcoholic: https://github.com/artcoholic/akar-icons -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="12" cy="12" r="10" stroke="#B2BEB5" stroke-width="0.2" fill="#F3F3F3" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 512px; width: 512px;"><defs><filter id="shadow-1" height="300%" width="300%" x="-100%" y="-100%"><feFlood flood-color="rgba(74, 74, 74, 1)" result="flood"></feFlood><feComposite in="flood" in2="SourceGraphic" operator="atop" result="composite"></feComposite>0<feOffset dx="10" dy="10" result="offset"></feOffset><feComposite in="SourceGraphic" in2="offset" operator="over"></feComposite></filter></defs><g class="" transform="translate(9,1)" style=""><path d="M256 23.05C127.5 23.05 23.05 127.5 23.05 256S127.5 488.9 256 488.9 488.9 384.5 488.9 256 384.5 23.05 256 23.05z" fill="#ffffff" fill-opacity="1" filter="url(#shadow-1)"></path></g></svg>
