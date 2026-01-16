@@ -73,7 +73,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Inevitable Return`
   - `Bind Heroic Spirit` - On Successful Attack
 - **Wall**
-  - **Wall of Fire** - Requires `JB2a` of some kind
+  - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
 - **Misc**
   - `Avenging Wildwood`
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
