@@ -4,7 +4,7 @@
 
 - **Updated**
   - Fixed `line` icon for Wall text
-  - Fix bug with `EnrichHTML` for v12
+  - Fix bug with `EnrichHTML` for v12 (@Razytos)
 
 ## 0.19.0
 
