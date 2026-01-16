@@ -436,7 +436,7 @@ const handlers = {
 
       const type = await foundry.applications.api.DialogV2.wait({
         window: { title: "Wall of Fire" },
-        content: await enrichHTML(
+        content: await TextEditor.enrichHTML(
           `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu]</p>`
         ),
         // This example does not use i18n strings for the button labels,
