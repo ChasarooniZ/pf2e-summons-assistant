@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 0.19.1
+
+- **Updated**
+  - Fixed `line` icon for Wall text
+  - Fix bug with `EnrichHTML` for v12
+
 ## 0.19.0
 
 - **Added**

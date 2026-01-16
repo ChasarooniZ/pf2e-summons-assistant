@@ -436,8 +436,8 @@ const handlers = {
 
       const type = await foundry.applications.api.DialogV2.wait({
         window: { title: "Wall of Fire" },
-        content: await enrichHTML(
-          `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu]</p>`
+        content: await TextEditor.enrichHTML(
+          `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FIRE}]</p>`
         ),
         // This example does not use i18n strings for the button labels,
         // but they are automatically localized.
@@ -445,12 +445,12 @@ const handlers = {
           {
             label: "Circle",
             action: "circle",
-            icon: "fa-regular fa-circle"
+            icon: "fa-regular fa-circle",
           },
           {
             label: "Line",
             action: "line",
-            icon: "fa-regular fa-direction-up-down"
+            icon: "fa-solid fa-direction-up-down",
           },
         ],
       });
