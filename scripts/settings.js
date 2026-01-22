@@ -108,6 +108,16 @@ export function setupSettings() {
     type: Object,
   });
 
+    game.settings.register(MODULE_ID, "customized-summons", {
+    name: `${MODULE_ID}.module-settings.customized-summons.name`,
+    hint: `${MODULE_ID}.module-settings.customized-summons.hint`,
+    requiresReload: true,
+    scope: "world",
+    config: false,
+    default: true,
+    type: Object,
+  });
+
   game.settings.register(MODULE_ID, "last-version", {
     name: "last-version",
     hint: "last-version",

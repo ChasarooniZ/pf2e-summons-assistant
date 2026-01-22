@@ -13,13 +13,15 @@ export async function summon(
   summonerActor,
   itemUuid,
   summonType,
-  summonDetailsGroup
+  summonDetailsGroup,
 ) {
   const additionalTraits = addTraits(summonType);
   const summonerToken = summonerActor.getActiveTokens()[0];
   const summonerAlliance = summonerActor.system.details.alliance;
   // No Summon Spell Found
   if (summonDetailsGroup === null) return;
+
+  const summonerItem = await fromUuid(itemUuid);
 
   const summonActorUUIDList = [];
 
@@ -32,7 +34,7 @@ export async function summon(
     const crosshairParameters = summonDetails?.crosshairParameters || {};
     if (game.settings.get(MODULE_ID, "effect-ownership") && !isCharacter) {
       itemsToAdd.unshift(
-        EFFECTS.SUMMON_OWNER(getTokenImage(summonerActor.prototypeToken))
+        EFFECTS.SUMMON_OWNER(getTokenImage(summonerActor.prototypeToken)),
       );
     }
     const amount = summonDetails?.amount || 1;
@@ -55,8 +57,8 @@ export async function summon(
             candidateActor.system.traits.value.some((actorTrait) =>
               requiredTraits.some(
                 (requiredTrait) =>
-                  requiredTrait.toLowerCase() === actorTrait.toLowerCase()
-              )
+                  requiredTrait.toLowerCase() === actorTrait.toLowerCase(),
+              ),
             );
 
           const hasValidUuid =
@@ -99,7 +101,7 @@ export async function summon(
                 !selectedTrait ||
                 filterActor.system.traits.value.some(
                   (actorTrait) =>
-                    selectedTrait.toLowerCase() === actorTrait.toLowerCase()
+                    selectedTrait.toLowerCase() === actorTrait.toLowerCase(),
                 )
               );
             },
@@ -111,7 +113,7 @@ export async function summon(
             name: "Only with image",
             default: game.settings.get(
               MODULE_ID,
-              "filter.default.token-with-art"
+              "filter.default.token-with-art",
             ),
             func: (toggleActor, isToggleActive) => {
               return (
@@ -137,7 +139,12 @@ export async function summon(
       selectedActor,
       summonLevel,
       summonType,
-      itemUuid
+      itemUuid,
+    );
+
+    const summonCustomizationModifications = getSummonCustomizationData(
+      electedActorUuid,
+      summonerItem,
     );
 
     const actorUpdateData = {
@@ -148,12 +155,13 @@ export async function summon(
       ],
       ...houseRuleUpdates,
       ...actorModifications,
+      ...summonCustomizationModifications
     };
 
     if (game.settings.get(MODULE_ID, "name-ownership")) {
-      actorUpdateData.name = `${summonerActor.name}'s ${selectedActor.name}`;
+      actorUpdateData.name = `${actorUpdateData?.name ?? summonerActor.name}'s ${selectedActor.name}`;
       actorUpdateData["prototypeToken.name"] =
-        `${summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
+        `${actorUpdateData?.prototypeToken?.name ?? summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
     }
 
     for (let i = 0; i < amount; i++) {
@@ -169,7 +177,7 @@ export async function summon(
           selectedActor,
           summonLevel,
           summonType,
-          itemUuid
+          itemUuid,
         )
       ) {
         await scaleActorItems(summonedActor, originalActorLevel, summonLevel);
@@ -275,7 +283,7 @@ async function getHouseRuleUpdates(
   actor,
   maxSummonLevel,
   summonType,
-  itemUuid
+  itemUuid,
 ) {
   if (isMaxSummonLevelRuleActive(actor, maxSummonLevel, summonType, itemUuid)) {
     const oldLevel = actor.level;
@@ -291,12 +299,12 @@ function isMaxSummonLevelRuleActive(
   actor,
   maxSummonLevel,
   summonType,
-  itemUuid
+  itemUuid,
 ) {
   return (
     game.settings.get(
       MODULE_ID,
-      "house-rule.scale-to-max-summon-level-for-rank"
+      "house-rule.scale-to-max-summon-level-for-rank",
     ) &&
     summonType === "summon" &&
     itemUuid !== SOURCES.SUMMON.PHANTASMAL_MINION &&
