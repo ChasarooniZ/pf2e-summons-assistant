@@ -140,19 +140,17 @@ Hooks.once("ready", async function () {
 
   Hooks.on("getItemSheetHeaderButtons", async (itemSheet, menu) => {
     const item = itemSheet.item;
+    const uuid =
+      item.sourceId ||
+      SLUG_TO_SOURCE[item?.slug || game.pf2e.system.sluggify(item?.name || "")];
     const data = {
-      uuid:
-        item.sourceId ||
-        SLUG_TO_SOURCE[
-          item?.slug || game.pf2e.system.sluggify(item?.name || "")
-        ],
       rank:
         item?.system?.location?.heightenedLevel ?? item?.system?.level?.value,
       summonerLevel: item?.actor?.level ?? 0,
       tokenWidth: 1,
       tokenHeight: 1,
     };
-    const summonDetails = await getSpecificSummonDetails(data);
+    const summonDetails = await getSpecificSummonDetails(uuid, data);
     if (!summonDetails) return;
     menu.unshift({
       class: "pf2e-summons-assistant",
