@@ -1,9 +1,9 @@
 import { DEF_TOKEN_CONFIGS } from "./const.js";
 
 export async function modifyActorsMenu(
-  actors = game.packs.get(
+  {actors = game.packs.get(
     "pf2e-summons-assistant.pf2e-summons-assistant-actors",
-  ).index.contents,
+  ).index.contents, item = null}
 ) {
   const content = `
   <div>
@@ -53,7 +53,7 @@ export async function modifyActorsMenu(
         item.addEventListener("click", () => {
           const name = item.dataset.name;
           const uuid = item.dataset.uuid;
-          customizeSummonedToken({ name, uuid });
+          customizeSummonedToken({ name, uuid }, item);
         });
       });
 

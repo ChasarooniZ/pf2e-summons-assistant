@@ -25,6 +25,7 @@ import { setupSocket } from "./lib/socket.js";
 import { setupWoodDoubleHooks } from "./specificCases/woodenDouble.js";
 import { setupDisableItemHooks } from "./disableItems.js";
 import { setupAPI } from "./api.js";
+import { modifyActorsMenu } from "./customizeTokens.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -136,6 +137,34 @@ Hooks.once("ready", async function () {
     const summonType = getSummonType(chatMessage);
     await summon(summonerActor, itemUuid, summonType, summonDetailsGroup);
   });
+
+  Hooks.on("getItemSheetHeaderButtons", async (itemSheet, menu) => {
+    const item = itemSheet.item;
+    const data = {
+      uuid: item.uuid ||
+        SLUG_TO_SOURCE[
+          item?.slug ||
+            game.pf2e.system.sluggify(item?.name || "")
+        ],
+      rank: item?.system?.location?.heightenedLevel ?? item?.system?.level?.value,
+      summonerLevel: item?.actor?.level ?? 0,
+      tokenWidth: 1,
+      tokenHeight: 1,
+    }
+    const summonDetails = getSpecificSummonDetails(data)
+    if (!summonDetails) return;
+     menu.unshift({
+        class: "pf2e-summons-assistant",
+        icon: "fa-solid fa-hat-wizard",
+        label: 'Summons Customization',
+        onclick: async (_ev, itemD = item) => {
+          const relevantUuids = summonDetails.flatMap(s => s.specific_uuids);
+          const actors = relevantUuids.map(async (uuid) => await fromUuid(uuid))
+          modifyActorsMenu({actors, item})
+        }
+      })
+
+  }
 });
 
 function getSummonType(chatMessage) {
