@@ -152,7 +152,7 @@ Hooks.once("ready", async function () {
       tokenWidth: 1,
       tokenHeight: 1,
     };
-    const summonDetails = getSpecificSummonDetails(data);
+    const summonDetails = await getSpecificSummonDetails(data);
     if (!summonDetails) return;
     menu.unshift({
       class: "pf2e-summons-assistant",
