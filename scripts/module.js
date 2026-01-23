@@ -36,7 +36,7 @@ Hooks.once("init", async function () {
 Hooks.once("setup", function () {
   if (!setupSocket())
     console.error(
-      "Error: Unable to set up socket lib for PF2e Summons Assistant"
+      "Error: Unable to set up socket lib for PF2e Summons Assistant",
     );
 });
 
@@ -82,7 +82,7 @@ Hooks.once("ready", async function () {
       rank: spellRank,
       summonerLevel: summonerActor.level,
       summonerRollOptions: Object.keys(
-        summonerActor?.flags?.pf2e?.rollOptions?.all
+        summonerActor?.flags?.pf2e?.rollOptions?.all,
       ),
     };
     //Grab DC for Incarnate spells
@@ -109,12 +109,12 @@ Hooks.once("ready", async function () {
 
     let summonDetailsGroup = await getSpecificSummonDetails(
       itemUuid,
-      spellRelevantInfo
+      spellRelevantInfo,
     );
     if (!summonDetailsGroup) {
       summonDetailsGroup = getTraditionalSummonerSpellDetails(
         itemUuid,
-        spellRank
+        spellRank,
       );
     }
 
@@ -141,30 +141,30 @@ Hooks.once("ready", async function () {
   Hooks.on("getItemSheetHeaderButtons", async (itemSheet, menu) => {
     const item = itemSheet.item;
     const data = {
-      uuid: item.uuid ||
+      uuid:
+        item.uuid ||
         SLUG_TO_SOURCE[
-          item?.slug ||
-            game.pf2e.system.sluggify(item?.name || "")
+          item?.slug || game.pf2e.system.sluggify(item?.name || "")
         ],
-      rank: item?.system?.location?.heightenedLevel ?? item?.system?.level?.value,
+      rank:
+        item?.system?.location?.heightenedLevel ?? item?.system?.level?.value,
       summonerLevel: item?.actor?.level ?? 0,
       tokenWidth: 1,
       tokenHeight: 1,
-    }
-    const summonDetails = getSpecificSummonDetails(data)
+    };
+    const summonDetails = getSpecificSummonDetails(data);
     if (!summonDetails) return;
-     menu.unshift({
-        class: "pf2e-summons-assistant",
-        icon: "fa-solid fa-hat-wizard",
-        label: 'Summons Customization',
-        onclick: async (_ev, itemD = item) => {
-          const relevantUuids = summonDetails.flatMap(s => s.specific_uuids);
-          const actors = relevantUuids.map(async (uuid) => await fromUuid(uuid))
-          modifyActorsMenu({actors, item})
-        }
-      })
-
-  }
+    menu.unshift({
+      class: "pf2e-summons-assistant",
+      icon: "fa-solid fa-hat-wizard",
+      label: "Summons Customization",
+      onclick: async (_ev, itemD = item) => {
+        const relevantUuids = summonDetails.flatMap((s) => s.specific_uuids);
+        const actors = relevantUuids.map(async (uuid) => await fromUuid(uuid));
+        modifyActorsMenu({ actors, item });
+      },
+    });
+  });
 });
 
 function getSummonType(chatMessage) {
