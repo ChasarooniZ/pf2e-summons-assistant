@@ -142,7 +142,7 @@ Hooks.once("ready", async function () {
     const item = itemSheet.item;
     const data = {
       uuid:
-        item.uuid ||
+        item.sourceId ||
         SLUG_TO_SOURCE[
           item?.slug || game.pf2e.system.sluggify(item?.name || "")
         ],
