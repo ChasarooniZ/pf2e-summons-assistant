@@ -138,7 +138,7 @@ Hooks.once("ready", async function () {
     await summon(summonerActor, itemUuid, summonType, summonDetailsGroup);
   });
 
-  Hooks.on("getItemSheetHeaderButtons", async (itemSheet, menu) => {
+  Hooks.on("renderItemSheet", async (app, html, data) => {
     const item = itemSheet.item;
     const uuid =
       item.sourceId ||
@@ -152,16 +152,27 @@ Hooks.once("ready", async function () {
     };
     const summonDetails = await getSpecificSummonDetails(uuid, data);
     if (!summonDetails) return;
-    menu.unshift({
-      class: "pf2e-summons-assistant",
-      icon: "fa-solid fa-hat-wizard",
-      label: "Summons Customization",
-      onclick: async (_ev, itemD = item) => {
-        const relevantUuids = summonDetails.flatMap((s) => s.specific_uuids);
-        const actors = relevantUuids.map(async (uuid) => await fromUuid(uuid));
-        modifyActorsMenu({ actors, item });
-      },
+
+    const buttonLabel = "Summons Customization";
+    const button = $(`
+                <a class="pf2e-summons-assistant-customize" title="Summons Customization">
+                    <i class="fa-solid fa-hat-wizard"></i>
+                    ${buttonLabel}
+                </a>`);
+
+    // add onclick event to start a Revitalizer run for Actor Id
+    button.click((summonDetails, item) => {
+      const relevantUuids = summonDetails.flatMap((s) => s.specific_uuids);
+      const actors = relevantUuids.map(async (uuid) => await fromUuid(uuid));
+      modifyActorsMenu({ actors, item });
     });
+
+    // remove any existing versions of button
+    html.closest(".app").find(`.pf2e-summons-assistant-customize`).remove();
+
+    // add the new button
+    let titleElement = html.closest(".app").find(".window-title");
+    if (!app._minimized) button.insertAfter(titleElement);
   });
 });
 
