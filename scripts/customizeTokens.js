@@ -31,7 +31,9 @@ export async function modifyActorsMenu({
 
   const data = await foundry.applications.api.DialogV2.wait({
     window: {
-      title: "Customize Summoned Token",
+      title: game.i18n.localize(
+        "pf2e-summons-assistant.dialog.customize.summoned-token.title",
+      ),
     },
     position: { width: 300 },
     content,
@@ -95,7 +97,9 @@ async function customizeSummonedToken(tokenInfo, item) {
   }
 
   const data = await foundry.applications.api.DialogV2.input({
-    window: { title: `Customize Summoned Token (${tokenInfo.name})` },
+    window: {
+      title: `${game.i18n.localize("pf2e-summons-assistant.dialog.customize.summoned-token.title")} (${tokenInfo.name})`,
+    },
     content: `
     <div class="form-group">
       <label for="name">${game.i18n.localize("TOKEN.FIELDS.name.label")}</label>
@@ -161,7 +165,7 @@ async function customizeSummonedToken(tokenInfo, item) {
     }
 
     ui.notifications.info(
-      `Saved the customization of the summon <code>${tokenInfo.name}</code>`,
+      `${game.i18n.localize("pf2e-summons-assistant.notification.customization.saved")} <code>${tokenInfo.name}</code>`,
     );
   }
 }

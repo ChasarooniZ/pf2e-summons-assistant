@@ -1,5 +1,17 @@
 ## Unreleased
 
+## 0.20.3
+
+- Push data from `0.20.2`
+
+## 0.20.2
+
+- Actually display the new release
+
+## 0.20.1
+
+- Added localization options for some of the new popups
+
 ## 0.20.0
 
 - **New**
