@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 0.20.1
+
+- Added localization options for some of the new popups
+
 ## 0.20.0
 
 - **New**
