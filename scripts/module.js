@@ -134,37 +134,48 @@ Hooks.once("ready", async function () {
       });
     });
 
+    const config = {
+      item: chatMessage?.item,
+    };
+
     const summonType = getSummonType(chatMessage);
-    await summon(summonerActor, itemUuid, summonType, summonDetailsGroup);
+    await summon(
+      summonerActor,
+      itemUuid,
+      summonType,
+      summonDetailsGroup,
+      config,
+    );
   });
 
   Hooks.on("renderItemSheet", async (app, html, data) => {
-    const item = itemSheet.item;
+    const item = data.item;
     const uuid =
       item.sourceId ||
       SLUG_TO_SOURCE[item?.slug || game.pf2e.system.sluggify(item?.name || "")];
-    const data = {
+    const dat = {
       rank:
         item?.system?.location?.heightenedLevel ?? item?.system?.level?.value,
       summonerLevel: item?.actor?.level ?? 0,
       tokenWidth: 1,
       tokenHeight: 1,
     };
-    const summonDetails = await getSpecificSummonDetails(uuid, data);
+    const summonDetails = await getSpecificSummonDetails(uuid, dat);
     if (!summonDetails) return;
 
     const buttonLabel = "Summons Customization";
     const button = $(`
-                <a class="pf2e-summons-assistant-customize" title="Summons Customization">
+                <a class="pf2e-summons-assistant-customize" data-tooltip="Summons Customization">
                     <i class="fa-solid fa-hat-wizard"></i>
                     ${buttonLabel}
                 </a>`);
 
-    // add onclick event to start a Revitalizer run for Actor Id
-    button.click((summonDetails, item) => {
+    // add onclick event
+    button.click(() => {
       const relevantUuids = summonDetails.flatMap((s) => s.specific_uuids);
-      const actors = relevantUuids.map(async (uuid) => await fromUuid(uuid));
-      modifyActorsMenu({ actors, item });
+      Promise.all(relevantUuids.map(async (uuid) => await fromUuid(uuid))).then(
+        (actors) => modifyActorsMenu({ actors, item }),
+      );
     });
 
     // remove any existing versions of button

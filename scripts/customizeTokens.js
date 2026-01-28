@@ -1,10 +1,11 @@
-import { DEF_TOKEN_CONFIGS } from "./const.js";
+import { DEF_TOKEN_CONFIGS, MODULE_ID } from "./const.js";
 
-export async function modifyActorsMenu(
-  {actors = game.packs.get(
+export async function modifyActorsMenu({
+  actors = game.packs.get(
     "pf2e-summons-assistant.pf2e-summons-assistant-actors",
-  ).index.contents, item = null}
-) {
+  ).index.contents,
+  item = null,
+}) {
   const content = `
   <div>
     <input 
@@ -12,16 +13,14 @@ export async function modifyActorsMenu(
       id="search-input" 
       placeholder="${game.i18n.localize("FILES.Search")}"
     />
-    <div id="items-container" style="display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto;">
+    <div id="summons-items-container">
       ${actors
         .toSorted((a, b) => a.name.localeCompare(b.name))
         .map(
           (actor) => `
-        <div class="token-item" data-name="${actor.name}" data-uuid="${actor.uuid}" 
-             style="display: flex; align-items: center; cursor: pointer;">
-          <img src="${actor.img}" alt="${actor.name}" 
-               style="width: 50px; height: 50px;">
-          <span style="flex: 1;">${actor.name}</span>
+        <div class="summon-token-item" data-name="${actor.name}" data-uuid="${actor.uuid}" data-itemUuid="${item.uuid}">
+          <img src="${actor.img}" alt="${actor.name}">
+          <span>${actor.name} ${getIsActorCustomized(actor.uuid, item) ? '<i class="fa-solid fa-circle-exclamation" data-tooltip="This Summon has been customized"></i>' : ""}</span>
         </div>
       `,
         )
@@ -45,14 +44,18 @@ export async function modifyActorsMenu(
     render: (event) => {
       const html = event.target.element;
       const searchInput = html.querySelector("#search-input");
-      const container = html.querySelector("#items-container");
+      const container = html.querySelector("#summons-items-container");
 
       // Add click handlers to token items
-      const tokenItems = container.querySelectorAll(".token-item");
+      const tokenItems = container.querySelectorAll(".summon-token-item");
       tokenItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          const name = item.dataset.name;
-          const uuid = item.dataset.uuid;
+        item.addEventListener("click", async (e) => {
+          const src = e.currentTarget;
+          const name = src.dataset.name;
+          const uuid = src.dataset.uuid;
+          const item = src.dataset.itemuuid
+            ? await fromUuid(src.dataset.itemuuid)
+            : null;
           customizeSummonedToken({ name, uuid }, item);
         });
       });
@@ -80,14 +83,14 @@ async function customizeSummonedToken(tokenInfo, item) {
   if (item) {
     // get item
     const tokenCFG = item.getFlag(MODULE_ID, "customized-summons");
-    if (tokenInfo?.uuid) {
-      defCFG = tokenCFG[tokenInfo?.uuid];
+    if (tokenInfo?.uuid && tokenCFG?.[replacePeriods(tokenInfo?.uuid)]) {
+      defCFG = tokenCFG?.[replacePeriods(tokenInfo?.uuid)];
     }
   } else {
     //get world
     const tokenCFG = game.settings.get(MODULE_ID, "customized-summons");
     if (tokenInfo?.uuid) {
-      defCFG = tokenCFG[tokenInfo?.uuid];
+      defCFG = tokenCFG[replacePeriods(tokenInfo?.uuid)];
     }
   }
 
@@ -100,17 +103,17 @@ async function customizeSummonedToken(tokenInfo, item) {
     </div>
     <div class="form-group">
       <label for="imagePath">${game.i18n.localize("TOKEN.FIELDS.texture.src.label")}</label>
-      <file-picker type="imagevideo" value="" name="imagePath">
+      <file-picker type="imagevideo" value="${defCFG.imagePath}" name="imagePath">
     </div>
       <div class="form-group">
       <label for="scale">${game.i18n.localize("Scale")}</label>
-      <range-picker value="1" min="0.2" max="3" step="0.01" name="scale">
+      <range-picker value="${defCFG.scale}" min="0.2" max="3" step="0.01" name="scale">
     </div>
     <fieldset>
       <legend>${game.i18n.localize("TOKEN.RING.SHEET.legend")}</legend>
       <div class="form-group">
         <label for="ringEnabled">${game.i18n.localize("TOKEN.FIELDS.ring.enabled.label")}</label>
-        <input type="checkbox" name="ringEnabled">
+        <input type="checkbox" name="ringEnabled" ${defCFG.ringEnabled ? "checked" : ""}>
       </div>
       <div class="form-group">
         <label for="subjectTexture"
@@ -119,7 +122,7 @@ async function customizeSummonedToken(tokenInfo, item) {
           >
             ${game.i18n.localize("TOKEN.FIELDS.ring.subject.texture.label")}
         </label>
-        <file-picker type="image" value="" name="subjectTexture">
+        <file-picker type="image" value="${defCFG.subjectTexture}" name="subjectTexture">
       </div>
       <div class="form-group">
         <label for="subjectScaleCorrection"
@@ -128,7 +131,7 @@ async function customizeSummonedToken(tokenInfo, item) {
           >
             ${game.i18n.localize("TOKEN.FIELDS.ring.subject.scale.label")}
         </label>
-        <range-picker value="1" min="0.5" max="3" step="0.01" name="subjectScaleCorrection">
+        <range-picker value="${defCFG.subjectScaleCorrection}" min="0.5" max="3" step="0.01" name="subjectScaleCorrection">
       </div>
     </fieldset
     `,
@@ -139,35 +142,43 @@ async function customizeSummonedToken(tokenInfo, item) {
   });
 
   console.log({ data, tokenInfo });
-  const isChangesMade = Object.keys(defCFG).some(
-    (key) => defCFG?.[key] !== data?.[key],
-  );
+  const isChangesMade =
+    data && Object.keys(defCFG).some((key) => defCFG?.[key] !== data?.[key]);
 
   if (isChangesMade) {
     // Set Customization setting
     if (item) {
       //set item
-      const prevSettings = item.getFlag(MODULE_ID, "customized-summons");
-      prevSettings[tokenInfo.uuid] = data;
+      const prevSettings = item.getFlag(MODULE_ID, "customized-summons") ?? {};
+      prevSettings[replacePeriods(tokenInfo.uuid)] = data;
       await item.setFlag(MODULE_ID, "customized-summons", prevSettings);
     } else {
       //set world
-      const prevSettings = game.settings.get(MODULE_ID, "customized-summons");
-      prevSettings[tokenInfo.uuid] = data;
+      const prevSettings =
+        game.settings.get(MODULE_ID, "customized-summons") ?? {};
+      prevSettings[replacePeriods(tokenInfo.uuid)] = data;
       await game.settings.set(MODULE_ID, "customized-summons", prevSettings);
     }
+
+    ui.notifications.info(
+      `Saved the customization of the summon <code>${tokenInfo.name}</code>`,
+    );
   }
 }
 
 export function getSummonCustomizationData(summonUUID, item) {
   const itemCustomization = mapToActualModifications(
-    item?.getFlag(MODULE_ID, "customized-summons")?.[summonUUID],
+    item?.getFlag(MODULE_ID, "customized-summons")?.[
+      replacePeriods(summonUUID)
+    ],
   );
   if (itemCustomization) {
     return itemCustomization;
   }
   const settingsCustomization = mapToActualModifications(
-    game.settings.get(MODULE_ID, "customized-summons")?.[summonUUID],
+    game.settings.get(MODULE_ID, "customized-summons")?.[
+      replacePeriods(summonUUID)
+    ],
   );
   if (settingsCustomization) {
     return settingsCustomization;
@@ -180,11 +191,9 @@ export function mapToActualModifications(cfg) {
   const updateData = {};
   if (cfg.name) {
     updateData.name = cfg.name;
-    updateData.prototypeToken = {
-      name: cfg.name,
-    };
   }
   updateData.prototypeToken = {
+    ...(cfg?.name ? { name: cfg.name } : {}),
     texture: {
       ...(cfg?.imagePath ? { src: cfg.imagePath } : {}),
       scaleX: cfg.scale,
@@ -199,4 +208,20 @@ export function mapToActualModifications(cfg) {
     },
   };
   return updateData;
+}
+
+export function getIsActorCustomized(actorUuid, item = null) {
+  if (item) {
+    return !!item?.getFlag(MODULE_ID, "customized-summons")?.[
+      replacePeriods(actorUuid)
+    ];
+  } else {
+    return !!game.settings.get(MODULE_ID, "customized-summons")?.[
+      replacePeriods(actorUuid)
+    ];
+  }
+}
+
+function replacePeriods(uuid) {
+  return uuid.replaceAll(".", ":");
 }

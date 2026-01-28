@@ -5,6 +5,7 @@ import {
   SOURCES,
   SUMMON_LEVELS_BY_RANK,
 } from "./const.js";
+import { getSummonCustomizationData } from "./customizeTokens.js";
 import { handlePostSummon } from "./handlePostSummon.js";
 import { addTraits, compFromUuid } from "./helpers.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
@@ -14,6 +15,7 @@ export async function summon(
   itemUuid,
   summonType,
   summonDetailsGroup,
+  config = {},
 ) {
   const additionalTraits = addTraits(summonType);
   const summonerToken = summonerActor.getActiveTokens()[0];
@@ -21,7 +23,7 @@ export async function summon(
   // No Summon Spell Found
   if (summonDetailsGroup === null) return;
 
-  const summonerItem = await fromUuid(itemUuid);
+  const summonerItem = config?.item ?? (await fromUuid(itemUuid));
 
   const summonActorUUIDList = [];
 
@@ -143,7 +145,7 @@ export async function summon(
     );
 
     const summonCustomizationModifications = getSummonCustomizationData(
-      electedActorUuid,
+      selectedActorUuid,
       summonerItem,
     );
 
@@ -155,7 +157,7 @@ export async function summon(
       ],
       ...houseRuleUpdates,
       ...actorModifications,
-      ...summonCustomizationModifications
+      ...summonCustomizationModifications,
     };
 
     if (game.settings.get(MODULE_ID, "name-ownership")) {
