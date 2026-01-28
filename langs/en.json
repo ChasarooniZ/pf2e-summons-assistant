@@ -72,6 +72,9 @@
       },
       "disable-items": {
         "saved": "Saved! The following Summons Assistant Automation have been disabled {list}"
+      },
+      "customization": {
+        "saved": "Saved the customization of the summon"
       }
     },
     "dialog": {
@@ -85,7 +88,12 @@
           "hint": "Configure what summon sources are active"
         }
       },
-      "choose-type-of": "Choose the type of"
+      "choose-type-of": "Choose the type of",
+      "customize": {
+        "summoned-token": {
+          "title": "Customize Summoned Token"
+        }
+      }
     },
     "display-text": {
       "wooden-double": {

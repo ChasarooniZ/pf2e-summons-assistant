@@ -1,31 +1,31 @@
 ## Unreleased
 
-## 0.20.3
+## 1.20.3
 
 - Push data from `0.20.2`
 
-## 0.20.2
+## 1.20.2
 
 - Actually display the new release
 
-## 0.20.1
+## 1.20.1
 
 - Added localization options for some of the new popups
 
-## 0.20.0
+## 1.20.0
 
 - **New**
   - Added customization of the summons
     - For items that have summons attached to them (or spells), you can now click the little customization icon at the top to make modifications to the summons attached to this item
       - Currently supported are: `Token Art`, `Scale`, `Name`, `Dyn. Ring Enabled`, `Dyn. Ring Subject`, `Dyn. Ring Correction`
 
-## 0.19.1
+## 1.19.1
 
 - **Updated**
   - Fixed `line` icon for Wall text
   - Fix bug with `EnrichHTML` for v12 (@Razytos)
 
-## 0.19.0
+## 1.19.0
 
 - **Added**
   - Added all included art to the `Pathfinder Tokens: Character Gallery`
@@ -35,7 +35,7 @@
   - Updated chinese translation (🌐 @AlphaStarGuide)
   - Updated french translation (🌐 @rectulo)
 
-## 0.18.0
+## 1.18.0
 
 - **New**
   - Added Support for the following
@@ -46,12 +46,12 @@
   - Added an effect to `Summon Healing Servitor's` Arrival ability `Servitor's Protection`
   - `Plant Banner` now also will handle any relevant summons/ non combat minions as well
 
-## 0.17.1
+## 1.17.1
 
 - **Updated**
   - Updated required `Foundry Summons` version to `2.5.0`
 
-## 0.17.0
+## 1.17.0
 
 - **New**
   - Added basic support for `Protector Tree` & `Timber Sentinel`
