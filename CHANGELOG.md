@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 0.20.0
+
+- **New**
+  - Added customization of the summons
+    - For items that have summons attached to them (or spells), you can now click the little customization icon at the top to make modifications to the summons attached to this item
+      - Currently supported are: `Token Art`, `Scale`, `Name`, `Dyn. Ring Enabled`, `Dyn. Ring Subject`, `Dyn. Ring Correction`
+
 ## 0.19.1
 
 - **Updated**

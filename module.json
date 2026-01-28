@@ -74,6 +74,7 @@
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
+  "styles": ["styles/module.css"],
   "license": "LICENSE",
   "readme": "README.md",
   "socket": true,

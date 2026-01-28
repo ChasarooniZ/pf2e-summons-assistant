@@ -25,6 +25,7 @@ import { setupSocket } from "./lib/socket.js";
 import { setupWoodDoubleHooks } from "./specificCases/woodenDouble.js";
 import { setupDisableItemHooks } from "./disableItems.js";
 import { setupAPI } from "./api.js";
+import { modifyActorsMenu } from "./customizeTokens.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -35,7 +36,7 @@ Hooks.once("init", async function () {
 Hooks.once("setup", function () {
   if (!setupSocket())
     console.error(
-      "Error: Unable to set up socket lib for PF2e Summons Assistant"
+      "Error: Unable to set up socket lib for PF2e Summons Assistant",
     );
 });
 
@@ -81,7 +82,7 @@ Hooks.once("ready", async function () {
       rank: spellRank,
       summonerLevel: summonerActor.level,
       summonerRollOptions: Object.keys(
-        summonerActor?.flags?.pf2e?.rollOptions?.all
+        summonerActor?.flags?.pf2e?.rollOptions?.all,
       ),
     };
     //Grab DC for Incarnate spells
@@ -108,12 +109,12 @@ Hooks.once("ready", async function () {
 
     let summonDetailsGroup = await getSpecificSummonDetails(
       itemUuid,
-      spellRelevantInfo
+      spellRelevantInfo,
     );
     if (!summonDetailsGroup) {
       summonDetailsGroup = getTraditionalSummonerSpellDetails(
         itemUuid,
-        spellRank
+        spellRank,
       );
     }
 
@@ -133,8 +134,56 @@ Hooks.once("ready", async function () {
       });
     });
 
+    const config = {
+      item: chatMessage?.item,
+    };
+
     const summonType = getSummonType(chatMessage);
-    await summon(summonerActor, itemUuid, summonType, summonDetailsGroup);
+    await summon(
+      summonerActor,
+      itemUuid,
+      summonType,
+      summonDetailsGroup,
+      config,
+    );
+  });
+
+  Hooks.on("renderItemSheet", async (app, html, data) => {
+    const item = data.item;
+    const uuid =
+      item.sourceId ||
+      SLUG_TO_SOURCE[item?.slug || game.pf2e.system.sluggify(item?.name || "")];
+    const dat = {
+      rank:
+        item?.system?.location?.heightenedLevel ?? item?.system?.level?.value,
+      summonerLevel: item?.actor?.level ?? 0,
+      tokenWidth: 1,
+      tokenHeight: 1,
+    };
+    const summonDetails = await getSpecificSummonDetails(uuid, dat);
+    if (!summonDetails) return;
+
+    const buttonLabel = "Summons Customization";
+    const button = $(`
+                <a class="pf2e-summons-assistant-customize" data-tooltip="Summons Customization">
+                    <i class="fa-solid fa-hat-wizard"></i>
+                    ${buttonLabel}
+                </a>`);
+
+    // add onclick event
+    button.click(() => {
+      const relevantUuids = summonDetails.flatMap((s) => s.specific_uuids);
+      Promise.all(relevantUuids.map(async (uuid) => await fromUuid(uuid))).then(
+        (actors) => modifyActorsMenu({ actors, item }),
+      );
+    });
+
+    // remove any existing versions of button
+    html.closest(".app").find(`.pf2e-summons-assistant-customize`).remove();
+
+    // add the new button
+    let titleElement = html.closest(".app").find(".window-title");
+    if (!app._minimized) button.insertAfter(titleElement);
   });
 });
 

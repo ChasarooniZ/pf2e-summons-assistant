@@ -2,6 +2,15 @@ import { createThrallAttackInfo } from "./specificClasses/necromancer.js";
 
 export const MODULE_ID = "pf2e-summons-assistant";
 
+export const DEF_TOKEN_CONFIGS ={
+    name: "",
+    imagePath: "",
+    scale: 1,
+    ringEnabled: false,
+    subjectTexture: "",
+    subjectScaleCorrection: 1,
+  };
+
 export const SOURCES = {
   SUMMON: {
     SUMMON_DRAGON: "Compendium.pf2e.spells-srd.Item.kghwmH3tQjMIhdH1",
