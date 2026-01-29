@@ -1,14 +1,20 @@
-2026/01/15-13:52:59.138 65f0 Recovering log #352
-2026/01/15-13:52:59.732 65f0 Delete type=0 #352
-2026/01/15-13:52:59.732 65f0 Delete type=3 #351
-2026/01/15-13:52:59.766 b33c Level-0 table #356: started
-2026/01/15-13:52:59.834 b33c Level-0 table #356: 94944 bytes OK
-2026/01/15-13:52:59.899 b33c Delete type=0 #354
-2026/01/15-13:52:59.899 b33c Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1
-2026/01/15-13:52:59.899 b33c Compacting 1@0 + 1@1 files
-2026/01/15-13:52:59.934 b33c Generated table #357@0: 114 keys, 94944 bytes
-2026/01/15-13:52:59.935 b33c Compacted 1@0 + 1@1 files => 94944 bytes
-2026/01/15-13:52:59.998 b33c compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/01/15-13:52:59.999 b33c Delete type=2 #346
-2026/01/15-13:52:59.999 b33c Delete type=2 #356
-2026/01/15-13:52:59.999 b33c Manual compaction at level-0 from '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at (end)
+2026/01/29-15:49:54.168 c210 Recovering log #359
+2026/01/29-15:49:54.170 c210 Level-0 table #361: started
+2026/01/29-15:49:54.209 c210 Level-0 table #361: 135479 bytes OK
+2026/01/29-15:49:54.209 c210 Recovering log #365
+2026/01/29-15:49:54.352 c210 Delete type=0 #359
+2026/01/29-15:49:54.352 c210 Delete type=0 #365
+2026/01/29-15:49:54.353 c210 Delete type=2 #367
+2026/01/29-15:49:54.353 c210 Delete type=3 #358
+2026/01/29-15:49:54.385 afc8 Level-0 table #368: started
+2026/01/29-15:49:54.420 afc8 Level-0 table #368: 94063 bytes OK
+2026/01/29-15:49:54.484 afc8 Delete type=0 #366
+2026/01/29-15:49:54.484 afc8 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at '!actors.items!gqrW5aGfnjqNse2T.gZs94A2dq6OWbEDw' @ 1492 : 1
+2026/01/29-15:49:54.484 afc8 Compacting 3@0 + 0@1 files
+2026/01/29-15:49:54.519 afc8 Generated table #369@0: 109 keys, 93287 bytes
+2026/01/29-15:49:54.519 afc8 Compacted 3@0 + 0@1 files => 93287 bytes
+2026/01/29-15:49:54.594 afc8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/01/29-15:49:54.594 afc8 Delete type=2 #357
+2026/01/29-15:49:54.594 afc8 Delete type=2 #361
+2026/01/29-15:49:54.595 afc8 Delete type=2 #368
+2026/01/29-15:49:54.595 afc8 Manual compaction at level-0 from '!actors.items!gqrW5aGfnjqNse2T.gZs94A2dq6OWbEDw' @ 1492 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at (end)

@@ -1,37 +1,66 @@
 {
-  "folder": "gGy6LNAsZa9IaIjf",
-  "name": "Avenging Wildwood",
+  "folder": "L8iTXojMnoiabKyR",
+  "name": "Wall of Stone",
   "type": "npc",
   "ownership": {
     "default": 0,
-    "QxDObmx87OPbZTK7": 3
+    "vj8VUT8j7Wtzy3Y2": 3
   },
   "prototypeToken": {
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
-        "autoscale": false
+        "autoscale": true
+      },
+      "image-hover": {
+        "hideArt": false,
+        "specificArt": "path/image.png"
+      },
+      "Rideable": {
+        "issetRideableFlag": true,
+        "MountonEnterFlag": false,
+        "AutoMountBlackListFlag": "",
+        "AutoMountWhiteListFlag": "",
+        "MaxRiderFlag": null,
+        "CustomRidingheightFlag": null,
+        "UseRidingHeightFlag": true,
+        "RidersScaleFlag": 1,
+        "RiderPositioningFlag": "RowPlacement",
+        "RiderOffsetFlag": [
+          0,
+          0
+        ],
+        "TokenFormFlag": "TokenFormCircle",
+        "InsideMovementFlag": false,
+        "SpawnRidersFlag": "",
+        "WorldMEffectOverrideFlag": false,
+        "MountingEffectsFlag": "",
+        "SelfApplyEffectsFlag": false,
+        "forMountEffectsFlag": "",
+        "CanbePilotedFlag": false,
+        "CheckPilotedCollisionFlag": false,
+        "PilotedbyDefaultFlag": false
       }
     },
     "height": 1,
     "width": 1,
-    "name": "Avenging WIldood",
+    "name": "Wall of Stone",
     "displayName": 20,
     "actorLink": false,
     "texture": {
-      "src": "modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/awakened-tree.webp",
+      "src": "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_stone.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
       "offsetY": 0,
       "fit": "contain",
-      "scaleX": 1.5,
-      "scaleY": 1.5,
+      "scaleX": 1,
+      "scaleY": 1,
       "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
-    "lockRotation": true,
+    "lockRotation": false,
     "rotation": 0,
     "alpha": 1,
     "disposition": -1,
@@ -83,15 +112,15 @@
       "radius": 0
     },
     "ring": {
-      "enabled": true,
+      "enabled": false,
       "colors": {
         "ring": null,
         "background": null
       },
-      "effects": 1,
+      "effects": 0,
       "subject": {
-        "scale": 1.5,
-        "texture": "modules/pf2e-tokens-bestiaries/subjects/plant/arboreal/awakened-tree.webp"
+        "scale": 1,
+        "texture": null
       }
     },
     "turnMarker": {
@@ -109,9 +138,9 @@
   "system": {
     "attributes": {
       "hp": {
-        "value": 20,
+        "value": 50,
         "temp": 0,
-        "max": 20,
+        "max": 50,
         "details": ""
       },
       "ac": {
@@ -122,10 +151,32 @@
         "value": ""
       },
       "speed": {
-        "value": 25,
+        "value": 0,
         "otherSpeeds": [],
         "details": ""
-      }
+      },
+      "immunities": [
+        {
+          "type": "mental",
+          "exceptions": []
+        },
+        {
+          "type": "critical-hits",
+          "exceptions": []
+        },
+        {
+          "type": "precision",
+          "exceptions": []
+        },
+        {
+          "type": "poison",
+          "exceptions": []
+        },
+        {
+          "type": "unconscious",
+          "exceptions": []
+        }
+      ]
     },
     "initiative": {
       "statistic": "perception"
@@ -150,7 +201,7 @@
     },
     "resources": {},
     "_migration": {
-      "version": 0.953,
+      "version": 0.954,
       "previous": null
     },
     "abilities": {
@@ -202,77 +253,15 @@
       }
     }
   },
-  "_id": "LB2e6ze90XNiwFcW",
-  "img": "modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/awakened-tree.webp",
+  "_id": "HakOgoig5LWhcq1B",
+  "img": "icons/commodities/stone/paver-brick-brown.webp",
   "items": [
     {
       "type": "action",
-      "name": "Pass Through",
+      "name": "Hardness 14",
       "system": {
         "actionType": {
           "value": "passive"
-        },
-        "description": {
-          "value": "<p>Other creatures can’t occupy its space, but allies can pass through its space.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.953,
-          "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.7.4"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": null,
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "EEzWMY1HiWS7JIeA",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "QxDObmx87OPbZTK7": 3
-      },
-      "flags": {},
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null,
-        "coreVersion": "13.351",
-        "systemId": "pf2e",
-        "systemVersion": "7.7.4",
-        "createdTime": 1763738802061,
-        "modifiedTime": 1763738826748,
-        "lastModifiedBy": "QxDObmx87OPbZTK7"
-      },
-      "_key": "!actors.items!LB2e6ze90XNiwFcW.EEzWMY1HiWS7JIeA"
-    },
-    {
-      "type": "melee",
-      "name": "New Attack",
-      "effects": [],
-      "system": {
-        "_migration": {
-          "version": 0.953,
-          "previous": null
         },
         "description": {
           "value": "",
@@ -284,32 +273,102 @@
           "license": "OGL",
           "remaster": false
         },
+        "rules": [
+          {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "value": 14
+          }
+        ],
+        "slug": "5-hardness",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.954,
+          "previous": {
+            "schema": 0.942,
+            "foundry": "13.351",
+            "system": "7.9.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO.Item.rKz1m7waNf6gEf4r",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO.Item.rKz1m7waNf6gEf4r",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "pf2e",
+        "systemVersion": "7.9.1",
+        "createdTime": 1769625628843,
+        "modifiedTime": 1769625648807,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+      },
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "_id": "WX5Mm3ejPBTKyVPI",
+      "_key": "!actors.items!HakOgoig5LWhcq1B.WX5Mm3ejPBTKyVPI"
+    },
+    {
+      "type": "action",
+      "name": "Note: Implement Oddities",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>This wall has the stats of 10ft x 10ft section despite only being 5ft x 10ft, so treat it being destroyed as one other next to it being destroyed</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
         "rules": [],
         "slug": null,
         "traits": {
           "otherTags": [],
-          "value": [
-            "reach-15"
-          ]
-        },
-        "action": "strike",
-        "area": null,
-        "damageRolls": {},
-        "bonus": {
-          "value": 0
-        },
-        "attackEffects": {
           "value": []
         },
-        "range": null
+        "_migration": {
+          "version": 0.954,
+          "previous": {
+            "schema": null,
+            "foundry": "13.351",
+            "system": "7.9.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
       },
-      "_id": "AWb2GIoYDNLC9lMC",
-      "img": "systems/pf2e/icons/default-icons/melee.svg",
+      "effects": [],
+      "_id": "9uFmetEKq11OIWb2",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
       "ownership": {
         "default": 0,
-        "QxDObmx87OPbZTK7": 3
+        "vj8VUT8j7Wtzy3Y2": 3
       },
       "flags": {},
       "_stats": {
@@ -318,26 +377,30 @@
         "exportSource": null,
         "coreVersion": "13.351",
         "systemId": "pf2e",
-        "systemVersion": "7.7.4",
-        "createdTime": 1763738834191,
-        "modifiedTime": 1763738859628,
-        "lastModifiedBy": "QxDObmx87OPbZTK7"
+        "systemVersion": "7.9.1",
+        "createdTime": 1769625803014,
+        "modifiedTime": 1769625862161,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
-      "_key": "!actors.items!LB2e6ze90XNiwFcW.AWb2GIoYDNLC9lMC"
+      "_key": "!actors.items!HakOgoig5LWhcq1B.9uFmetEKq11OIWb2"
     }
   ],
-  "sort": -100000,
-  "flags": {},
+  "sort": 0,
+  "flags": {
+    "pf2e": {
+      "maxhealingRank": 0
+    }
+  },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "13.351",
     "systemId": "pf2e",
-    "systemVersion": "7.7.4",
-    "createdTime": 1763668272525,
-    "modifiedTime": 1763744395326,
-    "lastModifiedBy": "QxDObmx87OPbZTK7"
+    "systemVersion": "7.9.1",
+    "createdTime": 1769625298920,
+    "modifiedTime": 1769625801853,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
-  "_key": "!actors!LB2e6ze90XNiwFcW"
+  "_key": "!actors!HakOgoig5LWhcq1B"
 }

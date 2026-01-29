@@ -1,14 +1,17 @@
-2026/01/15-13:53:00.124 65f0 Recovering log #318
-2026/01/15-13:53:00.266 65f0 Delete type=0 #318
-2026/01/15-13:53:00.266 65f0 Delete type=3 #317
-2026/01/15-13:53:00.308 b33c Level-0 table #322: started
-2026/01/15-13:53:00.386 b33c Level-0 table #322: 5445 bytes OK
-2026/01/15-13:53:00.441 b33c Delete type=0 #320
-2026/01/15-13:53:00.441 b33c Manual compaction at level-0 from '!folders!Jgr03TNBCPio6tdA' @ 72057594037927935 : 1 .. '!items!vnFV2b3aYdvGeVkM' @ 0 : 0; will stop at '!items!vnFV2b3aYdvGeVkM' @ 92 : 1
-2026/01/15-13:53:00.441 b33c Compacting 1@0 + 1@1 files
-2026/01/15-13:53:00.488 b33c Generated table #323@0: 10 keys, 5445 bytes
-2026/01/15-13:53:00.488 b33c Compacted 1@0 + 1@1 files => 5445 bytes
-2026/01/15-13:53:00.551 b33c compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/01/15-13:53:00.552 b33c Delete type=2 #190
-2026/01/15-13:53:00.552 b33c Delete type=2 #322
-2026/01/15-13:53:00.552 b33c Manual compaction at level-0 from '!items!vnFV2b3aYdvGeVkM' @ 92 : 1 .. '!items!vnFV2b3aYdvGeVkM' @ 0 : 0; will stop at (end)
+2026/01/29-15:49:54.722 c210 Recovering log #325
+2026/01/29-15:49:54.722 c210 Recovering log #330
+2026/01/29-15:49:54.861 c210 Delete type=0 #325
+2026/01/29-15:49:54.861 c210 Delete type=0 #330
+2026/01/29-15:49:54.861 c210 Delete type=2 #332
+2026/01/29-15:49:54.861 c210 Delete type=3 #324
+2026/01/29-15:49:54.893 afc8 Level-0 table #333: started
+2026/01/29-15:49:54.928 afc8 Level-0 table #333: 5441 bytes OK
+2026/01/29-15:49:55.003 afc8 Delete type=0 #331
+2026/01/29-15:49:55.003 afc8 Manual compaction at level-0 from '!folders!Jgr03TNBCPio6tdA' @ 72057594037927935 : 1 .. '!items!vnFV2b3aYdvGeVkM' @ 0 : 0; will stop at '!items!vnFV2b3aYdvGeVkM' @ 92 : 1
+2026/01/29-15:49:55.003 afc8 Compacting 2@0 + 0@1 files
+2026/01/29-15:49:55.040 afc8 Generated table #334@0: 10 keys, 5441 bytes
+2026/01/29-15:49:55.040 afc8 Compacted 2@0 + 0@1 files => 5441 bytes
+2026/01/29-15:49:55.102 afc8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/01/29-15:49:55.102 afc8 Delete type=2 #323
+2026/01/29-15:49:55.103 afc8 Delete type=2 #333
+2026/01/29-15:49:55.103 afc8 Manual compaction at level-0 from '!items!vnFV2b3aYdvGeVkM' @ 92 : 1 .. '!items!vnFV2b3aYdvGeVkM' @ 0 : 0; will stop at (end)

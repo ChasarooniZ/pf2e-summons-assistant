@@ -48,7 +48,8 @@ export const SOURCES = {
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
     WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed",
     PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
-    AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW"
+    AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW",
+    DRAGON_TURRET: "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX"
   },
 
   WALL: {
@@ -105,6 +106,7 @@ export const SLUG_TO_SOURCE = {
   "create-thrall": SOURCES.NECROMANCER.CREATE_THRALL,
   "deploy-mine": SOURCES.MECHANIC.DEPLOY_MINE,
   "double-deployment": SOURCES.MECHANIC.DOUBLE_DEPLOYMENT,
+  "dragon-turret": SOURCES.MISC.DRAGON_TURRET,
   "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
   "floating-flame": SOURCES.MISC.FLOATING_FLAME,
   "inevitable-return": SOURCES.NECROMANCER.INEVITABLE_RETURN,
@@ -189,6 +191,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.3wO8dqpYCdGhIUla",
 
   WALL_OF_FIRE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
+
+  DRAGON_TURRET: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
 
   BLACK_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.xxP5FJotshmUQNtY",
   GRIZZLY_BEAR:
