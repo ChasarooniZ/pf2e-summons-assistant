@@ -356,31 +356,75 @@
         },
         "rules": [
           {
-            "domain": "all",
             "key": "RollOption",
             "option": "tradition",
+            "phase": "afterDerived",
             "suboptions": [
               {
                 "label": "PF2E.TraitArcane",
-                "value": "force"
+                "value": "force",
+                "predicate": [
+                  {
+                    "not": "self:trait:occult"
+                  },
+                  {
+                    "not": "self:trait:divine"
+                  },
+                  {
+                    "not": "self:trait:primal"
+                  }
+                ]
               },
               {
                 "label": "PF2E.TraitDivine",
-                "value": "spirit"
+                "value": "spirit",
+                "predicate": [
+                  {
+                    "not": "self:trait:occult"
+                  },
+                  {
+                    "not": "self:trait:arcane"
+                  },
+                  {
+                    "not": "self:trait:primal"
+                  }
+                ]
               },
               {
                 "label": "PF2E.TraitOccult",
-                "value": "mental"
+                "value": "mental",
+                "predicate": [
+                  {
+                    "not": "self:trait:arcane"
+                  },
+                  {
+                    "not": "self:trait:divine"
+                  },
+                  {
+                    "not": "self:trait:primal"
+                  }
+                ]
               },
               {
                 "label": "PF2E.TraitPrimal",
-                "value": "fire"
+                "value": "fire",
+                "predicate": [
+                  {
+                    "not": "self:trait:occult"
+                  },
+                  {
+                    "not": "self:trait:divine"
+                  },
+                  {
+                    "not": "self:trait:arcane"
+                  }
+                ]
               }
             ],
             "label": "PF2E.MagicTraditionLabel",
             "toggleable": true,
             "value": true,
-            "selection": "force",
+            "selection": "mental",
             "alwaysActive": true
           }
         ],
@@ -425,7 +469,7 @@
         "systemId": "pf2e",
         "systemVersion": "7.9.1",
         "createdTime": 1769672967140,
-        "modifiedTime": 1769673700171,
+        "modifiedTime": 1769758157765,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!UGy4139EDrjbVDbv.Ew1xTR9eRg4UbDxE"
@@ -445,7 +489,7 @@
     "systemId": "pf2e",
     "systemVersion": "7.9.1",
     "createdTime": 1769672628469,
-    "modifiedTime": 1769717404122,
+    "modifiedTime": 1769760182722,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!UGy4139EDrjbVDbv"

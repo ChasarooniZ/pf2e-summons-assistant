@@ -149,11 +149,15 @@ export async function summon(
       summonerItem,
     );
 
+    const modTraits = actorModifications?.["system.traits.value"] ?? [];
+    delete actorModifications?.["system.traits.value"];
+
     const actorUpdateData = {
       "system.details.alliance": summonerAlliance,
       "system.traits.value": [
         ...selectedActor.system.traits.value,
         ...additionalTraits,
+        ...modTraits,
       ],
       ...houseRuleUpdates,
       ...actorModifications,
@@ -321,6 +325,6 @@ function isLinkedSummon(summonUUID) {
     CREATURES.NECROMANCER.SKELETAL_LANCERS,
     CREATURES.DRAGON_TURRET,
     CREATURES.FLOATING_FLAME,
-    CREATURES.AVENGING_WILDWOOD
+    CREATURES.AVENGING_WILDWOOD,
   ].includes(summonUUID);
 }

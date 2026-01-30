@@ -3,10 +3,10 @@
 ## 1.21.0
 
 - **New**
-  - Added support for `Dragon Turret` (art by @Chasarooni)
+  - Added support for `Dragon Turret` (🎨 by @Chasarooni) (✋ @tunderpower)
 - **Updated**
   - Handled situation where a token has no actor breaking `Wall of Fire` (🐛 @zionhian)
-  - Added `Floating Flame` and `Avenging Wildwood` to summon's who's DCs are linjed to their summoner
+  - Added `Floating Flame` and `Avenging Wildwood` to summon's who's DCs are linked to their summoner
 
 ## 1.20.3
 

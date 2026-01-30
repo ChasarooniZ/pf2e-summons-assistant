@@ -309,17 +309,13 @@ const handlers = {
           ...(data.itemRollOptions.length > 0
             ? {
                 modifications: {
-                  system: {
-                    traits: {
-                      value: [
-                        data.itemRollOptions
-                          .find((option) =>
-                            option.startsWith("spellcasting:tradition:"),
-                          )
-                          ?.replace("spellcasting:tradition:", ""),
-                      ],
-                    },
-                  },
+                  "system.traits.value": [
+                    data.itemRollOptions
+                      .find((option) =>
+                        option.startsWith("spellcasting:tradition:"),
+                      )
+                      ?.replace("spellcasting:tradition:", ""),
+                  ],
                 },
               }
             : {}),

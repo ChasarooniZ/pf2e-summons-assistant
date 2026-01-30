@@ -1,1 +1,5 @@
-2026/01/28-08:41:11.799891 ffff837fe0c0 Delete type=3 #1
+2026/01/30-02:04:53.925 aa70 Recovering log #371
+2026/01/30-02:04:53.926 aa70 Level-0 table #373: started
+2026/01/30-02:04:54.010 aa70 Level-0 table #373: 23117 bytes OK
+2026/01/30-02:04:54.143 aa70 Delete type=0 #371
+2026/01/30-02:04:54.143 aa70 Delete type=3 #370
