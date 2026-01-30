@@ -72,6 +72,9 @@
             },
             "disable-items": {
                 "saved": "已保存！以下召唤自动化选项已被禁用 {list}"
+            },
+            "customization": {
+                "saved": "召唤物自定义设置已保存"
             }
         },
         "dialog": {
@@ -84,12 +87,21 @@
                     "hint": "对是否激活召唤自动化选项进行配置"
                 },
                 "title": "取消勾选，以禁用该召唤自动化"
+            },
+            "choose-type-of": "选择墙体形状，当前为",
+            "customize": {
+                "summoned-token": {
+                    "title": "自定义召唤物指示物"
+                }
             }
         },
         "display-text": {
             "wooden-double": {
                 "step": "选择要“快步”至的位置",
                 "place-double": "左键点击以放置你的木制替身"
+            },
+            "wall": {
+                "start-point": "选择你所创造墙体的起始点"
             }
         },
         "items": {
@@ -121,6 +133,11 @@
                     "description": "该效果会为特定召唤物添加各类规则元素，以实现诸如打击等自动化操作。"
                 }
             }
+        },
+        "controls": {
+            "adjust-length": "调整长度",
+            "rotate-wall": "旋转墙体",
+            "scroll": "鼠标滚轮"
         }
     }
 }
