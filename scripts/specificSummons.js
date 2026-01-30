@@ -301,18 +301,18 @@ const handlers = {
       return null;
     },
 
-    handleDragonTurret: async () => {
+    handleDragonTurret: async (data) => {
       return [
         {
           specific_uuids: [CREATURES.DRAGON_TURRET],
           itemsToAdd: [EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG])],
-          ...(itemRollOptions.length > 0
+          ...(data.itemRollOptions.length > 0
             ? {
                 modifications: {
                   system: {
                     traits: {
                       value: [
-                        itemRollOptions
+                        data.itemRollOptions
                           .find((option) =>
                             option.startsWith("spellcasting:tradition:"),
                           )
