@@ -26,7 +26,8 @@ export async function getSpecificSummonDetails(
     rank: 0,
     summonerLevel: 0,
     dc: 0,
-    rollOptions: [],
+    summonerRollOptions: [],
+    itemRollOptions: [],
     targetTokenUUID: null,
     tokenWidth: 1,
     tokenHeight: 1,
@@ -305,6 +306,23 @@ const handlers = {
         {
           specific_uuids: [CREATURES.DRAGON_TURRET],
           itemsToAdd: [EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG])],
+          ...(itemRollOptions.length > 0
+            ? {
+                modifications: {
+                  system: {
+                    traits: {
+                      value: [
+                        itemRollOptions
+                          .find((option) =>
+                            option.startsWith("spellcasting:tradition:"),
+                          )
+                          ?.replace("spellcasting:tradition:", ""),
+                      ],
+                    },
+                  },
+                },
+              }
+            : {}),
         },
       ];
     },
