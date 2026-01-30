@@ -7,6 +7,7 @@
 - **Updated**
   - Handled situation where a token has no actor breaking `Wall of Fire` (🐛 @zionhian)
   - Added `Floating Flame` and `Avenging Wildwood` to summon's who's DCs are linked to their summoner
+  - Updated chinese translation (🌐 @AlphaStarGuide)
 
 ## 1.20.3
 
