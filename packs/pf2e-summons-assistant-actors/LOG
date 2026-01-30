@@ -1,14 +1,15 @@
-2026/01/15-13:52:59.138 65f0 Recovering log #352
-2026/01/15-13:52:59.732 65f0 Delete type=0 #352
-2026/01/15-13:52:59.732 65f0 Delete type=3 #351
-2026/01/15-13:52:59.766 b33c Level-0 table #356: started
-2026/01/15-13:52:59.834 b33c Level-0 table #356: 94944 bytes OK
-2026/01/15-13:52:59.899 b33c Delete type=0 #354
-2026/01/15-13:52:59.899 b33c Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1
-2026/01/15-13:52:59.899 b33c Compacting 1@0 + 1@1 files
-2026/01/15-13:52:59.934 b33c Generated table #357@0: 114 keys, 94944 bytes
-2026/01/15-13:52:59.935 b33c Compacted 1@0 + 1@1 files => 94944 bytes
-2026/01/15-13:52:59.998 b33c compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/01/15-13:52:59.999 b33c Delete type=2 #346
-2026/01/15-13:52:59.999 b33c Delete type=2 #356
-2026/01/15-13:52:59.999 b33c Manual compaction at level-0 from '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at (end)
+2026/01/30-02:06:39.099 31f0 Recovering log #374
+2026/01/30-02:06:39.782 31f0 Delete type=0 #374
+2026/01/30-02:06:39.782 31f0 Delete type=3 #372
+2026/01/30-02:06:39.826 a274 Level-0 table #378: started
+2026/01/30-02:06:39.860 a274 Level-0 table #378: 93323 bytes OK
+2026/01/30-02:06:39.914 a274 Delete type=0 #376
+2026/01/30-02:06:39.914 a274 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at '!actors.items!UGy4139EDrjbVDbv.Ew1xTR9eRg4UbDxE' @ 1616 : 1
+2026/01/30-02:06:39.914 a274 Compacting 3@0 + 0@1 files
+2026/01/30-02:06:39.959 a274 Generated table #379@0: 109 keys, 93323 bytes
+2026/01/30-02:06:39.959 a274 Compacted 3@0 + 0@1 files => 93323 bytes
+2026/01/30-02:06:40.024 a274 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/01/30-02:06:40.024 a274 Delete type=2 #369
+2026/01/30-02:06:40.024 a274 Delete type=2 #373
+2026/01/30-02:06:40.025 a274 Delete type=2 #378
+2026/01/30-02:06:40.025 a274 Manual compaction at level-0 from '!actors.items!UGy4139EDrjbVDbv.Ew1xTR9eRg4UbDxE' @ 1616 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at (end)

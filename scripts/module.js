@@ -84,6 +84,7 @@ Hooks.once("ready", async function () {
       summonerRollOptions: Object.keys(
         summonerActor?.flags?.pf2e?.rollOptions?.all,
       ),
+      itemRollOptions: chatMessage?.flags?.pf2e?.context?.options ?? []
     };
     //Grab DC for Incarnate spells
     if (isIncarnate(chatMessage))

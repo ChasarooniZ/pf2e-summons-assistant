@@ -77,6 +77,7 @@ You can access the changelog [here](/CHANGELOG.md).
 - **Misc**
   - `Avenging Wildwood`
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
+  - `Dragon Turret`
   - `Floating Flame` - Art Requires `JB2a`
   - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)
   - `Protector Tree` - Does not do any automation as of yet
@@ -125,3 +126,5 @@ You can see everyone else who contributed to the module [here](CONTRIBUTORS.md)
 - `Healing Servitor` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Mechanic Mines` - (credit @Sasane, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Plant Banner` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Dragon Turret` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Protector Tree` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)

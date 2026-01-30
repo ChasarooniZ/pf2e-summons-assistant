@@ -7,7 +7,7 @@
       "portrait": "modules/pf2e-summons-assistant/assets/actors/protector_tree.webp",
       "thumb": "modules/pf2e-summons-assistant/assets/thumb/protector_tree.webp",
       "token": "modules/pf2e-summons-assistant/assets/tokens/token/protector_tree.webp",
-      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/protector_tree.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subject/protector_tree.webp",
       "scale": 1
     },
     "tags": {
@@ -19,10 +19,10 @@
     "key": "PF2e-summons-assistant_healing-servitor",
     "source": "PF2e-summons-assistant",
     "art": {
-      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/healing-servitor.webp",
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subject/healing-servitor.webp",
       "thumb": "modules/pf2e-summons-assistant/assets/thumb/healing-servitor.webp",
       "token": "modules/pf2e-summons-assistant/assets/tokens/token/healing-servitor.webp",
-      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/healing-servitor.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subject/healing-servitor.webp",
       "scale": 1
     },
     "tags": {
@@ -35,10 +35,10 @@
     "key": "PF2e-summons-assistant_landmine",
     "source": "PF2e-summons-assistant",
     "art": {
-      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/landmine.webp",
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subject/landmine.webp",
       "thumb": "modules/pf2e-summons-assistant/assets/thumb/landmine.webp",
-      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/landmine.webp",
-      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/landmine.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subject/landmine.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subject/landmine.webp",
       "scale": 1
     },
     "tags": {
@@ -51,10 +51,10 @@
     "key": "PF2e-summons-assistant_plant-banner",
     "source": "PF2e-summons-assistant",
     "art": {
-      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/plant-banner.webp",
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subject/plant-banner.webp",
       "thumb": "modules/pf2e-summons-assistant/assets/thumb/plant-banner.webp",
-      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/plant-banner.webp",
-      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/plant-banner.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subject/plant-banner.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subject/plant-banner.webp",
       "scale": 1
     },
     "tags": {
@@ -66,10 +66,10 @@
     "key": "PF2e-summons-assistant_tempest-of-shades",
     "source": "PF2e-summons-assistant",
     "art": {
-      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/tempest-of-shades.webp",
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subject/tempest-of-shades.webp",
       "thumb": "modules/pf2e-summons-assistant/assets/thumb/tempest-of-shades.webp",
-      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/tempest-of-shades.webp",
-      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/tempest-of-shades.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subject/tempest-of-shades.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subject/tempest-of-shades.webp",
       "scale": 1
     },
     "tags": {
@@ -81,14 +81,29 @@
     "key": "PF2e-summons-assistant_wooden_double",
     "source": "PF2e-summons-assistant",
     "art": {
-      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subjects/wooden_double.webp",
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subject/wooden_double.webp",
       "thumb": "modules/pf2e-summons-assistant/assets/thumb/wooden_double.webp",
-      "token": "modules/pf2e-summons-assistant/assets/tokens/subjects/wooden_double.webp",
-      "subject": "modules/pf2e-summons-assistant/assets/tokens/subjects/wooden_double.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/subject/wooden_double.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subject/wooden_double.webp",
       "scale": 1
     },
     "tags": {
       "category": ["plant"]
+    }
+  },
+  {
+    "label": "Dragon Turret",
+    "key": "PF2e-summons-assistant_dragon-turret",
+    "source": "PF2e-summons-assistant",
+    "art": {
+      "portrait": "modules/pf2e-summons-assistant/assets/tokens/subject/dragon-turret.webp",
+      "thumb": "modules/pf2e-summons-assistant/assets/thumb/dragon-turret.webp",
+      "token": "modules/pf2e-summons-assistant/assets/tokens/token/dragon-turret.webp",
+      "subject": "modules/pf2e-summons-assistant/assets/tokens/subject/dragon-turret.webp",
+      "scale": 2
+    },
+    "tags": {
+      "category": ["draconic"]
     }
   }
 ]
