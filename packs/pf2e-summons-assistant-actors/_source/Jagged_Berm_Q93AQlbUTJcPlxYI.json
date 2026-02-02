@@ -1,15 +1,20 @@
 {
-  "folder": "gGy6LNAsZa9IaIjf",
-  "name": "Wooden Double",
+  "folder": "vbIrzVZPMTgmlUMs",
+  "name": "Jagged Berm",
   "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
   "prototypeToken": {
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
         "autoscale": true
       },
-      "pf2e-visioner": {
-        "coverOverride": "auto"
+      "image-hover": {
+        "hideArt": false,
+        "specificArt": "path/image.png"
       },
       "Rideable": {
         "issetRideableFlag": true,
@@ -39,11 +44,11 @@
     },
     "height": 1,
     "width": 1,
-    "name": "Wooden Double",
+    "name": "Jagged Berm",
     "displayName": 20,
     "actorLink": false,
     "texture": {
-      "src": "modules/pf2e-summons-assistant/assets/tokens/token/wooden_double.webp",
+      "src": "modules/pf2e-summons-assistant/assets/tokens/token/jagged_berm_berm.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
@@ -115,7 +120,7 @@
       "effects": 1,
       "subject": {
         "scale": 1,
-        "texture": "modules/pf2e-summons-assistant/assets/tokens/subject/wooden_double.webp"
+        "texture": "modules/pf2e-summons-assistant/assets/tokens/subject/jagged_berm_berm.webp"
       }
     },
     "turnMarker": {
@@ -139,7 +144,7 @@
         "details": ""
       },
       "ac": {
-        "value": 0,
+        "value": 10,
         "details": ""
       },
       "allSaves": {
@@ -160,7 +165,7 @@
         "details": ""
       },
       "level": {
-        "value": 3
+        "value": 6
       },
       "blurb": "",
       "publicNotes": "",
@@ -174,7 +179,7 @@
     },
     "resources": {},
     "_migration": {
-      "version": 0.942,
+      "version": 0.954,
       "previous": null
     },
     "abilities": {
@@ -226,7 +231,8 @@
       }
     }
   },
-  "img": "modules/pf2e-summons-assistant/assets/tokens/subject/wooden_double.webp",
+  "_id": "Q93AQlbUTJcPlxYI",
+  "img": "modules/pf2e-summons-assistant/assets/tokens/token/jagged_berm_berm.webp",
   "items": [
     {
       "type": "action",
@@ -251,7 +257,7 @@
             "mode": "override",
             "path": "system.attributes.hardness.value",
             "phase": "afterDerived",
-            "value": 5
+            "value": 10
           }
         ],
         "slug": "5-hardness",
@@ -260,11 +266,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.942,
+          "version": 0.954,
           "previous": {
-            "schema": null,
-            "foundry": "13.347",
-            "system": "7.4.2"
+            "schema": 0.942,
+            "foundry": "13.351",
+            "system": "7.9.1"
           }
         },
         "actions": {
@@ -274,10 +280,77 @@
         "deathNote": false
       },
       "effects": [],
-      "_id": "rKz1m7waNf6gEf4r",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO.Item.rKz1m7waNf6gEf4r",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO.Item.rKz1m7waNf6gEf4r",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "pf2e",
+        "systemVersion": "7.9.1",
+        "createdTime": 1770026402828,
+        "modifiedTime": 1770026424111,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+      },
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "_id": "RRilhu5fL1s3kVTi",
+      "_key": "!actors.items!Q93AQlbUTJcPlxYI.RRilhu5fL1s3kVTi"
+    },
+    {
+      "type": "action",
+      "name": "Wooden Stakes",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "description": {
+          "value": "<p>For each square of wooden stakes a creature enters, that creature takes @Damage[(floor((@actor.level -6)/2)+2)d6[piercing]] damage.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": [
+            "earth",
+            "wood"
+          ]
+        },
+        "_migration": {
+          "version": 0.954,
+          "previous": {
+            "schema": null,
+            "foundry": "13.351",
+            "system": "7.9.1"
+          }
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "PATNFbu0Yx54Apsa",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
       "flags": {},
       "_stats": {
         "compendiumSource": null,
@@ -286,15 +359,14 @@
         "coreVersion": "13.351",
         "systemId": "pf2e",
         "systemVersion": "7.9.1",
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "modifiedTime": 1770026406909
+        "createdTime": 1770026433801,
+        "modifiedTime": 1770026501812,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
-      "ownership": {
-        "default": 0
-      },
-      "_key": "!actors.items!WNBOiDVexWG6DwCO.rKz1m7waNf6gEf4r"
+      "_key": "!actors.items!Q93AQlbUTJcPlxYI.PATNFbu0Yx54Apsa"
     }
   ],
+  "sort": 0,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
@@ -307,15 +379,9 @@
     "coreVersion": "13.351",
     "systemId": "pf2e",
     "systemVersion": "7.9.1",
-    "createdTime": 1758039220037,
-    "modifiedTime": 1770026396707,
+    "createdTime": 1770026342057,
+    "modifiedTime": 1770026718776,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
-  "ownership": {
-    "default": 0,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
-  "_id": "WNBOiDVexWG6DwCO",
-  "sort": 0,
-  "_key": "!actors!WNBOiDVexWG6DwCO"
+  "_key": "!actors!Q93AQlbUTJcPlxYI"
 }
