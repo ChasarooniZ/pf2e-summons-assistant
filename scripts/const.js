@@ -2,14 +2,14 @@ import { createThrallAttackInfo } from "./specificClasses/necromancer.js";
 
 export const MODULE_ID = "pf2e-summons-assistant";
 
-export const DEF_TOKEN_CONFIGS ={
-    name: "",
-    imagePath: "",
-    scale: 1,
-    ringEnabled: false,
-    subjectTexture: "",
-    subjectScaleCorrection: 1,
-  };
+export const DEF_TOKEN_CONFIGS = {
+  name: "",
+  imagePath: "",
+  scale: 1,
+  ringEnabled: false,
+  subjectTexture: "",
+  subjectScaleCorrection: 1,
+};
 
 export const SOURCES = {
   SUMMON: {
@@ -49,15 +49,16 @@ export const SOURCES = {
     WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed",
     PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
     AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW",
-    DRAGON_TURRET: "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX"
+    DRAGON_TURRET: "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX",
   },
 
   WALL: {
-    WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu"
+    WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
   },
 
   KINETICIST: {
     TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
+    JAGGED_BERMS: "Compendium.pf2e.feats-srd.Item.9L6c9sxweM4IdOse",
   },
 
   NECROMANCER: {
@@ -110,6 +111,7 @@ export const SLUG_TO_SOURCE = {
   "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
   "floating-flame": SOURCES.MISC.FLOATING_FLAME,
   "inevitable-return": SOURCES.NECROMANCER.INEVITABLE_RETURN,
+  "jagged-berms": SOURCES.KINETICIST.JAGGED_BERMS,
   light: SOURCES.MISC.LIGHT,
   "living-graveyard": SOURCES.NECROMANCER.LIVING_GRAVEYARD,
   "manifest-eidolon": SOURCES.SUMMONER.MANIFEST_EIDOLON,
@@ -167,7 +169,8 @@ export const CREATURES = {
   DUPLICATE_FOE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.03gFpid5kBiI3vXS",
 
-  AVENGING_WILDWOOD: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.LB2e6ze90XNiwFcW",
+  AVENGING_WILDWOOD:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.LB2e6ze90XNiwFcW",
 
   WOODEN_DOUBLE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
@@ -190,9 +193,11 @@ export const CREATURES = {
   FLUXWRAITH:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.3wO8dqpYCdGhIUla",
 
-  WALL_OF_FIRE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
+  WALL_OF_FIRE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
 
-  DRAGON_TURRET: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
+  DRAGON_TURRET:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
 
   BLACK_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.xxP5FJotshmUQNtY",
   GRIZZLY_BEAR:
@@ -202,11 +207,17 @@ export const CREATURES = {
 
   GIANT_VIPER: "Compendium.pf2e.pathfinder-monster-core.Actor.AJ5LuNMVPLCydryP",
 
-  PROTECTOR_TREE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
+  PROTECTOR_TREE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
 
   COMMANDER: {
     PLANTED_BANNER:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
+  },
+
+  KINETICIST: {
+    JAGGED_BERMS:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",
   },
 
   MECHANIC: {
@@ -276,7 +287,7 @@ export const EFFECTS = {
   NECROMANCER: {
     THRALL_EXPIRATION: (duration, config = {}) => ({
       name: game.i18n.localize(
-        "pf2e-summons-assistant.items.effects.thrall-expiration.name"
+        "pf2e-summons-assistant.items.effects.thrall-expiration.name",
       ),
       type: "effect",
       system: {
@@ -315,7 +326,7 @@ export const EFFECTS = {
   },
   SUMMON_OWNER: (imagePath) => ({
     name: game.i18n.localize(
-      "pf2e-summons-assistant.items.effects.summon's-owner.name"
+      "pf2e-summons-assistant.items.effects.summon's-owner.name",
     ),
     type: "effect",
     system: {
@@ -347,7 +358,7 @@ export const EFFECTS = {
   }),
   DUPLICATE_FOE: (isFail) => ({
     name: game.i18n.localize(
-      "pf2e-summons-assistant.items.effects.duplicate-foe.name"
+      "pf2e-summons-assistant.items.effects.duplicate-foe.name",
     ),
     type: "effect",
     system: {
@@ -383,17 +394,17 @@ export const EFFECTS = {
         ...(isFail
           ? []
           : [
-            {
-              key: "Note",
-              title: game.i18n.localize(
-                "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.title"
-              ),
-              selector: "strike-damage",
-              text: game.i18n.localize(
-                "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.text"
-              ),
-            },
-          ]),
+              {
+                key: "Note",
+                title: game.i18n.localize(
+                  "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.title",
+                ),
+                selector: "strike-damage",
+                text: game.i18n.localize(
+                  "pf2e-summons-assistant.items.effects.duplicate-foe.successful-save.text",
+                ),
+              },
+            ]),
       ],
       slug: "effect-duplicate-foe",
     },
@@ -401,7 +412,7 @@ export const EFFECTS = {
   }),
   RULE_EFFECT: (ruleconfig) => ({
     name: game.i18n.localize(
-      "pf2e-summons-assistant.items.effects.rule-elements.name"
+      "pf2e-summons-assistant.items.effects.rule-elements.name",
     ),
     type: "effect",
     system: {
@@ -440,7 +451,7 @@ export const ACTIONS = {
   MECHANIC: {
     CRITICAL_EXPLOSION: () => ({
       name: game.i18n.localize(
-        "pf2e-summons-assistant.items.actions.mechanic.critical-explosion.name"
+        "pf2e-summons-assistant.items.actions.mechanic.critical-explosion.name",
       ),
       type: "action",
       system: {
@@ -480,12 +491,11 @@ export const CONDITIONS_AFFECTING_SPELL_DC = new Set([
   "stupefied",
 ]);
 
-
 export const RULE_ELEMENTS = {
   SPELL_DC_FLAG: {
-    "key": "ActiveEffectLike",
-    "mode": "add",
-    "path": "flags.pf2e-summons-assistant.dc",
-    "value": "@item.origin.system.attributes.spellDC.value"
-  }
-}
+    key: "ActiveEffectLike",
+    mode: "add",
+    path: "flags.pf2e-summons-assistant.dc",
+    value: "@item.origin.system.attributes.spellDC.value",
+  },
+};

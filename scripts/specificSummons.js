@@ -62,6 +62,7 @@ const getSummonHandlers = () => ({
   // Kineticist
   [SOURCES.KINETICIST.TIMBER_SENTINEL]:
     handlers.kineticist.handleTimberSentinel,
+  [SOURCES.KINETICIST.JAGGED_BERMS]: handlers.kineticist.handleJaggedBerms,
 
   // Mechanic
   [SOURCES.MECHANIC.DEPLOY_MINE]: handlers.mechanic.handleDeployMine,
@@ -189,6 +190,33 @@ const handlers = {
               obj: data.position,
               limitMaxRange: getGridUnitsFromFeet(30),
               showRange: true,
+            },
+          },
+        },
+      ];
+    },
+    handleJaggedBerms: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.KINETICIST.JAGGED_BERMS],
+          amount: 6,
+          modifications: {
+            "system.attributes.hp.max":
+              20 + (Math.round(data.summonerLevel / 2) - 6) * 10,
+            "system.attributes.hp.value":
+              20 + (Math.round(data.summonerLevel / 2) - 6) * 10,
+            level: data.summonerLevel,
+          },
+          crosshairParameters: {
+            location: {
+              obj: data.position,
+              limitMaxRange: getGridUnitsFromFeet(120),
+              showRange: true,
+            },
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.jagged-berms.berm",
+              ),
             },
           },
         },

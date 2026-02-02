@@ -90,6 +90,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Plant Banner` - Basic Case (no handling of feat interactions beyond base case atm)
 - **Kineticist**
   - `Timber Sentinel` - Does not do any automation as of yet
+  - `Jagged Berm` - Requires `JB2a` free for the spikes
 - **Misc**
   - `Call Ursine Ally`
 
