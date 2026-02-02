@@ -63,7 +63,7 @@ export function getAllDamageSlugs() {
     "vitality",
     "void",
     ...(game.settings.get("pf2e", "homebrew.damageTypes") ?? []).map((type) =>
-      game.pf2e.system.sluggify(type.label)
+      game.pf2e.system.sluggify(type.label),
     ),
   ];
 }
@@ -71,14 +71,14 @@ export function getAllDamageSlugs() {
 export function warnNotification(text) {
   const localizedText = game.i18n.localize(text);
   ui.notifications.warn(
-    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`
+    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`,
   );
 }
 
 export function errorNotification(text) {
   const localizedText = game.i18n.localize(text);
   ui.notifications.error(
-    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`
+    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`,
   );
 }
 
@@ -86,19 +86,19 @@ async function triggerActorRefresh(actor) {
   return await actor.setFlag(
     MODULE_ID,
     "update-tick",
-    !actor?.getFlag(MODULE_ID, "update-tick")
+    !actor?.getFlag(MODULE_ID, "update-tick"),
   );
 }
 
 export function setupSummonedTokenRefreshHooks() {
   Hooks.on("preUpdateItem", async (item, _update, _info, userID) =>
-    refreshTokensBasedOnItem(item, userID)
+    refreshTokensBasedOnItem(item, userID),
   );
   Hooks.on("preCreateItem", async (item, _data, _info, userID) =>
-    refreshTokensBasedOnItem(item, userID)
+    refreshTokensBasedOnItem(item, userID),
   );
   Hooks.on("preDeleteItem", async (item, _info, userID) =>
-    refreshTokensBasedOnItem(item, userID)
+    refreshTokensBasedOnItem(item, userID),
   );
 }
 
@@ -113,7 +113,7 @@ async function refreshTokensBasedOnItem(item, userID) {
       .filter(
         (t) =>
           t?.actor?.flags?.["pf2e-summons-assistant"]?.summoner?.uuid ===
-          actorUuid
+          actorUuid,
       )
       ?.map((t) => t.actor);
     const refreshList = [];
@@ -131,7 +131,7 @@ export function getGridUnitsFromFeet(feet) {
 export function getAvengingWildwoodStrikeRuleElements({ rank }) {
   const rulesElements = ["bludgeoning", "piercing", "slashing"].map((type) => {
     const damageName = game.i18n.localize(
-      `PF2E.Trait${capitalizeDamageType(type)}`
+      `PF2E.Trait${capitalizeDamageType(type)}`,
     );
     const name = `Branch (${damageName})`;
     const slug = game.pf2e.system.sluggify(name);
@@ -146,7 +146,7 @@ export function getAvengingWildwoodStrikeRuleElements({ rank }) {
     });
   });
   rulesElements.push(
-    getStrikeMod([rulesElements.map((re) => re.slug)], "Branch")
+    getStrikeMod([rulesElements.map((re) => re.slug)], "Branch"),
   );
   return rulesElements;
 }
@@ -157,4 +157,20 @@ export function notifyRayControls() {
           <br>
           <br>
           <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`);
+}
+
+export function convertUUIDBasedOnSystem(uuid) {
+  let finalUUID = uuid;
+  if (game.system.id === "sf2e") {
+    finalUUID?.replace(".sf2e.", ".pf2e.");
+    finalUUID?.replace(".actions.", ".actionspf2e.");
+    finalUUID?.replace(".class-features.", ".classfeatures.");
+    finalUUID?.replace(".conditions.", ".conditionitems.");
+    finalUUID?.replace(".equipment.", ".equipment-srd.");
+    finalUUID?.replace(".feats.", ".feats-srd.");
+    finalUUID?.replace(".macros.", ".pf2e-macros.");
+    finalUUID?.replace(".spells.", ".spells-srd.");
+  }
+
+  return finalUUID;
 }

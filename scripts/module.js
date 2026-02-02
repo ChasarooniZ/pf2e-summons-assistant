@@ -1,5 +1,6 @@
 import { MODULE_ID, SLUG_TO_SOURCE, SOURCES } from "./const.js";
 import {
+  convertUUIDBasedOnSystem,
   messageItemHasRollOption,
   setupSummonedTokenRefreshHooks,
 } from "./helpers.js";
@@ -63,7 +64,7 @@ Hooks.once("ready", async function () {
 
     if (!itemUuid) {
       itemUuid =
-        itemUuid ||
+        convertUUIDBasedOnSystem(itemUuid) ||
         SLUG_TO_SOURCE[
           chatMessage?.item?.slug ||
             game.pf2e.system.sluggify(chatMessage?.item?.name || "")
