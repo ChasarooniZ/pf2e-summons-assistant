@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 1.22.0
+
+- **New**
+  - Added support for `SF2e`
+    - Thanks to help on that from (@Mistress Rui)
+  - Updated french translation (🌐 @rectulo)
+
 ## 1.21.0
 
 - **New**
