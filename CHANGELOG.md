@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 1.22.2
+- Fixed Manifest issue (🐛 @Sasane, @Durak)
+
+## 1.22.1
+- Fix manifest to work for sf2e (@sasane)
+
 ## 1.22.0
 
 - **New**
