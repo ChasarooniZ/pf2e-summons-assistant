@@ -72,6 +72,9 @@
       },
       "disable-items": {
         "saved": "Enregistré ! Les automatisations suivantes de l’assistant d’invocation ont été désactivées : {list}"
+      },
+      "customization": {
+        "saved": "La personnalisation de l'invocation a été sauvegardée."
       }
     },
     "dialog": {
@@ -84,12 +87,21 @@
           "title": "Configurer les déclencheurs d'invocation activés",
           "hint": "Configurez les sources d'invocation actives."
         }
+      },
+      "choose-type-of": "Choisissez le type de",
+      "customize": {
+        "summoned-token": {
+          "title": "Personnaliser le jeton invoqué"
+        }
       }
     },
     "display-text": {
       "wooden-double": {
         "place-double": "Clic gauche pour placer votre Double de bois",
         "step": "Choisissez où Faire un pas"
+      },
+      "wall": {
+        "start-point": "Sélectionnez le point de départ de votre mur"
       }
     },
     "items": {
@@ -121,6 +133,11 @@
           }
         }
       }
+    },
+    "controls": {
+      "scroll": "Scroll",
+      "adjust-length": "Ajuster la longueur",
+      "rotate-wall": "Faire pivoter le mur"
     }
   }
 }
