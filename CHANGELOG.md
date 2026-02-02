@@ -1,11 +1,21 @@
 ## Unreleased
 
+## 1.23.0
+
+- **New**
+  - Added support for `Jagged Berm` (💡 @Kosovoy)
+    - Requires `Jb2a` (free or premium) for the spikes
+
+## 1.22.1
+
+- Fix manifest to work for sf2e (@Sasane)
+
 ## 1.22.0
 
 - **New**
   - Added support for `SF2e`
     - Thanks to help on that from (@Mistress Rui)
-  - Updated french translation (🌐 @rectulo)
+    - Updated french translation (🌐 @rectulo)
 
 ## 1.21.0
 
