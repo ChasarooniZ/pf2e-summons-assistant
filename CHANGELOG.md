@@ -6,6 +6,10 @@
   - Added support for `Jagged Berm` (💡 @Kosovoy)
     - Requires `Jb2a` (free or premium) for the spikes
 
+## 1.22.2
+
+- Fixed Manifest issue (🐛 @Sasane, @Durak)
+
 ## 1.22.1
 
 - Fix manifest to work for sf2e (@Sasane)
