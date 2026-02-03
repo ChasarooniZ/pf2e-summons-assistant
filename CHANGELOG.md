@@ -1,5 +1,8 @@
 ## Unreleased
 
+- **New**
+  - Added support for `Shadow Self`
+
 ## 1.23.1
 
 - Fixed issues with the packs

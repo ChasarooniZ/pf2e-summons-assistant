@@ -1,6 +1,6 @@
 {
   "folder": "gGy6LNAsZa9IaIjf",
-  "name": "Duplicated Foe",
+  "name": "Shadow Self",
   "type": "npc",
   "ownership": {
     "default": 0,
@@ -129,7 +129,7 @@
     },
     "height": 1,
     "width": 1,
-    "name": "Duplicated Foe",
+    "name": "Shadow Self",
     "displayName": 20,
     "actorLink": false,
     "texture": {
@@ -223,20 +223,20 @@
   "system": {
     "attributes": {
       "hp": {
-        "value": 10,
+        "value": 0,
         "temp": 0,
-        "max": 10,
+        "max": 0,
         "details": ""
       },
       "ac": {
-        "value": 10,
+        "value": 0,
         "details": ""
       },
       "allSaves": {
         "value": ""
       },
       "speed": {
-        "value": 25,
+        "value": 0,
         "otherSpeeds": [],
         "details": ""
       }
@@ -264,7 +264,7 @@
     },
     "resources": {},
     "_migration": {
-      "version": 0.941,
+      "version": 0.954,
       "previous": null
     },
     "abilities": {
@@ -316,9 +316,72 @@
       }
     }
   },
-  "_id": "03gFpid5kBiI3vXS",
+  "_id": "nodnIFYW56Lk3mcY",
   "img": "systems/pf2e/icons/default-icons/npc.svg",
-  "items": [],
+  "items": [
+    {
+      "img": "systems/pf2e/icons/conditions/hidden.webp",
+      "name": "Hidden",
+      "system": {
+        "description": {
+          "value": "<p>While you're hidden from a creature, that creature knows the space you're in but can't tell precisely where you are. You typically become hidden by using Stealth to @UUID[Compendium.pf2e.actionspf2e.Item.XMcnh4cSI32tljXa]{Hide}. When @UUID[Compendium.pf2e.actionspf2e.Item.BlAOM2X92SI6HMtJ]{Seeking} a creature using only imprecise senses, it remains hidden, rather than @UUID[Compendium.pf2e.conditionitems.Item.1wQY3JYyhMYeeV2G]{Observed}. A creature you're hidden from is @UUID[Compendium.pf2e.conditionitems.Item.AJh5ex99aV6VTggg]{Off-Guard} to you, and it must succeed at a @Check[flat|showDC:all|dc:11] when targeting you with an attack, spell, or other effect or it fails to affect you. Area effects aren't subject to this flat check.</p>\n<p>A creature might be able to use the seek action to try to observe you.</p>",
+          "gm": ""
+        },
+        "group": "detection",
+        "overrides": [],
+        "publication": {
+          "license": "ORC",
+          "remaster": true,
+          "title": "Pathfinder Player Core",
+          "authors": ""
+        },
+        "references": {
+          "children": [],
+          "overriddenBy": [],
+          "overrides": [],
+          "parent": null
+        },
+        "rules": [],
+        "traits": {
+          "value": [],
+          "otherTags": []
+        },
+        "value": {
+          "isValued": false,
+          "value": null
+        },
+        "slug": "hidden",
+        "_migration": {
+          "version": 0.954,
+          "previous": null
+        },
+        "fromSpell": false,
+        "persistent": null
+      },
+      "type": "condition",
+      "_stats": {
+        "compendiumSource": "Compendium.pf2e.conditionitems.Item.iU0fEDdBp3rXpTMC",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "pf2e",
+        "systemVersion": "7.9.1",
+        "createdTime": 1770076544223,
+        "modifiedTime": 1770076544223,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_id": "KgdCBSFInVR0VO1G",
+      "_key": "!actors.items!nodnIFYW56Lk3mcY.KgdCBSFInVR0VO1G"
+    }
+  ],
   "sort": 0,
   "flags": {},
   "_stats": {
@@ -327,10 +390,10 @@
     "exportSource": null,
     "coreVersion": "13.351",
     "systemId": "pf2e",
-    "systemVersion": "7.3.1",
-    "createdTime": 1754325220878,
-    "modifiedTime": 1770131520556,
+    "systemVersion": "7.9.1",
+    "createdTime": 1770076535790,
+    "modifiedTime": 1770131529218,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
-  "_key": "!actors!03gFpid5kBiI3vXS"
+  "_key": "!actors!nodnIFYW56Lk3mcY"
 }

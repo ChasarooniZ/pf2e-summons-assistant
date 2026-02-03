@@ -121,6 +121,7 @@ export const SLUG_TO_SOURCE = {
   "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
   "protector-tree": SOURCES.MISC.PROTECTOR_TREE,
   "recurring-nightmare": SOURCES.NECROMANCER.RECURRING_NIGHTMARE,
+  "shadow-self": SOURCES.SHADOW_SELF,
   "skeletal-lancers": SOURCES.NECROMANCER.SKELETAL_LANCERS,
   "summon-animal": SOURCES.SUMMON.SUMMON_ANIMAL,
   "summon-celestial": SOURCES.SUMMON.SUMMON_CELESTIAL,
@@ -196,6 +197,8 @@ export const CREATURES = {
 
   WALL_OF_FIRE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
+
+  SHADOW_SELF: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.nodnIFYW56Lk3mcY",
 
   DRAGON_TURRET:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
