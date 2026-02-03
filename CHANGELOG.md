@@ -3,6 +3,10 @@
 - **New**
   - Added support for `Shadow Self`
 
+## 1.23.2
+
+- Fix `Jagged Berm` HP Scaling
+
 ## 1.23.1
 
 - Fixed issues with the packs

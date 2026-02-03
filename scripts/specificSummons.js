@@ -203,9 +203,9 @@ const handlers = {
           amount: 6,
           modifications: {
             "system.attributes.hp.max":
-              20 + (Math.round(data.summonerLevel / 2) - 6) * 10,
+              20 + Math.floor((data.summonerLevel - 6) / 2) * 10,
             "system.attributes.hp.value":
-              20 + (Math.round(data.summonerLevel / 2) - 6) * 10,
+              20 + Math.floor((data.summonerLevel - 6) / 2) * 10,
             level: data.summonerLevel,
           },
           crosshairParameters: {
