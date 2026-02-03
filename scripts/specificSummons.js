@@ -72,13 +72,14 @@ const getSummonHandlers = () => ({
   // Misc
   [SOURCES.MISC.AVENGING_WILDWOOD]: handlers.misc.handleAvengingWildwood,
   [SOURCES.MISC.CALL_URSINE_ALLY]: handlers.misc.handleCallUrsineAlly,
-  [SOURCES.MISC.DUPLICATE_FOE]: handlers.misc.handleDuplicateFoe,
   [SOURCES.MISC.DRAGON_TURRET]: handlers.misc.handleDragonTurret,
+  [SOURCES.MISC.DUPLICATE_FOE]: handlers.misc.handleDuplicateFoe,
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
+  [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
+  [SOURCES.MISC.SHADOW_SELF]: handlers.misc.handleShadowSelf,
   [SOURCES.MISC.TELEKINETIC_HAND]: handlers.misc.handleTelekineticHand,
   [SOURCES.MISC.WOODEN_DOUBLE]: handlers.misc.handleWoodenDouble,
-  [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
 
   // Walls
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
@@ -390,6 +391,31 @@ const handlers = {
         ];
       }
       return null;
+    },
+
+    handleShadowSelf: (data) => {
+      const token = canvas.tokens.placeables.find(
+        (t) => t.actor.id === data.summonerActorId,
+      )?.document;
+      return [
+        {
+          specific_uuids: [CREATURES.SHADOW_SELF],
+          modifications: {
+            img: token.actor.img,
+            prototypeToken: {
+              ring: token.ring,
+              texture: { ...token.texture, tint: Color.fromString("#636363") },
+            },
+          },
+          crosshairParameters: {
+            location: {
+              obj: data.position,
+              limitMaxRange: getGridUnitsFromFeet(10),
+              showRange: true,
+            },
+          },
+        },
+      ];
     },
 
     handleTelekineticHand: async (data) => {

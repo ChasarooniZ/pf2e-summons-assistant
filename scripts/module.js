@@ -85,7 +85,8 @@ Hooks.once("ready", async function () {
       summonerRollOptions: Object.keys(
         summonerActor?.flags?.pf2e?.rollOptions?.all,
       ),
-      itemRollOptions: chatMessage?.flags?.pf2e?.context?.options ?? []
+      summonerActorId: summonerActor.id,
+      itemRollOptions: chatMessage?.flags?.pf2e?.context?.options ?? [],
     };
     //Grab DC for Incarnate spells
     if (isIncarnate(chatMessage))
@@ -102,7 +103,9 @@ Hooks.once("ready", async function () {
       spellRelevantInfo.targetTokenUUID =
         chatMessage?.flags["pf2e-toolbelt"]?.targetHelper?.targets?.[0] ??
         game?.user?.targets?.first()?.document?.uuid;
-    } else if (itemUuid === SOURCES.MISC.WOODEN_DOUBLE) {
+    } else if (
+      [SOURCES.MISC.WOODEN_DOUBLE, SOURCES.MISC.SHADOW_SELF].includes(itemUuid)
+    ) {
       const token = canvas.tokens.get(chatMessage.speaker.token);
       spellRelevantInfo.tokenWidth = token ? token.document.width : 1;
       spellRelevantInfo.tokenHeight = token ? token.document.height : 1;
