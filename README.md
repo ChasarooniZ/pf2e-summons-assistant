@@ -81,6 +81,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Floating Flame` - Art Requires `JB2a`
   - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)
   - `Protector Tree` - Does not do any automation as of yet
+  - `Shadow Self`
   - `Telekinetic Hand` - Art Requires `JB2a`
   - `Wooden Double` - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
 
