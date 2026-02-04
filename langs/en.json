@@ -104,7 +104,7 @@
         "start-point": "Select the start point of your wall"
       },
       "jagged-berms": {
-        "spikes": "Left Click to place Spikes, Right click to stop",
+        "spikes": "Left Click to place Spikes ({count}), Right click to stop",
         "berm": "Place Jagged Berm"
       }
     },

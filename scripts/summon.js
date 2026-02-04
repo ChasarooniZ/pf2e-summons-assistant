@@ -200,7 +200,7 @@ export async function summon(
         uuid: summonerActor.uuid,
         id: summonerActor.id,
       });
-      await handlePostSummon(itemUuid, summonedActor.uuid, summonerToken);
+      await handlePostSummon(itemUuid, summonedActor.uuid, summonedActor.id, summonerToken);
     }
   }
 

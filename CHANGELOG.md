@@ -2,6 +2,9 @@
 
 - **New**
   - Added support for `Shadow Self`
+- **Update**
+  - Fixed `Wall of Fire` for non-gm players
+  - Added more clarity on the `Jagged Berm` spikes dialog to indicate one was placed
 
 ## 1.23.2
 

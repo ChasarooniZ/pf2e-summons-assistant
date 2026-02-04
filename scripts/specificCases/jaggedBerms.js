@@ -2,19 +2,17 @@ const spikes = "jb2a.spike_trap.05x05ft.side.holes.still_frame.deployed";
 const spikeAnimation = "jb2a.spike_trap.05x05ft.side.holes.normal.01.01";
 
 export async function handleJaggedBermsSpikes(token) {
-  const text = game.i18n.localize(
-    "pf2e-summons-assistant.display-text.jagged-berms.spikes",
-  );
-
   let cnt = 0;
-
   while (cnt < 8) {
     const location = await Sequencer.Crosshair.show({
       snap: {
         position: CONST.GRID_SNAPPING_MODES.CENTER,
       },
       label: {
-        text,
+        text: game.i18n.format(
+          "pf2e-summons-assistant.display-text.jagged-berms.spikes",
+          { count: cnt + 1 },
+        ),
       },
       icon: {
         texture: "systems/pf2e/icons/default-icons/hazard.svg",
@@ -27,6 +25,10 @@ export async function handleJaggedBermsSpikes(token) {
       },
     });
     if (!location) break;
+    canvas.controls.drawPing(location, {
+      style: CONFIG.Canvas.pings.types.PULSE,
+      size: canvas.grid.size,
+    });
 
     new Sequence()
       .effect()
