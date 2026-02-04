@@ -138,17 +138,17 @@
         "max": 20,
         "details": ""
       },
-      "speed": {
-        "value": 25,
-        "otherSpeeds": [],
-        "details": ""
-      },
       "ac": {
         "value": 0,
         "details": ""
       },
       "allSaves": {
         "value": ""
+      },
+      "speed": {
+        "value": 25,
+        "otherSpeeds": [],
+        "details": ""
       }
     },
     "initiative": {
@@ -230,7 +230,7 @@
   "items": [
     {
       "type": "action",
-      "name": "5 Hardness",
+      "name": "Hardness 5",
       "system": {
         "actionType": {
           "value": "passive"
@@ -270,7 +270,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -283,10 +283,11 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.348",
+        "coreVersion": "13.351",
         "systemId": "pf2e",
-        "systemVersion": "7.4.3",
-        "lastModifiedBy": null
+        "systemVersion": "7.9.1",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "modifiedTime": 1770026406909
       },
       "ownership": {
         "default": 0
@@ -294,16 +295,20 @@
       "_key": "!actors.items!WNBOiDVexWG6DwCO.rKz1m7waNf6gEf4r"
     }
   ],
-  "flags": {},
+  "flags": {
+    "pf2e": {
+      "maxhealingRank": 0
+    }
+  },
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.348",
+    "coreVersion": "13.351",
     "systemId": "pf2e",
-    "systemVersion": "7.4.3",
+    "systemVersion": "7.9.1",
     "createdTime": 1758039220037,
-    "modifiedTime": 1758039288494,
+    "modifiedTime": 1770026396707,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "ownership": {

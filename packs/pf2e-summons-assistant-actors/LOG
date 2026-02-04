@@ -1,14 +1,16 @@
-2026/01/15-13:52:59.138 65f0 Recovering log #352
-2026/01/15-13:52:59.732 65f0 Delete type=0 #352
-2026/01/15-13:52:59.732 65f0 Delete type=3 #351
-2026/01/15-13:52:59.766 b33c Level-0 table #356: started
-2026/01/15-13:52:59.834 b33c Level-0 table #356: 94944 bytes OK
-2026/01/15-13:52:59.899 b33c Delete type=0 #354
-2026/01/15-13:52:59.899 b33c Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1
-2026/01/15-13:52:59.899 b33c Compacting 1@0 + 1@1 files
-2026/01/15-13:52:59.934 b33c Generated table #357@0: 114 keys, 94944 bytes
-2026/01/15-13:52:59.935 b33c Compacted 1@0 + 1@1 files => 94944 bytes
-2026/01/15-13:52:59.998 b33c compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/01/15-13:52:59.999 b33c Delete type=2 #346
-2026/01/15-13:52:59.999 b33c Delete type=2 #356
-2026/01/15-13:52:59.999 b33c Manual compaction at level-0 from '!folders!mVjwgM2wn6PBRVzp' @ 1343 : 1 .. '!folders!mVjwgM2wn6PBRVzp' @ 0 : 0; will stop at (end)
+2026/02/03-09:20:29.120 d62c Recovering log #401
+2026/02/03-09:20:29.251 d62c Delete type=0 #401
+2026/02/03-09:20:29.251 d62c Delete type=3 #395
+2026/02/03-09:20:29.251 d62c Delete type=3 #398
+2026/02/03-09:20:29.329 75cc Level-0 table #405: started
+2026/02/03-09:20:29.355 75cc Level-0 table #405: 102035 bytes OK
+2026/02/03-09:20:29.407 75cc Delete type=0 #403
+2026/02/03-09:20:29.408 75cc Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!nodnIFYW56Lk3mcY.KgdCBSFInVR0VO1G' @ 1772 : 1
+2026/02/03-09:20:29.408 75cc Compacting 2@0 + 1@1 files
+2026/02/03-09:20:29.454 75cc Generated table #406@0: 115 keys, 102035 bytes
+2026/02/03-09:20:29.454 75cc Compacted 2@0 + 1@1 files => 102035 bytes
+2026/02/03-09:20:29.529 75cc compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/02/03-09:20:29.529 75cc Delete type=2 #384
+2026/02/03-09:20:29.529 75cc Delete type=2 #396
+2026/02/03-09:20:29.530 75cc Delete type=2 #405
+2026/02/03-09:20:29.530 75cc Manual compaction at level-0 from '!actors.items!nodnIFYW56Lk3mcY.KgdCBSFInVR0VO1G' @ 1772 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

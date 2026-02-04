@@ -26,11 +26,12 @@ export async function getSpecificSummonDetails(
     rank: 0,
     summonerLevel: 0,
     dc: 0,
-    rollOptions: [],
+    summonerRollOptions: [],
+    itemRollOptions: [],
     targetTokenUUID: null,
     tokenWidth: 1,
     tokenHeight: 1,
-  }
+  },
 ) {
   if (isSummonSourceDisabled(uuid)) {
     return null;
@@ -61,6 +62,7 @@ const getSummonHandlers = () => ({
   // Kineticist
   [SOURCES.KINETICIST.TIMBER_SENTINEL]:
     handlers.kineticist.handleTimberSentinel,
+  [SOURCES.KINETICIST.JAGGED_BERMS]: handlers.kineticist.handleJaggedBerms,
 
   // Mechanic
   [SOURCES.MECHANIC.DEPLOY_MINE]: handlers.mechanic.handleDeployMine,
@@ -70,12 +72,14 @@ const getSummonHandlers = () => ({
   // Misc
   [SOURCES.MISC.AVENGING_WILDWOOD]: handlers.misc.handleAvengingWildwood,
   [SOURCES.MISC.CALL_URSINE_ALLY]: handlers.misc.handleCallUrsineAlly,
+  [SOURCES.MISC.DRAGON_TURRET]: handlers.misc.handleDragonTurret,
   [SOURCES.MISC.DUPLICATE_FOE]: handlers.misc.handleDuplicateFoe,
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
+  [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
+  [SOURCES.MISC.SHADOW_SELF]: handlers.misc.handleShadowSelf,
   [SOURCES.MISC.TELEKINETIC_HAND]: handlers.misc.handleTelekineticHand,
   [SOURCES.MISC.WOODEN_DOUBLE]: handlers.misc.handleWoodenDouble,
-  [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
 
   // Walls
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
@@ -192,6 +196,34 @@ const handlers = {
         },
       ];
     },
+    handleJaggedBerms: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.KINETICIST.JAGGED_BERMS],
+          amount: 6,
+          modifications: {
+            "system.attributes.hp.max":
+              20 + Math.floor((data.summonerLevel - 6) / 2) * 10,
+            "system.attributes.hp.value":
+              20 + Math.floor((data.summonerLevel - 6) / 2) * 10,
+            level: data.summonerLevel,
+          },
+          crosshairParameters: ({ cnt }) => ({
+            location: {
+              obj: data.position,
+              limitMaxRange: getGridUnitsFromFeet(120),
+              showRange: true,
+            },
+            label: {
+              text: `${game.i18n.localize(
+                "pf2e-summons-assistant.display-text.jagged-berms.berm",
+              )} (${cnt + 1} / 6)`,
+              dy: -canvas.grid.size * 0.75,
+            },
+          }),
+        },
+      ];
+    },
   },
 
   mechanic: {
@@ -246,7 +278,7 @@ const handlers = {
           },
           itemsToAdd: [
             EFFECTS.RULE_EFFECT(
-              getAvengingWildwoodStrikeRuleElements({ rank: data.rank })
+              getAvengingWildwoodStrikeRuleElements({ rank: data.rank }),
             ),
           ],
         },
@@ -270,7 +302,7 @@ const handlers = {
       if (token) {
         if (token?.actor?.level > maxLevel) {
           errorNotification(
-            "pf2e-summons-assistant.notification.duplicate-foe.too-high"
+            "pf2e-summons-assistant.notification.duplicate-foe.too-high",
           );
           return null;
         }
@@ -278,7 +310,7 @@ const handlers = {
         const info = await getFoeInfo(token, data.rank);
         const isFail = await foundry.applications.api.DialogV2.confirm({
           content: game.i18n.localize(
-            "pf2e-summons-assistant.dialog.duplicate-foe"
+            "pf2e-summons-assistant.dialog.duplicate-foe",
           ),
           rejectClose: false,
         });
@@ -297,6 +329,28 @@ const handlers = {
         ];
       }
       return null;
+    },
+
+    handleDragonTurret: async (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.DRAGON_TURRET],
+          itemsToAdd: [EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG])],
+          ...(data.itemRollOptions.length > 0
+            ? {
+                modifications: {
+                  "system.traits.value": [
+                    data.itemRollOptions
+                      .find((option) =>
+                        option.startsWith("spellcasting:tradition:"),
+                      )
+                      ?.replace("spellcasting:tradition:", ""),
+                  ],
+                },
+              }
+            : {}),
+        },
+      ];
     },
 
     handleFloatingFlame: async (data) => {
@@ -340,10 +394,38 @@ const handlers = {
       return null;
     },
 
+    handleShadowSelf: (data) => {
+      const token = canvas.tokens.placeables.find(
+        (t) => t.actor.id === data.summonerActorId,
+      )?.document;
+      return [
+        {
+          specific_uuids: [CREATURES.SHADOW_SELF],
+          modifications: {
+            img: token.actor.img,
+            prototypeToken: {
+              ring: token.ring,
+              texture: { ...token.texture, tint: Color.fromString("#636363") },
+            },
+          },
+          crosshairParameters: {
+            location: {
+              obj: data.position,
+              limitMaxRange: getGridUnitsFromFeet(10),
+              showRange: true,
+            },
+            icon: {
+              texture: texture.src,
+            },
+          },
+        },
+      ];
+    },
+
     handleTelekineticHand: async (data) => {
       const isInvisible = await foundry.applications.api.DialogV2.confirm({
         content: game.i18n.localize(
-          "pf2e-summons-assistant.dialog.telekinetic-hand"
+          "pf2e-summons-assistant.dialog.telekinetic-hand",
         ),
         rejectClose: false,
       });
@@ -390,7 +472,7 @@ const handlers = {
             },
             label: {
               text: game.i18n.localize(
-                "pf2e-summons-assistant.display-text.wooden-double.place-double"
+                "pf2e-summons-assistant.display-text.wooden-double.place-double",
               ),
             },
             ...(data.position
@@ -437,7 +519,7 @@ const handlers = {
       const type = await foundry.applications.api.DialogV2.wait({
         window: { title: "Wall of Fire" },
         content: await TextEditor.enrichHTML(
-          `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FIRE}]</p>`
+          `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FIRE}]</p>`,
         ),
         // This example does not use i18n strings for the button labels,
         // but they are automatically localized.
@@ -478,7 +560,7 @@ const handlers = {
                 crosshairParameters: {
                   label: {
                     text: game.i18n.localize(
-                      "pf2e-summons-assistant.display-text.wall.start-point"
+                      "pf2e-summons-assistant.display-text.wall.start-point",
                     ),
                   },
                 },

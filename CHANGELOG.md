@@ -1,5 +1,52 @@
 ## Unreleased
 
+## 1.24.0
+
+- **New**
+  - Added support for `Shadow Self`
+- **Update**
+  - Fixed `Wall of Fire` for non-gm players
+  - Updated infrastructure to better support future Wall spells
+  - Added more clarity on the `Jagged Berm` spikes text for showing the count
+
+## 1.23.2
+
+- Fix `Jagged Berm` HP Scaling
+
+## 1.23.1
+
+- Fixed issues with the packs
+
+## 1.23.0
+
+- **New**
+  - Added support for `Jagged Berm` (💡 @Kosovoy)
+    - Requires `Jb2a` (free or premium) for the spikes
+
+## 1.22.2
+
+- Fixed Manifest issue (🐛 @Sasane, @Durak)
+
+## 1.22.1
+
+- Fix manifest to work for sf2e (@Sasane)
+
+## 1.22.0
+
+- **New**
+  - Added support for `SF2e`
+    - Thanks to help on that from (@Mistress Rui)
+    - Updated french translation (🌐 @rectulo)
+
+## 1.21.0
+
+- **New**
+  - Added support for `Dragon Turret` (🎨 by @Chasarooni) (✋ @tunderpower)
+- **Updated**
+  - Handled situation where a token has no actor breaking `Wall of Fire` (🐛 @zionhian)
+  - Added `Floating Flame` and `Avenging Wildwood` to summon's who's DCs are linked to their summoner
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+
 ## 1.20.3
 
 - Push data from `0.20.2`

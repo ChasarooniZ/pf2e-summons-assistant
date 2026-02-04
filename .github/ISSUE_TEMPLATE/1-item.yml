@@ -14,6 +14,13 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: feature_uuid
+    attributes:
+      label: "Feature/Spell UUID (SF2e Only)"
+      description: "Please provide the uuid of this feature /spell ESPECIALLY if it is from SF2e as I don't have easy access"
+      placeholder: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu"
+
   - type: textarea
     id: description
     attributes:

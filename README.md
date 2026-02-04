@@ -77,9 +77,11 @@ You can access the changelog [here](/CHANGELOG.md).
 - **Misc**
   - `Avenging Wildwood`
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
+  - `Dragon Turret`
   - `Floating Flame` - Art Requires `JB2a`
   - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)
   - `Protector Tree` - Does not do any automation as of yet
+  - `Shadow Self`
   - `Telekinetic Hand` - Art Requires `JB2a`
   - `Wooden Double` - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
 
@@ -89,6 +91,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Plant Banner` - Basic Case (no handling of feat interactions beyond base case atm)
 - **Kineticist**
   - `Timber Sentinel` - Does not do any automation as of yet
+  - `Jagged Berm` - Requires `JB2a` free for the spikes
 - **Misc**
   - `Call Ursine Ally`
 
@@ -125,3 +128,5 @@ You can see everyone else who contributed to the module [here](CONTRIBUTORS.md)
 - `Healing Servitor` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Mechanic Mines` - (credit @Sasane, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Plant Banner` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Dragon Turret` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Protector Tree` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)

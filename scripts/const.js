@@ -41,23 +41,25 @@ export const SOURCES = {
   },
 
   MISC: {
-    LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
-    TELEKINETIC_HAND: "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w",
-    FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
-    CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
-    DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
-    WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed",
-    PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
     AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW",
+    CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
+    DRAGON_TURRET: "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX",
+    DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
+    FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
+    LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
+    PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
+    SHADOW_SELF: "Compendium.pf2e.feats-srd.Item.7YvOqcdp9Z0RALMp",
+    TELEKINETIC_HAND: "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w",
+    WOODEN_DOUBLE: "Compendium.pf2e.spells-srd.Item.aUMmmtPmBdCdVDed",
   },
 
   WALL: {
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
-    WALL_OF_STONE: ""
   },
 
   KINETICIST: {
     TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
+    JAGGED_BERMS: "Compendium.pf2e.feats-srd.Item.9L6c9sxweM4IdOse",
   },
 
   NECROMANCER: {
@@ -106,9 +108,11 @@ export const SLUG_TO_SOURCE = {
   "create-thrall": SOURCES.NECROMANCER.CREATE_THRALL,
   "deploy-mine": SOURCES.MECHANIC.DEPLOY_MINE,
   "double-deployment": SOURCES.MECHANIC.DOUBLE_DEPLOYMENT,
+  "dragon-turret": SOURCES.MISC.DRAGON_TURRET,
   "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
   "floating-flame": SOURCES.MISC.FLOATING_FLAME,
   "inevitable-return": SOURCES.NECROMANCER.INEVITABLE_RETURN,
+  "jagged-berms": SOURCES.KINETICIST.JAGGED_BERMS,
   light: SOURCES.MISC.LIGHT,
   "living-graveyard": SOURCES.NECROMANCER.LIVING_GRAVEYARD,
   "manifest-eidolon": SOURCES.SUMMONER.MANIFEST_EIDOLON,
@@ -117,6 +121,7 @@ export const SLUG_TO_SOURCE = {
   "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
   "protector-tree": SOURCES.MISC.PROTECTOR_TREE,
   "recurring-nightmare": SOURCES.NECROMANCER.RECURRING_NIGHTMARE,
+  "shadow-self": SOURCES.SHADOW_SELF,
   "skeletal-lancers": SOURCES.NECROMANCER.SKELETAL_LANCERS,
   "summon-animal": SOURCES.SUMMON.SUMMON_ANIMAL,
   "summon-celestial": SOURCES.SUMMON.SUMMON_CELESTIAL,
@@ -193,7 +198,10 @@ export const CREATURES = {
   WALL_OF_FIRE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
 
-  WALL_OF_STONE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
+  SHADOW_SELF: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.nodnIFYW56Lk3mcY",
+
+  DRAGON_TURRET:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
 
   BLACK_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.xxP5FJotshmUQNtY",
   GRIZZLY_BEAR:
@@ -209,6 +217,11 @@ export const CREATURES = {
   COMMANDER: {
     PLANTED_BANNER:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
+  },
+
+  KINETICIST: {
+    JAGGED_BERMS:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",
   },
 
   MECHANIC: {

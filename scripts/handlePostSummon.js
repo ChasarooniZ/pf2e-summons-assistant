@@ -1,7 +1,13 @@
 import { SOURCES, EFFECTS, MODULE_ID } from "./const.js";
 import { notifyRayControls } from "./helpers.js";
+import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 
-export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
+export async function handlePostSummon(
+  itemUUID,
+  summonedActorUUID,
+  summonedActorID,
+  summonerToken,
+) {
   switch (itemUUID) {
     case SOURCES.COMMANDER.PLANT_BANNER:
       setTimeout(function () {
@@ -11,8 +17,8 @@ export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
               token.actor.items.some(
                 (i) =>
                   i.sourceId === EFFECTS.COMMANDER.IN_PLANT_BANNER_RANGE &&
-                  i?.flags?.pf2e?.aura?.origin === actorUUID
-              )
+                  i?.flags?.pf2e?.aura?.origin === summonedActorUUID,
+              ),
             )
             .map((token) => token.actor.uuid),
           effectUUID: EFFECTS.COMMANDER.PLANT_BANNER,
@@ -28,7 +34,7 @@ export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
         },
         label: {
           text: game.i18n.localize(
-            "pf2e-summons-assistant.display-text.wooden-double.step"
+            "pf2e-summons-assistant.display-text.wooden-double.step",
           ),
         },
         icon: {
@@ -49,9 +55,17 @@ export async function handlePostSummon(itemUUID, actorUUID, summonerToken) {
         .moveTowards(mvmntLocation, { relativeToCenter: true })
         .play();
       break;
+    case SOURCES.KINETICIST.JAGGED_BERMS:
+      const summonToken = canvas.tokens.placeables.find(
+        (tok) => tok?.actor?.id === summonedActorID,
+      );
+
+      await handleJaggedBermsSpikes(summonToken);
+      break;
+
     case SOURCES.WALL.WALL_OF_FIRE:
       const summonedToken = canvas.tokens.placeables.find(
-        (tok) => (tok.actor.uuid === actorUUID)
+        (tok) => tok?.actor?.id === summonedActorID,
       );
 
       if (summonedToken.actor.system.details.blurb === "circle") {

@@ -149,11 +149,15 @@ export async function summon(
       summonerItem,
     );
 
+    const modTraits = actorModifications?.["system.traits.value"] ?? [];
+    delete actorModifications?.["system.traits.value"];
+
     const actorUpdateData = {
       "system.details.alliance": summonerAlliance,
       "system.traits.value": [
         ...selectedActor.system.traits.value,
         ...additionalTraits,
+        ...modTraits,
       ],
       ...houseRuleUpdates,
       ...actorModifications,
@@ -170,7 +174,10 @@ export async function summon(
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
-        crosshairParameters: crosshairParameters,
+        crosshairParameters:
+          typeof crosshairParameters === "function"
+            ? crosshairParameters({cnt: i})
+            : crosshairParameters,
       });
 
       const summonedActor = tokDoc.actor ?? game.actors.get(tokDoc.actorId);
@@ -196,7 +203,12 @@ export async function summon(
         uuid: summonerActor.uuid,
         id: summonerActor.id,
       });
-      await handlePostSummon(itemUuid, summonedActor.uuid, summonerToken);
+      await handlePostSummon(
+        itemUuid,
+        summonedActor.uuid,
+        summonedActor.id,
+        summonerToken,
+      );
     }
   }
 
@@ -319,5 +331,8 @@ function isLinkedSummon(summonUUID) {
     CREATURES.NECROMANCER.THRALL,
     CREATURES.NECROMANCER.PERFECTED_THRALL,
     CREATURES.NECROMANCER.SKELETAL_LANCERS,
+    CREATURES.DRAGON_TURRET,
+    CREATURES.FLOATING_FLAME,
+    CREATURES.AVENGING_WILDWOOD,
   ].includes(summonUUID);
 }
