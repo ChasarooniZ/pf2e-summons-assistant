@@ -208,18 +208,19 @@ const handlers = {
               20 + Math.floor((data.summonerLevel - 6) / 2) * 10,
             level: data.summonerLevel,
           },
-          crosshairParameters: {
+          crosshairParameters: ({ cnt }) => ({
             location: {
               obj: data.position,
               limitMaxRange: getGridUnitsFromFeet(120),
               showRange: true,
             },
             label: {
-              text: game.i18n.localize(
+              text: `${game.i18n.localize(
                 "pf2e-summons-assistant.display-text.jagged-berms.berm",
-              ),
+              )} (${cnt + 1} / 6)`,
+              dy: -canvas.grid.size * 0.75,
             },
-          },
+          }),
         },
       ];
     },
@@ -412,6 +413,9 @@ const handlers = {
               obj: data.position,
               limitMaxRange: getGridUnitsFromFeet(10),
               showRange: true,
+            },
+            icon: {
+              texture: texture.src,
             },
           },
         },

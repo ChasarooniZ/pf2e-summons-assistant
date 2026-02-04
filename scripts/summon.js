@@ -174,7 +174,10 @@ export async function summon(
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
-        crosshairParameters: crosshairParameters,
+        crosshairParameters:
+          typeof crosshairParameters === "function"
+            ? crosshairParameters({cnt: i})
+            : crosshairParameters,
       });
 
       const summonedActor = tokDoc.actor ?? game.actors.get(tokDoc.actorId);
@@ -200,7 +203,12 @@ export async function summon(
         uuid: summonerActor.uuid,
         id: summonerActor.id,
       });
-      await handlePostSummon(itemUuid, summonedActor.uuid, summonedActor.id, summonerToken);
+      await handlePostSummon(
+        itemUuid,
+        summonedActor.uuid,
+        summonedActor.id,
+        summonerToken,
+      );
     }
   }
 

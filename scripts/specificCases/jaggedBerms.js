@@ -13,6 +13,7 @@ export async function handleJaggedBermsSpikes(token) {
           "pf2e-summons-assistant.display-text.jagged-berms.spikes",
           { count: cnt + 1 },
         ),
+        dy: -canvas.grid.size * 0.75
       },
       icon: {
         texture: "systems/pf2e/icons/default-icons/hazard.svg",
