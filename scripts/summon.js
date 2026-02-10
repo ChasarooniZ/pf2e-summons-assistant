@@ -170,14 +170,14 @@ export async function summon(
         `${actorUpdateData?.prototypeToken?.name ?? summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
     }
 
-    let prevSummonTokenDoc;
+    let prevSummonedToken;
     for (let i = 0; i < amount; i++) {
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
         crosshairParameters:
           typeof crosshairParameters === "function"
-            ? crosshairParameters({cnt: i, prevSummonTokenDoc})
+            ? crosshairParameters({cnt: i, prevSummonedToken})
             : crosshairParameters,
       });
 
@@ -210,7 +210,7 @@ export async function summon(
         summonedActor.id,
         summonerToken,
       );
-      prevSummonTokenDoc = tokDoc;
+      prevSummonedToken = tokDoc?.object;
     }
   }
 
