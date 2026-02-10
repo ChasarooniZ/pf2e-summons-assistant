@@ -102,6 +102,10 @@
             },
             "wall": {
                 "start-point": "选择你所创造墙体的起始点"
+            },
+            "jagged-berms": {
+                "berm": "放置城垛土堆",
+                "spikes": "左键点击放置尖刺木桩（{count}），右键点击以停止放置"
             }
         },
         "items": {
