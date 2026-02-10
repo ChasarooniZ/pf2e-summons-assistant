@@ -1,4 +1,6 @@
 ## Unreleased
+- **Updated**
+  - Updated chinese translation (🌐 @AlphaStarGuide)
 
 ## 1.24.0
 
