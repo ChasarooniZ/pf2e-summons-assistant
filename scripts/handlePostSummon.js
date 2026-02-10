@@ -23,7 +23,7 @@ export async function handlePostSummon(
             .map((token) => token.actor.uuid),
           effectUUID: EFFECTS.COMMANDER.PLANT_BANNER,
         });
-      }, 1500); // DO this after 0.5 seconds to hopefully fix the no stuff applied yet issue
+      }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
       break;
     case SOURCES.MISC.WOODEN_DOUBLE:
       if (!summonerToken) return;
@@ -105,6 +105,50 @@ export async function handlePostSummon(
           .persist()
           .play();
       }
+      break;
+    case SOURCES.WALL.WALL_OF_STONE:
+      const summonedWallToken = canvas.tokens.placeables.find(
+        (tok) => tok?.actor?.id === summonedActorID,
+      );
+      const isVertical = isVertical(summonedWallToken);
+      if (isVertical) {
+        await summonedWallToken.update({ rotation: 90 });
+      }
+      const bounds = tokenDoc.bounds;
+      const coords = [];
+      if (isVertical) {
+        //Horizontal
+        coords.push(
+          bounds.center.x,
+          bounds.top,
+          bounds.center.x,
+          bounds.bottom,
+        );
+      } else {
+        //Vertical
+        coords.push(
+          bounds.left,
+          bounds.center.y,
+          bounds.right,
+          bounds.center.y,
+        );
+      }
+      const wallData = {
+        c: coords,
+        light: CONST.WALL_SENSE_TYPES.NORMAL,
+        move: CONST.WALL_SENSE_TYPES.NORMAL,
+        sight: CONST.WALL_SENSE_TYPES.NORMAL,
+        flags: {
+          "pf2e-summons-assistant": {
+            wallSegmentTokenID: `${tokenDoc.id}`,
+            // wallSource: "IDKLUL",
+          },
+        },
+      };
+      const walls = await canvas.scene.createEmbeddedDocuments("Wall", [
+        wallData,
+      ]);
+
       break;
     //TO do set
     default:

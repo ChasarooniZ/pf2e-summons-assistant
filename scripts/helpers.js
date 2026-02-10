@@ -174,3 +174,7 @@ export function convertUUIDBasedOnSystem(uuid) {
 
   return finalUUID;
 }
+
+export function isVerticalWallSegment({ x }) {
+  return x % canvas.grid.size !== 0;
+}
