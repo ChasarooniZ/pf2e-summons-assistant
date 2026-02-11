@@ -575,10 +575,9 @@ const handlers = {
         {
           specific_uuids: [CREATURES.WALL_OF_STONE],
           rank: data.rank,
-          count: max / 5,
+          amount: max / 5,
           modifications: {
             "system.details.level.value": data.rank,
-            "system.details.blurb": type,
           },
           crosshairParameters: ({ cnt, prevSummonedToken }) => ({
             snap: {

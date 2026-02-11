@@ -1,5 +1,5 @@
 import { SOURCES, EFFECTS, MODULE_ID } from "./const.js";
-import { notifyRayControls } from "./helpers.js";
+import { isVerticalWallSegment, notifyRayControls } from "./helpers.js";
 import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 
 export async function handlePostSummon(
@@ -110,11 +110,11 @@ export async function handlePostSummon(
       const summonedWallToken = canvas.tokens.placeables.find(
         (tok) => tok?.actor?.id === summonedActorID,
       );
-      const isVertical = isVertical(summonedWallToken);
+      const isVertical = isVerticalWallSegment(summonedWallToken);
       if (isVertical) {
-        await summonedWallToken.update({ rotation: 90 });
+        await summonedWallToken?.document?.update({ rotation: 90 });
       }
-      const bounds = tokenDoc.bounds;
+      const bounds = summonedWallToken.bounds;
       const coords = [];
       if (isVertical) {
         //Horizontal
@@ -133,6 +133,7 @@ export async function handlePostSummon(
           bounds.center.y,
         );
       }
+      const elevationStart = summonedWallToken?.document?.elevation ?? 0;
       const wallData = {
         c: coords,
         light: CONST.WALL_SENSE_TYPES.NORMAL,
@@ -140,8 +141,16 @@ export async function handlePostSummon(
         sight: CONST.WALL_SENSE_TYPES.NORMAL,
         flags: {
           "pf2e-summons-assistant": {
-            wallSegmentTokenID: `${tokenDoc.id}`,
+            wallSegmentTokenID: `${summonedWallToken.id}`,
             // wallSource: "IDKLUL",
+          },
+          levels: {
+            rangeBottom: elevationStart,
+            rangeTop: elevationStart + 20,
+          },
+          "wall-height": {
+            bottom: elevationStart,
+            top: elevationStart + 20,
           },
         },
       };
