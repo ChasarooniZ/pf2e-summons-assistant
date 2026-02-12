@@ -1,11 +1,11 @@
 ## Unreleased
-- **Updated**
-  - Updated chinese translation (🌐 @AlphaStarGuide)
 
+## 1.25.0
 - **New**
   - Added support for `Wall of Stone`
-- **Update**
+- **Updated**
   - Fixed issue where `damage-rolls` were being counted for summon sources
+  - Updated chinese translation (🌐 @AlphaStarGuide)
 
 ## 1.24.0
 
