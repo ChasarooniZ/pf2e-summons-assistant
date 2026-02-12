@@ -177,7 +177,7 @@ export async function summon(
         updateData: actorUpdateData,
         crosshairParameters:
           typeof crosshairParameters === "function"
-            ? crosshairParameters({cnt: i, prevSummonedToken})
+            ? crosshairParameters({ cnt: i, prevSummonedToken })
             : crosshairParameters,
       });
 
@@ -210,7 +210,7 @@ export async function summon(
         summonedActor.id,
         summonerToken,
       );
-      prevSummonedToken = tokDoc?.object;
+      prevSummonedToken = tokDoc?.object || canvas.tokens?.get(tokDoc?._id);
     }
   }
 

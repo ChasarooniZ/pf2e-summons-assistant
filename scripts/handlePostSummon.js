@@ -154,9 +154,9 @@ export async function handlePostSummon(
           },
         },
       };
-      const walls = await canvas.scene.createEmbeddedDocuments("Wall", [
-        wallData,
-      ]);
+      const walls = await socketlib.modules
+        .get(MODULE_ID)
+        .executeAsGM("createWalls", [wallData]);
 
       break;
     //TO do set

@@ -56,6 +56,7 @@ Hooks.once("ready", async function () {
 
     const isBindHeroicSpiritSuccess = isBindHeroicSpiritHit(chatMessage);
 
+    if (chatMessage.isDamageRoll) return;
     if (chatMessage.isRoll && !isBindHeroicSpiritSuccess) return;
 
     // Handle Specific Case Bind Heroic Spirit
