@@ -1,9 +1,14 @@
 ## Unreleased
 
+## 1.25.2
+
+- **Updated**
+  - Made it so house rules only affect `Summon <X>` Spells as oppsoed to all spells (no more 16 AC walls) (🐛 @Nythz)
+
 ## 1.25.1
 
 - **Updated**
-  - Fixed issue where dialog to find custom summon details doesn't open for summons that have dialogue
+  - Fixed issue where summons dialogue opened when opening item sheets
 
 ## 1.25.0
 
