@@ -104,7 +104,7 @@ const getSummonHandlers = () => ({
     handlers.necromancer.handleSkeletalLancers,
 
   // Summon
-  [SOURCES.SUMMON.PHANTASMAL_MINION]: handlers.summon.handlePhantasmalMinion,
+  [SOURCES.MISC.PHANTASMAL_MINION]: handlers.summon.handlePhantasmalMinion,
 
   // Summoner
   [SOURCES.SUMMONER.MANIFEST_EIDOLON]: handlers.summoner.handleManifestEidolon,

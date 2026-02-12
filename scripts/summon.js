@@ -1,4 +1,5 @@
 import {
+  AFFECTED_BY_HOUSE_RULES,
   CREATURES,
   EFFECTS,
   MODULE_ID,
@@ -40,7 +41,7 @@ export async function summon(
       );
     }
     const amount = summonDetails?.amount || 1;
-    const summonLevel = getMaxSummonLevel(summonDetails.rank);
+    const summonLevel = getMaxSummonLevel(summonDetails.rank, itemUuid);
 
     let selectedActorUuid;
     if (allowedSpecificUuids.length === 1) {
@@ -137,12 +138,14 @@ export async function summon(
     const selectedActor = await compFromUuid(selectedActorUuid);
     const originalActorLevel = selectedActor.level;
 
-    const houseRuleUpdates = await getHouseRuleUpdates(
-      selectedActor,
-      summonLevel,
-      summonType,
-      itemUuid,
-    );
+    const houseRuleUpdates = isAffectedByHouseRules(itemUuid)
+      ? await getHouseRuleUpdates(
+          selectedActor,
+          summonLevel,
+          summonType,
+          itemUuid,
+        )
+      : {};
 
     const summonCustomizationModifications = getSummonCustomizationData(
       selectedActorUuid,
@@ -287,8 +290,11 @@ function getTokenImage(prototypeToken) {
     : prototypeToken?.texture?.src || "icons/svg/cowled.svg";
 }
 
-function getMaxSummonLevel(spellRank) {
-  if (game.settings.get(MODULE_ID, "house-rule.rank-upgrade")) {
+function getMaxSummonLevel(spellRank, itemUuid) {
+  if (
+    game.settings.get(MODULE_ID, "house-rule.rank-upgrade") &&
+    isAffectedByHouseRules(itemUuid)
+  ) {
     return SUMMON_LEVELS_BY_RANK[Math.min(spellRank + 1, 10)];
   } else {
     return SUMMON_LEVELS_BY_RANK[spellRank];
@@ -323,7 +329,7 @@ function isMaxSummonLevelRuleActive(
       "house-rule.scale-to-max-summon-level-for-rank",
     ) &&
     summonType === "summon" &&
-    itemUuid !== SOURCES.SUMMON.PHANTASMAL_MINION &&
+    itemUuid !== SOURCES.MISC.PHANTASMAL_MINION &&
     actor.level < maxSummonLevel
   );
 }
@@ -337,4 +343,8 @@ function isLinkedSummon(summonUUID) {
     CREATURES.FLOATING_FLAME,
     CREATURES.AVENGING_WILDWOOD,
   ].includes(summonUUID);
+}
+
+function isAffectedByHouseRules(itemUUID) {
+  return AFFECTED_BY_HOUSE_RULES.has(itemUUID);
 }
