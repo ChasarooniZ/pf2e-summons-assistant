@@ -31,6 +31,7 @@ export async function getSpecificSummonDetails(
     targetTokenUUID: null,
     tokenWidth: 1,
     tokenHeight: 1,
+    ignoreDialogue: false,
   },
 ) {
   if (isSummonSourceDisabled(uuid)) {
@@ -309,12 +310,14 @@ const handlers = {
         }
 
         const info = await getFoeInfo(token, data.rank);
-        const isFail = await foundry.applications.api.DialogV2.confirm({
-          content: game.i18n.localize(
-            "pf2e-summons-assistant.dialog.duplicate-foe",
-          ),
-          rejectClose: false,
-        });
+        const isFail = ignoreDialogue
+          ? true
+          : await foundry.applications.api.DialogV2.confirm({
+              content: game.i18n.localize(
+                "pf2e-summons-assistant.dialog.duplicate-foe",
+              ),
+              rejectClose: false,
+            });
         const effect = EFFECTS.DUPLICATE_FOE(isFail);
         effect.system.rules.push(...info.strikeRules);
         return [
@@ -424,12 +427,14 @@ const handlers = {
     },
 
     handleTelekineticHand: async (data) => {
-      const isInvisible = await foundry.applications.api.DialogV2.confirm({
-        content: game.i18n.localize(
-          "pf2e-summons-assistant.dialog.telekinetic-hand",
-        ),
-        rejectClose: false,
-      });
+      const isInvisible = ignoreDialogue
+        ? false
+        : await foundry.applications.api.DialogV2.confirm({
+            content: game.i18n.localize(
+              "pf2e-summons-assistant.dialog.telekinetic-hand",
+            ),
+            rejectClose: false,
+          });
       const itemsToAdd = [];
       if (isInvisible) {
         const invisible = await fromUuid(EFFECTS.CONDITIONS.INVISIBLE);
@@ -517,26 +522,28 @@ const handlers = {
         return null;
       }
 
-      const type = await foundry.applications.api.DialogV2.wait({
-        window: { title: "Wall of Fire" },
-        content: await TextEditor.enrichHTML(
-          `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FIRE}]</p>`,
-        ),
-        // This example does not use i18n strings for the button labels,
-        // but they are automatically localized.
-        buttons: [
-          {
-            label: "Circle",
-            action: "circle",
-            icon: "fa-regular fa-circle",
-          },
-          {
-            label: "Line",
-            action: "line",
-            icon: "fa-solid fa-direction-up-down",
-          },
-        ],
-      });
+      const type = ignoreDialogue
+        ? "line"
+        : await foundry.applications.api.DialogV2.wait({
+            window: { title: "Wall of Fire" },
+            content: await TextEditor.enrichHTML(
+              `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FIRE}]</p>`,
+            ),
+            // This example does not use i18n strings for the button labels,
+            // but they are automatically localized.
+            buttons: [
+              {
+                label: "Circle",
+                action: "circle",
+                icon: "fa-regular fa-circle",
+              },
+              {
+                label: "Line",
+                action: "line",
+                icon: "fa-solid fa-direction-up-down",
+              },
+            ],
+          });
 
       return [
         {
