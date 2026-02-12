@@ -74,6 +74,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Bind Heroic Spirit` - On Successful Attack
 - **Wall**
   - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
+  - `Wall of Stone` - Implementation Detail, each segment has the stats of 10 ft. of wall
 - **Misc**
   - `Avenging Wildwood`
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
