@@ -1,6 +1,12 @@
 ## Unreleased
 
+## 1.25.1
+
+- **Updated**
+  - Fixed issue where dialog to find custom summon details doesn't open for summons that have dialogue
+
 ## 1.25.0
+
 - **New**
   - Added support for `Wall of Stone`
 - **Updated**
