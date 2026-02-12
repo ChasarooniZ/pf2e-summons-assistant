@@ -166,6 +166,7 @@ Hooks.once("ready", async function () {
       summonerLevel: item?.actor?.level ?? 0,
       tokenWidth: 1,
       tokenHeight: 1,
+      ignoreDialogue: true,
     };
     const summonDetails = await getSpecificSummonDetails(uuid, dat);
     if (!summonDetails) return;
