@@ -1,5 +1,5 @@
 import { SOURCES, EFFECTS, MODULE_ID } from "./const.js";
-import { notifyRayControls } from "./helpers.js";
+import { isVerticalWallSegment, notifyRayControls } from "./helpers.js";
 import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 
 export async function handlePostSummon(
@@ -23,7 +23,7 @@ export async function handlePostSummon(
             .map((token) => token.actor.uuid),
           effectUUID: EFFECTS.COMMANDER.PLANT_BANNER,
         });
-      }, 1500); // DO this after 0.5 seconds to hopefully fix the no stuff applied yet issue
+      }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
       break;
     case SOURCES.MISC.WOODEN_DOUBLE:
       if (!summonerToken) return;
@@ -105,6 +105,59 @@ export async function handlePostSummon(
           .persist()
           .play();
       }
+      break;
+    case SOURCES.WALL.WALL_OF_STONE:
+      const summonedWallToken = canvas.tokens.placeables.find(
+        (tok) => tok?.actor?.id === summonedActorID,
+      );
+      const isVertical = isVerticalWallSegment(summonedWallToken);
+      if (isVertical) {
+        await summonedWallToken?.document?.update({ rotation: 90 });
+      }
+      const bounds = summonedWallToken.bounds;
+      const coords = [];
+      if (isVertical) {
+        //Horizontal
+        coords.push(
+          bounds.center.x,
+          bounds.top,
+          bounds.center.x,
+          bounds.bottom,
+        );
+      } else {
+        //Vertical
+        coords.push(
+          bounds.left,
+          bounds.center.y,
+          bounds.right,
+          bounds.center.y,
+        );
+      }
+      const elevationStart = summonedWallToken?.document?.elevation ?? 0;
+      const wallData = {
+        c: coords,
+        light: CONST.WALL_SENSE_TYPES.NORMAL,
+        move: CONST.WALL_SENSE_TYPES.NORMAL,
+        sight: CONST.WALL_SENSE_TYPES.NORMAL,
+        flags: {
+          "pf2e-summons-assistant": {
+            wallSegmentTokenID: `${summonedWallToken.id}`,
+            // wallSource: "IDKLUL",
+          },
+          levels: {
+            rangeBottom: elevationStart,
+            rangeTop: elevationStart + 20,
+          },
+          "wall-height": {
+            bottom: elevationStart,
+            top: elevationStart + 20,
+          },
+        },
+      };
+      const walls = await socketlib.modules
+        .get(MODULE_ID)
+        .executeAsGM("createWalls", [wallData]);
+
       break;
     //TO do set
     default:

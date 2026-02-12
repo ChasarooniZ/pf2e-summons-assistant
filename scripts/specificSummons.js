@@ -83,6 +83,7 @@ const getSummonHandlers = () => ({
 
   // Walls
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
+  [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
 
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
@@ -565,6 +566,36 @@ const handlers = {
                   },
                 },
               }),
+        },
+      ];
+    },
+    handleWallOfStone: async (data) => {
+      const max = 120;
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_STONE],
+          rank: data.rank,
+          amount: max / 5,
+          modifications: {
+            "system.details.level.value": data.rank,
+          },
+          crosshairParameters: ({ cnt, prevSummonedToken }) => ({
+            snap: {
+              position: CONST.GRID_SNAPPING_MODES.EDGE_MIDPOINT,
+              direction: 90,
+            },
+            label: {
+              text: `${max - cnt * 5} / ${max} ft,`,
+            },
+            ...(prevSummonedToken
+              ? {
+                  location: {
+                    obj: prevSummonedToken,
+                    limitMaxRange: 5,
+                  },
+                }
+              : {}),
+          }),
         },
       ];
     },

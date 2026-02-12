@@ -55,6 +55,7 @@ export const SOURCES = {
 
   WALL: {
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
+    WALL_OF_STONE: "Compendium.pf2e.spells-srd.Item.kOa055FIrO9Smnya"
   },
 
   KINETICIST: {
@@ -146,6 +147,7 @@ export const SLUG_TO_SOURCE = {
   "activation-wondrous-figurine-jade-serpent":
     SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
   "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
+  "wall-of-stone": SOURCES.WALL.WALL_OF_STONE,
   "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
 };
 
@@ -197,6 +199,8 @@ export const CREATURES = {
 
   WALL_OF_FIRE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
+
+  WALL_OF_STONE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
 
   SHADOW_SELF: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.nodnIFYW56Lk3mcY",
 

@@ -27,6 +27,7 @@ import { setupWoodDoubleHooks } from "./specificCases/woodenDouble.js";
 import { setupDisableItemHooks } from "./disableItems.js";
 import { setupAPI } from "./api.js";
 import { modifyActorsMenu } from "./customizeTokens.js";
+import { setupWallHooks } from "./specificCases/walls.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -55,6 +56,7 @@ Hooks.once("ready", async function () {
 
     const isBindHeroicSpiritSuccess = isBindHeroicSpiritHit(chatMessage);
 
+    if (chatMessage.isDamageRoll) return;
     if (chatMessage.isRoll && !isBindHeroicSpiritSuccess) return;
 
     // Handle Specific Case Bind Heroic Spirit
@@ -206,4 +208,5 @@ function setupSpecificHooks() {
 
   // Specific Cases
   setupWoodDoubleHooks();
+  setupWallHooks();
 }
