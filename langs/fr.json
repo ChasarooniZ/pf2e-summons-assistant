@@ -102,6 +102,10 @@
       },
       "wall": {
         "start-point": "Sélectionnez le point de départ de votre mur"
+      },
+      "jagged-berms": {
+        "spikes": "Clic-gauche pour placer des pointes ({count}), clic-droit pour arrêter",
+        "berm": "Placer les bermes à pieux"
       }
     },
     "items": {

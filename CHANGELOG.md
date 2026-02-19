@@ -10,6 +10,7 @@
 
 - **Updated**
   - Made it so house rules only affect `Summon <X>` Spells as oppsoed to all spells (no more 16 AC walls) (🐛 @Nythz)
+  - Updated french translation (🌐 @rectulo)
 
 ## 1.25.1
 
