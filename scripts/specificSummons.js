@@ -310,7 +310,7 @@ const handlers = {
         }
 
         const info = await getFoeInfo(token, data.rank);
-        const isFail = ignoreDialogue
+        const isFail = data.ignoreDialogue
           ? true
           : await foundry.applications.api.DialogV2.confirm({
               content: game.i18n.localize(
@@ -427,7 +427,7 @@ const handlers = {
     },
 
     handleTelekineticHand: async (data) => {
-      const isInvisible = ignoreDialogue
+      const isInvisible = data.ignoreDialogue
         ? false
         : await foundry.applications.api.DialogV2.confirm({
             content: game.i18n.localize(
@@ -522,7 +522,7 @@ const handlers = {
         return null;
       }
 
-      const type = ignoreDialogue
+      const type = data.ignoreDialogue
         ? "line"
         : await foundry.applications.api.DialogV2.wait({
             window: { title: "Wall of Fire" },

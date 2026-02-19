@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 1.25.4
+
+- Fixed bug introduced in `1.25.1` that caused dialogue based summons fail
+
 ## 1.25.3
 
 - **Updated**
