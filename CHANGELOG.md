@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 1.25.3
+
+- **Updated**
+  - Fixed issues with database not properly updating due to `gitignore`
+  - Updated french translation (🌐 @rectulo)
+
 ## 1.25.2
 
 - **Updated**
