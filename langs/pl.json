@@ -1,7 +1,6 @@
 {
   "I18N.LANGUAGE": "Polski",
   "pf2e-summons-assistant": {
-    "name": "PF2e Summon's Assistant",
     "module-settings": {
       "name-ownership": {
         "name": "Dodaj imię Przywołującego do imienia przywołanej istoty",
@@ -23,104 +22,82 @@
       },
       "necromancer": {
         "handle-living-graveyard-movement": {
-          "name": "[Nekromanta] Obsługa ruchu Żywego Cmentarzyska",
-          "hint": "Jeśli opcja jest włączona, po przeniesieniu Żywego Cmentarzyska zostanie wysłana wiadomość na czacie, która po kliknięciu spowoduje pojawienie się niewolnika (zgodnie z zasadami)."
         },
         "thrall": {
           "auto-expire": {
-            "name": "[Nekromanta] Automatyczne usuwanie wygasłych pomiotów",
-            "hint": "Po włączeniu tej opcji, jeśli efekt wygaśnięcia pomiotu wygaśnie, zostanie on automatycznie usunięty"
           }
         }
       },
       "refresh": {
         "summons": {
-          "name": "Odśwież ataki / rzuty obronne Przywołanych stworzeń",
-          "hint": "Gdy ta opcja jest aktywna, wszelkie aktualizacje ST zaklęcia przywołującego (obecnie tylko stanów) spowodują odświeżenie przywołanych stworów, aktualizując ST/ataki tak, aby były odpowiednio dopasowane"
         }
       },
       "specific-case": {
         "handle": {
           "wooden-double": {
-            "name": "Zajmij się zniszczeniami spowodowanymi przez Drewniany Duplikat",
-            "hint": "Kiedy Drewniany Duplikat otrzyma obrażenia przekraczające jego maksymalne zdrowie, rzuci kostką, aby określić dodatkowe obrażenia (obrażenia te nie mają typu)"
           }
         }
       },
       "filter": {
         "default": {
           "token-with-art": {
-            "name": "[Filtr] Domyślnie tylko tokeny z grafiką",
-            "hint": "Ustaw domyślne wyświetlanie tylko aktorów z grafiką."
           }
         }
       }
     },
     "message": {
       "living-graveyard": {
-        "thralls": "Żywe Cmentarzysko przemieściło się. Jeśli pochodziło z Podtrzymywania, czy chcesz przywołać 3 nowych niewolników wzdłuż jego trasy?",
-        "summon": "Przywołaj!"
-      },
-      "wooden-double": "Obrażenia zadawane przez Drewniany Duplikat przenoszone na rzucającego zaklęcie"
+      }
     },
     "notification": {
       "summoner": {
-        "too-many-eidolons": "Posiadasz zbyt wiele eidolonów."
       },
       "duplicate-foe": {
-        "too-high": "Wróg jest zbyt wysoki dla rangi Duplikacji Wroga"
       },
       "disable-items": {
-        "saved": "Zapisano! Następujące funkcje automatyzacji asystenta przywołań zostały wyłączone {list}"
+      },
+      "customization": {
       }
     },
     "dialog": {
-      "duplicate-foe": "Czy cel nie wykonał rzutu obronnego?",
-      "telekinetic-hand": "Czy chcesz, aby przywołana ręka była niewidoczna?",
       "disable-specific": {
-        "title": "Wybierz źródła przywołań, które chcesz wyłączyć",
-        "search": "Szukaj...",
         "button": {
-          "title": "Skonfiguruj aktywne wyzwalacze przywołań",
-          "hint": "Skonfiguruj, które źródła przywoływania są aktywne"
+        }
+      },
+      "customize": {
+        "summoned-token": {
         }
       }
     },
     "display-text": {
       "wooden-double": {
-        "place-double": "Kliknij lewym przyciskiem myszy, aby umieścić Drewniany Duplikat",
-        "step": "Wybierz miejsce, do którego chcesz przejść"
+      },
+      "wall": {
+      },
+      "jagged-berms": {
       }
     },
     "items": {
       "actions": {
         "mechanic": {
           "critical-explosion": {
-            "name": "Krytyczna eksplozja",
-            "description": "Twoje miny eksplodują, tworząc chmurę odłamków, które rozrywają najsłabsze punkty stworzenia, zadając trwałe obrażenia. Dodaj swój modyfikator Inteligencji do obrażeń zadawanych przez miny. Stworzenie, które nie obroni się przed jedną z twoich min, otrzymuje dodatkowo trwałe obrażenia równe twojemu modyfikatorowi Inteligencji. Jeśli mina zadała obrażenia fizyczne, są to trwałe obrażenia krwawienia. W przeciwnym razie trwałe obrażenia są tego samego rodzaju, co obrażenia zadane przez minę."
           }
         }
       },
       "effects": {
         "summon's-owner": {
-          "name": "Właściciel przywołanego stwora"
         },
         "thrall-expiration": {
-          "name": "Efekt: Wygasanie Zniewolenia",
-          "description": "Mierzy czas pozostały do wygaśnięcia niewoli."
         },
         "rule-elements": {
-          "name": "Efekt: Elementy reguł",
-          "description": "Efekt ten dodaje różne elementy reguł do konkretnego przywołania, aby dodać automatyzację, taką jak uderzenia itp."
         },
         "duplicate-foe": {
-          "name": "Efekt: Duplikacja Wroga",
           "successful-save": {
-            "title": "Duplikacja Wroga - Udany rzut obronny",
-            "text": "Dzięki udanej obronie cele otrzymują tylko połowę obrażeń zadawanych przez ataki tej kopii"
           }
         }
       }
+    },
+    "controls": {
     }
   }
 }
