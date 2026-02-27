@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 1.25.5
+
+- Updated polish translation (🌐 @lioheart)
+
 ## 1.25.4
 
 - Fixed bug introduced in `1.25.1` that caused dialogue based summons fail
