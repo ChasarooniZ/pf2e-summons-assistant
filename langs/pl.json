@@ -72,6 +72,9 @@
       },
       "disable-items": {
         "saved": "Zapisano! Następujące funkcje automatyzacji asystenta przywołań zostały wyłączone {list}"
+      },
+      "customization": {
+        "saved": "Zapisano dostosowania przywołania"
       }
     },
     "dialog": {
@@ -84,12 +87,25 @@
           "title": "Skonfiguruj aktywne wyzwalacze przywołań",
           "hint": "Skonfiguruj, które źródła przywoływania są aktywne"
         }
+      },
+      "choose-type-of": "Wybierz typ",
+      "customize": {
+        "summoned-token": {
+          "title": "Dostosuj przywołany token"
+        }
       }
     },
     "display-text": {
       "wooden-double": {
         "place-double": "Kliknij lewym przyciskiem myszy, aby umieścić Drewniany Duplikat",
         "step": "Wybierz miejsce, do którego chcesz przejść"
+      },
+      "wall": {
+        "start-point": "Wybierz punkt początkowy ściany"
+      },
+      "jagged-berms": {
+        "spikes": "Kliknij lewym przyciskiem myszy, aby umieścić kolce ({count}), kliknij prawym przyciskiem myszy, aby zatrzymać",
+        "berm": "Umieść Poszarpane Nasypy"
       }
     },
     "items": {
@@ -121,6 +137,11 @@
           }
         }
       }
+    },
+    "controls": {
+      "scroll": "Zwój",
+      "adjust-length": "Dostosuj długość",
+      "rotate-wall": "Obróć ścianę"
     }
   }
 }
