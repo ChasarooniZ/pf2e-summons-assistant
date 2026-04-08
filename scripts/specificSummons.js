@@ -407,7 +407,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.INSTANT_MINEFIELD_MINE],
-          amount: 5,
+          amount: 6,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
