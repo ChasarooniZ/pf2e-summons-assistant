@@ -53,6 +53,12 @@
                         "hint": "使角色选择器默认仅显示拥有立绘的角色"
                     }
                 }
+            },
+            "reminder": {
+                "message": {
+                    "name": "[提醒] 接收参战者仆从的提醒信息",
+                    "hint": "允许在参战者的每回合开始时，接收其仆从的私密提醒信息"
+                }
             }
         },
         "name": "PF2e Summon's Assistant",
@@ -75,7 +81,8 @@
             },
             "customization": {
                 "saved": "召唤物自定义设置已保存"
-            }
+            },
+            "active-minions": "<b>{summonerName}</b>当前控制的<u data-tooltip='{minionTooltip}'>仆从</u>"
         },
         "dialog": {
             "duplicate-foe": "该目标豁免失败了吗？",
