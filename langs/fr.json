@@ -54,6 +54,12 @@
             "hint": "Faire en sorte que le sélecteur d'acteur affiche par défaut uniquement les acteurs avec des illustrations par défaut"
           }
         }
+      },
+      "reminder": {
+        "message": {
+          "name": "[Rappel] Recevez un rappel concernant les sbires des combattants",
+          "hint": "Obtenez un rappel par message privé concernant les sbires d'un combattant au début de chaque round."
+        }
       }
     },
     "message": {
@@ -75,7 +81,8 @@
       },
       "customization": {
         "saved": "La personnalisation de l'invocation a été sauvegardée."
-      }
+      },
+      "active-minions": "Activez le(s) <u data-tooltip='{minionTooltip}'>sbire(s)</u> de <b>{summonerName}</b>"
     },
     "dialog": {
       "duplicate-foe": "La cible a t-elle manqué son jet de sauvegarde ?",
