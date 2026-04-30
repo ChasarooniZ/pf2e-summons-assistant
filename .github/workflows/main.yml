@@ -108,6 +108,8 @@ jobs:
           grep -rl 'Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items' \
             packs/sf2e-summons-assistant-actors packs/sf2e-summons-assistant-items \
           | xargs sed -i 's/Compendium\.pf2e-summons-assistant\.pf2e-summons-assistant-items/Compendium.pf2e-summons-assistant.sf2e-summons-assistant-items/g'
+      - name: Install Node Dependencies
+        run: npm install
       - name: Pack the new Copied Packs
         run: node macros/pack.mjs
 
