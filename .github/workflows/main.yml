@@ -40,11 +40,13 @@ env:
   # FoundryVTT uses this URL to check whether the current module version that
   # is installed is the latest version. This URL should NOT change,
   # otherwise FoundryVTT won't be able to perform this check.
-  latest_manifest_url: "https://github.com/${{github.repository}}/releases/latest/download/module.json"
+  latest_manifest_url: "https://github.com/${{github.repository}}/releases/latest\
+    /download/module.json"
 
   # The URL to the module archive associated with the module release being
   # processed by this workflow.
-  release_module_url: "https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip"
+  release_module_url: "https://github.com/${{github.repository}}/releases/downloa\
+    d/${{github.event.release.tag_name}}/module.zip"
 
 on:
   # Only run this workflow when a release is published.
@@ -57,7 +59,7 @@ on:
   # available for release events, so if you add other events, you may need to
   # alter other parts of this workflow.
   release:
-    types: [published]
+    types: [ published ]
 
 jobs:
   build:
@@ -96,6 +98,18 @@ jobs:
           URL: ${{ env.project_url }}
           MANIFEST: ${{ env.latest_manifest_url }}
           DOWNLOAD: ${{ env.release_module_url }}
+      - name: Copy PF2e Packs to SF2e (Curse you FVTT)
+        run: |
+          cp -r packs/pf2e-summons-assistant-actors packs/sf2e-summons-assistant-actors
+          cp -r packs/pf2e-summons-assistant-items packs/sf2e-summons-assistant-items
+
+      - name: Update Item Compendium references for SF2e
+        run: |
+          grep -rl 'Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items' \
+            packs/sf2e-summons-assistant-actors packs/sf2e-summons-assistant-items \
+          | xargs sed -i 's/Compendium\.pf2e-summons-assistant\.pf2e-summons-assistant-items/Compendium.pf2e-summons-assistant.sf2e-summons-assistant-items/g'
+      - name: Pack the new Copied Packs
+        run: node macros/pack.mjs
 
       # Create a "module.zip" archive containing all the module's required files.
       # If you have other directories or files that will need to be added to

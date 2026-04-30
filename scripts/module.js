@@ -1,4 +1,4 @@
-import { MODULE_ID, SLUG_TO_SOURCE, SOURCES } from "./const.js";
+import { MODULE_ID, SLUG_TO_SOURCE, SOURCE_UUIDS, SOURCES } from "./const.js";
 import {
   convertItemUUIDBasedOnSystem,
   messageItemHasRollOption,
@@ -66,14 +66,17 @@ Hooks.once("ready", async function () {
       ? SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE
       : chatMessage?.item?.sourceId;
 
-    if (!itemUuid) {
-      itemUuid =
-        convertItemUUIDBasedOnSystem(itemUuid) ||
-        SLUG_TO_SOURCE[
-          chatMessage?.item?.slug ||
-            game?.pf2e.system.sluggify(chatMessage?.item?.name || "")
-        ];
-      if (!itemUuid) return;
+    if (!SOURCE_UUIDS.has(itemUuid)) {
+      itemUuid = convertItemUUIDBasedOnSystem(itemUuid);
+
+      if (!SOURCE_UUIDS.has(itemUuid)) {
+        itemUuid =
+          SLUG_TO_SOURCE[
+            chatMessage?.item?.slug ||
+              game?.pf2e.system.sluggify(chatMessage?.item?.name || "")
+          ];
+      }
+      if (!SOURCE_UUIDS.has(itemUuid)) return;
     }
 
     if (chatMessage?.flags?.[game.system.id]?.appliedDamage) return;
@@ -82,7 +85,8 @@ Hooks.once("ready", async function () {
 
     const summonerActor = ChatMessage.getSpeakerActor(chatMessage.speaker);
 
-    const spellRank = chatMessage?.flags?.[game.system.id]?.origin?.castRank ?? 0;
+    const spellRank =
+      chatMessage?.flags?.[game.system.id]?.origin?.castRank ?? 0;
     const spellRelevantInfo = {
       rank: spellRank,
       summonerLevel: summonerActor.level,
@@ -90,7 +94,8 @@ Hooks.once("ready", async function () {
         summonerActor?.flags?.[game.system.id]?.rollOptions?.all ?? {},
       ),
       summonerActorId: summonerActor.id,
-      itemRollOptions: chatMessage?.flags?.[game.system.id]?.context?.options ?? [],
+      itemRollOptions:
+        chatMessage?.flags?.[game.system.id]?.context?.options ?? [],
     };
     //Grab DC for Incarnate spells
     if (isIncarnate(chatMessage))

@@ -117,6 +117,8 @@ export const SOURCES = {
   },
 };
 
+export const SOURCE_UUIDS = getAllSourceUUIDs();
+
 export const SLUG_TO_SOURCE = {
   "avenging-wildwood": SOURCES.MISC.AVENGING_WILDWOOD,
   "call-fluxwraith": SOURCES.CALL_FLUXWRAITH,
@@ -542,3 +544,13 @@ export const RULE_ELEMENTS = {
 };
 
 export const AFFECTED_BY_HOUSE_RULES = new Set(Object.values(SOURCES.SUMMON));
+
+function getAllSourceUUIDs() {
+  const uuids = new Set();
+  for (const category of Object.values(SOURCES)) {
+    for (const uuid of Object.values(category)) {
+      uuids.add(uuid);
+    }
+  }
+  return uuids;
+}

@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.0.2
+
+- Fixed issue with specific summons not working in `SF2e` system (🐛 @Sasane)
+
+## 2.0.1
+
+- Fixed issue causing the module to fail in the `SF2e` system (🐛 @Sasane)
+
 ## 2.0.0
 
 - Updated to support Fvtt `v14` (new minimum is `v13`)

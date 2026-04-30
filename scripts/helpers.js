@@ -165,29 +165,32 @@ export function notifyRayControls() {
  * @returns
  */
 export function convertItemUUIDBasedOnSystem(uuid) {
+  if (!uuid) return null;
   let finalUUID = uuid;
   if (game.system.id === "sf2e") {
-    finalUUID?.replace(".sf2e.", ".pf2e.");
-    finalUUID?.replace(".pf2e-anachronism.", ".pf2e.");
-    finalUUID?.replace(".actions.", ".actionspf2e.");
-    finalUUID?.replace(".class-features.", ".classfeatures.");
-    finalUUID?.replace(".conditions.", ".conditionitems.");
-    finalUUID?.replace(".equipment.", ".equipment-srd.");
-    finalUUID?.replace(".feats.", ".feats-srd.");
-    finalUUID?.replace(".macros.", ".pf2e-macros.");
-    finalUUID?.replace(".spells.", ".spells-srd.");
+    finalUUID = finalUUID
+      .replace(".sf2e.", ".pf2e.")
+      .replace(".pf2e-anachronism.", ".pf2e.")
+      .replace(".actions.", ".actionspf2e.")
+      .replace(".class-features.", ".classfeatures.")
+      .replace(".conditions.", ".conditionitems.")
+      .replace(".equipment.", ".equipment-srd.")
+      .replace(".feats.", ".feats-srd.")
+      .replace(".macros.", ".pf2e-macros.")
+      .replace(".spells.", ".spells-srd.");
   } else if (
     game.system.id === "pf2e" &&
-    finalUUID.includes(".sf2e-anachronism.")
+    uuid?.includes(".sf2e-anachronism.")
   ) {
-    finalUUID?.replace(".sf2e-anachronism.", ".sf2e.");
-    finalUUID?.replace(".actionspf2e.", ".actions.");
-    finalUUID?.replace(".classfeatures.", ".class-features.");
-    finalUUID?.replace(".conditionitems.", ".conditions.");
-    finalUUID?.replace(".equipment-srd.", ".equipment.");
-    finalUUID?.replace(".feats-srd.", ".feats.");
-    finalUUID?.replace(".pf2e-macros.", ".macros.");
-    finalUUID?.replace(".spells-srd.", ".spells.");
+    finalUUID = finalUUID
+      .replace(".sf2e-anachronism.", ".sf2e.")
+      .replace(".actionspf2e.", ".actions.")
+      .replace(".classfeatures.", ".class-features.")
+      .replace(".conditionitems.", ".conditions.")
+      .replace(".equipment-srd.", ".equipment.")
+      .replace(".feats-srd.", ".feats.")
+      .replace(".pf2e-macros.", ".macros.")
+      .replace(".spells-srd.", ".spells.");
   }
 
   return finalUUID;

@@ -109,6 +109,28 @@
         "ASSISTANT": "OWNER"
       },
       "system": "pf2e"
+    },
+    {
+      "name": "sf2e-summons-assistant-actors",
+      "label": "SF2e Summons Assistant Actors",
+      "path": "packs/sf2e-summons-assistant-actors",
+      "type": "Actor",
+      "system": "sf2e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "sf2e-summons-assistant-items",
+      "label": "SF2e Summons Assistant Items",
+      "path": "packs/sf2e-summons-assistant-items",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "sf2e"
     }
   ],
   "flags": {
