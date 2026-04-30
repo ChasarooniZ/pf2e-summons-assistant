@@ -199,3 +199,16 @@ export function convertItemUUIDBasedOnSystem(uuid) {
 export function isVerticalWallSegment({ x }) {
   return x % canvas.grid.size !== 0;
 }
+
+export function convertSpecificCreatureToSF2e(uuids) {
+  if (game.system.id === "sf2e") {
+    return uuids.map((uuid) =>
+      uuid.replace(
+        ".pf2e-summons-assistant-actors.",
+        ".sf2e-summons-assistant-actors.",
+      ),
+    );
+  } else {
+    return uuids;
+  }
+}

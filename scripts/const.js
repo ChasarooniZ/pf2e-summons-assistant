@@ -185,7 +185,7 @@ export const CREATURES = {
   CAVE_BEAR: "Compendium.pf2e.pathfinder-monster-core.Actor.AZIG0COCaDBronJa",
   COMMANDER: {
     PLANTED_BANNER:
-      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
+      "Compendium.pf2e-summons-assistantpf2e-summons-assistant-actorsActor.D8gtAM19NQKqbBfW",
   },
   DRAGON_TURRET:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",

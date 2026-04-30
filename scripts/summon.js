@@ -8,7 +8,11 @@ import {
 } from "./const.js";
 import { getSummonCustomizationData } from "./customizeTokens.js";
 import { handlePostSummon } from "./handlePostSummon.js";
-import { addTraits, compFromUuid } from "./helpers.js";
+import {
+  addTraits,
+  compFromUuid,
+  convertSpecificCreatureToSF2e,
+} from "./helpers.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
 
 export async function summon(
@@ -30,7 +34,9 @@ export async function summon(
 
   for (const summonDetails of summonDetailsGroup) {
     const requiredTraits = summonDetails?.traits || [];
-    const allowedSpecificUuids = summonDetails?.specific_uuids || [];
+    const allowedSpecificUuids = convertSpecificCreatureToSF2e(
+      summonDetails?.specific_uuids || [],
+    );
     const actorModifications = summonDetails?.modifications || {};
     const itemsToAdd = summonDetails?.itemsToAdd || [];
     const isCharacter = summonDetails?.isCharacter;
