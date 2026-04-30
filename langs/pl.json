@@ -54,6 +54,12 @@
             "hint": "Ustaw domyślne wyświetlanie tylko aktorów z grafiką."
           }
         }
+      },
+      "reminder": {
+        "message": {
+          "name": "[Przypomnienie] Otrzymaj przypomnienie o sługusach danego walczącego",
+          "hint": "Otrzymuj prywatne powiadomienie na czacie o sługusach danego uczestnika walki na początku każdej rundy"
+        }
       }
     },
     "message": {
@@ -75,7 +81,8 @@
       },
       "customization": {
         "saved": "Zapisano dostosowania przywołania"
-      }
+      },
+      "active-minions": "Aktywne <u data-tooltip=»{minionTooltip}«>sługus(y)</u> dla <b>{summonerName}</b>"
     },
     "dialog": {
       "duplicate-foe": "Czy cel nie wykonał rzutu obronnego?",
@@ -105,7 +112,7 @@
       },
       "jagged-berms": {
         "spikes": "Kliknij lewym przyciskiem myszy, aby umieścić kolce ({count}), kliknij prawym przyciskiem myszy, aby zatrzymać",
-        "berm": "Umieść Poszarpane Nasypy"
+        "berm": "Umieść Postrzępiony Nasyp"
       }
     },
     "items": {
