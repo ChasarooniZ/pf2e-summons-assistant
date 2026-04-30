@@ -159,10 +159,16 @@ export function notifyRayControls() {
           <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`);
 }
 
+/**
+ * This converts the passed in SF2e UUID into a format this module recognizes (IE how it shows in the pf2e system)
+ * @param {String} uuid Item UUID
+ * @returns
+ */
 export function convertUUIDBasedOnSystem(uuid) {
   let finalUUID = uuid;
   if (game.system.id === "sf2e") {
     finalUUID?.replace(".sf2e.", ".pf2e.");
+    finalUUID?.replace(".pf2e-anachronism.", ".pf2e.");
     finalUUID?.replace(".actions.", ".actionspf2e.");
     finalUUID?.replace(".class-features.", ".classfeatures.");
     finalUUID?.replace(".conditions.", ".conditionitems.");

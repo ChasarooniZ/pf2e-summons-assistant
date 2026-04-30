@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.0.0
+
+- Updated to support Fvtt `v14` (new minimum is `v13`)
+- Added support for `PF2e Anachronism` for the `SF2E` system
+
 ## 1.27.1
 
 - Fixed bug causing module to fail (🐛 @Ottyn)
