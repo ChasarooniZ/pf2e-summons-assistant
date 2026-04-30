@@ -14,7 +14,7 @@ $(document).on("click", ".living-graveyard-move-yes", async function () {
     const actor = token.actor;
     const summonerId = actor.getFlag(MODULE_ID, "summoner.id");
     const expirationEffect = actor.itemTypes.effect.find(
-      (p) => p.system.slug === "effect-thrall-expiration-date"
+      (p) => p.system.slug === "effect-thrall-expiration-date",
     );
     const currentTime = game.time.worldTime;
     const startTime = expirationEffect.system.start.value;
@@ -37,7 +37,7 @@ $(document).on("click", ".living-graveyard-move-yes", async function () {
 
     const summonDetailsGroup = getSpecificSummonDetails(
       SOURCES.NECROMANCER.CREATE_THRALL,
-      spellRelevantInfo
+      spellRelevantInfo,
     );
 
     for (const summonDetails of summonDetailsGroup) {
@@ -48,7 +48,7 @@ $(document).on("click", ".living-graveyard-move-yes", async function () {
       summonerActor,
       SOURCES.NECROMANCER.CREATE_THRALL,
       "thrall",
-      summonDetailsGroup
+      summonDetailsGroup,
     );
     await t.delete();
   }
@@ -68,7 +68,7 @@ function livingGraveyardMovementHook(tokenDoc, data, id) {
   if (
     !game.settings.get(
       MODULE_ID,
-      "necromancer.handle-living-graveyard-movement"
+      "necromancer.handle-living-graveyard-movement",
     )
   ) {
     return;
@@ -130,12 +130,12 @@ function checkLivingGraveyardMovement(tokenDoc) {
 }
 export function isBindHeroicSpiritHit(chatMessage) {
   return (
-    chatMessage?.flags?.pf2e?.context?.type === "attack-roll" &&
+    chatMessage?.flags?.[game.system.id]?.context?.type === "attack-roll" &&
     ["success", "criticalSuccess"].includes(
-      chatMessage?.flags?.pf2e?.context?.outcome
+      chatMessage?.flags?.[game.system.id]?.context?.outcome,
     ) &&
-    chatMessage?.flags?.pf2e?.context?.options?.includes(
-      "self:effect:bind-heroic-spirit"
+    chatMessage?.flags?.[game.system.id]?.context?.options?.includes(
+      "self:effect:bind-heroic-spirit",
     )
   );
 }
@@ -184,7 +184,7 @@ export function createThrallAttackInfo({
   return createThrallStrikeRuleElements(
     thrallConfig.baseDamageTypes,
     rollOptions,
-    thrallConfig.config
+    thrallConfig.config,
   );
 }
 
@@ -200,10 +200,10 @@ function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
   const slugs = [];
   for (const type of damageTypes) {
     const damageName = game.i18n.localize(
-      `PF2E.Trait${capitalizeDamageType(type)}`
+      `PF2E.Trait${capitalizeDamageType(type)}`,
     );
     const name = `${config.name} (${damageName})`;
-    const slug = game.pf2e.system.sluggify(name);
+    const slug = game?.pf2e.system.sluggify(name);
     slugs.push(slug);
     ruleElements.push(
       getStrikeRE({
@@ -211,7 +211,7 @@ function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
         name: name,
         slug: slug,
         damageType: type,
-      })
+      }),
     );
   }
   ruleElements.push(getStrikeMod(slugs));

@@ -1,6 +1,6 @@
 import { MODULE_ID, SLUG_TO_SOURCE, SOURCES } from "./const.js";
 import {
-  convertUUIDBasedOnSystem,
+  convertItemUUIDBasedOnSystem,
   messageItemHasRollOption,
   setupSummonedTokenRefreshHooks,
 } from "./helpers.js";
@@ -68,29 +68,29 @@ Hooks.once("ready", async function () {
 
     if (!itemUuid) {
       itemUuid =
-        convertUUIDBasedOnSystem(itemUuid) ||
+        convertItemUUIDBasedOnSystem(itemUuid) ||
         SLUG_TO_SOURCE[
           chatMessage?.item?.slug ||
-            game.pf2e.system.sluggify(chatMessage?.item?.name || "")
+            game?.pf2e.system.sluggify(chatMessage?.item?.name || "")
         ];
       if (!itemUuid) return;
     }
 
-    if (chatMessage?.flags?.pf2e?.appliedDamage) return;
+    if (chatMessage?.flags?.[game.system.id]?.appliedDamage) return;
 
     let summonLevel = 20;
 
     const summonerActor = ChatMessage.getSpeakerActor(chatMessage.speaker);
 
-    const spellRank = chatMessage?.flags?.pf2e?.origin?.castRank ?? 0;
+    const spellRank = chatMessage?.flags?.[game.system.id]?.origin?.castRank ?? 0;
     const spellRelevantInfo = {
       rank: spellRank,
       summonerLevel: summonerActor.level,
       summonerRollOptions: Object.keys(
-        summonerActor?.flags?.pf2e?.rollOptions?.all,
+        summonerActor?.flags?.[game.system.id]?.rollOptions?.all ?? {},
       ),
       summonerActorId: summonerActor.id,
-      itemRollOptions: chatMessage?.flags?.pf2e?.context?.options ?? [],
+      itemRollOptions: chatMessage?.flags?.[game.system.id]?.context?.options ?? [],
     };
     //Grab DC for Incarnate spells
     if (isIncarnate(chatMessage))

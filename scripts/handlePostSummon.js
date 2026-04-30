@@ -17,7 +17,7 @@ export async function handlePostSummon(
               token.actor.items.some(
                 (i) =>
                   i.sourceId === EFFECTS.COMMANDER.IN_PLANT_BANNER_RANGE &&
-                  i?.flags?.pf2e?.aura?.origin === summonedActorUUID,
+                  i?.flags?.[game.system.id]?.aura?.origin === summonedActorUUID,
               ),
             )
             .map((token) => token.actor.uuid),
@@ -26,7 +26,7 @@ export async function handlePostSummon(
       }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
       break;
     case SOURCES.MISC.WOODEN_DOUBLE:
-      if (!summonerToken) return;
+      { if (!summonerToken) return;
       const mvmntLocation = await Sequencer.Crosshair.show({
         location: {
           obj: summonerToken,
@@ -54,7 +54,7 @@ export async function handlePostSummon(
         .on(summonerToken)
         .moveTowards(mvmntLocation, { relativeToCenter: true })
         .play();
-      break;
+      break; }
     case SOURCES.KINETICIST.JAGGED_BERMS:
       const summonToken = canvas.tokens.placeables.find(
         (tok) => tok?.actor?.id === summonedActorID,

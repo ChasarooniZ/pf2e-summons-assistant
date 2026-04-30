@@ -160,11 +160,11 @@ export function notifyRayControls() {
 }
 
 /**
- * This converts the passed in SF2e UUID into a format this module recognizes (IE how it shows in the pf2e system)
+ * This converts the passed in SF2e/PF2e UUID into a format this module recognizes (IE how it shows in the pf2e system)
  * @param {String} uuid Item UUID
  * @returns
  */
-export function convertUUIDBasedOnSystem(uuid) {
+export function convertItemUUIDBasedOnSystem(uuid) {
   let finalUUID = uuid;
   if (game.system.id === "sf2e") {
     finalUUID?.replace(".sf2e.", ".pf2e.");
@@ -176,6 +176,18 @@ export function convertUUIDBasedOnSystem(uuid) {
     finalUUID?.replace(".feats.", ".feats-srd.");
     finalUUID?.replace(".macros.", ".pf2e-macros.");
     finalUUID?.replace(".spells.", ".spells-srd.");
+  } else if (
+    game.system.id === "pf2e" &&
+    finalUUID.includes(".sf2e-anachronism.")
+  ) {
+    finalUUID?.replace(".sf2e-anachronism.", ".sf2e.");
+    finalUUID?.replace(".actionspf2e.", ".actions.");
+    finalUUID?.replace(".classfeatures.", ".class-features.");
+    finalUUID?.replace(".conditionitems.", ".conditions.");
+    finalUUID?.replace(".equipment-srd.", ".equipment.");
+    finalUUID?.replace(".feats-srd.", ".feats.");
+    finalUUID?.replace(".pf2e-macros.", ".macros.");
+    finalUUID?.replace(".spells-srd.", ".spells.");
   }
 
   return finalUUID;

@@ -11,6 +11,7 @@ export const DEF_TOKEN_CONFIGS = {
   subjectScaleCorrection: 1,
 };
 
+//Source is stored in the SYSTEM IT COMES FROM TO PREVENT ISSUES
 export const SOURCES = {
   SUMMON: {
     SUMMON_DRAGON: "Compendium.pf2e.spells-srd.Item.kghwmH3tQjMIhdH1",
@@ -26,7 +27,7 @@ export const SOURCES = {
     SUMMON_FIEND: "Compendium.pf2e.spells-srd.Item.29ytKctjg7qSW2ff",
     SUMMON_GIANT: "Compendium.pf2e.spells-srd.Item.e9UJoVYUd5kJWUpi",
     SUMMON_MONITOR: "Compendium.pf2e.spells-srd.Item.ZbEHglw5tkJ3grQZ",
-    SUMMON_ROBOT: "Compendium.sf2e-anachronism.spells.Item.KlJEDmAOk1ztdNFf",
+    SUMMON_ROBOT: "Compendium.sf2e.spells.Item.KlJEDmAOk1ztdNFf",
   },
   INCARNATE: {
     TEMPEST_OF_SHADES: "Compendium.pf2e.spells-srd.Item.JLdbyGKhjwAAoRLs",
@@ -240,7 +241,8 @@ export const CREATURES = {
     TORCH:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.arDOv12cxLYNh2tW",
   },
-  NECROLOGISTS_HORDE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NnaI8Zd5ZFfz8zs2",
+  NECROLOGISTS_HORDE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NnaI8Zd5ZFfz8zs2",
   NECROMANCER: {
     THRALL:
       "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.ISmLeI8zNc6YWysQ",

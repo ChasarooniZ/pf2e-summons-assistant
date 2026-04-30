@@ -52,12 +52,12 @@ export async function summon(
         noSummon: true,
         filter: (candidateActor) => {
           const isCommonAndValidLevel =
-            candidateActor.system.traits.rarity === "common" &&
+            candidateActor.system?.traits?.rarity === "common" &&
             candidateActor.system.details.level.value <= summonLevel;
 
           const hasValidTraits =
             requiredTraits.length === 0 ||
-            candidateActor.system.traits.value.some((actorTrait) =>
+            candidateActor.system?.traits?.value?.some((actorTrait) =>
               requiredTraits.some(
                 (requiredTrait) =>
                   requiredTrait.toLowerCase() === actorTrait.toLowerCase(),
