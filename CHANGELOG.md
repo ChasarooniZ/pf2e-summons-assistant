@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 2.0.3
+
+- Fixed the `Instant Minefield` count (💻🐛 @pv42)
+- Updated french translation (🌐 @rectulo)
+- Updated polish translation (🌐 @lioheart)
+- Updated chinese translation (🌐 @AlphaStarGuide)
+
 ## 2.0.2
 
 - Fixed issue with specific summons not working in `SF2e` system (🐛 @Sasane)
