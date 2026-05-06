@@ -57,9 +57,29 @@ export async function summon(
         //packs: ['pf2e.pathfinder-monster-core'],
         noSummon: true,
         filter: (candidateActor) => {
+          let levelAdjustment;
+          switch (candidateActor.system?.attributes?.adjustment) {
+            case 'elite': 
+              if (candidateActor.system.details.level.value <= 0) {
+                levelAdjustment = 2
+              } else {
+                levelAdjustment = 1;
+              }
+              break;
+            case 'weak':
+              if (candidateActor.system.details.level.value === 1) {
+                levelAdjustment = -2
+              } else {
+                levelAdjustment = -1;
+              }
+              break;
+            default:
+              levelAdjustment = 0;
+              break;
+          }
           const isCommonAndValidLevel =
             candidateActor.system?.traits?.rarity === "common" &&
-            candidateActor.system.details.level.value <= summonLevel;
+            candidateActor.system.details.level.value + levelAdjustment <= summonLevel;
 
           const hasValidTraits =
             requiredTraits.length === 0 ||
@@ -131,6 +151,7 @@ export async function summon(
               );
             },
             indexedFields: [
+              "system.attributes.adjustment",
               "system.details.level.value",
               "system.traits.value",
               "system.traits.rarity",
