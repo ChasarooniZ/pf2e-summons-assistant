@@ -1,5 +1,10 @@
 ## Unreleased
 
+
+## 2.0.4
+
+- Use elite/weak level adjustment for determining allowed summons  (💻🐛 @pv42)
+
 ## 2.0.3
 
 - Fixed the `Instant Minefield` count (💻🐛 @pv42)
