@@ -163,7 +163,7 @@ export async function summon(
     }
 
     const selectedActor = await compFromUuid(selectedActorUuid);
-    const originalActorLevel = selectedActor.level;
+    const originalActorLevel = selectedActor?.level;
 
     const houseRuleUpdates = isAffectedByHouseRules(itemUuid)
       ? await getHouseRuleUpdates(

@@ -1,9 +1,12 @@
 ## Unreleased
 
+## 2.0.5
+
+- Fixed bug causing `Planted Banner` not to spawn (🐛 @MystiKitt)
 
 ## 2.0.4
 
-- Use elite/weak level adjustment for determining allowed summons  (💻🐛 @pv42)
+- Use elite/weak level adjustment for determining allowed summons (💻🐛 @pv42)
 
 ## 2.0.3
 
