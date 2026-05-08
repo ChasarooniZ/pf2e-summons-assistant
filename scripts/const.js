@@ -293,6 +293,11 @@ export const FEATS = {
   },
 };
 
+export const WALLS_TO_SYNC_DELETE = [
+  CREATURES.WALL_OF_STONE,
+  CREATURES.WALL_OF_ICE,
+];
+
 export const SUMMON_LEVELS_BY_RANK = {
   1: -1,
   2: 1,

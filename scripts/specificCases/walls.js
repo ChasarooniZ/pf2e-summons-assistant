@@ -1,6 +1,4 @@
-import { CREATURES, MODULE_ID } from "../const.js";
-
-const WALLS_TO_SYNC_DELETE = [CREATURES.WALL_OF_STONE, CREATURES.WALL_OF_ICE];
+import { MODULE_ID, WALLS_TO_SYNC_DELETE } from "../const.js";
 
 export const WALL_ART = {
   ICE: {
@@ -17,7 +15,8 @@ export function setupWallHooks() {
       const wall = canvas.walls.placeables.find(
         (wall) =>
           wall?.document?.getFlag(MODULE_ID, "wallSegmentTokenID") ===
-          tokDoc.id,
+            tokDoc.id ||
+          wall?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
       );
       wall?.document?.delete();
     }
