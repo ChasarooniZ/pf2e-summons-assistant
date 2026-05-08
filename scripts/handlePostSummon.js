@@ -1,6 +1,11 @@
 import { SOURCES, EFFECTS, MODULE_ID } from "./const.js";
 import { isVerticalWallSegment, notifyRayControls } from "./helpers.js";
 import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
+import {
+  setupStraightWall,
+  setupWallCircle,
+  WALL_ART,
+} from "./specificCases/walls.js";
 
 export async function handlePostSummon(
   itemUUID,
@@ -17,7 +22,8 @@ export async function handlePostSummon(
               token.actor.items.some(
                 (i) =>
                   i.sourceId === EFFECTS.COMMANDER.IN_PLANT_BANNER_RANGE &&
-                  i?.flags?.[game.system.id]?.aura?.origin === summonedActorUUID,
+                  i?.flags?.[game.system.id]?.aura?.origin ===
+                    summonedActorUUID,
               ),
             )
             .map((token) => token.actor.uuid),
@@ -25,8 +31,8 @@ export async function handlePostSummon(
         });
       }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
       break;
-    case SOURCES.MISC.WOODEN_DOUBLE:
-      { if (!summonerToken) return;
+    case SOURCES.MISC.WOODEN_DOUBLE: {
+      if (!summonerToken) return;
       const mvmntLocation = await Sequencer.Crosshair.show({
         location: {
           obj: summonerToken,
@@ -54,13 +60,38 @@ export async function handlePostSummon(
         .on(summonerToken)
         .moveTowards(mvmntLocation, { relativeToCenter: true })
         .play();
-      break; }
+      break;
+    }
     case SOURCES.KINETICIST.JAGGED_BERMS:
       const summonToken = canvas.tokens.placeables.find(
         (tok) => tok?.actor?.id === summonedActorID,
       );
 
       await handleJaggedBermsSpikes(summonToken);
+      break;
+
+    case SOURCES.WALL.WALL_OF_ICE:
+      const summonedTokenWallOfIce = canvas.tokens.placeables.find(
+        (tok) => tok?.actor?.id === summonedActorID,
+      );
+
+      if (summonedTokenWallOfIce.actor.system.details.blurb === "circle") {
+        await setupWallCircle({
+          position: summonedTokenWallOfIce?.center,
+          summonedWallToken: summonedTokenWallOfIce,
+          distance: 10,
+          art: WALL_ART.ICE.CIRCLE,
+        });
+      } else if (summonedTokenWallOfIce.actor.system.details.blurb === "line") {
+        notifyRayControls();
+        const startingDistance = 30;
+        await setupStraightWall({
+          summonedWallToken: summonedTokenWallOfIce,
+          startingDistance,
+          distance: 60,
+          art: WALL_ART.ICE.LINE,
+        });
+      }
       break;
 
     case SOURCES.WALL.WALL_OF_FIRE:

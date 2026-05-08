@@ -1,6 +1,6 @@
 import { CREATURES, MODULE_ID } from "../const.js";
 
-const WALLS_TO_SYNC_DELETE = [CREATURES.WALL_OF_STONE];
+const WALLS_TO_SYNC_DELETE = [CREATURES.WALL_OF_STONE, CREATURES.WALL_OF_ICE];
 
 export const WALL_ART = {
   ICE: {
@@ -38,8 +38,8 @@ export async function setupWallCircle({
 }) {
   const center = position;
   const gridSize = canvas.grid.size;
-  const inradius = distance * gridSize;
-  const sideHalf = inradius * Math.tan(Math.PI / 8);
+  const radiusInPixels = distance * gridSize;
+  const sideHalf = radiusInPixels * Math.tan(Math.PI / 8);
 
   const wallDataArray = [];
   const wallAmount = 8;
@@ -49,7 +49,7 @@ export async function setupWallCircle({
       i,
       wallAmount,
       center,
-      inradius,
+      radiusInPixels,
       sideHalf,
     );
 
@@ -89,7 +89,7 @@ export async function setupWallCircle({
 }
 
 export async function setupStraightWall({
-  position,
+  startingDistance,
   summonedWallToken,
   distance,
   art,
@@ -167,11 +167,17 @@ function getFlatWallPoints(
   return [x1, y1, x2, y2];
 }
 
-function getWallPointsForCircle(i, wallAmount, center, inradius, sideHalf) {
+function getWallPointsForCircle(
+  i,
+  wallAmount,
+  center,
+  radiusInPixels,
+  sideHalf,
+) {
   const faceAngleRad = Math.toRadians(i * (360 / wallAmount));
 
-  const midX = center.x + inradius * Math.cos(faceAngleRad);
-  const midY = center.y + inradius * Math.sin(faceAngleRad);
+  const midX = center.x + radiusInPixels * Math.cos(faceAngleRad);
+  const midY = center.y + radiusInPixels * Math.sin(faceAngleRad);
 
   const perpAngleRad = faceAngleRad + Math.PI / 2;
   const dx = sideHalf * Math.cos(perpAngleRad);
