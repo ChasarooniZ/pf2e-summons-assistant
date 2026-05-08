@@ -685,9 +685,9 @@ const handlers = {
             "system.details.level.value": data.rank,
             "system.details.blurb": type,
             "system.attributes.hp.max":
-              40 + (Math.floor((data.rank - 5) / 2)) * 10,
+              40 + Math.floor((data.rank - 5) / 2) * 10,
             "system.attributes.hp.value":
-              40 + (Math.floor((data.rank - 5) / 2)) * 10,
+              40 + Math.floor((data.rank - 5) / 2) * 10,
           },
           ...(type === "circle"
             ? {

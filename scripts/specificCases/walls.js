@@ -12,13 +12,15 @@ export function setupWallHooks() {
   if (!game.user.isGM) return;
   Hooks.on("deleteToken", async (tokDoc, info, UserID) => {
     if (WALLS_TO_SYNC_DELETE.includes(tokDoc?.actor?.sourceId)) {
-      const wall = canvas.walls.placeables.find(
+      const walls = canvas.walls.placeables.filter(
         (wall) =>
           wall?.document?.getFlag(MODULE_ID, "wallSegmentTokenID") ===
             tokDoc.id ||
           wall?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
       );
-      wall?.document?.delete();
+      for (const wall of walls) {
+        wall?.document?.delete();
+      }
     }
   });
 }
@@ -31,13 +33,13 @@ export function setupWallHooks() {
 export async function setupWallCircle({
   position,
   summonedWallToken,
-  distance,
+  radiusSquares,
   art,
   wallConfig,
 }) {
   const center = position;
   const gridSize = canvas.grid.size;
-  const radiusInPixels = distance * gridSize;
+  const radiusInPixels = radiusSquares * gridSize;
   const sideHalf = radiusInPixels * Math.tan(Math.PI / 8);
 
   const wallDataArray = [];
@@ -109,7 +111,7 @@ export async function setupStraightWall({
     const origin = { x: pos.x, y: pos.y };
     const angleRad = Math.toRadians(pos.direction);
 
-    const gridSize = canvas.grid.size;
+    const pxPerFt = canvas.dimensions.distancePixels;
     const totalDistanceFt = pos.distance;
     const segmentSizeFt = 10;
 
@@ -125,7 +127,7 @@ export async function setupStraightWall({
     for (const segFt of segments) {
       const c = getFlatWallPoints(
         currentDistanceFt,
-        gridSize,
+        pxPerFt,
         segFt,
         origin,
         angleRad,

@@ -79,7 +79,7 @@ export async function handlePostSummon(
         await setupWallCircle({
           position: summonedTokenWallOfIce?.center,
           summonedWallToken: summonedTokenWallOfIce,
-          distance: 10,
+          radiusSquares: 2,
           art: WALL_ART.ICE.CIRCLE,
         });
       } else if (summonedTokenWallOfIce.actor.system.details.blurb === "line") {
