@@ -26,6 +26,7 @@ _a Thanks to Vauxs for updating [Foundry Summons](https://foundryvtt.com/package
 
 - [PF2e Summons Assistant](#pf2e-summons-assistant)
   - [Table of Contents](#table-of-contents)
+  - [How it works](#how-it-works)
   - [Changelog](#changelog)
   - [Handled Spells and Features](#handled-spells-and-features)
     - [Spells](#spells)
@@ -37,10 +38,10 @@ _a Thanks to Vauxs for updating [Foundry Summons](https://foundryvtt.com/package
   - [Other Settings/Support](#other-settingssupport)
   - [Contributors](#contributors)
   - [Assets](#assets)
- 
+
 ## How it works
 
-This module *generally* detects a message from a particular item/action/feat/spell that is in it's list, theneither presents the user with a choice of which summon to summon in the case of a `Summon X` spell first, or if it is only a single option or they selected the Summon they want, asks you to place the summon where you want it on the board. This is for the "average" case some cases (IE Wall of Stone) handle themselves a bit differently.
+This module _generally_ detects a message from a particular item/action/feat/spell that is in it's list, theneither presents the user with a choice of which summon to summon in the case of a `Summon X` spell first, or if it is only a single option or they selected the Summon they want, asks you to place the summon where you want it on the board. This is for the "average" case some cases (IE Wall of Stone) handle themselves a bit differently.
 
 ## Changelog
 
@@ -78,6 +79,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Inevitable Return`
   - `Bind Heroic Spirit` - On Successful Attack
 - **Wall**
+  - `Wall of Ice`
   - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
   - `Wall of Stone` - Implementation Detail, each segment has the stats of 10 ft. of wall
 - **Misc**

@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.1.0
+
+- Added support for `Wall of Ice`
+
 ## 2.0.5
 
 - Fixed bug causing `Planted Banner` not to spawn (🐛 @MystiKitt)
