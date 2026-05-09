@@ -1,2 +1,4 @@
 *.log
 node_modules
+packs/sf2e-summons-assistant-actors/
+packs/sf2e-summons-assistant-items/

@@ -1,15 +1,15 @@
-2026/04/07-01:53:53.470 44dc Recovering log #677
-2026/04/07-01:53:53.900 44dc Delete type=0 #677
-2026/04/07-01:53:53.900 44dc Delete type=3 #675
-2026/04/07-01:53:53.933 4fd8 Level-0 table #681: started
-2026/04/07-01:53:53.969 4fd8 Level-0 table #681: 122216 bytes OK
-2026/04/07-01:53:54.022 4fd8 Delete type=0 #679
-2026/04/07-01:53:54.022 4fd8 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!NnaI8Zd5ZFfz8zs2.dhK4wMQeGkAzz0rH' @ 2893 : 1
-2026/04/07-01:53:54.023 4fd8 Compacting 2@0 + 1@1 files
-2026/04/07-01:53:54.058 4fd8 Generated table #682@0: 141 keys, 122216 bytes
-2026/04/07-01:53:54.058 4fd8 Compacted 2@0 + 1@1 files => 122216 bytes
-2026/04/07-01:53:54.121 4fd8 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/04/07-01:53:54.122 4fd8 Delete type=2 #672
-2026/04/07-01:53:54.122 4fd8 Delete type=2 #676
-2026/04/07-01:53:54.122 4fd8 Delete type=2 #681
-2026/04/07-01:53:54.122 4fd8 Manual compaction at level-0 from '!actors.items!NnaI8Zd5ZFfz8zs2.dhK4wMQeGkAzz0rH' @ 2893 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/05/09-00:18:58.373 cb80 Recovering log #704
+2026/05/09-00:18:58.524 cb80 Delete type=0 #704
+2026/05/09-00:18:58.524 cb80 Delete type=3 #702
+2026/05/09-00:18:58.583 62ac Level-0 table #708: started
+2026/05/09-00:18:58.638 62ac Level-0 table #708: 127631 bytes OK
+2026/05/09-00:18:58.703 62ac Delete type=0 #706
+2026/05/09-00:18:58.704 62ac Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!gGDK0P3m075eIq6A.nFLKeR75tYoHNYEt' @ 3407 : 1
+2026/05/09-00:18:58.704 62ac Compacting 2@0 + 1@1 files
+2026/05/09-00:18:58.749 62ac Generated table #709@0: 146 keys, 127631 bytes
+2026/05/09-00:18:58.749 62ac Compacted 2@0 + 1@1 files => 127631 bytes
+2026/05/09-00:18:58.825 62ac compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/05/09-00:18:58.825 62ac Delete type=2 #699
+2026/05/09-00:18:58.825 62ac Delete type=2 #703
+2026/05/09-00:18:58.825 62ac Delete type=2 #708
+2026/05/09-00:18:58.825 62ac Manual compaction at level-0 from '!actors.items!gGDK0P3m075eIq6A.nFLKeR75tYoHNYEt' @ 3407 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

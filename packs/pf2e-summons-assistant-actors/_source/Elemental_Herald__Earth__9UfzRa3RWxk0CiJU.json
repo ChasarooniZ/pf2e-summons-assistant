@@ -43,12 +43,9 @@
       "src": "modules/pf2e-tokens-bestiaries/tokens/elemental/earth/elemental-avalanche.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
-      "offsetX": 0,
-      "offsetY": 0,
       "fit": "contain",
       "scaleX": 1,
       "scaleY": 1,
-      "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -99,7 +96,7 @@
       "saturation": 0,
       "contrast": 0
     },
-    "detectionModes": [],
+    "detectionModes": {},
     "occludable": {
       "radius": 0
     },
@@ -124,7 +121,8 @@
     "movementAction": null,
     "randomImg": false,
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "depth": 3
   },
   "effects": [],
   "system": {
@@ -135,6 +133,13 @@
         "max": 10,
         "details": ""
       },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      },
       "speed": {
         "value": 50,
         "otherSpeeds": [
@@ -144,13 +149,6 @@
           }
         ],
         "details": ""
-      },
-      "ac": {
-        "value": 10,
-        "details": ""
-      },
-      "allSaves": {
-        "value": ""
       }
     },
     "initiative": {
@@ -282,7 +280,7 @@
         "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.THi6QWZwDMJNC88a",
         "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.THi6QWZwDMJNC88a",
         "exportSource": null,
-        "coreVersion": "13.346",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
         "systemVersion": "7.2.3",
         "createdTime": 1752616256987,
@@ -344,7 +342,7 @@
         "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.dVqTgjsYy8F4tX18",
         "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.upqvdqYb387AV0mW.Item.dVqTgjsYy8F4tX18",
         "exportSource": null,
-        "coreVersion": "13.346",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
         "systemVersion": "7.2.3",
         "createdTime": 1752616258365,
@@ -360,7 +358,7 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.346",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
     "systemVersion": "7.2.3",
     "createdTime": 1752615513237,

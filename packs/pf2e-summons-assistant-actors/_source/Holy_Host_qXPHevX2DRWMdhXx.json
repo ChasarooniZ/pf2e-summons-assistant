@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "Bbkt5XGxBdx0Jgj0",
+  "name": "Holy Host",
+  "color": "#a48513",
+  "sorting": "a",
+  "_id": "qXPHevX2DRWMdhXx",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.361",
+    "systemId": "pf2e",
+    "systemVersion": "8.1.1",
+    "createdTime": 1778135631873,
+    "modifiedTime": 1778135647396,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!qXPHevX2DRWMdhXx"
+}

@@ -62,12 +62,9 @@
       "src": "modules/jb2a_patreon/Library/Generic/Marker/MarkerLightOrbLoop_01_Regular_White_400x400.webm",
       "anchorX": 0.5,
       "anchorY": 0.5,
-      "offsetX": 0,
-      "offsetY": 0,
       "fit": "contain",
       "scaleX": 1.4,
       "scaleY": 1.4,
-      "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -118,7 +115,7 @@
       "saturation": 0,
       "contrast": 0
     },
-    "detectionModes": [],
+    "detectionModes": {},
     "occludable": {
       "radius": 0
     },
@@ -143,7 +140,8 @@
     "movementAction": null,
     "randomImg": false,
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "depth": 0.5
   },
   "effects": [],
   "system": {
@@ -154,17 +152,17 @@
         "max": 10,
         "details": ""
       },
-      "speed": {
-        "value": 25,
-        "otherSpeeds": [],
-        "details": ""
-      },
       "ac": {
         "value": 10,
         "details": ""
       },
       "allSaves": {
         "value": ""
+      },
+      "speed": {
+        "value": 25,
+        "otherSpeeds": [],
+        "details": ""
       }
     },
     "initiative": {
@@ -310,10 +308,12 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.346",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
         "systemVersion": "7.2.3",
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "createdTime": null,
+        "modifiedTime": null
       },
       "_key": "!actors.items!pRL4h1K1hHBkEbIE.djA1IpOKw11WHi6U"
     }
@@ -325,7 +325,7 @@
     "compendiumSource": "Actor.5nY61gR66kynnp5q",
     "duplicateSource": "Actor.oESGKDON1Fi3dETS",
     "exportSource": null,
-    "coreVersion": "13.346",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
     "systemVersion": "7.2.3",
     "createdTime": 1752469382792,
