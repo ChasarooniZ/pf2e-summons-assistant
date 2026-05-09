@@ -72,6 +72,7 @@ export const SOURCES = {
   WALL: {
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
     WALL_OF_STONE: "Compendium.pf2e.spells-srd.Item.kOa055FIrO9Smnya",
+    WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
   },
 
   KINETICIST: {
@@ -173,6 +174,7 @@ export const SLUG_TO_SOURCE = {
   "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
   "activation-wondrous-figurine-jade-serpent":
     SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
+  "wall-of-ice": SOURCES.WALL.WALL_OF_ICE,
   "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
   "wall-of-stone": SOURCES.WALL.WALL_OF_STONE,
   "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
@@ -274,6 +276,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.llXyX6eS8UHGqpnn",
   TEMPEST_OF_SHADES:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.EwmHOiQTdCEmBKfA",
+  WALL_OF_ICE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gGDK0P3m075eIq6A",
   WALL_OF_FIRE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
   WALL_OF_STONE:
@@ -288,6 +292,11 @@ export const FEATS = {
       "Compendium.starfinder-field-test-for-pf2e.feats.Item.zsXV8mcHVZqx6FVj",
   },
 };
+
+export const WALLS_TO_SYNC_DELETE = [
+  CREATURES.WALL_OF_STONE,
+  CREATURES.WALL_OF_ICE,
+];
 
 export const SUMMON_LEVELS_BY_RANK = {
   1: -1,

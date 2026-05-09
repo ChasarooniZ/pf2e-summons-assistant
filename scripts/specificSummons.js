@@ -97,6 +97,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MUNDANE.TORCH]: handlers.mundane.torch,
 
   // Walls
+  [SOURCES.WALL.WALL_OF_ICE]: handlers.wall.handleWallOfIce,
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
   [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
 
@@ -459,7 +460,7 @@ const handlers = {
             "system.perception.value": summonerActor?.system?.perception?.value,
           },
           crosshairParameters: {
-            distance: canvas.grid.distance * 1.5
+            distance: canvas.grid.distance * 1.5,
           },
         },
       ];
@@ -652,6 +653,65 @@ const handlers = {
   },
 
   wall: {
+    handleWallOfIce: async (data) => {
+      const type = data.ignoreDialogue
+        ? "line"
+        : await foundry.applications.api.DialogV2.wait({
+            window: { title: "Wall of Ice" },
+            content: await TextEditor.enrichHTML(
+              `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_ICE}]</p>`,
+            ),
+            // This example does not use i18n strings for the button labels,
+            // but they are automatically localized.
+            buttons: [
+              {
+                label: "Circle",
+                action: "circle",
+                icon: "fa-regular fa-circle",
+              },
+              {
+                label: "Line",
+                action: "line",
+                icon: "fa-solid fa-direction-up-down",
+              },
+            ],
+          });
+
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_ICE],
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.details.blurb": type,
+            "system.attributes.hp.max":
+              40 + Math.floor((data.rank - 5) / 2) * 10,
+            "system.attributes.hp.value":
+              40 + Math.floor((data.rank - 5) / 2) * 10,
+          },
+          ...(type === "circle"
+            ? {
+                crosshairParameters: {
+                  distance: 10.5,
+                  snap: {
+                    position:
+                      CONST.GRID_SNAPPING_MODES.VERTEX |
+                      CONST.GRID_SNAPPING_MODES.CENTER,
+                  },
+                },
+              }
+            : {
+                crosshairParameters: {
+                  label: {
+                    text: game.i18n.localize(
+                      "pf2e-summons-assistant.display-text.wall.start-point",
+                    ),
+                  },
+                },
+              }),
+        },
+      ];
+    },
     handleWallOfFire: async (data) => {
       if (!hasAnyJB2A()) {
         return null;
