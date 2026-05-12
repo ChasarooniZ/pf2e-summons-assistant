@@ -15,203 +15,195 @@ export async function handlePostSummon(
 ) {
   switch (itemUUID) {
     case SOURCES.COMMANDER.PLANT_BANNER:
-      setTimeout(function () {
-        socketlib.modules.get(MODULE_ID).executeAsGM("createEffects", {
-          actorUUIDs: canvas.tokens.placeables
-            .filter((token) =>
-              token.actor.items.some(
-                (i) =>
-                  i.sourceId === EFFECTS.COMMANDER.IN_PLANT_BANNER_RANGE &&
-                  i?.flags?.[game.system.id]?.aura?.origin ===
-                    summonedActorUUID,
-              ),
-            )
-            .map((token) => token.actor.uuid),
-          effectUUID: EFFECTS.COMMANDER.PLANT_BANNER,
-        });
-      }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
+      postSummonHelper.PLANT_BANNER(summonedActorUUID);
       break;
     case SOURCES.MISC.WOODEN_DOUBLE: {
-      if (!summonerToken) return;
-      const mvmntLocation = await Sequencer.Crosshair.show({
-        location: {
-          obj: summonerToken,
-          showRange: true,
-        },
-        label: {
-          text: game.i18n.localize(
-            "pf2e-summons-assistant.display-text.wooden-double.step",
-          ),
-        },
-        icon: {
-          texture: summonerToken.document.texture.src,
-        },
-        snap: {
-          position:
-            summonerToken.document.width % 2 === 1
-              ? CONST.GRID_SNAPPING_MODES.CENTER
-              : CONST.GRID_SNAPPING_MODES.VERTEX,
-        },
-        gridHighlight: true,
-      });
-
-      await new Sequence()
-        .animation()
-        .on(summonerToken)
-        .moveTowards(mvmntLocation, { relativeToCenter: true })
-        .play();
+      postSummonHelper.WOODEN_DOUBLE(summonerToken);
       break;
     }
     case SOURCES.KINETICIST.JAGGED_BERMS:
-      const summonToken = canvas.tokens.placeables.find(
-        (tok) => tok?.actor?.id === summonedActorID,
-      );
+      const summonToken = getTokenFromActorID(summonedActorID);
 
       await handleJaggedBermsSpikes(summonToken);
       break;
 
     case SOURCES.WALL.WALL_OF_ICE:
-      const summonedTokenWallOfIce = canvas.tokens.placeables.find(
-        (tok) => tok?.actor?.id === summonedActorID,
-      );
-
-      if (summonedTokenWallOfIce.actor.system.details.blurb === "circle") {
-        await setupWallCircle({
-          position: summonedTokenWallOfIce?.center,
-          summonedWallToken: summonedTokenWallOfIce,
-          radiusSquares: 2,
-          art: WALL_ART.ICE.CIRCLE,
-        });
-      } else if (summonedTokenWallOfIce.actor.system.details.blurb === "line") {
-        notifyRayControls();
-        const startingDistance = 30;
-        await setupStraightWall({
-          summonedWallToken: summonedTokenWallOfIce,
-          startingDistance,
-          distance: 60,
-          art: WALL_ART.ICE.LINE,
-        });
-      }
+      postSummonHelper.WALL_OF_ICE(summonedActorID);
       break;
 
     case SOURCES.WALL.WALL_OF_FIRE:
-      const summonedToken = canvas.tokens.placeables.find(
-        (tok) => tok?.actor?.id === summonedActorID,
-      );
-
-      if (summonedToken.actor.system.details.blurb === "circle") {
-        let squaresWide = 5.5;
-        if (canvas.grid.units === "ft") {
-          squaresWide *= canvas.grid.distance / 5;
-        }
-
-        new Sequence()
-          .effect()
-          .file("jb2a.wall_of_fire.500x100.yellow")
-          .tieToDocuments(summonedToken)
-          .attachTo(summonedToken, { bindScale: false })
-          .size(squaresWide, { gridUnits: true })
-          .persist()
-          .play();
-      } else if (summonedToken.actor.system.details.blurb === "line") {
-        notifyRayControls();
-        const startingDistance = 30;
-        const ch = await Sequencer.Crosshair.show({
-          t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
-          distance: startingDistance,
-          snap: {
-            direction: 10,
-          },
-          distanceMin: 0,
-          distanceMax: 60,
-        });
-
-        new Sequence()
-          .effect()
-          .atLocation(ch)
-          .file("jb2a.wall_of_fire.300x100.yellow")
-          .tieToDocuments(summonedToken)
-          .scale({ x: 1, y: 3 })
-          .stretchTo(ch, { onlyX: true })
-          .persist()
-          .play();
-      }
       break;
     case SOURCES.WALL.WALL_OF_STONE:
-      const summonedWallToken = canvas.tokens.placeables.find(
-        (tok) => tok?.actor?.id === summonedActorID,
-      );
-      const isVertical = isVerticalWallSegment(summonedWallToken);
-      if (isVertical) {
-        await summonedWallToken?.document?.update({ rotation: 90 });
-      }
-      const bounds = summonedWallToken.bounds;
-      const coords = [];
-      if (isVertical) {
-        //Horizontal
-        coords.push(
-          bounds.center.x,
-          bounds.top,
-          bounds.center.x,
-          bounds.bottom,
-        );
-      } else {
-        //Vertical
-        coords.push(
-          bounds.left,
-          bounds.center.y,
-          bounds.right,
-          bounds.center.y,
-        );
-      }
-      const elevationStart = summonedWallToken?.document?.elevation ?? 0;
-      const wallData = {
-        c: coords,
-        light: CONST.WALL_SENSE_TYPES.NORMAL,
-        move: CONST.WALL_SENSE_TYPES.NORMAL,
-        sight: CONST.WALL_SENSE_TYPES.NORMAL,
-        flags: {
-          "pf2e-summons-assistant": {
-            wallSegmentTokenID: `${summonedWallToken.id}`,
-            // wallSource: "IDKLUL",
-          },
-          levels: {
-            rangeBottom: elevationStart,
-            rangeTop: elevationStart + 20,
-          },
-          "wall-height": {
-            bottom: elevationStart,
-            top: elevationStart + 20,
-          },
-        },
-      };
-      const walls = await socketlib.modules
-        .get(MODULE_ID)
-        .executeAsGM("createWalls", [wallData]);
-
+      postSummonHelper.WALL_OF_STONE(summonedActorID);
       break;
 
     case SOURCES.MISC.RAISE_THE_HORDE:
     case SOURCES.MISC.SWARM_FORTH:
-      const actor = canvas.tokens.placeables.find(
-        (tok) => tok?.actor?.id === summonedActorID,
-      )?.actor;
-      await actor.setFlag("pf2e-toolbelt", "shareData", {
-        data: {
-          master: summonerToken.actor.id,
-          health: true,
-          languages: false,
-          timeEvents: false,
-          armorRunes: false,
-          heroPoints: false,
-          skills: false,
-          spellcasting: false,
-          weaponRunes: false,
-        },
-      });
+      postSummonHelper.SHARED_HEALTH_SETUP(summonedActorID);
       break;
     //TO do set
     default:
       break;
   }
+}
+
+const postSummonHelper = {
+  PLANT_BANNER: async (summonedActorUUID) => {
+    setTimeout(function () {
+      socketlib.modules.get(MODULE_ID).executeAsGM("createEffects", {
+        actorUUIDs: canvas.tokens.placeables
+          .filter((token) =>
+            token.actor.items.some(
+              (i) =>
+                i.sourceId === EFFECTS.COMMANDER.IN_PLANT_BANNER_RANGE &&
+                i?.flags?.[game.system.id]?.aura?.origin === summonedActorUUID,
+            ),
+          )
+          .map((token) => token.actor.uuid),
+        effectUUID: EFFECTS.COMMANDER.PLANT_BANNER,
+      });
+    }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
+  },
+  SHARED_HEALTH_SETUP: async (summonedActorID) => {
+    const actor = getTokenFromActorID(summonedActorID)?.actor;
+    await actor.setFlag("pf2e-toolbelt", "shareData", {
+      data: {
+        master: summonerToken.actor.id,
+        health: true,
+        languages: false,
+        timeEvents: false,
+        armorRunes: false,
+        heroPoints: false,
+        skills: false,
+        spellcasting: false,
+        weaponRunes: false,
+      },
+    });
+  },
+  WALL_OF_ICE: async (summonedActorID) => {
+    const summonedTokenWallOfIce = getTokenFromActorID(summonedActorID);
+
+    if (summonedTokenWallOfIce.actor.system.details.blurb === "circle") {
+      await setupWallCircle({
+        position: summonedTokenWallOfIce?.center,
+        summonedWallToken: summonedTokenWallOfIce,
+        radiusSquares: 2,
+        art: WALL_ART.ICE.CIRCLE,
+      });
+    } else if (summonedTokenWallOfIce.actor.system.details.blurb === "line") {
+      notifyRayControls();
+      const startingDistance = 30;
+      await setupStraightWall({
+        summonedWallToken: summonedTokenWallOfIce,
+        startingDistance,
+        distance: 60,
+        art: WALL_ART.ICE.LINE,
+      });
+    }
+  },
+  WALL_OF_FIRE: async (summonedActorID) => {
+    const summonedToken = getTokenFromActorID(summonedActorID);
+
+    if (summonedToken.actor.system.details.blurb === "circle") {
+      let squaresWide = 5.5;
+      if (canvas.grid.units === "ft") {
+        squaresWide *= canvas.grid.distance / 5;
+      }
+
+      new Sequence()
+        .effect()
+        .file("jb2a.wall_of_fire.500x100.yellow")
+        .tieToDocuments(summonedToken)
+        .attachTo(summonedToken, { bindScale: false })
+        .size(squaresWide, { gridUnits: true })
+        .persist()
+        .play();
+    } else if (summonedToken.actor.system.details.blurb === "line") {
+      notifyRayControls();
+      const startingDistance = 30;
+      const ch = await Sequencer.Crosshair.show({
+        t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
+        distance: startingDistance,
+        snap: {
+          direction: 10,
+        },
+        distanceMin: 0,
+        distanceMax: 60,
+      });
+
+      new Sequence()
+        .effect()
+        .atLocation(ch)
+        .file("jb2a.wall_of_fire.300x100.yellow")
+        .tieToDocuments(summonedToken)
+        .scale({ x: 1, y: 3 })
+        .stretchTo(ch, { onlyX: true })
+        .persist()
+        .play();
+    }
+  },
+  WALL_OF_STONE: async (summonedActorID) => {
+    const summonedWallToken = getTokenFromActorID(summonedActorID);
+    const isVertical = isVerticalWallSegment(summonedWallToken);
+    if (isVertical) {
+      await summonedWallToken?.document?.update({ rotation: 90 });
+    }
+    const bounds = summonedWallToken.bounds;
+    const coords = [];
+    if (isVertical) {
+      //Horizontal
+      coords.push(bounds.center.x, bounds.top, bounds.center.x, bounds.bottom);
+    } else {
+      //Vertical
+      coords.push(bounds.left, bounds.center.y, bounds.right, bounds.center.y);
+    }
+    const wallData = {
+      c: coords,
+      light: CONST.WALL_SENSE_TYPES.NORMAL,
+      move: CONST.WALL_SENSE_TYPES.NORMAL,
+      sight: CONST.WALL_SENSE_TYPES.NORMAL,
+      flags: {
+        "pf2e-summons-assistant": {
+          wallSegmentTokenID: `${summonedWallToken.id}`,
+        },
+      },
+    };
+    const walls = await socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("createWalls", [wallData]);
+  },
+  WOODEN_DOUBLE: async (summonerToken) => {
+    if (!summonerToken) return;
+    const mvmntLocation = await Sequencer.Crosshair.show({
+      location: {
+        obj: summonerToken,
+        showRange: true,
+      },
+      label: {
+        text: game.i18n.localize(
+          "pf2e-summons-assistant.display-text.wooden-double.step",
+        ),
+      },
+      icon: {
+        texture: summonerToken.document.texture.src,
+      },
+      snap: {
+        position:
+          summonerToken.document.width % 2 === 1
+            ? CONST.GRID_SNAPPING_MODES.CENTER
+            : CONST.GRID_SNAPPING_MODES.VERTEX,
+      },
+      gridHighlight: true,
+    });
+
+    await new Sequence()
+      .animation()
+      .on(summonerToken)
+      .moveTowards(mvmntLocation, { relativeToCenter: true })
+      .play();
+  },
+};
+
+function getTokenFromActorID(actorID) {
+  return canvas.tokens.placeables.find((tok) => tok?.actor?.id === actorID);
 }
