@@ -82,7 +82,7 @@
       "customization": {
         "saved": "Saved the customization of the summon"
       },
-      "active-minions": "Active <u data-tooltip='{minionTooltip}'>minion(s)</u> for <b>{summonerName}</b>"
+      "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>"
     },
     "dialog": {
       "duplicate-foe": "Did the target fail their save?",

@@ -82,7 +82,7 @@
             "customization": {
                 "saved": "召唤物自定义设置已保存"
             },
-            "active-minions": "<b>{summonerName}</b>当前控制的<u data-tooltip='{minionTooltip}'>仆从</u>"
+            "active-minions": "<b>{summonerName}</b>当前控制的<u data-tooltip=\"{minionTooltip}\">仆从</u>"
         },
         "dialog": {
             "duplicate-foe": "该目标豁免失败了吗？",

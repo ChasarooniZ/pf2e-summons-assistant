@@ -82,7 +82,7 @@
       "customization": {
         "saved": "Zapisano dostosowania przywołania"
       },
-      "active-minions": "Aktywne <u data-tooltip=»{minionTooltip}«>sługus(y)</u> dla <b>{summonerName}</b>"
+      "active-minions": "Aktywne <u data-tooltip=\"{minionTooltip}\">sługus(y)</u> dla <b>{summonerName}</b>"
     },
     "dialog": {
       "duplicate-foe": "Czy cel nie wykonał rzutu obronnego?",

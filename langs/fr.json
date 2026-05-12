@@ -82,7 +82,7 @@
       "customization": {
         "saved": "La personnalisation de l'invocation a été sauvegardée."
       },
-      "active-minions": "Activez le(s) <u data-tooltip='{minionTooltip}'>sbire(s)</u> de <b>{summonerName}</b>"
+      "active-minions": "Activez le(s) <u data-tooltip=\"{minionTooltip}\">sbire(s)</u> de <b>{summonerName}</b>"
     },
     "dialog": {
       "duplicate-foe": "La cible a t-elle manqué son jet de sauvegarde ?",

@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.1.2
+
+- Updated all translations to fix a bug causing the minion reminder tooltip to spill into the message
+
+## 2.1.1
+
+- Added missing packs
+
 ## 2.1.0
 
 - Added support for `Wall of Ice`
