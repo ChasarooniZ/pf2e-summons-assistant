@@ -311,6 +311,63 @@ export const SUMMON_LEVELS_BY_RANK = {
   10: 15,
 };
 
+export const MATERIAL_STATISTICS = {
+  ADAMANTINE: {
+    STRUCTURE: {
+      STANDARD_GRADE: {
+        hardness: 28,
+        hp: 112,
+      },
+    },
+  },
+  COLD_IRON: {
+    STRUCTURE: {
+      LOW_GRADE: {
+        hardness: 18,
+        hp: 72,
+      },
+      STANDARD_GRADE: {
+        hardness: 22,
+        hp: 88,
+      },
+      HIGH_GRADE: {
+        hardness: 28,
+        hp: 112,
+      },
+    },
+  },
+  DAWNSILVER: {
+    STRUCTURE: {
+      STANDARD_GRADE: {
+        hardness: 18,
+        hp: 72,
+      },
+      HIGH_GRADE: {
+        hardness: 24,
+        hp: 96,
+      },
+    },
+  },
+  IRON: {
+    STRUCTURE: {
+      hardness: 18,
+      hp: 72,
+    },
+  },
+  SILVER: {
+    STRUCTURE: {
+      STANDARD_GRADE: {
+        hardness: 14,
+        hp: 56,
+      },
+      HIGH_GRADE: {
+        hardness: 20,
+        hp: 80,
+      },
+    },
+  },
+};
+
 export const ALT_ART = {
   JB2A_FREE: {
     LIGHT: {
