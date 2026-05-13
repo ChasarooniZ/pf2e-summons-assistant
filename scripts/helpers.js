@@ -212,3 +212,36 @@ export function convertSpecificCreatureToSF2e(uuids) {
     return uuids;
   }
 }
+
+export async function defaultTokenRayCrosshair({
+  token,
+  maxDistance,
+  texture = "",
+}) {
+  return Sequencer.Crosshair.show(
+    {
+      t: "ray",
+      distance: maxDistance / 2,
+      texture: texture,
+      snap: {
+        resolution: 20,
+        direction: 10,
+      },
+      location: {
+        obj: token,
+        lockToEdge: true,
+      },
+      distanceMin: 0,
+      distanceMax: maxDistance,
+    },
+    {
+      [Sequencer.Crosshair.CALLBACKS.MOUSE_MOVE]: (crosshair) => {
+        crosshair.updateCrosshair({
+          "label.text": `[${Math.round((crosshair.ray.distance / canvas.dimensions.distancePixels) * 2) / 2}/${maxDistance}] ft`,
+          "label.dx": crosshair.ray.dx,
+          "label.dy": crosshair.ray.dy - canvas.grid.size * 0.7,
+        });
+      },
+    },
+  );
+}

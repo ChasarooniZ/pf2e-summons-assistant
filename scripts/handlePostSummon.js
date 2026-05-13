@@ -1,5 +1,5 @@
 import { SOURCES, EFFECTS, MODULE_ID, SENSE_MODES } from "./const.js";
-import { isVerticalWallSegment, notifyRayControls } from "./helpers.js";
+import { defaultTokenRayCrosshair, isVerticalWallSegment } from "./helpers.js";
 import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 import {
   getWallData,
@@ -124,19 +124,11 @@ const postSummonHelper = {
         .persist()
         .play();
     } else if (summonedToken.actor.system.details.blurb === "line") {
-      const startingDistance = 30;
-      const ch = await Sequencer.Crosshair.show({
-        t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
-        distance: startingDistance,
-        snap: {
-          direction: 10,
-        },
-        location: {
-          obj: summonedToken,
-          lockToEdge: true,
-        },
-        distanceMin: 0,
-        distanceMax: 60,
+      const ch = await defaultTokenRayCrosshair({
+        token: summonedToken,
+        maxDistance: 60,
+        texture: Sequencer.Database.getEntry("jb2a.wall_of_fire.300x100.yellow")
+          .originalFile,
       });
 
       new Sequence()
@@ -152,29 +144,15 @@ const postSummonHelper = {
   },
   WALL_OF_SHADOW: async (summonedActorID) => {
     const summonedToken = getTokenFromActorID(summonedActorID);
-    const pos = await Sequencer.Crosshair.show({
-      t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
-      distance: 30,
-      snap: {
-        position:
-          CONST.GRID_SNAPPING_MODES.VERTEX |
-          CONST.GRID_SNAPPING_MODES.EDGE_MIDPOINT,
-        direction: 10,
-      },
-      location: {
-        obj: summonedToken,
-        lockToEdge: true,
-      },
-      distanceMin: 0,
-      distanceMax: 60,
+    const pos = await defaultTokenRayCrosshair({
+      token: summonedToken,
+      maxDistance: 60,
     });
-
-    console.log({ pos });
 
     const r = foundry.canvas.geometry.Ray.fromAngle(
       pos.x,
       pos.y,
-      Math.toRadians(pos.angle),
+      Math.toRadians(pos.direction),
       pos.distance * canvas.dimensions.distancePixels,
     );
 

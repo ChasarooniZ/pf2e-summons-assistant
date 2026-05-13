@@ -1,4 +1,5 @@
 import { MODULE_ID, SENSE_MODES, WALLS_TO_SYNC_DELETE } from "../const.js";
+import { defaultTokenRayCrosshair } from "../helpers.js";
 
 export const WALL_ART = {
   ICE: {
@@ -28,7 +29,7 @@ export function setupWallHooks() {
 }
 
 /**
- * Sets up wall circle (Uses an octogon ATM)
+ * Sets up wall circle (Uses an octagon ATM)
  * @param {*} param0
  * @returns
  */
@@ -72,27 +73,11 @@ export async function setupWallCircle({
   return walls;
 }
 
-export async function setupStraightWall({
-  startingDistance,
-  summonedWallToken,
-  distance,
-  art,
-}) {
-  const pos = await Sequencer.Crosshair.show({
-    t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
-    distance: startingDistance ?? distance,
-    snap: {
-      position:
-        CONST.GRID_SNAPPING_MODES.VERTEX |
-        CONST.GRID_SNAPPING_MODES.EDGE_MIDPOINT,
-      direction: 10,
-    },
-    location: {
-      obj: summonedWallToken,
-      lockToEdge: true,
-    },
-    distanceMin: 0,
-    distanceMax: distance,
+export async function setupStraightWall({ summonedWallToken, distance, art }) {
+  const pos = await defaultTokenRayCrosshair({
+    token: summonedWallToken,
+    maxDistance: distance,
+    texture: art,
   });
   if (pos) {
     const origin = { x: pos.x, y: pos.y };
