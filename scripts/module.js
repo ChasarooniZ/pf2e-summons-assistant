@@ -126,6 +126,18 @@ Hooks.once("ready", async function () {
       spellRelevantInfo.position = token ? token.center : null;
     }
 
+    if (chatMessage?.item?.system?.range?.value) {
+      spellRelevantInfo.range = getSpellRange(item?.system?.range?.value);
+      if (
+        spellRelevantInfo &&
+        chatMessage?.flags?.pf2e?.context?.options?.includes(
+          "spellshape:reach-spell",
+        )
+      ) {
+        spellRelevantInfo.range += 30;
+      }
+    }
+
     let summonDetailsGroup = await getSpecificSummonDetails(
       itemUuid,
       spellRelevantInfo,
@@ -140,6 +152,22 @@ Hooks.once("ready", async function () {
     if (!summonDetailsGroup || summonDetailsGroup?.length === 0) return;
 
     summonDetailsGroup.forEach((group) => {
+      // This will limit reach for specific ones
+      if (spellRelevantInfo?.range && !group?.crosshairParameters?.location) {
+        const summonerToken = canvas.tokens.placeables.find(
+          (t) => t.actor.id === spellRelevantInfo.summonerActorId,
+        );
+        if (summonerToken)
+          foundry.utils.mergeObject(group, {
+            crosshairParameters: {
+              location: summonerToken,
+              limitMaxRange: spellRelevantInfo.range,
+              displayRangePoly: true,
+              rangePolyLineColor: 0x0,
+              rangePolyFillColor: 0x0,
+            },
+          });
+      }
       group?.itemsToAdd?.forEach((item) => {
         if (item?.system) {
           item.system.context = {

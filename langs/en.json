@@ -2,6 +2,11 @@
   "I18N.LANGUAGE": "English",
   "pf2e-summons-assistant": {
     "name": "PF2e Summon's Assistant",
+    "code": {
+      "range": {
+        "feet": "feet"
+      }
+    },
     "module-settings": {
       "name-ownership": {
         "name": "Add Summoner's Name to Summon's Name",

@@ -213,6 +213,17 @@ export function convertSpecificCreatureToSF2e(uuids) {
   }
 }
 
+export function getSpellRange(rangeText) {
+  const feet = game.i18n.has("pf2e-summons-assistant.code.range.feet")
+    ? game.i18n.localize("pf2e-summons-assistant.code.range.feet")
+    : "feet";
+  if (rangeText.endsWith(feet)) {
+    return Number(rangeText.substring(0, rangeText.indexOf(" "))) || null;
+  } else {
+    return null;
+  }
+}
+
 export async function defaultTokenRayCrosshair({
   token,
   maxDistance,
