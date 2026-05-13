@@ -9,6 +9,7 @@
 - **Updated**
   - Updated workflow for the placement of straight walls to make the controls more intuitive
   - Added some coloration to the `Wall` spell controlling token to clarify what it controls
+  - Fixed bug with `Image Only` toggle in forge (🐛 @pv42)
   - Reworked some backend code to improve maintainability
   - Migrated compendiums properly
 

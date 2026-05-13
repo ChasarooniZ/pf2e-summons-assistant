@@ -59,16 +59,16 @@ export async function summon(
         filter: (candidateActor) => {
           let levelAdjustment;
           switch (candidateActor.system?.attributes?.adjustment) {
-            case 'elite': 
+            case "elite":
               if (candidateActor.system.details.level.value <= 0) {
-                levelAdjustment = 2
+                levelAdjustment = 2;
               } else {
                 levelAdjustment = 1;
               }
               break;
-            case 'weak':
+            case "weak":
               if (candidateActor.system.details.level.value === 1) {
-                levelAdjustment = -2
+                levelAdjustment = -2;
               } else {
                 levelAdjustment = -1;
               }
@@ -79,7 +79,8 @@ export async function summon(
           }
           const isCommonAndValidLevel =
             candidateActor.system?.traits?.rarity === "common" &&
-            candidateActor.system.details.level.value + levelAdjustment <= summonLevel;
+            candidateActor.system.details.level.value + levelAdjustment <=
+              summonLevel;
 
           const hasValidTraits =
             requiredTraits.length === 0 ||
@@ -147,7 +148,7 @@ export async function summon(
             func: (toggleActor, isToggleActive) => {
               return (
                 !isToggleActive ||
-                toggleActor.img != "systems/pf2e/icons/default-icons/npc.svg"
+                !toggleActor?.img?.endsWith("default-icons/npc.svg")
               );
             },
             indexedFields: [
