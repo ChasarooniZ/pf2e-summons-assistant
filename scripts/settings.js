@@ -75,6 +75,20 @@ export function setupSettings() {
     }
   );
 
+   game.settings.register(
+    MODULE_ID,
+    "automation.limit-range",
+    {
+      name: `${MODULE_ID}.module-settings.automation.limit-range.name`,
+      hint: `${MODULE_ID}.module-settings.automation.limit-range.hint`,
+      requiresReload: false,
+      scope: "world",
+      config: true,
+      default: true,
+      type: Boolean,
+    }
+  );
+
   game.settings.register(
     MODULE_ID,
     "necromancer.handle-living-graveyard-movement",

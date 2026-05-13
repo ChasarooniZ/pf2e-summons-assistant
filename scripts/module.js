@@ -1,6 +1,7 @@
 import { MODULE_ID, SLUG_TO_SOURCE, SOURCE_UUIDS, SOURCES } from "./const.js";
 import {
   convertItemUUIDBasedOnSystem,
+  getSpellRange,
   messageItemHasRollOption,
   setupSummonedTokenRefreshHooks,
 } from "./helpers.js";
@@ -126,7 +127,10 @@ Hooks.once("ready", async function () {
       spellRelevantInfo.position = token ? token.center : null;
     }
 
-    if (chatMessage?.item?.system?.range?.value) {
+    if (
+      chatMessage?.item?.system?.range?.value &&
+      game.settings.get(MODULE_ID, "automation.limit-range")
+    ) {
       spellRelevantInfo.range = getSpellRange(item?.system?.range?.value);
       if (
         spellRelevantInfo &&
@@ -153,7 +157,11 @@ Hooks.once("ready", async function () {
 
     summonDetailsGroup.forEach((group) => {
       // This will limit reach for specific ones
-      if (spellRelevantInfo?.range && !group?.crosshairParameters?.location) {
+      if (
+        game.settings.get(MODULE_ID, "automation.limit-range") &&
+        spellRelevantInfo?.range &&
+        !group?.crosshairParameters?.location
+      ) {
         const summonerToken = canvas.tokens.placeables.find(
           (t) => t.actor.id === spellRelevantInfo.summonerActorId,
         );

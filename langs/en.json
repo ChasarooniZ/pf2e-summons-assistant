@@ -8,6 +8,12 @@
       }
     },
     "module-settings": {
+      "automation": {
+        "limit-range": {
+          "name": "Automate Limit Range of Summons",
+          "hint": "Limits the range of spells that include a range with them as well as shows the range limit"
+        }
+      },
       "name-ownership": {
         "name": "Add Summoner's Name to Summon's Name",
         "hint": "Modify the Summon's name to show who summoned it, IE 'Giorno's Goblin' etc."
