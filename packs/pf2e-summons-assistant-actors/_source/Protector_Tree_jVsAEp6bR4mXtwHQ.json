@@ -16,7 +16,7 @@
     "height": 1,
     "width": 1,
     "name": "Protector Tree",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/protector_tree.webp",
@@ -208,14 +208,14 @@
   "sort": 100000,
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.7.4",
-    "createdTime": 1763581590667,
-    "modifiedTime": 1775454702448,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689007,
+    "modifiedTime": 1778652689007,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!jVsAEp6bR4mXtwHQ"

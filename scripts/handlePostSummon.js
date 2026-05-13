@@ -1,7 +1,8 @@
-import { SOURCES, EFFECTS, MODULE_ID } from "./const.js";
+import { SOURCES, EFFECTS, MODULE_ID, SENSE_MODES } from "./const.js";
 import { isVerticalWallSegment, notifyRayControls } from "./helpers.js";
 import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 import {
+  getWallData,
   setupStraightWall,
   setupWallCircle,
   WALL_ART,
@@ -21,22 +22,23 @@ export async function handlePostSummon(
       postSummonHelper.WOODEN_DOUBLE(summonerToken);
       break;
     }
-    case SOURCES.KINETICIST.JAGGED_BERMS:
-      const summonToken = getTokenFromActorID(summonedActorID);
-
-      await handleJaggedBermsSpikes(summonToken);
+    case SOURCES.KINETICIST.JAGGED_BERMS: {
+      postSummonHelper.JAGGED_BERMS(summonedActorID);
       break;
+    }
 
     case SOURCES.WALL.WALL_OF_ICE:
       postSummonHelper.WALL_OF_ICE(summonedActorID);
       break;
-
     case SOURCES.WALL.WALL_OF_FIRE:
+      postSummonHelper.WALL_OF_FIRE(summonedActorID);
+      break;
+    case SOURCES.WALL.WALL_OF_SHADOW:
+      postSummonHelper.WALL_OF_SHADOW(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_STONE:
       postSummonHelper.WALL_OF_STONE(summonedActorID);
       break;
-
     case SOURCES.MISC.RAISE_THE_HORDE:
     case SOURCES.MISC.SWARM_FORTH:
       postSummonHelper.SHARED_HEALTH_SETUP(summonedActorID);
@@ -48,6 +50,10 @@ export async function handlePostSummon(
 }
 
 const postSummonHelper = {
+  JAGGED_BERMS: async (summonedActorID) => {
+    const summonToken = getTokenFromActorID(summonedActorID);
+    await handleJaggedBermsSpikes(summonToken);
+  },
   PLANT_BANNER: async (summonedActorUUID) => {
     setTimeout(function () {
       socketlib.modules.get(MODULE_ID).executeAsGM("createEffects", {
@@ -91,7 +97,6 @@ const postSummonHelper = {
         art: WALL_ART.ICE.CIRCLE,
       });
     } else if (summonedTokenWallOfIce.actor.system.details.blurb === "line") {
-      notifyRayControls();
       const startingDistance = 30;
       await setupStraightWall({
         summonedWallToken: summonedTokenWallOfIce,
@@ -119,13 +124,16 @@ const postSummonHelper = {
         .persist()
         .play();
     } else if (summonedToken.actor.system.details.blurb === "line") {
-      notifyRayControls();
       const startingDistance = 30;
       const ch = await Sequencer.Crosshair.show({
         t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
         distance: startingDistance,
         snap: {
           direction: 10,
+        },
+        location: {
+          obj: summonedToken,
+          lockToEdge: true,
         },
         distanceMin: 0,
         distanceMax: 60,
@@ -141,6 +149,48 @@ const postSummonHelper = {
         .persist()
         .play();
     }
+  },
+  WALL_OF_SHADOW: async (summonedActorID) => {
+    const summonedToken = getTokenFromActorID(summonedActorID);
+    const pos = await Sequencer.Crosshair.show({
+      t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
+      distance: 30,
+      snap: {
+        position:
+          CONST.GRID_SNAPPING_MODES.VERTEX |
+          CONST.GRID_SNAPPING_MODES.EDGE_MIDPOINT,
+        direction: 10,
+      },
+      location: {
+        obj: summonedToken,
+        lockToEdge: true,
+      },
+      distanceMin: 0,
+      distanceMax: 60,
+    });
+
+    console.log({ pos });
+
+    const r = foundry.canvas.geometry.Ray.fromAngle(
+      pos.x,
+      pos.y,
+      Math.toRadians(pos.angle),
+      pos.distance * canvas.dimensions.distancePixels,
+    );
+
+    const wallDataArray = [
+      getWallData({
+        c: [r.A.x, r.A.y, r.B.x, r.B.y],
+        move: SENSE_MODES.NONE,
+        sound: SENSE_MODES.NONE,
+        art: WALL_ART.SHADOW,
+        summonedtokenID: summonedToken.id,
+      }),
+    ];
+
+    await socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("createWalls", wallDataArray);
   },
   WALL_OF_STONE: async (summonedActorID) => {
     const summonedWallToken = getTokenFromActorID(summonedActorID);
@@ -159,16 +209,17 @@ const postSummonHelper = {
     }
     const wallData = {
       c: coords,
-      light: CONST.WALL_SENSE_TYPES.NORMAL,
-      move: CONST.WALL_SENSE_TYPES.NORMAL,
-      sight: CONST.WALL_SENSE_TYPES.NORMAL,
+      light: SENSE_MODES.NORMAL,
+      move: SENSE_MODES.NORMAL,
+      sight: SENSE_MODES.NORMAL,
       flags: {
         "pf2e-summons-assistant": {
           wallSegmentTokenID: `${summonedWallToken.id}`,
         },
       },
     };
-    const walls = await socketlib.modules
+
+    await socketlib.modules
       .get(MODULE_ID)
       .executeAsGM("createWalls", [wallData]);
   },

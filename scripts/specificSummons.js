@@ -100,6 +100,7 @@ const getSummonHandlers = () => ({
   [SOURCES.WALL.WALL_OF_ICE]: handlers.wall.handleWallOfIce,
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
   [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
+  [SOURCES.WALL.WALL_OF_SHADOW]: handlers.wall.handleWallOfShadow,
 
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
@@ -798,6 +799,17 @@ const handlers = {
                 }
               : {}),
           }),
+        },
+      ];
+    },
+    handleWallOfShadow: async (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_SHADOW],
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+          },
         },
       ];
     },

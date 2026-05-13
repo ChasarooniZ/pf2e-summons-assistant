@@ -41,7 +41,7 @@
     "height": 0.5,
     "width": 0.5,
     "name": "Telekinetic Hand",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/jb2a_patreon/Library/5th_Level/Arcane_Hand/ArcaneHand_Human_01_Idle_Blue_400x400.webm",
@@ -231,14 +231,14 @@
   "sort": 100000,
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.llXyX6eS8UHGqpnn",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.3.1",
-    "createdTime": 1754506597987,
-    "modifiedTime": 1754506872387,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689008,
+    "modifiedTime": 1778652689008,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!llXyX6eS8UHGqpnn"

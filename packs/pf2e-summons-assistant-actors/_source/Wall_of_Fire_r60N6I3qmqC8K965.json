@@ -10,7 +10,7 @@
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
-        "autoscale": true
+        "autoscale": false
       },
       "Rideable": {
         "issetRideableFlag": true,
@@ -38,18 +38,18 @@
         "PilotedbyDefaultFlag": false
       }
     },
-    "height": 0.5,
-    "width": 0.5,
+    "height": 1,
+    "width": 1,
     "name": "Wall of Fire",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
-      "scaleX": 1,
-      "scaleY": 1,
+      "scaleX": 0.5,
+      "scaleY": 0.5,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -126,7 +126,7 @@
     "randomImg": false,
     "appendNumber": false,
     "prependAdjective": false,
-    "depth": 0.5
+    "depth": 1
   },
   "effects": [],
   "system": {
@@ -145,7 +145,7 @@
         "value": ""
       },
       "speed": {
-        "value": 25,
+        "value": 0,
         "otherSpeeds": [],
         "details": ""
       }
@@ -222,7 +222,7 @@
       "value": [],
       "rarity": "common",
       "size": {
-        "value": "tiny"
+        "value": "med"
       }
     }
   },
@@ -237,7 +237,7 @@
           "value": "free"
         },
         "description": {
-          "value": "<p>Any creature that crosses the wall or is occupying the wall's area at the start of its turn takes @Damage[(@actor.level)d6[fire]] damage.<br /></p>",
+          "value": "<p>Any creature that crosses the wall or is occupying the wall's area at the start of its turn takes @Damage[(@actor.level)d6[fire]] damage.<br></p>",
           "gm": ""
         },
         "publication": {
@@ -255,11 +255,11 @@
           ]
         },
         "_migration": {
-          "version": 0.953,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.8.0"
+            "schema": 0.953,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -284,29 +284,29 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.8.0",
-        "createdTime": 1768421588305,
-        "modifiedTime": 1768421667976,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689029,
+        "modifiedTime": 1778652689029,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!r60N6I3qmqC8K965.Vu7qTs6kZg8rkuFM"
     }
   ],
-  "sort": 0,
+  "sort": 400000,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.8.0",
-    "createdTime": 1768420855105,
-    "modifiedTime": 1768421678712,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689028,
+    "modifiedTime": 1778652689028,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!r60N6I3qmqC8K965"

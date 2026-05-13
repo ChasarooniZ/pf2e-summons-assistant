@@ -54,7 +54,7 @@
       "contrast": 0
     },
     "name": "Mine",
-    "displayName": 20,
+    "displayName": 30,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/subject/landmine.webp",
       "anchorX": 0.5,
@@ -240,7 +240,7 @@
           "value": "action"
         },
         "description": {
-          "value": "<p><strong>Requirements</strong> A mine you deployed is within 100 feet. With a moment's thought, you trigger the detonation of a mine you deployed within 100 feet, causing it to explode in a @Template[type:burst|distance:10]. This mine deals @Damage[(1+ceil(@actor.level/2))d6[fire]] damage, based on the damage type you selected when that mine was deployed. Creatures in the area can attempt a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save against your class DC.</p><hr /><p>You can Detonate Mine as a reaction, with the following trigger.</p><p><strong>Trigger</strong> A creature enters or leaves a square within the burst area of a mine you have deployed.</p><hr /><p>At 3rd level and every 2 levels thereafter, the damage increases by [[/r 1d6]].</p>",
+          "value": "<p><strong>Requirements</strong> A mine you deployed is within 100 feet. With a moment's thought, you trigger the detonation of a mine you deployed within 100 feet, causing it to explode in a @Template[type:burst|distance:10]. This mine deals @Damage[(1+ceil(@actor.level/2))d6[fire]] damage, based on the damage type you selected when that mine was deployed. Creatures in the area can attempt a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save against your class DC.</p><hr><p>You can Detonate Mine as a reaction, with the following trigger.</p><p><strong>Trigger</strong> A creature enters or leaves a square within the burst area of a mine you have deployed.</p><hr><p>At 3rd level and every 2 levels thereafter, the damage increases by [[/r 1d6]].</p>",
           "gm": ""
         },
         "publication": {
@@ -408,16 +408,15 @@
         "traits": {
           "otherTags": [],
           "value": [
-            "concentrate",
-            "mechanic"
+            "concentrate"
           ]
         },
         "_migration": {
-          "version": 0.94,
+          "version": 0.959,
           "previous": {
-            "schema": 0.939,
-            "foundry": "13.345",
-            "system": "7.2.0"
+            "schema": 0.94,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -438,10 +437,10 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.2.3",
-        "lastModifiedBy": null,
-        "createdTime": null,
-        "modifiedTime": null
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "createdTime": 1778652689031,
+        "modifiedTime": 1778652689031
       },
       "ownership": {
         "default": 0
@@ -452,14 +451,14 @@
   "folder": "gGy6LNAsZa9IaIjf",
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.sAVuxP25VE126TdZ",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752750798522,
-    "modifiedTime": 1775454702448,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689030,
+    "modifiedTime": 1778652689030,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_id": "sAVuxP25VE126TdZ",

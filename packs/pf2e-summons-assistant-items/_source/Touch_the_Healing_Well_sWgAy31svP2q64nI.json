@@ -5,8 +5,12 @@
   "effects": [],
   "system": {
     "_migration": {
-      "version": 0.955,
-      "previous": null
+      "version": 0.959,
+      "previous": {
+        "schema": 0.955,
+        "foundry": "14.361",
+        "system": "8.1.2"
+      }
     },
     "description": {
       "value": "<p>Perform the @UUID[Compendium.pf2e.actionspf2e.pvQ5rY2zrtPI614F]{Interact} if you or an ally are adjacent to the well, that character can Interact to tap into the well's power, recovering @Damage[(4d8 + max(@item.grantedBy.level - 5, 0) * 3)[healing]] Hit Points.</p>",
@@ -45,14 +49,14 @@
   },
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.sWgAy31svP2q64nI",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.12.1",
-    "createdTime": 1775452749028,
-    "modifiedTime": 1775453575577,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652696532,
+    "modifiedTime": 1778652696532,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!items!sWgAy31svP2q64nI"

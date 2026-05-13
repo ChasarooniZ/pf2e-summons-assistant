@@ -41,7 +41,7 @@
     "height": 1,
     "width": 1,
     "name": "The Fluxwraith",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-tokens-myth-and-magic/assets/tokens/pzo2110_fluxwraith.webp",
@@ -256,11 +256,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.94,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.2.3"
+            "schema": 0.94,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -285,9 +285,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.2.3",
-        "createdTime": 1752646438354,
-        "modifiedTime": 1752646624401,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689034,
+        "modifiedTime": 1778652689034,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!3wO8dqpYCdGhIUla.gd70shdUlCEouWNE"
@@ -320,11 +320,11 @@
           ]
         },
         "_migration": {
-          "version": 0.94,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.2.3"
+            "schema": 0.94,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -349,9 +349,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.2.3",
-        "createdTime": 1752646439281,
-        "modifiedTime": 1752646594772,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689035,
+        "modifiedTime": 1778652689035,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!3wO8dqpYCdGhIUla.qMicP4XlZ9JmVoUP"
@@ -359,14 +359,14 @@
   ],
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.3wO8dqpYCdGhIUla",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752646369522,
-    "modifiedTime": 1752646432950,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689033,
+    "modifiedTime": 1778652689033,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_id": "3wO8dqpYCdGhIUla",

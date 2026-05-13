@@ -44,8 +44,12 @@
     },
     "slug": "effect-plant-banner",
     "_migration": {
-      "version": 0.942,
-      "previous": null
+      "version": 0.959,
+      "previous": {
+        "schema": 0.942,
+        "foundry": "14.361",
+        "system": "8.1.2"
+      }
     },
     "unidentified": false,
     "badge": null,
@@ -53,14 +57,14 @@
   },
   "type": "effect",
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.uxS1nDflB45y3PPl",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.4.1",
-    "createdTime": 1755811805167,
-    "modifiedTime": 1755848395449,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652696532,
+    "modifiedTime": 1778652696532,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "effects": [],

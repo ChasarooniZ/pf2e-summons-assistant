@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 2.2.0
+
+- Added support for `Wall of Shadow`
+- Updated workflow for the placement of Straight walls to make the controls more intuitive
+- Reworked some backend code to improve maintainability
+- Migrated compendiums properly
+
 ## 2.1.2
 
 - Updated all translations to fix a bug causing the minion reminder tooltip to spill into the message

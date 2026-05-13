@@ -42,7 +42,7 @@
     "height": 0.5,
     "width": 0.5,
     "name": "Lantern (Bull's Eye)",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/lantern_2mt.png",
@@ -260,11 +260,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.955,
+          "version": 0.959,
           "previous": {
-            "schema": 0.942,
-            "foundry": "13.351",
-            "system": "7.12.1"
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -284,10 +284,10 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.1",
-        "lastModifiedBy": null,
-        "createdTime": null,
-        "modifiedTime": null
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "createdTime": 1778652689062,
+        "modifiedTime": 1778652689062
       },
       "_id": "LbkhsyCubtJpqpqJ",
       "ownership": {
@@ -336,11 +336,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.955,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.12.1"
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -361,10 +361,10 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.1",
-        "lastModifiedBy": null,
-        "createdTime": null,
-        "modifiedTime": null
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "createdTime": 1778652689062,
+        "modifiedTime": 1778652689062
       },
       "ownership": {
         "default": 0
@@ -378,14 +378,14 @@
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NYZhWZaM91h2pyrr",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.12.1",
-    "createdTime": 1775454896242,
-    "modifiedTime": 1775455157965,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689061,
+    "modifiedTime": 1778652689061,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "ownership": {
