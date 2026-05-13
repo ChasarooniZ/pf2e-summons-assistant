@@ -131,7 +131,9 @@ Hooks.once("ready", async function () {
       chatMessage?.item?.system?.range?.value &&
       game.settings.get(MODULE_ID, "automation.limit-range")
     ) {
-      spellRelevantInfo.range = getSpellRange(item?.system?.range?.value);
+      spellRelevantInfo.range = getSpellRange(
+        chatMessage?.item?.system?.range?.value,
+      );
       if (
         spellRelevantInfo &&
         chatMessage?.flags?.pf2e?.context?.options?.includes(
@@ -168,11 +170,13 @@ Hooks.once("ready", async function () {
         if (summonerToken)
           foundry.utils.mergeObject(group, {
             crosshairParameters: {
-              location: summonerToken,
-              limitMaxRange: spellRelevantInfo.range,
-              displayRangePoly: true,
-              rangePolyLineColor: 0x0,
-              rangePolyFillColor: 0x0,
+              location: {
+                obj: summonerToken,
+                limitMaxRange: spellRelevantInfo.range,
+                displayRangePoly: true,
+                rangePolyLineColor: 0x0,
+                rangePolyFillColor: 0x0,
+              },
             },
           });
       }

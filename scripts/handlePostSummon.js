@@ -147,6 +147,7 @@ const postSummonHelper = {
     const pos = await defaultTokenRayCrosshair({
       token: summonedToken,
       maxDistance: 60,
+      texture: WALL_ART.SHADOW,
     });
 
     const r = foundry.canvas.geometry.Ray.fromAngle(

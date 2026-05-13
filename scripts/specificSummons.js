@@ -810,6 +810,13 @@ const handlers = {
           modifications: {
             "system.details.level.value": data.rank,
           },
+          crosshairParameters: {
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.wall.start-point",
+              ),
+            },
+          },
         },
       ];
     },
