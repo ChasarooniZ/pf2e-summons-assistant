@@ -54,7 +54,7 @@
       "fit": "contain",
       "scaleX": 1,
       "scaleY": 1,
-      "tint": "#ffffff",
+      "tint": "#c4aa64",
       "alphaThreshold": 0.75
     },
     "lockRotation": false,
@@ -397,7 +397,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652689053,
-    "modifiedTime": 1778652689053,
+    "modifiedTime": 1778697346847,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!HakOgoig5LWhcq1B"

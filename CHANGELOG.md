@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.2.1
+
+- Fixed issue with missing pack items
+
 ## 2.2.0
 
 - **New**

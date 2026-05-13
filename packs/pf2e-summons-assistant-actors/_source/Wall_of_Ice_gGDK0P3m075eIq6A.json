@@ -38,12 +38,12 @@
         "PilotedbyDefaultFlag": false
       }
     },
-    "height": 0.5,
-    "width": 0.5,
+    "height": 1,
+    "width": 1,
     "name": "Wall of Ice",
     "displayName": 30,
     "actorLink": false,
-    "depth": 0.5,
+    "depth": 1,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
       "anchorX": 0.5,
@@ -51,7 +51,7 @@
       "fit": "contain",
       "scaleX": 0.5,
       "scaleY": 0.5,
-      "tint": "#ffffff",
+      "tint": "#71c8ff",
       "alphaThreshold": 0.75
     },
     "lockRotation": true,
@@ -242,7 +242,7 @@
       "value": [],
       "rarity": "common",
       "size": {
-        "value": "tiny"
+        "value": "med"
       }
     }
   },
@@ -389,7 +389,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652689085,
-    "modifiedTime": 1778652689085,
+    "modifiedTime": 1778697375200,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gGDK0P3m075eIq6A",
     "duplicateSource": null,
