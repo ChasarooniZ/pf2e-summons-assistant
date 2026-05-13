@@ -82,6 +82,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Wall of Ice`
   - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
   - `Wall of Stone` - Implementation Detail, each segment has the stats of 10 ft. of wall
+  - `Wall of Shadow`
 - **Misc**
   - `Avenging Wildwood`
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them

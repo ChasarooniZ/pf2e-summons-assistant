@@ -16,7 +16,7 @@
     "height": 1,
     "width": 1,
     "name": "Healing Well",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/healing_well_2mt.png",
@@ -212,7 +212,7 @@
           "value": "action"
         },
         "description": {
-          "value": "<p><span class=\"action-glyph\">A </span>@UUID[Compendium.pf2e.actionspf2e.pvQ5rY2zrtPI614F]{Interact}<span class=\"action-glyph\"> </span>@Damage[4d8 + @actor.level[healing]]</p><hr /><p>@Embed[Compendium.pf2e.spells-srd.Item.CzjQtkRuRlzRvwzg]</p>",
+          "value": "<p><span class=\"action-glyph\">A </span>@UUID[Compendium.pf2e.actionspf2e.pvQ5rY2zrtPI614F]{Interact}<span class=\"action-glyph\"> </span>@Damage[4d8 + @actor.level[healing]]</p><hr><p>@Embed[Compendium.pf2e.spells-srd.Item.CzjQtkRuRlzRvwzg]</p>",
           "gm": ""
         },
         "publication": {
@@ -251,11 +251,11 @@
           ]
         },
         "_migration": {
-          "version": 0.955,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.12.1"
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -280,9 +280,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.1",
-        "createdTime": 1775451824776,
-        "modifiedTime": 1775453201909,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689036,
+        "modifiedTime": 1778652689036,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!4JEJfYNtUzSuYxPW.Gs1US734UCKyG4cy"
@@ -293,8 +293,12 @@
       "effects": [],
       "system": {
         "_migration": {
-          "version": 0.955,
-          "previous": null
+          "version": 0.959,
+          "previous": {
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
+          }
         },
         "description": {
           "value": "",
@@ -467,9 +471,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.1",
-        "createdTime": 1775452602572,
-        "modifiedTime": 1775452706903,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689037,
+        "modifiedTime": 1778652689037,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_id": "dCHyITqfMFUtETag",
@@ -483,14 +487,14 @@
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.4JEJfYNtUzSuYxPW",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.12.1",
-    "createdTime": 1775451794167,
-    "modifiedTime": 1775454702448,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689035,
+    "modifiedTime": 1778652689035,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!4JEJfYNtUzSuYxPW"

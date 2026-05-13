@@ -41,7 +41,7 @@
     "height": 1,
     "width": 1,
     "name": "Floating Flame",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/jb2a_patreon/Library/2nd_Level/Flaming_Sphere/FlamingSphere_02_Orange_400x400.webm",
@@ -254,11 +254,11 @@
           ]
         },
         "_migration": {
-          "version": 0.953,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.7.4"
+            "schema": 0.953,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -283,10 +283,10 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.7.4",
-        "createdTime": 1763743064115,
-        "modifiedTime": 1763750408335,
-        "lastModifiedBy": "QxDObmx87OPbZTK7"
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689015,
+        "modifiedTime": 1778652689015,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!HOq9yGxQLhhZcEAP.HppZJrvCLXD4FllO"
     }
@@ -294,15 +294,15 @@
   "sort": 0,
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HOq9yGxQLhhZcEAP",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.7.4",
-    "createdTime": 1752613329426,
-    "modifiedTime": 1763743816999,
-    "lastModifiedBy": "QxDObmx87OPbZTK7"
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689013,
+    "modifiedTime": 1778652689013,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!HOq9yGxQLhhZcEAP"
 }

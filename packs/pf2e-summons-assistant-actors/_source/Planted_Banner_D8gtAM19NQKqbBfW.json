@@ -41,7 +41,7 @@
     "height": 0.5,
     "width": 0.5,
     "name": "Planted Banner",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/plant-banner.webp",
@@ -273,11 +273,11 @@
           ]
         },
         "_migration": {
-          "version": 0.941,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.3.1"
+            "schema": 0.941,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -302,9 +302,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.4.1",
-        "createdTime": 1754207756042,
-        "modifiedTime": 1755811755902,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689048,
+        "modifiedTime": 1778652689048,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!D8gtAM19NQKqbBfW.vidOKIYqEJb5aXE5"
@@ -353,11 +353,11 @@
           ]
         },
         "_migration": {
-          "version": 0.941,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.3.1"
+            "schema": 0.941,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -382,9 +382,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.1",
-        "createdTime": 1754207756917,
-        "modifiedTime": 1775461376807,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689048,
+        "modifiedTime": 1778652689048,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!D8gtAM19NQKqbBfW.Ge8Il1I5HMi4rj0l"
@@ -402,14 +402,14 @@
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.12.1",
-    "createdTime": 1754207697469,
-    "modifiedTime": 1775461376927,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689047,
+    "modifiedTime": 1778652689047,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!D8gtAM19NQKqbBfW"

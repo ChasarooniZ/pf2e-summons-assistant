@@ -212,3 +212,47 @@ export function convertSpecificCreatureToSF2e(uuids) {
     return uuids;
   }
 }
+
+export function getSpellRange(rangeText) {
+  const feet = game.i18n.has("pf2e-summons-assistant.code.range.feet")
+    ? game.i18n.localize("pf2e-summons-assistant.code.range.feet")
+    : "feet";
+  if (rangeText.endsWith(feet)) {
+    return Number(rangeText.substring(0, rangeText.indexOf(" "))) || null;
+  } else {
+    return null;
+  }
+}
+
+export async function defaultTokenRayCrosshair({
+  token,
+  maxDistance,
+  texture = "",
+}) {
+  return Sequencer.Crosshair.show(
+    {
+      t: "ray",
+      distance: maxDistance / 2,
+      texture: texture,
+      snap: {
+        resolution: 20,
+        direction: 10,
+      },
+      location: {
+        obj: token,
+        lockToEdge: true,
+      },
+      distanceMin: 0,
+      distanceMax: maxDistance,
+    },
+    {
+      [Sequencer.Crosshair.CALLBACKS.MOUSE_MOVE]: (crosshair) => {
+        crosshair.updateCrosshair({
+          "label.text": `[${Math.round((crosshair.ray.distance / canvas.dimensions.distancePixels) * 2) / 2}/${maxDistance}] ft`,
+          "label.dx": crosshair.ray.dx,
+          "label.dy": crosshair.ray.dy - canvas.grid.size * 0.7,
+        });
+      },
+    },
+  );
+}

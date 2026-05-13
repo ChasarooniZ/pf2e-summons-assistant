@@ -130,7 +130,7 @@
     "height": 1,
     "width": 1,
     "name": "Shadow Self",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "systems/pf2e/icons/default-icons/npc.svg",
@@ -350,8 +350,12 @@
         },
         "slug": "hidden",
         "_migration": {
-          "version": 0.954,
-          "previous": null
+          "version": 0.959,
+          "previous": {
+            "schema": 0.954,
+            "foundry": "14.361",
+            "system": "8.1.2"
+          }
         },
         "fromSpell": false,
         "persistent": null
@@ -363,9 +367,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.9.1",
-        "createdTime": 1770076544223,
-        "modifiedTime": 1770076544223,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689022,
+        "modifiedTime": 1778652689022,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "effects": [],
@@ -383,14 +387,14 @@
   "sort": 600000,
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.nodnIFYW56Lk3mcY",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.9.1",
-    "createdTime": 1770076535790,
-    "modifiedTime": 1775454702448,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689021,
+    "modifiedTime": 1778652689021,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!nodnIFYW56Lk3mcY"

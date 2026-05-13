@@ -45,7 +45,7 @@
     "height": 1,
     "width": 1,
     "name": "Wall of Stone",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_stone.webp",
@@ -286,11 +286,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.954,
+          "version": 0.959,
           "previous": {
-            "schema": 0.942,
-            "foundry": "13.351",
-            "system": "7.9.1"
+            "schema": 0.954,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -310,9 +310,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.9.1",
-        "createdTime": 1769625628843,
-        "modifiedTime": 1769625648807,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689055,
+        "modifiedTime": 1778652689055,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "ownership": {
@@ -346,11 +346,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.954,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.9.1"
+            "schema": 0.954,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -375,29 +375,29 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.9.1",
-        "createdTime": 1769625803014,
-        "modifiedTime": 1769625862161,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689056,
+        "modifiedTime": 1778652689056,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!HakOgoig5LWhcq1B.9uFmetEKq11OIWb2"
     }
   ],
-  "sort": 0,
+  "sort": 100000,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.9.1",
-    "createdTime": 1769625298920,
-    "modifiedTime": 1769625801853,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689053,
+    "modifiedTime": 1778652689053,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!HakOgoig5LWhcq1B"

@@ -1,5 +1,17 @@
 ## Unreleased
 
+## 2.2.0
+
+- **New**
+  - Added support for `Wall of Shadow`
+  - Added range checking for spells (Also supports `Reach Spell` modifying said range)
+    - Note this relies on newly added localization and only supports `feet` currently (or it's equivalent) but it will fall back to the english translation if the translation for it isn't inputted yet for your language
+- **Updated**
+  - Updated workflow for the placement of straight walls to make the controls more intuitive
+  - Added some coloration to the `Wall` spell controlling token to clarify what it controls
+  - Reworked some backend code to improve maintainability
+  - Migrated compendiums properly
+
 ## 2.1.2
 
 - Updated all translations to fix a bug causing the minion reminder tooltip to spill into the message

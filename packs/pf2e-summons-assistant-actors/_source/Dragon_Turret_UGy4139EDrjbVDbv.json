@@ -50,7 +50,7 @@
     "height": 2,
     "width": 2,
     "name": "Dragon Turret",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/dragon-turret.webp",
@@ -343,7 +343,7 @@
           "value": "free"
         },
         "description": {
-          "value": "<p><strong>Trigger </strong>This spell was cast or sustained.</p><hr /><p><strong>Effect </strong>The dragon unleashes its breath in a @Template[type:cone|distance:60], dealing @Damage[13d8[@item.flags.pf2e.rulesSelections.tradition]] damage (@Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:concentrate,manipulate,@item.flags.pf2e.rulesSelections.tradition|basic:true]). The damage type depends on the tradition used to cast this spell: <strong>arcane</strong> force, <strong>divine</strong> spirit, <strong>occult</strong> mental, <strong>primal</strong> fire.</p>",
+          "value": "<p><strong>Trigger </strong>This spell was cast or sustained.</p><hr><p><strong>Effect </strong>The dragon unleashes its breath in a @Template[type:cone|distance:60], dealing @Damage[13d8[@item.flags.pf2e.rulesSelections.tradition]] damage (@Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:concentrate,manipulate,@item.flags.pf2e.rulesSelections.tradition|basic:true]). The damage type depends on the tradition used to cast this spell: <strong>arcane</strong> force, <strong>divine</strong> spirit, <strong>occult</strong> mental, <strong>primal</strong> fire.</p>",
           "gm": ""
         },
         "publication": {
@@ -432,11 +432,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.954,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.9.1"
+            "schema": 0.954,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -465,9 +465,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.9.1",
-        "createdTime": 1769672967140,
-        "modifiedTime": 1769758157765,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689018,
+        "modifiedTime": 1778652689018,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!UGy4139EDrjbVDbv.Ew1xTR9eRg4UbDxE"
@@ -480,14 +480,14 @@
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.9.1",
-    "createdTime": 1769672628469,
-    "modifiedTime": 1775454702448,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689017,
+    "modifiedTime": 1778652689017,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!UGy4139EDrjbVDbv"

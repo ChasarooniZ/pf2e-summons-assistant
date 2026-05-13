@@ -1,11 +1,7 @@
 {
-  "folder": "Bub0RBhJ85oaVi4e",
-  "name": "Bone Breaker",
+  "folder": "L8iTXojMnoiabKyR",
+  "name": "Wall of Shadow",
   "type": "npc",
-  "ownership": {
-    "default": 0,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
   "prototypeToken": {
     "flags": {
       "pf2e": {
@@ -38,18 +34,19 @@
         "PilotedbyDefaultFlag": false
       }
     },
-    "height": 1,
-    "width": 1,
-    "name": "Bone Breaker",
+    "height": 0.5,
+    "width": 0.5,
+    "name": "Wall of Shadow",
     "displayName": 30,
     "actorLink": false,
+    "depth": 0.5,
     "texture": {
-      "src": "modules/pf2e-tokens-myth-and-magic/assets/tokens/pzo2110_gashadokuro.webp",
+      "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
-      "scaleX": 2,
-      "scaleY": 2,
+      "scaleX": 0.5,
+      "scaleY": 0.5,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -105,15 +102,15 @@
       "radius": 0
     },
     "ring": {
-      "enabled": true,
+      "enabled": false,
       "colors": {
         "ring": null,
         "background": null
       },
-      "effects": 1,
+      "effects": 0,
       "subject": {
-        "scale": 2,
-        "texture": "modules/pf2e-tokens-myth-and-magic/assets/subjects/pzo2110_gashadokuro.webp"
+        "scale": 1,
+        "texture": null
       }
     },
     "turnMarker": {
@@ -125,30 +122,31 @@
     "movementAction": null,
     "randomImg": false,
     "appendNumber": false,
-    "prependAdjective": false,
-    "depth": 1
+    "prependAdjective": false
   },
   "effects": [],
   "system": {
     "attributes": {
       "hp": {
-        "value": 10,
+        "value": 0,
         "temp": 0,
-        "max": 10,
+        "max": 0,
         "details": ""
       },
       "ac": {
-        "value": 10,
+        "value": 0,
         "details": ""
       },
       "allSaves": {
         "value": ""
       },
       "speed": {
-        "value": 25,
+        "value": 0,
         "otherSpeeds": [],
         "details": ""
-      }
+      },
+      "immunities": [],
+      "weaknesses": []
     },
     "initiative": {
       "statistic": "perception"
@@ -159,7 +157,7 @@
         "details": ""
       },
       "level": {
-        "value": 9
+        "value": 3
       },
       "blurb": "",
       "publicNotes": "",
@@ -173,7 +171,7 @@
     },
     "resources": {},
     "_migration": {
-      "version": 0.94,
+      "version": 0.959,
       "previous": null
     },
     "abilities": {
@@ -221,25 +219,33 @@
       "value": [],
       "rarity": "common",
       "size": {
-        "value": "med"
+        "value": "tiny"
       }
     }
   },
-  "img": "modules/pf2e-tokens-myth-and-magic/assets/portraits/pzo2110_gashadokuro.webp",
+  "img": "icons/magic/unholy/orb-contained-pink.webp",
   "items": [],
-  "flags": {},
+  "flags": {
+    "pf2e": {
+      "maxhealingRank": 0
+    }
+  },
   "_stats": {
-    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ERcbvYPqZcRev7mb",
-    "duplicateSource": null,
-    "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
-    "createdTime": 1778652689003,
-    "modifiedTime": 1778652689003,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+    "createdTime": 1778652689010,
+    "modifiedTime": 1778652689010,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.omSEou6InnxMi78O",
+    "duplicateSource": null,
+    "exportSource": null
   },
-  "_id": "ERcbvYPqZcRev7mb",
-  "sort": 0,
-  "_key": "!actors!ERcbvYPqZcRev7mb"
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "_id": "omSEou6InnxMi78O",
+  "sort": 300000,
+  "_key": "!actors!omSEou6InnxMi78O"
 }

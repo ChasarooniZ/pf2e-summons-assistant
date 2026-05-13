@@ -1,4 +1,5 @@
-import { MODULE_ID, WALLS_TO_SYNC_DELETE } from "../const.js";
+import { MODULE_ID, SENSE_MODES, WALLS_TO_SYNC_DELETE } from "../const.js";
+import { defaultTokenRayCrosshair } from "../helpers.js";
 
 export const WALL_ART = {
   ICE: {
@@ -6,6 +7,8 @@ export const WALL_ART = {
     CIRCLE:
       "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_ice_circle.webp",
   },
+  SHADOW:
+    "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_shadow.webp",
 };
 
 export function setupWallHooks() {
@@ -26,7 +29,7 @@ export function setupWallHooks() {
 }
 
 /**
- * Sets up wall circle (Uses an octogon ATM)
+ * Sets up wall circle (Uses an octagon ATM)
  * @param {*} param0
  * @returns
  */
@@ -54,30 +57,11 @@ export async function setupWallCircle({
       sideHalf,
     );
 
-    const wallData = {
+    const wallData = getWallData({
       c: [x1, y1, x2, y2],
-      light: CONST.WALL_SENSE_TYPES.NORMAL,
-      move: CONST.WALL_SENSE_TYPES.NORMAL,
-      sight: CONST.WALL_SENSE_TYPES.NORMAL,
-      sound: CONST.WALL_SENSE_TYPES.NORMAL,
-      dir: 0,
-      door: 2,
-      ds: 0,
-      animation: {
-        type: "ascend",
-        texture: art,
-        flip: false,
-        double: false,
-        direction: 1,
-        duration: 750,
-        strength: 1,
-      },
-      flags: {
-        "pf2e-summons-assistant": {
-          wallSegmentTokenID: `${summonedWallToken.id}`,
-        },
-      },
-    };
+      art,
+      summonedtokenID: summonedWallToken.id,
+    });
 
     wallDataArray.push(wallData);
   }
@@ -89,49 +73,30 @@ export async function setupWallCircle({
   return walls;
 }
 
-export async function setupStraightWall({
-  startingDistance,
-  summonedWallToken,
-  distance,
-  art,
-}) {
-  const pos = await Sequencer.Crosshair.show({
-    t: CONST.MEASURED_TEMPLATE_TYPES.RAY,
-    distance: distance,
-    snap: {
-      position:
-        CONST.GRID_SNAPPING_MODES.VERTEX |
-        CONST.GRID_SNAPPING_MODES.EDGE_MIDPOINT,
-      direction: 10,
-    },
-    distanceMin: 0,
-    distanceMax: distance,
+export async function setupStraightWall({ summonedWallToken, distance, art }) {
+  const pos = await defaultTokenRayCrosshair({
+    token: summonedWallToken,
+    maxDistance: distance,
+    texture: art,
   });
   if (pos) {
     const origin = { x: pos.x, y: pos.y };
     const angleRad = Math.toRadians(pos.direction);
 
-    const pxPerFt = canvas.dimensions.distancePixels;
     const totalDistanceFt = pos.distance;
     const segmentSizeFt = 10;
 
     // Split into segments
     const fullSegments = Math.floor(totalDistanceFt / segmentSizeFt);
     const remainder = totalDistanceFt % segmentSizeFt;
-    const segments = Array(fullSegments).fill(segmentSizeFt);
+    const segments = new Array(fullSegments).fill(segmentSizeFt);
     if (remainder >= 5) segments.push(remainder); // allow 5ft remainder
 
     let currentDistanceFt = 0;
     const wallDataArray = [];
 
     for (const segFt of segments) {
-      const c = getFlatWallPoints(
-        currentDistanceFt,
-        pxPerFt,
-        segFt,
-        origin,
-        angleRad,
-      );
+      const c = getFlatWallPoints(currentDistanceFt, segFt, origin, angleRad);
 
       const wallData = getWallData({
         c,
@@ -151,21 +116,24 @@ export async function setupStraightWall({
   }
 }
 
-function getFlatWallPoints(
-  currentDistanceFt,
-  gridSize,
-  segFt,
-  origin,
-  angleRad,
-) {
-  const startPx = currentDistanceFt * gridSize;
-  const endPx = (currentDistanceFt + segFt) * gridSize;
+function getFlatWallPoints(currentDistanceFt, segFt, origin, angleRad) {
+  const pixelPerFoot = canvas.dimensions.distancePixels;
+  const startDistance = currentDistanceFt * pixelPerFoot;
+  const endDistance = (currentDistanceFt + segFt) * pixelPerFoot;
 
-  const x1 = origin.x + Math.cos(angleRad) * startPx;
-  const y1 = origin.y + Math.sin(angleRad) * startPx;
-  const x2 = origin.x + Math.cos(angleRad) * endPx;
-  const y2 = origin.y + Math.sin(angleRad) * endPx;
-  return [x1, y1, x2, y2];
+  const pointsA = foundry.canvas.geometry.Ray.fromAngle(
+    origin.x,
+    origin.y,
+    angleRad,
+    startDistance,
+  ).B;
+  const pointsB = foundry.canvas.geometry.Ray.fromAngle(
+    origin.x,
+    origin.y,
+    angleRad,
+    endDistance,
+  ).B;
+  return [pointsA.x, pointsA.y, pointsB.x, pointsB.y];
 }
 
 function getWallPointsForCircle(
@@ -191,13 +159,26 @@ function getWallPointsForCircle(
   return { x1, y1, x2, y2 };
 }
 
-function getWallData({ c, art, summonedtokenID }) {
+/**
+ * Get Wall Document
+ * @param {{c: [x1, y1, x2, y2], light: number, move: number, sight: number, sound: number, art: string, summonedtokenID: string}} wallConfig Wall configuration
+ * @returns Wall Document
+ */
+export function getWallData({
+  c,
+  light = SENSE_MODES.NORMAL,
+  move = SENSE_MODES.NORMAL,
+  sight = SENSE_MODES.NORMAL,
+  sound = SENSE_MODES.NORMAL,
+  art,
+  summonedtokenID,
+}) {
   return {
     c: c,
-    light: CONST.WALL_SENSE_TYPES.NORMAL,
-    move: CONST.WALL_SENSE_TYPES.NORMAL,
-    sight: CONST.WALL_SENSE_TYPES.NORMAL,
-    sound: CONST.WALL_SENSE_TYPES.NORMAL,
+    light,
+    move,
+    sight,
+    sound,
     dir: 0,
     door: 2,
     ds: 0,

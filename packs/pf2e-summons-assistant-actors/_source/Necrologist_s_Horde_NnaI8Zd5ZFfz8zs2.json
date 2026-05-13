@@ -75,7 +75,7 @@
     "height": 3,
     "width": 3,
     "name": "Necrologist's Horde",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-tokens-bestiaries/tokens/troop/skeleton-infantry.webp",
@@ -91,7 +91,7 @@
     "rotation": 0,
     "alpha": 1,
     "disposition": -1,
-    "displayBars": 50,
+    "displayBars": 20,
     "bar1": {
       "attribute": "attributes.hp"
     },
@@ -306,8 +306,12 @@
         },
         "slug": "swarm-mind",
         "_migration": {
-          "version": 0.955,
-          "previous": null
+          "version": 0.959,
+          "previous": {
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
+          }
         },
         "deathNote": false
       },
@@ -318,10 +322,10 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.1",
+        "systemVersion": "8.1.2",
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "modifiedTime": 1775541446105,
-        "createdTime": null
+        "modifiedTime": 1778652689112,
+        "createdTime": 1778652689112
       },
       "effects": [],
       "folder": null,
@@ -369,11 +373,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.955,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.12.1"
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -398,10 +402,10 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.1",
-        "lastModifiedBy": null,
-        "createdTime": null,
-        "modifiedTime": null
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "createdTime": 1778652689112,
+        "modifiedTime": 1778652689112
       },
       "_key": "!actors.items!NnaI8Zd5ZFfz8zs2.of37CwcDcniiKWCK"
     },
@@ -492,11 +496,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.955,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.351",
-            "system": "7.12.1"
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -521,9 +525,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.12.2",
-        "createdTime": 1775541453207,
-        "modifiedTime": 1775542072219,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689112,
+        "modifiedTime": 1778652689112,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!NnaI8Zd5ZFfz8zs2.dhK4wMQeGkAzz0rH"
@@ -538,14 +542,14 @@
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NnaI8Zd5ZFfz8zs2",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.12.1",
-    "createdTime": 1775541147655,
-    "modifiedTime": 1775541332850,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689110,
+    "modifiedTime": 1778652689110,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_id": "NnaI8Zd5ZFfz8zs2",

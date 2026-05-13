@@ -40,7 +40,7 @@
     "height": 1,
     "width": 1,
     "name": "Wooden Double",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/wooden_double.webp",
@@ -258,11 +258,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.942,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.347",
-            "system": "7.4.2"
+            "schema": 0.942,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -283,10 +283,10 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.9.1",
+        "systemVersion": "8.1.2",
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "modifiedTime": 1770026406909,
-        "createdTime": null
+        "modifiedTime": 1778652689020,
+        "createdTime": 1778652689020
       },
       "ownership": {
         "default": 0
@@ -300,14 +300,14 @@
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
     "duplicateSource": null,
     "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.9.1",
-    "createdTime": 1758039220037,
-    "modifiedTime": 1775454702448,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689019,
+    "modifiedTime": 1778652689019,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "ownership": {

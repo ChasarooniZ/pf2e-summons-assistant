@@ -1,6 +1,7 @@
 import { MODULE_ID, SLUG_TO_SOURCE, SOURCE_UUIDS, SOURCES } from "./const.js";
 import {
   convertItemUUIDBasedOnSystem,
+  getSpellRange,
   messageItemHasRollOption,
   setupSummonedTokenRefreshHooks,
 } from "./helpers.js";
@@ -126,6 +127,23 @@ Hooks.once("ready", async function () {
       spellRelevantInfo.position = token ? token.center : null;
     }
 
+    if (
+      chatMessage?.item?.system?.range?.value &&
+      game.settings.get(MODULE_ID, "automation.limit-range")
+    ) {
+      spellRelevantInfo.range = getSpellRange(
+        chatMessage?.item?.system?.range?.value,
+      );
+      if (
+        spellRelevantInfo &&
+        chatMessage?.flags?.pf2e?.context?.options?.includes(
+          "spellshape:reach-spell",
+        )
+      ) {
+        spellRelevantInfo.range += 30;
+      }
+    }
+
     let summonDetailsGroup = await getSpecificSummonDetails(
       itemUuid,
       spellRelevantInfo,
@@ -140,6 +158,28 @@ Hooks.once("ready", async function () {
     if (!summonDetailsGroup || summonDetailsGroup?.length === 0) return;
 
     summonDetailsGroup.forEach((group) => {
+      // This will limit reach for specific ones
+      if (
+        game.settings.get(MODULE_ID, "automation.limit-range") &&
+        spellRelevantInfo?.range &&
+        !group?.crosshairParameters?.location
+      ) {
+        const summonerToken = canvas.tokens.placeables.find(
+          (t) => t.actor.id === spellRelevantInfo.summonerActorId,
+        );
+        if (summonerToken)
+          foundry.utils.mergeObject(group, {
+            crosshairParameters: {
+              location: {
+                obj: summonerToken,
+                limitMaxRange: spellRelevantInfo.range,
+                displayRangePoly: true,
+                rangePolyLineColor: 0x0,
+                rangePolyFillColor: 0x0,
+              },
+            },
+          });
+      }
       group?.itemsToAdd?.forEach((item) => {
         if (item?.system) {
           item.system.context = {

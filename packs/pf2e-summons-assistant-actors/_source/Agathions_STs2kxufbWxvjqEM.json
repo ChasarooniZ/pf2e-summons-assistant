@@ -208,11 +208,11 @@
   "_stats": {
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "8.1.1",
-    "createdTime": 1778135662391,
-    "modifiedTime": 1778135764589,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689004,
+    "modifiedTime": 1778652689004,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.STs2kxufbWxvjqEM",
     "duplicateSource": null,
     "exportSource": null
   },

@@ -71,6 +71,7 @@ export const SOURCES = {
 
   WALL: {
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
+    WALL_OF_SHADOW: "Compendium.pf2e.spells-srd.Item.DeF63UTmr7rchF60",
     WALL_OF_STONE: "Compendium.pf2e.spells-srd.Item.kOa055FIrO9Smnya",
     WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
   },
@@ -177,6 +178,7 @@ export const SLUG_TO_SOURCE = {
   "wall-of-ice": SOURCES.WALL.WALL_OF_ICE,
   "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
   "wall-of-stone": SOURCES.WALL.WALL_OF_STONE,
+  "wall-of-shadow": SOURCES.WALL.WALL_OF_SHADOW,
   "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
 };
 
@@ -280,6 +282,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gGDK0P3m075eIq6A",
   WALL_OF_FIRE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
+  WALL_OF_SHADOW:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.omSEou6InnxMi78O",
   WALL_OF_STONE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
   WOODEN_DOUBLE:
@@ -296,6 +300,7 @@ export const FEATS = {
 export const WALLS_TO_SYNC_DELETE = [
   CREATURES.WALL_OF_STONE,
   CREATURES.WALL_OF_ICE,
+  CREATURES.WALL_OF_SHADOW,
 ];
 
 export const SUMMON_LEVELS_BY_RANK = {
@@ -563,3 +568,14 @@ function getAllSourceUUIDs() {
   }
   return uuids;
 }
+
+// TODO remove me when v13 support is dropped
+export const SENSE_MODES = {
+  NONE: CONST?.EDGE_SENSE_TYPES?.NONE ?? CONST?.WALL_SENSE_TYPES?.NONE,
+  LIMITED: CONST?.EDGE_SENSE_TYPES?.LIMITED ?? CONST?.WALL_SENSE_TYPES?.LIMITED,
+  NORMAL: CONST?.EDGE_SENSE_TYPES?.NORMAL ?? CONST?.WALL_SENSE_TYPES?.NORMAL,
+  PROXIMITY:
+    CONST?.EDGE_SENSE_TYPES?.PROXIMITY ?? CONST?.WALL_SENSE_TYPES?.PROXIMITY,
+  DISTANCE:
+    CONST?.EDGE_SENSE_TYPES?.DISTANCE ?? CONST?.WALL_SENSE_TYPES?.DISTANCE,
+};

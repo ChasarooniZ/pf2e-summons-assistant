@@ -10,7 +10,7 @@
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
-        "autoscale": true
+        "autoscale": false
       },
       "Rideable": {
         "issetRideableFlag": true,
@@ -43,14 +43,14 @@
     "name": "Wall of Ice",
     "displayName": 30,
     "actorLink": false,
-    "depth": 1,
+    "depth": 0.5,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
-      "scaleX": 1,
-      "scaleY": 1,
+      "scaleX": 0.5,
+      "scaleY": 0.5,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -145,7 +145,7 @@
         "value": ""
       },
       "speed": {
-        "value": 25,
+        "value": 0,
         "otherSpeeds": [],
         "details": ""
       },
@@ -305,9 +305,9 @@
         "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "8.1.1",
-        "createdTime": 1778257004198,
-        "modifiedTime": 1778257050829,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689086,
+        "modifiedTime": 1778652689086,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "ownership": {
@@ -367,9 +367,9 @@
       "_stats": {
         "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "8.1.1",
-        "createdTime": 1778257137237,
-        "modifiedTime": 1778257471947,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689086,
+        "modifiedTime": 1778652689086,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -378,7 +378,7 @@
       "_key": "!actors.items!gGDK0P3m075eIq6A.ItRNMX7kTOwKjrPy"
     }
   ],
-  "sort": 0,
+  "sort": 200000,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
@@ -387,11 +387,11 @@
   "_stats": {
     "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "8.1.1",
-    "createdTime": 1778256930134,
-    "modifiedTime": 1778266920997,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689085,
+    "modifiedTime": 1778652689085,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gGDK0P3m075eIq6A",
     "duplicateSource": null,
     "exportSource": null
   },
