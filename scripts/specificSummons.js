@@ -19,6 +19,7 @@ import { incarnateDetails } from "./specificCases/incarnate.js";
 import { getEidolon } from "./specificClasses/summoner.js";
 import { isSummonSourceDisabled } from "./disableItems.js";
 import { getNecromancerProf } from "./specificClasses/necromancer.js";
+import { getJB2aPath } from "./specificCases/dancingWeapon.js";
 
 export async function getSpecificSummonDetails(
   uuid,
@@ -118,6 +119,9 @@ const getSummonHandlers = () => ({
     handlers.necromancer.handleRecurringNightmare,
   [SOURCES.NECROMANCER.SKELETAL_LANCERS]:
     handlers.necromancer.handleSkeletalLancers,
+
+  // Psychic
+  [SOURCES.PSYCHIC.DANCING_BLADE]: handles.psychic.handleDancingBlade,
 
   // Summon
   [SOURCES.MISC.PHANTASMAL_MINION]: handlers.summon.handlePhantasmalMinion,
@@ -932,6 +936,34 @@ const handlers = {
               rollOptions: data.summonerRollOptions,
             }),
           ],
+        },
+      ];
+    },
+  },
+
+  psychic: {
+    handleDancingBlade: async (data) => {
+      const summonerActor = game.actors.get(data.summonerActorId);
+      const isAmped = data?.itemRollOptions?.includes("amp-spell");
+      let weapon = {
+        id: "",
+        name: "",
+        tokenArt: getJB2aPath(
+          "jb2a.spiritual_weapon.shortsword.01.spectral.02.green",
+        ),
+      };
+      if (!data.ignoreDialogue) {
+        weapon = await dancingWeaponDialog(summonerActor, isAmped);
+      }
+
+      return [
+        {
+          specific_uuids: [CREATURES.PSYCHIC.DANCING_BLADE],
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "prototypeToken.texture.src": weapon.tokenArt,
+          },
         },
       ];
     },

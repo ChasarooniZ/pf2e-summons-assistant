@@ -1,7 +1,7 @@
 import { ACTIONS, WEAPON_DAMAGE_TYPE_MODIFIERS } from "../const.js";
 import { getStrikeMod } from "../specificClasses/necromancer.js";
 
-export async function dancingWeaponDialog(actor) {
+export async function dancingWeaponDialog(actor, isAmped = false) {
   const weapons = getCharacterWeapons(actor);
   await new foundry.applications.api.DialogV2({
     window: {
@@ -41,7 +41,10 @@ export async function dancingWeaponDialog(actor) {
     ],
     submit: (result) => {
       const pickedWeapon = weapons.find(result.id);
-      return pickedWeapon;
+      return {
+        weapon: pickedWeapon,
+        effect: getEffect(pickedWeapon.damageType, isAmped),
+      };
     },
   }).render({ force: true });
 }
@@ -61,7 +64,7 @@ function getCharacterWeapons(actor) {
     .map((weapon) => ({ ...weapon, tokenArt: getWeaponJb2aArt(weapon) }));
 }
 
-function getEffect(damageTypes, amped = false) {
+function getEffect(damageTypes, isAmped = false) {
   return {
     name: game.i18n.localize(
       "pf2e-summons-assistant.items.effects.dancing-blade.title",
@@ -90,7 +93,7 @@ function getEffect(damageTypes, amped = false) {
           path: "flags.system.dancingBladeDamage",
           value: "{item|flags.system.rulesSelections.dancingBladeDamage}",
         },
-        ...(amped
+        ...(isAmped
           ? []
           : [
               {
@@ -110,7 +113,15 @@ function getEffect(damageTypes, amped = false) {
               },
             ]),
       ],
+      publication: {
+        title: "PF2e Summons Assistant",
+        authors: "",
+        license: "OGL",
+        remaster: true,
+      },
+      slug: "effect-dancing-blade",
     },
+    img: "systems/pf2e/icons/spells/dancing-blade.webp",
   };
 }
 
@@ -235,139 +246,10 @@ function getWeaponJb2aArt(weapon) {
   }
 }
 
-function getJB2aPath(video_path) {
+export function getJB2aPath(video_path) {
   return Sequencer?.Database?.getEntry(video_path)?.file;
 }
 
 function getDamageTypeLocalization(type) {
   return `PF2E.Trait${type.charAt(0).toUpperCase()}${type.slice(1)}`;
 }
-
-// const BASE_WEAPONS = [
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: ["bludgeoning"]
-//     },
-//     {
-//         name: "Dagger",
-//         img: "",
-//         group: "knife",
-//         base: "dagger",
-//         damageTypes: ["piercing", "slashing"]
-//     },
-//     {
-//         name: "Falchion",
-//         img: "",
-//         group: "sword",
-//         base: "falchion",
-//         damageTypes: ["slashing"]
-//     },
-//     {
-//         name: "Glaive",
-//         img: "",
-//         group: "polearm",
-//         base: "glaive",
-//         damageTypes: ["slashing"]
-//     },
-//     {
-//         name: "Great Axe",
-//         img: "",
-//         group: "axe",
-//         base: "greataxe",
-//         damageTypes: ["slashing"]
-//     },
-//     {
-//         name: "Great Club",
-//         img: "",
-//         group: "club",
-//         base: "greatclub",
-//         damageTypes: ["bludgeoning"]
-//     },
-//     {
-//         name: "Greatsword",
-//         img: "",
-//         group: "sword",
-//         base: "greatsword",
-//         damageTypes: ["piercing", "slashing"]
-//     },
-//     {
-//         name: "Halberd",
-//         img: "",
-//         group: "polearm",
-//         base: "halberd",
-//         damageTypes: ["piercing", "slashing"]
-//     },
-//     {
-//         name: "Light Hammer",
-//         img: "",
-//         group: "hammer",
-//         base: "lighthammer",
-//         damageTypes: ["bludgeoning"]
-//     },
-//     {
-//         name: "Hand Adze",
-//         img: "",
-//         group: "axe",
-//         base: "handadze",
-//         damageTypes: ["bludgeoning"]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-//     {
-//         name: "Club",
-//         img: "",
-//         group: "club",
-//         base: "club",
-//         damageTypes: [""]
-//     },
-// ]
