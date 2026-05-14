@@ -1,15 +1,15 @@
-2026/05/13-14:53:32.713 ba84 Recovering log #724
-2026/05/13-14:53:32.868 ba84 Delete type=0 #724
-2026/05/13-14:53:32.868 ba84 Delete type=3 #722
-2026/05/13-14:53:32.945 7c30 Level-0 table #728: started
-2026/05/13-14:53:32.981 7c30 Level-0 table #728: 129534 bytes OK
-2026/05/13-14:53:33.033 7c30 Delete type=0 #726
-2026/05/13-14:53:33.033 7c30 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!zgukYASX0vo141Cu.iGD9iuoPxPCewb1r' @ 3870 : 0
-2026/05/13-14:53:33.033 7c30 Compacting 2@0 + 1@1 files
-2026/05/13-14:53:33.070 7c30 Generated table #729@0: 147 keys, 129534 bytes
-2026/05/13-14:53:33.070 7c30 Compacted 2@0 + 1@1 files => 129534 bytes
-2026/05/13-14:53:33.133 7c30 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/05/13-14:53:33.133 7c30 Delete type=2 #719
-2026/05/13-14:53:33.133 7c30 Delete type=2 #723
-2026/05/13-14:53:33.133 7c30 Delete type=2 #728
-2026/05/13-14:53:33.133 7c30 Manual compaction at level-0 from '!actors.items!zgukYASX0vo141Cu.iGD9iuoPxPCewb1r' @ 3870 : 0 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/05/14-14:11:57.486 b254 Recovering log #743
+2026/05/14-14:11:58.012 b254 Delete type=0 #743
+2026/05/14-14:11:58.012 b254 Delete type=3 #741
+2026/05/14-14:11:58.044 5014 Level-0 table #747: started
+2026/05/14-14:11:58.079 5014 Level-0 table #747: 133059 bytes OK
+2026/05/14-14:11:58.143 5014 Delete type=0 #745
+2026/05/14-14:11:58.144 5014 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!l4LKNqL0Vp9dUAvF.yAnG5FrgLLQP43yQ' @ 4310 : 1
+2026/05/14-14:11:58.144 5014 Compacting 2@0 + 1@1 files
+2026/05/14-14:11:58.180 5014 Generated table #748@0: 150 keys, 133059 bytes
+2026/05/14-14:11:58.180 5014 Compacted 2@0 + 1@1 files => 133059 bytes
+2026/05/14-14:11:58.254 5014 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/05/14-14:11:58.254 5014 Delete type=2 #734
+2026/05/14-14:11:58.254 5014 Delete type=2 #742
+2026/05/14-14:11:58.254 5014 Delete type=2 #747
+2026/05/14-14:11:58.254 5014 Manual compaction at level-0 from '!actors.items!l4LKNqL0Vp9dUAvF.yAnG5FrgLLQP43yQ' @ 4310 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

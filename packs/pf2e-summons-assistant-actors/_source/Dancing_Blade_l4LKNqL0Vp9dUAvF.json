@@ -1,15 +1,16 @@
 {
-  "folder": "mVjwgM2wn6PBRVzp",
-  "name": "Wooden Double",
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Dancing Blade",
   "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
   "prototypeToken": {
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
         "autoscale": true
-      },
-      "pf2e-visioner": {
-        "coverOverride": "auto"
       },
       "Rideable": {
         "issetRideableFlag": true,
@@ -37,13 +38,14 @@
         "PilotedbyDefaultFlag": false
       }
     },
-    "height": 1,
-    "width": 1,
-    "name": "Wooden Double",
+    "height": 0.5,
+    "width": 0.5,
+    "name": "Dancing Blade",
     "displayName": 30,
     "actorLink": false,
+    "depth": 0.5,
     "texture": {
-      "src": "modules/pf2e-summons-assistant/assets/tokens/token/wooden_double.webp",
+      "src": "modules/jb2a_patreon/Library/2nd_Level/Spiritual_Weapon/SpiritualWeapon_Dagger02_02_Spectral_Green_400x400.webm",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -104,15 +106,15 @@
       "radius": 0
     },
     "ring": {
-      "enabled": true,
+      "enabled": false,
       "colors": {
         "ring": null,
         "background": null
       },
-      "effects": 1,
+      "effects": 0,
       "subject": {
         "scale": 1,
-        "texture": "modules/pf2e-summons-assistant/assets/tokens/subject/wooden_double.webp"
+        "texture": null
       }
     },
     "turnMarker": {
@@ -124,16 +126,15 @@
     "movementAction": null,
     "randomImg": false,
     "appendNumber": false,
-    "prependAdjective": false,
-    "depth": 1
+    "prependAdjective": false
   },
   "effects": [],
   "system": {
     "attributes": {
       "hp": {
-        "value": 20,
+        "value": 0,
         "temp": 0,
-        "max": 20,
+        "max": 0,
         "details": ""
       },
       "ac": {
@@ -144,7 +145,7 @@
         "value": ""
       },
       "speed": {
-        "value": 25,
+        "value": 30,
         "otherSpeeds": [],
         "details": ""
       }
@@ -158,7 +159,7 @@
         "details": ""
       },
       "level": {
-        "value": 3
+        "value": 5
       },
       "blurb": "",
       "publicNotes": "",
@@ -172,7 +173,7 @@
     },
     "resources": {},
     "_migration": {
-      "version": 0.942,
+      "version": 0.959,
       "previous": null
     },
     "abilities": {
@@ -220,21 +221,82 @@
       "value": [],
       "rarity": "common",
       "size": {
-        "value": "med"
+        "value": "tiny"
       }
     }
   },
-  "img": "modules/pf2e-summons-assistant/assets/tokens/subject/wooden_double.webp",
+  "_id": "l4LKNqL0Vp9dUAvF",
+  "img": "modules/jb2a_patreon/Library/2nd_Level/Spiritual_Weapon/SpiritualWeapon_Dagger02_02_Spectral_Green_Thumb.webp",
   "items": [
     {
       "type": "action",
-      "name": "Hardness 5",
+      "name": "Change Partners",
       "system": {
         "actionType": {
-          "value": "passive"
+          "value": "action"
         },
         "description": {
-          "value": "",
+          "value": "<p>Change the weapon's target to a different creature within 30 feet. The weapon flies to its new target</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.361",
+            "system": "8.1.2"
+          }
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "p8MHm1PEjUWFAdV6",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.361",
+        "systemId": "pf2e",
+        "systemVersion": "8.1.2",
+        "createdTime": 1778772629051,
+        "modifiedTime": 1778773796783,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!l4LKNqL0Vp9dUAvF.p8MHm1PEjUWFAdV6"
+    },
+    {
+      "type": "action",
+      "name": "Strike",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "description": {
+          "value": "<p>The weapon attacks its target using your spell attack modifier. On a hit, the weapon deals @Damage[floor((@actor.level + 1)/2)d6[@actor.flags.system.dancingBladeDamage]] damage, of a type determined by the weapon (if the weapon has the versatile trait or can otherwise deal multiple types of damage, you choose each time you attack).</p>",
           "gm": ""
         },
         "publication": {
@@ -245,76 +307,80 @@
         },
         "rules": [
           {
-            "key": "ActiveEffectLike",
-            "mode": "override",
-            "path": "system.attributes.hardness.value",
-            "phase": "afterDerived",
-            "value": 5
+            "key": "Strike",
+            "damage": {
+              "base": {
+                "damageType": "{actor|flags.system.dancingBladeDamage}",
+                "dice": "floor((@actor.level + 1)/2)",
+                "die": "d6",
+                "modifier": 0
+              }
+            },
+            "attackModifier": 1,
+            "label": "Strike"
           }
         ],
-        "slug": "5-hardness",
+        "slug": "strike",
         "traits": {
           "otherTags": [],
-          "value": []
+          "value": [
+            "attack"
+          ]
         },
         "_migration": {
           "version": 0.959,
           "previous": {
-            "schema": 0.942,
+            "schema": null,
             "foundry": "14.361",
             "system": "8.1.2"
           }
         },
         "actions": {
-          "value": null
+          "value": 1
         },
-        "category": "defensive",
+        "category": "offensive",
         "deathNote": false
       },
       "effects": [],
-      "_id": "rKz1m7waNf6gEf4r",
+      "_id": "yAnG5FrgLLQP43yQ",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
       "flags": {},
       "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null,
         "coreVersion": "14.361",
         "systemId": "pf2e",
         "systemVersion": "8.1.2",
+        "createdTime": 1778772639695,
+        "modifiedTime": 1778775225605,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "modifiedTime": 1778652689020,
-        "createdTime": 1778652689020
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
       },
-      "ownership": {
-        "default": 0
-      },
-      "_key": "!actors.items!WNBOiDVexWG6DwCO.rKz1m7waNf6gEf4r"
+      "_key": "!actors.items!l4LKNqL0Vp9dUAvF.yAnG5FrgLLQP43yQ"
     }
   ],
+  "sort": 0,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
     }
   },
   "_stats": {
-    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
-    "duplicateSource": null,
-    "exportSource": null,
     "coreVersion": "14.361",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
-    "createdTime": 1778652689019,
-    "modifiedTime": 1778772173532,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+    "createdTime": 1778772562511,
+    "modifiedTime": 1778784415919,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
   },
-  "ownership": {
-    "default": 0,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
-  "_id": "WNBOiDVexWG6DwCO",
-  "sort": -31250,
-  "_key": "!actors!WNBOiDVexWG6DwCO"
+  "_key": "!actors!l4LKNqL0Vp9dUAvF"
 }

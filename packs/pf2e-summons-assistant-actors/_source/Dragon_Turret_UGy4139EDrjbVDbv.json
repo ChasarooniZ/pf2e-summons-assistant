@@ -1,5 +1,5 @@
 {
-  "folder": "gGy6LNAsZa9IaIjf",
+  "folder": "mVjwgM2wn6PBRVzp",
   "name": "Dragon Turret",
   "type": "npc",
   "ownership": {
@@ -473,7 +473,7 @@
       "_key": "!actors.items!UGy4139EDrjbVDbv.Ew1xTR9eRg4UbDxE"
     }
   ],
-  "sort": 400000,
+  "sort": -100000,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
@@ -487,7 +487,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652689017,
-    "modifiedTime": 1778652689017,
+    "modifiedTime": 1778772159559,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!UGy4139EDrjbVDbv"
