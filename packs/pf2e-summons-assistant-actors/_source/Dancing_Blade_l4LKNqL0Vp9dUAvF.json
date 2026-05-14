@@ -10,7 +10,7 @@
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
-        "autoscale": true
+        "autoscale": false
       },
       "Rideable": {
         "issetRideableFlag": true,
@@ -49,8 +49,8 @@
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
-      "scaleX": 1,
-      "scaleY": 1,
+      "scaleX": 2,
+      "scaleY": 2,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -376,7 +376,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778772562511,
-    "modifiedTime": 1778784415919,
+    "modifiedTime": 1778791867027,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

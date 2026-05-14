@@ -974,6 +974,9 @@ const handlers = {
             "prototypeToken.texture.src": weapon.tokenArt,
           },
           itemsToAdd: [effect],
+          crosshairParameters: {
+            distance: canvas.grid.distance / 4,
+          },
         },
       ];
     },

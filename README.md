@@ -85,8 +85,9 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Wall of Shadow`
 - **Misc**
   - `Avenging Wildwood`
-  - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
+  - `Dancing Blade` - Art Requires `JB2a`
   - `Dragon Turret`
+  - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
   - `Floating Flame` - Art Requires `JB2a`
   - `Healing Well`
   - `Instant Minefield`
