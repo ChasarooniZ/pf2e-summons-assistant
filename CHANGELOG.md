@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.2.3
+
+- Updated french translation (🌐 @rectulo)
+
 ## 2.2.1
 
 - Fixed issue with missing pack items
