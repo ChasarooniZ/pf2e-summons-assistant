@@ -5,8 +5,12 @@
   "effects": [],
   "system": {
     "_migration": {
-      "version": 0.94,
-      "previous": null
+      "version": 0.959,
+      "previous": {
+        "schema": 0.94,
+        "foundry": "14.361",
+        "system": "8.1.2"
+      }
     },
     "description": {
       "value": "<p>While within 100 feet of the herald, you and your allies gain the champion's @UUID[Compendium.pf2e.actionspf2e.Item.tuZnRWHixLArvaIf]{Glimpse of Redemption} reaction</p>",
@@ -53,14 +57,14 @@
   "img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.X8x21l54sK8kf6HR",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.346",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752640945761,
-    "modifiedTime": 1752643071940,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652696532,
+    "modifiedTime": 1778652696532,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "ownership": {

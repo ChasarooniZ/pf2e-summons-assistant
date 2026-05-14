@@ -40,18 +40,15 @@
     "height": 1,
     "width": 1,
     "name": "Wooden Double",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/wooden_double.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
-      "offsetX": 0,
-      "offsetY": 0,
       "fit": "contain",
       "scaleX": 1,
       "scaleY": 1,
-      "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -102,7 +99,7 @@
       "saturation": 0,
       "contrast": 0
     },
-    "detectionModes": [],
+    "detectionModes": {},
     "occludable": {
       "radius": 0
     },
@@ -127,7 +124,8 @@
     "movementAction": null,
     "randomImg": false,
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "depth": 1
   },
   "effects": [],
   "system": {
@@ -138,17 +136,17 @@
         "max": 20,
         "details": ""
       },
-      "speed": {
-        "value": 25,
-        "otherSpeeds": [],
-        "details": ""
-      },
       "ac": {
         "value": 0,
         "details": ""
       },
       "allSaves": {
         "value": ""
+      },
+      "speed": {
+        "value": 25,
+        "otherSpeeds": [],
+        "details": ""
       }
     },
     "initiative": {
@@ -230,7 +228,7 @@
   "items": [
     {
       "type": "action",
-      "name": "5 Hardness",
+      "name": "Hardness 5",
       "system": {
         "actionType": {
           "value": "passive"
@@ -260,17 +258,17 @@
           "value": []
         },
         "_migration": {
-          "version": 0.942,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.347",
-            "system": "7.4.2"
+            "schema": 0.942,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -283,10 +281,12 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.348",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.4.3",
-        "lastModifiedBy": null
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "modifiedTime": 1778652689020,
+        "createdTime": 1778652689020
       },
       "ownership": {
         "default": 0
@@ -294,16 +294,20 @@
       "_key": "!actors.items!WNBOiDVexWG6DwCO.rKz1m7waNf6gEf4r"
     }
   ],
-  "flags": {},
+  "flags": {
+    "pf2e": {
+      "maxhealingRank": 0
+    }
+  },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.348",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.4.3",
-    "createdTime": 1758039220037,
-    "modifiedTime": 1758039288494,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689019,
+    "modifiedTime": 1778652689019,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "ownership": {
@@ -311,6 +315,6 @@
     "vj8VUT8j7Wtzy3Y2": 3
   },
   "_id": "WNBOiDVexWG6DwCO",
-  "sort": 0,
+  "sort": 500000,
   "_key": "!actors!WNBOiDVexWG6DwCO"
 }

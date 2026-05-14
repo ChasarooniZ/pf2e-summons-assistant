@@ -1,19 +1,26 @@
 import {
+  AFFECTED_BY_HOUSE_RULES,
   CREATURES,
   EFFECTS,
   MODULE_ID,
   SOURCES,
   SUMMON_LEVELS_BY_RANK,
 } from "./const.js";
+import { getSummonCustomizationData } from "./customizeTokens.js";
 import { handlePostSummon } from "./handlePostSummon.js";
-import { addTraits, compFromUuid } from "./helpers.js";
+import {
+  addTraits,
+  compFromUuid,
+  convertSpecificCreatureToSF2e,
+} from "./helpers.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
 
 export async function summon(
   summonerActor,
   itemUuid,
   summonType,
-  summonDetailsGroup
+  summonDetailsGroup,
+  config = {},
 ) {
   const additionalTraits = addTraits(summonType);
   const summonerToken = summonerActor.getActiveTokens()[0];
@@ -21,22 +28,26 @@ export async function summon(
   // No Summon Spell Found
   if (summonDetailsGroup === null) return;
 
+  const summonerItem = config?.item ?? (await fromUuid(itemUuid));
+
   const summonActorUUIDList = [];
 
   for (const summonDetails of summonDetailsGroup) {
     const requiredTraits = summonDetails?.traits || [];
-    const allowedSpecificUuids = summonDetails?.specific_uuids || [];
+    const allowedSpecificUuids = convertSpecificCreatureToSF2e(
+      summonDetails?.specific_uuids || [],
+    );
     const actorModifications = summonDetails?.modifications || {};
     const itemsToAdd = summonDetails?.itemsToAdd || [];
     const isCharacter = summonDetails?.isCharacter;
     const crosshairParameters = summonDetails?.crosshairParameters || {};
     if (game.settings.get(MODULE_ID, "effect-ownership") && !isCharacter) {
       itemsToAdd.unshift(
-        EFFECTS.SUMMON_OWNER(getTokenImage(summonerActor.prototypeToken))
+        EFFECTS.SUMMON_OWNER(getTokenImage(summonerActor.prototypeToken)),
       );
     }
     const amount = summonDetails?.amount || 1;
-    const summonLevel = getMaxSummonLevel(summonDetails.rank);
+    const summonLevel = getMaxSummonLevel(summonDetails.rank, itemUuid);
 
     let selectedActorUuid;
     if (allowedSpecificUuids.length === 1) {
@@ -46,17 +57,38 @@ export async function summon(
         //packs: ['pf2e.pathfinder-monster-core'],
         noSummon: true,
         filter: (candidateActor) => {
+          let levelAdjustment;
+          switch (candidateActor.system?.attributes?.adjustment) {
+            case "elite":
+              if (candidateActor.system.details.level.value <= 0) {
+                levelAdjustment = 2;
+              } else {
+                levelAdjustment = 1;
+              }
+              break;
+            case "weak":
+              if (candidateActor.system.details.level.value === 1) {
+                levelAdjustment = -2;
+              } else {
+                levelAdjustment = -1;
+              }
+              break;
+            default:
+              levelAdjustment = 0;
+              break;
+          }
           const isCommonAndValidLevel =
-            candidateActor.system.traits.rarity === "common" &&
-            candidateActor.system.details.level.value <= summonLevel;
+            candidateActor.system?.traits?.rarity === "common" &&
+            candidateActor.system.details.level.value + levelAdjustment <=
+              summonLevel;
 
           const hasValidTraits =
             requiredTraits.length === 0 ||
-            candidateActor.system.traits.value.some((actorTrait) =>
+            candidateActor.system?.traits?.value?.some((actorTrait) =>
               requiredTraits.some(
                 (requiredTrait) =>
-                  requiredTrait.toLowerCase() === actorTrait.toLowerCase()
-              )
+                  requiredTrait.toLowerCase() === actorTrait.toLowerCase(),
+              ),
             );
 
           const hasValidUuid =
@@ -99,7 +131,7 @@ export async function summon(
                 !selectedTrait ||
                 filterActor.system.traits.value.some(
                   (actorTrait) =>
-                    selectedTrait.toLowerCase() === actorTrait.toLowerCase()
+                    selectedTrait.toLowerCase() === actorTrait.toLowerCase(),
                 )
               );
             },
@@ -111,15 +143,16 @@ export async function summon(
             name: "Only with image",
             default: game.settings.get(
               MODULE_ID,
-              "filter.default.token-with-art"
+              "filter.default.token-with-art",
             ),
             func: (toggleActor, isToggleActive) => {
               return (
                 !isToggleActive ||
-                toggleActor.img != "systems/pf2e/icons/default-icons/npc.svg"
+                !toggleActor?.img?.endsWith("default-icons/npc.svg")
               );
             },
             indexedFields: [
+              "system.attributes.adjustment",
               "system.details.level.value",
               "system.traits.value",
               "system.traits.rarity",
@@ -131,36 +164,52 @@ export async function summon(
     }
 
     const selectedActor = await compFromUuid(selectedActorUuid);
-    const originalActorLevel = selectedActor.level;
+    const originalActorLevel = selectedActor?.level;
 
-    const houseRuleUpdates = await getHouseRuleUpdates(
-      selectedActor,
-      summonLevel,
-      summonType,
-      itemUuid
+    const houseRuleUpdates = isAffectedByHouseRules(itemUuid)
+      ? await getHouseRuleUpdates(
+          selectedActor,
+          summonLevel,
+          summonType,
+          itemUuid,
+        )
+      : {};
+
+    const summonCustomizationModifications = getSummonCustomizationData(
+      selectedActorUuid,
+      summonerItem,
     );
+
+    const modTraits = actorModifications?.["system.traits.value"] ?? [];
+    delete actorModifications?.["system.traits.value"];
 
     const actorUpdateData = {
       "system.details.alliance": summonerAlliance,
       "system.traits.value": [
         ...selectedActor.system.traits.value,
         ...additionalTraits,
+        ...modTraits,
       ],
       ...houseRuleUpdates,
       ...actorModifications,
+      ...summonCustomizationModifications,
     };
 
     if (game.settings.get(MODULE_ID, "name-ownership")) {
-      actorUpdateData.name = `${summonerActor.name}'s ${selectedActor.name}`;
+      actorUpdateData.name = `${actorUpdateData?.name ?? summonerActor.name}'s ${selectedActor.name}`;
       actorUpdateData["prototypeToken.name"] =
-        `${summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
+        `${actorUpdateData?.prototypeToken?.name ?? summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
     }
 
+    let prevSummonedToken;
     for (let i = 0; i < amount; i++) {
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
-        crosshairParameters: crosshairParameters,
+        crosshairParameters:
+          typeof crosshairParameters === "function"
+            ? crosshairParameters({ cnt: i, prevSummonedToken })
+            : crosshairParameters,
       });
 
       const summonedActor = tokDoc.actor ?? game.actors.get(tokDoc.actorId);
@@ -169,7 +218,7 @@ export async function summon(
           selectedActor,
           summonLevel,
           summonType,
-          itemUuid
+          itemUuid,
         )
       ) {
         await scaleActorItems(summonedActor, originalActorLevel, summonLevel);
@@ -185,8 +234,15 @@ export async function summon(
       await summonedActor?.setFlag(MODULE_ID, "summoner", {
         uuid: summonerActor.uuid,
         id: summonerActor.id,
+        signature: summonerActor.signature,
       });
-      await handlePostSummon(itemUuid, summonedActor.uuid, summonerToken);
+      await handlePostSummon(
+        itemUuid,
+        summonedActor.uuid,
+        summonedActor.id,
+        summonerToken,
+      );
+      prevSummonedToken = tokDoc?.object || canvas.tokens?.get(tokDoc?._id);
     }
   }
 
@@ -263,8 +319,11 @@ function getTokenImage(prototypeToken) {
     : prototypeToken?.texture?.src || "icons/svg/cowled.svg";
 }
 
-function getMaxSummonLevel(spellRank) {
-  if (game.settings.get(MODULE_ID, "house-rule.rank-upgrade")) {
+function getMaxSummonLevel(spellRank, itemUuid) {
+  if (
+    game.settings.get(MODULE_ID, "house-rule.rank-upgrade") &&
+    isAffectedByHouseRules(itemUuid)
+  ) {
     return SUMMON_LEVELS_BY_RANK[Math.min(spellRank + 1, 10)];
   } else {
     return SUMMON_LEVELS_BY_RANK[spellRank];
@@ -275,7 +334,7 @@ async function getHouseRuleUpdates(
   actor,
   maxSummonLevel,
   summonType,
-  itemUuid
+  itemUuid,
 ) {
   if (isMaxSummonLevelRuleActive(actor, maxSummonLevel, summonType, itemUuid)) {
     const oldLevel = actor.level;
@@ -291,15 +350,15 @@ function isMaxSummonLevelRuleActive(
   actor,
   maxSummonLevel,
   summonType,
-  itemUuid
+  itemUuid,
 ) {
   return (
     game.settings.get(
       MODULE_ID,
-      "house-rule.scale-to-max-summon-level-for-rank"
+      "house-rule.scale-to-max-summon-level-for-rank",
     ) &&
     summonType === "summon" &&
-    itemUuid !== SOURCES.SUMMON.PHANTASMAL_MINION &&
+    itemUuid !== SOURCES.MISC.PHANTASMAL_MINION &&
     actor.level < maxSummonLevel
   );
 }
@@ -309,5 +368,12 @@ function isLinkedSummon(summonUUID) {
     CREATURES.NECROMANCER.THRALL,
     CREATURES.NECROMANCER.PERFECTED_THRALL,
     CREATURES.NECROMANCER.SKELETAL_LANCERS,
+    CREATURES.DRAGON_TURRET,
+    CREATURES.FLOATING_FLAME,
+    CREATURES.AVENGING_WILDWOOD,
   ].includes(summonUUID);
+}
+
+function isAffectedByHouseRules(itemUUID) {
+  return AFFECTED_BY_HOUSE_RULES.has(itemUUID);
 }

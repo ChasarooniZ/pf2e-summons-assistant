@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Kineticist",
+  "color": "#b61111",
+  "sorting": "a",
+  "_id": "vbIrzVZPMTgmlUMs",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "pf2e",
+    "systemVersion": "7.9.1",
+    "createdTime": 1770026322832,
+    "modifiedTime": 1770026322832,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "_key": "!folders!vbIrzVZPMTgmlUMs"
+}

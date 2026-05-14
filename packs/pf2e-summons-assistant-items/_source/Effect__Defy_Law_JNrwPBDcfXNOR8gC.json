@@ -5,8 +5,12 @@
   "effects": [],
   "system": {
     "_migration": {
-      "version": 0.94,
-      "previous": null
+      "version": 0.959,
+      "previous": {
+        "schema": 0.94,
+        "foundry": "14.361",
+        "system": "8.1.2"
+      }
     },
     "description": {
       "value": "<p>You and each ally within 100 feet of the herald gain resistance 20 against spirit damage while the herald is present.</p>",
@@ -58,14 +62,14 @@
   },
   "flags": {},
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.JNrwPBDcfXNOR8gC",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.346",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752642157270,
-    "modifiedTime": 1752643084397,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652696532,
+    "modifiedTime": 1778652696532,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_id": "JNrwPBDcfXNOR8gC",

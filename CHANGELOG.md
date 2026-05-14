@@ -1,6 +1,229 @@
 ## Unreleased
 
-## 0.18.0
+## 2.2.2
+
+- Updated french translation (🌐 @rectulo)
+
+## 2.2.1
+
+- Fixed issue with missing pack items
+
+## 2.2.0
+
+- **New**
+  - Added support for `Wall of Shadow`
+  - Added range checking for spells (Also supports `Reach Spell` modifying said range)
+    - Note this relies on newly added localization and only supports `feet` currently (or it's equivalent) but it will fall back to the english translation if the translation for it isn't inputted yet for your language
+- **Updated**
+  - Updated workflow for the placement of straight walls to make the controls more intuitive
+  - Added some coloration to the `Wall` spell controlling token to clarify what it controls
+  - Fixed bug with `Image Only` toggle in forge (🐛 @pv42)
+  - Reworked some backend code to improve maintainability
+  - Migrated compendiums properly
+
+## 2.1.2
+
+- Updated all translations to fix a bug causing the minion reminder tooltip to spill into the message
+
+## 2.1.1
+
+- Added missing packs
+
+## 2.1.0
+
+- Added support for `Wall of Ice`
+
+## 2.0.5
+
+- Fixed bug causing `Planted Banner` not to spawn (🐛 @MystiKitt)
+
+## 2.0.4
+
+- Use elite/weak level adjustment for determining allowed summons (💻🐛 @pv42)
+
+## 2.0.3
+
+- Fixed the `Instant Minefield` count (💻🐛 @pv42)
+- Updated french translation (🌐 @rectulo)
+- Updated polish translation (🌐 @lioheart)
+- Updated chinese translation (🌐 @AlphaStarGuide)
+
+## 2.0.2
+
+- Fixed issue with specific summons not working in `SF2e` system (🐛 @Sasane)
+
+## 2.0.1
+
+- Fixed issue causing the module to fail in the `SF2e` system (🐛 @Sasane)
+
+## 2.0.0
+
+- Updated to support Fvtt `v14` (new minimum is `v13`)
+- Added support for `PF2e Anachronism` for the `SF2E` system
+
+## 1.27.1
+
+- Fixed bug causing module to fail (🐛 @Ottyn)
+
+## 1.27.0
+
+- **New**
+  - Added Support for:
+    - `Ankou`/`Ozthoom`'s `Shadow Doubles` ability
+    - `Instant Minefield` (💡 @pv42)
+    - `Necrologist's Horde` - Can sync health automatically to the summoner if you have the `PF2e Toolbelt` feature enabled (💡 @digitalshadowhawk)
+
+## 1.26.1
+
+- **New**
+  - Automatically links up `Swarmkeeper's Swarm`'s Health to the summoner if you have the `Pf2e Toolbelt` feature enabled
+- **Updated**
+  - Fix `Swarmkeeper's Swarm` Crosshair snapping and size
+
+## 1.26.0
+
+- **New**
+  - Added support for the following:
+    - `Healing Well` (💡 @Jamz)
+    - `Swarmkeeper's Swarm` - Basic Implementation, does not have a way to sync health to the Swarmkeeper (💡 @Kosovoy)
+    - `Torch`
+    - `Lantern (Bull's Eye)`
+    - `Lantern (Hooded)`
+    - `Candle`
+- **Updated**
+  - Fixed bug causing the `Plant Banner` to not actually apply the +1 against fear
+
+## 1.25.9
+
+- Fixed plant banner range
+
+## 1.25.8
+
+- Fixed the RE for `Plant Banner`
+
+## 1.25.7
+
+- Fixed issue where Commander received the temp HP from `Plant Banner` more intelligently (🐛 @thecoolersub)
+
+## 1.25.6
+
+- Fixed issue where Commander received the temp HP from `Plant Banner` (🐛 @thecoolersub)
+
+## 1.25.5
+
+- Updated polish translation (🌐 @lioheart)
+
+## 1.25.4
+
+- Fixed bug introduced in `1.25.1` that caused dialogue based summons fail
+
+## 1.25.3
+
+- **Updated**
+  - Fixed issues with database not properly updating due to `gitignore`
+  - Updated french translation (🌐 @rectulo)
+
+## 1.25.2
+
+- **Updated**
+  - Made it so house rules only affect `Summon <X>` Spells as opposed to all spells (no more 16 AC walls) (🐛 @Nythz)
+
+## 1.25.1
+
+- **Updated**
+  - Fixed issue where summons dialogue opened when opening item sheets
+
+## 1.25.0
+
+- **New**
+  - Added support for `Wall of Stone`
+- **Updated**
+  - Fixed issue where `damage-rolls` were being counted for summon sources
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+
+## 1.24.0
+
+- **New**
+  - Added support for `Shadow Self`
+- **Update**
+  - Fixed `Wall of Fire` for non-gm players
+  - Updated infrastructure to better support future Wall spells
+  - Added more clarity on the `Jagged Berm` spikes text for showing the count
+
+## 1.23.2
+
+- Fix `Jagged Berm` HP Scaling
+
+## 1.23.1
+
+- Fixed issues with the packs
+
+## 1.23.0
+
+- **New**
+  - Added support for `Jagged Berm` (💡 @Kosovoy)
+    - Requires `Jb2a` (free or premium) for the spikes
+
+## 1.22.2
+
+- Fixed Manifest issue (🐛 @Sasane, @Durak)
+
+## 1.22.1
+
+- Fix manifest to work for sf2e (@Sasane)
+
+## 1.22.0
+
+- **New**
+  - Added support for `SF2e`
+    - Thanks to help on that from (@Mistress Rui)
+    - Updated french translation (🌐 @rectulo)
+
+## 1.21.0
+
+- **New**
+  - Added support for `Dragon Turret` (🎨 by @Chasarooni) (✋ @tunderpower)
+- **Updated**
+  - Handled situation where a token has no actor breaking `Wall of Fire` (🐛 @zionhian)
+  - Added `Floating Flame` and `Avenging Wildwood` to summon's who's DCs are linked to their summoner
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+
+## 1.20.3
+
+- Push data from `0.20.2`
+
+## 1.20.2
+
+- Actually display the new release
+
+## 1.20.1
+
+- Added localization options for some of the new popups
+
+## 1.20.0
+
+- **New**
+  - Added customization of the summons
+    - For items that have summons attached to them (or spells), you can now click the little customization icon at the top to make modifications to the summons attached to this item
+      - Currently supported are: `Token Art`, `Scale`, `Name`, `Dyn. Ring Enabled`, `Dyn. Ring Subject`, `Dyn. Ring Correction`
+
+## 1.19.1
+
+- **Updated**
+  - Fixed `line` icon for Wall text
+  - Fix bug with `EnrichHTML` for v12 (@Razytos)
+
+## 1.19.0
+
+- **Added**
+  - Added all included art to the `Pathfinder Tokens: Character Gallery`
+  - Support for `Wall of Fire` (Requires `JB2a` of some kind)
+- **Updated**
+  - Changed filepath for `languages` to `lang` to support VS code extension for localization
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+  - Updated french translation (🌐 @rectulo)
+
+## 1.18.0
 
 - **New**
   - Added Support for the following
@@ -11,12 +234,12 @@
   - Added an effect to `Summon Healing Servitor's` Arrival ability `Servitor's Protection`
   - `Plant Banner` now also will handle any relevant summons/ non combat minions as well
 
-## 0.17.1
+## 1.17.1
 
 - **Updated**
   - Updated required `Foundry Summons` version to `2.5.0`
 
-## 0.17.0
+## 1.17.0
 
 - **New**
   - Added basic support for `Protector Tree` & `Timber Sentinel`

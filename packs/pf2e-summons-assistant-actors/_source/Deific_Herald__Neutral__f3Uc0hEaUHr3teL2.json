@@ -37,18 +37,15 @@
     "height": 3,
     "width": 3,
     "name": "Deific Herald",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-tokens-myth-and-magic/assets/tokens/pzo9267_herald-nethys-arcanotheign.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
-      "offsetX": 0,
-      "offsetY": 0,
       "fit": "contain",
       "scaleX": 2,
       "scaleY": 2,
-      "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -99,7 +96,7 @@
       "saturation": 0,
       "contrast": 0
     },
-    "detectionModes": [],
+    "detectionModes": {},
     "occludable": {
       "radius": 0
     },
@@ -124,7 +121,8 @@
     "movementAction": null,
     "randomImg": false,
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "depth": 3
   },
   "effects": [],
   "system": {
@@ -135,17 +133,17 @@
         "max": 10,
         "details": ""
       },
-      "speed": {
-        "value": 60,
-        "otherSpeeds": [],
-        "details": ""
-      },
       "ac": {
         "value": 10,
         "details": ""
       },
       "allSaves": {
         "value": ""
+      },
+      "speed": {
+        "value": 60,
+        "otherSpeeds": [],
+        "details": ""
       }
     },
     "initiative": {
@@ -259,11 +257,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.94,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.2.3"
+            "schema": 0.94,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -282,11 +280,12 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.346",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.2.3",
+        "systemVersion": "8.1.2",
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "modifiedTime": 1752641940101
+        "modifiedTime": 1778652689082,
+        "createdTime": 1778652689082
       },
       "ownership": {
         "default": 0
@@ -317,11 +316,11 @@
           "value": []
         },
         "_migration": {
-          "version": 0.94,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.2.3"
+            "schema": 0.94,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -340,10 +339,12 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.346",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.2.3",
-        "lastModifiedBy": null
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "createdTime": 1778652689082,
+        "modifiedTime": 1778652689082
       },
       "ownership": {
         "default": 0
@@ -474,14 +475,14 @@
     }
   },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.f3Uc0hEaUHr3teL2",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.346",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752638562605,
-    "modifiedTime": 1752641648405,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689080,
+    "modifiedTime": 1778652689080,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "ownership": {

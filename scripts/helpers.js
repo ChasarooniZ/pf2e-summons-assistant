@@ -33,6 +33,14 @@ export function onlyHasJB2AFree() {
     !game.modules.get("jb2a_patreon")?.active
   );
 }
+
+export function hasAnyJB2A() {
+  return (
+    game.modules.get("JB2A_DnD5e")?.active ||
+    game.modules.get("jb2a_patreon")?.active
+  );
+}
+
 export function capitalizeDamageType(type) {
   return type.charAt(0).toUpperCase() + type.slice(1);
 }
@@ -55,7 +63,7 @@ export function getAllDamageSlugs() {
     "vitality",
     "void",
     ...(game.settings.get("pf2e", "homebrew.damageTypes") ?? []).map((type) =>
-      game.pf2e.system.sluggify(type.label)
+      game.pf2e.system.sluggify(type.label),
     ),
   ];
 }
@@ -63,14 +71,14 @@ export function getAllDamageSlugs() {
 export function warnNotification(text) {
   const localizedText = game.i18n.localize(text);
   ui.notifications.warn(
-    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`
+    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`,
   );
 }
 
 export function errorNotification(text) {
   const localizedText = game.i18n.localize(text);
   ui.notifications.error(
-    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`
+    `『${game.i18n.localize("pf2e-summons-assistant.name")}』 ${localizedText}`,
   );
 }
 
@@ -78,19 +86,19 @@ async function triggerActorRefresh(actor) {
   return await actor.setFlag(
     MODULE_ID,
     "update-tick",
-    !actor?.getFlag(MODULE_ID, "update-tick")
+    !actor?.getFlag(MODULE_ID, "update-tick"),
   );
 }
 
 export function setupSummonedTokenRefreshHooks() {
   Hooks.on("preUpdateItem", async (item, _update, _info, userID) =>
-    refreshTokensBasedOnItem(item, userID)
+    refreshTokensBasedOnItem(item, userID),
   );
   Hooks.on("preCreateItem", async (item, _data, _info, userID) =>
-    refreshTokensBasedOnItem(item, userID)
+    refreshTokensBasedOnItem(item, userID),
   );
   Hooks.on("preDeleteItem", async (item, _info, userID) =>
-    refreshTokensBasedOnItem(item, userID)
+    refreshTokensBasedOnItem(item, userID),
   );
 }
 
@@ -105,7 +113,7 @@ async function refreshTokensBasedOnItem(item, userID) {
       .filter(
         (t) =>
           t?.actor?.flags?.["pf2e-summons-assistant"]?.summoner?.uuid ===
-          actorUuid
+          actorUuid,
       )
       ?.map((t) => t.actor);
     const refreshList = [];
@@ -121,10 +129,9 @@ export function getGridUnitsFromFeet(feet) {
 }
 
 export function getAvengingWildwoodStrikeRuleElements({ rank }) {
-  const rulesElements = ["bludgeoning", "piercing", "slashing"].map(type => {
-
+  const rulesElements = ["bludgeoning", "piercing", "slashing"].map((type) => {
     const damageName = game.i18n.localize(
-      `PF2E.Trait${capitalizeDamageType(type)}`
+      `PF2E.Trait${capitalizeDamageType(type)}`,
     );
     const name = `Branch (${damageName})`;
     const slug = game.pf2e.system.sluggify(name);
@@ -136,9 +143,116 @@ export function getAvengingWildwoodStrikeRuleElements({ rank }) {
       image: "icons/magic/nature/root-vine-entwined-thorns.webp",
       slug,
       label: name,
-    })
-  })
+    });
+  });
   rulesElements.push(
-    getStrikeMod([rulesElements.map(re => re.slug)], 'Branch'))
+    getStrikeMod([rulesElements.map((re) => re.slug)], "Branch"),
+  );
   return rulesElements;
+}
+
+export function notifyRayControls() {
+  ui.notifications.info(`
+          <b>${game.i18n.localize("pf2e-summons-assistant.controls.adjust-length")}:</b> <span class='reference'>${game.i18n.localize("CONTROLS.Alt")} + ${game.i18n.localize("pf2e-summons-assistant.controls.scroll")}</span>
+          <br>
+          <br>
+          <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`);
+}
+
+/**
+ * This converts the passed in SF2e/PF2e UUID into a format this module recognizes (IE how it shows in the pf2e system)
+ * @param {String} uuid Item UUID
+ * @returns
+ */
+export function convertItemUUIDBasedOnSystem(uuid) {
+  if (!uuid) return null;
+  let finalUUID = uuid;
+  if (game.system.id === "sf2e") {
+    finalUUID = finalUUID
+      .replace(".sf2e.", ".pf2e.")
+      .replace(".pf2e-anachronism.", ".pf2e.")
+      .replace(".actions.", ".actionspf2e.")
+      .replace(".class-features.", ".classfeatures.")
+      .replace(".conditions.", ".conditionitems.")
+      .replace(".equipment.", ".equipment-srd.")
+      .replace(".feats.", ".feats-srd.")
+      .replace(".macros.", ".pf2e-macros.")
+      .replace(".spells.", ".spells-srd.");
+  } else if (
+    game.system.id === "pf2e" &&
+    uuid?.includes(".sf2e-anachronism.")
+  ) {
+    finalUUID = finalUUID
+      .replace(".sf2e-anachronism.", ".sf2e.")
+      .replace(".actionspf2e.", ".actions.")
+      .replace(".classfeatures.", ".class-features.")
+      .replace(".conditionitems.", ".conditions.")
+      .replace(".equipment-srd.", ".equipment.")
+      .replace(".feats-srd.", ".feats.")
+      .replace(".pf2e-macros.", ".macros.")
+      .replace(".spells-srd.", ".spells.");
+  }
+
+  return finalUUID;
+}
+
+export function isVerticalWallSegment({ x }) {
+  return x % canvas.grid.size !== 0;
+}
+
+export function convertSpecificCreatureToSF2e(uuids) {
+  if (game.system.id === "sf2e") {
+    return uuids.map((uuid) =>
+      uuid.replace(
+        ".pf2e-summons-assistant-actors.",
+        ".sf2e-summons-assistant-actors.",
+      ),
+    );
+  } else {
+    return uuids;
+  }
+}
+
+export function getSpellRange(rangeText) {
+  const feet = game.i18n.has("pf2e-summons-assistant.code.range.feet")
+    ? game.i18n.localize("pf2e-summons-assistant.code.range.feet")
+    : "feet";
+  if (rangeText.endsWith(feet)) {
+    return Number(rangeText.substring(0, rangeText.indexOf(" "))) || null;
+  } else {
+    return null;
+  }
+}
+
+export async function defaultTokenRayCrosshair({
+  token,
+  maxDistance,
+  texture = "",
+}) {
+  return Sequencer.Crosshair.show(
+    {
+      t: "ray",
+      distance: maxDistance / 2,
+      texture: texture,
+      snap: {
+        resolution: 20,
+        direction: 10,
+      },
+      location: {
+        obj: token,
+        lockToEdge: true,
+      },
+      distanceMin: 0,
+      distanceMax: maxDistance,
+    },
+    {
+      [Sequencer.Crosshair.CALLBACKS.MOUSE_MOVE]: (crosshair) => {
+        crosshair.updateCrosshair({
+          "label.text": `[${Math.round((crosshair.ray.distance / canvas.dimensions.distancePixels) * 2) / 2}/${maxDistance}] ft`,
+          "label.dx": crosshair.ray.dx,
+          "label.dy": crosshair.ray.dy - canvas.grid.size * 0.7,
+        });
+      },
+    },
+  );
 }

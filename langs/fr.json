@@ -1,0 +1,165 @@
+{
+  "I18N.LANGUAGE": "Français",
+  "pf2e-summons-assistant": {
+    "name": "PF2e Assistant de convocation",
+    "code": {
+      "range": {
+        "feet": "pied"
+      }
+    },
+    "module-settings": {
+      "automation": {
+        "limit-range": {
+          "name": "Automatisation de la limite de portée des invocations",
+          "hint": "Limite la portée des sorts qui incluent une portée et affiche également la limite de portée."
+        }
+      },
+      "name-ownership": {
+        "name": "Ajouter le nom du convocateur au nom de la convocation",
+        "hint": "Modifier le nom de la convocation pour montrer qui l'a convoqué, ex 'Gobelin d'Herendil' etc."
+      },
+      "effect-ownership": {
+        "name": "Ajouter l'effet propriétaire sur la convocation",
+        "hint": "Ajoute un effet aux convocations avec une icône du jeton qui l'a convoqué pour en conserver la trace facilement"
+      },
+      "house-rule": {
+        "rank-upgrade": {
+          "name": "[Règle maison] Les sorts de convocation sont de Rang +1",
+          "hint": "Avertissement : Je ne prends pas la responsabilité sur la manière dont cela peut affecter l'équilibre de votre partie. Cette règle considère que les sorts de convocation sont d'un rang de plus pour déterminer quelle créature est conjurée."
+        },
+        "scale-to-max-summon-level-for-rank": {
+          "name": "[Règle maison] Les sorts de convocation sont élevés au niveau Max",
+          "hint": "Avertissement : Je ne prends pas la responsabilité sur la manière dont cela peut affecter l'équilibre de votre partie. Ceci utilise le code Élever au niveau Max du module PF2e Workbench pour élever les créatures convoquées par des sorts de convocation traditionnels (ex Convocation d'animaux etc.) aux stats d'une créature du plus haut niveau possible que ce rang de sort peut convoquer."
+        }
+      },
+      "necromancer": {
+        "handle-living-graveyard-movement": {
+          "name": "[Necromancien] Se charge du déplacement du Cimetière vivant",
+          "hint": "En cas d'activation, lorsqu'un Cimetière vivant est déplacé , il enverra un message dans la conversation. En cliquant dessus, cela provoquera l'apparition d'un thrall du cimetière (comme prévu par les règles)"
+        },
+        "thrall": {
+          "auto-expire": {
+            "name": "[Nécromancien] Supprimer automatiquement les esclaves expirés",
+            "hint": "Lorsqu'elle est activée, si l'effet de la date d'expiration de l'esclave expire, il supprimera automatiquement l'esclave"
+          }
+        }
+      },
+      "refresh": {
+        "summons": {
+          "name": "Rafraîchir les attaques et les jets de sauvegarde des invocations",
+          "hint": "Lorsque cette option est active, toutes les mises à jour du DD des sorts de l'invocateur (actuellement uniquement les états) déclencheront une actualisation de leurs invocations, mettant ainsi à jour le DD/les attaques pour qu'ils correspondent."
+        }
+      },
+      "specific-case": {
+        "handle": {
+          "wooden-double": {
+            "name": "Gérer les dégâts du Double de bois",
+            "hint": "Lorsqu'un Double de Bois subit des dégâts supérieurs à sa santé maximale, il lancera des dégâts équivalents aux dégâts supplémentaires (ces dégâts sont non typés)"
+          }
+        }
+      },
+      "filter": {
+        "default": {
+          "token-with-art": {
+            "name": "[Filtre] Par défaut, jetons avec illustration uniquement",
+            "hint": "Faire en sorte que le sélecteur d'acteur affiche par défaut uniquement les acteurs avec des illustrations par défaut"
+          }
+        }
+      },
+      "reminder": {
+        "message": {
+          "name": "[Rappel] Recevez un rappel concernant les sbires des combattants",
+          "hint": "Obtenez un rappel par message privé concernant les sbires d'un combattant au début de chaque round."
+        }
+      }
+    },
+    "message": {
+      "living-graveyard": {
+        "thralls": "Le cimetière vivant s'est déplacé. Si cela résulte de son Maintien, souhaitez-vous invoquer 3 nouveaux thralls sur son passage ?",
+        "summon": "Invoquer!"
+      },
+      "wooden-double": "Les dégâts du Double en Bois sont transmis au lanceur du sort"
+    },
+    "notification": {
+      "summoner": {
+        "too-many-eidolons": "Vous possédez trop d'eidolons."
+      },
+      "duplicate-foe": {
+        "too-high": "L'ennemi est de trop haut niveau pour ce rang de Dupliquer l'ennemi"
+      },
+      "disable-items": {
+        "saved": "Enregistré ! Les automatisations suivantes de l’assistant d’invocation ont été désactivées : {list}"
+      },
+      "customization": {
+        "saved": "La personnalisation de l'invocation a été sauvegardée."
+      },
+      "active-minions": "Activez le(s) <u data-tooltip=\"{minionTooltip}\">sbire(s)</u> de <b>{summonerName}</b>"
+    },
+    "dialog": {
+      "duplicate-foe": "La cible a t-elle manqué son jet de sauvegarde ?",
+      "telekinetic-hand": "Choisissez vous de rendre invisible la main que vous convoquez ?",
+      "disable-specific": {
+        "title": "Sélectionnez les sources d'invocation à désactiver",
+        "search": "Recherche...",
+        "button": {
+          "title": "Configurer les déclencheurs d'invocation activés",
+          "hint": "Configurez les sources d'invocation actives."
+        }
+      },
+      "choose-type-of": "Choisissez le type de",
+      "customize": {
+        "summoned-token": {
+          "title": "Personnaliser le jeton invoqué"
+        }
+      }
+    },
+    "display-text": {
+      "wooden-double": {
+        "place-double": "Clic gauche pour placer votre Double de bois",
+        "step": "Choisissez où Faire un pas"
+      },
+      "wall": {
+        "start-point": "Sélectionnez le point de départ de votre mur"
+      },
+      "jagged-berms": {
+        "spikes": "Clic-gauche pour placer des pointes ({count}), clic-droit pour arrêter",
+        "berm": "Placer les bermes à pieux"
+      }
+    },
+    "items": {
+      "actions": {
+        "mechanic": {
+          "critical-explosion": {
+            "name": "Explosion critique",
+            "description": "Vos mines explosent dans un nuage de shrapnels qui passent par les points les plus faibles d'une créature pour provoquer des dégâts durables. Ajoutez votre modificateur d'Intelligence aux dégâts de vos mines. Une créature qui obtient un écehc critique sur son jet de sauvegarde contre une de vos mines se voit infligé des dégâts persistants égaux à votre modificateur d'Intelligence. Si la mine a infligé des dégâts physiques, il s'agit de dégâts de saignement. Autrement, les dégâts persistants sont du même type que ceux infligés par la mine."
+          }
+        }
+      },
+      "effects": {
+        "summon's-owner": {
+          "name": "Propriétaire de l'invocation"
+        },
+        "thrall-expiration": {
+          "name": "Effet : Date d'expiration du thrall",
+          "description": "Ceci mesure combien de temps avant que ce thrall n'expire."
+        },
+        "rule-elements": {
+          "name": "Effet : Éléments de règle",
+          "description": "Cet effet ajoute divers éléments de règle à une invocation particulière afin d'y intégrer des automatisations telles que des frappes, etc."
+        },
+        "duplicate-foe": {
+          "name": "Effet : Dupliquer l'ennemi",
+          "successful-save": {
+            "title": "Dupliquer l'ennemi - Jet de sauvegarde réussi",
+            "text": "Compte tenu de la réussite du jet de sauvegarde, les cibles ne subissent que la moitié des dégâts des Frappes de ce duplicata"
+          }
+        }
+      }
+    },
+    "controls": {
+      "scroll": "Scroll",
+      "adjust-length": "Ajuster la longueur",
+      "rotate-wall": "Faire pivoter le mur"
+    }
+  }
+}

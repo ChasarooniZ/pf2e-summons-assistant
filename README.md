@@ -26,16 +26,22 @@ _a Thanks to Vauxs for updating [Foundry Summons](https://foundryvtt.com/package
 
 - [PF2e Summons Assistant](#pf2e-summons-assistant)
   - [Table of Contents](#table-of-contents)
+  - [How it works](#how-it-works)
   - [Changelog](#changelog)
   - [Handled Spells and Features](#handled-spells-and-features)
     - [Spells](#spells)
     - [Feats](#feats)
     - [Items](#items)
     - [SF2e](#sf2e)
+  - [Monster Actions](#monster-actions)
   - [Supported House Rules](#supported-house-rules)
   - [Other Settings/Support](#other-settingssupport)
   - [Contributors](#contributors)
   - [Assets](#assets)
+
+## How it works
+
+This module _generally_ detects a message from a particular item/action/feat/spell that is in it's list, theneither presents the user with a choice of which summon to summon in the case of a `Summon X` spell first, or if it is only a single option or they selected the Summon they want, asks you to place the summon where you want it on the board. This is for the "average" case some cases (IE Wall of Stone) handle themselves a bit differently.
 
 ## Changelog
 
@@ -72,12 +78,21 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Recurring Nightmare`
   - `Inevitable Return`
   - `Bind Heroic Spirit` - On Successful Attack
+- **Wall**
+  - `Wall of Ice`
+  - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
+  - `Wall of Stone` - Implementation Detail, each segment has the stats of 10 ft. of wall
+  - `Wall of Shadow`
 - **Misc**
   - `Avenging Wildwood`
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
+  - `Dragon Turret`
   - `Floating Flame` - Art Requires `JB2a`
+  - `Healing Well`
+  - `Instant Minefield`
   - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)
   - `Protector Tree` - Does not do any automation as of yet
+  - `Shadow Self`
   - `Telekinetic Hand` - Art Requires `JB2a`
   - `Wooden Double` - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
 
@@ -87,11 +102,19 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Plant Banner` - Basic Case (no handling of feat interactions beyond base case atm)
 - **Kineticist**
   - `Timber Sentinel` - Does not do any automation as of yet
+  - `Jagged Berm` - Requires `JB2a` free for the spikes
 - **Misc**
   - `Call Ursine Ally`
+  - `Necrologist Dedication` - Can sync health automatically to the summoner if you have the `PF2e Toolbelt` feature enabled
+  - `Swarmkeeper Dedication` - Can sync health automatically to the summoner if you have the `PF2e Toolbelt` feature enabled
 
 ### Items
 
+- **Mundane**
+  - `Torch`
+  - `Lantern (Bull's Eye)`
+  - `Lantern (Hooded)`
+  - `Candle`
 - **Wondrous Figurine**
   - `Jade Serpent`
 
@@ -103,6 +126,13 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Mine`
   - `Double Deploy`
 
+## Monster Actions
+
+- `Ankou`
+  - `Shadow Doubles`
+- `Ozthoom`
+  - `Shadow Doubles`
+
 ## Supported House Rules
 
 - **Summon Spells are Rank + 1**. - Treat summon spells as rank + 1 for creatures it summons
@@ -111,7 +141,12 @@ You can access the changelog [here](/CHANGELOG.md).
 ## Other Settings/Support
 
 - `Thrall Expiration Date` - Setting to have thralls auto expire (delete themselves when their effect is removed)
-- `Refresh Summons` - setting which when enabled will cause conditions that manipulate the actor's Spell DC (IE frightened, sickened, stupefied) to refresh their summons and thus updating any DCs/Attacks on them
+- `Refresh Summons` - Setting which when enabled will cause conditions that manipulate the actor's Spell DC (IE frightened, sickened, stupefied) to refresh their summons and thus updating any DCs/Attacks on them
+- `Disableable Summons` - At the top of the stting is a button that opens a dialog that lets you configure which summons automation you want enabled
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/a3dacc09-ef60-4305-99e9-68dee50c89cb" />
+
+- `Customizable Summons` - On item that summons (Spell/Action/Equipment/ etc.) there is a new sheet header button that will allow you to customize the summon as you wish
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/098566d5-74ff-4b24-bfd7-bd1ccc7279fe" />
 
 ## Contributors
 
@@ -123,3 +158,9 @@ You can see everyone else who contributed to the module [here](CONTRIBUTORS.md)
 - `Healing Servitor` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Mechanic Mines` - (credit @Sasane, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Plant Banner` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Dragon Turret` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Protector Tree` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- The following were Made with assets from 2-Minute Tabletop
+  - `Lantern`
+  - `Candle`
+  - `Torch`

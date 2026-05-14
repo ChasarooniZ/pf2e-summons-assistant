@@ -250,13 +250,14 @@
 				"rules": [
 					{
 						"key": "Aura",
-						"radius": 30,
+						"radius": 40,
 						"traits": [],
 						"effects": [
 							{
 								"uuid": "Compendium.pf2e.feat-effects.Item.KsUQjLQO62BY0lk4",
 								"affects": "allies",
-								"includesSelf": false
+								"includesSelf": false,
+								"predicate": [{ "not": "target:signature:{actor|flags.pf2e-summons-assistant.summoner.signature}" }]
 							}
 						],
 						"level": "@actor.level"
@@ -335,7 +336,7 @@
 						"predicate": [
 							"commanders-banner"
 						],
-						"radius": 30,
+						"radius": 40,
 						"slug": "commanders-banner",
 						"traits": [
 							"emotion",
@@ -391,7 +392,13 @@
 		}
 	],
 	"sort": 0,
-	"flags": {},
+	"flags": {
+		"pf2e-summons-assistant": {
+			"summoner": {
+				"signature": ""
+			}
+		}
+	},
 	"_stats": {
 		"compendiumSource": null,
 		"duplicateSource": null,

@@ -1,0 +1,558 @@
+{
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Necrologist's Horde",
+  "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": false
+      },
+      "barbrawl": {
+        "replaceBars": true,
+        "resourceBars": {
+          "bar1": {
+            "order": 0,
+            "id": "bar1",
+            "attribute": "attributes.hp",
+            "mincolor": "#FF0000",
+            "maxcolor": "#80FF00",
+            "otherVisibility": 0,
+            "ownerVisibility": 30,
+            "gmVisibility": -1,
+            "hideFull": false,
+            "hideEmpty": false,
+            "hideCombat": false,
+            "hideNoCombat": false,
+            "hideHud": false,
+            "position": "bottom-inner",
+            "shareHeight": false,
+            "indentLeft": null,
+            "indentRight": null,
+            "style": "user",
+            "label": "",
+            "invert": false,
+            "subdivisions": null,
+            "subdivisionsOwner": false,
+            "invertDirection": false,
+            "fgImage": "",
+            "bgImage": "",
+            "hideBg": false,
+            "opacity": null
+          }
+        }
+      },
+      "Rideable": {
+        "issetRideableFlag": true,
+        "MountonEnterFlag": false,
+        "AutoMountBlackListFlag": "",
+        "AutoMountWhiteListFlag": "",
+        "MaxRiderFlag": null,
+        "CustomRidingheightFlag": null,
+        "UseRidingHeightFlag": true,
+        "RidersScaleFlag": 1,
+        "RiderPositioningFlag": "RowPlacement",
+        "RiderOffsetFlag": [
+          0,
+          0
+        ],
+        "TokenFormFlag": "TokenFormCircle",
+        "InsideMovementFlag": false,
+        "SpawnRidersFlag": "",
+        "WorldMEffectOverrideFlag": false,
+        "MountingEffectsFlag": "",
+        "SelfApplyEffectsFlag": false,
+        "forMountEffectsFlag": "",
+        "CanbePilotedFlag": false,
+        "CheckPilotedCollisionFlag": false,
+        "PilotedbyDefaultFlag": false
+      }
+    },
+    "height": 3,
+    "width": 3,
+    "name": "Necrologist's Horde",
+    "displayName": 30,
+    "actorLink": false,
+    "texture": {
+      "src": "modules/pf2e-tokens-bestiaries/tokens/troop/skeleton-infantry.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": "modules/pf2e-tokens-bestiaries/subjects/troop/skeleton-infantry.webp"
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "depth": 3
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 100,
+        "temp": 0,
+        "max": 100,
+        "details": ""
+      },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      },
+      "speed": {
+        "value": 20,
+        "otherSpeeds": [],
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "grabbed",
+          "exceptions": []
+        },
+        {
+          "type": "prone",
+          "exceptions": []
+        },
+        {
+          "type": "restrained",
+          "exceptions": []
+        }
+      ]
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 1
+      },
+      "blurb": "",
+      "publicNotes": "<p>This is a very basic implementation meant only to track the general position of the Swarm.</p>",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.955,
+      "previous": null
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [
+        "mindless",
+        "undead"
+      ],
+      "rarity": "common",
+      "size": {
+        "value": "huge"
+      }
+    }
+  },
+  "img": "modules/pf2e-tokens-bestiaries/portraits/troop/skeleton-infantry.webp",
+  "items": [
+    {
+      "img": "systems/pf2e/icons/actions/Passive.webp",
+      "name": "Swarm Mind",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "description": {
+          "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.SwarmMind]</p>",
+          "gm": ""
+        },
+        "publication": {
+          "license": "ORC",
+          "remaster": true,
+          "title": "Pathfinder Monster Core",
+          "authors": ""
+        },
+        "rules": [],
+        "traits": {
+          "value": [],
+          "otherTags": []
+        },
+        "slug": "swarm-mind",
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
+          }
+        },
+        "deathNote": false
+      },
+      "type": "action",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "14.361",
+        "systemId": "pf2e",
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "modifiedTime": 1778652689112,
+        "createdTime": 1778652689112
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_id": "XTjNkPFSY8MGd7MD",
+      "_key": "!actors.items!NnaI8Zd5ZFfz8zs2.XTjNkPFSY8MGd7MD"
+    },
+    {
+      "type": "action",
+      "name": "Level Based Physical Resistance & Area Weakness",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "Resistance",
+            "value": "@actor.level",
+            "type": "physical"
+          },
+          {
+            "key": "Weakness",
+            "value": "@actor.level",
+            "type": "area-damage"
+          }
+        ],
+        "slug": "level-based-physical-resistance",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "of37CwcDcniiKWCK",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "14.361",
+        "systemId": "pf2e",
+        "systemVersion": "8.1.2",
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "createdTime": 1778652689112,
+        "modifiedTime": 1778652689112
+      },
+      "_key": "!actors.items!NnaI8Zd5ZFfz8zs2.of37CwcDcniiKWCK"
+    },
+    {
+      "type": "action",
+      "name": "Skeleton or Zombie",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "domain": "all",
+            "key": "RollOption",
+            "option": "type",
+            "suboptions": [
+              {
+                "label": "Zombie",
+                "value": "zombie"
+              },
+              {
+                "label": "Skeleton",
+                "value": "skeleton"
+              },
+              {
+                "label": "Ghost (Ghostsong Only)",
+                "value": "ghost"
+              }
+            ],
+            "label": "Type",
+            "toggleable": true,
+            "alwaysActive": true,
+            "value": true,
+            "selection": "skeleton"
+          },
+          {
+            "key": "TokenImage",
+            "value": "modules/pf2e-tokens-bestiaries/tokens/troop/skeleton-infantry.webp",
+            "ring": {
+              "subject": {
+                "texture": "modules/pf2e-tokens-bestiaries/subjects/troop/skeleton-infantry.webp"
+              }
+            },
+            "predicate": [
+              "type:skeleton"
+            ]
+          },
+          {
+            "key": "TokenImage",
+            "value": "modules/pf2e-tokens-bestiaries/tokens/troop/shambler-troop.webp",
+            "ring": {
+              "subject": {
+                "texture": "modules/pf2e-tokens-bestiaries/subjects/troop/shambler-troop.webp"
+              }
+            },
+            "predicate": [
+              "type:zombie"
+            ]
+          },
+          {
+            "key": "TokenImage",
+            "value": "modules/pf2e-tokens-monster-core-2/assets/tokens/ghostly-mob.webp",
+            "ring": {
+              "subject": {
+                "texture": "modules/pf2e-tokens-monster-core-2/assets/subjects/ghostly-mob.webp",
+                "scale": 2
+              }
+            },
+            "predicate": [
+              "type:ghost"
+            ],
+            "scale": 2
+          }
+        ],
+        "slug": "skeleton-or-zombie",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": 0.955,
+            "foundry": "14.361",
+            "system": "8.1.2"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "dhK4wMQeGkAzz0rH",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "14.361",
+        "systemId": "pf2e",
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689112,
+        "modifiedTime": 1778652689112,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+      },
+      "_key": "!actors.items!NnaI8Zd5ZFfz8zs2.dhK4wMQeGkAzz0rH"
+    }
+  ],
+  "flags": {
+    "core": {
+      "sheetClass": ""
+    },
+    "pf2e": {
+      "maxhealingRank": 0
+    }
+  },
+  "_stats": {
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NnaI8Zd5ZFfz8zs2",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "14.361",
+    "systemId": "pf2e",
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689110,
+    "modifiedTime": 1778652689110,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+  },
+  "_id": "NnaI8Zd5ZFfz8zs2",
+  "sort": 50000,
+  "_key": "!actors!NnaI8Zd5ZFfz8zs2"
+}

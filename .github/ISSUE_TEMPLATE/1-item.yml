@@ -1,8 +1,9 @@
 name: "👾 Add a Summon"
 description: Request support for a new summon trigger (IE Item/Spell/Feat/ETC.)
 title: "[Item] "
-labels: ["new-item"]
+labels: ["New-Item"]
 assignees: ["chasarooniZ"]
+projects: ["ChasarooniZ/2"]
 body:
   - type: input
     id: feature_link
@@ -12,6 +13,13 @@ body:
       placeholder: "https://2e.aonprd.com/Spells.aspx?ID=864"
     validations:
       required: true
+
+  - type: input
+    id: feature_uuid
+    attributes:
+      label: "Feature/Spell UUID (SF2e Only)"
+      description: "Please provide the uuid of this feature /spell ESPECIALLY if it is from SF2e as I don't have easy access"
+      placeholder: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu"
 
   - type: textarea
     id: description

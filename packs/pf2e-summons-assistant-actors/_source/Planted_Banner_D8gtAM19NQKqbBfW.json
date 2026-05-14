@@ -41,18 +41,15 @@
     "height": 0.5,
     "width": 0.5,
     "name": "Planted Banner",
-    "displayName": 20,
+    "displayName": 30,
     "actorLink": false,
     "texture": {
       "src": "modules/pf2e-summons-assistant/assets/tokens/token/plant-banner.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
-      "offsetX": 0,
-      "offsetY": 0,
       "fit": "contain",
       "scaleX": 1,
       "scaleY": 1,
-      "rotation": 0,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -103,7 +100,7 @@
       "saturation": 0,
       "contrast": 0
     },
-    "detectionModes": [],
+    "detectionModes": {},
     "occludable": {
       "radius": 0
     },
@@ -128,7 +125,8 @@
     "movementAction": null,
     "randomImg": false,
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "depth": 0.5
   },
   "effects": [],
   "system": {
@@ -139,17 +137,17 @@
         "max": 10,
         "details": ""
       },
-      "speed": {
-        "value": 25,
-        "otherSpeeds": [],
-        "details": ""
-      },
       "ac": {
         "value": 10,
         "details": ""
       },
       "allSaves": {
         "value": ""
+      },
+      "speed": {
+        "value": 25,
+        "otherSpeeds": [],
+        "details": ""
       }
     },
     "initiative": {
@@ -256,7 +254,12 @@
               {
                 "uuid": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.vnFV2b3aYdvGeVkM",
                 "affects": "allies",
-                "includesSelf": false
+                "includesSelf": false,
+                "predicate": [
+                  {
+                    "not": "target:signature:{actor|flags.pf2e-summons-assistant.summoner.signature}"
+                  }
+                ]
               }
             ],
             "level": "@actor.level"
@@ -270,11 +273,11 @@
           ]
         },
         "_migration": {
-          "version": 0.941,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.3.1"
+            "schema": 0.941,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -297,11 +300,11 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.347",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.4.1",
-        "createdTime": 1754207756042,
-        "modifiedTime": 1755811755902,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689048,
+        "modifiedTime": 1778652689048,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!D8gtAM19NQKqbBfW.vidOKIYqEJb5aXE5"
@@ -327,14 +330,11 @@
           {
             "effects": [
               {
-                "affects": "allies",
-                "uuid": "Compendium.pf2e.feat-effects.Item.JZWi6512m9RlMrNO"
+                "uuid": "Compendium.pf2e.feat-effects.Item.JZWi6512m9RlMrNO",
+                "affects": "allies"
               }
             ],
             "key": "Aura",
-            "predicate": [
-              "commanders-banner"
-            ],
             "radius": 30,
             "slug": "commanders-banner",
             "traits": [
@@ -353,11 +353,11 @@
           ]
         },
         "_migration": {
-          "version": 0.941,
+          "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "13.346",
-            "system": "7.3.1"
+            "schema": 0.941,
+            "foundry": "14.361",
+            "system": "8.1.2"
           }
         },
         "actions": {
@@ -380,27 +380,36 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.346",
+        "coreVersion": "14.361",
         "systemId": "pf2e",
-        "systemVersion": "7.3.1",
-        "createdTime": 1754207756917,
-        "modifiedTime": 1754208042972,
+        "systemVersion": "8.1.2",
+        "createdTime": 1778652689048,
+        "modifiedTime": 1778652689048,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!D8gtAM19NQKqbBfW.Ge8Il1I5HMi4rj0l"
     }
   ],
-  "sort": 0,
-  "flags": {},
+  "sort": 300000,
+  "flags": {
+    "pf2e-summons-assistant": {
+      "summoner": {
+        "signature": ""
+      }
+    },
+    "pf2e": {
+      "maxhealingRank": 0
+    }
+  },
   "_stats": {
-    "compendiumSource": null,
+    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.346",
+    "coreVersion": "14.361",
     "systemId": "pf2e",
-    "systemVersion": "7.3.1",
-    "createdTime": 1754207697469,
-    "modifiedTime": 1754207753128,
+    "systemVersion": "8.1.2",
+    "createdTime": 1778652689047,
+    "modifiedTime": 1778652689047,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!D8gtAM19NQKqbBfW"

@@ -5,8 +5,8 @@
   "version": "#{VERSION}#",
   "library": "false",
   "compatibility": {
-    "minimum": 12,
-    "verified": 13
+    "minimum": 13,
+    "verified": 14
   },
   "authors": [
     {
@@ -18,7 +18,16 @@
     "systems": [
       {
         "id": "pf2e",
-        "type": "system"
+        "type": "system",
+        "manifest": "https://github.com/foundryvtt/pf2e/releases/download/latest/system.json"
+      },
+      {
+        "id": "sf2e",
+        "type": "system",
+        "manifest": "https://github.com/foundryvtt/pf2e/releases/download/latest/system.json",
+        "compatibility": {
+          "minimum": "0.0.3"
+        }
       }
     ],
     "requires": [
@@ -53,27 +62,28 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "languages/en.json"
+      "path": "langs/en.json"
     },
     {
       "lang": "pl",
       "name": "Polski",
-      "path": "languages/pl.json"
+      "path": "langs/pl.json"
     },
     {
       "lang": "fr",
       "name": "Français",
-      "path": "languages/fr.json"
+      "path": "langs/fr.json"
     },
     {
       "lang": "cn",
       "name": "简体中文",
-      "path": "languages/cn.json"
+      "path": "langs/cn.json"
     }
   ],
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
+  "styles": ["styles/module.css"],
   "license": "LICENSE",
   "readme": "README.md",
   "socket": true,
@@ -99,6 +109,37 @@
         "ASSISTANT": "OWNER"
       },
       "system": "pf2e"
+    },
+    {
+      "name": "sf2e-summons-assistant-actors",
+      "label": "SF2e Summons Assistant Actors",
+      "path": "packs/sf2e-summons-assistant-actors",
+      "type": "Actor",
+      "system": "sf2e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "sf2e-summons-assistant-items",
+      "label": "SF2e Summons Assistant Items",
+      "path": "packs/sf2e-summons-assistant-items",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "sf2e"
     }
-  ]
+  ],
+  "flags": {
+    "galleryDatasheets": {
+      "pf2e-summons-assistant": {
+        "label": "PF2e Summons Assistant Artwork",
+        "hint": "Artwork from PF2e Summons Assistant.",
+        "sheet": "modules/pf2e-summons-assistant/assets/datasheet/datasheet.json"
+      }
+    }
+  }
 }
