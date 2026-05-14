@@ -2,7 +2,18 @@
   "I18N.LANGUAGE": "Français",
   "pf2e-summons-assistant": {
     "name": "PF2e Assistant de convocation",
+    "code": {
+      "range": {
+        "feet": "pied"
+      }
+    },
     "module-settings": {
+      "automation": {
+        "limit-range": {
+          "name": "Automatisation de la limite de portée des invocations",
+          "hint": "Limite la portée des sorts qui incluent une portée et affiche également la limite de portée."
+        }
+      },
       "name-ownership": {
         "name": "Ajouter le nom du convocateur au nom de la convocation",
         "hint": "Modifier le nom de la convocation pour montrer qui l'a convoqué, ex 'Gobelin d'Herendil' etc."
