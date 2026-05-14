@@ -96,6 +96,11 @@
       "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>"
     },
     "dialog": {
+      "dancing-weapon": {
+        "choose": "Choose Weapon",
+        "title": "Choose your Dancing Blade",
+        "damage-types": "Damage Types"
+      },
       "duplicate-foe": "Did the target fail their save?",
       "telekinetic-hand": "Do you choose to make the hand you summon invisible?",
       "disable-specific": {
@@ -153,6 +158,9 @@
             "title": "Duplicate Foe - Successful Save",
             "text": "Due to the successful save, targets only take half the damage of this duplicate's strikes"
           }
+        },
+        "dancing-blade": {
+          "title": "Effect: Dancing Blade"
         }
       }
     },

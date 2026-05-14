@@ -76,6 +76,10 @@ export const SOURCES = {
     WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
   },
 
+  COMMANDER: {
+    PLANT_BANNER: "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1",
+  },
+
   KINETICIST: {
     TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
     JAGGED_BERMS: "Compendium.pf2e.feats-srd.Item.9L6c9sxweM4IdOse",
@@ -103,19 +107,20 @@ export const SOURCES = {
       "Compendium.pf2e-playtest-data.impossible-playtest-effects.Item.MTYxqIqJVzza1Lro",
   },
 
-  COMMANDER: {
-    PLANT_BANNER: "Compendium.pf2e.feats-srd.Item.xEeCaJsQeDtRAVk1",
+  PSYCHIC: {
+    DANCING_BLADE: "Compendium.pf2e.spells-srd.Item.ViqzVEprQVzCXZ9f",
   },
 
+  SUMMONER: {
+    MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp",
+  },
+
+  //SF2e
   MECHANIC: {
     DEPLOY_MINE:
       "Compendium.starfinder-field-test-for-pf2e.actions.Item.ccVcznj9KVYHLVaY",
     DOUBLE_DEPLOYMENT:
       "Compendium.starfinder-field-test-for-pf2e.feats.Item.x5rhl6ThqqjHGglD",
-  },
-
-  SUMMONER: {
-    MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp",
   },
 };
 
@@ -128,6 +133,7 @@ export const SLUG_TO_SOURCE = {
   candle: SOURCES.MUNDANE.CANDLE,
   "conglomerate-of-limbs": SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS,
   "create-thrall": SOURCES.NECROMANCER.CREATE_THRALL,
+  "dancing-blade": SOURCES.PSYCHIC.DANCING_BLADE,
   "deploy-mine": SOURCES.MECHANIC.DEPLOY_MINE,
   "double-deployment": SOURCES.MECHANIC.DOUBLE_DEPLOYMENT,
   "dragon-turret": SOURCES.MISC.DRAGON_TURRET,
@@ -270,6 +276,10 @@ export const CREATURES = {
   POLAR_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.UqFObUjgFAlWrriA",
   PROTECTOR_TREE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
+  PSYCHIC: {
+    DANCING_BLADE:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.l4LKNqL0Vp9dUAvF",
+  },
   SHADOW_SELF:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.nodnIFYW56Lk3mcY",
   SWARMKEEPER_SWARM:
@@ -533,6 +543,11 @@ export const ACTIONS = {
       img: "systems/pf2e/icons/actions/Passive.webp",
     }),
   },
+  DANCING_BLADE: {
+    GUARD:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.JdCfKdOAdumgw6aU",
+    PUSH: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.cyjLIVsxZbJNr4PF",
+  },
 };
 
 export const ROLL_OPTION = {
@@ -578,4 +593,50 @@ export const SENSE_MODES = {
     CONST?.EDGE_SENSE_TYPES?.PROXIMITY ?? CONST?.WALL_SENSE_TYPES?.PROXIMITY,
   DISTANCE:
     CONST?.EDGE_SENSE_TYPES?.DISTANCE ?? CONST?.WALL_SENSE_TYPES?.DISTANCE,
+};
+
+export const WEAPON_DAMAGE_TYPE_MODIFIERS = {
+  RUNES: {
+    ashen: "fire",
+    greaterAshen: "fire",
+    astral: "spirit",
+    greaterAstral: "spirit",
+    brilliant: "fire",
+    greaterBrilliant: "fire",
+    corrosive: "acid",
+    greaterCorrosive: "acid",
+    decaying: "void",
+    greaterDecaying: "void",
+    flaming: "fire",
+    greaterFlaming: "fire",
+    frost: "cold",
+    greaterFrost: "cold",
+    holy: "spirit",
+    impactful: "force",
+    greaterImpactful: "force",
+    nightmare: "mental",
+    shock: "electricity",
+    greaterShock: "electricity",
+    thundering: "sonic",
+    greaterThundering: "sonic",
+    unholy: "spirit",
+    vitalizing: "vitality",
+    greaterVitalizing: "vitality",
+  },
+  TRAITS: {
+    "versatile-b": "bludgeoning",
+    "versatile-p": "piercing",
+    "versatile-s": "slashing",
+    "versatile-acid": "acid",
+    "versatile-cold": "cold",
+    "versatile-electricity": "electricity",
+    "versatile-fire": "fire",
+    "versatile-force": "force",
+    "versatile-mental": "mental",
+    "versatile-poison": "poison",
+    "versatile-sonic": "sonic",
+    "versatile-spirit": "spirit",
+    "versatile-vitality": "vitality",
+    "versatile-void": "void",
+  },
 };

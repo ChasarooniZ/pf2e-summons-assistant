@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 2.3.0
+
+- **New**
+  - `Dancing Blade` support (💡 @t-santana)
+    - **Note** requires jb2a for the art to show
+    - Also supports `Amped` and `Non Amped` casting
+
 ## 2.2.2
 
 - Updated french translation (🌐 @rectulo)

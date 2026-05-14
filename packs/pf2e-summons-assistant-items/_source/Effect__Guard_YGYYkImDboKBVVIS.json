@@ -1,0 +1,85 @@
+{
+  "folder": "Jgr03TNBCPio6tdA",
+  "name": "Effect: Guard",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p><strong>Granted by</strong> @UUID[Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.JdCfKdOAdumgw6aU]{Guard}</p><p>The weapon grants a +2 circumstance bonus to AC against melee attacks to the creature it's following. The bonus lasts until the start of your next turn or until the weapon Changes Partners, whichever comes first.</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "key": "TokenMark",
+        "slug": "dancing-blade-guard",
+        "uuid": ""
+      },
+      {
+        "key": "FlatModifier",
+        "value": 2,
+        "type": "circumstance",
+        "selector": [
+          "ac"
+        ],
+        "predicate": [
+          "origin:mark:dancing-blade-guard"
+        ]
+      }
+    ],
+    "slug": "effect-guard",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": 1,
+      "unit": "rounds",
+      "expiry": "turn-start",
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "_id": "YGYYkImDboKBVVIS",
+  "img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.361",
+    "systemId": "pf2e",
+    "systemVersion": "8.1.2",
+    "createdTime": 1778774148288,
+    "modifiedTime": 1778774958667,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!YGYYkImDboKBVVIS"
+}

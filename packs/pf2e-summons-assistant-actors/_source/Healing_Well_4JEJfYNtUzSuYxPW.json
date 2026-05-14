@@ -1,5 +1,5 @@
 {
-  "folder": "gGy6LNAsZa9IaIjf",
+  "folder": "mVjwgM2wn6PBRVzp",
   "name": "Healing Well",
   "type": "npc",
   "ownership": {
@@ -480,7 +480,7 @@
       "_key": "!actors.items!4JEJfYNtUzSuYxPW.dCHyITqfMFUtETag"
     }
   ],
-  "sort": 700000,
+  "sort": -25000,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
@@ -494,7 +494,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652689035,
-    "modifiedTime": 1778652689035,
+    "modifiedTime": 1778772162351,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!4JEJfYNtUzSuYxPW"
