@@ -1,6 +1,6 @@
 ## Unreleased
 
-## 2.2.3
+## 2.2.2
 
 - Updated french translation (🌐 @rectulo)
 
