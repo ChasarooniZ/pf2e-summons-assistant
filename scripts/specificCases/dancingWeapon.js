@@ -1,9 +1,15 @@
 import { ACTIONS, WEAPON_DAMAGE_TYPE_MODIFIERS } from "../const.js";
 import { getStrikeMod } from "../specificClasses/necromancer.js";
 
+/**
+ *
+ * @param {Actor} actor
+ * @param {boolean} isAmped
+ * @returns {{weapon: {id: string, name: string, img: string, group: string, base: string, damageTypes: string[], tokenArt: string}, effect: Item}}
+ */
 export async function dancingWeaponDialog(actor, isAmped = false) {
   const weapons = getCharacterWeapons(actor);
-  await new foundry.applications.api.DialogV2({
+  return await foundry.applications.api.DialogV2.wait({
     window: {
       title: game.i18n.localize(
         "pf2e-summons-assistant.dialog.dancing-weapon.title",
@@ -36,32 +42,34 @@ export async function dancingWeaponDialog(actor, isAmped = false) {
           "pf2e-summons-assistant.dialog.dancing-weapon.choose",
         ),
         default: true,
-        callback: (event, button, dialog) => button.form.elements.choice.value,
+        callback: (event, button, dialog) => {
+          const result = button.form.elements.choice.value;
+          const pickedWeapon = weapons.find((weapon) => weapon.id === result);
+          return {
+            weapon: pickedWeapon,
+            effect: getEffect(pickedWeapon.damageTypes, isAmped),
+          };
+        },
       },
     ],
-    submit: (result) => {
-      const pickedWeapon = weapons.find(result.id);
-      return {
-        weapon: pickedWeapon,
-        effect: getEffect(pickedWeapon.damageType, isAmped),
-      };
-    },
-  }).render({ force: true });
+  });
 }
 
+/**
+ * Get Character Weapon relevant info
+ * @param {Actor} actor Actor
+ * @return {{id: string, name: string, img: string, group: string, base: string, damageTypes: string[], tokenArt: string}}
+ */
 function getCharacterWeapons(actor) {
   const weapons = actor.items.documentsByType.weapon;
 
-  return weapons
-    .map((weapon) => ({
-      id: weapon.id,
-      name: weapon.name,
-      img: weapon.img,
-      group: weapon.group,
-      base: weapon.base,
-      damageTypes: getWeaponDamageTypes(weapon),
-    }))
-    .map((weapon) => ({ ...weapon, tokenArt: getWeaponJb2aArt(weapon) }));
+  return weapons.map((weapon) => ({
+    id: weapon.id,
+    name: weapon.name,
+    img: weapon.img,
+    damageTypes: getWeaponDamageTypes(weapon),
+    tokenArt: getWeaponJb2aArt(weapon),
+  }));
 }
 
 function getEffect(damageTypes, isAmped = false) {
@@ -78,11 +86,10 @@ function getEffect(damageTypes, isAmped = false) {
           key: "RollOption",
           label: "Dancing Blade Damage",
           option: "dancing-blade-damage",
-          suboptions: [
-            damageTypes.map((damage) => ({
-              label: getDamageTypeLocalization(damage),
-            })),
-          ],
+          suboptions: damageTypes.map((damage) => ({
+            label: getDamageTypeLocalization(damage),
+            value: damage,
+          })),
           flag: "dancingBladeDamage",
           alwaysActive: true,
           toggleable: true,
@@ -94,8 +101,7 @@ function getEffect(damageTypes, isAmped = false) {
           value: "{item|flags.system.rulesSelections.dancingBladeDamage}",
         },
         ...(isAmped
-          ? []
-          : [
+          ? [
               {
                 key: "DamageDice",
                 override: {
@@ -111,8 +117,21 @@ function getEffect(damageTypes, isAmped = false) {
                 key: "GrantItem",
                 uuid: ACTIONS.DANCING_BLADE.PUSH,
               },
-            ]),
+            ]
+          : []),
       ],
+      duration: {
+        value: -1,
+        unit: "unlimited",
+        expiry: null,
+        sustained: false,
+      },
+      level: {
+        value: 1,
+      },
+      tokenIcon: {
+        show: false,
+      },
       publication: {
         title: "PF2e Summons Assistant",
         authors: "",
@@ -139,7 +158,7 @@ function getWeaponDamageTypes(weapon) {
     }
   }
   for (const rune of weapon.system.runes.property) {
-    const type = WEAPON_DAMAGE_TYPE_MODIFIERS.RUNES[rune];
+    const type = WEAPON_DAMAGE_TYPE_MODIFIERS?.RUNES?.[rune];
     if (type) {
       damageTypes.push(type);
     }
@@ -173,11 +192,11 @@ const SPECTRAL_WEAPON_ART = {
 };
 
 function getWeaponJb2aArt(weapon) {
-  const specificArt = SPECTRAL_WEAPON_ART?.[weapon.base];
-  if (!specificArt) {
+  const specificArt = SPECTRAL_WEAPON_ART?.[weapon?.system?.baseItem];
+  if (specificArt) {
     return getJB2aPath(specificArt);
   } else {
-    switch (weapon.group) {
+    switch (weapon?.system?.group) {
       case "axe":
         if (
           weapon.system.usage.hands === 2 ||

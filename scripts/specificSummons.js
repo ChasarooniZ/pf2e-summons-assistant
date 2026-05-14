@@ -19,7 +19,10 @@ import { incarnateDetails } from "./specificCases/incarnate.js";
 import { getEidolon } from "./specificClasses/summoner.js";
 import { isSummonSourceDisabled } from "./disableItems.js";
 import { getNecromancerProf } from "./specificClasses/necromancer.js";
-import { getJB2aPath } from "./specificCases/dancingWeapon.js";
+import {
+  dancingWeaponDialog,
+  getJB2aPath,
+} from "./specificCases/dancingWeapon.js";
 
 export async function getSpecificSummonDetails(
   uuid,
@@ -121,7 +124,7 @@ const getSummonHandlers = () => ({
     handlers.necromancer.handleSkeletalLancers,
 
   // Psychic
-  [SOURCES.PSYCHIC.DANCING_BLADE]: handles.psychic.handleDancingBlade,
+  [SOURCES.PSYCHIC.DANCING_BLADE]: handlers.psychic.handleDancingBlade,
 
   // Summon
   [SOURCES.MISC.PHANTASMAL_MINION]: handlers.summon.handlePhantasmalMinion,
@@ -656,7 +659,6 @@ const handlers = {
       ];
     },
   },
-
   wall: {
     handleWallOfIce: async (data) => {
       const type = data.ignoreDialogue
@@ -825,7 +827,6 @@ const handlers = {
       ];
     },
   },
-
   necromancer: {
     handleBindHeroicSpiritStrike: (data) => {
       return [
@@ -940,11 +941,10 @@ const handlers = {
       ];
     },
   },
-
   psychic: {
     handleDancingBlade: async (data) => {
       const summonerActor = game.actors.get(data.summonerActorId);
-      const isAmped = data?.itemRollOptions?.includes("amp-spell");
+      const isAmped = data?.summonerRollOptions?.includes("amp-spell");
       let weapon = {
         id: "",
         name: "",
@@ -952,8 +952,17 @@ const handlers = {
           "jb2a.spiritual_weapon.shortsword.01.spectral.02.green",
         ),
       };
+      let dialogResult = {};
+      let effect = {};
       if (!data.ignoreDialogue) {
-        weapon = await dancingWeaponDialog(summonerActor, isAmped);
+        dialogResult = await dancingWeaponDialog(summonerActor, isAmped);
+      }
+
+      if (dialogResult.effect) {
+        effect = dialogResult.effect;
+      }
+      if (dialogResult.weapon) {
+        weapon = dialogResult.weapon;
       }
 
       return [
@@ -964,6 +973,7 @@ const handlers = {
             "system.details.level.value": data.rank,
             "prototypeToken.texture.src": weapon.tokenArt,
           },
+          itemsToAdd: [effect],
         },
       ];
     },
