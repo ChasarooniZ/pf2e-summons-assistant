@@ -167,6 +167,20 @@ function getWeaponDamageTypes(weapon) {
 }
 
 const SPECTRAL_WEAPON_ART = {
+  "axe-musket": "jb2a.spiritual_weapon.greataxe.01.spectral.02.green",
+  "dagger-pistol": "jb2a.spiritual_weapon.dagger.02.spectral.02.green",
+  "gun-sword": "jb2a.spiritual_weapon.katana.01.spectral.02.green",
+  "rapier-pistol": "jb2a.spiritual_weapon.rapier.01.spectral.02.green",
+  "piercing-wind": "jb2a.spiritual_weapon.falchion.01.spectral.02.green",
+  "cane-pistol": "jb2a.spiritual_weapon.quarterstaff.01.spectral.02.green",
+  lancer: "jb2a.spiritual_weapon.javelin.01.spectral.02.green",
+  "bow-staff": "jb2a.spiritual_weapon.quarterstaff.01.spectral.02.green",
+  mikazuki: "jb2a.spiritual_weapon.quarterstaff.01.spectral.02.green",
+  triggerbrand: "jb2a.spiritual_weapon.shortsword.01.spectral.02.green",
+  "explosive-dogslicer": "jb2a.spiritual_weapon.falchion.01.spectral.02.green",
+  "gnome-amalgam-musket": "jb2a.spiritual_weapon.mace.01.spectral.02.green",
+  "hammer-gun": "jb2a.spiritual_weapon.warhammer.01.spectral.02.green",
+  "three-peaked-tree": "jb2a.spiritual_weapon.trident.01.spectral.02.green",
   falchion: "jb2a.spiritual_weapon.falchion.01.spectral.02.green",
   falcata: "jb2a.spiritual_weapon.falchion.01.spectral.02.green",
   glaive: "jb2a.spiritual_weapon.glaive.01.spectral.02.green",
