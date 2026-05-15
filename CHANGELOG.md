@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.3.1
+
+- Fixed damage scaling on `thrall` being higher than accurate (🐛 @Sol (Veronica))
+
 ## 2.3.0
 
 - **New**

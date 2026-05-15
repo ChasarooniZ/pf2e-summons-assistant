@@ -256,3 +256,18 @@ export async function defaultTokenRayCrosshair({
     },
   );
 }
+
+export function getHeightenedValue({
+  baseVal,
+  startLvl,
+  currLvl,
+  heightenEvery,
+  heightenBonus,
+}) {
+  if (currLvl <= startLvl) return baseVal;
+
+  const levelsGained = currLvl - startLvl;
+  const increments = Math.floor(levelsGained / heightenEvery);
+
+  return baseVal + increments * heightenBonus;
+}

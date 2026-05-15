@@ -1,5 +1,5 @@
 import { MODULE_ID, SOURCES, CREATURES } from "../const.js";
-import { capitalizeDamageType } from "../helpers.js";
+import { capitalizeDamageType, getHeightenedValue } from "../helpers.js";
 import { getSpecificSummonDetails } from "../specificSummons.js";
 import { summon } from "../summon.js";
 
@@ -152,7 +152,13 @@ export function createThrallAttackInfo({
       baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
       config: {
         die: "d6",
-        dice: Math.floor(castRank / 2) + 1,
+        dice: getHeightenedValue({
+          baseVal: 1,
+          startLvl: 1,
+          currLvl: castRank,
+          heightenEvery: 2,
+          heightenBonus: 1,
+        }),
         traits: ["magical"],
         name: "Thrall Strike",
       },
