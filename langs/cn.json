@@ -59,6 +59,12 @@
                     "name": "[提醒] 接收参战者仆从的提醒信息",
                     "hint": "允许在参战者的每回合开始时，接收其仆从的私密提醒信息"
                 }
+            },
+            "automation": {
+                "limit-range": {
+                    "hint": "限制了具备射程的召唤法术的召唤物生成范围，并将其范围显示在场景上",
+                    "name": "召唤物生成范围自动化限制"
+                }
             }
         },
         "name": "PF2e Summon's Assistant",
@@ -100,6 +106,11 @@
                 "summoned-token": {
                     "title": "自定义召唤物指示物"
                 }
+            },
+            "dancing-weapon": {
+                "choose": "选择该武器",
+                "title": "选择武器作为你的飞舞之刃",
+                "damage-types": "伤害类型"
             }
         },
         "display-text": {
@@ -140,8 +151,11 @@
                     }
                 },
                 "rule-elements": {
-                    "name": "效果：规则元素 Rule Elements",
+                    "name": "效果：规则元素",
                     "description": "该效果会为特定召唤物添加各类规则元素，以实现诸如打击等自动化操作。"
+                },
+                "dancing-blade": {
+                    "title": "效果：飞舞之刃 Dancing Blade"
                 }
             }
         },
@@ -149,6 +163,11 @@
             "adjust-length": "调整长度",
             "rotate-wall": "旋转墙体",
             "scroll": "鼠标滚轮"
+        },
+        "code": {
+            "range": {
+                "feet": "尺"
+            }
         }
     }
 }
