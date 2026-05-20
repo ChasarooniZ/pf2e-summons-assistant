@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.3.2
+
+- Updated range detection so it fallsback to `feet` regardless of your chosen language
+
 ## 2.3.1
 
 - Fixed damage scaling on `thrall` being higher than accurate (🐛 @Sol (Veronica))

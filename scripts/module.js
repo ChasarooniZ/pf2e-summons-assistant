@@ -73,8 +73,8 @@ Hooks.once("ready", async function () {
       if (!SOURCE_UUIDS.has(itemUuid)) {
         itemUuid =
           SLUG_TO_SOURCE[
-            chatMessage?.item?.slug ||
-              game?.pf2e.system.sluggify(chatMessage?.item?.name || "")
+          chatMessage?.item?.slug ||
+          game?.pf2e.system.sluggify(chatMessage?.item?.name || "")
           ];
       }
       if (!SOURCE_UUIDS.has(itemUuid)) return;
