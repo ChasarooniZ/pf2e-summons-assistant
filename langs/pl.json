@@ -2,7 +2,18 @@
   "I18N.LANGUAGE": "Polski",
   "pf2e-summons-assistant": {
     "name": "PF2e Summon's Assistant",
+    "code": {
+      "range": {
+        "feet": "stóp"
+      }
+    },
     "module-settings": {
+      "automation": {
+        "limit-range": {
+          "name": "Zautomatyzuj zakres limitów przywołań",
+          "hint": "Ogranicza zasięg zaklęć, które mają określony zasięg, a także wyświetla granicę tego zasięgu"
+        }
+      },
       "name-ownership": {
         "name": "Dodaj imię Przywołującego do imienia przywołanej istoty",
         "hint": "Modyfikuje nazwę przywoływanej postaci, aby wskazywała, kto ją przywołał, np. „Goblin Ezrena” itp."
@@ -85,6 +96,11 @@
       "active-minions": "Aktywne <u data-tooltip=\"{minionTooltip}\">sługus(y)</u> dla <b>{summonerName}</b>"
     },
     "dialog": {
+      "dancing-weapon": {
+        "choose": "Wybierz broń",
+        "title": "Wybierz Tańczące Ostrze",
+        "damage-types": "Rodzaje obrażeń"
+      },
       "duplicate-foe": "Czy cel nie wykonał rzutu obronnego?",
       "telekinetic-hand": "Czy chcesz, aby przywołana ręka była niewidoczna?",
       "disable-specific": {
@@ -142,6 +158,9 @@
             "title": "Duplikacja Wroga - Udany rzut obronny",
             "text": "Dzięki udanej obronie cele otrzymują tylko połowę obrażeń zadawanych przez ataki tej kopii"
           }
+        },
+        "dancing-blade": {
+          "title": "Efekt: Tańczące Ostrze"
         }
       }
     },
