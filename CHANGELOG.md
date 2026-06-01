@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.3.3
+
+- Updated polish translation (🌐 @lioheart)
+- Updated chinese translation (🌐 @AlphaStarGuide)
+
 ## 2.3.2
 
 - Updated range detection so it fallsback to `feet` regardless of your chosen language
