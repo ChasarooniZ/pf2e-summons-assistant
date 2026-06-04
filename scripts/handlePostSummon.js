@@ -102,10 +102,13 @@ const postSummonHelper = {
           lineColor: color,
           radius: 2 + count * 0.04,
           gridUnits: true,
+          alpha: 0.9,
         })
         .name(name)
         .tieToDocuments([summonerToken, eff])
-        .persist(!!eff);
+        .blendMode(PIXI.BLEND_MODES.SCREEN)
+        .persist(!!eff)
+        .xray();
       count++;
     }
     seq.play();
@@ -114,6 +117,7 @@ const postSummonHelper = {
       position: prismaticSphereToken?.center,
       summonedWallToken: prismaticSphereToken,
       radiusSquares: 2,
+      wallConfig: { light: SENSE_MODES.NONE, move: SENSE_MODES.NONE },
       art: null,
     });
   },

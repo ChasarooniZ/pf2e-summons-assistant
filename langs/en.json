@@ -129,6 +129,36 @@
       "jagged-berms": {
         "spikes": "Left Click to place Spikes ({count}), Right click to stop",
         "berm": "Place Jagged Berm"
+      },
+      "prismatic-sphere": {
+        "red": {
+          "title": "Red",
+          "text": "Deals @Damage[20[fire]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save."
+        },
+        "orange": {
+          "title": "Orange",
+          "text": "Deals @Damage[25[acid]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save."
+        },
+        "yellow": {
+          "title": "Yellow",
+          "text": "Deals @Damage[30[electricity]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save."
+        },
+        "green": {
+          "title": "Green",
+          "text": "Deals @Damage[10[poison]] damage to anyone passing, with a @Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic] save and makes them @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Enfeebled 1} for 1 minute on a failure."
+        },
+        "blue": {
+          "title": "Blue",
+          "text": "Creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify} with a @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)|basic]"
+        },
+        "indigo": {
+          "title": "Indigo",
+          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic]."
+        },
+        "violet": {
+          "title": "Violet",
+          "text": "Creatures passing through must succeed at a @Check[will|dc:resolve(@actor.system.resources.dc.value)] save or they are @UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{Slowed 1} for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect of @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]{Interplanar Teleport}"
+        }
       }
     },
     "items": {
