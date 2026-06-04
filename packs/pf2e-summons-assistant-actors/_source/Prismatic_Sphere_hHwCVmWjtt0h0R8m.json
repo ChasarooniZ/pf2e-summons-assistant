@@ -45,7 +45,7 @@
     "actorLink": false,
     "depth": 0.5,
     "texture": {
-      "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
+      "src": "icons/svg/circle.svg",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -245,7 +245,68 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.red.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.red.text]",
+                "predicate": [
+                  "self:effect:chromatic-wall-red"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.orange.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.orange.text]",
+                "predicate": [
+                  "self:effect:chromatic-wall-orange"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.yellow.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.yellow.text]",
+                "predicate": [
+                  "self:effect:chromatic-wall-yellow"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.green.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.green.text]",
+                "predicate": [
+                  "self:effect:chromatic-wall-green"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.blue.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.blue.text]",
+                "predicate": [
+                  "self:effect:chromatic-wall-blue"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.indigo.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.indigo.text]",
+                "predicate": [
+                  "self:effect:chromatic-wall-indigo"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.violet.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.violet.text]",
+                "predicate": [
+                  "self:effect:chromatic-wall-violet"
+                ]
+              }
+            ]
+          }
+        ],
         "slug": "touch-wall",
         "traits": {
           "otherTags": [],
@@ -280,7 +341,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780602604305,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -437,22 +498,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:slug:touch-wall"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "{item|description}"
-              }
-            ]
-          }
-        ],
+        "rules": [],
         "slug": "effect-chromatic-wall-red",
         "traits": {
           "otherTags": [],
@@ -492,7 +538,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780600836899,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -520,22 +566,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:slug:touch-wall"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "{item|description}"
-              }
-            ]
-          }
-        ],
+        "rules": [],
         "slug": "effect-chromatic-wall-orange",
         "traits": {
           "otherTags": [],
@@ -575,7 +606,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780600840959,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -603,22 +634,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:slug:touch-wall"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "{item|description}"
-              }
-            ]
-          }
-        ],
+        "rules": [],
         "slug": "effect-chromatic-wall-yellow",
         "traits": {
           "otherTags": [],
@@ -658,7 +674,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780600844779,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -686,22 +702,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:slug:touch-wall"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "{item|description}"
-              }
-            ]
-          }
-        ],
+        "rules": [],
         "slug": "effect-chromatic-wall-green",
         "traits": {
           "otherTags": [],
@@ -741,7 +742,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780600852587,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -769,22 +770,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:slug:touch-wall"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "{item|description}"
-              }
-            ]
-          }
-        ],
+        "rules": [],
         "slug": "effect-chromatic-wall-blue",
         "traits": {
           "otherTags": [],
@@ -824,7 +810,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780600856395,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -852,22 +838,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:slug:touch-wall"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "{item|description}"
-              }
-            ]
-          }
-        ],
+        "rules": [],
         "slug": "effect-chromatic-wall-indigo",
         "traits": {
           "otherTags": [],
@@ -907,7 +878,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780600864923,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -935,22 +906,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "add",
-            "predicate": [
-              "item:slug:touch-wall"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "{item|description}"
-              }
-            ]
-          }
-        ],
+        "rules": [],
         "slug": "effect-chromatic-wall-violet",
         "traits": {
           "otherTags": [],
@@ -990,7 +946,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1780558632838,
-        "modifiedTime": 1780558632838,
+        "modifiedTime": 1780600870080,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -998,6 +954,80 @@
       },
       "_id": "LL4hm3MOdGug7s9W",
       "_key": "!actors.items!hHwCVmWjtt0h0R8m.LL4hm3MOdGug7s9W"
+    },
+    {
+      "type": "action",
+      "name": "Dazzling Light",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p> The wall sheds bright light out to 20 feet on each side (and dim light to the next 20 feet). Creatures other than you that come into the wall's light must attempt a @Check[will|dc:resolve(@actor.system.resources.dc.value)] save; they're @UUID[Compendium.pf2e.conditionitems.Item.TkIyaNPgTZFBCCuh]{Dazzled} for 1 round on a success, @UUID[Compendium.pf2e.conditionitems.Item.XgEqL1kFApUbl5Z2]{Blinded} for 1 round on a failure, and Blinded for 1 minute on a critical failure. They are then temporarily immune to the blinding effect for 1 hour.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "TokenLight",
+            "value": {
+              "dim": 30,
+              "bright": 50,
+              "animation": {
+                "type": "rainbowswirl",
+                "speed": 2,
+                "intensity": 10
+              },
+              "saturation": 1
+            }
+          }
+        ],
+        "slug": "dazzling-light",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.363",
+            "system": "8.2.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780600534487,
+        "modifiedTime": 1780600534487,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": "Actor.hHwCVmWjtt0h0R8m.Item.JHMvw4OtyZCopMvx",
+        "exportSource": null
+      },
+      "_id": "GbObrPT1kcczDzyQ",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.GbObrPT1kcczDzyQ"
     }
   ],
   "flags": {},
@@ -1006,7 +1036,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.2.0",
     "createdTime": 1780558632838,
-    "modifiedTime": 1780558926136,
+    "modifiedTime": 1780602259725,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

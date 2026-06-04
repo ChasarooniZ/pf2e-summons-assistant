@@ -1,5 +1,5 @@
-2026/06/04-02:56:52.525 c7d8 Recovering log #723
-2026/06/04-02:56:52.525 c7d8 Level-0 table #725: started
-2026/06/04-02:56:52.558 c7d8 Level-0 table #725: 6707 bytes OK
-2026/06/04-02:56:52.701 c7d8 Delete type=0 #723
-2026/06/04-02:56:52.701 c7d8 Delete type=3 #722
+2026/06/04-15:03:38.997 2af0 Recovering log #723
+2026/06/04-15:03:39.018 2af0 Level-0 table #725: started
+2026/06/04-15:03:39.065 2af0 Level-0 table #725: 6707 bytes OK
+2026/06/04-15:03:39.207 2af0 Delete type=0 #723
+2026/06/04-15:03:39.207 2af0 Delete type=3 #722

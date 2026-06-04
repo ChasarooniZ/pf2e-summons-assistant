@@ -73,8 +73,8 @@ Hooks.once("ready", async function () {
       if (!SOURCE_UUIDS.has(itemUuid)) {
         itemUuid =
           SLUG_TO_SOURCE[
-          chatMessage?.item?.slug ||
-          game?.pf2e.system.sluggify(chatMessage?.item?.name || "")
+            chatMessage?.item?.slug ||
+              game?.pf2e.system.sluggify(chatMessage?.item?.name || "")
           ];
       }
       if (!SOURCE_UUIDS.has(itemUuid)) return;
@@ -97,9 +97,11 @@ Hooks.once("ready", async function () {
       summonerActorId: summonerActor.id,
       itemRollOptions:
         chatMessage?.flags?.[game.system.id]?.context?.options ?? [],
+
+      dc: chatMessage?.item?.spellcasting?.statistic?.dc?.value ?? 0,
     };
     //Grab DC for Incarnate spells
-    if (isIncarnate(chatMessage))
+    if (isIncarnate(chatMessage) && spellRelevantInfo.dc === 0)
       spellRelevantInfo.dc = extractDCValueRegex(chatMessage.content) ?? 0;
     if (isMechanic(chatMessage)) {
       setMechanicRelevantInfo(summonerActor, spellRelevantInfo);

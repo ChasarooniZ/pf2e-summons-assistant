@@ -6,6 +6,8 @@
   - `Prismatic Sphere` support (💡 @FunFun)
 - **Updated**
   - Handles level data now to summon on the same level as the summoner
+  - Added better handling for grabbing the DC from the spell cast
+  - Fixed some missing action categorization on a few action
 
 ## 2.3.3
 

@@ -75,7 +75,7 @@ const postSummonHelper = {
   },
   PRISMATIC_SPHERE: async (summonedActorID, summonerToken) => {
     const prismaticSphereToken = getTokenFromActorID(summonedActorID);
-    const items = summonerToken.actor.items.contents;
+    const items = prismaticSphereToken.actor.items.contents;
     const colors = {
       violet: "#EE82EE",
       indigo: "#4B0082",
@@ -105,7 +105,7 @@ const postSummonHelper = {
           alpha: 0.9,
         })
         .name(name)
-        .tieToDocuments([summonerToken, eff])
+        .tieToDocuments([prismaticSphereToken, eff])
         .blendMode(PIXI.BLEND_MODES.SCREEN)
         .persist(!!eff)
         .xray();

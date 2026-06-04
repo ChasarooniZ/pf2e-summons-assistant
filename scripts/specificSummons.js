@@ -476,13 +476,16 @@ const handlers = {
     },
     handlePrismaticSphere: (data) => {
       const token = canvas.tokens.placeables.find(
-        (t) => t.actor.id === data.summonerActorId,
+        (t) => t?.actor?.id === data.summonerActorId,
       );
 
       return [
         {
           specific_uuids: [CREATURES.PRISMATIC_SPHERE],
-          modifications: {},
+          modifications: {
+            level: data.rank,
+            "system.resources.dc.value": data.dc,
+          },
           crosshairParameters: {
             distance: getGridUnitsFromFeet(10),
             location: {
