@@ -1028,6 +1028,127 @@
       },
       "_id": "GbObrPT1kcczDzyQ",
       "_key": "!actors.items!hHwCVmWjtt0h0R8m.GbObrPT1kcczDzyQ"
+    },
+    {
+      "type": "action",
+      "name": "Wall Blocking",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>The Sphere blocks the following based on the following layers it has</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:wall-blocking"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.red.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.red.block]",
+                "predicate": [
+                  "self:effect:chromatic-wall-red"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.orange.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.orange.block]",
+                "predicate": [
+                  "self:effect:chromatic-wall-orange"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.yellow.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.yellow.block]",
+                "predicate": [
+                  "self:effect:chromatic-wall-yellow"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.green.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.green.block]",
+                "predicate": [
+                  "self:effect:chromatic-wall-green"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.blue.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.blue.block]",
+                "predicate": [
+                  "self:effect:chromatic-wall-blue"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.indigo.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.indigo.block]",
+                "predicate": [
+                  "self:effect:chromatic-wall-indigo"
+                ]
+              },
+              {
+                "title": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.violet.title]",
+                "text": "@Localize[pf2e-summons-assistant.display-text.prismatic-sphere.violet.block]",
+                "predicate": [
+                  "self:effect:chromatic-wall-violet"
+                ]
+              }
+            ]
+          }
+        ],
+        "slug": "wall-blocking",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.363",
+            "system": "8.2.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "JUuba4ZLqMgAZ9Rz",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780604883496,
+        "modifiedTime": 1780605035563,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.JUuba4ZLqMgAZ9Rz"
     }
   ],
   "flags": {},

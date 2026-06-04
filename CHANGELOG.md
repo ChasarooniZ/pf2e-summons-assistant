@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.4.1
+
+- **Updated**
+  - Added a section on `Prismatic Sphere` to show what it blocks currently
+
 ## 2.4.0
 
 - **New**

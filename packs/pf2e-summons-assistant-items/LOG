@@ -1,15 +1,15 @@
-2026/06/04-15:09:48.426 785c Recovering log #726
-2026/06/04-15:09:48.554 785c Delete type=0 #726
-2026/06/04-15:09:48.554 785c Delete type=3 #724
-2026/06/04-15:09:48.597 47dc Level-0 table #730: started
-2026/06/04-15:09:48.632 47dc Level-0 table #730: 14266 bytes OK
-2026/06/04-15:09:48.696 47dc Delete type=0 #728
-2026/06/04-15:09:48.696 47dc Manual compaction at level-0 from '!folders!Jgr03TNBCPio6tdA' @ 72057594037927935 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at '!items!wRt1dt8g7T1TXsfE' @ 360 : 1
-2026/06/04-15:09:48.696 47dc Compacting 2@0 + 1@1 files
-2026/06/04-15:09:48.732 47dc Generated table #731@0: 24 keys, 14266 bytes
-2026/06/04-15:09:48.732 47dc Compacted 2@0 + 1@1 files => 14266 bytes
-2026/06/04-15:09:48.796 47dc compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/06/04-15:09:48.796 47dc Delete type=2 #709
-2026/06/04-15:09:48.796 47dc Delete type=2 #725
-2026/06/04-15:09:48.797 47dc Delete type=2 #730
-2026/06/04-15:09:48.797 47dc Manual compaction at level-0 from '!items!wRt1dt8g7T1TXsfE' @ 360 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at (end)
+2026/06/04-15:38:53.017 6fe4 Recovering log #728
+2026/06/04-15:38:53.135 6fe4 Delete type=0 #728
+2026/06/04-15:38:53.135 6fe4 Delete type=3 #727
+2026/06/04-15:38:53.167 7e00 Level-0 table #732: started
+2026/06/04-15:38:53.203 7e00 Level-0 table #732: 14266 bytes OK
+2026/06/04-15:38:53.255 7e00 Delete type=0 #730
+2026/06/04-15:38:53.255 7e00 Manual compaction at level-0 from '!folders!Jgr03TNBCPio6tdA' @ 72057594037927935 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at '!items!wRt1dt8g7T1TXsfE' @ 360 : 1
+2026/06/04-15:38:53.255 7e00 Compacting 2@0 + 1@1 files
+2026/06/04-15:38:53.291 7e00 Generated table #733@0: 24 keys, 14266 bytes
+2026/06/04-15:38:53.291 7e00 Compacted 2@0 + 1@1 files => 14266 bytes
+2026/06/04-15:38:53.366 7e00 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/06/04-15:38:53.366 7e00 Delete type=2 #709
+2026/06/04-15:38:53.367 7e00 Delete type=2 #725
+2026/06/04-15:38:53.367 7e00 Delete type=2 #732
+2026/06/04-15:38:53.367 7e00 Manual compaction at level-0 from '!items!wRt1dt8g7T1TXsfE' @ 360 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at (end)

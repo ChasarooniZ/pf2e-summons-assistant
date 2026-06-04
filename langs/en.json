@@ -133,31 +133,38 @@
       "prismatic-sphere": {
         "red": {
           "title": "Red",
-          "text": "Deals @Damage[20[fire]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save."
+          "text": "Deals @Damage[20[fire]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
+          "block": "Destroys ranged weapon ammunition (such as arrows and crossbow bolts) that would pass through."
         },
         "orange": {
           "title": "Orange",
-          "text": "Deals @Damage[25[acid]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save."
+          "text": "Deals @Damage[25[acid]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
+          "block": "Destroys thrown weapons that would pass through."
         },
         "yellow": {
           "title": "Yellow",
-          "text": "Deals @Damage[30[electricity]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save."
+          "text": "Deals @Damage[30[electricity]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
+          "block": "Stops acid, cold, electricity, fire, force, sonic, vitality, and void effects from passing through."
         },
         "green": {
           "title": "Green",
-          "text": "Deals @Damage[10[poison]] damage to anyone passing, with a @Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic] save and makes them @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Enfeebled 1} for 1 minute on a failure."
+          "text": "Deals @Damage[10[poison]] damage to anyone passing, with a @Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic] save and makes them @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Enfeebled 1} for 1 minute on a failure.",
+          "block": "Stops toxins, gases, and breath weapons from passing through."
         },
         "blue": {
           "title": "Blue",
-          "text": "Creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify} with a @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)|basic]"
+          "text": "Creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify} with a @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)|basic]",
+          "block": "Stops auditory, petrification, sonic and visual effects from passing through."
         },
         "indigo": {
           "title": "Indigo",
-          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic]."
+          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Stops divination and mental effects from passing through."
         },
         "violet": {
           "title": "Violet",
-          "text": "Creatures passing through must succeed at a @Check[will|dc:resolve(@actor.system.resources.dc.value)] save or they are @UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{Slowed 1} for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect of @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]{Interplanar Teleport}"
+          "text": "Creatures passing through must succeed at a @Check[will|dc:resolve(@actor.system.resources.dc.value)] save or they are @UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{Slowed 1} for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect of @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]{Interplanar Teleport}",
+          "block": "Prevents spells from targeting the other side (area effects still cross as normal)."
         }
       }
     },
