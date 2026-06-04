@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "Jgr03TNBCPio6tdA",
+  "name": "Chromatic Wall",
+  "color": null,
+  "sorting": "a",
+  "_id": "wgGTyxv0IKUmDKV7",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1780558648506,
+    "modifiedTime": 1780558648506,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!wgGTyxv0IKUmDKV7"
+}

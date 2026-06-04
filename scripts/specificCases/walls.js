@@ -30,7 +30,7 @@ export function setupWallHooks() {
 
 /**
  * Sets up wall circle (Uses an octagon ATM)
- * @param {*} param0
+ * @param {{position: {x: number, y: number}, summonedWallToken: Token, radiusSquares: number, art: string, wallConfig?: {light?: number, sight?: number, sound?: number, move?: number}}} wallCircleParameters - Parameters for wall circle
  * @returns
  */
 export async function setupWallCircle({
@@ -60,6 +60,7 @@ export async function setupWallCircle({
     const wallData = getWallData({
       c: [x1, y1, x2, y2],
       art,
+      ...(wallConfig ? wallConfig : {}),
       summonedtokenID: summonedWallToken.id,
     });
 

@@ -1,0 +1,83 @@
+{
+  "name": "Effect: Chromatic Wall (Green)",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>The wall stops toxins, gases, and breath weapons from passing through. It deals @Damage[10[poison]] damage to anyone passing through and makes them @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Enfeebled 1} for 1 minute. A @Check[fortitude|against:spell|basic] save reduces the damage and negates the Enfeebled condition on a success. @UUID[Compendium.pf2e.spells-srd.Item.115Xp9E38CJENhNS]{Magic Passage} can counteract a <em>green chromatic wall</em>.</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "itemType": "action",
+        "key": "ItemAlteration",
+        "mode": "add",
+        "predicate": [
+          "item:slug:touch-wall"
+        ],
+        "property": "description",
+        "value": [
+          {
+            "text": "{item|description}"
+          }
+        ]
+      }
+    ],
+    "slug": "effect-chromatic-wall-green",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "img": "icons/magic/acid/pouring-gas-smoke-liquid.webp",
+  "folder": "wgGTyxv0IKUmDKV7",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1780558654046,
+    "modifiedTime": 1780558655737,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_id": "Q2lY8jRcnT0DIqWP",
+  "sort": 300000,
+  "_key": "!items!Q2lY8jRcnT0DIqWP"
+}

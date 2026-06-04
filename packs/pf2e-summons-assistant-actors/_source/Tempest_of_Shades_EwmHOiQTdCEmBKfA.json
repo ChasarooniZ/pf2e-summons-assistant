@@ -264,7 +264,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "interaction",
         "deathNote": false
       },
       "effects": [],
@@ -281,11 +281,11 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "14.361",
+        "coreVersion": "14.363",
         "systemId": "pf2e",
-        "systemVersion": "8.1.2",
+        "systemVersion": "8.2.0",
         "createdTime": 1778652689050,
-        "modifiedTime": 1778652689050,
+        "modifiedTime": 1780596501438,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!EwmHOiQTdCEmBKfA.g5PfuSl3otQCTSld"
@@ -328,7 +328,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "interaction",
         "deathNote": false
       },
       "effects": [],
@@ -345,11 +345,11 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "14.361",
+        "coreVersion": "14.363",
         "systemId": "pf2e",
-        "systemVersion": "8.1.2",
+        "systemVersion": "8.2.0",
         "createdTime": 1778652689050,
-        "modifiedTime": 1778652689050,
+        "modifiedTime": 1780596504862,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
       },
       "_key": "!actors.items!EwmHOiQTdCEmBKfA.P3WzKPyDbqHzkDgT"

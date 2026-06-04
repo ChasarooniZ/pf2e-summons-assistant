@@ -18,6 +18,9 @@ export async function handlePostSummon(
     case SOURCES.COMMANDER.PLANT_BANNER:
       postSummonHelper.PLANT_BANNER(summonedActorUUID);
       break;
+    case SOURCES.MISC.PRISMATIC_SPHERE:
+      postSummonHelper.PRISMATIC_SPHERE(summonedActorID, summonerToken);
+      break;
     case SOURCES.MISC.WOODEN_DOUBLE: {
       postSummonHelper.WOODEN_DOUBLE(summonerToken);
       break;
@@ -69,6 +72,54 @@ const postSummonHelper = {
         effectUUID: EFFECTS.COMMANDER.PLANT_BANNER,
       });
     }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
+  },
+  PRISMATIC_SPHERE: async (summonedActorID, summonerToken) => {
+    const prismaticSphereToken = getTokenFromActorID(summonedActorID);
+    const items = prismaticSphereToken.actor.items.contents;
+    const colors = {
+      violet: "#EE82EE",
+      indigo: "#4B0082",
+      blue: "#0000FF",
+      green: "#008000",
+      yellow: "#FFFF00",
+      orange: "#FFA500",
+      red: "#FF0000",
+    };
+
+    const seq = new Sequence();
+
+    let count = 0;
+    for (const [name, color] of Object.entries(colors)) {
+      console.log({ count, name, color });
+      const eff = items?.find(
+        (i) => i?.system?.slug === `effect-chromatic-wall-${name}`,
+      );
+      seq
+        .effect()
+        .atLocation(prismaticSphereToken.center)
+        .shape("circle", {
+          lineSize: 4,
+          lineColor: color,
+          radius: 2 + count * 0.04,
+          gridUnits: true,
+          alpha: 0.9,
+        })
+        .name(name)
+        .tieToDocuments([prismaticSphereToken, eff])
+        .blendMode(PIXI.BLEND_MODES.SCREEN)
+        .persist(!!eff)
+        .xray();
+      count++;
+    }
+    seq.play();
+
+    await setupWallCircle({
+      position: prismaticSphereToken?.center,
+      summonedWallToken: prismaticSphereToken,
+      radiusSquares: 2,
+      wallConfig: { light: SENSE_MODES.NONE, move: SENSE_MODES.NONE },
+      art: null,
+    });
   },
   SHARED_HEALTH_SETUP: async (summonedActorID) => {
     const actor = getTokenFromActorID(summonedActorID)?.actor;
