@@ -83,6 +83,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.HEALING_WELL]: handlers.misc.handleHealingWell,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
   [SOURCES.MISC.INSTANT_MINEFIELD]: handlers.misc.handleInstantMinefield,
+  [SOURCES.MISC.PRISMATIC_SPHERE]: handlers.misc.handlePrismaticSphere,
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
   [SOURCES.MISC.RAISE_THE_HORDE]: handlers.misc.handleNecrologistsHorde,
   [SOURCES.MISC.SHADOW_SELF]: handlers.misc.handleShadowSelf,
@@ -473,7 +474,29 @@ const handlers = {
         },
       ];
     },
+    handlePrismaticSphere: (data) => {
+      const token = canvas.tokens.placeables.find(
+        (t) => t.actor.id === data.summonerActorId,
+      );
 
+      return [
+        {
+          specific_uuids: [CREATURES.PRISMATIC_SPHERE],
+          modifications: {},
+          crosshairParameters: {
+            distance: getGridUnitsFromFeet(10),
+            location: {
+              obj: token,
+              limitMaxRange:
+                (canvas.grid.distance * token.document.width + 1) / 2,
+            },
+            snap: {
+              position: CONST.GRID_SNAPPING_MODES.VERTEX,
+            },
+          },
+        },
+      ];
+    },
     handleShadowSelf: (data) => {
       const token = canvas.tokens.placeables.find(
         (t) => t.actor.id === data.summonerActorId,

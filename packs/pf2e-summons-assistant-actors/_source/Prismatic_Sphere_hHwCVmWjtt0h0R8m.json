@@ -1,0 +1,1017 @@
+{
+  "folder": "mVjwgM2wn6PBRVzp",
+  "name": "Prismatic Sphere",
+  "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": true
+      },
+      "Rideable": {
+        "issetRideableFlag": true,
+        "MountonEnterFlag": false,
+        "AutoMountBlackListFlag": "",
+        "AutoMountWhiteListFlag": "",
+        "MaxRiderFlag": null,
+        "CustomRidingheightFlag": null,
+        "UseRidingHeightFlag": true,
+        "RidersScaleFlag": 1,
+        "RiderPositioningFlag": "RowPlacement",
+        "RiderOffsetFlag": [
+          0,
+          0
+        ],
+        "TokenFormFlag": "TokenFormCircle",
+        "InsideMovementFlag": false,
+        "SpawnRidersFlag": "",
+        "WorldMEffectOverrideFlag": false,
+        "MountingEffectsFlag": "",
+        "SelfApplyEffectsFlag": false,
+        "forMountEffectsFlag": "",
+        "CanbePilotedFlag": false,
+        "CheckPilotedCollisionFlag": false,
+        "PilotedbyDefaultFlag": false
+      }
+    },
+    "height": 0.5,
+    "width": 0.5,
+    "name": "Prismatic Sphere",
+    "displayName": 30,
+    "actorLink": false,
+    "depth": 0.5,
+    "texture": {
+      "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 0,
+        "temp": 0,
+        "max": 0,
+        "details": ""
+      },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      },
+      "speed": {
+        "value": 0,
+        "otherSpeeds": [],
+        "details": ""
+      }
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 9
+      },
+      "blurb": "",
+      "publicNotes": "",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "size": {
+        "value": "tiny"
+      }
+    }
+  },
+  "_id": "hHwCVmWjtt0h0R8m",
+  "img": "systems/pf2e/icons/spells/prismatic-sphere.webp",
+  "items": [
+    {
+      "type": "action",
+      "name": "Touch Wall",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p>A creature that tries to pass through the wall must attempt a saving throw against each component wall. The effects take place simultaneously, so a creature turned to stone by the blue wall is still treated as a creature for the indigo and violet walls.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": "touch-wall",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.363",
+            "system": "8.2.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "yLhf2h7Usdi5HDEd",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.yLhf2h7Usdi5HDEd"
+    },
+    {
+      "img": "icons/weapons/swords/sword-guard-blue.webp",
+      "name": "Longsword",
+      "system": {
+        "description": {
+          "gm": "",
+          "value": "<p>Longswords, also known as arming swords, can be one-edged or two-edged swords. Their blades are heavy and they're between 3 and 4 feet in length.</p>"
+        },
+        "rules": [],
+        "slug": "longsword",
+        "_migration": {
+          "version": 0.959,
+          "lastMigration": null,
+          "previous": null
+        },
+        "traits": {
+          "otherTags": [
+            "shoddy"
+          ],
+          "value": [
+            "versatile-p"
+          ],
+          "rarity": "common"
+        },
+        "publication": {
+          "title": "Pathfinder Player Core",
+          "authors": "",
+          "license": "ORC",
+          "remaster": true
+        },
+        "level": {
+          "value": 0
+        },
+        "quantity": 1,
+        "baseItem": "longsword",
+        "bulk": {
+          "value": 1
+        },
+        "hp": {
+          "value": 0,
+          "max": 0
+        },
+        "hardness": 0,
+        "price": {
+          "value": {
+            "gp": 1
+          }
+        },
+        "equipped": {
+          "carryType": "worn",
+          "invested": null,
+          "handsHeld": 0
+        },
+        "containerId": null,
+        "size": "tiny",
+        "material": {
+          "type": null,
+          "grade": null
+        },
+        "identification": {
+          "status": "identified",
+          "unidentified": {
+            "name": "Unusual Longsword",
+            "img": "icons/weapons/swords/sword-guard-blue.webp",
+            "data": {
+              "description": {
+                "value": ""
+              }
+            }
+          }
+        },
+        "usage": {
+          "value": "held-in-one-hand",
+          "canBeAmmo": false
+        },
+        "category": "martial",
+        "group": "sword",
+        "bonus": {
+          "value": 0
+        },
+        "damage": {
+          "dice": 1,
+          "die": "d8",
+          "damageType": "slashing",
+          "persistent": null
+        },
+        "splashDamage": {
+          "value": 0
+        },
+        "range": null,
+        "expend": null,
+        "ammo": null,
+        "reload": {
+          "value": null
+        },
+        "grade": null,
+        "runes": {
+          "potency": 0,
+          "striking": 0,
+          "property": []
+        },
+        "specific": null,
+        "subitems": [],
+        "bonusDamage": {
+          "value": 0
+        }
+      },
+      "type": "weapon",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_id": "Wq0ZS56IIYkGjJ24",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.Wq0ZS56IIYkGjJ24"
+    },
+    {
+      "name": "Effect: Chromatic Wall (Red)",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "description": {
+          "value": "<p>The wall destroys ranged weapon ammunition (such as arrows and crossbow bolts) that would pass through, and it deals @Damage[20[fire]] damage to anyone passing through, with a @Check[reflex|against:spell|basic] save. @UUID[Compendium.pf2e.spells-srd.Item.3puDanGfpEt6jK5k]{Cone of Cold} can counteract a <em>red chromatic wall</em>.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        ],
+        "slug": "effect-chromatic-wall-red",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": true
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2157880,
+          "initiative": null
+        },
+        "badge": null,
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/magic/fire/projectile-smoke-swirl-red.webp",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "6ru8Qv13RFl5IGkd",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.6ru8Qv13RFl5IGkd"
+    },
+    {
+      "name": "Effect: Chromatic Wall (Orange)",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "description": {
+          "value": "<p>The wall destroys thrown weapons that would pass through, and it deals @Damage[25[acid]] damage to anyone passing through, with a @Check[reflex|against:spell|basic] save. @UUID[Compendium.pf2e.spells-srd.Item.g8QqHpv2CWDwmIm1]{Gust of Wind} can counteract an <em>orange chromatic wall</em>.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        ],
+        "slug": "effect-chromatic-wall-orange",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": true
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2157880,
+          "initiative": null
+        },
+        "badge": null,
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/consumables/potions/potion-flask-corked-orange.webp",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "VQqbWETBvw8f4Lk2",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.VQqbWETBvw8f4Lk2"
+    },
+    {
+      "name": "Effect: Chromatic Wall (Yellow)",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "description": {
+          "value": "<p>The wall stops acid, cold, electricity, fire, force, sonic, vitality, and void effects from passing through, and it deals @Damage[30[electricity]] damage to anyone passing through, with a @Check[reflex|against:spell|basic] save. @UUID[Compendium.pf2e.spells-srd.Item.r7ihOgKv19eJQnik]{Disintegrate} can counteract a <em>yellow chromatic wall</em>.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        ],
+        "slug": "effect-chromatic-wall-yellow",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": true
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2157880,
+          "initiative": null
+        },
+        "badge": null,
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/magic/lightning/bolt-strike-streak-yellow.webp",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "yrtCbm1fjmII3hfn",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.yrtCbm1fjmII3hfn"
+    },
+    {
+      "name": "Effect: Chromatic Wall (Green)",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "description": {
+          "value": "<p>The wall stops toxins, gases, and breath weapons from passing through. It deals @Damage[10[poison]] damage to anyone passing through and makes them @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Enfeebled 1} for 1 minute. A @Check[fortitude|against:spell|basic] save reduces the damage and negates the Enfeebled condition on a success. @UUID[Compendium.pf2e.spells-srd.Item.115Xp9E38CJENhNS]{Magic Passage} can counteract a <em>green chromatic wall</em>.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        ],
+        "slug": "effect-chromatic-wall-green",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": true
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2157880,
+          "initiative": null
+        },
+        "badge": null,
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/magic/acid/pouring-gas-smoke-liquid.webp",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "xH5qLpaqZ4iFlQ5M",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.xH5qLpaqZ4iFlQ5M"
+    },
+    {
+      "name": "Effect: Chromatic Wall (Blue)",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "description": {
+          "value": "<p>The wall stops auditory, petrification, sonic and visual effects from passing through, and creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify}. @UUID[Compendium.pf2e.spells-srd.Item.gKKqvLohtrSJj3BM]{Force Barrage} can counteract a <em>blue chromatic wall</em>.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        ],
+        "slug": "effect-chromatic-wall-blue",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": true
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2157880,
+          "initiative": null
+        },
+        "badge": null,
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "KgowDDoqh3Lm0Z6h",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.KgowDDoqh3Lm0Z6h"
+    },
+    {
+      "name": "Effect: Chromatic Wall (Indigo)",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "description": {
+          "value": "<p>The wall stops divination and mental effects from passing through, and those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind}. @UUID[Compendium.pf2e.spells-srd.Item.DyiD239dNS7RIxZE]{Holy Light} can counteract an <em>indigo chromatic wall</em>.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        ],
+        "slug": "effect-chromatic-wall-indigo",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": true
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2157880,
+          "initiative": null
+        },
+        "badge": null,
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "bfZfR5Q9I4d38jrQ",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.bfZfR5Q9I4d38jrQ"
+    },
+    {
+      "name": "Effect: Chromatic Wall (Violet)",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "description": {
+          "value": "<p>The wall prevents spells from targeting the other side (area effects still cross as normal). Creatures passing through must succeed at a @Check[will|against:spell] save or they are @UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{Slowed 1} for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect of @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]{Interplanar Teleport}. @UUID[Compendium.pf2e.spells-srd.Item.9HpwDN4MYQJnW0LG]{Dispel Magic} can counteract a <em>violet chromatic wall</em>.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "add",
+            "predicate": [
+              "item:slug:touch-wall"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "{item|description}"
+              }
+            ]
+          }
+        ],
+        "slug": "effect-chromatic-wall-violet",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": true
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2157880,
+          "initiative": null
+        },
+        "badge": null,
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "pf2e",
+        "systemVersion": "8.2.0",
+        "createdTime": 1780558632838,
+        "modifiedTime": 1780558632838,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "LL4hm3MOdGug7s9W",
+      "_key": "!actors.items!hHwCVmWjtt0h0R8m.LL4hm3MOdGug7s9W"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1780558632838,
+    "modifiedTime": 1780558926136,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "sort": 0,
+  "_key": "!actors!hHwCVmWjtt0h0R8m"
+}

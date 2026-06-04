@@ -50,6 +50,7 @@ export const SOURCES = {
     INSTANT_MINEFIELD: "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK",
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
+    PRISMATIC_SPHERE: "Compendium.pf2e.spells-srd.Item.PngDCmU0MXZkbu0v",
     PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
     RAISE_THE_HORDE: "Compendium.pf2e.actionspf2e.Item.ND1G3s4lXNUAXc1q",
     SHADOW_SELF: "Compendium.pf2e.feats-srd.Item.7YvOqcdp9Z0RALMp",
@@ -151,6 +152,7 @@ export const SLUG_TO_SOURCE = {
   "perfected-thrall": SOURCES.NECROMANCER.PERFECTED_THRALL,
   "phantasmal-minion": SOURCES.MISC.PHANTASMAL_MINION,
   "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
+  "prismatic-sphere": SOURCES.MISC.PRISMATIC_SPHERE,
   "protector-tree": SOURCES.MISC.PROTECTOR_TREE,
   "raise-the-horde": SOURCES.MISC.RAISE_THE_HORDE,
   "recurring-nightmare": SOURCES.NECROMANCER.RECURRING_NIGHTMARE,
@@ -274,6 +276,7 @@ export const CREATURES = {
   PHANTASMAL_MINION:
     "Compendium.pf2e.pathfinder-bestiary.Actor.j7NNPfZwD19BwSEZ",
   POLAR_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.UqFObUjgFAlWrriA",
+  PRISMATIC_SPHERE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.hHwCVmWjtt0h0R8m",
   PROTECTOR_TREE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
   PSYCHIC: {

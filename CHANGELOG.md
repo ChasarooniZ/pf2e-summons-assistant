@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 2.4.0
+
+- **New**
+  - `Prismatic Sphere` support (💡 @FunFun)
+- **Updated**
+  - Handles level data now to summon on the same level as the summoner
+
 ## 2.3.3
 
 - Updated polish translation (🌐 @lioheart)
