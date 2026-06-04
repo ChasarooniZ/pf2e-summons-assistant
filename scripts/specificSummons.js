@@ -499,7 +499,7 @@ const handlers = {
     },
     handleShadowSelf: (data) => {
       const token = canvas.tokens.placeables.find(
-        (t) => t.actor.id === data.summonerActorId,
+        (t) => t?.actor?.id === data.summonerActorId,
       )?.document;
       return [
         {
