@@ -71,6 +71,7 @@ export const SOURCES = {
   },
 
   WALL: {
+    PRISMATIC_WALL: "Compendium.pf2e.spells-srd.Item.iL6TujgTCtRRa0Y0",
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
     WALL_OF_SHADOW: "Compendium.pf2e.spells-srd.Item.DeF63UTmr7rchF60",
     WALL_OF_STONE: "Compendium.pf2e.spells-srd.Item.kOa055FIrO9Smnya",
@@ -153,6 +154,7 @@ export const SLUG_TO_SOURCE = {
   "phantasmal-minion": SOURCES.MISC.PHANTASMAL_MINION,
   "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
   "prismatic-sphere": SOURCES.MISC.PRISMATIC_SPHERE,
+  "prismatic-wall": SOURCES.WALL.PRISMATIC_WALL,
   "protector-tree": SOURCES.MISC.PROTECTOR_TREE,
   "raise-the-horde": SOURCES.MISC.RAISE_THE_HORDE,
   "recurring-nightmare": SOURCES.NECROMANCER.RECURRING_NIGHTMARE,
@@ -276,7 +278,10 @@ export const CREATURES = {
   PHANTASMAL_MINION:
     "Compendium.pf2e.pathfinder-bestiary.Actor.j7NNPfZwD19BwSEZ",
   POLAR_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.UqFObUjgFAlWrriA",
-  PRISMATIC_SPHERE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.hHwCVmWjtt0h0R8m",
+  PRISMATIC_SPHERE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.hHwCVmWjtt0h0R8m",
+  PRISMATIC_WALL:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.pJAxxrQMgA9ColPy",
   PROTECTOR_TREE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
   PSYCHIC: {
@@ -314,7 +319,7 @@ export const WALLS_TO_SYNC_DELETE = [
   CREATURES.WALL_OF_STONE,
   CREATURES.WALL_OF_ICE,
   CREATURES.WALL_OF_SHADOW,
-  CREATURES.PRISMATIC_SPHERE
+  CREATURES.PRISMATIC_SPHERE,
 ];
 
 export const SUMMON_LEVELS_BY_RANK = {
