@@ -40,12 +40,14 @@ env:
   # FoundryVTT uses this URL to check whether the current module version that
   # is installed is the latest version. This URL should NOT change,
   # otherwise FoundryVTT won't be able to perform this check.
-  latest_manifest_url: "https://github.com/${{github.repository}}/releases/latest\
+  latest_manifest_url:
+    "https://github.com/${{github.repository}}/releases/latest\
     /download/module.json"
 
   # The URL to the module archive associated with the module release being
   # processed by this workflow.
-  release_module_url: "https://github.com/${{github.repository}}/releases/downloa\
+  release_module_url:
+    "https://github.com/${{github.repository}}/releases/downloa\
     d/${{github.event.release.tag_name}}/module.zip"
 
 on:
@@ -59,7 +61,7 @@ on:
   # available for release events, so if you add other events, you may need to
   # alter other parts of this workflow.
   release:
-    types: [ published ]
+    types: [published]
 
 jobs:
   build:
@@ -120,24 +122,25 @@ jobs:
         run: |
           # Note that `zip` will only emit warnings when a file or directory
           # doesn't exist, it will not fail.
-          zip                                    \
-            `# Options`                          \
-            --recurse-paths                      \
-            `# The name of the output file`      \
-             ./module.zip                        \
-            `# The files that will be included.` \
-            module.json                          \
-            README.md                            \
-            CHANGELOG.md                         \
-            LICENSE                              \
-            templates/                           \
-            scripts/                             \
-            styles/                              \
-            packs/                               \
-            languages/                           \
-            langs/                           \
-            assets/                              \
-            lang/
+          zip                                     \
+            `# Options`                           \
+            --recurse-paths                       \
+            `# The name of the output file`       \
+             ./module.zip                         \
+            `# The files that will be included.`  \
+            module.json                           \
+            README.md                             \
+            CHANGELOG.md                          \
+            LICENSE                               \
+            templates/                            \
+            scripts/                              \
+            styles/                               \
+            packs/                                \
+            languages/                            \
+            langs/                                \
+            assets/                               \
+            lang/                                 \
+            -x *_source/
           # Don't forget to add a backslash at the end of the line for any
           # additional files or directories!
 

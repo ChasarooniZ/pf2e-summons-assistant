@@ -431,7 +431,16 @@ const handlers = {
     },
 
     handleLight: async (data) => {
-      if (hasNoTargets()) {
+      let doSummon = true;
+      if (!data.ignoreDialogue) {
+        doSummon = await foundry.applications.api.DialogV2.confirm({
+          window: { title: localize("dialog.light.title") },
+          content: localize("dialog.light.text"),
+          rejectClose: true,
+          modal: true,
+        });
+      }
+      if ((hasNoTargets() || data.ignoreDialogue) && doSummon) {
         return [
           {
             specific_uuids: Object.values(CREATURES.LIGHT),

@@ -1,4 +1,4 @@
-import { LIGHTS_TO_SYNC_DELETE } from "../const.js";
+import { LIGHTS_TO_SYNC_DELETE, MODULE_ID } from "../const.js";
 
 export function setupLightsHooks() {
   if (!game.user.isGM) return;

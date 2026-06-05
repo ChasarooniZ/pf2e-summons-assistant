@@ -111,6 +111,10 @@
           "hint": "Configure what summon sources are active"
         }
       },
+      "light": {
+        "title": "Summon a Light Orb",
+        "text": "Do you want to summon an orb of light that's not attached to a creature? (If you select no, you'll need to instead apply the effect to the creature you want to have the light)"
+      },
       "choose-type-of": "Choose the type of",
       "customize": {
         "summoned-token": {

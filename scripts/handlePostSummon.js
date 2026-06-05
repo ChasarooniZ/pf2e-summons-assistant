@@ -21,6 +21,9 @@ export async function handlePostSummon(
     case SOURCES.WALL.PRISMATIC_SPHERE:
       postSummonHelper.PRISMATIC_SPHERE(summonedActorID, summonerToken);
       break;
+    case SOURCES.WALL.PRISMATIC_WALL:
+      postSummonHelper.PRISMATIC_WALL(summonedActorID, summonerToken);
+      break;
     case SOURCES.MISC.WOODEN_DOUBLE: {
       postSummonHelper.WOODEN_DOUBLE(summonerToken);
       break;
@@ -113,8 +116,8 @@ const postSummonHelper = {
   },
 
   PRISMATIC_WALL: async (summonedActorID, summonerToken) => {
-    const prismaticSphereToken = getTokenFromActorID(summonedActorID);
-    const items = prismaticSphereToken.actor.items.contents;
+    const prismaticWallToken = getTokenFromActorID(summonedActorID);
+    const items = prismaticWallToken.actor.items.contents;
     const seq = new Sequence();
 
     const location = await Sequencer.Crosshair.show({
@@ -146,7 +149,7 @@ const postSummonHelper = {
     ];
 
     let count = -3;
-    for (const [name, color] of Object.entries(COLORS.PRISMATIC_SPHERE)) {
+    for (const [name, color] of Object.entries(COLORS.PRISMATIC)) {
       const offset = { x: offsetBase.x * count, y: offsetBase.y * count };
       const eff = items?.find(
         (i) => i?.system?.slug === `effect-chromatic-wall-${name}`,
@@ -166,7 +169,7 @@ const postSummonHelper = {
           gridUnits: true,
           name: "test",
         })
-        .tieToDocuments([token.document, eff])
+        .tieToDocuments([prismaticWallToken.document, eff])
         .blendMode(PIXI.BLEND_MODES.ADD)
         .xray();
       count++;
@@ -179,7 +182,7 @@ const postSummonHelper = {
         move: SENSE_MODES.NONE,
         light: SENSE_MODES.NONE,
         art: "",
-        summonedtokenID: summonedToken.id,
+        summonedtokenID: prismaticWallToken.id,
       }),
     ];
 
@@ -187,48 +190,34 @@ const postSummonHelper = {
       .get(MODULE_ID)
       .executeAsGM("createWalls", wallDataArray);
 
-
-    //TODO finishg adding the lights
     const lightDataArray = [
-      {
-        config: {
-          angle: 180,
-          coloration: 1,
-          animation: {
-            type: "radialrainbow",
-            speed: 2,
-            intensity: 10,
-          },
-          bright: 20,
-          dim: 40,
+      { rotationOffset: 270, position: source },
+      { rotationOffset: 90, position: target },
+    ].map(({ rotationOffset, position }) => ({
+      config: {
+        angle: 180,
+        coloration: 1,
+        animation: {
+          type: "radialrainbow",
+          speed: 2,
+          intensity: 10,
         },
-        rotation: (location.direction + 270) % 360,
-        flags: {
-          "pf2e-summons-assistant": {
-            "lightTokenID": summonedToken.id,
-          },
+        bright: 20,
+        dim: 40,
+      },
+      x: position.x,
+      y: position.y,
+      rotation: (location.direction + rotationOffset) % 360,
+      flags: {
+        "pf2e-summons-assistant": {
+          lightTokenID: prismaticWallToken.id,
         },
       },
-      {
-        config: {
-          angle: 180,
-          coloration: 1,
-          animation: {
-            type: "radialrainbow",
-            speed: 2,
-            intensity: 10,
-          },
-          bright: 20,
-          dim: 40,
-        },
-        rotation: (location.direction + 90) % 360,
-        flags: {
-          "pf2e-summons-assistant": {
-            "lightTokenID": summonedToken.id,
-          },
-        },
-      },
-    ];
+    }));
+
+    await socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("createLights", lightDataArray);
   },
   SHARED_HEALTH_SETUP: async (summonedActorID) => {
     const actor = getTokenFromActorID(summonedActorID)?.actor;
