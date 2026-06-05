@@ -205,7 +205,7 @@ const postSummonHelper = {
         rotation: (location.direction + 270) % 360,
         flags: {
           "pf2e-summons-assistant": {
-            "light-origin": summonedToken.id,
+            "lightTokenID": summonedToken.id,
           },
         },
       },
@@ -224,7 +224,7 @@ const postSummonHelper = {
         rotation: (location.direction + 90) % 360,
         flags: {
           "pf2e-summons-assistant": {
-            "light-origin": summonedToken.id,
+            "lightTokenID": summonedToken.id,
           },
         },
       },
