@@ -18,7 +18,7 @@ export async function handlePostSummon(
     case SOURCES.COMMANDER.PLANT_BANNER:
       postSummonHelper.PLANT_BANNER(summonedActorUUID);
       break;
-    case SOURCES.MISC.PRISMATIC_SPHERE:
+    case SOURCES.WALL.PRISMATIC_SPHERE:
       postSummonHelper.PRISMATIC_SPHERE(summonedActorID, summonerToken);
       break;
     case SOURCES.MISC.WOODEN_DOUBLE: {
@@ -112,7 +112,7 @@ const postSummonHelper = {
     });
   },
 
-  PRISMATIC_SPHERE: async (summonedActorID, summonerToken) => {
+  PRISMATIC_WALL: async (summonedActorID, summonerToken) => {
     const prismaticSphereToken = getTokenFromActorID(summonedActorID);
     const items = prismaticSphereToken.actor.items.contents;
     const seq = new Sequence();
@@ -187,7 +187,48 @@ const postSummonHelper = {
       .get(MODULE_ID)
       .executeAsGM("createWalls", wallDataArray);
 
-    //TODO add the lights
+
+    //TODO finishg adding the lights
+    const lightDataArray = [
+      {
+        config: {
+          angle: 180,
+          coloration: 1,
+          animation: {
+            type: "radialrainbow",
+            speed: 2,
+            intensity: 10,
+          },
+          bright: 20,
+          dim: 40,
+        },
+        rotation: (location.direction + 270) % 360,
+        flags: {
+          "pf2e-summons-assistant": {
+            "light-origin": summonedToken.id,
+          },
+        },
+      },
+      {
+        config: {
+          angle: 180,
+          coloration: 1,
+          animation: {
+            type: "radialrainbow",
+            speed: 2,
+            intensity: 10,
+          },
+          bright: 20,
+          dim: 40,
+        },
+        rotation: (location.direction + 90) % 360,
+        flags: {
+          "pf2e-summons-assistant": {
+            "light-origin": summonedToken.id,
+          },
+        },
+      },
+    ];
   },
   SHARED_HEALTH_SETUP: async (summonedActorID) => {
     const actor = getTokenFromActorID(summonedActorID)?.actor;

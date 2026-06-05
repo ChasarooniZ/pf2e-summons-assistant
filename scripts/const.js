@@ -50,7 +50,6 @@ export const SOURCES = {
     INSTANT_MINEFIELD: "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK",
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
-    PRISMATIC_SPHERE: "Compendium.pf2e.spells-srd.Item.PngDCmU0MXZkbu0v",
     PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
     RAISE_THE_HORDE: "Compendium.pf2e.actionspf2e.Item.ND1G3s4lXNUAXc1q",
     SHADOW_SELF: "Compendium.pf2e.feats-srd.Item.7YvOqcdp9Z0RALMp",
@@ -71,6 +70,7 @@ export const SOURCES = {
   },
 
   WALL: {
+    PRISMATIC_SPHERE: "Compendium.pf2e.spells-srd.Item.PngDCmU0MXZkbu0v",
     PRISMATIC_WALL: "Compendium.pf2e.spells-srd.Item.iL6TujgTCtRRa0Y0",
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
     WALL_OF_SHADOW: "Compendium.pf2e.spells-srd.Item.DeF63UTmr7rchF60",
@@ -153,7 +153,7 @@ export const SLUG_TO_SOURCE = {
   "perfected-thrall": SOURCES.NECROMANCER.PERFECTED_THRALL,
   "phantasmal-minion": SOURCES.MISC.PHANTASMAL_MINION,
   "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
-  "prismatic-sphere": SOURCES.MISC.PRISMATIC_SPHERE,
+  "prismatic-sphere": SOURCES.WALL.PRISMATIC_SPHERE,
   "prismatic-wall": SOURCES.WALL.PRISMATIC_WALL,
   "protector-tree": SOURCES.MISC.PROTECTOR_TREE,
   "raise-the-horde": SOURCES.MISC.RAISE_THE_HORDE,
