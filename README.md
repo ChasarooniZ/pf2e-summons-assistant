@@ -80,6 +80,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Bind Heroic Spirit` - On Successful Attack
 - **Wall**
   - `Prismatic Sphere`
+  - `Prismatic Wall`
   - `Wall of Ice`
   - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
   - `Wall of Stone` - Implementation Detail, each segment has the stats of 10 ft. of wall
