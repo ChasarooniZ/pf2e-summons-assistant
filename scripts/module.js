@@ -30,6 +30,7 @@ import { setupAPI } from "./api.js";
 import { modifyActorsMenu } from "./customizeTokens.js";
 import { setupWallHooks } from "./specificCases/walls.js";
 import { setupTurnReminders } from "./summonReminder.js";
+import { setupLightsHooks } from "./specificCases/lights.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -167,7 +168,7 @@ Hooks.once("ready", async function () {
         !group?.crosshairParameters?.location
       ) {
         const summonerToken = canvas.tokens.placeables.find(
-          (t) => t.actor.id === spellRelevantInfo.summonerActorId,
+          (t) => t?.actor?.id === spellRelevantInfo.summonerActorId,
         );
         if (summonerToken)
           foundry.utils.mergeObject(group, {
@@ -264,4 +265,5 @@ function setupSpecificHooks() {
   // Specific Cases
   setupWoodDoubleHooks();
   setupWallHooks();
+  setupLightsHooks();
 }
