@@ -6,6 +6,7 @@
   - `Prismatic Wall` support
 - **Updated**
   - `Light` spell will now ask you before summoning when you have no target (💡 @Moth)
+  - Removed the source from the releases to improve file size
 
 ## 2.4.1
 
