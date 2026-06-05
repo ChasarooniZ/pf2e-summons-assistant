@@ -14,7 +14,7 @@ export const WALL_ART = {
 export function setupWallHooks() {
   if (!game.user.isGM) return;
   Hooks.on("deleteToken", async (tokDoc, info, UserID) => {
-    if (WALLS_TO_SYNC_DELETE.includes(tokDoc?.actor?.sourceId)) {
+    if (WALLS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
       const walls = canvas.walls.placeables.filter(
         (wall) =>
           wall?.document?.getFlag(MODULE_ID, "wallSegmentTokenID") ===

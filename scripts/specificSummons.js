@@ -83,7 +83,6 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.HEALING_WELL]: handlers.misc.handleHealingWell,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
   [SOURCES.MISC.INSTANT_MINEFIELD]: handlers.misc.handleInstantMinefield,
-  [SOURCES.MISC.PRISMATIC_SPHERE]: handlers.misc.handlePrismaticSphere,
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
   [SOURCES.MISC.RAISE_THE_HORDE]: handlers.misc.handleNecrologistsHorde,
   [SOURCES.MISC.SHADOW_SELF]: handlers.misc.handleShadowSelf,
@@ -102,6 +101,8 @@ const getSummonHandlers = () => ({
   [SOURCES.MUNDANE.TORCH]: handlers.mundane.torch,
 
   // Walls
+  [SOURCES.WALL.PRISMATIC_SPHERE]: handlers.wall.handlePrismaticSphere,
+  [SOURCES.WALL.PRISMATIC_WALL]: handlers.wall.handlePrismaticWall,
   [SOURCES.WALL.WALL_OF_ICE]: handlers.wall.handleWallOfIce,
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
   [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
@@ -430,7 +431,16 @@ const handlers = {
     },
 
     handleLight: async (data) => {
-      if (hasNoTargets()) {
+      let doSummon = true;
+      if (!data.ignoreDialogue) {
+        doSummon = await foundry.applications.api.DialogV2.confirm({
+          window: { title: localize("dialog.light.title") },
+          content: localize("dialog.light.text"),
+          rejectClose: true,
+          modal: true,
+        });
+      }
+      if ((hasNoTargets() || data.ignoreDialogue) && doSummon) {
         return [
           {
             specific_uuids: Object.values(CREATURES.LIGHT),
@@ -470,32 +480,6 @@ const handlers = {
           },
           crosshairParameters: {
             distance: canvas.grid.distance * 1.5,
-          },
-        },
-      ];
-    },
-    handlePrismaticSphere: (data) => {
-      const token = canvas.tokens.placeables.find(
-        (t) => t?.actor?.id === data.summonerActorId,
-      );
-
-      return [
-        {
-          specific_uuids: [CREATURES.PRISMATIC_SPHERE],
-          modifications: {
-            level: data.rank,
-            "system.resources.dc.value": data.dc,
-          },
-          crosshairParameters: {
-            distance: getGridUnitsFromFeet(10),
-            location: {
-              obj: token,
-              limitMaxRange:
-                (canvas.grid.distance * token.document.width + 1) / 2,
-            },
-            snap: {
-              position: CONST.GRID_SNAPPING_MODES.VERTEX,
-            },
           },
         },
       ];
@@ -686,6 +670,55 @@ const handlers = {
     },
   },
   wall: {
+    handlePrismaticSphere: (data) => {
+      const token = canvas.tokens.placeables.find(
+        (t) => t?.actor?.id === data.summonerActorId,
+      );
+
+      return [
+        {
+          specific_uuids: [CREATURES.PRISMATIC_SPHERE],
+          modifications: {
+            level: data.rank,
+            "system.resources.dc.value": data.dc,
+          },
+          crosshairParameters: {
+            distance: getGridUnitsFromFeet(10),
+            location: {
+              obj: token,
+              limitMaxRange:
+                (canvas.grid.distance * token.document.width + 1) / 2,
+            },
+            snap: {
+              position: CONST.GRID_SNAPPING_MODES.VERTEX,
+            },
+          },
+        },
+      ];
+    },
+    handlePrismaticWall: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.PRISMATIC_WALL],
+          modifications: {
+            level: data.rank,
+            "system.resources.dc.value": data.dc,
+          },
+          crosshairParameters: {
+            snap: {
+              position:
+                CONST.GRID_SNAPPING_MODES.VERTEX |
+                CONST.GRID_SNAPPING_MODES.CENTER,
+            },
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.wall.start-point",
+              ),
+            },
+          },
+        },
+      ];
+    },
     handleWallOfIce: async (data) => {
       const type = data.ignoreDialogue
         ? "line"

@@ -1,11 +1,7 @@
 {
   "folder": "L8iTXojMnoiabKyR",
-  "name": "Prismatic Sphere",
+  "name": "Prismatic Wall",
   "type": "npc",
-  "ownership": {
-    "default": 0,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
   "prototypeToken": {
     "flags": {
       "pf2e": {
@@ -40,7 +36,7 @@
     },
     "height": 0.5,
     "width": 0.5,
-    "name": "Prismatic Sphere",
+    "name": "Prismatic Wall",
     "displayName": 30,
     "actorLink": false,
     "depth": 0.5,
@@ -225,8 +221,7 @@
       }
     }
   },
-  "_id": "hHwCVmWjtt0h0R8m",
-  "img": "systems/pf2e/icons/spells/prismatic-sphere.webp",
+  "img": "systems/pf2e/icons/spells/prismatic-wall.webp",
   "items": [
     {
       "type": "action",
@@ -331,23 +326,22 @@
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780602604305,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.yLhf2h7Usdi5HDEd"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.yLhf2h7Usdi5HDEd"
     },
     {
       "name": "Effect: Chromatic Wall (Red)",
@@ -398,24 +392,23 @@
       "img": "icons/magic/fire/projectile-smoke-swirl-red.webp",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780600836899,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "6ru8Qv13RFl5IGkd",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.6ru8Qv13RFl5IGkd"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.6ru8Qv13RFl5IGkd"
     },
     {
       "name": "Effect: Chromatic Wall (Orange)",
@@ -466,24 +459,23 @@
       "img": "icons/consumables/potions/potion-flask-corked-orange.webp",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780600840959,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "VQqbWETBvw8f4Lk2",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.VQqbWETBvw8f4Lk2"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.VQqbWETBvw8f4Lk2"
     },
     {
       "name": "Effect: Chromatic Wall (Yellow)",
@@ -534,24 +526,23 @@
       "img": "icons/magic/lightning/bolt-strike-streak-yellow.webp",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780600844779,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "yrtCbm1fjmII3hfn",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.yrtCbm1fjmII3hfn"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.yrtCbm1fjmII3hfn"
     },
     {
       "name": "Effect: Chromatic Wall (Green)",
@@ -602,24 +593,23 @@
       "img": "icons/magic/acid/pouring-gas-smoke-liquid.webp",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780600852587,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "xH5qLpaqZ4iFlQ5M",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.xH5qLpaqZ4iFlQ5M"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.xH5qLpaqZ4iFlQ5M"
     },
     {
       "name": "Effect: Chromatic Wall (Blue)",
@@ -670,24 +660,23 @@
       "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780600856395,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "KgowDDoqh3Lm0Z6h",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.KgowDDoqh3Lm0Z6h"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.KgowDDoqh3Lm0Z6h"
     },
     {
       "name": "Effect: Chromatic Wall (Indigo)",
@@ -738,24 +727,23 @@
       "img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780600864923,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "bfZfR5Q9I4d38jrQ",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.bfZfR5Q9I4d38jrQ"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.bfZfR5Q9I4d38jrQ"
     },
     {
       "name": "Effect: Chromatic Wall (Violet)",
@@ -806,24 +794,23 @@
       "img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780558632838,
-        "modifiedTime": 1780600870080,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780641607576,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_id": "LL4hm3MOdGug7s9W",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.LL4hm3MOdGug7s9W"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.LL4hm3MOdGug7s9W"
     },
     {
       "type": "action",
@@ -842,21 +829,7 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [
-          {
-            "key": "TokenLight",
-            "value": {
-              "dim": 30,
-              "bright": 50,
-              "animation": {
-                "type": "rainbowswirl",
-                "speed": 2,
-                "intensity": 10
-              },
-              "saturation": 1
-            }
-          }
-        ],
+        "rules": [],
         "slug": "dazzling-light",
         "traits": {
           "otherTags": [],
@@ -880,24 +853,23 @@
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780600534487,
-        "modifiedTime": 1780600534487,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780677772568,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
-        "duplicateSource": "Actor.hHwCVmWjtt0h0R8m.Item.JHMvw4OtyZCopMvx",
+        "duplicateSource": null,
         "exportSource": null
       },
       "_id": "GbObrPT1kcczDzyQ",
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.GbObrPT1kcczDzyQ"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.GbObrPT1kcczDzyQ"
     },
     {
       "type": "action",
@@ -907,7 +879,7 @@
           "value": "passive"
         },
         "description": {
-          "value": "<p>The Sphere blocks the following based on the following layers it has</p>",
+          "value": "<p>The wall blocks the following based on the following layers it has</p>",
           "gm": ""
         },
         "publication": {
@@ -1002,23 +974,22 @@
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.363",
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
-        "createdTime": 1780604883496,
-        "modifiedTime": 1780605035563,
+        "createdTime": 1780641607576,
+        "modifiedTime": 1780691035290,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!hHwCVmWjtt0h0R8m.JUuba4ZLqMgAZ9Rz"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!pJAxxrQMgA9ColPy.JUuba4ZLqMgAZ9Rz"
     }
   ],
   "flags": {},
@@ -1026,13 +997,18 @@
     "coreVersion": "14.363",
     "systemId": "pf2e",
     "systemVersion": "8.2.0",
-    "createdTime": 1780558632838,
-    "modifiedTime": 1780641602283,
+    "createdTime": 1780641607576,
+    "modifiedTime": 1780691026515,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "sort": 250000,
-  "_key": "!actors!hHwCVmWjtt0h0R8m"
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "_id": "pJAxxrQMgA9ColPy",
+  "sort": 0,
+  "_key": "!actors!pJAxxrQMgA9ColPy"
 }
