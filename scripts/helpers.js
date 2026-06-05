@@ -151,12 +151,15 @@ export function getAvengingWildwoodStrikeRuleElements({ rank }) {
   return rulesElements;
 }
 
-export function notifyRayControls() {
-  ui.notifications.info(`
+export function notifyRayControls(rotateOnly = false) {
+  let text = rotateOnly
+    ? `<b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`
+    : `
           <b>${game.i18n.localize("pf2e-summons-assistant.controls.adjust-length")}:</b> <span class='reference'>${game.i18n.localize("CONTROLS.Alt")} + ${game.i18n.localize("pf2e-summons-assistant.controls.scroll")}</span>
           <br>
           <br>
-          <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`);
+          <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`;
+  ui.notifications.info(text);
 }
 
 /**
@@ -215,7 +218,7 @@ export function convertSpecificCreatureToSF2e(uuids) {
 
 export function getSpellRange(rangeText) {
   const feet = game.i18n.localize("pf2e-summons-assistant.code.range.feet");
-  if (rangeText.endsWith(feet) || rangeText.endsWith('feet')) {
+  if (rangeText.endsWith(feet) || rangeText.endsWith("feet")) {
     return Number(rangeText.substring(0, rangeText.indexOf(" "))) || null;
   } else {
     return null;

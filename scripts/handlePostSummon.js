@@ -1,4 +1,4 @@
-import { SOURCES, EFFECTS, MODULE_ID, SENSE_MODES } from "./const.js";
+import { SOURCES, EFFECTS, MODULE_ID, SENSE_MODES, COLORS } from "./const.js";
 import { defaultTokenRayCrosshair, isVerticalWallSegment } from "./helpers.js";
 import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 import {
@@ -76,20 +76,10 @@ const postSummonHelper = {
   PRISMATIC_SPHERE: async (summonedActorID, summonerToken) => {
     const prismaticSphereToken = getTokenFromActorID(summonedActorID);
     const items = prismaticSphereToken.actor.items.contents;
-    const colors = {
-      violet: "#EE82EE",
-      indigo: "#4B0082",
-      blue: "#0000FF",
-      green: "#008000",
-      yellow: "#FFFF00",
-      orange: "#FFA500",
-      red: "#FF0000",
-    };
-
     const seq = new Sequence();
 
     let count = 0;
-    for (const [name, color] of Object.entries(colors)) {
+    for (const [name, color] of Object.entries(COLORS.PRISMATIC)) {
       console.log({ count, name, color });
       const eff = items?.find(
         (i) => i?.system?.slug === `effect-chromatic-wall-${name}`,
@@ -120,6 +110,84 @@ const postSummonHelper = {
       wallConfig: { light: SENSE_MODES.NONE, move: SENSE_MODES.NONE },
       art: null,
     });
+  },
+
+  PRISMATIC_SPHERE: async (summonedActorID, summonerToken) => {
+    const prismaticSphereToken = getTokenFromActorID(summonedActorID);
+    const items = prismaticSphereToken.actor.items.contents;
+    const seq = new Sequence();
+
+    const location = await Sequencer.Crosshair.show({
+      distance: 60,
+      t: "ray",
+      texture:
+        "modules/pf2e-summons-assistant/assets/tokens/token/prismatic_wall.svg",
+      snap: {
+        position:
+          CONST.GRID_SNAPPING_MODES.VERTEX |
+          CONST.GRID_SNAPPING_MODES.CENTER |
+          CONST.GRID_SNAPPING_MODES.EDGE_MIDPOINT,
+      },
+    });
+
+    const { source, target } = location.cachedPosition;
+    const gridSize = canvas.grid.size;
+
+    const angle = Math.toRadians(location.direction - 90);
+    const gridOffset = 0.04;
+    const offsetBase = Ray.fromAngle(0, 0, angle, gridOffset)?.B;
+
+    const points = [
+      { x: 0, y: 0 },
+      {
+        x: (target.x - source.x) / gridSize,
+        y: (target.y - source.y) / gridSize,
+      },
+    ];
+
+    let count = -3;
+    for (const [name, color] of Object.entries(COLORS.PRISMATIC_SPHERE)) {
+      const offset = { x: offsetBase.x * count, y: offsetBase.y * count };
+      const eff = items?.find(
+        (i) => i?.system?.slug === `effect-chromatic-wall-${name}`,
+      );
+      seq
+        .effect()
+        .persist()
+        .atLocation(source)
+        .shape("polygon", {
+          lineSize: 3,
+          lineColor: color,
+          radius: 1.5,
+          points: points.map((pt) => ({
+            x: pt.x + offset.x,
+            y: pt.y + offset.y,
+          })),
+          gridUnits: true,
+          name: "test",
+        })
+        .tieToDocuments([token.document, eff])
+        .blendMode(PIXI.BLEND_MODES.ADD)
+        .xray();
+      count++;
+    }
+    seq.play();
+
+    const wallDataArray = [
+      getWallData({
+        c: [source.x, source.y, target.x, target.y],
+        move: SENSE_MODES.NONE,
+        light: SENSE_MODES.NONE,
+        art: "",
+        summonedtokenID: summonedToken.id,
+      }),
+    ];
+
+    await socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("createWalls", wallDataArray);
+
+    //TODO add the lights
   },
   SHARED_HEALTH_SETUP: async (summonedActorID) => {
     const actor = getTokenFromActorID(summonedActorID)?.actor;

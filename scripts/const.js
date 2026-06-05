@@ -649,3 +649,15 @@ export const WEAPON_DAMAGE_TYPE_MODIFIERS = {
     "versatile-void": "void",
   },
 };
+
+export const COLORS = {
+  PRISMATIC: {
+    violet: "#EE82EE",
+    indigo: "#4B0082",
+    blue: "#0000FF",
+    green: "#008000",
+    yellow: "#FFFF00",
+    orange: "#FFA500",
+    red: "#FF0000",
+  },
+};

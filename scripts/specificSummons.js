@@ -84,6 +84,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
   [SOURCES.MISC.INSTANT_MINEFIELD]: handlers.misc.handleInstantMinefield,
   [SOURCES.MISC.PRISMATIC_SPHERE]: handlers.misc.handlePrismaticSphere,
+  [SOURCES.MISC.PRISMATIC_WALL]: handlers.misc.handlePrismaticWall,
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
   [SOURCES.MISC.RAISE_THE_HORDE]: handlers.misc.handleNecrologistsHorde,
   [SOURCES.MISC.SHADOW_SELF]: handlers.misc.handleShadowSelf,
@@ -495,6 +496,29 @@ const handlers = {
             },
             snap: {
               position: CONST.GRID_SNAPPING_MODES.VERTEX,
+            },
+          },
+        },
+      ];
+    },
+    handlePrismaticWall: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.PRISMATIC_WALL],
+          modifications: {
+            level: data.rank,
+            "system.resources.dc.value": data.dc,
+          },
+          crosshairParameters: {
+            snap: {
+              position:
+                CONST.GRID_SNAPPING_MODES.VERTEX |
+                CONST.GRID_SNAPPING_MODES.CENTER,
+            },
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.wall.start-point",
+              ),
             },
           },
         },
