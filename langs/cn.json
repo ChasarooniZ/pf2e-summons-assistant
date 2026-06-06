@@ -13,7 +13,7 @@
                 },
                 "scale-to-max-summon-level-for-rank": {
                     "name": "[房规] 召唤法术扩增至最高等级",
-                    "hint": "警告：我不会为该房规可能对您的游戏平衡性造成的影响负责。此功能使用PF2e Workbench的“等级扩增”代码，将通过传统召唤法术（如“召唤动物”等）召唤出的生物，扩增至该法术环阶可召唤的最高等级生物。"
+                    "hint": "警告：我不会为该房规可能对您的游戏平衡性造成的影响负责。此功能使用PF2e Workbench的“等级扩增”代码，将通过传统召唤法术（如“召唤动物”等）召唤出的生物，扩增至该法术环级可召唤的最高等级生物。"
                 }
             },
             "effect-ownership": {
@@ -111,6 +111,10 @@
                 "choose": "选择该武器",
                 "title": "选择武器作为你的飞舞之刃",
                 "damage-types": "伤害类型"
+            },
+            "light": {
+                "title": "召唤光球",
+                "text": "你想召唤一个不附着生物的球形光亮吗？（如果选择否，则需要将效果应用至你想附加光亮的生物身上）"
             }
         },
         "display-text": {
@@ -124,6 +128,43 @@
             "jagged-berms": {
                 "berm": "放置城垛土堆",
                 "spikes": "左键点击放置尖刺木桩（{count}），右键点击以停止放置"
+            },
+            "prismatic-sphere": {
+                "red": {
+                    "title": "红色",
+                    "block": "摧毁穿过墙体的远程武器弹药（例如箭和弩矢）。",
+                    "text": "对任何穿过墙体的目标造成@Damage[20[fire]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。"
+                },
+                "orange": {
+                    "title": "橙色",
+                    "text": "对任何穿过墙体的目标造成@Damage[25[acid]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
+                    "block": "摧毁穿过墙体的投掷武器。"
+                },
+                "yellow": {
+                    "title": "黄色",
+                    "text": "对任何穿过墙体的目标造成@Damage[30[electricity]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
+                    "block": "阻挡穿过墙体的酸蚀，寒冷，电击，火焰，力场，音波，命能以及虚能效果。"
+                },
+                "green": {
+                    "title": "绿色",
+                    "text": "对任何穿过墙体的目标造成@Damage[10[poison]]伤害，需尝试一次@Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic]豁免，并使豁免失败的目标陷入@UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{力竭 Enfeebled 1}，持续1分钟。",
+                    "block": "阻挡穿过墙体的毒气，气体，以及吐息武器。"
+                },
+                "blue": {
+                    "title": "蓝色",
+                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]的效果，需尝试一次@Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)|basic]豁免",
+                    "block": "阻挡穿过墙体的听觉，石化，音波以及视觉效果。"
+                },
+                "indigo": {
+                    "title": "靛青",
+                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]的效果，需尝试一次@Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
+                    "block": "阻挡穿过墙体的预言系和心灵效果。"
+                },
+                "violet": {
+                    "title": "紫色",
+                    "block": "阻挡法术从球体外指定目标（区域效果如常穿过）。",
+                    "text": "穿过墙体的生物必须尝试一次@Check[will|dc:resolve(@actor.system.resources.dc.value)]豁免，否则陷入@UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{缓慢 Slowed 1}，持续1分钟；若大失败，该生物改为被如@UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]的效果送往其他位面"
+                }
             }
         },
         "items": {
