@@ -20,7 +20,7 @@ export function addTraits(type) {
 }
 
 export function messageItemHasRollOption(msg, roll_option) {
-  return msg?.flags?.pf2e?.origin?.rollOptions?.includes(roll_option);
+  return msg?.flags?.[game.system.id]?.origin?.rollOptions?.includes(roll_option);
 }
 
 export function hasNoTargets() {
@@ -174,6 +174,8 @@ export function convertItemUUIDBasedOnSystem(uuid) {
     finalUUID = finalUUID
       .replace(".sf2e.", ".pf2e.")
       .replace(".pf2e-anachronism.", ".pf2e.")
+      .replace(".starfinder-field-test-for-pf2e.actions.", ".starfinder-field-test-for-pf2e.sf2e-actions.")
+      .replace(".starfinder-field-test-for-pf2e.feats.", ".starfinder-field-test-for-pf2e.sf2e-feats.")
       .replace(".actions.", ".actionspf2e.")
       .replace(".class-features.", ".classfeatures.")
       .replace(".conditions.", ".conditionitems.")
