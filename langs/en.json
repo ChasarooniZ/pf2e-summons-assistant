@@ -157,12 +157,12 @@
         },
         "blue": {
           "title": "Blue",
-          "text": "Creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify} with a @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)|basic]",
+          "text": "Creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify} with a @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]",
           "block": "Stops auditory, petrification, sonic and visual effects from passing through."
         },
         "indigo": {
           "title": "Indigo",
-          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)].",
           "block": "Stops divination and mental effects from passing through."
         },
         "violet": {

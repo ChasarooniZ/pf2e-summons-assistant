@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.5.1
+
+- **Update**
+  - Fixed unncessary basic tag on some of the parts of `Prismatic Wall` (@rectulo)
+  - Fix Mechanic's Mine Automation (@Sasane)
+  - Updated french translation (🌐 @rectulo)
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+
 ## 2.5.0
 
 - **New**
