@@ -432,10 +432,16 @@ const handlers = {
 
     handleLight: async (data) => {
       let doSummon = true;
-      if (!data.ignoreDialogue) {
+      if (!data.ignoreDialogue && hasNoTargets()) {
         doSummon = await foundry.applications.api.DialogV2.confirm({
-          window: { title: localize("dialog.light.title") },
-          content: localize("dialog.light.text"),
+          window: {
+            title: game.i18n.localize(
+              "pf2e-summons-assistant.dialog.light.title",
+            ),
+          },
+          content: game.i18n.localize(
+            "pf2e-summons-assistant.dialog.light.text",
+          ),
           rejectClose: true,
           modal: true,
         });

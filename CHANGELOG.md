@@ -1,10 +1,15 @@
 ## Unreleased
 
+## 2.5.2
+
+- **Update**
+  - Fixed error with new `Light` spell dialogue (🐛 @Ottyn)
+
 ## 2.5.1
 
 - **Update**
-  - Fixed unncessary basic tag on some of the parts of `Prismatic Wall` (@rectulo)
-  - Fix Mechanic's Mine Automation (@Sasane)
+  - Fixed unnecessary basic tag on some of the parts of `Prismatic Wall` saves (🐛 @rectulo)
+  - Fix Mechanic's Mine Automation (💻 @Sasane)
   - Updated french translation (🌐 @rectulo)
   - Updated chinese translation (🌐 @AlphaStarGuide)
 
@@ -13,7 +18,7 @@
 - **New**
   - `Prismatic Wall` support
 - **Updated**
-  - `Light` spell will now ask you before summoning when you have no target (💡 @Moth)
+  - `Light` spell will now ask you before summoning when you have no target (💡 @TheTenk)
   - Removed the source from the releases to improve file size
 
 ## 2.4.1
