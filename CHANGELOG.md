@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.5.3
+
+- **Update**
+  - Updated polish translation (🌐 @lioheart)
+
 ## 2.5.2
 
 - **Update**
