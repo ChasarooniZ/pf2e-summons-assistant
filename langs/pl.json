@@ -111,6 +111,10 @@
           "hint": "Skonfiguruj, które źródła przywoływania są aktywne"
         }
       },
+      "light": {
+        "title": "Przywołanie Kuli Światła",
+        "text": "Czy chcesz przywołać kulę światła, która nie jest przyłączona do żadnej istoty? (Jeśli wybierzesz „nie”, będziesz musiał zastosować ten efekt do istoty, którą chcesz oświetlić)"
+      },
       "choose-type-of": "Wybierz typ",
       "customize": {
         "summoned-token": {
@@ -129,6 +133,43 @@
       "jagged-berms": {
         "spikes": "Kliknij lewym przyciskiem myszy, aby umieścić kolce ({count}), kliknij prawym przyciskiem myszy, aby zatrzymać",
         "berm": "Umieść Postrzępiony Nasyp"
+      },
+      "prismatic-sphere": {
+        "red": {
+          "title": "Czerwony",
+          "text": "Zadaje @Damage[20[fire]] obrażenia każdemu, kto przez to przejdzie, z rzutem obronnym @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Niszczy amunicję do broni dystansowej (taką jak strzały i bełty do kuszy), która mogłaby ją przebić."
+        },
+        "orange": {
+          "title": "Pomarańczowy",
+          "text": "Zadaje @Damage[25[acid]] obrażenia każdemu, kto przez to przejdzie, z rzutem obronnym @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Niszczy rzucaną broń, która mogłaby ją przebić."
+        },
+        "yellow": {
+          "title": "Żółty",
+          "text": "Zadaje @Damage[30[electricity]] obrażenia każdemu, kto przez to przejdzie, z rzutem obronnym @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Zapobiega przenikaniu efektów związanych z kwasem, zimnem, elektrycznością, ogniem, mocą, dźwiękiem, witalnością i pustką."
+        },
+        "green": {
+          "title": "Zielony",
+          "text": "Zadaje @Damage[10[poison]] obrażenia każdemu, kto przechodzi obok, z rzutem obronnym @Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic], a w razie porażki powoduje, że postać otrzymuje stan @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Osłabiony 1} na 1 minutę.",
+          "block": "Zapobiega przedostawaniu się toksyn, gazów i broni chemicznej."
+        },
+        "blue": {
+          "title": "Niebieski",
+          "text": "Istoty przechodzące przez ten obszar podlegają efektom zaklęcia @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA] z testem @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]",
+          "block": "Blokuje przenikanie efektów dźwiękowych, paraliżujących, sonicznych i wizualnych."
+        },
+        "indigo": {
+          "title": "Indygo",
+          "text": "Osoby przechodzące przez to miejsce podlegają działaniu zaklęcia @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs] z testem @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)].",
+          "block": "Zapobiega przenikaniu efektów wróżbiarskich i psychicznych."
+        },
+        "violet": {
+          "title": "Fioletowy",
+          "text": "Stworzenia przechodzące przez to miejsce muszą zdać rzut obronny @Check[will|dc:resolve(@actor.system.resources.dc.value)]; w przeciwnym razie zostaną one na 1 minutę objęte efektem @UUID[Compendium.pf2e.conditionitems. Item.xYTAsEpcJE1Ccni3]{Spowolniena 1} przez 1 minutę; w przypadku krytycznej porażki istota zostaje zamiast tego wysłana do innej płaszczyzny, z efektem zaklęcia @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]",
+          "block": "Uniemożliwia rzucanie zaklęć na przeciwników (efekty obszarowe nadal działają jak zwykle)."
+        }
       }
     },
     "items": {
