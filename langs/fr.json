@@ -96,6 +96,11 @@
       "active-minions": "Activez le(s) <u data-tooltip=\"{minionTooltip}\">sbire(s)</u> de <b>{summonerName}</b>"
     },
     "dialog": {
+      "dancing-weapon": {
+        "choose": "Choisir une arme",
+        "title": "Choisir votre Lame dansante",
+        "damage-types": "Types de dégâts"
+      },
       "duplicate-foe": "La cible a t-elle manqué son jet de sauvegarde ?",
       "telekinetic-hand": "Choisissez vous de rendre invisible la main que vous convoquez ?",
       "disable-specific": {
@@ -105,6 +110,10 @@
           "title": "Configurer les déclencheurs d'invocation activés",
           "hint": "Configurez les sources d'invocation actives."
         }
+      },
+      "light": {
+        "title": "Invoque un orbe de lumière",
+        "text": "Souhaitez-vous invoquer un orbe de lumière qui ne soit pas attaché à une créature ? (Si vous choisissez non, vous devrez appliquer l'effet à la créature à laquelle vous souhaitez attribuer la lumière.)"
       },
       "choose-type-of": "Choisissez le type de",
       "customize": {
@@ -124,6 +133,43 @@
       "jagged-berms": {
         "spikes": "Clic-gauche pour placer des pointes ({count}), clic-droit pour arrêter",
         "berm": "Placer les bermes à pieux"
+      },
+      "prismatic-sphere": {
+        "red": {
+          "title": "Rouge",
+          "text": "Inflige @Damage[20[fire]]{20 dégâts de feu à quiconque passe à travers, avec un jet de @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Détruit les munitions d'armes à distance (telles que les flèches et les carreaux d'arbalète) qui pourraient le traverser."
+        },
+        "orange": {
+          "title": "Orange",
+          "text": "Inflige @Damage[25[acid]]{25 dégâts d'acide} à quiconque passe à travers, avec un jet de @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Détruit les armes de jet qui pourraient le traverser."
+        },
+        "yellow": {
+          "title": "Jaune",
+          "text": "Inflige @Damage[30[électricité]]{30 dégâts d'électricité} à quiconque passe à travers, avec un jet de @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Empêche les effets d'acide, d'électricité, de feu, de force, de froid, de son, du vide et de vitalité de traverser."
+        },
+        "green": {
+          "title": "Vert",
+          "text": "Inflige @Damage[10[poison]]{10 dégâts de poison à quiconque passe à travers avec un jet de @Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic] et le rend @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Affaibli 1} pendant 1 minute en cas d'échec.",
+          "block": "Empêche le passage des toxines, des gaz et des armes de souffle."
+        },
+        "blue": {
+          "title": "Bleu",
+          "text": "Les créatures qui passent à travers sont sujettes aux effets de @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Pétrifier} avec un jet de @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]",
+          "block": "Empêche le passage des effets audibles, de pétrification, de son et visuels."
+        },
+        "indigo": {
+          "title": "Indigo",
+          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "block": "Empêche la divination et les effets mentaux de passer à travers."
+        },
+        "violet": {
+          "title": "Violet",
+          "text": "Les créatures qui passent à travers doivent réussir un jet de @Check[will|dc:resolve(@actor.system.resources.dc.value)] ou être @UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{Ralenties 1} pendant 1 minute. En cas d'échec critique, la créature est téléportée sur un autre plan, avec l'effet de @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]{Téléportation interplanaire}.",
+          "block": "Empêche les sorts de cibler l'autre côté (les effets de zone franchissent comme à l'ordinaire)."
+        }
       }
     },
     "items": {
@@ -153,6 +199,9 @@
             "title": "Dupliquer l'ennemi - Jet de sauvegarde réussi",
             "text": "Compte tenu de la réussite du jet de sauvegarde, les cibles ne subissent que la moitié des dégâts des Frappes de ce duplicata"
           }
+        },
+        "dancing-blade": {
+          "title": "Effet : Lame dansante"
         }
       }
     },

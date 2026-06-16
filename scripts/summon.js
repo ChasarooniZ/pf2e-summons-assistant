@@ -183,6 +183,10 @@ export async function summon(
     const modTraits = actorModifications?.["system.traits.value"] ?? [];
     delete actorModifications?.["system.traits.value"];
 
+    const levelData = summonerToken?.document?.level
+      ? { "protoTypeToken.level": summonerToken?.document?.level }
+      : {};
+
     const actorUpdateData = {
       "system.details.alliance": summonerAlliance,
       "system.traits.value": [
@@ -190,6 +194,7 @@ export async function summon(
         ...additionalTraits,
         ...modTraits,
       ],
+      ...levelData,
       ...houseRuleUpdates,
       ...actorModifications,
       ...summonCustomizationModifications,

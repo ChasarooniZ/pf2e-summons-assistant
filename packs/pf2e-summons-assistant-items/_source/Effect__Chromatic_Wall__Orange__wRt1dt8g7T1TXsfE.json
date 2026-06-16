@@ -1,0 +1,83 @@
+{
+  "name": "Effect: Chromatic Wall (Orange)",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>The wall destroys thrown weapons that would pass through, and it deals @Damage[25[acid]] damage to anyone passing through, with a @Check[reflex|against:spell|basic] save. @UUID[Compendium.pf2e.spells-srd.Item.g8QqHpv2CWDwmIm1]{Gust of Wind} can counteract an <em>orange chromatic wall</em>.</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "itemType": "action",
+        "key": "ItemAlteration",
+        "mode": "add",
+        "predicate": [
+          "item:slug:touch-wall"
+        ],
+        "property": "description",
+        "value": [
+          {
+            "text": "{item|description}"
+          }
+        ]
+      }
+    ],
+    "slug": "effect-chromatic-wall-orange",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "img": "icons/consumables/potions/potion-flask-corked-orange.webp",
+  "folder": "wgGTyxv0IKUmDKV7",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1780558657663,
+    "modifiedTime": 1780558657663,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_id": "wRt1dt8g7T1TXsfE",
+  "sort": 0,
+  "_key": "!items!wRt1dt8g7T1TXsfE"
+}

@@ -20,7 +20,7 @@ export function addTraits(type) {
 }
 
 export function messageItemHasRollOption(msg, roll_option) {
-  return msg?.flags?.pf2e?.origin?.rollOptions?.includes(roll_option);
+  return msg?.flags?.[game.system.id]?.origin?.rollOptions?.includes(roll_option);
 }
 
 export function hasNoTargets() {
@@ -151,12 +151,15 @@ export function getAvengingWildwoodStrikeRuleElements({ rank }) {
   return rulesElements;
 }
 
-export function notifyRayControls() {
-  ui.notifications.info(`
+export function notifyRayControls(rotateOnly = false) {
+  let text = rotateOnly
+    ? `<b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`
+    : `
           <b>${game.i18n.localize("pf2e-summons-assistant.controls.adjust-length")}:</b> <span class='reference'>${game.i18n.localize("CONTROLS.Alt")} + ${game.i18n.localize("pf2e-summons-assistant.controls.scroll")}</span>
           <br>
           <br>
-          <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`);
+          <b>${game.i18n.localize("pf2e-summons-assistant.controls.rotate-wall")}: </b><span class='reference'>${game.i18n.localize("CONTROLS.ShiftScroll")}</span>`;
+  ui.notifications.info(text);
 }
 
 /**
@@ -171,6 +174,8 @@ export function convertItemUUIDBasedOnSystem(uuid) {
     finalUUID = finalUUID
       .replace(".sf2e.", ".pf2e.")
       .replace(".pf2e-anachronism.", ".pf2e.")
+      .replace(".starfinder-field-test-for-pf2e.actions.", ".starfinder-field-test-for-pf2e.sf2e-actions.")
+      .replace(".starfinder-field-test-for-pf2e.feats.", ".starfinder-field-test-for-pf2e.sf2e-feats.")
       .replace(".actions.", ".actionspf2e.")
       .replace(".class-features.", ".classfeatures.")
       .replace(".conditions.", ".conditionitems.")
@@ -215,7 +220,7 @@ export function convertSpecificCreatureToSF2e(uuids) {
 
 export function getSpellRange(rangeText) {
   const feet = game.i18n.localize("pf2e-summons-assistant.code.range.feet");
-  if (rangeText.endsWith(feet) || rangeText.endsWith('feet')) {
+  if (rangeText.endsWith(feet) || rangeText.endsWith("feet")) {
     return Number(rangeText.substring(0, rangeText.indexOf(" "))) || null;
   } else {
     return null;

@@ -1,4 +1,4 @@
-import { SOURCES, EFFECTS, MODULE_ID, SENSE_MODES } from "./const.js";
+import { SOURCES, EFFECTS, MODULE_ID, SENSE_MODES, COLORS } from "./const.js";
 import { defaultTokenRayCrosshair, isVerticalWallSegment } from "./helpers.js";
 import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 import {
@@ -17,6 +17,12 @@ export async function handlePostSummon(
   switch (itemUUID) {
     case SOURCES.COMMANDER.PLANT_BANNER:
       postSummonHelper.PLANT_BANNER(summonedActorUUID);
+      break;
+    case SOURCES.WALL.PRISMATIC_SPHERE:
+      postSummonHelper.PRISMATIC_SPHERE(summonedActorID, summonerToken);
+      break;
+    case SOURCES.WALL.PRISMATIC_WALL:
+      postSummonHelper.PRISMATIC_WALL(summonedActorID, summonerToken);
       break;
     case SOURCES.MISC.WOODEN_DOUBLE: {
       postSummonHelper.WOODEN_DOUBLE(summonerToken);
@@ -69,6 +75,149 @@ const postSummonHelper = {
         effectUUID: EFFECTS.COMMANDER.PLANT_BANNER,
       });
     }, 1500); // DO this after 1.5 seconds to hopefully fix the no stuff applied yet issue
+  },
+  PRISMATIC_SPHERE: async (summonedActorID, summonerToken) => {
+    const prismaticSphereToken = getTokenFromActorID(summonedActorID);
+    const items = prismaticSphereToken.actor.items.contents;
+    const seq = new Sequence();
+
+    let count = 0;
+    for (const [name, color] of Object.entries(COLORS.PRISMATIC)) {
+      console.log({ count, name, color });
+      const eff = items?.find(
+        (i) => i?.system?.slug === `effect-chromatic-wall-${name}`,
+      );
+      seq
+        .effect()
+        .atLocation(prismaticSphereToken.center)
+        .shape("circle", {
+          lineSize: 4,
+          lineColor: color,
+          radius: 2 + count * 0.04,
+          gridUnits: true,
+          alpha: 0.9,
+        })
+        .name(name)
+        .tieToDocuments([prismaticSphereToken, eff])
+        .blendMode(PIXI.BLEND_MODES.SCREEN)
+        .persist(!!eff)
+        .xray();
+      count++;
+    }
+    seq.play();
+
+    await setupWallCircle({
+      position: prismaticSphereToken?.center,
+      summonedWallToken: prismaticSphereToken,
+      radiusSquares: 2,
+      wallConfig: { light: SENSE_MODES.NONE, move: SENSE_MODES.NONE },
+      art: null,
+    });
+  },
+
+  PRISMATIC_WALL: async (summonedActorID, summonerToken) => {
+    const prismaticWallToken = getTokenFromActorID(summonedActorID);
+    const items = prismaticWallToken.actor.items.contents;
+    const seq = new Sequence();
+
+    const location = await Sequencer.Crosshair.show({
+      distance: 60,
+      t: "ray",
+      texture:
+        "modules/pf2e-summons-assistant/assets/tokens/token/prismatic_wall.svg",
+      snap: {
+        position:
+          CONST.GRID_SNAPPING_MODES.VERTEX |
+          CONST.GRID_SNAPPING_MODES.CENTER |
+          CONST.GRID_SNAPPING_MODES.EDGE_MIDPOINT,
+      },
+    });
+
+    const { source, target } = location.cachedPosition;
+    const gridSize = canvas.grid.size;
+
+    const angle = Math.toRadians(location.direction - 90);
+    const gridOffset = 0.04;
+    const offsetBase = Ray.fromAngle(0, 0, angle, gridOffset)?.B;
+
+    const points = [
+      { x: 0, y: 0 },
+      {
+        x: (target.x - source.x) / gridSize,
+        y: (target.y - source.y) / gridSize,
+      },
+    ];
+
+    let count = -3;
+    for (const [name, color] of Object.entries(COLORS.PRISMATIC)) {
+      const offset = { x: offsetBase.x * count, y: offsetBase.y * count };
+      const eff = items?.find(
+        (i) => i?.system?.slug === `effect-chromatic-wall-${name}`,
+      );
+      seq
+        .effect()
+        .persist()
+        .atLocation(source)
+        .shape("polygon", {
+          lineSize: 3,
+          lineColor: color,
+          radius: 1.5,
+          points: points.map((pt) => ({
+            x: pt.x + offset.x,
+            y: pt.y + offset.y,
+          })),
+          gridUnits: true,
+          name: "test",
+        })
+        .tieToDocuments([prismaticWallToken.document, eff])
+        .blendMode(PIXI.BLEND_MODES.ADD)
+        .xray();
+      count++;
+    }
+    seq.play();
+
+    const wallDataArray = [
+      getWallData({
+        c: [source.x, source.y, target.x, target.y],
+        move: SENSE_MODES.NONE,
+        light: SENSE_MODES.NONE,
+        art: "",
+        summonedtokenID: prismaticWallToken.id,
+      }),
+    ];
+
+    await socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("createWalls", wallDataArray);
+
+    const lightDataArray = [
+      { rotationOffset: 270, position: source },
+      { rotationOffset: 90, position: target },
+    ].map(({ rotationOffset, position }) => ({
+      config: {
+        angle: 180,
+        coloration: 1,
+        animation: {
+          type: "radialrainbow",
+          speed: 2,
+          intensity: 10,
+        },
+        bright: 20,
+        dim: 40,
+      },
+      x: position.x,
+      y: position.y,
+      rotation: (location.direction + rotationOffset) % 360,
+      flags: {
+        "pf2e-summons-assistant": {
+          lightTokenID: prismaticWallToken.id,
+        },
+      },
+    }));
+
+    await socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("createLights", lightDataArray);
   },
   SHARED_HEALTH_SETUP: async (summonedActorID) => {
     const actor = getTokenFromActorID(summonedActorID)?.actor;

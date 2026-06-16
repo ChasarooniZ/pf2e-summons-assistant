@@ -1,5 +1,50 @@
 ## Unreleased
 
+## 2.5.3
+
+- **Update**
+  - Updated polish translation (🌐 @lioheart)
+
+## 2.5.2
+
+- **Update**
+  - Fixed error with new `Light` spell dialogue (🐛 @Ottyn)
+
+## 2.5.1
+
+- **Update**
+  - Fixed unnecessary basic tag on some of the parts of `Prismatic Wall` saves (🐛 @rectulo)
+  - Fix Mechanic's Mine Automation (💻 @Sasane)
+  - Updated french translation (🌐 @rectulo)
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+
+## 2.5.0
+
+- **New**
+  - `Prismatic Wall` support
+- **Updated**
+  - `Light` spell will now ask you before summoning when you have no target (💡 @TheTenk)
+  - Removed the source from the releases to improve file size
+
+## 2.4.1
+
+- **Updated**
+  - Added a section on `Prismatic Sphere` to show what it blocks currently
+
+## 2.4.0
+
+- **New**
+  - `Prismatic Sphere` support (💡 @FunFun)
+- **Updated**
+  - Handles level data now to summon on the same level as the summoner
+  - Added better handling for grabbing the DC from the spell cast
+  - Fixed some missing action categorization on a few action
+
+## 2.3.3
+
+- Updated polish translation (🌐 @lioheart)
+- Updated chinese translation (🌐 @AlphaStarGuide)
+
 ## 2.3.2
 
 - Updated range detection so it fallsback to `feet` regardless of your chosen language

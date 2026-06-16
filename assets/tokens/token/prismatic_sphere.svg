@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400">
+  <g fill="none" stroke-width="1" transform="translate(50 50)">
+    <circle r="48" stroke="Red" />
+    <circle r="47" stroke="Orange" />
+    <circle r="46" stroke="Yellow" />
+    <circle r="45" stroke="Green" />
+    <circle r="44" stroke="Blue" />
+    <circle r="43" stroke="Indigo" />
+    <circle r="42" stroke="Violet" />
+  </g>
+</svg>

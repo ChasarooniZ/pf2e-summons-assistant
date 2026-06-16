@@ -1,0 +1,83 @@
+{
+  "name": "Effect: Chromatic Wall (Indigo)",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>The wall stops divination and mental effects from passing through, and those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind}. @UUID[Compendium.pf2e.spells-srd.Item.DyiD239dNS7RIxZE]{Holy Light} can counteract an <em>indigo chromatic wall</em>.</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "itemType": "action",
+        "key": "ItemAlteration",
+        "mode": "add",
+        "predicate": [
+          "item:slug:touch-wall"
+        ],
+        "property": "description",
+        "value": [
+          {
+            "text": "{item|description}"
+          }
+        ]
+      }
+    ],
+    "slug": "effect-chromatic-wall-indigo",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "img": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+  "folder": "wgGTyxv0IKUmDKV7",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1780558655650,
+    "modifiedTime": 1780558655737,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_id": "HZe2I6ihFlP4276F",
+  "sort": 200000,
+  "_key": "!items!HZe2I6ihFlP4276F"
+}

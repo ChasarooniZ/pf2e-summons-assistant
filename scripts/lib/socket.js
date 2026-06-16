@@ -19,11 +19,16 @@ async function createWalls(wallDocs) {
   return await canvas.scene.createEmbeddedDocuments("Wall", wallDocs);
 }
 
+async function createLights(lightDocs) {
+  return await canvas.scene.createEmbeddedDocuments("AmbientLight", lightDocs);
+}
+
 export const setupSocket = () => {
   if (globalThis.socketlib) {
     socketlibSocket = globalThis.socketlib.registerModule(MODULE_ID);
     socketlibSocket.register("createEffects", createEffects);
     socketlibSocket.register("createWalls", createWalls);
+    socketlibSocket.register("createLights", createLights);
   }
   return !!globalThis.socketlib;
 };
