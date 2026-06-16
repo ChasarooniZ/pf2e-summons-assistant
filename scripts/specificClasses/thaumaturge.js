@@ -16,7 +16,8 @@ pickerDialogue(actor)
 
 // ping location ofndestroted clone for like 5-10 seconds
 function pickerDialogue(actor, type = '') {
-    const tokens = canvas.tokens.placeables(t => t.actor.id === actor.id);
+
+    const tokens = canvas.tokens.placeables.filter(t => t.actor.id === actor.id);
     if (tokens.length < 2) {
         ui.notifications.error('[Error] You dont have a Mirrored Self clone active on this scene')
         return;
@@ -33,6 +34,19 @@ function pickerDialogue(actor, type = '') {
 
 
     const token = DialogV2WIP()
-    tokens.filter(t => t.id !== token.id).forEach(t => t.delete() /* ping token spot*/)
     token.actor.unsetFlag(MODULE_ID, "thaumMirrorImplementCloneActive", true);
+}
+
+async function deleteClone(actorId, tokens, selectedTokenId) {
+    const combatant = game?.combat?.combatants?.contents?.find(c => c.actorId === actorId);
+    if (combatant) {
+        await combatant.update({ tokenId: selectedTokenId })
+    }
+
+    const tokens = canvas.tokens.placeables.filter(t => t.actor.id === actorId);
+    tokens.filter(t => t.id !== token.id).forEach(t => {
+        canvas.ping(t.center, { duration: 5000 })
+        t.delete()
+    } /* ping token spot*/)
+
 }
