@@ -1,17 +1,38 @@
-//TODO
-// Add Hooks for removal ie, Shatter Refleciton, on Unconcious, on Effect Removal
-// Check if combatant update works as normal guy
-// Check if summon works at all
+import { MODULE_ID } from "../const.js";
 
-function normalRemoval(actorId) {
-  const actor = game.actors.get(actorId);
-  const res = pickerDialogue(actor);
-  deleteClones(actorId, res.tokens, res.selectedTokenId);
+export function setupThaumaturgeHooks() {
+  if (game.settings.get(MODULE_ID, "specific-case.handle.thaumaturge")) {
+    Hooks.on("preCreateItem", (item, _info, _action, userID) => {
+      if (
+        item?.system?.slug === "effect-mirrors-implement" &&
+        game.user.id === userID
+      ) {
+        const actorId = item?.actor?.id;
+        askToDeleteMirrors(actorId, "default");
+      }
+    });
+    Hooks.on("preDeleteItem", (item, _action, userID) => {
+      if (item?.system?.slug === "unconscious" && game.user.id === userID) {
+        const actorId = item?.actor?.id;
+        askToDeleteMirrors(actorId, "unconscious");
+      }
+    });
+
+    Hooks.on("preCreateChatMessage", async (chatMessage, _info, userID) => {
+      if (
+        chatMessage?.item?.system?.slug === "shatter-reflection" &&
+        game.user.id === userID
+      ) {
+        const actorId = chatMessage?.item?.actor?.id;
+        askToDeleteMirrors(actorId, "adept-action");
+      }
+    });
+  }
 }
 
-function shatterReflection(actorId) {
+function askToDeleteMirrors(actorId, reason = "") {
   const actor = game.actors.get(actorId);
-  const res = pickerDialogue(actor, "adept-reaction");
+  const res = pickerDialogue(actor, reason);
   deleteClones(actorId, res.tokens, res.selectedTokenId);
 }
 
@@ -21,20 +42,21 @@ async function pickerDialogue(actor, type = "") {
   );
   if (tokens.length < 2) {
     ui.notifications.error(
-      "[Error] You dont have a Mirrored Self clone active on this scene",
+      game.i18n.localize(
+        "pf2e-summons-assistant.notification.thaumaturge.mirror-implement.error",
+      ),
     );
     return;
   }
-  // Also modify wummon properties: noEffect, noTraits to remove the auto traits
-  let realId = canvas.tokens.controlled[0]?.id;
-  if (type === "adept-reaction") {
-    realId = tokens?.find((t) => t !== canvas.tokens.controlled[0]?.id);
+  let realId = canvas.tokens.controlled?.[0]?.id;
+  if (type === "adept-action") {
+    realId = tokens?.find((t) => t !== canvas.tokens.controlled[0]?.id)?.id;
   }
   const arrows = getDirectionalArrows(tokens);
   const selectedTokenId = await foundry.applications.api.DialogV2.wait({
     window: {
       title: game.i18n.localize(
-        "pf2e-summons-assistant.dialog.dancing-weapon.title",
+        `pf2e-summons-assistant.dialog.thaumaturge.title.${reason}`,
       ),
     },
     position: { width: 400 },
@@ -80,7 +102,7 @@ async function pickerDialogue(actor, type = "") {
       {
         action: "choose",
         label: game.i18n.localize(
-          "pf2e-summons-assistant.dialog.dancing-weapon.choose",
+          "pf2e-summons-assistant.dialog.thaumaturge.choose",
         ),
         default: true,
         callback: (event, button, dialog) => {
@@ -120,17 +142,17 @@ function getDirectionalArrows(coords) {
   return coords.map((point) => {
     const ray = new foundry.canvas.geometry.Ray(center, point);
     const angle = (Math.toDegrees(ray.angle) + 360) % 360;
-    return angleToFASArrow(angle);
+    return angleToArrowDirection(angle);
   });
 }
 
-function angleToFASArrow(a) {
-  if (a >= 337.5 || a < 22.5) return "right";
-  if (a < 67.5) return "down-right";
-  if (a < 112.5) return "down";
-  if (a < 157.5) return "down-left";
-  if (a < 202.5) return "left";
-  if (a < 247.5) return "up-left";
-  if (a < 292.5) return "up";
-  if (a < 337.5) return "up-right";
+function angleToArrowDirection(angle) {
+  if (angle >= 337.5 || angle < 22.5) return "right";
+  if (angle < 67.5) return "down-right";
+  if (angle < 112.5) return "down";
+  if (angle < 157.5) return "down-left";
+  if (angle < 202.5) return "left";
+  if (angle < 247.5) return "up-left";
+  if (angle < 292.5) return "up";
+  if (angle < 337.5) return "up-right";
 }

@@ -55,6 +55,10 @@
           "wooden-double": {
             "name": "Handle Wooden Double's Damage",
             "hint": "When a Wooden Double takes damage above its max health it will roll damage equivalent to the extra damage (this damage is typeless)"
+          },
+          "thaumaturge": {
+            "name": "Handle Thaumaturge Mirror Implement",
+            "hint": "Handles thaumaturge features specifically the Mirror Impelement"
           }
         }
       },
@@ -93,6 +97,11 @@
       "customization": {
         "saved": "Saved the customization of the summon"
       },
+      "thaumaturge": {
+        "mirror-implement": {
+          "error": "[Error] You don't have a Mirrored Self clone active on this scene"
+        }
+      },
       "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>"
     },
     "dialog": {
@@ -120,6 +129,14 @@
         "summoned-token": {
           "title": "Customize Summoned Token"
         }
+      },
+      "thaumaturge": {
+        "title": {
+          "default": "Choose which Mirrored Self Token to keep",
+          "unconscious": "You're Unconscious! Choose which Mirrored Self Token stays",
+          "adept-action": "You Shatter a Mirrored Self! Choose which one doesn't Shatter"
+        },
+        "choose": "Keep Selected Token"
       }
     },
     "display-text": {
