@@ -1,3 +1,8 @@
+//TODO
+// Add Hooks for removal ie, Shatter Refleciton, on Unconcious, on Effect Removal
+// Check if combatant update works as normal guy
+// Check if summon works at all
+
 function normalRemoval(actorId) {
   const actor = game.actors.get(actorId);
   const res = pickerDialogue(actor);

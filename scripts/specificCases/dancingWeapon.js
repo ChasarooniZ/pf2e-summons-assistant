@@ -18,9 +18,9 @@ export async function dancingWeaponDialog(actor, isAmped = false) {
     position: { width: 400 },
     content: weapons
       .map(
-        (weapon) =>
+        (weapon, cnt) =>
           `<label style="display:flex">
-                <input type="radio" name="choice" value="${weapon.id}">
+                <input type="radio" name="choice" value="${weapon.id}" ${cnt === 0 ? "checked" : ""}>
                 <span style="display:flex"
                 data-tooltip="${game.i18n.localize(
                   "pf2e-summons-assistant.dialog.dancing-weapon.damage-types",

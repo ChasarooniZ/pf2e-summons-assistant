@@ -148,6 +148,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.COMMANDER.PLANTED_BANNER],
+          noDefaultTraits: true,
           modifications: {
             "system.details.level.value": data.summonerLevel,
             "system.abilities.int.mod": data.int,
@@ -165,41 +166,53 @@ const handlers = {
   incarnate: {
     handleCallFluxwraith: (data) => {
       return [
-        incarnateDetails({
-          uuids: [CREATURES.FLUXWRAITH],
-          rank: data.rank,
-          dc: data.dc,
-        }),
+        {
+          ...incarnateDetails({
+            uuids: [CREATURES.FLUXWRAITH],
+            rank: data.rank,
+            dc: data.dc,
+          }),
+          noDefaultTraits: true,
+        },
       ];
     },
 
     handleSummonElementalHerald: (data) => {
       return [
-        incarnateDetails({
-          uuids: Object.values(CREATURES.ELEMENTAL_HERALD),
-          rank: data.rank,
-          dc: data.dc,
-        }),
+        {
+          ...incarnateDetails({
+            uuids: Object.values(CREATURES.ELEMENTAL_HERALD),
+            rank: data.rank,
+            dc: data.dc,
+          }),
+          noDefaultTraits: true,
+        },
       ];
     },
 
     handleSummonHealingServitor: (data) => {
       return [
-        incarnateDetails({
-          uuids: [CREATURES.HEALING_SERVITOR],
-          rank: data.rank,
-          dc: data.dc,
-        }),
+        {
+          ...incarnateDetails({
+            uuids: [CREATURES.HEALING_SERVITOR],
+            rank: data.rank,
+            dc: data.dc,
+          }),
+          noDefaultTraits: true,
+        },
       ];
     },
 
     handleTempestOfShades: (data) => {
       return [
-        incarnateDetails({
-          uuids: [CREATURES.TEMPEST_OF_SHADES],
-          rank: data.rank,
-          dc: data.dc,
-        }),
+        {
+          ...incarnateDetails({
+            uuids: [CREATURES.TEMPEST_OF_SHADES],
+            rank: data.rank,
+            dc: data.dc,
+          }),
+          noDefaultTraits: true,
+        },
       ];
     },
   },
@@ -209,6 +222,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.PROTECTOR_TREE],
+          noDefaultTraits: true,
           modifications: {
             "system.attributes.hp.max":
               10 + (Math.round(data.summonerLevel / 2) - 1) * 10,
@@ -230,6 +244,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.KINETICIST.JAGGED_BERMS],
+          noDefaultTraits: true,
           amount: 6,
           modifications: {
             "system.attributes.hp.max":
@@ -261,6 +276,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.MECHANIC.MINE],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.summonerLevel,
@@ -278,6 +294,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.MECHANIC.MINE],
+          noDefaultTraits: true,
           rank: data.rank,
           amount: 2,
           modifications: {
@@ -298,6 +315,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.AVENGING_WILDWOOD],
+          noDefaultTraits: true,
           modifications: {
             "system.attributes.hp.max": 20 + (data.rank - 2) * 10,
             "system.attributes.hp.value": 20 + (data.rank - 2) * 10,
@@ -367,6 +385,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.DRAGON_TURRET],
+          noDefaultTraits: true,
           itemsToAdd: [EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG])],
           ...(data.itemRollOptions.length > 0
             ? {
@@ -389,6 +408,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.FLOATING_FLAME],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
@@ -409,6 +429,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.HEALING_WELL],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
@@ -421,6 +442,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.INSTANT_MINEFIELD_MINE],
+          noDefaultTraits: true,
           amount: 6,
           rank: data.rank,
           modifications: {
@@ -453,6 +475,7 @@ const handlers = {
         return [
           {
             specific_uuids: Object.values(CREATURES.LIGHT),
+            noDefaultTraits: true,
             rank: data.rank,
             modifications: {
               "system.details.level.value": data.rank,
@@ -474,6 +497,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROLOGISTS_HORDE],
+          noDefaultTraits: true,
           rank: data.summonerLevel,
           modifications: {
             "system.details.level.value": data.summonerLevel,
@@ -500,6 +524,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.SHADOW_SELF],
+          noDefaultTraits: true,
           modifications: {
             img: token.actor.img,
             prototypeToken: {
@@ -526,6 +551,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.SWARMKEEPER_SWARM],
+          noDefaultTraits: true,
           rank: data.summonerLevel,
           modifications: {
             "system.details.level.value": data.summonerLevel,
@@ -566,6 +592,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.TELEKINETIC_HAND],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             ...(onlyHasJB2AFree()
@@ -585,6 +612,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.WOODEN_DOUBLE],
+          noDefaultTraits: true,
           modifications: {
             "system.details.level.value": data.rank,
             "system.attributes.hp.max": 20 + (data.rank - 3) * 10,
@@ -622,6 +650,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.PROTECTOR_TREE],
+          noDefaultTraits: true,
           modifications: {
             "system.attributes.hp.max": 10 + (data.rank - 1) * 10,
             "system.attributes.hp.value": 10 + (data.rank - 1) * 10,
@@ -643,6 +672,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.OZTHOOM_SHADOW_DOUBLE],
+          noDefaultTraits: true,
           amount: 3,
         },
       ];
@@ -653,6 +683,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.MUNDANE.CANDLE],
+          noDefaultTraits: true,
         },
       ];
     },
@@ -660,6 +691,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.MUNDANE.LANTERN_BULLSEYE],
+          noDefaultTraits: true,
         },
       ];
     },
@@ -667,6 +699,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.MUNDANE.LANTERN_HOODED],
+          noDefaultTraits: true,
         },
       ];
     },
@@ -674,6 +707,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.MUNDANE.TORCH],
+          noDefaultTraits: true,
         },
       ];
     },
@@ -687,6 +721,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.PRISMATIC_SPHERE],
+          noDefaultTraits: true,
           modifications: {
             level: data.rank,
             "system.resources.dc.value": data.dc,
@@ -709,6 +744,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.PRISMATIC_WALL],
+          noDefaultTraits: true,
           modifications: {
             level: data.rank,
             "system.resources.dc.value": data.dc,
@@ -755,6 +791,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.WALL_OF_ICE],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
@@ -818,6 +855,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.WALL_OF_FIRE],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
@@ -851,6 +889,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.WALL_OF_STONE],
+          noDefaultTraits: true,
           rank: data.rank,
           amount: max / 5,
           modifications: {
@@ -880,6 +919,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.WALL_OF_SHADOW],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
@@ -910,6 +950,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.CONGLOMERATE_OF_LIMBS],
+          noDefaultTraits: true,
           rank: data.rank,
           itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
         },
@@ -920,6 +961,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
+          noDefaultTraits: true,
           rank: data.rank,
           amount: getNecromancerProf(data.summonerLevel),
           itemsToAdd: [
@@ -937,6 +979,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
+          noDefaultTraits: true,
           rank: data.rank,
           amount: 1,
           itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
@@ -948,11 +991,13 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.LIVING_GRAVEYARD],
+          noDefaultTraits: true,
           rank: data.rank,
           itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
         },
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
+          noDefaultTraits: true,
           rank: data.rank,
           amount: 5,
           itemsToAdd: [
@@ -970,6 +1015,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.PERFECTED_THRALL],
+          noDefaultTraits: true,
           rank: data.rank,
           itemsToAdd: [
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
@@ -986,6 +1032,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.RECURRING_NIGHTMARE],
+          noDefaultTraits: true,
           rank: data.rank,
           itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
         },
@@ -996,6 +1043,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.SKELETAL_LANCERS],
+          noDefaultTraits: true,
           rank: data.rank,
           amount: 5,
           itemsToAdd: [
@@ -1036,6 +1084,7 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.PSYCHIC.DANCING_BLADE],
+          noDefaultTraits: true,
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
@@ -1061,7 +1110,10 @@ const handlers = {
   summoner: {
     handleManifestEidolon: async (data) => {
       const uuid = await getEidolon(data.summonerActorId);
-      if (uuid) return [{ specific_uuids: [uuid], isCharacter: true }];
+      if (uuid)
+        return [
+          { specific_uuids: [uuid], noDefaultTraits: true, isCharacter: true },
+        ];
       return null;
     },
   },
@@ -1072,6 +1124,7 @@ const handlers = {
       return [
         {
           specific_uuids: [actor.uuid],
+          noDefaultTraits: true,
           modifications: {
             "prototypeToken.texture.scaleX":
               -actor.prototypeToken.texture.scaleX,
