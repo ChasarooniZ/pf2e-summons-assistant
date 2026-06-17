@@ -2,17 +2,14 @@ import { MODULE_ID } from "../const.js";
 
 export function setupThaumaturgeHooks() {
   if (game.settings.get(MODULE_ID, "specific-case.handle.thaumaturge")) {
-    Hooks.on("preCreateItem", (item, _info, _action, userID) => {
-      if (
-        item?.system?.slug === "effect-mirrors-implement" &&
-        game.user.id === userID
-      ) {
+    Hooks.on("preDeleteItem", (item, _info, _action) => {
+      if (item?.system?.slug === "effect-mirrors-implement") {
         const actorId = item?.actor?.id;
         askToDeleteMirrors(actorId, "default");
       }
     });
-    Hooks.on("preDeleteItem", (item, _action, userID) => {
-      if (item?.system?.slug === "unconscious" && game.user.id === userID) {
+    Hooks.on("preCreateItem", (item, _action) => {
+      if (item?.system?.slug === "unconscious") {
         const actorId = item?.actor?.id;
         askToDeleteMirrors(actorId, "unconscious");
       }

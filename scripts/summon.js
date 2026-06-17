@@ -191,7 +191,7 @@ export async function summon(
       "system.details.alliance": summonerAlliance,
       "system.traits.value": [
         ...selectedActor.system.traits.value,
-        ...(summonDetails?.noDefaultTraits ? {} : additionalTraits),
+        ...(summonDetails?.noDefaultTraits ? [] : additionalTraits),
         ...modTraits,
       ],
       ...levelData,

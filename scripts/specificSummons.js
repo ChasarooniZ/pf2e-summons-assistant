@@ -1125,11 +1125,19 @@ const handlers = {
         {
           specific_uuids: [actor.uuid],
           noDefaultTraits: true,
-          modifications: {
-            "prototypeToken.texture.scaleX":
-              -actor.prototypeToken.texture.scaleX,
-          },
+          isCharacter: true,
+          // modifications: {
+          //   "prototypeToken.texture.scaleX":
+          //     -actor.prototypeToken.texture.scaleX,
+          // },
           itemsToAdd: [effect],
+          crosshairParameters: {
+            location: {
+              obj: data.position,
+              limitMaxRange: getGridUnitsFromFeet(15),
+              showRange: true,
+            },
+          },
         },
       ];
     },
