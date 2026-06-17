@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.5.4
+
+- Fixed bug introduced in `2.2.0` that was causing summons such as `Wall of Stone` to break due to issue with function `crosshairParameters` (🐛 @mgoldstein322)
+
 ## 2.5.3
 
 - **Update**

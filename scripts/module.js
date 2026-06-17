@@ -170,7 +170,7 @@ Hooks.once("ready", async function () {
         const summonerToken = canvas.tokens.placeables.find(
           (t) => t?.actor?.id === spellRelevantInfo.summonerActorId,
         );
-        if (summonerToken)
+        if (summonerToken && !(group?.crosshairParameters instanceof Function))
           foundry.utils.mergeObject(group, {
             crosshairParameters: {
               location: {
