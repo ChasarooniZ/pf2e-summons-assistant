@@ -1,4 +1,6 @@
 ## Unreleased
+- **New**
+  - `Mirror Implement` Thaumaturge support
 
 ## 2.5.4
 

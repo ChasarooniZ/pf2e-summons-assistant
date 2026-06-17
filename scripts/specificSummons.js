@@ -134,6 +134,9 @@ const getSummonHandlers = () => ({
   // Summoner
   [SOURCES.SUMMONER.MANIFEST_EIDOLON]: handlers.summoner.handleManifestEidolon,
 
+  [SOURCES.THAUMATURGE.MIRRORS_REFLECTION]:
+    handlers.thaumaturge.handleMirrorsReflection,
+
   // Wondrous Figurine
   [SOURCES.WONDROUS_FIGURINE.JADE_SERPENT]:
     handlers.wondrousFigurine.handleJadeSerpent,
@@ -1060,6 +1063,20 @@ const handlers = {
       const uuid = await getEidolon(data.summonerActorId);
       if (uuid) return [{ specific_uuids: [uuid], isCharacter: true }];
       return null;
+    },
+  },
+  thaumaturge: {
+    handleMirrorsReflection: async (data) => {
+      const actor = game.actors.get(data.summonerActorId);
+      return [
+        {
+          specific_uuids: [actor.uuid],
+          modifications: {
+            "prototypeToken.texture.scaleX":
+              -actor.prototypeToken.texture.scaleX,
+          },
+        },
+      ];
     },
   },
 

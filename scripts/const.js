@@ -117,6 +117,10 @@ export const SOURCES = {
     MANIFEST_EIDOLON: "Compendium.pf2e.actionspf2e.Item.n5vwBnLSlIXL9ptp",
   },
 
+  THAUMATURGE: {
+    MIRRORS_REFLECTION: "Compendium.pf2e.actionspf2e.Item.Mh4Vdg6gu8g8RAjh"
+  },
+
   //SF2e
   MECHANIC: {
     DEPLOY_MINE:
@@ -150,6 +154,7 @@ export const SLUG_TO_SOURCE = {
   light: SOURCES.MISC.LIGHT,
   "living-graveyard": SOURCES.NECROMANCER.LIVING_GRAVEYARD,
   "manifest-eidolon": SOURCES.SUMMONER.MANIFEST_EIDOLON,
+  "mirrors-reflection": SOURCES.THAUMATURGE.MIRRORS_REFLECTION,
   "perfected-thrall": SOURCES.NECROMANCER.PERFECTED_THRALL,
   "phantasmal-minion": SOURCES.MISC.PHANTASMAL_MINION,
   "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
