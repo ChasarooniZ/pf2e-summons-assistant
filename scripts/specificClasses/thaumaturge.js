@@ -124,7 +124,6 @@ async function deleteClones(actorID, tokens, selectedTokenId) {
     await combatant.update({ tokenId: selectedTokenId });
   }
 
-  const tokens = canvas.tokens.placeables.filter((t) => t.actor.id === actorID);
   tokens
     .filter((t) => t.id !== token.id)
     .forEach((t) => {
