@@ -1068,6 +1068,7 @@ const handlers = {
   thaumaturge: {
     handleMirrorsReflection: async (data) => {
       const actor = game.actors.get(data.summonerActorId);
+      const effect = await fromUuid(EFFECTS.THAUMATURGE.MIRRORS_REFLECTION);
       return [
         {
           specific_uuids: [actor.uuid],
@@ -1075,6 +1076,7 @@ const handlers = {
             "prototypeToken.texture.scaleX":
               -actor.prototypeToken.texture.scaleX,
           },
+          itemsToAdd: [effect],
         },
       ];
     },

@@ -118,7 +118,7 @@ export const SOURCES = {
   },
 
   THAUMATURGE: {
-    MIRRORS_REFLECTION: "Compendium.pf2e.actionspf2e.Item.Mh4Vdg6gu8g8RAjh"
+    MIRRORS_REFLECTION: "Compendium.pf2e.actionspf2e.Item.Mh4Vdg6gu8g8RAjh",
   },
 
   //SF2e
@@ -401,6 +401,10 @@ export const EFFECTS = {
       img: "icons/magic/death/grave-tombstone-glow-teal.webp",
     }),
   },
+  THAUMATURGE: {
+    MIRRORS_REFLECTION:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.1I6uoL93lNAUZQ1t",
+  },
   COMMANDER: {
     IN_PLANT_BANNER_RANGE:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.vnFV2b3aYdvGeVkM",
@@ -564,6 +568,10 @@ export const ACTIONS = {
     GUARD:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.JdCfKdOAdumgw6aU",
     PUSH: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.cyjLIVsxZbJNr4PF",
+  },
+  THAUMATURGE: {
+    SHATTER_REFLECTION:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.mv56YnVvWLylqJWM",
   },
 };
 
