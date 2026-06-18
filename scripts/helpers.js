@@ -20,7 +20,9 @@ export function addTraits(type) {
 }
 
 export function messageItemHasRollOption(msg, roll_option) {
-  return msg?.flags?.[game.system.id]?.origin?.rollOptions?.includes(roll_option);
+  return msg?.flags?.[game.system.id]?.origin?.rollOptions?.includes(
+    roll_option,
+  );
 }
 
 export function hasNoTargets() {
@@ -174,8 +176,14 @@ export function convertItemUUIDBasedOnSystem(uuid) {
     finalUUID = finalUUID
       .replace(".sf2e.", ".pf2e.")
       .replace(".pf2e-anachronism.", ".pf2e.")
-      .replace(".starfinder-field-test-for-pf2e.actions.", ".starfinder-field-test-for-pf2e.sf2e-actions.")
-      .replace(".starfinder-field-test-for-pf2e.feats.", ".starfinder-field-test-for-pf2e.sf2e-feats.")
+      .replace(
+        ".starfinder-field-test-for-pf2e.actions.",
+        ".starfinder-field-test-for-pf2e.sf2e-actions.",
+      )
+      .replace(
+        ".starfinder-field-test-for-pf2e.feats.",
+        ".starfinder-field-test-for-pf2e.sf2e-feats.",
+      )
       .replace(".actions.", ".actionspf2e.")
       .replace(".class-features.", ".classfeatures.")
       .replace(".conditions.", ".conditionitems.")
@@ -273,4 +281,135 @@ export function getHeightenedValue({
   const increments = Math.floor(levelsGained / heightenEvery);
 
   return baseVal + increments * heightenBonus;
+}
+
+export async function deleteClones(actorID, tokens, selectedTokenId) {
+  const combatant = game?.combat?.combatants?.contents?.find(
+    (c) => c.actorId === actorID,
+  );
+  if (combatant) {
+    socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("updateCombatant", combatant.id, {
+        tokenId: selectedTokenId,
+      });
+  }
+
+  tokens
+    .filter((t) => t.id !== selectedTokenId)
+    .forEach((t) => {
+      canvas.ping(t.center, { duration: 5000 });
+      socketlib.modules.get(MODULE_ID).executeAsGM("deleteToken", t.id);
+    });
+}
+
+export async function cloneToKeepDialog(
+  actor,
+  { title, button, error },
+  defaultTokenId,
+) {
+  const tokens = canvas.tokens.placeables.filter(
+    (t) => t.actor.id === actor.id,
+  );
+  if (tokens.length < 2) {
+    ui.notifications.error(
+      error
+        ? error
+        : game.i18n.localize(
+            "pf2e-summons-assistant.notification.thaumaturge.mirror-implement.error",
+          ),
+    );
+    return;
+  }
+  const arrows = getDirectionalArrows(tokens);
+  const selectedTokenId = await foundry.applications.api.DialogV2.wait({
+    window: {
+      title: title,
+    },
+    position: { width: 400 },
+    content: tokens
+      .map(
+        (tok, cnt) =>
+          `<label style="display:flex" class="mirror-token" data-id="${tok.id}">
+                <input type="radio" name="choice" class="mirror-token" value="${tok.id}"
+                  ${(!defaultTokenId ? cnt === 0 : tok.id === defaultTokenId) ? "checked" : ""}
+                  >
+                <span style="display:flex">
+                <i class="fas fa-arrow-${arrows[cnt]}"></i> ${cnt + 1} ${tok.name}
+                </span>
+            </label>`,
+      )
+      .join(""),
+    render: (_event, app) => {
+      const html = app.element ? app.element : app;
+      html.querySelectorAll("label.mirror-token").forEach((label) => {
+        label.addEventListener("mouseover", (event) => {
+          const tid = label.dataset.id;
+          const token = canvas.tokens.get(tid);
+          if (token) {
+            token._onHoverIn(event);
+          }
+        });
+        label.addEventListener("mouseout", (event) => {
+          const tid = label.dataset.id;
+          const token = canvas.tokens.get(tid);
+          if (token) {
+            token._onHoverOut(event);
+          }
+        });
+
+        label.addEventListener("click", (event) => {
+          const tid = label.dataset.id;
+          const token = canvas.tokens.get(tid);
+          if (token) {
+            canvas.ping(token.center);
+          }
+        });
+      });
+    },
+    buttons: [
+      {
+        action: "choose",
+        label: button,
+        default: true,
+        callback: (event, button, dialog) => {
+          return button.form.elements.choice.value;
+        },
+      },
+    ],
+  });
+  return { tokens, selectedTokenId };
+}
+
+function getDirectionalArrows(coords) {
+  const center = {
+    x: coords.reduce((sum, p) => sum + p.x, 0) / coords.length,
+    y: coords.reduce((sum, p) => sum + p.y, 0) / coords.length,
+  };
+
+  return coords.map((point) => {
+    const ray = new foundry.canvas.geometry.Ray(center, point);
+    const angle = (Math.toDegrees(ray.angle) + 360) % 360;
+    return angleToArrowDirection(angle);
+  });
+}
+
+function angleToArrowDirection(angle) {
+  if (angle >= 337.5 || angle < 22.5) {
+    return "right";
+  } else if (angle < 67.5) {
+    return "down-right";
+  } else if (angle < 112.5) {
+    return "down";
+  } else if (angle < 157.5) {
+    return "down-left";
+  } else if (angle < 202.5) {
+    return "left";
+  } else if (angle < 247.5) {
+    return "up-left";
+  } else if (angle < 292.5) {
+    return "up";
+  } else if (angle < 337.5) {
+    return "up-right";
+  }
 }

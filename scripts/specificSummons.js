@@ -76,6 +76,7 @@ const getSummonHandlers = () => ({
 
   // Misc
   [SOURCES.MISC.AVENGING_WILDWOOD]: handlers.misc.handleAvengingWildwood,
+  [SOURCES.MISC.BILOCATION]: handlers.misc.handleBilocation,
   [SOURCES.MISC.CALL_URSINE_ALLY]: handlers.misc.handleCallUrsineAlly,
   [SOURCES.MISC.DRAGON_TURRET]: handlers.misc.handleDragonTurret,
   [SOURCES.MISC.DUPLICATE_FOE]: handlers.misc.handleDuplicateFoe,
@@ -329,6 +330,27 @@ const handlers = {
               getAvengingWildwoodStrikeRuleElements({ rank: data.rank }),
             ),
           ],
+        },
+      ];
+    },
+    handleBilocation: async (data) => {
+      const actor = game.actors.get(data.summonerActorId);
+      const effect = EFFECTS.BILOCATION;
+      return [
+        {
+          specific_uuids: [actor.uuid],
+          noDefaultTraits: true,
+          isCharacter: true,
+          itemsToAdd: [effect],
+          crosshairParameters: {
+            location: {
+              obj: data.position,
+              limitMaxRange: getGridUnitsFromFeet(5),
+              displayRangePoly: true,
+              rangePolyLineColor: 0x0,
+              rangePolyFillColor: 0x0,
+            },
+          },
         },
       ];
     },
@@ -1131,7 +1153,9 @@ const handlers = {
             location: {
               obj: data.position,
               limitMaxRange: getGridUnitsFromFeet(15),
-              showRange: true,
+              displayRangePoly: true,
+              rangePolyLineColor: 0x0,
+              rangePolyFillColor: 0x0,
             },
           },
         },

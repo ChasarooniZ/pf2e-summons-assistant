@@ -52,13 +52,17 @@
       },
       "specific-case": {
         "handle": {
-          "wooden-double": {
-            "name": "Handle Wooden Double's Damage",
-            "hint": "When a Wooden Double takes damage above its max health it will roll damage equivalent to the extra damage (this damage is typeless)"
+          "bilocation": {
+            "name": "Handle Bilocation",
+            "hint": "Handles bilocation for PCs (IE clone + removal of clone upon effect removal)"
           },
           "thaumaturge": {
             "name": "Handle Thaumaturge Mirror Implement",
-            "hint": "Handles thaumaturge features specifically the Mirror Impelement"
+            "hint": "Handles thaumaturge features specifically the Mirror Implement"
+          },
+          "wooden-double": {
+            "name": "Handle Wooden Double's Damage",
+            "hint": "When a Wooden Double takes damage above its max health it will roll damage equivalent to the extra damage (this damage is typeless)"
           }
         }
       },
@@ -96,6 +100,9 @@
       },
       "customization": {
         "saved": "Saved the customization of the summon"
+      },
+      "bilocation": {
+        "error": "[Error] You don't have a bilocation clone active on this scene"
       },
       "thaumaturge": {
         "mirror-implement": {
@@ -137,6 +144,9 @@
           "adept-action": "You Shatter a Mirrored Self! Choose which one doesn't Shatter"
         },
         "choose": "Keep Selected Token"
+      },
+      "bilocation": {
+        "title": "Choose which Bilocated Self Token to keep"
       }
     },
     "display-text": {

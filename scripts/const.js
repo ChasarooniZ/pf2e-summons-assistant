@@ -42,6 +42,7 @@ export const SOURCES = {
 
   MISC: {
     AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW",
+    BILOCATION: "Compendium.pf2e.spells-srd.Item.HHCgEEkeeShVQf8d",
     CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
     DRAGON_TURRET: "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX",
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
@@ -134,6 +135,7 @@ export const SOURCE_UUIDS = getAllSourceUUIDs();
 
 export const SLUG_TO_SOURCE = {
   "avenging-wildwood": SOURCES.MISC.AVENGING_WILDWOOD,
+  bilocation: SOURCES.MISC.BILOCATION,
   "call-fluxwraith": SOURCES.CALL_FLUXWRAITH,
   "call-ursine-ally": SOURCES.CALL_URSINE_ALLY,
   candle: SOURCES.MUNDANE.CANDLE,
@@ -531,6 +533,19 @@ export const EFFECTS = {
   }),
   CONDITIONS: {
     INVISIBLE: "Compendium.pf2e.conditionitems.Item.zJxUflt9np0q4yML",
+  },
+  BILOCATION: {
+    name: "Effect: Bilocation",
+    type: "effect",
+    img: "icons/skills/social/trading-justice-scale-gold.webp",
+    system: {
+      duration: {
+        value: 10,
+        unit: "minutes",
+        expiry: "turn-start",
+      },
+      slug: "effect-bilocation",
+    },
   },
 };
 

@@ -108,9 +108,9 @@ export function setupSettings() {
     type: Boolean,
   });
 
-  game.settings.register(MODULE_ID, "specific-case.handle.wooden-double", {
-    name: `${MODULE_ID}.module-settings.specific-case.handle.wooden-double.name`,
-    hint: `${MODULE_ID}.module-settings.specific-case.handle.wooden-double.hint`,
+  game.settings.register(MODULE_ID, "specific-case.handle.bilocation", {
+    name: `${MODULE_ID}.module-settings.specific-case.handle.bilocation.name`,
+    hint: `${MODULE_ID}.module-settings.specific-case.handle.bilocation.hint`,
     requiresReload: true,
     scope: "world",
     config: true,
@@ -121,6 +121,16 @@ export function setupSettings() {
   game.settings.register(MODULE_ID, "specific-case.handle.thaumaturge", {
     name: `${MODULE_ID}.module-settings.specific-case.handle.thaumaturge.name`,
     hint: `${MODULE_ID}.module-settings.specific-case.handle.thaumaturge.hint`,
+    requiresReload: true,
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+
+  game.settings.register(MODULE_ID, "specific-case.handle.wooden-double", {
+    name: `${MODULE_ID}.module-settings.specific-case.handle.wooden-double.name`,
+    hint: `${MODULE_ID}.module-settings.specific-case.handle.wooden-double.hint`,
     requiresReload: true,
     scope: "world",
     config: true,

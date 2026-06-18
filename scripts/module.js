@@ -32,6 +32,7 @@ import { setupWallHooks } from "./specificCases/walls.js";
 import { setupTurnReminders } from "./summonReminder.js";
 import { setupLightsHooks } from "./specificCases/lights.js";
 import { setupThaumaturgeHooks } from "./specificClasses/thaumaturge.js";
+import { setupBilocationHooks } from "./specificCases/bilocation.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -265,7 +266,8 @@ function setupSpecificHooks() {
   setupThaumaturgeHooks();
 
   // Specific Cases
-  setupWoodDoubleHooks();
-  setupWallHooks();
+  setupBilocationHooks();
   setupLightsHooks();
+  setupWallHooks();
+  setupWoodDoubleHooks();
 }

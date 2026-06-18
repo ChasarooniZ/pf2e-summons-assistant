@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.7.0
+
+- **New**
+  - `Bilocation` support _for PCs_ (💡 @sasane)
+- **Updated**
+  - `Mirror Implement`'s range is now accurately shown
+  - Fixed spelling issue with a setting
+
 ## 2.6.0
 
 - **New**

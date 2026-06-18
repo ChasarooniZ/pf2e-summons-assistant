@@ -1,4 +1,5 @@
 import { MODULE_ID } from "../const.js";
+import { cloneToKeepDialog, deleteClones } from "../helpers.js";
 
 export function setupThaumaturgeHooks() {
   if (game.settings.get(MODULE_ID, "specific-case.handle.thaumaturge")) {
@@ -26,139 +27,25 @@ export function setupThaumaturgeHooks() {
 
 async function askToDeleteMirrors(actorId, reason = "") {
   const actor = game.actors.get(actorId);
-  const res = await pickerDialogue(actor, reason);
+  let defaultTokenId = canvas.tokens.controlled?.[0]?.id;
+  if (reason === "adept-action") {
+    defaultTokenId = tokens?.find(
+      (t) => t !== canvas.tokens.controlled[0]?.id,
+    )?.id;
+  }
+  const res = await cloneToKeepDialog(
+    actor,
+    {
+      title: game.i18n.localize(
+        `pf2e-summons-assistant.dialog.thaumaturge.title.${reason}`,
+      ),
+      button: game.i18n.localize(
+        "pf2e-summons-assistant.dialog.thaumaturge.choose",
+      ),
+    },
+    defaultTokenId,
+  );
   if (res) {
     deleteClones(actorId, res.tokens, res.selectedTokenId);
-  }
-}
-
-async function pickerDialogue(actor, type = "") {
-  const tokens = canvas.tokens.placeables.filter(
-    (t) => t.actor.id === actor.id,
-  );
-  if (tokens.length < 2) {
-    ui.notifications.error(
-      game.i18n.localize(
-        "pf2e-summons-assistant.notification.thaumaturge.mirror-implement.error",
-      ),
-    );
-    return;
-  }
-  let realId = canvas.tokens.controlled?.[0]?.id;
-  if (type === "adept-action") {
-    realId = tokens?.find((t) => t !== canvas.tokens.controlled[0]?.id)?.id;
-  }
-  const arrows = getDirectionalArrows(tokens);
-  const selectedTokenId = await foundry.applications.api.DialogV2.wait({
-    window: {
-      title: game.i18n.localize(
-        `pf2e-summons-assistant.dialog.thaumaturge.title.${type}`,
-      ),
-    },
-    position: { width: 400 },
-    content: tokens
-      .map(
-        (tok, cnt) =>
-          `<label style="display:flex" class="mirror-token" data-id="${tok.id}">
-                <input type="radio" name="choice" class="mirror-token" value="${tok.id}" ${tok.id === realId ? "checked" : ""}>
-                <span style="display:flex">
-                <i class="fas fa-arrow-${arrows[cnt]}"></i> ${cnt + 1} ${tok.name}
-                </span>
-            </label>`,
-      )
-      .join(""),
-    render: (_event, app) => {
-      const html = app.element ? app.element : app;
-      html.querySelectorAll("label.mirror-token").forEach((label) => {
-        label.addEventListener("mouseover", (event) => {
-          const tid = label.dataset.id;
-          const token = canvas.tokens.get(tid);
-          if (token) {
-            token._onHoverIn(event);
-          }
-        });
-        label.addEventListener("mouseout", (event) => {
-          const tid = label.dataset.id;
-          const token = canvas.tokens.get(tid);
-          if (token) {
-            token._onHoverOut(event);
-          }
-        });
-
-        label.addEventListener("click", (event) => {
-          const tid = label.dataset.id;
-          const token = canvas.tokens.get(tid);
-          if (token) {
-            canvas.ping(token.center);
-          }
-        });
-      });
-    },
-    buttons: [
-      {
-        action: "choose",
-        label: game.i18n.localize(
-          "pf2e-summons-assistant.dialog.thaumaturge.choose",
-        ),
-        default: true,
-        callback: (event, button, dialog) => {
-          return button.form.elements.choice.value;
-        },
-      },
-    ],
-  });
-  return { tokens, selectedTokenId };
-}
-
-async function deleteClones(actorID, tokens, selectedTokenId) {
-  const combatant = game?.combat?.combatants?.contents?.find(
-    (c) => c.actorId === actorID,
-  );
-  if (combatant) {
-    socketlib.modules
-      .get(MODULE_ID)
-      .executeAsGM("updateCombatant", combatant.id, {
-        tokenId: selectedTokenId,
-      });
-  }
-
-  tokens
-    .filter((t) => t.id !== selectedTokenId)
-    .forEach((t) => {
-      canvas.ping(t.center, { duration: 5000 });
-      socketlib.modules.get(MODULE_ID).executeAsGM("deleteToken", t.id);
-    });
-}
-
-function getDirectionalArrows(coords) {
-  const center = {
-    x: coords.reduce((sum, p) => sum + p.x, 0) / coords.length,
-    y: coords.reduce((sum, p) => sum + p.y, 0) / coords.length,
-  };
-
-  return coords.map((point) => {
-    const ray = new foundry.canvas.geometry.Ray(center, point);
-    const angle = (Math.toDegrees(ray.angle) + 360) % 360;
-    return angleToArrowDirection(angle);
-  });
-}
-
-function angleToArrowDirection(angle) {
-  if (angle >= 337.5 || angle < 22.5) {
-    return "right";
-  } else if (angle < 67.5) {
-    return "down-right";
-  } else if (angle < 112.5) {
-    return "down";
-  } else if (angle < 157.5) {
-    return "down-left";
-  } else if (angle < 202.5) {
-    return "left";
-  } else if (angle < 247.5) {
-    return "up-left";
-  } else if (angle < 292.5) {
-    return "up";
-  } else if (angle < 337.5) {
-    return "up-right";
   }
 }
