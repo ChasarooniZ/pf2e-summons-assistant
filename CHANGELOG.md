@@ -1,9 +1,11 @@
 ## Unreleased
 
+## 2.6.0
+
 - **New**
   - `Mirror Implement` Thaumaturge support
 - **Updated**
-  - Added aaa default pick for `Dancing Blade`
+  - Added a default pick for `Dancing Blade`
   - Added a way in specific summons to exclude default summoned traits from some summon
 
 ## 2.5.4
