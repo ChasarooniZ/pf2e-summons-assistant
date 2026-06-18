@@ -27,7 +27,9 @@ export function setupThaumaturgeHooks() {
 async function askToDeleteMirrors(actorId, reason = "") {
   const actor = game.actors.get(actorId);
   const res = await pickerDialogue(actor, reason);
-  deleteClones(actorId, res.tokens, res.selectedTokenId);
+  if (res) {
+    deleteClones(actorId, res.tokens, res.selectedTokenId);
+  }
 }
 
 async function pickerDialogue(actor, type = "") {
