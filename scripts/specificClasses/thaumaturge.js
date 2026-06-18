@@ -15,11 +15,8 @@ export function setupThaumaturgeHooks() {
       }
     });
 
-    Hooks.on("preCreateChatMessage", async (chatMessage, _info, userID) => {
-      if (
-        chatMessage?.item?.system?.slug === "shatter-reflection" &&
-        game.user.id === userID
-      ) {
+    Hooks.on("preCreateChatMessage", async (chatMessage, _info) => {
+      if (chatMessage?.item?.system?.slug === "shatter-reflection") {
         const actorId = chatMessage?.item?.actor?.id;
         askToDeleteMirrors(actorId, "adept-action");
       }
@@ -27,9 +24,9 @@ export function setupThaumaturgeHooks() {
   }
 }
 
-function askToDeleteMirrors(actorId, reason = "") {
+async function askToDeleteMirrors(actorId, reason = "") {
   const actor = game.actors.get(actorId);
-  const res = pickerDialogue(actor, reason);
+  const res = await pickerDialogue(actor, reason);
   deleteClones(actorId, res.tokens, res.selectedTokenId);
 }
 
@@ -53,7 +50,7 @@ async function pickerDialogue(actor, type = "") {
   const selectedTokenId = await foundry.applications.api.DialogV2.wait({
     window: {
       title: game.i18n.localize(
-        `pf2e-summons-assistant.dialog.thaumaturge.title.${reason}`,
+        `pf2e-summons-assistant.dialog.thaumaturge.title.${type}`,
       ),
     },
     position: { width: 400 },
@@ -103,9 +100,7 @@ async function pickerDialogue(actor, type = "") {
         ),
         default: true,
         callback: (event, button, dialog) => {
-          const result = button.form.elements.choice.value;
-          const pickedToken = tokens.find((tok) => tok.id === result);
-          return pickedToken;
+          return button.form.elements.choice.value;
         },
       },
     ],
@@ -118,14 +113,18 @@ async function deleteClones(actorID, tokens, selectedTokenId) {
     (c) => c.actorId === actorID,
   );
   if (combatant) {
-    await combatant.update({ tokenId: selectedTokenId });
+    socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("updateCombatant", combatant.id, {
+        tokenId: selectedTokenId,
+      });
   }
 
   tokens
-    .filter((t) => t.id !== token.id)
+    .filter((t) => t.id !== selectedTokenId)
     .forEach((t) => {
       canvas.ping(t.center, { duration: 5000 });
-      t.delete();
+      socketlib.modules.get(MODULE_ID).executeAsGM("deleteToken", t.id);
     });
 }
 
@@ -143,12 +142,21 @@ function getDirectionalArrows(coords) {
 }
 
 function angleToArrowDirection(angle) {
-  if (angle >= 337.5 || angle < 22.5) return "right";
-  if (angle < 67.5) return "down-right";
-  if (angle < 112.5) return "down";
-  if (angle < 157.5) return "down-left";
-  if (angle < 202.5) return "left";
-  if (angle < 247.5) return "up-left";
-  if (angle < 292.5) return "up";
-  if (angle < 337.5) return "up-right";
+  if (angle >= 337.5 || angle < 22.5) {
+    return "right";
+  } else if (angle < 67.5) {
+    return "down-right";
+  } else if (angle < 112.5) {
+    return "down";
+  } else if (angle < 157.5) {
+    return "down-left";
+  } else if (angle < 202.5) {
+    return "left";
+  } else if (angle < 247.5) {
+    return "up-left";
+  } else if (angle < 292.5) {
+    return "up";
+  } else if (angle < 337.5) {
+    return "up-right";
+  }
 }

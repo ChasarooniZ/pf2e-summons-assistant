@@ -30,7 +30,7 @@ _a Thanks to Vauxs for updating [Foundry Summons](https://foundryvtt.com/package
   - [Changelog](#changelog)
   - [Handled Spells and Features](#handled-spells-and-features)
     - [Spells](#spells)
-    - [Feats](#feats)
+    - [Feats / Feaatures](#feats--feaatures)
     - [Items](#items)
     - [SF2e](#sf2e)
   - [Monster Actions](#monster-actions)
@@ -99,13 +99,15 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Telekinetic Hand` - Art Requires `JB2a`
   - `Wooden Double` - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
 
-### Feats
+### Feats / Feaatures
 
 - **Commander**
   - `Plant Banner` - Basic Case (no handling of feat interactions beyond base case atm)
 - **Kineticist**
   - `Timber Sentinel` - Does not do any automation as of yet
   - `Jagged Berm` - Requires `JB2a` free for the spikes
+- **Thaumaturge**
+  - `Mirror's Implement` - Also incldues automation on deletion of extra tokens, updating combatant, etc.
 - **Misc**
   - `Call Ursine Ally`
   - `Necrologist Dedication` - Can sync health automatically to the summoner if you have the `PF2e Toolbelt` feature enabled

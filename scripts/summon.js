@@ -246,6 +246,7 @@ export async function summon(
         summonedActor.uuid,
         summonedActor.id,
         summonerToken,
+        tokDoc
       );
       prevSummonedToken = tokDoc?.object || canvas.tokens?.get(tokDoc?._id);
     }

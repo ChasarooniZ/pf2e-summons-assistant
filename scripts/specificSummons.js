@@ -1126,10 +1126,6 @@ const handlers = {
           specific_uuids: [actor.uuid],
           noDefaultTraits: true,
           isCharacter: true,
-          // modifications: {
-          //   "prototypeToken.texture.scaleX":
-          //     -actor.prototypeToken.texture.scaleX,
-          // },
           itemsToAdd: [effect],
           crosshairParameters: {
             location: {
