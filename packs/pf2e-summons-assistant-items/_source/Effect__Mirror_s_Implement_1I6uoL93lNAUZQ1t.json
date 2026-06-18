@@ -1,0 +1,92 @@
+{
+  "folder": "Jgr03TNBCPio6tdA",
+  "name": "Effect: Mirror's Implement",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>Granted by @UUID[Compendium.pf2e.actionspf2e.Mh4Vdg6gu8g8RAjh]{Mirror's Reflection}</p><p>@Embed[Compendium.pf2e.actionspf2e.Item.Mh4Vdg6gu8g8RAjh inline]</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "PF2e Summon's Assistant",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "key": "GrantItem",
+        "predicate": [
+          "feature:adept-benefit-mirror"
+        ],
+        "uuid": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.mv56YnVvWLylqJWM"
+      },
+      {
+        "itemType": "effect",
+        "key": "ItemAlteration",
+        "mode": "add",
+        "predicate": [
+          "feature:adept-benefit-mirror",
+          "effect-mirrors-implement"
+        ],
+        "property": "description",
+        "value": [
+          {
+            "text": "@Embed[Compendium.pf2e.classfeatures.Item.AEibGHmDzLiqGR0F inline]",
+            "title": "Adept Benefit"
+          }
+        ]
+      }
+    ],
+    "slug": "effect-mirrors-implement",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": 1,
+      "unit": "rounds",
+      "expiry": "turn-start",
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "_id": "1I6uoL93lNAUZQ1t",
+  "img": "icons/commodities/treasure/token-silver-blue.webp",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1781677163483,
+    "modifiedTime": 1781684505842,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!1I6uoL93lNAUZQ1t"
+}
