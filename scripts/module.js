@@ -31,6 +31,7 @@ import { modifyActorsMenu } from "./customizeTokens.js";
 import { setupWallHooks } from "./specificCases/walls.js";
 import { setupTurnReminders } from "./summonReminder.js";
 import { setupLightsHooks } from "./specificCases/lights.js";
+import { setupThaumaturgeHooks } from "./specificClasses/thaumaturge.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -261,6 +262,7 @@ function setupSpecificHooks() {
   //Classes
   setNecromancerHooks();
   setupCommanderHooks();
+  setupThaumaturgeHooks();
 
   // Specific Cases
   setupWoodDoubleHooks();

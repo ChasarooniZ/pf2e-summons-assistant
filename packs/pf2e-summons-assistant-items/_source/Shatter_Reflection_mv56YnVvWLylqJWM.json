@@ -1,0 +1,56 @@
+{
+  "folder": "ecP3OJIpXi5P0fYv",
+  "name": "Shatter Reflection",
+  "type": "action",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p><strong>Trigger</strong> An enemy adjacent to one of your spaces damages you while @UUID[Compendium.pf2e.actionspf2e.Mh4Vdg6gu8g8RAjh]{Mirror's Reflection} is in effect</p><hr><p>@Embed[Compendium.pf2e.classfeatures.Item.AEibGHmDzLiqGR0F inline]</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [],
+    "slug": "shatter-reflection",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "actionType": {
+      "value": "free"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "offensive",
+    "deathNote": false
+  },
+  "_id": "mv56YnVvWLylqJWM",
+  "img": "systems/pf2e/icons/actions/FreeAction.webp",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1781677449093,
+    "modifiedTime": 1781684667543,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!mv56YnVvWLylqJWM"
+}

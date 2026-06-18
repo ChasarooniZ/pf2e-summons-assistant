@@ -191,7 +191,7 @@ export async function summon(
       "system.details.alliance": summonerAlliance,
       "system.traits.value": [
         ...selectedActor.system.traits.value,
-        ...additionalTraits,
+        ...(summonDetails?.noDefaultTraits ? [] : additionalTraits),
         ...modTraits,
       ],
       ...levelData,
@@ -246,6 +246,7 @@ export async function summon(
         summonedActor.uuid,
         summonedActor.id,
         summonerToken,
+        tokDoc
       );
       prevSummonedToken = tokDoc?.object || canvas.tokens?.get(tokDoc?._id);
     }

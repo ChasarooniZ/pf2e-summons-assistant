@@ -13,6 +13,7 @@ export async function handlePostSummon(
   summonedActorUUID,
   summonedActorID,
   summonerToken,
+  summonedToken,
 ) {
   switch (itemUUID) {
     case SOURCES.COMMANDER.PLANT_BANNER:
@@ -49,6 +50,8 @@ export async function handlePostSummon(
     case SOURCES.MISC.SWARM_FORTH:
       postSummonHelper.SHARED_HEALTH_SETUP(summonedActorID);
       break;
+    case SOURCES.THAUMATURGE.MIRRORS_REFLECTION:
+      postSummonHelper.MIRRORS_REFLECTION(summonedToken);
     //TO do set
     default:
       break;
@@ -59,6 +62,11 @@ const postSummonHelper = {
   JAGGED_BERMS: async (summonedActorID) => {
     const summonToken = getTokenFromActorID(summonedActorID);
     await handleJaggedBermsSpikes(summonToken);
+  },
+  MIRRORS_REFLECTION: async (summonedToken) => {
+    summonedToken.update({
+      texture: { scaleX: -summonedToken.texture.scaleX },
+    });
   },
   PLANT_BANNER: async (summonedActorUUID) => {
     setTimeout(function () {

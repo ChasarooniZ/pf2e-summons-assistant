@@ -15,6 +15,20 @@ async function createEffects({ actorUUIDs, effectUUID }) {
   );
 }
 
+async function deleteToken(tokenId) {
+  const token = canvas.tokens.get(tokenId);
+  if (token) {
+    return token?.document?.delete();
+  }
+}
+
+async function updateCombatant(combatantId, updateData) {
+  const combatant = game?.combat?.combatants?.get(combatantId);
+  if (combatant) {
+    return combatant.update(updateData);
+  }
+}
+
 async function createWalls(wallDocs) {
   return await canvas.scene.createEmbeddedDocuments("Wall", wallDocs);
 }
@@ -29,6 +43,8 @@ export const setupSocket = () => {
     socketlibSocket.register("createEffects", createEffects);
     socketlibSocket.register("createWalls", createWalls);
     socketlibSocket.register("createLights", createLights);
+    socketlibSocket.register("deleteToken", deleteToken);
+    socketlibSocket.register("updateCombatant", updateCombatant);
   }
   return !!globalThis.socketlib;
 };
