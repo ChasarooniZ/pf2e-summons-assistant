@@ -1,0 +1,77 @@
+{
+  "folder": "Jgr03TNBCPio6tdA",
+  "name": "Effect: Bismuth Leopard (Flash)",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>@Embed[Compendium.pf2e.equipment-srd.Item.04V1qwob0JGPEx3k inline]</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "key": "Aura",
+        "effects": [
+          {
+            "uuid": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.uszP40UytOzGiLEq"
+          }
+        ]
+      }
+    ],
+    "slug": "effect-bismuth-leopard-flash",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "_id": "uszP40UytOzGiLEq",
+  "img": "icons/magic/light/explosion-star-glow-blue-purple.webp",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.364",
+    "systemId": "pf2e",
+    "systemVersion": "8.2.0",
+    "createdTime": 1781853857731,
+    "modifiedTime": 1781854187766,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!uszP40UytOzGiLEq"
+}
