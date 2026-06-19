@@ -1168,6 +1168,42 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.GIANT_VIPER],
+          modifications: {
+            name: game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
+            ),
+            "prototypeToken.name": game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
+            ),
+          },
+          itemsToAdd: [
+            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
+          ],
+        },
+      ];
+    },
+    handleJadeSerpent: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.LEOPARD],
+          amount: 2,
+          modifications: {
+            name: game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.bismuth-leopard",
+            ),
+            "prototypeToken.name": game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.bismuth-leopard",
+            ),
+            img: "modules/pf2e-summons-assistant/assets/actors/bismuth-leopard.webp",
+            "prototypeToken.texture.src":
+              "modules/pf2e-summons-assistant/assets/tokens/token/bismuth-leopard.webp",
+            "prototypeToken.ring.subject.texture":
+              "modules/pf2e-summons-assistant/assets/tokens/subject/bismuth-leopard.webp",
+          },
+          itemsToAdd: [
+            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
+            EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
+          ],
         },
       ];
     },

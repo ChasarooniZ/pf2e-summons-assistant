@@ -229,6 +229,12 @@
         },
         "dancing-blade": {
           "title": "Effect: Dancing Blade"
+        },
+        "wondrous-figurine": {
+          "duration": "Effect: Wondrous Figurine",
+          "bismuth-leopard": {
+            "flash-aura": "Effect: Bismuth Leopard Flash Aura"
+          }
         }
       }
     },
@@ -236,6 +242,12 @@
       "scroll": "Scroll",
       "adjust-length": "Adjust Length",
       "rotate-wall": "Rotate Wall"
+    },
+    "creature-name": {
+      "wondrous-figurine": {
+        "bismuth-leopard": "Bismuth Leopard",
+        "jade-serpent": "Jade Serpent"
+      }
     }
   }
 }

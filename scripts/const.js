@@ -38,6 +38,7 @@ export const SOURCES = {
 
   WONDROUS_FIGURINE: {
     JADE_SERPENT: "Compendium.pf2e.equipment-srd.Item.RjJw7iHantxqeJu1",
+    BISMUTH_LEOPARDS: "Compendium.pf2e.equipment-srd.Item.04V1qwob0JGPEx3k",
   },
 
   MISC: {
@@ -192,6 +193,10 @@ export const SLUG_TO_SOURCE = {
   "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
   "activation-wondrous-figurine-jade-serpent":
     SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
+  "wondrous-figurine-bismuth-leopards":
+    SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
+  "activation-wondrous-figurine-bismuth-leopards":
+    SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
   "wall-of-ice": SOURCES.WALL.WALL_OF_ICE,
   "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
   "wall-of-stone": SOURCES.WALL.WALL_OF_STONE,
@@ -240,6 +245,7 @@ export const CREATURES = {
     JAGGED_BERMS:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",
   },
+  LEOPARD: "Compendium.pf2e.pathfinder-monster-core.Actor.kB7FNn3vosp6cqQg",
   LIGHT: {
     BLUE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.REPqt5wULBcqIM97",
     DARK_BLUE:
@@ -546,6 +552,51 @@ export const EFFECTS = {
       },
       slug: "effect-bilocation",
     },
+  },
+  WONDROUS_FIGURINE: {
+    BISMUTH_LEOPARDS: {
+      name: game.i18n.localize(
+        "pf2e-summons-assistant.items.effects.wondrous-figurine.bismuth-leopard.flash-aura",
+      ),
+      img: "icons/magic/control/buff-luck-fortune-rainbow.webp",
+      type: "effect",
+      system: {
+        publication: {
+          title: "PF2e Summons Assistant",
+          license: "OGL",
+          remaster: true,
+        },
+        rules: [
+          {
+            key: "Aura",
+            effects: [
+              {
+                uuid: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.uszP40UytOzGiLEq",
+                // Flash Indicator
+              },
+            ],
+          },
+        ],
+      },
+    },
+    DURATION: ({ unit, amount }) => ({
+      name: game.i18n.localize(
+        "pf2e-summons-assistant.items.effects.wondrous-figurine.duration",
+      ),
+      type: "effect",
+      system: {
+        publication: {
+          title: "PF2e Summons Assistant",
+          license: "OGL",
+          remaster: true,
+        },
+        duration: {
+          value: amount,
+          unit: unit,
+          sustained: false,
+        },
+      },
+    }),
   },
 };
 

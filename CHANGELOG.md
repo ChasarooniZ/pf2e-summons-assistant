@@ -1,5 +1,11 @@
 ## Unreleased
 
+- **New**
+  - `Wondrous Figurine - Bismuth Leopard` support
+  - `Wall of Thorns` support
+- **Updated**
+  - Added a name update for `Jade Serpent`
+
 ## 2.7.0
 
 - **New**
