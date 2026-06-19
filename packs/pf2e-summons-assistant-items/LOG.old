@@ -1,3 +1,5 @@
-2026/06/18-16:43:12.398541 ffff5ffff010 Recovering log #757
-2026/06/18-16:43:12.403417 ffff5ffff010 Delete type=3 #755
-2026/06/18-16:43:12.403444 ffff5ffff010 Delete type=0 #757
+2026/06/19-02:42:18.541 ab20 Recovering log #761
+2026/06/19-02:42:18.541 ab20 Level-0 table #763: started
+2026/06/19-02:42:18.617 ab20 Level-0 table #763: 3225 bytes OK
+2026/06/19-02:42:18.842 ab20 Delete type=0 #761
+2026/06/19-02:42:18.843 ab20 Delete type=3 #760
