@@ -10,6 +10,7 @@
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --fix --cache",
     "pack": "node macros/pack.mjs",
+    "ep": "node macros/extract.mjs && eslint ./data --fix && node macros/pack.mjs",
     "link": "node macros/link.mjs"
   },
   "devDependencies": {
