@@ -6,6 +6,7 @@
   - `Wondrous Figurine - Bismuth Leopard` support
 - **Updated**
   - Added a name update for `Jade Serpent`
+  - Added localization for summon menu options
 
 ## 2.7.1
 

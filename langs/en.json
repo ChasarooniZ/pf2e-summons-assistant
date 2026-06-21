@@ -112,6 +112,14 @@
       "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>"
     },
     "dialog": {
+      "summon": {
+        "filter": {
+          "only-with-art": "Only with Art"
+        },
+        "sort": {
+          "descending": "(Descending)"
+        }
+      },
       "dancing-weapon": {
         "choose": "Choose Weapon",
         "title": "Choose your Dancing Blade",

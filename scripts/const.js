@@ -745,7 +745,7 @@ export const COLORS = {
     yellow: "#FFFF00",
     orange: "#FFA500",
     red: "#FF0000",
-  },
+},
 };
 
 export const SIZES = ["tiny", "sm", "med", "lg", "huge", "grg"];
