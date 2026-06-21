@@ -526,8 +526,31 @@ const handlers = {
         : await foundrySummons.SummonMenu.start({
             noSummon: true,
             filter: (candidateActor) =>
-              candidateActor?.img?.endsWith("default-icons/npc.svg"),
+              !candidateActor?.img?.endsWith("default-icons/npc.svg"),
             dropdowns: [
+              {
+                id: "sortOrder",
+                name: game.i18n.localize("DOCUMENT.FIELDS.sort.label"),
+                options: [
+                  {
+                    label: `${game.i18n.localize("PF2E.CharacterLevelLabel")} ${game.i18n.localize("pf2e-summons-assistant.dialog.summon.sort.descending")}`,
+                    value: 0,
+                  },
+                  {
+                    label: game.i18n.localize("PF2E.CharacterLevelLabel"),
+                    value: 1,
+                  },
+                ],
+                sort: (actorA, actorB, sortIndex) => {
+                  const aLevel = actorA.system.details.level.value;
+                  const bLevel = actorB.system.details.level.value;
+                  if (aLevel === bLevel) {
+                    return actorA.name.localeCompare(actorB.name);
+                  } else {
+                    return sortIndex === 0 ? bLevel - aLevel : aLevel - bLevel;
+                  }
+                },
+              },
               {
                 id: "traitsFilter",
                 name: "Trait",
@@ -586,8 +609,8 @@ const handlers = {
       const actor = await fromUuid(actorUUID);
       const texture = actor?.prototypeToken.ring.enabled
         ? actor?.prototypeToken?.ring?.subject?.texture ||
-          actor?.prototypeToken?.ring?.subject?.scale
-        : actor?.prototypeToken?.ring?.subject?.scale;
+          actor?.prototypeToken?.texture?.src
+        : actor?.prototypeToken?.texture?.src;
       return [
         {
           specific_uuids: [CREATURES.ILLUSORY_CREATURE],
@@ -597,6 +620,7 @@ const handlers = {
             prototypeToken: {
               "texture.src": actor?.prototypeToken?.texture?.src,
               alpha: actor?.prototypeToken?.alpha,
+              "flags.pf2e.autoscale": false,
               ring: {
                 enabled: actor?.prototypeToken?.ring?.enabled,
                 subject: {

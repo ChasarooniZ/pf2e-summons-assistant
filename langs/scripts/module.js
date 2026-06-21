@@ -182,6 +182,9 @@ Hooks.once("ready", async function () {
                 rangePolyLineColor: 0x0,
                 rangePolyFillColor: 0x0,
               },
+              snap: {
+                direction: 360,
+              },
             },
           });
       }
