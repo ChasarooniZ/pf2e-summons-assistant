@@ -49,6 +49,7 @@ export const SOURCES = {
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
     FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
     HEALING_WELL: "Compendium.pf2e.spells-srd.Item.CzjQtkRuRlzRvwzg",
+    ILLUSORY_CREATURE: "Compendium.pf2e.spells-srd.Item.f8SBoXiXQjlCKqly",
     INSTANT_MINEFIELD: "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK",
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
@@ -149,6 +150,7 @@ export const SLUG_TO_SOURCE = {
   "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
   "floating-flame": SOURCES.MISC.FLOATING_FLAME,
   "healing-well": SOURCES.MISC.HEALING_WELL,
+  "illusory-creature": SOURCES.MISC.ILLUSORY_CREATURE,
   "inevitable-return": SOURCES.NECROMANCER.INEVITABLE_RETURN,
   "instant-minefield": SOURCES.MISC.INSTANT_MINEFIELD,
   "jagged-berms": SOURCES.KINETICIST.JAGGED_BERMS,
@@ -241,6 +243,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.4JEJfYNtUzSuYxPW",
   INSTANT_MINEFIELD_MINE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uQjg9X2YxIUCuqyF",
+  ILLUSORY_CREATURE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.VXLBDKFs8HmZvi1u",
   KINETICIST: {
     JAGGED_BERMS:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",
@@ -743,3 +747,5 @@ export const COLORS = {
     red: "#FF0000",
   },
 };
+
+export const SIZES = ["tiny", "sm", "med", "lg", "huge", "grg"];

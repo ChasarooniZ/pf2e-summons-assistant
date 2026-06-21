@@ -4,6 +4,7 @@ import {
   CREATURES,
   EFFECTS,
   RULE_ELEMENTS,
+  SIZES,
   SOURCES,
 } from "./const.js";
 import { getFoeInfo } from "./specificCases/duplicateFoe.js";
@@ -83,6 +84,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
   [SOURCES.MISC.HEALING_WELL]: handlers.misc.handleHealingWell,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
+  [SOURCES.MISC.ILLUSORY_CREATURE]: handlers.misc.handleIllusoryCreature,
   [SOURCES.MISC.INSTANT_MINEFIELD]: handlers.misc.handleInstantMinefield,
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
   [SOURCES.MISC.RAISE_THE_HORDE]: handlers.misc.handleNecrologistsHorde,
@@ -476,7 +478,6 @@ const handlers = {
         },
       ];
     },
-
     handleLight: async (data) => {
       let doSummon = true;
       if (!data.ignoreDialogue && hasNoTargets()) {
@@ -513,7 +514,48 @@ const handlers = {
       }
       return null;
     },
-
+    handleIllusoryCreature: async (data) => {
+      const maxSizeNumber = Math.min(data.rank + 1, SIZES.length);
+      ui.notifications.info(
+        "[Illusory Creature] Select what creature for your illusion to be in the shape and size of",
+      );
+      const actorUUID = data?.ignoreDialogue
+        ? CREATURES.ILLUSORY_CREATURE
+        : await foundrySummons.SummonMenu.start({
+            noSummon: true,
+            filter: (candidateActor) =>
+              candidateActor?.img?.endsWith("default-icons/npc.svg") &&
+              SIZES?.[actor?.system?.traits?.size?.value] <= maxSizeNumber,
+          });
+      const actor = await fromUuid(actorUUID);
+      const texture = actor?.prototypeToken.ring.enabled
+        ? actor?.prototypeToken?.ring?.subject?.texture ||
+          actor?.prototypeToken?.ring?.subject?.scale
+        : actor?.prototypeToken?.ring?.subject?.scale;
+      return [
+        {
+          specific_uuids: [CREATURES.ILLUSORY_CREATURE],
+          modifications: {
+            "system.traits.size.value": actor?.system?.traits?.size?.value,
+            prototypeToken: {
+              "texture.src": actor?.prototypeToken?.texture?.src,
+              alpha: actor?.prototypeToken?.alpha,
+              ring: {
+                enabled: actor?.prototypeToken?.ring?.enabled,
+                subject: {
+                  texture: actor?.prototypeToken?.ring?.subject?.texture,
+                  scale: actor?.prototypeToken?.ring?.subject?.scale,
+                },
+              },
+            },
+          },
+          crosshairParameters: {
+            texture: texture,
+            distance: (actor?.prototypeToken.height * canvas.grid.distance) / 2,
+          },
+        },
+      ];
+    },
     handleNecrologistsHorde: async (data) => {
       const summonerActor = game.actors.get(data.summonerActorId);
       return [

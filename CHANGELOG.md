@@ -1,8 +1,9 @@
 ## Unreleased
 
 - **New**
+  - `Illusory Creature` support (💡 @Maple)
+  - `Wall of Thorns` support (💡 @David Silver)
   - `Wondrous Figurine - Bismuth Leopard` support
-  - `Wall of Thorns` support
 - **Updated**
   - Added a name update for `Jade Serpent`
 
