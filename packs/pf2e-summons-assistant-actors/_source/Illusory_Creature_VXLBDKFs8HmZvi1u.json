@@ -223,7 +223,7 @@
         "rules": [
           {
             "key": "FlatModifier",
-            "value": "@actor.flags.pf2e-summons-assistant.dc-10",
+            "value": "@actor.flags.pf2e-summons-assistant.dc -10",
             "selector": [
               "fortitude",
               "reflex",
@@ -239,7 +239,7 @@
           },
           {
             "key": "Strike",
-            "attackModifier": "@actor.flags.pf2e-summons-assistant.dc -10",
+            "attackModifier": 1,
             "damage": {
               "base": {
                 "damageType": "mental",
@@ -250,6 +250,16 @@
             "label": "Strike",
             "traits": [
               "nonlethal"
+            ]
+          },
+          {
+            "key": "AdjustModifier",
+            "selector": "attack",
+            "slug": "base",
+            "value": "@actor.flags.pf2e-summons-assistant.dc - 10",
+            "mode": "upgrade",
+            "predicate": [
+              "item:slug:strike"
             ]
           }
         ],
@@ -287,7 +297,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1782004294391,
-        "modifiedTime": 1782004839332,
+        "modifiedTime": 1782029601045,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,

@@ -147,9 +147,7 @@ export function getAvengingWildwoodStrikeRuleElements({ rank }) {
       label: name,
     });
   });
-  rulesElements.push(
-    getStrikeMod([rulesElements.map((re) => re.slug)], "Branch"),
-  );
+  rulesElements.push(getStrikeMod([rulesElements.map((re) => re.slug)]));
   return rulesElements;
 }
 

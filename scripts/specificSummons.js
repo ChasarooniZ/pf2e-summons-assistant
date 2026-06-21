@@ -526,7 +526,9 @@ const handlers = {
         : await foundrySummons.SummonMenu.start({
             noSummon: true,
             filter: (candidateActor) =>
-              !candidateActor?.img?.endsWith("default-icons/npc.svg"),
+              !candidateActor?.img?.endsWith("default-icons/npc.svg") &&
+              SIZES?.[toggleActor?.system?.traits?.size?.value] <=
+                maxSizeNumber,
             dropdowns: [
               {
                 id: "sortOrder",
@@ -553,7 +555,7 @@ const handlers = {
               },
               {
                 id: "traitsFilter",
-                name: "Trait",
+                name: game.i18n.localize("PF2E.Traits"),
                 options: [
                   { label: "", value: "" },
                   ...[
@@ -602,7 +604,12 @@ const handlers = {
                       maxSizeNumber
                   );
                 },
-                indexedFields: ["system.traits?.size.value"],
+                indexedFields: [
+                  "system.traits?.size.value",
+                  "system.details.level.value",
+                  "system.traits.value",
+                  "img",
+                ],
               },
             ],
           });
@@ -1326,7 +1333,7 @@ const handlers = {
           },
           itemsToAdd: [
             EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
-            EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
+            EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS(),
           ],
         },
       ];

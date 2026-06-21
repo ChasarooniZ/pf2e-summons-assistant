@@ -80,7 +80,7 @@ function getEffect(damageTypes, isAmped = false) {
     type: "effect",
     system: {
       rules: [
-        getStrikeMod(["strike"], "Dancing Blade"),
+        getStrikeMod(["strike"]),
         {
           domain: "all",
           key: "RollOption",
