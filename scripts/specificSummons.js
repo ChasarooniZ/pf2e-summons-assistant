@@ -141,6 +141,8 @@ const getSummonHandlers = () => ({
     handlers.thaumaturge.handleMirrorsReflection,
 
   // Wondrous Figurine
+  [SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS]:
+    handlers.wondrousFigurine.handleBismuthLeopards,
   [SOURCES.WONDROUS_FIGURINE.JADE_SERPENT]:
     handlers.wondrousFigurine.handleJadeSerpent,
 });
@@ -1295,25 +1297,7 @@ const handlers = {
   },
 
   wondrousFigurine: {
-    handleJadeSerpent: (data) => {
-      return [
-        {
-          specific_uuids: [CREATURES.GIANT_VIPER],
-          modifications: {
-            name: game.i18n.localize(
-              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
-            ),
-            "prototypeToken.name": game.i18n.localize(
-              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
-            ),
-          },
-          itemsToAdd: [
-            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
-          ],
-        },
-      ];
-    },
-    handleJadeSerpent: (data) => {
+    handleBismuthLeopards: (data) => {
       return [
         {
           specific_uuids: [CREATURES.LEOPARD],
@@ -1334,6 +1318,24 @@ const handlers = {
           itemsToAdd: [
             EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
             EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS(),
+          ],
+        },
+      ];
+    },
+    handleJadeSerpent: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.GIANT_VIPER],
+          modifications: {
+            name: game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
+            ),
+            "prototypeToken.name": game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
+            ),
+          },
+          itemsToAdd: [
+            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
           ],
         },
       ];
