@@ -536,6 +536,7 @@ const handlers = {
         {
           specific_uuids: [CREATURES.ILLUSORY_CREATURE],
           modifications: {
+            "system.details.level.value": data.rank,
             "system.traits.size.value": actor?.system?.traits?.size?.value,
             prototypeToken: {
               "texture.src": actor?.prototypeToken?.texture?.src,
@@ -553,6 +554,7 @@ const handlers = {
             texture: texture,
             distance: (actor?.prototypeToken.height * canvas.grid.distance) / 2,
           },
+          itemsToAdd: [EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG])],
         },
       ];
     },
