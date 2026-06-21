@@ -109,6 +109,7 @@
           "error": "[Error] You don't have a Mirrored Self clone active on this scene"
         }
       },
+      "illusory-creature": "[Illusory Creature] Select what creature for your illusion to be in the shape and size of",
       "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>"
     },
     "dialog": {

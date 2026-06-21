@@ -517,16 +517,71 @@ const handlers = {
     handleIllusoryCreature: async (data) => {
       const maxSizeNumber = Math.min(data.rank + 1, SIZES.length);
       ui.notifications.info(
-        "[Illusory Creature] Select what creature for your illusion to be in the shape and size of",
+        game.i18n.localize(
+          "pf2e-summons-assistant.notification.illusory-creature",
+        ),
       );
       const actorUUID = data?.ignoreDialogue
         ? CREATURES.ILLUSORY_CREATURE
         : await foundrySummons.SummonMenu.start({
             noSummon: true,
             filter: (candidateActor) =>
-              candidateActor?.img?.endsWith("default-icons/npc.svg") &&
-              SIZES?.[candidateActor?.system?.traits?.size?.value] <=
-                maxSizeNumber,
+              candidateActor?.img?.endsWith("default-icons/npc.svg"),
+            dropdowns: [
+              {
+                id: "traitsFilter",
+                name: "Trait",
+                options: [
+                  { label: "", value: "" },
+                  ...[
+                    "dragon",
+                    "undead",
+                    "celestial",
+                    "fey",
+                    "animal",
+                    "construct",
+                    "celestial",
+                    "plant",
+                    "fungus",
+                    "elemental",
+                    "aberration",
+                    "fiend",
+                  ]
+                    .toSorted()
+                    .map((traitName) => ({
+                      label: game.i18n.localize(
+                        `PF2E.Trait${traitName[0].toUpperCase()}${traitName.slice(1)}`,
+                      ),
+                      value: traitName,
+                    })),
+                ],
+                func: (filterActor, selectedTrait) => {
+                  return (
+                    !selectedTrait ||
+                    filterActor.system.traits.value.some(
+                      (actorTrait) =>
+                        selectedTrait.toLowerCase() ===
+                        actorTrait.toLowerCase(),
+                    )
+                  );
+                },
+              },
+            ],
+            toggles: [
+              {
+                id: "proper-size",
+                name: "Proper Size",
+                default: true,
+                func: (toggleActor, isToggleActive) => {
+                  return (
+                    isToggleActive ||
+                    SIZES?.[toggleActor?.system?.traits?.size?.value] <=
+                      maxSizeNumber
+                  );
+                },
+                indexedFields: ["system.traits?.size.value"],
+              },
+            ],
           });
       const actor = await fromUuid(actorUUID);
       const texture = actor?.prototypeToken.ring.enabled
