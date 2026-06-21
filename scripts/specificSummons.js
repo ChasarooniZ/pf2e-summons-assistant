@@ -1316,7 +1316,7 @@ const handlers = {
               "modules/pf2e-summons-assistant/assets/tokens/subject/bismuth-leopard.webp",
           },
           itemsToAdd: [
-            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
+            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minutes", amount: 10 }),
             EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS(),
           ],
         },
