@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.7.1
+
+- **Updated**
+  - Fixed issue causing `Mirror's Implement` dismissal dialogue to appear outside of tokens iwth the effect when knocked unconscious (🐛 @sasane)
+
 ## 2.7.0
 
 - **New**
