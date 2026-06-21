@@ -1,8 +1,7 @@
-2026/06/21-03:22:07.893 bfbc Recovering log #810
-2026/06/21-03:22:07.893 bfbc Level-0 table #812: started
-2026/06/21-03:22:07.940 bfbc Level-0 table #812: 32263 bytes OK
-2026/06/21-03:22:07.941 bfbc Recovering log #821
-2026/06/21-03:22:08.083 bfbc Delete type=0 #810
-2026/06/21-03:22:08.083 bfbc Delete type=0 #821
-2026/06/21-03:22:08.083 bfbc Delete type=2 #823
-2026/06/21-03:22:08.083 bfbc Delete type=3 #809
+2026/06/21-03:26:09.256 dddc Recovering log #810
+2026/06/21-03:26:09.256 dddc Level-0 table #812: started
+2026/06/21-03:26:09.364 dddc Level-0 table #812: 35133 bytes OK
+2026/06/21-03:26:09.364 dddc Recovering log #826
+2026/06/21-03:26:09.485 dddc Delete type=0 #810
+2026/06/21-03:26:09.486 dddc Delete type=0 #826
+2026/06/21-03:26:09.486 dddc Delete type=3 #809

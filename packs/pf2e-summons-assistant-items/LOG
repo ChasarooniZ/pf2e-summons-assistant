@@ -1,15 +1,15 @@
-2026/06/21-03:22:44.898 b418 Recovering log #776
-2026/06/21-03:22:45.024 b418 Delete type=0 #776
-2026/06/21-03:22:45.025 b418 Delete type=3 #766
-2026/06/21-03:22:45.025 b418 Delete type=3 #773
-2026/06/21-03:22:45.057 8608 Level-0 table #780: started
-2026/06/21-03:22:45.092 8608 Level-0 table #780: 16475 bytes OK
-2026/06/21-03:22:45.167 8608 Delete type=0 #778
-2026/06/21-03:22:45.167 8608 Manual compaction at level-0 from '!folders!Jgr03TNBCPio6tdA' @ 72057594037927935 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at '!items!wRt1dt8g7T1TXsfE' @ 505 : 1
-2026/06/21-03:22:45.167 8608 Compacting 1@0 + 1@1 files
-2026/06/21-03:22:45.192 8608 Generated table #781@0: 27 keys, 16475 bytes
-2026/06/21-03:22:45.192 8608 Compacted 1@0 + 1@1 files => 16475 bytes
-2026/06/21-03:22:45.266 8608 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/06/21-03:22:45.266 8608 Delete type=2 #759
-2026/06/21-03:22:45.267 8608 Delete type=2 #780
-2026/06/21-03:22:45.267 8608 Manual compaction at level-0 from '!items!wRt1dt8g7T1TXsfE' @ 505 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at (end)
+2026/06/21-03:26:31.299 7a8c Recovering log #781
+2026/06/21-03:26:31.416 7a8c Delete type=0 #781
+2026/06/21-03:26:31.416 7a8c Delete type=3 #766
+2026/06/21-03:26:31.416 7a8c Delete type=3 #777
+2026/06/21-03:26:31.447 4168 Level-0 table #785: started
+2026/06/21-03:26:31.483 4168 Level-0 table #785: 16475 bytes OK
+2026/06/21-03:26:31.536 4168 Delete type=0 #783
+2026/06/21-03:26:31.536 4168 Manual compaction at level-0 from '!folders!Jgr03TNBCPio6tdA' @ 72057594037927935 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at '!items!wRt1dt8g7T1TXsfE' @ 505 : 1
+2026/06/21-03:26:31.536 4168 Compacting 1@0 + 1@1 files
+2026/06/21-03:26:31.571 4168 Generated table #786@0: 27 keys, 16475 bytes
+2026/06/21-03:26:31.571 4168 Compacted 1@0 + 1@1 files => 16475 bytes
+2026/06/21-03:26:31.636 4168 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/06/21-03:26:31.637 4168 Delete type=2 #759
+2026/06/21-03:26:31.637 4168 Delete type=2 #785
+2026/06/21-03:26:31.637 4168 Manual compaction at level-0 from '!items!wRt1dt8g7T1TXsfE' @ 505 : 1 .. '!items!wRt1dt8g7T1TXsfE' @ 0 : 0; will stop at (end)

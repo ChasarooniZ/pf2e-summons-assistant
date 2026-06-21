@@ -535,12 +535,12 @@ const handlers = {
                 name: game.i18n.localize("DOCUMENT.FIELDS.sort.label"),
                 options: [
                   {
-                    label: `${game.i18n.localize("PF2E.CharacterLevelLabel")} ${game.i18n.localize("pf2e-summons-assistant.dialog.summon.sort.descending")}`,
-                    value: 0,
-                  },
-                  {
                     label: game.i18n.localize("PF2E.CharacterLevelLabel"),
                     value: 1,
+                  },
+                  {
+                    label: `${game.i18n.localize("PF2E.CharacterLevelLabel")} ${game.i18n.localize("pf2e-summons-assistant.dialog.summon.sort.descending")}`,
+                    value: 0,
                   },
                 ],
                 sort: (actorA, actorB, sortIndex) => {
