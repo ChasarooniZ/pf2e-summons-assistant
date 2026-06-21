@@ -8,6 +8,7 @@
   - Added a name update for `Jade Serpent`
   - Added localization for summon menu options
   - Locked preview rotation for summons with a max range
+  - Updated chinese translation (🌐 @AlphaStarGuide)
 
 ## 2.7.1
 

@@ -526,9 +526,7 @@ const handlers = {
         : await foundrySummons.SummonMenu.start({
             noSummon: true,
             filter: (candidateActor) =>
-              !candidateActor?.img?.endsWith("default-icons/npc.svg") &&
-              SIZES?.[toggleActor?.system?.traits?.size?.value] <=
-                maxSizeNumber,
+              !candidateActor?.img?.endsWith("default-icons/npc.svg"),
             dropdowns: [
               {
                 id: "sortOrder",
@@ -627,7 +625,6 @@ const handlers = {
             prototypeToken: {
               "texture.src": actor?.prototypeToken?.texture?.src,
               alpha: actor?.prototypeToken?.alpha,
-              "flags.pf2e.autoscale": false,
               ring: {
                 enabled: actor?.prototypeToken?.ring?.enabled,
                 subject: {
@@ -636,6 +633,9 @@ const handlers = {
                 },
               },
             },
+          },
+          tokenModifications: {
+            "flags.pf2e.autoscale": false,
           },
           crosshairParameters: {
             texture: texture,

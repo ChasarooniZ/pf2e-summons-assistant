@@ -38,6 +38,7 @@ export async function summon(
       summonDetails?.specific_uuids || [],
     );
     const actorModifications = summonDetails?.modifications || {};
+    const tokenModifications = summonDetails?.tokenModifications || {};
     const itemsToAdd = summonDetails?.itemsToAdd || [];
     const isCharacter = summonDetails?.isCharacter;
     const crosshairParameters = summonDetails?.crosshairParameters || {};
@@ -222,6 +223,7 @@ export async function summon(
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
+        tokenData: tokenModifications,
         crosshairParameters:
           typeof crosshairParameters === "function"
             ? crosshairParameters({ cnt: i, prevSummonedToken })
