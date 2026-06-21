@@ -588,6 +588,7 @@ export const EFFECTS = {
         "pf2e-summons-assistant.items.effects.wondrous-figurine.duration",
       ),
       type: "effect",
+      img: "icons/magic/time/clock-stopwatch-white-blue.webp",
       system: {
         publication: {
           title: "PF2e Summons Assistant",
@@ -598,6 +599,9 @@ export const EFFECTS = {
           value: amount,
           unit: unit,
           sustained: false,
+        },
+        tokenIcon: {
+          show: false,
         },
       },
     }),
@@ -745,7 +749,7 @@ export const COLORS = {
     yellow: "#FFFF00",
     orange: "#FFA500",
     red: "#FF0000",
-},
+  },
 };
 
 export const SIZES = ["tiny", "sm", "med", "lg", "huge", "grg"];

@@ -1319,6 +1319,10 @@ const handlers = {
             EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minutes", amount: 10 }),
             EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS(),
           ],
+          crosshairParameters: {
+            texture:
+              "modules/pf2e-summons-assistant/assets/actors/bismuth-leopard.webp",
+          },
         },
       ];
     },
