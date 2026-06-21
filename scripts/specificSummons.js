@@ -525,7 +525,8 @@ const handlers = {
             noSummon: true,
             filter: (candidateActor) =>
               candidateActor?.img?.endsWith("default-icons/npc.svg") &&
-              SIZES?.[actor?.system?.traits?.size?.value] <= maxSizeNumber,
+              SIZES?.[candidateActor?.system?.traits?.size?.value] <=
+                maxSizeNumber,
           });
       const actor = await fromUuid(actorUUID);
       const texture = actor?.prototypeToken.ring.enabled
