@@ -10,7 +10,10 @@ export function setupThaumaturgeHooks() {
       }
     });
     Hooks.on("preCreateItem", (item, _action) => {
-      if (item?.system?.slug === "unconscious") {
+      if (
+        item?.system?.slug === "unconscious" &&
+        item?.actor?.rollOptions?.all?.["self:effect:mirrors-implement"]
+      ) {
         const actorId = item?.actor?.id;
         askToDeleteMirrors(actorId, "unconscious");
       }
