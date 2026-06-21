@@ -558,7 +558,7 @@ export const EFFECTS = {
     },
   },
   WONDROUS_FIGURINE: {
-    BISMUTH_LEOPARDS: {
+    BISMUTH_LEOPARDS: () => ({
       name: game.i18n.localize(
         "pf2e-summons-assistant.items.effects.wondrous-figurine.bismuth-leopard.flash-aura",
       ),
@@ -582,7 +582,7 @@ export const EFFECTS = {
           },
         ],
       },
-    },
+    }),
     DURATION: ({ unit, amount }) => ({
       name: game.i18n.localize(
         "pf2e-summons-assistant.items.effects.wondrous-figurine.duration",

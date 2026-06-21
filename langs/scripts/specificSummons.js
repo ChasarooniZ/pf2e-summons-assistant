@@ -1202,7 +1202,7 @@ const handlers = {
           },
           itemsToAdd: [
             EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
-            EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
+            EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS(),
           ],
         },
       ];
