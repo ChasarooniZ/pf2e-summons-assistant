@@ -2,6 +2,7 @@ import {
   MODULE_ID,
   REGIONS_TO_SYNC_DELETE,
   SENSE_MODES,
+  TOKENS_TO_SYNC_DELETE,
   WALLS_TO_SYNC_DELETE,
 } from "../const.js";
 import { defaultTokenRayCrosshair } from "../helpers.js";
