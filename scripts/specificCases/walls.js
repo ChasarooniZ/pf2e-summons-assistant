@@ -5,7 +5,7 @@ import {
   TOKENS_TO_SYNC_DELETE,
   WALLS_TO_SYNC_DELETE,
 } from "../const.js";
-import { defaultTokenRayCrosshair } from "../helpers.js";
+import { defaultTokenRayCrosshair, safeDelete } from "../helpers.js";
 
 export const WALL_ART = {
   ICE: {
@@ -77,18 +77,6 @@ export function setupWallHooks() {
     // Handles all the promises at once to speed up transactions
     Promise.allSettled(promises);
   });
-}
-
-async function safeDelete(doc) {
-  if (doc && !doc?._destroyed) {
-    try {
-      return doc.delete();
-    } catch (err) {
-      if (!err?.message?.includes("does not exist")) {
-        console.warn("Deletion Error", err);
-      }
-    }
-  }
 }
 
 /**
