@@ -1,14 +1,14 @@
-2026/06/22-00:12:41.071 a63c Recovering log #830
-2026/06/22-00:12:41.215 a63c Delete type=0 #830
-2026/06/22-00:12:41.215 a63c Delete type=3 #828
-2026/06/22-00:12:41.251 9f04 Level-0 table #836: started
-2026/06/22-00:12:41.286 9f04 Level-0 table #836: 153076 bytes OK
-2026/06/22-00:12:41.340 9f04 Delete type=0 #834
-2026/06/22-00:12:41.340 9f04 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 5862 : 1
-2026/06/22-00:12:41.340 9f04 Compacting 1@0 + 1@1 files
-2026/06/22-00:12:41.385 9f04 Generated table #837@0: 174 keys, 153076 bytes
-2026/06/22-00:12:41.385 9f04 Compacted 1@0 + 1@1 files => 153076 bytes
-2026/06/22-00:12:41.450 9f04 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/06/22-00:12:41.451 9f04 Delete type=2 #832
-2026/06/22-00:12:41.451 9f04 Delete type=2 #836
-2026/06/22-00:12:41.451 9f04 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 5862 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/06/22-00:39:22.511 9b38 Recovering log #839
+2026/06/22-00:39:22.615 9b38 Delete type=0 #839
+2026/06/22-00:39:22.615 9b38 Delete type=3 #838
+2026/06/22-00:39:22.659 e5cc Level-0 table #843: started
+2026/06/22-00:39:22.694 e5cc Level-0 table #843: 152981 bytes OK
+2026/06/22-00:39:22.758 e5cc Delete type=0 #841
+2026/06/22-00:39:22.758 e5cc Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 6036 : 1
+2026/06/22-00:39:22.758 e5cc Compacting 1@0 + 1@1 files
+2026/06/22-00:39:22.793 e5cc Generated table #844@0: 174 keys, 152981 bytes
+2026/06/22-00:39:22.793 e5cc Compacted 1@0 + 1@1 files => 152981 bytes
+2026/06/22-00:39:22.857 e5cc compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/06/22-00:39:22.858 e5cc Delete type=2 #837
+2026/06/22-00:39:22.858 e5cc Delete type=2 #843
+2026/06/22-00:39:22.858 e5cc Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 6036 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

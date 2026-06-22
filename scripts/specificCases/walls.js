@@ -1,4 +1,9 @@
-import { MODULE_ID, SENSE_MODES, WALLS_TO_SYNC_DELETE } from "../const.js";
+import {
+  MODULE_ID,
+  REGION_TO_SYNC_DELETE,
+  SENSE_MODES,
+  WALLS_TO_SYNC_DELETE,
+} from "../const.js";
 import { defaultTokenRayCrosshair } from "../helpers.js";
 
 export const WALL_ART = {
