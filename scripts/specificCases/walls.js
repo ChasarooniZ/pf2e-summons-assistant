@@ -21,8 +21,8 @@ export const WALL_ART = {
 
 export function setupWallHooks() {
   if (!game.user.isGM) return;
-  const promises = [];
   Hooks.on("deleteToken", async (tokDoc, info, UserID) => {
+    const promises = [];
     if (WALLS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
       const walls = canvas.walls.placeables.filter(
         (wall) =>
@@ -208,7 +208,7 @@ export async function setupStraightWallRegionsTokensSequences({
       .effect()
       .file(art)
       .atLocation(start)
-      .stretchTo(end)
+      .stretchTo(end, { onlyX: true })
       .tieToDocuments([summonedWallToken, td])
       .persist();
     currentDistanceFt += segFt;
