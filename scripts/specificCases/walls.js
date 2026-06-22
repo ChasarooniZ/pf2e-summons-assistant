@@ -35,10 +35,19 @@ export function setupWallHooks() {
       }
     }
     if (REGIONS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
+      const regionsToDelete = canvas.regions.placeables.filter(
+        (region) =>
+          region?.document?.name === MODULE_ID &&
+          region?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
+      );
+      for (const region of regionsToDelete) {
+        promises.push(region?.document?.delete());
+      }
       const shapeOrigin = tokDoc.getFlag(MODULE_ID, "wall-shape");
       if (shapeOrigin) {
         const regions = canvas.regions.placeables.filter(
           (region) =>
+            !regionsToDelete.some((r) => r.id !== region) &&
             region?.document?.name === MODULE_ID &&
             region?.document?.shapes?.some(
               (shape) => shape.x === shapeOrigin.x && shape.y === shapeOrigin.y,
@@ -225,6 +234,11 @@ export async function setupStraightWallRegionsTokensSequences({
       elevation: {
         bottom: summonedWallToken?.document?.elevation ?? 0,
         top: summonedWallToken?.document?.elevation ?? 0 + 10,
+      },
+      flags: {
+        [MODULE_ID]: {
+          wallTokenID: summonedWallToken.id,
+        },
       },
       levels: new Set([summonedWallToken.document.level]),
     },
