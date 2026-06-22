@@ -246,7 +246,7 @@ export const CREATURES = {
   INSTANT_MINEFIELD_MINE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uQjg9X2YxIUCuqyF",
   ILLUSORY_CREATURE:
-    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.TWy7jwoFIvK9U88v",
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.VXLBDKFs8HmZvi1u",
   KINETICIST: {
     JAGGED_BERMS:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",

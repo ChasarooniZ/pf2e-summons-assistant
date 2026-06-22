@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.8.1
+
+- Fixed improper uuid for `Illusory Creature`(🐛 @Maple)
+
 ## 2.8.0
 
 - **New**
