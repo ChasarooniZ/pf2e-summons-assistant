@@ -47,7 +47,7 @@ export function setupWallHooks() {
       if (shapeOrigin) {
         const regions = canvas.regions.placeables.filter(
           (region) =>
-            !regionsToDelete.some((r) => r.id !== region) &&
+            !regionsToDelete.some((r) => r?.id !== region?.id) &&
             region?.document?.name === MODULE_ID &&
             region?.document?.shapes?.some(
               (shape) => shape.x === shapeOrigin.x && shape.y === shapeOrigin.y,
