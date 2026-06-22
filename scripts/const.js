@@ -76,9 +76,10 @@ export const SOURCES = {
     PRISMATIC_SPHERE: "Compendium.pf2e.spells-srd.Item.PngDCmU0MXZkbu0v",
     PRISMATIC_WALL: "Compendium.pf2e.spells-srd.Item.iL6TujgTCtRRa0Y0",
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
+    WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
     WALL_OF_SHADOW: "Compendium.pf2e.spells-srd.Item.DeF63UTmr7rchF60",
     WALL_OF_STONE: "Compendium.pf2e.spells-srd.Item.kOa055FIrO9Smnya",
-    WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
+    WALL_OF_THORNS: "Compendium.pf2e.spells-srd.Item.KsWhliKfUs3IpW3c",
   },
 
   COMMANDER: {
@@ -203,6 +204,7 @@ export const SLUG_TO_SOURCE = {
   "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
   "wall-of-stone": SOURCES.WALL.WALL_OF_STONE,
   "wall-of-shadow": SOURCES.WALL.WALL_OF_SHADOW,
+  "wall-of-thorns": SOURCES.WALL.WALL_OF_THORNS,
   "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
 };
 
@@ -321,6 +323,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.omSEou6InnxMi78O",
   WALL_OF_STONE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
+  WALL_OF_THORNS:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
   WOODEN_DOUBLE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
 };
@@ -339,6 +343,8 @@ export const WALLS_TO_SYNC_DELETE = new Set([
   CREATURES.PRISMATIC_SPHERE,
   CREATURES.PRISMATIC_WALL,
 ]);
+
+export const REGION_TO_SYNC_DELETE = new Set([CREATURES.WALL_OF_THORNS]);
 
 export const LIGHTS_TO_SYNC_DELETE = new Set([CREATURES.PRISMATIC_WALL]);
 

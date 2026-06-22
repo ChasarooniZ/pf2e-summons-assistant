@@ -37,12 +37,17 @@ async function createLights(lightDocs) {
   return await canvas.scene.createEmbeddedDocuments("AmbientLight", lightDocs);
 }
 
+async function createRegions(regionDocs) {
+  return await canvas.scene.createEmbeddedDocuments("Region", regionDocs);
+}
+
 export const setupSocket = () => {
   if (globalThis.socketlib) {
     socketlibSocket = globalThis.socketlib.registerModule(MODULE_ID);
     socketlibSocket.register("createEffects", createEffects);
-    socketlibSocket.register("createWalls", createWalls);
     socketlibSocket.register("createLights", createLights);
+    socketlibSocket.register("createRegions", createRegions);
+    socketlibSocket.register("createWalls", createWalls);
     socketlibSocket.register("deleteToken", deleteToken);
     socketlibSocket.register("updateCombatant", updateCombatant);
   }

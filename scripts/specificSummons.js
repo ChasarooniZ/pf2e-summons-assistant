@@ -110,6 +110,7 @@ const getSummonHandlers = () => ({
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
   [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
   [SOURCES.WALL.WALL_OF_SHADOW]: handlers.wall.handleWallOfShadow,
+  [SOURCES.WALL.WALL_OF_THORNS]: handlers.wall.handleWallOfThorns,
 
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
@@ -1078,6 +1079,27 @@ const handlers = {
           rank: data.rank,
           modifications: {
             "system.details.level.value": data.rank,
+          },
+          crosshairParameters: {
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.wall.start-point",
+              ),
+            },
+          },
+        },
+      ];
+    },
+    handleWallOfThorns: async (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_THORNS],
+          noDefaultTraits: true,
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.attributes.hp.max": 20 + (data.rank - 3) * 5,
+            "system.attributes.hp.value": 20 + (data.rank - 3) * 5,
           },
           crosshairParameters: {
             label: {
