@@ -43,6 +43,14 @@
                     "wooden-double": {
                         "name": "处理木制替身的伤害",
                         "hint": "当木制替身受到超过其最大生命值的伤害时，它将骰掷等同于溢出伤害的伤害（该伤害无伤害类型）"
+                    },
+                    "thaumaturge": {
+                        "name": "处理奇术师镜奇具",
+                        "hint": "特别处理奇术师的镜奇具特性"
+                    },
+                    "bilocation": {
+                        "name": "处理二重身法术",
+                        "hint": "为玩家角色处理二重身法术（例如：克隆+效果移除时删除克隆指示物）"
                     }
                 }
             },
@@ -57,7 +65,7 @@
             "reminder": {
                 "message": {
                     "name": "[提醒] 接收参战者仆从的提醒信息",
-                    "hint": "允许在参战者的每回合开始时，接收其仆从的私密提醒信息"
+                    "hint": "允许在参战者的每回合开始时，接收其仆从的私人提醒信息"
                 }
             },
             "automation": {
@@ -88,7 +96,15 @@
             "customization": {
                 "saved": "召唤物自定义设置已保存"
             },
-            "active-minions": "<b>{summonerName}</b>当前控制的<u data-tooltip=\"{minionTooltip}\">仆从</u>"
+            "active-minions": "<b>{summonerName}</b>当前控制的<u data-tooltip=\"{minionTooltip}\">仆从</u>",
+            "thaumaturge": {
+                "mirror-implement": {
+                    "error": "[错误] 你未在当前场景中激活自身镜像克隆"
+                }
+            },
+            "bilocation": {
+                "error": "[错误] 你未在当前场景中激活二重身克隆"
+            }
         },
         "dialog": {
             "duplicate-foe": "该目标豁免失败了吗？",
@@ -115,19 +131,30 @@
             "light": {
                 "title": "召唤光球",
                 "text": "你想召唤一个不附着生物的球形光亮吗？（如果选择否，则需要将效果应用至你想附加光亮的生物身上）"
+            },
+            "thaumaturge": {
+                "title": {
+                    "default": "选择要保留的自身镜像指示物",
+                    "unconscious": "你失去意识！选择要保留的自身镜像指示物",
+                    "adept-action": "你使自身镜像碎裂！选择不会碎裂的那个指示物"
+                },
+                "choose": "保留所选指示物"
+            },
+            "bilocation": {
+                "title": "选择要保留的二重身克隆指示物"
             }
         },
         "display-text": {
             "wooden-double": {
                 "step": "选择要“快步”至的位置",
-                "place-double": "左键点击以放置你的木制替身"
+                "place-double": "左键单击以放置你的木制替身"
             },
             "wall": {
                 "start-point": "选择你所创造墙体的起始点"
             },
             "jagged-berms": {
                 "berm": "放置城垛土堆",
-                "spikes": "左键点击放置尖刺木桩（{count}），右键点击以停止放置"
+                "spikes": "左键单击放置尖刺木桩（{count}），右键单击以停止放置"
             },
             "prismatic-sphere": {
                 "red": {
@@ -152,12 +179,12 @@
                 },
                 "blue": {
                     "title": "蓝色",
-                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]的效果，需尝试一次@Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)|basic]豁免",
+                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]的效果，需尝试一次@Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]豁免",
                     "block": "阻挡穿过墙体的听觉，石化，音波以及视觉效果。"
                 },
                 "indigo": {
                     "title": "靛青",
-                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]的效果，需尝试一次@Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
+                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]的效果，需尝试一次@Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)]豁免。",
                     "block": "阻挡穿过墙体的预言系和心灵效果。"
                 },
                 "violet": {
