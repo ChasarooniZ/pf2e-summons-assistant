@@ -246,7 +246,7 @@ export const CREATURES = {
   INSTANT_MINEFIELD_MINE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uQjg9X2YxIUCuqyF",
   ILLUSORY_CREATURE:
-    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.VXLBDKFs8HmZvi1u",
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.TWy7jwoFIvK9U88v",
   KINETICIST: {
     JAGGED_BERMS:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",
@@ -324,7 +324,7 @@ export const CREATURES = {
   WALL_OF_STONE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
   WALL_OF_THORNS:
-    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Fj667D4Ayvi11Vjl",
   WOODEN_DOUBLE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
 };
@@ -581,7 +581,7 @@ export const EFFECTS = {
             key: "Aura",
             effects: [
               {
-                uuid: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.uszP40UytOzGiLEq",
+                uuid: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.eoUfWHoPEMmNj8od",
                 // Flash Indicator
               },
             ],
