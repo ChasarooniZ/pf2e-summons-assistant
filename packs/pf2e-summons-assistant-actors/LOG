@@ -1,16 +1,14 @@
-2026/06/21-03:26:30.830 7a8c Recovering log #827
-2026/06/21-03:26:30.962 7a8c Delete type=0 #827
-2026/06/21-03:26:30.962 7a8c Delete type=3 #811
-2026/06/21-03:26:30.962 7a8c Delete type=3 #823
-2026/06/21-03:26:31.005 4168 Level-0 table #831: started
-2026/06/21-03:26:31.063 4168 Level-0 table #831: 153032 bytes OK
-2026/06/21-03:26:31.116 4168 Delete type=0 #829
-2026/06/21-03:26:31.116 4168 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!VXLBDKFs8HmZvi1u.tmLZAW1EDUgVkqNy' @ 5551 : 1
-2026/06/21-03:26:31.116 4168 Compacting 2@0 + 1@1 files
-2026/06/21-03:26:31.152 4168 Generated table #832@0: 174 keys, 153032 bytes
-2026/06/21-03:26:31.152 4168 Compacted 2@0 + 1@1 files => 153032 bytes
-2026/06/21-03:26:31.216 4168 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/06/21-03:26:31.216 4168 Delete type=2 #804
-2026/06/21-03:26:31.216 4168 Delete type=2 #812
-2026/06/21-03:26:31.216 4168 Delete type=2 #831
-2026/06/21-03:26:31.216 4168 Manual compaction at level-0 from '!actors.items!VXLBDKFs8HmZvi1u.tmLZAW1EDUgVkqNy' @ 5551 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/06/22-00:12:41.071 a63c Recovering log #830
+2026/06/22-00:12:41.215 a63c Delete type=0 #830
+2026/06/22-00:12:41.215 a63c Delete type=3 #828
+2026/06/22-00:12:41.251 9f04 Level-0 table #836: started
+2026/06/22-00:12:41.286 9f04 Level-0 table #836: 153076 bytes OK
+2026/06/22-00:12:41.340 9f04 Delete type=0 #834
+2026/06/22-00:12:41.340 9f04 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 5862 : 1
+2026/06/22-00:12:41.340 9f04 Compacting 1@0 + 1@1 files
+2026/06/22-00:12:41.385 9f04 Generated table #837@0: 174 keys, 153076 bytes
+2026/06/22-00:12:41.385 9f04 Compacted 1@0 + 1@1 files => 153076 bytes
+2026/06/22-00:12:41.450 9f04 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/06/22-00:12:41.451 9f04 Delete type=2 #832
+2026/06/22-00:12:41.451 9f04 Delete type=2 #836
+2026/06/22-00:12:41.451 9f04 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 5862 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
