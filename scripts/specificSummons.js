@@ -625,6 +625,7 @@ const handlers = {
           modifications: {
             "system.details.level.value": data.rank,
             "system.traits.size.value": actor?.system?.traits?.size?.value,
+            img: actor?.img,
             prototypeToken: {
               "texture.src": actor?.prototypeToken?.texture?.src,
               alpha: actor?.prototypeToken?.alpha,
