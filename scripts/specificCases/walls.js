@@ -39,8 +39,8 @@ export function setupWallHooks() {
       if (shapeOrigin) {
         const regions = canvas.regions.placeables.filter(
           (region) =>
-            region.name === MODULE_ID &&
-            region.document.shapes.some(
+            region?.document?.name === MODULE_ID &&
+            region?.document?.shapes?.some(
               (shape) => shape.x === shapeOrigin.x && shape.y === shapeOrigin.y,
             ),
         );
@@ -180,6 +180,7 @@ export async function setupStraightWallRegionsTokensSequences({
 
   const t = summonedWallToken.document.toObject();
   const offset = (t.width * canvas.dimensions.size) / 2;
+  const sequencerScale = canvas.grid.size / 512;
   for (const segFt of segments) {
     const [startX, startY, endX, endY] = getFlatWallPoints(
       currentDistanceFt,
@@ -209,6 +210,7 @@ export async function setupStraightWallRegionsTokensSequences({
       .file(art)
       .atLocation(start)
       .stretchTo(end, { onlyX: true })
+      .scale(sequencerScale)
       .tieToDocuments([summonedWallToken, td])
       .persist();
     currentDistanceFt += segFt;
