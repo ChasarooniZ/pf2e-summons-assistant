@@ -4,6 +4,7 @@ import {
   CREATURES,
   EFFECTS,
   RULE_ELEMENTS,
+  SIZES,
   SOURCES,
 } from "./const.js";
 import { getFoeInfo } from "./specificCases/duplicateFoe.js";
@@ -83,6 +84,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
   [SOURCES.MISC.HEALING_WELL]: handlers.misc.handleHealingWell,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
+  [SOURCES.MISC.ILLUSORY_CREATURE]: handlers.misc.handleIllusoryCreature,
   [SOURCES.MISC.INSTANT_MINEFIELD]: handlers.misc.handleInstantMinefield,
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
   [SOURCES.MISC.RAISE_THE_HORDE]: handlers.misc.handleNecrologistsHorde,
@@ -108,6 +110,7 @@ const getSummonHandlers = () => ({
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
   [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
   [SOURCES.WALL.WALL_OF_SHADOW]: handlers.wall.handleWallOfShadow,
+  [SOURCES.WALL.WALL_OF_THORNS]: handlers.wall.handleWallOfThorns,
 
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
@@ -139,6 +142,8 @@ const getSummonHandlers = () => ({
     handlers.thaumaturge.handleMirrorsReflection,
 
   // Wondrous Figurine
+  [SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS]:
+    handlers.wondrousFigurine.handleBismuthLeopards,
   [SOURCES.WONDROUS_FIGURINE.JADE_SERPENT]:
     handlers.wondrousFigurine.handleJadeSerpent,
 });
@@ -476,7 +481,6 @@ const handlers = {
         },
       ];
     },
-
     handleLight: async (data) => {
       let doSummon = true;
       if (!data.ignoreDialogue && hasNoTargets()) {
@@ -513,7 +517,137 @@ const handlers = {
       }
       return null;
     },
-
+    handleIllusoryCreature: async (data) => {
+      const maxSizeNumber = Math.min(data.rank + 1, SIZES.length);
+      ui.notifications.info(
+        game.i18n.localize(
+          "pf2e-summons-assistant.notification.illusory-creature",
+        ),
+      );
+      const actorUUID = data?.ignoreDialogue
+        ? CREATURES.ILLUSORY_CREATURE
+        : await foundrySummons.SummonMenu.start({
+            noSummon: true,
+            filter: (candidateActor) =>
+              !candidateActor?.img?.endsWith("default-icons/npc.svg"),
+            dropdowns: [
+              {
+                id: "sortOrder",
+                name: game.i18n.localize("DOCUMENT.FIELDS.sort.label"),
+                options: [
+                  {
+                    label: game.i18n.localize("PF2E.CharacterLevelLabel"),
+                    value: 1,
+                  },
+                  {
+                    label: `${game.i18n.localize("PF2E.CharacterLevelLabel")} ${game.i18n.localize("pf2e-summons-assistant.dialog.summon.sort.descending")}`,
+                    value: 0,
+                  },
+                ],
+                sort: (actorA, actorB, sortIndex) => {
+                  const aLevel = actorA.system.details.level.value;
+                  const bLevel = actorB.system.details.level.value;
+                  if (aLevel === bLevel) {
+                    return actorA.name.localeCompare(actorB.name);
+                  } else {
+                    return sortIndex === 0 ? bLevel - aLevel : aLevel - bLevel;
+                  }
+                },
+              },
+              {
+                id: "traitsFilter",
+                name: game.i18n.localize("PF2E.Traits"),
+                options: [
+                  { label: "", value: "" },
+                  ...[
+                    "dragon",
+                    "undead",
+                    "celestial",
+                    "fey",
+                    "animal",
+                    "construct",
+                    "celestial",
+                    "plant",
+                    "fungus",
+                    "elemental",
+                    "aberration",
+                    "fiend",
+                  ]
+                    .toSorted()
+                    .map((traitName) => ({
+                      label: game.i18n.localize(
+                        `PF2E.Trait${traitName[0].toUpperCase()}${traitName.slice(1)}`,
+                      ),
+                      value: traitName,
+                    })),
+                ],
+                func: (filterActor, selectedTrait) => {
+                  return (
+                    !selectedTrait ||
+                    filterActor.system.traits.value.some(
+                      (actorTrait) =>
+                        selectedTrait.toLowerCase() ===
+                        actorTrait.toLowerCase(),
+                    )
+                  );
+                },
+              },
+            ],
+            toggles: [
+              {
+                id: "proper-size",
+                name: "Proper Size",
+                default: true,
+                func: (toggleActor, isToggleActive) => {
+                  return (
+                    isToggleActive ||
+                    SIZES?.[toggleActor?.system?.traits?.size?.value] <=
+                      maxSizeNumber
+                  );
+                },
+                indexedFields: [
+                  "system.traits?.size.value",
+                  "system.details.level.value",
+                  "system.traits.value",
+                  "img",
+                ],
+              },
+            ],
+          });
+      const actor = await fromUuid(actorUUID);
+      const texture = actor?.prototypeToken.ring.enabled
+        ? actor?.prototypeToken?.ring?.subject?.texture ||
+          actor?.prototypeToken?.texture?.src
+        : actor?.prototypeToken?.texture?.src;
+      return [
+        {
+          specific_uuids: [CREATURES.ILLUSORY_CREATURE],
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.traits.size.value": actor?.system?.traits?.size?.value,
+            prototypeToken: {
+              "texture.src": actor?.prototypeToken?.texture?.src,
+              alpha: actor?.prototypeToken?.alpha,
+              ring: {
+                enabled: actor?.prototypeToken?.ring?.enabled,
+                subject: {
+                  texture: actor?.prototypeToken?.ring?.subject?.texture,
+                  scale: actor?.prototypeToken?.ring?.subject?.scale,
+                },
+              },
+            },
+          },
+          tokenModifications: {
+            "flags.pf2e.autoscale": false,
+          },
+          crosshairParameters: {
+            texture: texture,
+            distance: (actor?.prototypeToken.height * canvas.grid.distance) / 2,
+          },
+          itemsToAdd: [EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG])],
+        },
+      ];
+    },
     handleNecrologistsHorde: async (data) => {
       const summonerActor = game.actors.get(data.summonerActorId);
       return [
@@ -956,6 +1090,27 @@ const handlers = {
         },
       ];
     },
+    handleWallOfThorns: async (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_THORNS],
+          noDefaultTraits: true,
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.attributes.hp.max": 20 + (data.rank - 3) * 5,
+            "system.attributes.hp.value": 20 + (data.rank - 3) * 5,
+          },
+          crosshairParameters: {
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.wall.start-point",
+              ),
+            },
+          },
+        },
+      ];
+    },
   },
   necromancer: {
     handleBindHeroicSpiritStrike: (data) => {
@@ -1164,10 +1319,50 @@ const handlers = {
   },
 
   wondrousFigurine: {
+    handleBismuthLeopards: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.LEOPARD],
+          amount: 2,
+          modifications: {
+            name: game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.bismuth-leopard",
+            ),
+            "prototypeToken.name": game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.bismuth-leopard",
+            ),
+            img: "modules/pf2e-summons-assistant/assets/actors/bismuth-leopard.webp",
+            "prototypeToken.texture.src":
+              "modules/pf2e-summons-assistant/assets/tokens/token/bismuth-leopard.webp",
+            "prototypeToken.ring.subject.texture":
+              "modules/pf2e-summons-assistant/assets/tokens/subject/bismuth-leopard.webp",
+          },
+          itemsToAdd: [
+            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minutes", amount: 10 }),
+            EFFECTS.WONDROUS_FIGURINE.BISMUTH_LEOPARDS(),
+          ],
+          crosshairParameters: {
+            texture:
+              "modules/pf2e-summons-assistant/assets/actors/bismuth-leopard.webp",
+          },
+        },
+      ];
+    },
     handleJadeSerpent: (data) => {
       return [
         {
           specific_uuids: [CREATURES.GIANT_VIPER],
+          modifications: {
+            name: game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
+            ),
+            "prototypeToken.name": game.i18n.localize(
+              "pf2e-summons-assistant.creature-name.wondrous-figurine.jade-serpent",
+            ),
+          },
+          itemsToAdd: [
+            EFFECTS.WONDROUS_FIGURINE.DURATION({ unit: "minute", amount: 10 }),
+          ],
         },
       ];
     },

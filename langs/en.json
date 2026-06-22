@@ -109,9 +109,18 @@
           "error": "[Error] You don't have a Mirrored Self clone active on this scene"
         }
       },
+      "illusory-creature": "[Illusory Creature] Select what creature for your illusion to be in the shape and size of",
       "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>"
     },
     "dialog": {
+      "summon": {
+        "filter": {
+          "only-with-art": "Only with Art"
+        },
+        "sort": {
+          "descending": "(Descending)"
+        }
+      },
       "dancing-weapon": {
         "choose": "Choose Weapon",
         "title": "Choose your Dancing Blade",
@@ -229,6 +238,12 @@
         },
         "dancing-blade": {
           "title": "Effect: Dancing Blade"
+        },
+        "wondrous-figurine": {
+          "duration": "Effect: Wondrous Figurine",
+          "bismuth-leopard": {
+            "flash-aura": "Effect: Bismuth Leopard Flash Aura"
+          }
         }
       }
     },
@@ -236,6 +251,12 @@
       "scroll": "Scroll",
       "adjust-length": "Adjust Length",
       "rotate-wall": "Rotate Wall"
+    },
+    "creature-name": {
+      "wondrous-figurine": {
+        "bismuth-leopard": "Bismuth Leopard",
+        "jade-serpent": "Jade Serpent"
+      }
     }
   }
 }

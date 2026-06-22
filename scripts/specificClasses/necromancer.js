@@ -250,18 +250,18 @@ export function getStrikeRE(config) {
   return base;
 }
 
-export function getStrikeMod(slugs, label = "Thrall") {
+export function getStrikeMod(slugs) {
   return {
-    key: "FlatModifier",
+    key: "AdjustModifier",
     selector: "attack",
-    value: "@item.origin.system.attributes.spellDC.value - 11",
+    slug: "base",
+    value: "@actor.flags.pf2e-summons-assistant.dc - 10",
+    mode: "upgrade",
     predicate: [
       {
         or: slugs.map((slug) => `item:slug:${slug}`),
       },
     ],
-    hideIfDisabled: true,
-    label: label,
   };
 }
 

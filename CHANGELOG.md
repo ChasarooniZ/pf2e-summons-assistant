@@ -1,5 +1,15 @@
 ## Unreleased
 
+- **New**
+  - `Illusory Creature` support (💡 @Maple)
+  - `Wall of Thorns` support (💡 @David Silver)
+  - `Wondrous Figurine - Bismuth Leopard` support
+- **Updated**
+  - Added a name update for `Jade Serpent`
+  - Added localization for summon menu options
+  - Locked preview rotation for summons with a max range
+  - Updated chinese translation (🌐 @AlphaStarGuide)
+
 ## 2.7.1
 
 - **Updated**

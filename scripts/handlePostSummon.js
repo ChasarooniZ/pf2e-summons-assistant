@@ -4,6 +4,7 @@ import { handleJaggedBermsSpikes } from "./specificCases/jaggedBerms.js";
 import {
   getWallData,
   setupStraightWall,
+  setupStraightWallRegionsTokensSequences,
   setupWallCircle,
   WALL_ART,
 } from "./specificCases/walls.js";
@@ -45,6 +46,9 @@ export async function handlePostSummon(
       break;
     case SOURCES.WALL.WALL_OF_STONE:
       postSummonHelper.WALL_OF_STONE(summonedActorID);
+      break;
+    case SOURCES.WALL.WALL_OF_THORNS:
+      postSummonHelper.WALL_OF_THORNS(summonedActorID);
       break;
     case SOURCES.MISC.RAISE_THE_HORDE:
     case SOURCES.MISC.SWARM_FORTH:
@@ -358,6 +362,34 @@ const postSummonHelper = {
     await socketlib.modules
       .get(MODULE_ID)
       .executeAsGM("createWalls", [wallData]);
+  },
+  WALL_OF_THORNS: async (summonedActorID) => {
+    const summonedToken = getTokenFromActorID(summonedActorID);
+    const pos = await defaultTokenRayCrosshair({
+      token: summonedToken,
+      maxDistance: 60,
+      texture: WALL_ART.THORNS,
+    });
+
+    setupStraightWallRegionsTokensSequences({
+      origin: pos,
+      distance: pos.distance,
+      angleRad: Math.toRadians(pos.direction),
+      segFt: 10,
+      summonedWallToken: summonedToken,
+      art: WALL_ART.THORNS,
+      behaviors: [
+        {
+          name: "Difficult Terrain",
+          type: "modifyMovementCost",
+          system: {
+            difficulties: {
+              walk: 2,
+            },
+          },
+        },
+      ],
+    });
   },
   WOODEN_DOUBLE: async (summonerToken) => {
     if (!summonerToken) return;

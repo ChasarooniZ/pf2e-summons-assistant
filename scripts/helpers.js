@@ -147,9 +147,7 @@ export function getAvengingWildwoodStrikeRuleElements({ rank }) {
       label: name,
     });
   });
-  rulesElements.push(
-    getStrikeMod([rulesElements.map((re) => re.slug)], "Branch"),
-  );
+  rulesElements.push(getStrikeMod([rulesElements.map((re) => re.slug)]));
   return rulesElements;
 }
 
@@ -259,9 +257,9 @@ export async function defaultTokenRayCrosshair({
     {
       [Sequencer.Crosshair.CALLBACKS.MOUSE_MOVE]: (crosshair) => {
         crosshair.updateCrosshair({
-          "label.text": `[${Math.round((crosshair.ray.distance / canvas.dimensions.distancePixels) * 2) / 2}/${maxDistance}] ft`,
-          "label.dx": crosshair.ray.dx,
-          "label.dy": crosshair.ray.dy - canvas.grid.size * 0.7,
+          "label.text": `[${Math.round(((crosshair?.ray?.distance ?? 0) / canvas.dimensions.distancePixels) * 2) / 2}/${maxDistance}] ft`,
+          "label.dx": crosshair?.ray?.dx ?? 0,
+          "label.dy": crosshair?.ray?.dy ?? 0 - canvas.grid.size * 0.7,
         });
       },
     },
@@ -411,5 +409,10 @@ function angleToArrowDirection(angle) {
     return "up";
   } else if (angle < 337.5) {
     return "up-right";
+  }
+}
+export async function safeDelete(doc) {
+  if (doc && !doc?._destroyed) {
+    return doc.delete();
   }
 }

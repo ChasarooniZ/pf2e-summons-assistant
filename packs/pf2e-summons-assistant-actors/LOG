@@ -1,14 +1,15 @@
-2026/06/18-01:11:36.312 1920 Recovering log #794
-2026/06/18-01:11:36.573 1920 Delete type=0 #794
-2026/06/18-01:11:36.573 1920 Delete type=3 #793
-2026/06/18-01:11:36.651 58d0 Level-0 table #798: started
-2026/06/18-01:11:36.784 58d0 Level-0 table #798: 152143 bytes OK
-2026/06/18-01:11:36.871 58d0 Delete type=0 #796
-2026/06/18-01:11:36.871 58d0 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 5283 : 1
-2026/06/18-01:11:36.871 58d0 Compacting 1@0 + 1@1 files
-2026/06/18-01:11:36.929 58d0 Generated table #799@0: 172 keys, 152143 bytes
-2026/06/18-01:11:36.929 58d0 Compacted 1@0 + 1@1 files => 152143 bytes
-2026/06/18-01:11:36.981 58d0 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/06/18-01:11:36.982 58d0 Delete type=2 #782
-2026/06/18-01:11:36.982 58d0 Delete type=2 #798
-2026/06/18-01:11:36.982 58d0 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 5283 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/06/22-03:41:25.530 8008 Recovering log #850
+2026/06/22-03:41:26.089 8008 Delete type=0 #850
+2026/06/22-03:41:26.090 8008 Delete type=3 #838
+2026/06/22-03:41:26.090 8008 Delete type=3 #848
+2026/06/22-03:41:26.155 1748 Level-0 table #854: started
+2026/06/22-03:41:26.190 1748 Level-0 table #854: 152981 bytes OK
+2026/06/22-03:41:26.265 1748 Delete type=0 #852
+2026/06/22-03:41:26.265 1748 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 6036 : 1
+2026/06/22-03:41:26.265 1748 Compacting 1@0 + 1@1 files
+2026/06/22-03:41:26.306 1748 Generated table #855@0: 174 keys, 152981 bytes
+2026/06/22-03:41:26.306 1748 Compacted 1@0 + 1@1 files => 152981 bytes
+2026/06/22-03:41:26.364 1748 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/06/22-03:41:26.365 1748 Delete type=2 #837
+2026/06/22-03:41:26.365 1748 Delete type=2 #854
+2026/06/22-03:41:26.365 1748 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 6036 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

@@ -38,6 +38,7 @@ export const SOURCES = {
 
   WONDROUS_FIGURINE: {
     JADE_SERPENT: "Compendium.pf2e.equipment-srd.Item.RjJw7iHantxqeJu1",
+    BISMUTH_LEOPARDS: "Compendium.pf2e.equipment-srd.Item.04V1qwob0JGPEx3k",
   },
 
   MISC: {
@@ -48,6 +49,7 @@ export const SOURCES = {
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
     FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
     HEALING_WELL: "Compendium.pf2e.spells-srd.Item.CzjQtkRuRlzRvwzg",
+    ILLUSORY_CREATURE: "Compendium.pf2e.spells-srd.Item.f8SBoXiXQjlCKqly",
     INSTANT_MINEFIELD: "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK",
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
@@ -74,9 +76,10 @@ export const SOURCES = {
     PRISMATIC_SPHERE: "Compendium.pf2e.spells-srd.Item.PngDCmU0MXZkbu0v",
     PRISMATIC_WALL: "Compendium.pf2e.spells-srd.Item.iL6TujgTCtRRa0Y0",
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
+    WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
     WALL_OF_SHADOW: "Compendium.pf2e.spells-srd.Item.DeF63UTmr7rchF60",
     WALL_OF_STONE: "Compendium.pf2e.spells-srd.Item.kOa055FIrO9Smnya",
-    WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
+    WALL_OF_THORNS: "Compendium.pf2e.spells-srd.Item.KsWhliKfUs3IpW3c",
   },
 
   COMMANDER: {
@@ -148,6 +151,7 @@ export const SLUG_TO_SOURCE = {
   "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
   "floating-flame": SOURCES.MISC.FLOATING_FLAME,
   "healing-well": SOURCES.MISC.HEALING_WELL,
+  "illusory-creature": SOURCES.MISC.ILLUSORY_CREATURE,
   "inevitable-return": SOURCES.NECROMANCER.INEVITABLE_RETURN,
   "instant-minefield": SOURCES.MISC.INSTANT_MINEFIELD,
   "jagged-berms": SOURCES.KINETICIST.JAGGED_BERMS,
@@ -192,10 +196,15 @@ export const SLUG_TO_SOURCE = {
   "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
   "activation-wondrous-figurine-jade-serpent":
     SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
+  "wondrous-figurine-bismuth-leopards":
+    SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
+  "activation-wondrous-figurine-bismuth-leopards":
+    SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
   "wall-of-ice": SOURCES.WALL.WALL_OF_ICE,
   "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
   "wall-of-stone": SOURCES.WALL.WALL_OF_STONE,
   "wall-of-shadow": SOURCES.WALL.WALL_OF_SHADOW,
+  "wall-of-thorns": SOURCES.WALL.WALL_OF_THORNS,
   "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
 };
 
@@ -236,10 +245,13 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.4JEJfYNtUzSuYxPW",
   INSTANT_MINEFIELD_MINE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uQjg9X2YxIUCuqyF",
+  ILLUSORY_CREATURE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.TWy7jwoFIvK9U88v",
   KINETICIST: {
     JAGGED_BERMS:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",
   },
+  LEOPARD: "Compendium.pf2e.pathfinder-monster-core.Actor.kB7FNn3vosp6cqQg",
   LIGHT: {
     BLUE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.REPqt5wULBcqIM97",
     DARK_BLUE:
@@ -311,6 +323,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.omSEou6InnxMi78O",
   WALL_OF_STONE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.HakOgoig5LWhcq1B",
+  WALL_OF_THORNS:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Fj667D4Ayvi11Vjl",
   WOODEN_DOUBLE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.WNBOiDVexWG6DwCO",
 };
@@ -329,6 +343,9 @@ export const WALLS_TO_SYNC_DELETE = new Set([
   CREATURES.PRISMATIC_SPHERE,
   CREATURES.PRISMATIC_WALL,
 ]);
+
+export const REGIONS_TO_SYNC_DELETE = new Set([CREATURES.WALL_OF_THORNS]);
+export const TOKENS_TO_SYNC_DELETE = new Set([CREATURES.WALL_OF_THORNS]);
 
 export const LIGHTS_TO_SYNC_DELETE = new Set([CREATURES.PRISMATIC_WALL]);
 
@@ -547,6 +564,55 @@ export const EFFECTS = {
       slug: "effect-bilocation",
     },
   },
+  WONDROUS_FIGURINE: {
+    BISMUTH_LEOPARDS: () => ({
+      name: game.i18n.localize(
+        "pf2e-summons-assistant.items.effects.wondrous-figurine.bismuth-leopard.flash-aura",
+      ),
+      img: "icons/magic/control/buff-luck-fortune-rainbow.webp",
+      type: "effect",
+      system: {
+        publication: {
+          title: "PF2e Summons Assistant",
+          license: "OGL",
+          remaster: true,
+        },
+        rules: [
+          {
+            key: "Aura",
+            effects: [
+              {
+                uuid: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.eoUfWHoPEMmNj8od",
+                // Flash Indicator
+              },
+            ],
+          },
+        ],
+      },
+    }),
+    DURATION: ({ unit, amount }) => ({
+      name: game.i18n.localize(
+        "pf2e-summons-assistant.items.effects.wondrous-figurine.duration",
+      ),
+      type: "effect",
+      img: "icons/magic/time/clock-stopwatch-white-blue.webp",
+      system: {
+        publication: {
+          title: "PF2e Summons Assistant",
+          license: "OGL",
+          remaster: true,
+        },
+        duration: {
+          value: amount,
+          unit: unit,
+          sustained: false,
+        },
+        tokenIcon: {
+          show: false,
+        },
+      },
+    }),
+  },
 };
 
 export const ACTIONS = {
@@ -692,3 +758,5 @@ export const COLORS = {
     red: "#FF0000",
   },
 };
+
+export const SIZES = ["tiny", "sm", "med", "lg", "huge", "grg"];

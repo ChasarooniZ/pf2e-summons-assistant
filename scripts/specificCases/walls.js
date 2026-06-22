@@ -1,5 +1,11 @@
-import { MODULE_ID, SENSE_MODES, WALLS_TO_SYNC_DELETE } from "../const.js";
-import { defaultTokenRayCrosshair } from "../helpers.js";
+import {
+  MODULE_ID,
+  REGIONS_TO_SYNC_DELETE,
+  SENSE_MODES,
+  TOKENS_TO_SYNC_DELETE,
+  WALLS_TO_SYNC_DELETE,
+} from "../const.js";
+import { defaultTokenRayCrosshair, safeDelete } from "../helpers.js";
 
 export const WALL_ART = {
   ICE: {
@@ -9,11 +15,14 @@ export const WALL_ART = {
   },
   SHADOW:
     "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_shadow.webp",
+  THORNS:
+    "modules/pf2e-summons-assistant/assets/tokens/token/wall-of-thorns.webp",
 };
 
 export function setupWallHooks() {
   if (!game.user.isGM) return;
   Hooks.on("deleteToken", async (tokDoc, info, UserID) => {
+    const promises = [];
     if (WALLS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
       const walls = canvas.walls.placeables.filter(
         (wall) =>
@@ -22,9 +31,47 @@ export function setupWallHooks() {
           wall?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
       );
       for (const wall of walls) {
-        wall?.document?.delete();
+        promises.push(safeDelete(wall?.document));
       }
     }
+    if (REGIONS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
+      const shapeOrigin = tokDoc.getFlag(MODULE_ID, "wall-shape");
+      const regions = canvas.regions.placeables.filter(
+        (region) =>
+          region?.document?.name === MODULE_ID &&
+          ((shapeOrigin &&
+            region?.document?.shapes?.some(
+              (shape) =>
+                shape.x === shapeOrigin?.x && shape.y === shapeOrigin?.y,
+            )) ||
+            region?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id),
+      );
+      for (const region of regions) {
+        if (
+          region?.document?.shapes.length <= 1 ||
+          region?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id
+        ) {
+          promises.push(safeDelete(region?.document));
+        } else {
+          const shapes = region.document.shapes.filter(
+            (shape) =>
+              !(shape.x === shapeOrigin.x && shape.y === shapeOrigin.y),
+          );
+          promises.push(region?.document?.update({ shapes: shapes }));
+        }
+      }
+    }
+    if (TOKENS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
+      const tokenId = tokDoc.id;
+      const tokens = canvas.tokens.placeables.filter(
+        (t) => t?.document?.getFlag(MODULE_ID, "wall-source") === tokenId,
+      );
+      for (const tok of tokens) {
+        promises.push(safeDelete(tok?.document));
+      }
+    }
+    // Handles all the promises at once to speed up transactions
+    await Promise.allSettled(promises);
   });
 }
 
@@ -117,6 +164,92 @@ export async function setupStraightWall({ summonedWallToken, distance, art }) {
   }
 }
 
+export async function setupStraightWallRegionsTokensSequences({
+  origin,
+  distance,
+  angleRad,
+  segFt = 10,
+  summonedWallToken,
+  art,
+  behaviors,
+}) {
+  const fullSegments = Math.floor(distance / segFt);
+  const remainder = distance % segFt;
+  const segments = new Array(fullSegments).fill(segFt);
+  if (remainder >= 5) segments.push(remainder); // allow 5ft remainder
+
+  let currentDistanceFt = 0;
+  const shapes = [];
+  const seq = new Sequence();
+
+  const t = summonedWallToken.document.toObject();
+  const offset = (t.width * canvas.dimensions.size) / 2;
+  const sequencerScale = canvas.grid.size / 512;
+  for (const segFt of segments) {
+    const [startX, startY, endX, endY] = getFlatWallPoints(
+      currentDistanceFt,
+      segFt,
+      origin,
+      angleRad,
+    );
+    const start = { x: startX, y: startY };
+    const end = { x: endX, y: endY };
+    shapes.push(
+      getShape(start, segFt * canvas.dimensions.distancePixels, angleRad),
+    );
+    t.x = (startX + endX) / 2 - offset;
+    t.y = (startY + endY) / 2 - offset;
+    const flagData = {
+      flags: {
+        [MODULE_ID]: {
+          "wall-shape": start,
+          "wall-source": summonedWallToken.id,
+        },
+      },
+    };
+    foundry.utils.mergeObject(t, flagData);
+    const td = await TokenDocument.create(t, { parent: canvas.scene });
+    seq
+      .effect()
+      .file(art)
+      .atLocation(start)
+      .stretchTo(end, { onlyX: true })
+      .scale(sequencerScale)
+      .tieToDocuments([summonedWallToken, td])
+      .persist();
+    currentDistanceFt += segFt;
+  }
+  seq.play();
+
+  const regions = [
+    {
+      name: MODULE_ID,
+      shapes: shapes,
+      behaviors: behaviors,
+      elevation: {
+        bottom: summonedWallToken?.document?.elevation ?? 0,
+        top: summonedWallToken?.document?.elevation ?? 0 + 10,
+      },
+      flags: {
+        [MODULE_ID]: {
+          wallTokenID: summonedWallToken.id,
+        },
+      },
+      levels: new Set([summonedWallToken.document.level]),
+    },
+  ];
+
+  await socketlib.modules.get(MODULE_ID).executeAsGM("createRegions", regions);
+}
+
+/**
+ *
+ * @param {number} currentDistanceFt
+ * @param {number} segFt
+ * @param {{x: number, y: number}} origin
+ * @param {number} angleRad
+ * @returns {[originX: number, originY: number, targetX: number, targetY: number]} Poi ts
+ */
 function getFlatWallPoints(currentDistanceFt, segFt, origin, angleRad) {
   const pixelPerFoot = canvas.dimensions.distancePixels;
   const startDistance = currentDistanceFt * pixelPerFoot;
@@ -197,5 +330,20 @@ export function getWallData({
         wallSegmentTokenID: `${summonedtokenID}`,
       },
     },
+  };
+}
+
+function getShape(origin, width, angle) {
+  return {
+    type: "rectangle",
+    x: origin.x,
+    y: origin.y,
+    width: width,
+    height: canvas.grid.size,
+    hole: false,
+    anchorX: 0,
+    anchorY: 0.5,
+    rotation: Math.toDegrees(angle),
+    gridBased: false,
   };
 }

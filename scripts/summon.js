@@ -38,6 +38,7 @@ export async function summon(
       summonDetails?.specific_uuids || [],
     );
     const actorModifications = summonDetails?.modifications || {};
+    const tokenModifications = summonDetails?.tokenModifications || {};
     const itemsToAdd = summonDetails?.itemsToAdd || [];
     const isCharacter = summonDetails?.isCharacter;
     const crosshairParameters = summonDetails?.crosshairParameters || {};
@@ -102,10 +103,16 @@ export async function summon(
         dropdowns: [
           {
             id: "sortOrder",
-            name: "Sort order",
+            name: game.i18n.localize("DOCUMENT.FIELDS.sort.label"),
             options: [
-              { label: "Level descending", value: 0 },
-              { label: "Level", value: 1 },
+              {
+                label: `${game.i18n.localize("PF2E.CharacterLevelLabel")} ${game.i18n.localize("pf2e-summons-assistant.dialog.summon.sort.descending")}`,
+                value: 0,
+              },
+              {
+                label: game.i18n.localize("PF2E.CharacterLevelLabel"),
+                value: 1,
+              },
             ],
             sort: (actorA, actorB, sortIndex) => {
               const aLevel = actorA.system.details.level.value;
@@ -119,12 +126,15 @@ export async function summon(
           },
           {
             id: "traitsFilter",
-            name: "Trait",
+            name: game.i18n.localize("PF2E.Traits"),
             options: [
               { label: "", value: "" },
-              ...requiredTraits
-                .toSorted()
-                .map((traitName) => ({ label: traitName, value: traitName })),
+              ...requiredTraits.toSorted().map((traitName) => ({
+                label: game.i18n.localize(
+                  `PF2E.Trait${traitName[0].toUpperCase()}${traitName.slice(1)}`,
+                ),
+                value: traitName,
+              })),
             ],
             func: (filterActor, selectedTrait) => {
               return (
@@ -140,7 +150,9 @@ export async function summon(
         toggles: [
           {
             id: "onlyWithImages",
-            name: "Only with image",
+            name: game.i18n.localize(
+              "pf2e-summons-assistant.dialog.summon.filter.only-with-art",
+            ),
             default: game.settings.get(
               MODULE_ID,
               "filter.default.token-with-art",
@@ -211,6 +223,7 @@ export async function summon(
       const tokDoc = await foundrySummons.pick({
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
+        tokenData: tokenModifications,
         crosshairParameters:
           typeof crosshairParameters === "function"
             ? crosshairParameters({ cnt: i, prevSummonedToken })
@@ -246,7 +259,7 @@ export async function summon(
         summonedActor.uuid,
         summonedActor.id,
         summonerToken,
-        tokDoc
+        tokDoc,
       );
       prevSummonedToken = tokDoc?.object || canvas.tokens?.get(tokDoc?._id);
     }
