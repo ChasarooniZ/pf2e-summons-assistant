@@ -35,33 +35,29 @@ export function setupWallHooks() {
       }
     }
     if (REGIONS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
-      const regionsToDelete = canvas.regions.placeables.filter(
+      const shapeOrigin = tokDoc.getFlag(MODULE_ID, "wall-shape");
+      const regions = canvas.regions.placeables.filter(
         (region) =>
           region?.document?.name === MODULE_ID &&
-          region?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
-      );
-      for (const region of regionsToDelete) {
-        promises.push(safeDelete(region?.document));
-      }
-      const shapeOrigin = tokDoc.getFlag(MODULE_ID, "wall-shape");
-      if (shapeOrigin) {
-        const regions = canvas.regions.placeables.filter(
-          (region) =>
-            region?.document?.name === MODULE_ID &&
+          ((shapeOrigin &&
             region?.document?.shapes?.some(
-              (shape) => shape.x === shapeOrigin.x && shape.y === shapeOrigin.y,
-            ),
-        );
-        for (const region of regions) {
-          if (region?.document?.shapes.length <= 1) {
-            promises.push(safeDelete(region?.document));
-          } else {
-            const shapes = region.document.shapes.filter(
               (shape) =>
-                !(shape.x === shapeOrigin.x && shape.y === shapeOrigin.y),
-            );
-            promises.push(region?.document?.update({ shapes: shapes }));
-          }
+                shape.x === shapeOrigin?.x && shape.y === shapeOrigin?.y,
+            )) ||
+            region?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id),
+      );
+      for (const region of regions) {
+        if (
+          region?.document?.shapes.length <= 1 ||
+          region?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id
+        ) {
+          promises.push(safeDelete(region?.document));
+        } else {
+          const shapes = region.document.shapes.filter(
+            (shape) =>
+              !(shape.x === shapeOrigin.x && shape.y === shapeOrigin.y),
+          );
+          promises.push(region?.document?.update({ shapes: shapes }));
         }
       }
     }
@@ -75,7 +71,7 @@ export function setupWallHooks() {
       }
     }
     // Handles all the promises at once to speed up transactions
-    Promise.allSettled(promises);
+    await Promise.allSettled(promises);
   });
 }
 

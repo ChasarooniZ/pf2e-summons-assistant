@@ -410,15 +410,9 @@ function angleToArrowDirection(angle) {
   } else if (angle < 337.5) {
     return "up-right";
   }
-}export async function safeDelete(doc) {
+}
+export async function safeDelete(doc) {
   if (doc && !doc?._destroyed) {
-    try {
-      return doc.delete();
-    } catch (err) {
-      if (!err?.message?.includes("does not exist")) {
-        console.warn("Deletion Error", err);
-      }
-    }
+    return doc.delete();
   }
 }
-
