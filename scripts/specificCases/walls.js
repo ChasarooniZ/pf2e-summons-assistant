@@ -60,7 +60,7 @@ export function setupWallHooks() {
     if (TOKENS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
       const tokenId = tokDoc.id;
       const tokens = canvas.tokens.placeables.filter(
-        (t) => t.getFlag(MODULE_ID, "wall-source") === tokenId,
+        (t) => t?.document?.getFlag(MODULE_ID, "wall-source") === tokenId,
       );
       for (const tok of tokens) {
         promises.push(tok?.document?.delete());
