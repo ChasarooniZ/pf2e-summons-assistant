@@ -1,6 +1,6 @@
 import {
   MODULE_ID,
-  REGION_TO_SYNC_DELETE,
+  REGIONS_TO_SYNC_DELETE,
   SENSE_MODES,
   WALLS_TO_SYNC_DELETE,
 } from "../const.js";
@@ -32,13 +32,15 @@ export function setupWallHooks() {
         wall?.document?.delete();
       }
     }
-    if (REGION_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
+    if (REGIONS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
       const shapeOrigin = tokDoc.getFlag(MODULE_ID, "wall-shape");
       if (shapeOrigin) {
-        const regions = canvas.regions.placeables.filter((region) =>
-          region.document.shapes.some(
-            (shape) => shape.x === shapeOrigin.x && shape.y === shapeOrigin.y,
-          ),
+        const regions = canvas.regions.placeables.filter(
+          (region) =>
+            region.name === MODULE_ID &&
+            region.document.shapes.some(
+              (shape) => shape.x === shapeOrigin.x && shape.y === shapeOrigin.y,
+            ),
         );
         for (const region of regions) {
           if (region?.document?.shapes.length <= 1) {
@@ -173,6 +175,7 @@ export async function setupStraightWallRegionsTokensSequences({
       angleRad,
     );
     const start = { x: startX, y: startY };
+    const end = { x: endX, y: endY };
     shapes.push(
       getShape(start, segFt * canvas.dimensions.distancePixels, angleRad),
     );
@@ -196,11 +199,15 @@ export async function setupStraightWallRegionsTokensSequences({
 
   const regions = [
     {
-      name: "region",
+      name: MODULE_ID,
       shapes: shapes,
       behaviors: behaviors,
+      elevation: {
+        bottom: summonedWallToken?.document?.elevation ?? 0,
+        top: summonedWallToken?.document?.elevation ?? 0 + 10,
+      },
+      levels: new Set([summonedWallToken.document.level]),
     },
-    { parent: canvas.scene },
   ];
 
   await socketlib.modules.get(MODULE_ID).executeAsGM("createRegions", regions);

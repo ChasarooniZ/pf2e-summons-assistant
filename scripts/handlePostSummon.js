@@ -371,22 +371,16 @@ const postSummonHelper = {
       texture: WALL_ART.THORNS,
     });
 
-    const r = foundry.canvas.geometry.Ray.fromAngle(
-      pos.x,
-      pos.y,
-      Math.toRadians(pos.direction),
-      pos.distance * canvas.dimensions.distancePixels,
-    );
-
     setupStraightWallRegionsTokensSequences({
-      pos,
+      origin: pos,
       distance: pos.distance,
-      angle: Math.toRadians(pos.direction),
+      angleRad: Math.toRadians(pos.direction),
       segFt: 10,
       summonedWallToken: summonedToken,
       art: WALL_ART.THORNS,
       behaviors: [
         {
+          name: "Difficult Terrain",
           type: "modifyMovementCost",
           system: {
             difficulties: {
