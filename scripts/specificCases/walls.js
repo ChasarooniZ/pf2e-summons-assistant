@@ -20,6 +20,7 @@ export const WALL_ART = {
 
 export function setupWallHooks() {
   if (!game.user.isGM) return;
+  const promises = [];
   Hooks.on("deleteToken", async (tokDoc, info, UserID) => {
     if (WALLS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
       const walls = canvas.walls.placeables.filter(
@@ -29,7 +30,7 @@ export function setupWallHooks() {
           wall?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
       );
       for (const wall of walls) {
-        wall?.document?.delete();
+        promises.push(wall?.document?.delete());
       }
     }
     if (REGIONS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
@@ -44,17 +45,28 @@ export function setupWallHooks() {
         );
         for (const region of regions) {
           if (region?.document?.shapes.length <= 1) {
-            region?.document?.delete();
+            promises.push(region?.document?.delete());
           } else {
             const shapes = region.document.shapes.filter(
               (shape) =>
                 !(shape.x === shapeOrigin.x && shape.y === shapeOrigin.y),
             );
-            region?.document?.update({ shapes: shapes });
+            promises.push(region?.document?.update({ shapes: shapes }));
           }
         }
       }
     }
+    if (TOKENS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
+      const tokenId = tokDoc.id;
+      const tokens = canvas.tokens.placeables.filter(
+        (t) => t.getFlag(MODULE_ID, "wall-source") === tokenId,
+      );
+      for (const tok of tokens) {
+        promises.push(tok?.document?.delete());
+      }
+    }
+    // Handles all the promises at once to speed up transaction
+    Promise.allSettled(promises);
   });
 }
 
@@ -182,7 +194,12 @@ export async function setupStraightWallRegionsTokensSequences({
     t.x = (startX + endX) / 2 - offset;
     t.y = (startY + endY) / 2 - offset;
     const flagData = {
-      flags: { [MODULE_ID]: { "wall-shape": start } },
+      flags: {
+        [MODULE_ID]: {
+          "wall-shape": start,
+          "wall-source": summonedWallToken.id,
+        },
+      },
     };
     foundry.utils.mergeObject(t, flagData);
     const td = await TokenDocument.create(t, { parent: canvas.scene });

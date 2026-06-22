@@ -345,6 +345,7 @@ export const WALLS_TO_SYNC_DELETE = new Set([
 ]);
 
 export const REGIONS_TO_SYNC_DELETE = new Set([CREATURES.WALL_OF_THORNS]);
+export const TOKENS_TO_SYNC_DELETE = new Set([CREATURES.WALL_OF_THORNS]);
 
 export const LIGHTS_TO_SYNC_DELETE = new Set([CREATURES.PRISMATIC_WALL]);
 
