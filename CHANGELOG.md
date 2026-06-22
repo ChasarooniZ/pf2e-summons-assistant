@@ -1,8 +1,10 @@
 ## Unreleased
 
+## 2.8.0
+
 - **New**
   - `Illusory Creature` support (💡 @Maple)
-  - `Wall of Thorns` support (💡 @David Silver)
+  - `Wall of Thorns` support _does not implement cover_ (💡 @David Silver)
   - `Wondrous Figurine - Bismuth Leopard` support
 - **Updated**
   - Added a name update for `Jade Serpent`

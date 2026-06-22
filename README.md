@@ -85,6 +85,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
   - `Wall of Stone` - Implementation Detail, each segment has the stats of 10 ft. of wall
   - `Wall of Shadow`
+  - `Wall of Thorns` - Does not implement cover
 - **Misc**
   - `Avenging Wildwood`
   - `Dancing Blade` - Art Requires `JB2a`
@@ -92,6 +93,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
   - `Floating Flame` - Art Requires `JB2a`
   - `Healing Well`
+  - `Illusory Creature`
   - `Instant Minefield`
   - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)
   - `Protector Tree` - Does not do any automation as of yet
@@ -121,6 +123,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Lantern (Hooded)`
   - `Candle`
 - **Wondrous Figurine**
+  - `Bismuth Leopard`
   - `Jade Serpent`
 
 ### SF2e
