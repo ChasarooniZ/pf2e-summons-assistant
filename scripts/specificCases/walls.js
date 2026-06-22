@@ -31,7 +31,7 @@ export function setupWallHooks() {
           wall?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
       );
       for (const wall of walls) {
-        promises.push(wall?.document?.delete());
+        promises.push(safeDelete(wall?.document));
       }
     }
     if (REGIONS_TO_SYNC_DELETE.has(tokDoc?.actor?.sourceId)) {
@@ -41,13 +41,12 @@ export function setupWallHooks() {
           region?.document?.getFlag(MODULE_ID, "wallTokenID") === tokDoc.id,
       );
       for (const region of regionsToDelete) {
-        promises.push(region?.document?.delete());
+        promises.push(safeDelete(region?.document));
       }
       const shapeOrigin = tokDoc.getFlag(MODULE_ID, "wall-shape");
       if (shapeOrigin) {
         const regions = canvas.regions.placeables.filter(
           (region) =>
-            !regionsToDelete.some((r) => r?.id !== region?.id) &&
             region?.document?.name === MODULE_ID &&
             region?.document?.shapes?.some(
               (shape) => shape.x === shapeOrigin.x && shape.y === shapeOrigin.y,
@@ -55,7 +54,7 @@ export function setupWallHooks() {
         );
         for (const region of regions) {
           if (region?.document?.shapes.length <= 1) {
-            promises.push(region?.document?.delete());
+            promises.push(safeDelete(region?.document));
           } else {
             const shapes = region.document.shapes.filter(
               (shape) =>
@@ -72,12 +71,24 @@ export function setupWallHooks() {
         (t) => t?.document?.getFlag(MODULE_ID, "wall-source") === tokenId,
       );
       for (const tok of tokens) {
-        promises.push(tok?.document?.delete());
+        promises.push(safeDelete(tok?.document));
       }
     }
-    // Handles all the promises at once to speed up transaction
+    // Handles all the promises at once to speed up transactions
     Promise.allSettled(promises);
   });
+}
+
+async function safeDelete(doc) {
+  if (doc && !doc?._destroyed) {
+    try {
+      return doc.delete();
+    } catch (err) {
+      if (!err?.message?.includes("does not exist")) {
+        console.warn("Deletion Error", err);
+      }
+    }
+  }
 }
 
 /**
