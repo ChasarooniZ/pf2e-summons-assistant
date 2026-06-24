@@ -227,13 +227,7 @@
             "selector": [
               "fortitude",
               "reflex",
-              "will"
-            ]
-          },
-          {
-            "key": "FlatModifier",
-            "value": "@actor.flags.pf2e-summons-assistant.dc",
-            "selector": [
+              "will",
               "ac"
             ]
           },
@@ -297,7 +291,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.2.0",
         "createdTime": 1782004294391,
-        "modifiedTime": 1782030251325,
+        "modifiedTime": 1782289585974,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,

@@ -1,12 +1,16 @@
 ## Unreleased
 
+## 2.8.3
+
+- Fixed Incorrect AC (using Spell DC instead of Spell Attack) for `Illusory Creature` (🐛 @Happy)
+
 ## 2.8.2
 
 - `Illusory Creature` now also updates the summon's Actor Image as well
 
 ## 2.8.1
 
-- Fixed improper uuid for `Illusory Creature`(🐛 @Maple)
+- Fixed improper uuid for `Illusory Creature` (🐛 @Maple)
 
 ## 2.8.0
 
