@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.8.4
+
+- Pass level data of the summoner token to their summons (🐛 @silentbrad)
+
 ## 2.8.3
 
 - Fixed Incorrect AC (using Spell DC instead of Spell Attack) for `Illusory Creature` (🐛 @Happy)

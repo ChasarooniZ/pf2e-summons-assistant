@@ -161,6 +161,11 @@ Hooks.once("ready", async function () {
     }
 
     if (!summonDetailsGroup || summonDetailsGroup?.length === 0) return;
+    const summonerToken =
+      chatMessage?.token?.object ||
+      canvas.tokens.placeables.find(
+        (t) => t?.actor?.id === spellRelevantInfo.summonerActorId,
+      );
 
     summonDetailsGroup.forEach((group) => {
       // This will limit reach for specific ones
@@ -169,10 +174,10 @@ Hooks.once("ready", async function () {
         spellRelevantInfo?.range &&
         !group?.crosshairParameters?.location
       ) {
-        const summonerToken = canvas.tokens.placeables.find(
-          (t) => t?.actor?.id === spellRelevantInfo.summonerActorId,
-        );
-        if (summonerToken && !(group?.crosshairParameters instanceof Function))
+        if (
+          summonerToken &&
+          !(group?.crosshairParameters instanceof Function)
+        ) {
           foundry.utils.mergeObject(group, {
             crosshairParameters: {
               location: {
@@ -187,7 +192,18 @@ Hooks.once("ready", async function () {
               },
             },
           });
+        }
       }
+
+      if (summonerToken) {
+        foundry.utils.mergeObject(group, {
+          tokenModifications: {
+            level: summonerToken?.document?.level,
+            elevation: summonerToken?.document?.elevation || 0,
+          },
+        });
+      }
+
       group?.itemsToAdd?.forEach((item) => {
         if (item?.system) {
           item.system.context = {
