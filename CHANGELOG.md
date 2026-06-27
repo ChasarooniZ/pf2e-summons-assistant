@@ -1,8 +1,12 @@
 ## Unreleased
 
-## 2.8.4
+## 2.8.5
 
 - Pass level data of the summoner token to their summons (🐛 @silentbrad)
+
+## 2.8.4
+
+- Updated french translation (🌐 @rectulo)
 
 ## 2.8.3
 

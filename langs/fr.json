@@ -52,6 +52,14 @@
       },
       "specific-case": {
         "handle": {
+          "bilocation": {
+            "name": "Gérer le double placement",
+            "hint": "Gère le double placement pour les PJ (clone + suppression du clone lors de la suppression de l'effet)"
+          },
+          "thaumaturge": {
+            "name": "Manipuler l'implément miroir du thaumaturge",
+            "hint": "Gère les capacités de thaumaturge, en particulier l'implément Miroir"
+          },
           "wooden-double": {
             "name": "Gérer les dégâts du Double de bois",
             "hint": "Lorsqu'un Double de Bois subit des dégâts supérieurs à sa santé maximale, il lancera des dégâts équivalents aux dégâts supplémentaires (ces dégâts sont non typés)"
@@ -93,9 +101,26 @@
       "customization": {
         "saved": "La personnalisation de l'invocation a été sauvegardée."
       },
+      "bilocation": {
+        "error": "[Erreur] Aucun clone doublement placé n'est actif sur cette scène."
+      },
+      "thaumaturge": {
+        "mirror-implement": {
+          "error": "[Erreur] Vous n'avez pas de reflet de vous-même actif sur cette scène"
+        }
+      },
+      "illusory-creature": "[Créature illusoire] Choisissez la créature dont votre illusion prendra la forme et la taille",
       "active-minions": "Activez le(s) <u data-tooltip=\"{minionTooltip}\">sbire(s)</u> de <b>{summonerName}</b>"
     },
     "dialog": {
+      "summon": {
+        "filter": {
+          "only-with-art": "Seulement avec une illustration"
+        },
+        "sort": {
+          "descending": "(Descendant)"
+        }
+      },
       "dancing-weapon": {
         "choose": "Choisir une arme",
         "title": "Choisir votre Lame dansante",
@@ -120,6 +145,17 @@
         "summoned-token": {
           "title": "Personnaliser le jeton invoqué"
         }
+      },
+      "thaumaturge": {
+        "title": {
+          "default": "Choisissez le jeton que vous souhaitez conserver",
+          "unconscious": "Vous êtes inconscient ! Choisissez quel jeton reste.",
+          "adept-action": "Vous brisez votre reflet ! Choisissez lequel ne se brise pas."
+        },
+        "choose": "Conserver le jeton sélectionné"
+      },
+      "bilocation": {
+        "title": "Choisissez le jeton du Reflet doublement placé que vous souhaitez conserver."
       }
     },
     "display-text": {
@@ -157,12 +193,12 @@
         },
         "blue": {
           "title": "Bleu",
-          "text": "Les créatures qui passent à travers sont sujettes aux effets de @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Pétrifier} avec un jet de @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]",
+          "text": "Les créatures qui traversent sont soumises aux effets de @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Pétrifiier} avec un jet de  @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)].",
           "block": "Empêche le passage des effets audibles, de pétrification, de son et visuels."
         },
         "indigo": {
           "title": "Indigo",
-          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)|basic].",
+          "text": "Ceux qui traversent sont soumis aux effets de @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Déformer l'esprit} avec un jet de  @Check[will|traits:incapacitation,émotion,mental|dc:resolve(@actor.system.resources.dc.value)].",
           "block": "Empêche la divination et les effets mentaux de passer à travers."
         },
         "violet": {
@@ -202,6 +238,12 @@
         },
         "dancing-blade": {
           "title": "Effet : Lame dansante"
+        },
+        "wondrous-figurine": {
+          "duration": "Effet : Figurine merveilleuse",
+          "bismuth-leopard": {
+            "flash-aura": "Effet : Aura éblouissante du léopard de bismuth"
+          }
         }
       }
     },
@@ -209,6 +251,12 @@
       "scroll": "Scroll",
       "adjust-length": "Ajuster la longueur",
       "rotate-wall": "Faire pivoter le mur"
+    },
+    "creature-name": {
+      "wondrous-figurine": {
+        "bismuth-leopard": "Léopard de bismuth",
+        "jade-serpent": "Serpent de jade"
+      }
     }
   }
 }
