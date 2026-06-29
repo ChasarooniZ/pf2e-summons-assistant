@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.8.6
+
+- Updated Polish translation (🌐 @Lioheart)
+
 ## 2.8.5
 
 - Pass level data of the summoner token to their summons (🐛 @silentbrad)
