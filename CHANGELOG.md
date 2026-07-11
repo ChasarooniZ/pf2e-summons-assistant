@@ -1,8 +1,12 @@
 ## Unreleased
 
-## 2.8.6
+## 2.8.7
 
 - Fixed bug causing thralls to not have their attack value updated to match the spell attack roll (🐛 @Sol (Veronica))
+
+## 2.8.6
+
+- Updated Polish translation (🌐 @Lioheart)
 
 ## 2.8.5
 

@@ -52,6 +52,14 @@
       },
       "specific-case": {
         "handle": {
+          "bilocation": {
+            "name": "Obsługa bilokacji",
+            "hint": "Obsługuje funkcję bilokacji na graczach (klon + usunięcie klonu po wyłączeniu efektu)"
+          },
+          "thaumaturge": {
+            "name": "Obsługa utensylium lustra Taumaturga",
+            "hint": "Obsługuje specyficzne zdolności utensylium lustra Taumaturga"
+          },
           "wooden-double": {
             "name": "Zajmij się zniszczeniami spowodowanymi przez Drewniany Duplikat",
             "hint": "Kiedy Drewniany Duplikat otrzyma obrażenia przekraczające jego maksymalne zdrowie, rzuci kostką, aby określić dodatkowe obrażenia (obrażenia te nie mają typu)"
@@ -93,9 +101,26 @@
       "customization": {
         "saved": "Zapisano dostosowania przywołania"
       },
+      "bilocation": {
+        "error": "[Błąd] W tej scenie nie masz aktywnego klona bilokacji"
+      },
+      "thaumaturge": {
+        "mirror-implement": {
+          "error": "[Błąd] W tej scenie nie masz aktywnego klona Lustrzanego sobowtóra"
+        }
+      },
+      "illusory-creature": "[Iluzoryczne Stworzenie] Wybierz, jakiego stworzenia kształt i rozmiar ma przybrać twoja iluzja",
       "active-minions": "Aktywne <u data-tooltip=\"{minionTooltip}\">sługus(y)</u> dla <b>{summonerName}</b>"
     },
     "dialog": {
+      "summon": {
+        "filter": {
+          "only-with-art": "Tylko z obrazkiem"
+        },
+        "sort": {
+          "descending": "(W porządku malejącym)"
+        }
+      },
       "dancing-weapon": {
         "choose": "Wybierz broń",
         "title": "Wybierz Tańczące Ostrze",
@@ -120,6 +145,17 @@
         "summoned-token": {
           "title": "Dostosuj przywołany token"
         }
+      },
+      "thaumaturge": {
+        "title": {
+          "default": "Wybierz, który token Lustrzanego sobowtóra chcesz zachować",
+          "unconscious": "Jesteś nieprzytomny! Wybierz, który token lustrzanego sobowtóra ma pozostać",
+          "adept-action": "Rozbijasz swoje lustrzane odbicie! Wybierz to, które się nie rozbije"
+        },
+        "choose": "Zachowaj wybrany token"
+      },
+      "bilocation": {
+        "title": "Wybierz, który token Bilokacji siebie chcesz zachować"
       }
     },
     "display-text": {
@@ -202,6 +238,12 @@
         },
         "dancing-blade": {
           "title": "Efekt: Tańczące Ostrze"
+        },
+        "wondrous-figurine": {
+          "duration": "Efekt: Cudowna figurka",
+          "bismuth-leopard": {
+            "flash-aura": "Efekt: Aura błysku lamparta bizmutowego"
+          }
         }
       }
     },
@@ -209,6 +251,12 @@
       "scroll": "Zwój",
       "adjust-length": "Dostosuj długość",
       "rotate-wall": "Obróć ścianę"
+    },
+    "creature-name": {
+      "wondrous-figurine": {
+        "bismuth-leopard": "Bizmutowy Lampart",
+        "jade-serpent": "Jadeitowy Wąż"
+      }
     }
   }
 }
