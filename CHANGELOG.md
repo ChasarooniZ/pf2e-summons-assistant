@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.8.6
+
+- Fixed bug causing thralls to not have their attack value updated to match the spell attack roll (🐛 @Sol (Veronica))
+
 ## 2.8.5
 
 - Pass level data of the summoner token to their summons (🐛 @silentbrad)

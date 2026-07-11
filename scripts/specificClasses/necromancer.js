@@ -250,12 +250,14 @@ export function getStrikeRE(config) {
   return base;
 }
 
-export function getStrikeMod(slugs) {
+export function getStrikeMod(slugs, dynamic = true) {
   return {
     key: "AdjustModifier",
     selector: "attack",
     slug: "base",
-    value: "@actor.flags.pf2e-summons-assistant.dc - 10",
+    value: dynamic
+      ? "@item.origin.system.attributes.spellDC.value - 10"
+      : "@actor.flags.pf2e-summons-assistant.dc - 10",
     mode: "upgrade",
     predicate: [
       {
