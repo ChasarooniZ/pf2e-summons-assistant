@@ -1,5 +1,16 @@
 ## Unreleased
 
+## 2.9.0
+
+- **New**
+  - Added temporary copies of the thralls from the `Impossible Magic Playtest` to make them usable in the `Impossible Magic` system release
+    - Mapped the default art to close enough art from various `Pathfinder Tokens` art packs, but this is a holdover until thralls are introduced in the system
+- **Updated**
+  - **BREAKING** If you have a necromancer built with `Impossible Magic Playtest` you will need to rebuild them in the new system release to work with this release
+  - Updated **pf2e** requirement version `8.4.0`
+  - Remapped all necromancer `Impossible Magic Playtest` UUIDs to the new `Impossible Magic` system UUIDs
+  - Added automated release option
+
 ## 2.8.7
 
 - Fixed bug causing thralls to not have their attack value updated to match the spell attack roll (🐛 @Sol (Veronica))

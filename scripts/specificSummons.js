@@ -1220,7 +1220,7 @@ const handlers = {
     handleSkeletalLancers: (data) => {
       return [
         {
-          specific_uuids: [CREATURES.NECROMANCER.SKELETAL_LANCERS],
+          specific_uuids: [CREATURES.NECROMANCER.SKELETAL_LANCER],
           noDefaultTraits: true,
           rank: data.rank,
           amount: 5,

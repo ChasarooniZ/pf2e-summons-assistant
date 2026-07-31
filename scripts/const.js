@@ -92,23 +92,17 @@ export const SOURCES = {
   },
 
   NECROMANCER: {
-    CREATE_THRALL:
-      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.77lglowVpcnRRh3g",
-    PERFECTED_THRALL:
-      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.kFkhtDYsR9fE0pAr",
-    SKELETAL_LANCERS:
-      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.qtgps2eYcmWueed1",
-    LIVING_GRAVEYARD:
-      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.SK8vQklaSQGd5DXw",
-    RECURRING_NIGHTMARE:
-      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.ZVQziQ2l2vdZ5Wfr",
-    CONGLOMERATE_OF_LIMBS:
-      "Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.OOmk0XI3lzhn42JT",
+    CREATE_THRALL: "Compendium.pf2e.spells-srd.Item.1JaRoJvlf8EPvnnD",
+    PERFECTED_THRALL: "Compendium.pf2e.spells-srd.Item.34d5j4TJFMwz4b8f",
+    SKELETAL_LANCERS: "Compendium.pf2e.spells-srd.Item.7wxPCEuw7XHhnfgf",
+    LIVING_GRAVEYARD: "Compendium.pf2e.spells-srd.Item.iCzdCea2tm1oVpRf",
+    RECURRING_NIGHTMARE: "Compendium.pf2e.spells-srd.Item.ecXhGEAX3PYd6FqK",
+    CONGLOMERATE_OF_LIMBS: "Compendium.pf2e.spells-srd.Item.2isMyTRtpZy0Xinj",
 
-    INEVITABLE_RETURN:
-      "Compendium.pf2e-playtest-data.impossible-playtest-actions.Item.jyhYP51XI09DFSqy",
+    INEVITABLE_RETURN: "Compendium.pf2e.actionspf2e.Item.9KkkDjNz5HMtutwA",
 
     // Does not need slug, special case
+    // TODO updated it when it is added
     BIND_HEROIC_SPIRIT_STRIKE:
       "Compendium.pf2e-playtest-data.impossible-playtest-effects.Item.MTYxqIqJVzza1Lro",
   },
@@ -280,17 +274,17 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NnaI8Zd5ZFfz8zs2",
   NECROMANCER: {
     THRALL:
-      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.ISmLeI8zNc6YWysQ",
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ",
     PERFECTED_THRALL:
-      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.SX5QACMD5SvH9oeZ",
-    SKELETAL_LANCERS:
-      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.d1333zUKqydfJM9b",
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.SX5QACMD5SvH9oeZ",
+    SKELETAL_LANCER:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b",
     LIVING_GRAVEYARD:
-      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.CN6TMEeEd0Wmvkct",
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.CN6TMEeEd0Wmvkct",
     RECURRING_NIGHTMARE:
-      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.uu7VA9eIwi1tUZVs",
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uu7VA9eIwi1tUZVs",
     CONGLOMERATE_OF_LIMBS:
-      "Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.Xuy2zf3qpsmm8wbb",
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Xuy2zf3qpsmm8wbb",
   },
   OZTHOOM_SHADOW_DOUBLE:
     "Compendium.pf2e.pathfinder-monster-core-2.Actor.wNa8UPQqSepdxscG",

@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Necromancer",
+  "color": "#17726c",
+  "sorting": "a",
+  "_id": "fK7WhxBprTawxabU",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.0",
+    "createdTime": 1785521631144,
+    "modifiedTime": 1785521631144,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!folders!fK7WhxBprTawxabU"
+}

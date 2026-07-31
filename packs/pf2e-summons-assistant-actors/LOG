@@ -1,15 +1,16 @@
-2026/06/24-03:33:35.610 e16c Recovering log #898
-2026/06/24-03:33:37.026 e16c Delete type=0 #898
-2026/06/24-03:33:37.026 e16c Delete type=3 #896
-2026/06/24-03:33:37.226 a064 Level-0 table #902: started
-2026/06/24-03:33:37.537 a064 Level-0 table #902: 156541 bytes OK
-2026/06/24-03:33:38.131 a064 Delete type=0 #900
-2026/06/24-03:33:38.145 a064 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!VXLBDKFs8HmZvi1u.tmLZAW1EDUgVkqNy' @ 6661 : 1
-2026/06/24-03:33:38.145 a064 Compacting 2@0 + 1@1 files
-2026/06/24-03:33:38.539 a064 Generated table #903@0: 178 keys, 156541 bytes
-2026/06/24-03:33:38.539 a064 Compacted 2@0 + 1@1 files => 156541 bytes
-2026/06/24-03:33:38.889 a064 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/06/24-03:33:38.889 a064 Delete type=2 #877
-2026/06/24-03:33:38.889 a064 Delete type=2 #897
-2026/06/24-03:33:38.889 a064 Delete type=2 #902
-2026/06/24-03:33:38.890 a064 Manual compaction at level-0 from '!actors.items!VXLBDKFs8HmZvi1u.tmLZAW1EDUgVkqNy' @ 6661 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/07/31-13:29:03.227 a7d8 Recovering log #1089
+2026/07/31-13:29:03.381 a7d8 Delete type=2 #908
+2026/07/31-13:29:03.381 a7d8 Delete type=2 #1088
+2026/07/31-13:29:03.381 a7d8 Delete type=0 #1089
+2026/07/31-13:29:03.381 a7d8 Delete type=3 #1087
+2026/07/31-13:29:03.458 67b8 Level-0 table #1094: started
+2026/07/31-13:29:03.515 67b8 Level-0 table #1094: 175247 bytes OK
+2026/07/31-13:29:03.568 67b8 Delete type=0 #1092
+2026/07/31-13:29:03.568 67b8 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 7182 : 1
+2026/07/31-13:29:03.568 67b8 Compacting 1@0 + 1@1 files
+2026/07/31-13:29:03.626 67b8 Generated table #1095@0: 202 keys, 175247 bytes
+2026/07/31-13:29:03.626 67b8 Compacted 1@0 + 1@1 files => 175247 bytes
+2026/07/31-13:29:03.689 67b8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/07/31-13:29:03.690 67b8 Delete type=2 #1090
+2026/07/31-13:29:03.690 67b8 Delete type=2 #1094
+2026/07/31-13:29:03.690 67b8 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 7182 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
