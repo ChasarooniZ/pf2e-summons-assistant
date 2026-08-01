@@ -1135,13 +1135,40 @@ const handlers = {
       ];
     },
 
-    handleCreateThrall: (data) => {
+    handleCreateThrall: async (data) => {
+      const puppeteerBonus = data.summonerRollOptions?.includes(
+        "feature:puppeteer",
+      )
+        ? 1
+        : 0;
+      const amts = {
+        one: 1 + puppeteerBonus,
+        two: 2 + puppeteerBonus,
+      };
+
+      const result = data.ignoreDialogue
+        ? { choice: "one" }
+        : await foundry.applications.api.DialogV2.input({
+            window: {
+              title: "pf2e-summons-assistant.dialog.create-thrall.title",
+              icon: "fa-solid fa-hat-wizard",
+            },
+            content: `
+              <label><input type="radio" name="choice" value="two" checked> ${game.i18n.format("pf2e-summons-assistant.dialog.create-thrall.options.two", { cnt: amts.two, iconSummon: '<i class="fa-duotone fa-solid fa-wand-magic-sparkles"></i>' })}</label>
+              <label><input type="radio" name="choice" value="one"> ${game.i18n.format("pf2e-summons-assistant.dialog.create-thrall.options.one", { cnt: amts.one, s: amts.one > 1 ? "s" : "", iconSummon: '<i class="fa-duotone fa-solid fa-wand-magic-sparkles"></i>', iconCommand: '<i class="fa-solid fa-megaphone"></i>' })}</label>
+            `,
+            ok: {
+              label: "pf2e-summons-assistant.dialog.create-thrall.title",
+              icon: "fa-sharp fa-solid fa-tombstone",
+            },
+          });
+
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
           noDefaultTraits: true,
           rank: data.rank,
-          amount: getNecromancerProf(data.summonerLevel),
+          amount: amts[result.choice],
           itemsToAdd: [
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
               uuid: SOURCES.NECROMANCER.CREATE_THRALL,

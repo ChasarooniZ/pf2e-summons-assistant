@@ -72,6 +72,9 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Call Fluxwraith`
 - **Necromancer**
   - `Create Thrall`
+    - _Puppeteer_ - Basic support (does not handle 1 / round atm)
+    - _Spirit_ - Adds two new strike damage types
+    - _The Hallowed Dead_
   - `Perfected Thrall`
   - `Skeletal Lancers`
   - `Living Graveyard`

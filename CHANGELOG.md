@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.9.1
+
+- **Updated**
+  - Update the creation count for `Create Thrall` to use the method from `Impossible Magic` as opposed to its playtest variant
+  - Added very basic support for `Puppeteer` (currently it just adds a blanket +1 Thrall to `Create Thrall`)
+  - Added Support for `The Hallowed Dead`
+  - Updated check for `Spiritmonger` to `Spirit`
+
 ## 2.9.0
 
 - **New**

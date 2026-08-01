@@ -198,7 +198,7 @@ function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
   const damageTypes = [...baseDamageTypes];
 
   // Add spirit-monger damage types if the feature is present
-  if (rollOptions.includes("feature:spirit-monger")) {
+  if (rollOptions.includes("feature:spirit")) {
     damageTypes.push(...SPIRIT_MONGER_DAMAGE_TYPES);
   }
 
@@ -221,6 +221,33 @@ function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
     );
   }
   ruleElements.push(getStrikeMod(slugs));
+  if (rollOptions.includes("feat:the-hallowed-dead")) {
+    const actorLevel =
+      Number(
+        Object.keys(rollOptions)
+          .find((ro) => ro.startsWith("self:level:"))
+          ?.substring(11),
+      ) || 1;
+
+    ruleElements.push(
+      {
+        key: "ActorTraits",
+        add: ["holy"],
+      },
+      {
+        key: "AdjustStrike",
+        mode: "add",
+        property: "weapon-traits",
+        value: "holy",
+      },
+      {
+        key: "FlatModifier",
+        selector: ["damage"],
+        value: actorLevel < 10 ? 1 : 2,
+        damageType: "spirit",
+      },
+    );
+  }
   return ruleElements;
 }
 
