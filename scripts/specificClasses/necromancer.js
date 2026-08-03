@@ -143,24 +143,45 @@ export function isBindHeroicSpiritHit(chatMessage) {
 export function createThrallAttackInfo({
   uuid = "",
   castRank = 1,
+  necromancerLevel = 1,
   rollOptions = [],
 }) {
   if (!uuid) return [];
+  const defaultDiceCount = getHeightenedValue({
+    baseVal: 1,
+    startLvl: 1,
+    currLvl: necromancerLevel,
+    heightenEvery: 4,
+    heightenBonus: 1,
+  });
+
   // Configuration map for each thrall type
   const thrallConfigs = {
     [SOURCES.NECROMANCER.CREATE_THRALL]: {
       baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
       config: {
         die: "d6",
-        dice: getHeightenedValue({
-          baseVal: 1,
-          startLvl: 1,
-          currLvl: castRank,
-          heightenEvery: 2,
-          heightenBonus: 1,
-        }),
+        dice: defaultDiceCount,
         traits: ["magical"],
         name: "Thrall Strike",
+      },
+    },
+    [SOURCES.NECROMANCER.BLOODY_TENDRILS]: {
+      baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+      config: {
+        die: "d6",
+        dice: defaultDiceCount,
+        traits: ["magical", "reach-10"],
+        name: "Thrall Strike",
+      },
+    },
+    [SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS]: {
+      baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+      config: {
+        die: "d6",
+        dice: defaultDiceCount,
+        traits: ["magical"],
+        name: "Limbs Strike",
       },
     },
     [SOURCES.NECROMANCER.PERFECTED_THRALL]: {
@@ -172,12 +193,31 @@ export function createThrallAttackInfo({
         name: "Perfect Thrall Strike",
       },
     },
+    [SOURCES.NECROMANCER.RECURRING_NIGHTMARE]: {
+      baseDamageTypes: ["void"],
+      config: {
+        die: "d6",
+        dice: defaultDiceCount,
+        traits: ["magical", "reach-0"],
+        name: "Recurring Nightmare Strike",
+      },
+    },
+    [SOURCES.NECROMANCER.LIVING_GRAVEYARD]: {
+      baseDamageTypes: ["bludgeoning"],
+      config: {
+        die: "d6",
+        dice: defaultDiceCount,
+        traits: ["magical", "reach-15"],
+        name: "Living Graveyard Strike",
+      },
+    },
     [SOURCES.NECROMANCER.SKELETAL_LANCERS]: {
       baseDamageTypes: ["piercing"],
       config: {
-        mod: 0,
-        traits: ["magical", "reach"],
-        name: "Skeletal Lancer Strike",
+        die: "d6",
+        dice: defaultDiceCount,
+        traits: ["magical", "reach-10"],
+        name: "Skeletal Lance",
       },
     },
   };
@@ -191,10 +231,16 @@ export function createThrallAttackInfo({
     thrallConfig.baseDamageTypes,
     rollOptions,
     thrallConfig.config,
+    necromancerLevel,
   );
 }
 
-function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
+function createThrallStrikeRuleElements(
+  baseDamageTypes,
+  rollOptions,
+  config,
+  necromancerLevel = 1,
+) {
   const damageTypes = [...baseDamageTypes];
 
   // Add spirit-monger damage types if the feature is present
@@ -222,13 +268,6 @@ function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
   }
   ruleElements.push(getStrikeMod(slugs));
   if (rollOptions.includes("feat:the-hallowed-dead")) {
-    const actorLevel =
-      Number(
-        Object.keys(rollOptions)
-          .find((ro) => ro.startsWith("self:level:"))
-          ?.substring(11),
-      ) || 1;
-
     ruleElements.push(
       {
         key: "ActorTraits",
@@ -243,7 +282,7 @@ function createThrallStrikeRuleElements(baseDamageTypes, rollOptions, config) {
       {
         key: "FlatModifier",
         selector: ["damage"],
-        value: actorLevel < 10 ? 1 : 2,
+        value: necromancerLevel < 10 ? 1 : 2,
         damageType: "spirit",
       },
     );

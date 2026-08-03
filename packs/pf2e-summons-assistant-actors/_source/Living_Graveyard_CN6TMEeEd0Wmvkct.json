@@ -267,7 +267,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "interaction",
         "deathNote": false
       },
       "effects": [],
@@ -285,7 +285,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521643004,
-        "modifiedTime": 1785521643004,
+        "modifiedTime": 1785742978903,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -327,7 +327,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "interaction",
         "deathNote": false
       },
       "effects": [],
@@ -345,7 +345,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521643004,
-        "modifiedTime": 1785521643004,
+        "modifiedTime": 1785742973870,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -355,13 +355,13 @@
     },
     {
       "type": "action",
-      "name": "Living Graveyard",
+      "name": "Thrall - Moveable",
       "system": {
         "actionType": {
           "value": "passive"
         },
         "description": {
-          "value": "<p>You conjure forth a Gargantuan thrall that has 400 Hit Points. This thrall is a walking bulk of graves and tombstones held together by the buried dead. The living graveyard violently shakes. All creatures in a @Template[type:emanation|distance:10] must succeed a Fortitude saving throw or fall @UUID[Compendium.pf2e.conditionitems.Item.j91X7x0XSomq8d60]{Prone}. Additionally, five @UUID[Compendium.pf2e-playtest-data.impossible-playtest-thralls.Actor.ISmLeI8zNc6YWysQ]{thralls} (using the base thrall statistics) fall from their graves into empty spaces adjacent to the living graveyard. These additional thralls last until the spell ends.</p><p>Once per round on subsequent turns, you can Sustain the spell to have the living graveyard Stride up to 60 feet and cause three additional thralls to fall from their graves into empty spaces along its path.</p>",
+          "value": "<p>Thralls can't hold their ground—a creature can move into a thrall's space as though it were unoccupied. The thrall's space is difficult terrain, and the moving creature can automatically push the thrall into an adjacent space that's not in its path.</p>",
           "gm": ""
         },
         "publication": {
@@ -379,7 +379,206 @@
         "_migration": {
           "version": 0.959,
           "previous": {
-            "schema": 0.935,
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785743015899,
+        "modifiedTime": 1785743015899,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+        "exportSource": null
+      },
+      "_id": "lJn9cdeOvBOo8BgU",
+      "_key": "!actors.items!CN6TMEeEd0Wmvkct.lJn9cdeOvBOo8BgU"
+    },
+    {
+      "type": "action",
+      "name": "Shaking Entrance",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p>When the living graveyard appears, it violently shakes. All creatures in a @Template[type:emanation|distance:10] must succeed a @Check[fortitude|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] throw or fall @UUID[Compendium.pf2e.conditionitems.Item.j91X7x0XSomq8d60]{Prone}.</p><p>Additionally, five thralls (using the base thrall statistics) fall from their graves into empty spaces adjacent to the living graveyard</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "oaKzz1aFprFKpXh5",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785743038015,
+        "modifiedTime": 1785743196692,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!CN6TMEeEd0Wmvkct.oaKzz1aFprFKpXh5"
+    },
+    {
+      "type": "action",
+      "name": "Living Graveyard",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>Whenever this thrall Strides, it creates 5 thralls in empty spaces along the path it Strides.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "3TrSiMdCTn7GvrQ4",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785743150044,
+        "modifiedTime": 1785743186916,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!CN6TMEeEd0Wmvkct.3TrSiMdCTn7GvrQ4"
+    },
+    {
+      "type": "action",
+      "name": "Thrall Charge - Boost",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order this thrall to make a Strike</p><p>That Strike deals an additional @Damage[3d6] damage.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "domain": "all",
+            "key": "RollOption",
+            "option": "thrall-charge",
+            "toggleable": true,
+            "label": "Thrall Charge",
+            "value": false
+          },
+          {
+            "key": "DamageDice",
+            "selector": "strike-damage",
+            "diceNumber": 3,
+            "dieSize": "d6",
+            "predicate": [
+              "thrall-charge"
+            ],
+            "label": "{item|name}"
+          }
+        ],
+        "slug": "thrall-charge-pierce",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
             "foundry": "14.365",
             "system": "8.4.0"
           }
@@ -391,27 +590,27 @@
         "deathNote": false
       },
       "effects": [],
-      "_id": "7HwQ9fClhAteXl5f",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
       "ownership": {
         "default": 0,
-        "qA45GVv5hySaf9b5": 3
+        "vj8VUT8j7Wtzy3Y2": 3
       },
       "flags": {},
       "_stats": {
         "coreVersion": "14.365",
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
-        "createdTime": 1785521643004,
-        "modifiedTime": 1785521643004,
+        "createdTime": 1785743246903,
+        "modifiedTime": 1785743274361,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
         "exportSource": null
       },
-      "_key": "!actors.items!CN6TMEeEd0Wmvkct.7HwQ9fClhAteXl5f"
+      "_id": "vJ7cfw4X3G57guvU",
+      "_key": "!actors.items!CN6TMEeEd0Wmvkct.vJ7cfw4X3G57guvU"
     }
   ],
   "folder": "fK7WhxBprTawxabU",

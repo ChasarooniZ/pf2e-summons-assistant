@@ -120,7 +120,7 @@
         "value": ""
       },
       "speed": {
-        "value": 30,
+        "value": 40,
         "otherSpeeds": [],
         "details": ""
       },
@@ -272,7 +272,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -290,7 +290,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521647341,
-        "modifiedTime": 1785521647341,
+        "modifiedTime": 1785743306497,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -332,7 +332,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -350,7 +350,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521647341,
-        "modifiedTime": 1785521647341,
+        "modifiedTime": 1785743301095,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -427,6 +427,217 @@
         "exportSource": null
       },
       "_key": "!actors.items!SX5QACMD5SvH9oeZ.Yh9Y9TKrPvHrMm0J"
+    },
+    {
+      "type": "action",
+      "name": "Undestroyable",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>Whenever you use an ability that would destroy this thrall, it instead loses @Damage[20] Hit Points</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "5OPdOssYl0yQqZMw",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785743761152,
+        "modifiedTime": 1785743790088,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!SX5QACMD5SvH9oeZ.5OPdOssYl0yQqZMw"
+    },
+    {
+      "type": "action",
+      "name": "Rally The Spirits",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p>Whenever the perfected thrall critically hits a creature you create up to 4 thralls, each of which must be adjacent to either the perfected thrall or the Strike’s target.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "Note",
+            "selector": [
+              "attack-roll"
+            ],
+            "title": "{item|name}",
+            "text": "{item|description}",
+            "outcome": [
+              "criticalSuccess"
+            ]
+          }
+        ],
+        "slug": "rally-the-spirits",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "87OyxKHNlXrvgBOj",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785743799536,
+        "modifiedTime": 1785743909426,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!SX5QACMD5SvH9oeZ.87OyxKHNlXrvgBOj"
+    },
+    {
+      "type": "action",
+      "name": "Thrall Charge - Perfected",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order this thrall to make a Strike</p><p>That Strike deals an additional @Damage[6d6] damage.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "domain": "all",
+            "key": "RollOption",
+            "option": "thrall-charge",
+            "toggleable": true,
+            "label": "Thrall Charge",
+            "value": false
+          },
+          {
+            "key": "DamageDice",
+            "selector": "strike-damage",
+            "diceNumber": 6,
+            "dieSize": "d6",
+            "predicate": [
+              "thrall-charge"
+            ],
+            "label": "{item|name}"
+          }
+        ],
+        "slug": "thrall-charge-pierce",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785743934502,
+        "modifiedTime": 1785743960536,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
+        "exportSource": null
+      },
+      "_id": "BAfPjyDL5sF5TdPk",
+      "_key": "!actors.items!SX5QACMD5SvH9oeZ.BAfPjyDL5sF5TdPk"
     }
   ],
   "folder": "fK7WhxBprTawxabU",
@@ -436,7 +647,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521647341,
-    "modifiedTime": 1785521807063,
+    "modifiedTime": 1785743747361,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

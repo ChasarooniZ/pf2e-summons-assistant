@@ -115,7 +115,7 @@
         "value": ""
       },
       "speed": {
-        "value": 15,
+        "value": 25,
         "otherSpeeds": [],
         "details": ""
       },
@@ -353,13 +353,13 @@
     },
     {
       "type": "action",
-      "name": "Conglomerate of Limbs",
+      "name": "Thrall - Moveable",
       "system": {
         "actionType": {
           "value": "passive"
         },
         "description": {
-          "value": "<p>Conjured by @UUID[Compendium.pf2e-playtest-data.impossible-playtest-spells.Item.OOmk0XI3lzhn42JT]{Conglomerate of Limbs}</p><p>Whenever an enemy begins its turn adjacent to this thrall, it must succeed at a Fortitude saving throw or become @UUID[Compendium.pf2e.conditionitems.Item.kWc1fhmv9LBiTuei]{Grabbed} by the thrall for 1 round or until it Escapes. Once per round on subsequent turns, you can Sustain the spell to have the thrall Stride up to 15 feet, using its many limbs to drag itself across the ground.</p><hr><p><strong>Heightened (+1)</strong> The thrall's Hit Points increase by 10.</p>",
+          "value": "<p>Thralls can't hold their ground—a creature can move into a thrall's space as though it were unoccupied. The thrall's space is difficult terrain, and the moving creature can automatically push the thrall into an adjacent space that's not in its path.</p>",
           "gm": ""
         },
         "publication": {
@@ -377,7 +377,67 @@
         "_migration": {
           "version": 0.959,
           "previous": {
-            "schema": 0.941,
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785741018088,
+        "modifiedTime": 1785741018088,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+        "exportSource": null
+      },
+      "_id": "vIKCFjZFvf33IqPV",
+      "_key": "!actors.items!Xuy2zf3qpsmm8wbb.vIKCFjZFvf33IqPV"
+    },
+    {
+      "type": "action",
+      "name": "Thrall Charge - Multi Attack",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p><strong>Trigger </strong>When you use @UUID[Compendium.pf2e.spells-srd.NWDTNTpfPEc821pu]{Thrall Charge} to order this thrall to make a Strike</p><hr><p><strong>Effect </strong>It makes two melee unarmed Strikes instead of one, each against a different creature within 10 feet. Your multiple attack penalty doesn’t increase until after the thrall makes both Strikes. A creature hit by one of these Strikes must also succeed at a @Check[fortitude|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] throw or become @UUID[Compendium.pf2e.conditionitems.kWc1fhmv9LBiTuei]{Grabbed} by the thrall for 1 round (or restrained on a critical failure) or until it Escapes.</p><p>Attempts to Escape don’t automatically succeed, and the Escape [[/act escape dc=resolve(@actor.flags.pf2e-summons-assistant.dc)]] DC is your spell DC.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
             "foundry": "14.365",
             "system": "8.4.0"
           }
@@ -389,27 +449,27 @@
         "deathNote": false
       },
       "effects": [],
-      "_id": "C4KKHLfdhCJTwE4d",
+      "_id": "x1L9T2ISXUEMELBT",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
       "ownership": {
         "default": 0,
-        "qA45GVv5hySaf9b5": 3
+        "vj8VUT8j7Wtzy3Y2": 3
       },
       "flags": {},
       "_stats": {
         "coreVersion": "14.365",
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
-        "createdTime": 1785521640656,
-        "modifiedTime": 1785521640656,
+        "createdTime": 1785741054367,
+        "modifiedTime": 1785741778727,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!Xuy2zf3qpsmm8wbb.C4KKHLfdhCJTwE4d"
+      "_key": "!actors.items!Xuy2zf3qpsmm8wbb.x1L9T2ISXUEMELBT"
     }
   ],
   "folder": "fK7WhxBprTawxabU",
@@ -419,7 +479,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521640656,
-    "modifiedTime": 1785521919619,
+    "modifiedTime": 1785741031171,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

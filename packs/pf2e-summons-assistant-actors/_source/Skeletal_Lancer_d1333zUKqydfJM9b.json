@@ -272,7 +272,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -290,7 +290,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521648839,
-        "modifiedTime": 1785521648839,
+        "modifiedTime": 1785739840351,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -332,7 +332,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -350,7 +350,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521648839,
-        "modifiedTime": 1785521648839,
+        "modifiedTime": 1785739843859,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -359,20 +359,14 @@
       "_key": "!actors.items!d1333zUKqydfJM9b.JbFXW4ACd8AyV07N"
     },
     {
-      "type": "melee",
-      "name": "Skeletal Lance",
-      "effects": [],
+      "type": "action",
+      "name": "Thrall - Moveable",
       "system": {
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.935,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
+        "actionType": {
+          "value": "passive"
         },
         "description": {
-          "value": "",
+          "value": "<p>Thralls can't hold their ground—a creature can move into a thrall's space as though it were unoccupied. The thrall's space is difficult terrain, and the moving creature can automatically push the thrall into an adjacent space that's not in its path.</p>",
           "gm": ""
         },
         "publication": {
@@ -385,50 +379,243 @@
         "slug": null,
         "traits": {
           "otherTags": [],
-          "value": [
-            "reach-10"
-          ],
-          "config": {}
-        },
-        "damageRolls": {
-          "EwcrQEGlfjuBIQrN": {
-            "damage": "5",
-            "damageType": "piercing",
-            "category": null
-          }
-        },
-        "bonus": {
-          "value": 0
-        },
-        "attackEffects": {
           "value": []
         },
-        "action": "strike",
-        "area": null,
-        "range": null,
-        "subjectToMAP": true
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
       },
-      "_id": "rhuRKfcJaZfokknv",
-      "img": "systems/pf2e/icons/default-icons/melee.svg",
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
       "ownership": {
         "default": 0,
-        "08H3OywEOnm7LqtN": 3
+        "vj8VUT8j7Wtzy3Y2": 3
       },
       "flags": {},
       "_stats": {
         "coreVersion": "14.365",
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
-        "createdTime": 1785521648839,
-        "modifiedTime": 1785521648839,
+        "createdTime": 1785740273066,
+        "modifiedTime": 1785740273066,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+        "exportSource": null
+      },
+      "_id": "U144zLWS4JNtp8nA",
+      "_key": "!actors.items!d1333zUKqydfJM9b.U144zLWS4JNtp8nA"
+    },
+    {
+      "type": "action",
+      "name": "Lancer's Reprise",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p>When an enemy makes a Strike while within 10 feet of a skeletal lancer, the lancer deals @Damage[5[piercing]] damage to it. The enemy takes this damage only once per Strike, even if it’s in the reach of multiple skeletal lancers.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "akZGtlcO2vmqSvKN",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785740407699,
+        "modifiedTime": 1785740449862,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!d1333zUKqydfJM9b.rhuRKfcJaZfokknv"
+      "_key": "!actors.items!d1333zUKqydfJM9b.akZGtlcO2vmqSvKN"
+    },
+    {
+      "type": "action",
+      "name": "Thrall Charge - Pierce",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order a skeletal lancer to make a Strike</p><p>That Strike deals an additional @Damage[2d6] damage.</p><hr><p><strong>Heightened (8th)</strong> The additional damage increases to @Damage[3d6].</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "domain": "all",
+            "key": "RollOption",
+            "option": "thrall-charge",
+            "toggleable": true,
+            "label": "Thrall Charge",
+            "value": false
+          },
+          {
+            "key": "DamageDice",
+            "selector": "strike-damage",
+            "diceNumber": "ternary(gte(max(@actor.flags.pf2e-summons-assistant.rank, 7), 8), 3, 2)",
+            "dieSize": "d6",
+            "predicate": [
+              "thrall-charge"
+            ],
+            "label": "{item|name}"
+          }
+        ],
+        "slug": "thrall-charge-pierce",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "TbJJeUktCjWMI3p3",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785741804066,
+        "modifiedTime": 1785742750367,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!d1333zUKqydfJM9b.TbJJeUktCjWMI3p3"
+    },
+    {
+      "type": "action",
+      "name": "We Move As One",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>When you command a skeletal lancer to Stride, you can have any number of your skeletal lancers Stride instead of just one.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "xm3Y5cAoltUUS2im",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785741824944,
+        "modifiedTime": 1785741847674,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!d1333zUKqydfJM9b.xm3Y5cAoltUUS2im"
     }
   ],
   "folder": "fK7WhxBprTawxabU",
@@ -438,7 +625,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521648839,
-    "modifiedTime": 1785521699378,
+    "modifiedTime": 1785740433649,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

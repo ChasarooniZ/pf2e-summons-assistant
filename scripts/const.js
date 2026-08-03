@@ -92,6 +92,7 @@ export const SOURCES = {
   },
 
   NECROMANCER: {
+    BLOODY_TENDRILS: "Compendium.pf2e.spells-srd.Item.qy5NVKy2A3LwNleW",
     CREATE_THRALL: "Compendium.pf2e.spells-srd.Item.1JaRoJvlf8EPvnnD",
     PERFECTED_THRALL: "Compendium.pf2e.spells-srd.Item.34d5j4TJFMwz4b8f",
     SKELETAL_LANCERS: "Compendium.pf2e.spells-srd.Item.7wxPCEuw7XHhnfgf",
@@ -133,6 +134,7 @@ export const SOURCE_UUIDS = getAllSourceUUIDs();
 export const SLUG_TO_SOURCE = {
   "avenging-wildwood": SOURCES.MISC.AVENGING_WILDWOOD,
   bilocation: SOURCES.MISC.BILOCATION,
+  "bloody-tendrils": SOURCES.NECROMANCER.BLOODY_TENDRILS,
   "call-fluxwraith": SOURCES.CALL_FLUXWRAITH,
   "call-ursine-ally": SOURCES.CALL_URSINE_ALLY,
   candle: SOURCES.MUNDANE.CANDLE,
@@ -285,6 +287,8 @@ export const CREATURES = {
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uu7VA9eIwi1tUZVs",
     CONGLOMERATE_OF_LIMBS:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Xuy2zf3qpsmm8wbb",
+    BLOODY_TENDRIL:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Lze0S4zRd0SLAzW0",
   },
   OZTHOOM_SHADOW_DOUBLE:
     "Compendium.pf2e.pathfinder-monster-core-2.Actor.wNa8UPQqSepdxscG",
@@ -670,6 +674,12 @@ export const RULE_ELEMENTS = {
     path: "flags.pf2e-summons-assistant.dc",
     value: "@item.origin.system.attributes.spellDC.value",
   },
+  SPELL_RANK_FLAG: (rank) => ({
+    key: "ActiveEffectLike",
+    mode: "add",
+    path: "flags.pf2e-summons-assistant.rank",
+    value: rank,
+  }),
 };
 
 export const AFFECTED_BY_HOUSE_RULES = new Set(Object.values(SOURCES.SUMMON));

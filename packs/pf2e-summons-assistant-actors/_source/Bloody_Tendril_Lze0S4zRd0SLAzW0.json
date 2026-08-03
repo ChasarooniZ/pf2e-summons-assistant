@@ -1,21 +1,32 @@
 {
+  "folder": "fK7WhxBprTawxabU",
+  "name": "Bloody Tendril",
+  "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
   "prototypeToken": {
-    "displayName": 30,
-    "displayBars": 20,
     "flags": {
       "pf2e": {
         "linkToActorSize": true,
-        "autoscale": false
+        "autoscale": true
+      },
+      "swarm": {
+        "isSwarm": false,
+        "swarmSize": 20,
+        "swarmSpeed": 1,
+        "animation": "circular"
       }
     },
     "height": 1,
     "width": 1,
-    "name": "Thrall",
+    "name": "Bloody Tendril",
+    "displayName": 30,
     "actorLink": false,
-    "appendNumber": false,
-    "prependAdjective": false,
+    "depth": 1,
     "texture": {
-      "src": "modules/pf2e-tokens-bestiaries/tokens/undead/zombie-shambler.webp",
+      "src": "modules/pf2e-summons-assistant/assets/tokens/token/bloody-tendril.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -28,6 +39,7 @@
     "rotation": 0,
     "alpha": 1,
     "disposition": -1,
+    "displayBars": 20,
     "bar1": {
       "attribute": "attributes.hp"
     },
@@ -83,10 +95,9 @@
       "effects": 1,
       "subject": {
         "scale": 1,
-        "texture": "modules/pf2e-tokens-bestiaries/subjects/undead/zombie-shambler.webp"
+        "texture": "modules/pf2e-summons-assistant/assets/tokens/subject/bloody-tendril.webp"
       }
     },
-    "randomImg": false,
     "turnMarker": {
       "mode": 1,
       "animation": null,
@@ -94,14 +105,9 @@
       "disposition": false
     },
     "movementAction": null,
-    "depth": 1
-  },
-  "name": "Thrall",
-  "type": "npc",
-  "ownership": {
-    "default": 0,
-    "08H3OywEOnm7LqtN": 3,
-    "vj8VUT8j7Wtzy3Y2": 3
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
   },
   "effects": [],
   "system": {
@@ -120,11 +126,15 @@
         "value": ""
       },
       "speed": {
-        "value": 15,
+        "value": 0,
         "otherSpeeds": [],
         "details": ""
       },
       "immunities": [
+        {
+          "type": "disease",
+          "exceptions": []
+        },
         {
           "type": "bleed",
           "exceptions": []
@@ -134,7 +144,7 @@
           "exceptions": []
         },
         {
-          "type": "disease",
+          "type": "mental",
           "exceptions": []
         },
         {
@@ -142,7 +152,7 @@
           "exceptions": []
         },
         {
-          "type": "mental",
+          "type": "physical",
           "exceptions": []
         }
       ]
@@ -159,23 +169,19 @@
         "value": -1
       },
       "blurb": "",
-      "publicNotes": "<p>Thralls are undead creatures, but they are not minions with the summoned trait. They can’t take actions, but they can be used for various abilities. Unless noted otherwise, a thrall is Small or Medium (chosen by you when you create it) and must be created in an unoccupied space. A thrall can contribute to flanking as though it were able to make melee unarmed Strikes. A thrall has 1 Hit Point, is automatically hit by attacks, and automatically fails all saving throws. A thrall is immune to bleed, death effects, disease, mental, and poison. A thrall is level –1 if an effect needs to refer to its level. Spells or abilities that create thralls have the thrall trait.</p>",
+      "publicNotes": "",
       "privateNotes": "",
       "publication": {
-        "title": "Pathfinder Impossible Playtest",
+        "title": "",
         "authors": "",
-        "license": "ORC",
-        "remaster": true
+        "license": "OGL",
+        "remaster": false
       }
     },
     "resources": {},
     "_migration": {
       "version": 0.959,
-      "previous": {
-        "schema": 0.935,
-        "foundry": "14.365",
-        "system": "8.4.0"
-      }
+      "previous": null
     },
     "abilities": {
       "str": {
@@ -222,14 +228,75 @@
       "value": [
         "undead"
       ],
-      "rarity": "uncommon",
+      "rarity": "common",
       "size": {
         "value": "med"
       }
     }
   },
-  "img": "modules/pf2e-tokens-bestiaries/portraits/undead/zombie-shambler.webp",
+  "_id": "Lze0S4zRd0SLAzW0",
+  "img": "modules/pf2e-summons-assistant/assets/tokens/subject/bloody-tendril.webp",
   "items": [
+    {
+      "type": "action",
+      "name": "Thrall - Automatically Hit",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>A thrall is automatically hit.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": 0.941,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": -100000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785739694803,
+        "modifiedTime": 1785739694803,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "_id": "CTpmCtPwdJqGIuUz",
+      "_key": "!actors.items!Lze0S4zRd0SLAzW0.CTpmCtPwdJqGIuUz"
+    },
     {
       "type": "action",
       "name": "Thrall - Fails all Saving Throws",
@@ -264,7 +331,7 @@
         "_migration": {
           "version": 0.959,
           "previous": {
-            "schema": 0.935,
+            "schema": 0.941,
             "foundry": "14.365",
             "system": "8.4.0"
           }
@@ -276,37 +343,37 @@
         "deathNote": false
       },
       "effects": [],
-      "_id": "YWrK36KFQZp3cKYU",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "08H3OywEOnm7LqtN": 3
-      },
       "flags": {},
       "_stats": {
         "coreVersion": "14.365",
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
-        "createdTime": 1785521650100,
-        "modifiedTime": 1785740199501,
+        "createdTime": 1785739694803,
+        "modifiedTime": 1785739694803,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!ISmLeI8zNc6YWysQ.YWrK36KFQZp3cKYU"
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "_id": "FBZEKrBvNjaoLfTp",
+      "_key": "!actors.items!Lze0S4zRd0SLAzW0.FBZEKrBvNjaoLfTp"
     },
     {
       "type": "action",
-      "name": "Thrall - Automatically Hit",
+      "name": "Blood Tendril Lash",
       "system": {
         "actionType": {
-          "value": "passive"
+          "value": "free"
         },
         "description": {
-          "value": "<p>A thrall is automatically hit.</p>",
+          "value": "<p>Whenever an enemy ends it turn within the reach of one or more tendrils, the tendril lashes out at them, dealing @Damage[(1 + floor((max(@actor.flags.pf2e-summons-assistant.rank, 3) - 3) / 3))d12[bludgeoning]] damage with a @Check[reflex|basic|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] save.</p><hr><p><strong>Heightened (+3)</strong> The number of thralls this spell can create increases by 1, and the damage increases by [[/r 1d12]].</p>",
           "gm": ""
         },
         "publication": {
@@ -316,7 +383,7 @@
           "remaster": false
         },
         "rules": [],
-        "slug": null,
+        "slug": "blood-tendril",
         "traits": {
           "otherTags": [],
           "value": []
@@ -324,7 +391,7 @@
         "_migration": {
           "version": 0.959,
           "previous": {
-            "schema": 0.935,
+            "schema": 0.941,
             "foundry": "14.365",
             "system": "8.4.0"
           }
@@ -332,31 +399,32 @@
         "actions": {
           "value": null
         },
-        "category": "defensive",
+        "category": "offensive",
         "deathNote": false
       },
       "effects": [],
-      "_id": "JbFXW4ACd8AyV07N",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
-      "sort": -100000,
+      "sort": 0,
       "ownership": {
         "default": 0,
-        "08H3OywEOnm7LqtN": 3
+        "qA45GVv5hySaf9b5": 3,
+        "vj8VUT8j7Wtzy3Y2": 3
       },
       "flags": {},
       "_stats": {
         "coreVersion": "14.365",
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
-        "createdTime": 1785521650100,
-        "modifiedTime": 1785740194501,
+        "createdTime": 1785739694803,
+        "modifiedTime": 1785742228710,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!ISmLeI8zNc6YWysQ.JbFXW4ACd8AyV07N"
+      "_id": "4GfVI1Dsa5zqHpZu",
+      "_key": "!actors.items!Lze0S4zRd0SLAzW0.4GfVI1Dsa5zqHpZu"
     },
     {
       "type": "action",
@@ -396,7 +464,6 @@
         "deathNote": false
       },
       "effects": [],
-      "_id": "qk2aEpk2bsz5DSnV",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
@@ -409,30 +476,29 @@
         "coreVersion": "14.365",
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
-        "createdTime": 1785740237339,
-        "modifiedTime": 1785740254702,
+        "createdTime": 1785741019840,
+        "modifiedTime": 1785741019840,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
         "exportSource": null
       },
-      "_key": "!actors.items!ISmLeI8zNc6YWysQ.qk2aEpk2bsz5DSnV"
+      "_id": "DqMib1C2WNNwzEmc",
+      "_key": "!actors.items!Lze0S4zRd0SLAzW0.DqMib1C2WNNwzEmc"
     }
   ],
-  "folder": "fK7WhxBprTawxabU",
   "flags": {},
   "_stats": {
     "coreVersion": "14.365",
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
-    "createdTime": 1785521650100,
-    "modifiedTime": 1785739811465,
+    "createdTime": 1785739694803,
+    "modifiedTime": 1785739694803,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_id": "ISmLeI8zNc6YWysQ",
-  "sort": 500000,
-  "_key": "!actors!ISmLeI8zNc6YWysQ"
+  "sort": 0,
+  "_key": "!actors!Lze0S4zRd0SLAzW0"
 }

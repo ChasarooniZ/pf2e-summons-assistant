@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.10.0
+
+- **New**
+  - Added support for `Bloodied Tendrils` _includes some neat little art I drew up_ (❔ @harisbinali)
+- **Updated**
+  - Fixed all existing necromancer spell handling (and the actors) to use the new thralls and spells as opposed to how they worked in the playtest
+  - Made changes to how `The Hallowed Dead` was supported
+
 ## 2.9.1
 
 - **Updated**

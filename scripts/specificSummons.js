@@ -115,6 +115,8 @@ const getSummonHandlers = () => ({
   // Necromancer
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
     handlers.necromancer.handleBindHeroicSpiritStrike,
+  [SOURCES.NECROMANCER.BLOODY_TENDRILS]:
+    handlers.necromancer.handleBloodyTendrils,
   [SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS]:
     handlers.necromancer.handleConglomerateOfLimbs,
   [SOURCES.NECROMANCER.CREATE_THRALL]: handlers.necromancer.handleCreateThrall,
@@ -1123,6 +1125,29 @@ const handlers = {
         },
       ];
     },
+    handleBloodyTendrils: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.NECROMANCER.BLOODY_TENDRIL],
+          noDefaultTraits: true,
+          amount: getHeightenedValue({
+            baseVal: 3,
+            startLvl: 3,
+            currLvl: data.rank,
+            heightenEvery: 3,
+            heightenBonus: 1,
+          }),
+          rank: data.rank,
+          itemsToAdd: [
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration),
+            EFFECTS.RULE_EFFECT([
+              RULE_ELEMENTS.SPELL_DC_FLAG,
+              RULE_ELEMENTS.SPELL_RANK_FLAG(data.rank),
+            ]),
+          ],
+        },
+      ];
+    },
 
     handleConglomerateOfLimbs: (data) => {
       return [
@@ -1172,7 +1197,7 @@ const handlers = {
           itemsToAdd: [
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
               uuid: SOURCES.NECROMANCER.CREATE_THRALL,
-              castRank: data.rank,
+              necromancerLevel: data.summonerLevel,
               rollOptions: data.summonerRollOptions,
             }),
           ],

@@ -277,7 +277,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -295,7 +295,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521656065,
-        "modifiedTime": 1785521656065,
+        "modifiedTime": 1785738484028,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -337,7 +337,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -355,7 +355,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521656065,
-        "modifiedTime": 1785521656065,
+        "modifiedTime": 1785738479899,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -397,7 +397,7 @@
         "actions": {
           "value": null
         },
-        "category": null,
+        "category": "defensive",
         "deathNote": false
       },
       "effects": [],
@@ -415,13 +415,272 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785521656065,
-        "modifiedTime": 1785521656065,
+        "modifiedTime": 1785738489020,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
       "_key": "!actors.items!uu7VA9eIwi1tUZVs.UK9yU9tur4MNhB5V"
+    },
+    {
+      "type": "action",
+      "name": "Fearsome Spacemate",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p><strong>Trigger </strong>If this thrall is summoned into or ends its movement in a creature's space</p><hr><p><strong>Effect </strong>the creature must succeed at a @Check[will|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:emotion,fear,mental] throw or become @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]{Frightened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]{Frightened 2} on a critical failure); this is an emotion, fear, and mental effect.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": "fearsome-spacemate",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "bn2vfQlnQMduyc3M",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785742493994,
+        "modifiedTime": 1785742603322,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!uu7VA9eIwi1tUZVs.bn2vfQlnQMduyc3M"
+    },
+    {
+      "type": "action",
+      "name": "Phantom Movement",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>The thrall has a fly Speed of 60 feet and remains airborne at the end of your turn even if it didn’t Fly that turn. Any ability you use that would make the thrall Stride allows it to Fly instead.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "0xVrAxdcfJQ4FvNx",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785742617791,
+        "modifiedTime": 1785742645139,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!uu7VA9eIwi1tUZVs.0xVrAxdcfJQ4FvNx"
+    },
+    {
+      "type": "action",
+      "name": "Thrall Charge - Boost",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order this thrall to make a Strike</p><p>That Strike deals an additional @Damage[2d6] damage.</p><hr><p><strong>Heightened (8th)</strong> The additional damage increases to @Damage[3d6].</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "domain": "all",
+            "key": "RollOption",
+            "option": "thrall-charge",
+            "toggleable": true,
+            "label": "Thrall Charge",
+            "value": false
+          },
+          {
+            "key": "DamageDice",
+            "selector": "strike-damage",
+            "diceNumber": "ternary(gte(max(@actor.flags.pf2e-summons-assistant.rank, 7), 8), 3, 2)",
+            "dieSize": "d6",
+            "predicate": [
+              "thrall-charge"
+            ],
+            "label": "{item|name}"
+          }
+        ],
+        "slug": "thrall-charge-pierce",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785742718940,
+        "modifiedTime": 1785742747300,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
+        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
+        "exportSource": null
+      },
+      "_id": "6t7awsEo8RtzrGds",
+      "_key": "!actors.items!uu7VA9eIwi1tUZVs.6t7awsEo8RtzrGds"
+    },
+    {
+      "type": "action",
+      "name": "Undying",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>If the thrall has been destroyed, you can Sustain this spell to resummon the thrall. You can do this only once per round.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.365",
+            "system": "8.4.0"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "xPUiZUeZq9q2Bjkw",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.0",
+        "createdTime": 1785742765849,
+        "modifiedTime": 1785742780249,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!uu7VA9eIwi1tUZVs.xPUiZUeZq9q2Bjkw"
     }
   ],
   "folder": "fK7WhxBprTawxabU",
