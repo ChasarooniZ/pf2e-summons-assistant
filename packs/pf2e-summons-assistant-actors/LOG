@@ -1,16 +1,14 @@
-2026/08/03-03:06:35.744 5eb0 Recovering log #1117
-2026/08/03-03:06:36.029 5eb0 Delete type=2 #1100
-2026/08/03-03:06:36.029 5eb0 Delete type=2 #1116
-2026/08/03-03:06:36.029 5eb0 Delete type=0 #1117
-2026/08/03-03:06:36.029 5eb0 Delete type=3 #1115
-2026/08/03-03:06:36.062 9270 Level-0 table #1122: started
-2026/08/03-03:06:36.096 9270 Level-0 table #1122: 187163 bytes OK
-2026/08/03-03:06:36.150 9270 Delete type=0 #1120
-2026/08/03-03:06:36.150 9270 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 7894 : 1
-2026/08/03-03:06:36.150 9270 Compacting 1@0 + 1@1 files
-2026/08/03-03:06:36.196 9270 Generated table #1123@0: 222 keys, 187163 bytes
-2026/08/03-03:06:36.196 9270 Compacted 1@0 + 1@1 files => 187163 bytes
-2026/08/03-03:06:36.260 9270 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/08/03-03:06:36.260 9270 Delete type=2 #1118
-2026/08/03-03:06:36.260 9270 Delete type=2 #1122
-2026/08/03-03:06:36.260 9270 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 7894 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/08/03-03:55:23.388 280 Recovering log #1121
+2026/08/03-03:55:23.536 280 Delete type=0 #1121
+2026/08/03-03:55:23.536 280 Delete type=3 #1119
+2026/08/03-03:55:23.625 88c8 Level-0 table #1127: started
+2026/08/03-03:55:23.673 88c8 Level-0 table #1127: 187199 bytes OK
+2026/08/03-03:55:23.735 88c8 Delete type=0 #1125
+2026/08/03-03:55:23.736 88c8 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 8116 : 1
+2026/08/03-03:55:23.736 88c8 Compacting 1@0 + 1@1 files
+2026/08/03-03:55:23.801 88c8 Generated table #1128@0: 222 keys, 187199 bytes
+2026/08/03-03:55:23.801 88c8 Compacted 1@0 + 1@1 files => 187199 bytes
+2026/08/03-03:55:23.868 88c8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/08/03-03:55:23.869 88c8 Delete type=2 #1123
+2026/08/03-03:55:23.869 88c8 Delete type=2 #1127
+2026/08/03-03:55:23.870 88c8 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 8116 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

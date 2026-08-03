@@ -10,7 +10,6 @@ import { getSummonCustomizationData } from "./customizeTokens.js";
 import { handlePostSummon } from "./handlePostSummon.js";
 import {
   addTraits,
-  compFromUuid,
   convertSpecificCreatureToSF2e,
 } from "./helpers.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
@@ -175,7 +174,7 @@ export async function summon(
       });
     }
 
-    const selectedActor = await compFromUuid(selectedActorUuid);
+    const selectedActor = await foundry.utils.fromUuid(selectedActorUuid);
     const originalActorLevel = selectedActor?.level;
 
     const houseRuleUpdates = isAffectedByHouseRules(itemUuid)

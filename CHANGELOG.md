@@ -7,6 +7,7 @@
 - **Updated**
   - Fixed all existing necromancer spell handling (and the actors) to use the new thralls and spells as opposed to how they worked in the playtest
   - Made changes to how `The Hallowed Dead` was supported
+  - Remove compatability patch for v12
 
 ## 2.9.1
 

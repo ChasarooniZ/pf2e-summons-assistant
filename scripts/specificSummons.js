@@ -12,6 +12,7 @@ import {
   errorNotification,
   getAvengingWildwoodStrikeRuleElements,
   getGridUnitsFromFeet,
+  getHeightenedValue,
   hasAnyJB2A,
   hasNoTargets,
   onlyHasJB2AFree,
@@ -1139,7 +1140,11 @@ const handlers = {
           }),
           rank: data.rank,
           itemsToAdd: [
-            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration),
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+              uuid: SOURCES.NECROMANCER.BLOODY_TENDRILS,
+              necromancerLevel: data.summonerLevel,
+              rollOptions: data.summonerRollOptions,
+            }),
             EFFECTS.RULE_EFFECT([
               RULE_ELEMENTS.SPELL_DC_FLAG,
               RULE_ELEMENTS.SPELL_RANK_FLAG(data.rank),
@@ -1155,7 +1160,18 @@ const handlers = {
           specific_uuids: [CREATURES.NECROMANCER.CONGLOMERATE_OF_LIMBS],
           noDefaultTraits: true,
           rank: data.rank,
-          itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
+          modifications: {
+            "system.attributes.hp.max": data.rank * 10,
+            "system.attributes.hp.value": data.rank * 10,
+          },
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG]),
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+              uuid: SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS,
+              necromancerLevel: data.summonerLevel,
+              rollOptions: data.summonerRollOptions,
+            }),
+          ],
         },
       ];
     },
@@ -1212,7 +1228,13 @@ const handlers = {
           noDefaultTraits: true,
           rank: data.rank,
           amount: 1,
-          itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
+          itemsToAdd: [
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+              uuid: SOURCES.NECROMANCER.CREATE_THRALL,
+              necromancerLevel: data.summonerLevel,
+              rollOptions: data.summonerRollOptions,
+            }),
+          ],
         },
       ];
     },
@@ -1223,7 +1245,14 @@ const handlers = {
           specific_uuids: [CREATURES.NECROMANCER.LIVING_GRAVEYARD],
           noDefaultTraits: true,
           rank: data.rank,
-          itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG]),
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+              uuid: SOURCES.NECROMANCER.LIVING_GRAVEYARD,
+              necromancerLevel: data.summonerLevel,
+              rollOptions: data.summonerRollOptions,
+            }),
+          ],
         },
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
@@ -1264,7 +1293,17 @@ const handlers = {
           specific_uuids: [CREATURES.NECROMANCER.RECURRING_NIGHTMARE],
           noDefaultTraits: true,
           rank: data.rank,
-          itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT([
+              RULE_ELEMENTS.SPELL_DC_FLAG,
+              RULE_ELEMENTS.SPELL_RANK_FLAG(data.rank),
+            ]),
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+              uuid: SOURCES.NECROMANCER.RECURRING_NIGHTMARE,
+              necromancerLevel: data.summonerLevel,
+              rollOptions: data.summonerRollOptions,
+            }),
+          ],
         },
       ];
     },
@@ -1277,6 +1316,10 @@ const handlers = {
           rank: data.rank,
           amount: 5,
           itemsToAdd: [
+            EFFECTS.RULE_EFFECT([
+              RULE_ELEMENTS.SPELL_DC_FLAG,
+              RULE_ELEMENTS.SPELL_RANK_FLAG(data.rank),
+            ]),
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
               uuid: SOURCES.NECROMANCER.SKELETAL_LANCERS,
               castRank: data.rank,

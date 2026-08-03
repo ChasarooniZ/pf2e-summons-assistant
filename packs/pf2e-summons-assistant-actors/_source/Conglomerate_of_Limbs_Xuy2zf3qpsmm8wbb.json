@@ -419,7 +419,7 @@
           "value": "free"
         },
         "description": {
-          "value": "<p><strong>Trigger </strong>When you use @UUID[Compendium.pf2e.spells-srd.NWDTNTpfPEc821pu]{Thrall Charge} to order this thrall to make a Strike</p><hr><p><strong>Effect </strong>It makes two melee unarmed Strikes instead of one, each against a different creature within 10 feet. Your multiple attack penalty doesn’t increase until after the thrall makes both Strikes. A creature hit by one of these Strikes must also succeed at a @Check[fortitude|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] throw or become @UUID[Compendium.pf2e.conditionitems.kWc1fhmv9LBiTuei]{Grabbed} by the thrall for 1 round (or restrained on a critical failure) or until it Escapes.</p><p>Attempts to Escape don’t automatically succeed, and the Escape [[/act escape dc=resolve(@actor.flags.pf2e-summons-assistant.dc)]] DC is your spell DC.</p>",
+          "value": "<p><strong>Trigger </strong>When you use @UUID[Compendium.pf2e.spells-srd.NWDTNTpfPEc821pu]{Thrall Charge} to order this thrall to make a Strike</p><hr><p><strong>Effect </strong>It makes two melee unarmed Strikes instead of one, each against a different creature within 10 feet. Your multiple attack penalty doesn’t increase until after the thrall makes both Strikes. A creature hit by one of these Strikes must also succeed at a @Check[fortitude|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] throw or become @UUID[Compendium.pf2e.conditionitems.kWc1fhmv9LBiTuei]{Grabbed} by the thrall for 1 round (or restrained on a critical failure) or until it Escapes.</p><p>Attempts to Escape don’t automatically succeed, and the Escape [[/act escape]] DC is your spell DC.</p>",
           "gm": ""
         },
         "publication": {

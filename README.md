@@ -71,16 +71,18 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Summon Elemental Herald` - Art requires `Pathfinder Tokens: Bestiary`
   - `Call Fluxwraith`
 - **Necromancer**
+  - `Bind Heroic Spirit` - On Successful Attack (Currently does nothing as the system doesn't have this effect)
+  - `Bloody Tendril`
+  - `Conglomerate of Limbs`
   - `Create Thrall`
     - _Puppeteer_ - Basic support (does not handle 1 / round atm)
     - _Spirit_ - Adds two new strike damage types
     - _The Hallowed Dead_
-  - `Perfected Thrall`
-  - `Skeletal Lancers`
-  - `Living Graveyard`
-  - `Recurring Nightmare`
   - `Inevitable Return`
-  - `Bind Heroic Spirit` - On Successful Attack
+  - `Living Graveyard`
+  - `Perfected Thrall`
+  - `Recurring Nightmare`
+  - `Skeletal Lancers`
 - **Wall**
   - `Prismatic Sphere`
   - `Prismatic Wall`
