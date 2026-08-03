@@ -175,6 +175,7 @@ You can see everyone else who contributed to the module [here](CONTRIBUTORS.md)
 - `Plant Banner` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Dragon Turret` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - `Protector Tree` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
+- `Bloody Tendril` - (credit @Chasarooni, under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) license)
 - The following were Made with assets from 2-Minute Tabletop
   - `Lantern`
   - `Candle`
