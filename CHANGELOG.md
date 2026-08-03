@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.10.1
+
+- Added the `mindless` trait to thralls
+
+
 ## 2.10.0
 
 - **New**

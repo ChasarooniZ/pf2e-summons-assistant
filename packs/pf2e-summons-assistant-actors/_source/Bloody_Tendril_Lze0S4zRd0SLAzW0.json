@@ -226,7 +226,8 @@
     "skills": {},
     "traits": {
       "value": [
-        "undead"
+        "undead",
+        "thrall"
       ],
       "rarity": "common",
       "size": {
