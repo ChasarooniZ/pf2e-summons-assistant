@@ -20,7 +20,6 @@ import {
 import { incarnateDetails } from "./specificCases/incarnate.js";
 import { getEidolon } from "./specificClasses/summoner.js";
 import { isSummonSourceDisabled } from "./disableItems.js";
-import { getNecromancerProf } from "./specificClasses/necromancer.js";
 import {
   dancingWeaponDialog,
   getJB2aPath,
@@ -1121,8 +1120,18 @@ const handlers = {
       return [
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
+          noDefaultTraits: true,
+          modifications: {
+            ...getBaseThrallArtConfig(data.summonerRollOptions),
+          },
           rank: 1,
-          itemsToAdd: [EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration)],
+          itemsToAdd: [
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
+              uuid: SOURCES.NECROMANCER.CREATE_THRALL,
+              necromancerLevel: data.summonerLevel,
+              rollOptions: data.summonerRollOptions,
+            }),
+          ],
         },
       ];
     },
@@ -1208,6 +1217,9 @@ const handlers = {
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
           noDefaultTraits: true,
+          modifications: {
+            ...getBaseThrallArtConfig(data.summonerRollOptions),
+          },
           rank: data.rank,
           amount: amts[result.choice],
           itemsToAdd: [
@@ -1226,6 +1238,9 @@ const handlers = {
         {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
           noDefaultTraits: true,
+          modifications: {
+            ...getBaseThrallArtConfig(data.summonerRollOptions),
+          },
           rank: data.rank,
           amount: 1,
           itemsToAdd: [
@@ -1258,6 +1273,9 @@ const handlers = {
           specific_uuids: [CREATURES.NECROMANCER.THRALL],
           noDefaultTraits: true,
           rank: data.rank,
+          modifications: {
+            ...getBaseThrallArtConfig(data.summonerRollOptions),
+          },
           amount: 5,
           itemsToAdd: [
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {

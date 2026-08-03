@@ -345,14 +345,50 @@ async function autoDeleteThrall(effect, info) {
   return await tokDoc.delete();
 }
 
-export function getNecromancerProf(lvl) {
-  if (lvl < 7) {
-    return 1;
-  } else if (lvl < 15) {
-    return 2;
-  } else if (lvl < 19) {
-    return 3;
+export function getBaseThrallArtConfig(rollOptions) {
+  if (rollOptions.includes("feature:bone")) {
+    return {
+      prototypeToken: {
+        texture: {
+          src: "modules/pf2e-tokens-monster-core/assets/tokens/ghost-commoner.webp",
+        },
+        ring: {
+          subject: {
+            texture:
+              "modules/pf2e-tokens-monster-core/assets/subjects/ghost-commoner.webp",
+          },
+        },
+      },
+    };
+  } else if (rollOptions.includes("feature:blood")) {
+    return {
+      prototypeToken: {
+        texture: {
+          src: "modules/pf2e-tokens-bestiaries/tokens/undead/vampiric/vampire-spawn-rogue.webp",
+        },
+        ring: {
+          subject: {
+            texture:
+              "modules/pf2e-tokens-bestiaries/subjects/undead/vampiric/vampire-spawn-rogue.webp",
+          },
+        },
+      },
+    };
+  } else if (rollOptions.includes("feature:spirit")) {
+    return {
+      prototypeToken: {
+        texture: {
+          src: "modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/skeleton-guard.webp",
+        },
+        ring: {
+          subject: {
+            texture:
+              "modules/pf2e-tokens-bestiaries/subjects/undead/skeletal/skeleton-guard.webp",
+          },
+        },
+      },
+    };
   } else {
-    return 4;
+    return {};
   }
 }
