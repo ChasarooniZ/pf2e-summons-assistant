@@ -1,7 +1,11 @@
 ## Unreleased
 
+## 2.10.2
+
 - **Updated**
   - Added feature specific base thrall art override
+  - Added support for wildcard on customizing token
+  - Trying a new release method
 
 ## 2.10.1
 
