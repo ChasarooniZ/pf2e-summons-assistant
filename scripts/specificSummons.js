@@ -24,6 +24,7 @@ import {
   dancingWeaponDialog,
   getJB2aPath,
 } from "./specificCases/dancingWeapon.js";
+import { getBaseThrallArtConfig } from "./specificClasses/necromancer.js";
 
 export async function getSpecificSummonDetails(
   uuid,
