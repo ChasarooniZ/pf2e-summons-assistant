@@ -104,7 +104,8 @@
             },
             "bilocation": {
                 "error": "[错误] 你未在当前场景中激活二重身克隆"
-            }
+            },
+            "illusory-creature": "[幻象生物] 选择你的幻象所呈现的生物形态与体型"
         },
         "dialog": {
             "duplicate-foe": "该目标豁免失败了吗？",
@@ -142,6 +143,21 @@
             },
             "bilocation": {
                 "title": "选择要保留的二重身克隆指示物"
+            },
+            "summon": {
+                "sort": {
+                    "descending": "（降序）"
+                },
+                "filter": {
+                    "only-with-art": "附带美术资产"
+                }
+            },
+            "create-thrall": {
+                "title": "创造残骸",
+                "options": {
+                    "two": "{iconSummon}召唤了{cnt}个残骸",
+                    "one": "{iconSummon}召唤{cnt}个残骸并立即指挥残骸"
+                }
             }
         },
         "display-text": {
@@ -224,6 +240,12 @@
                 },
                 "dancing-blade": {
                     "title": "效果：飞舞之刃 Dancing Blade"
+                },
+                "wondrous-figurine": {
+                    "duration": "效果：奇妙雕像 Wondrous Figurine",
+                    "bismuth-leopard": {
+                        "flash-aura": "效果：铋石花豹闪烁灵光 Bismuth Leopard Flash Aura"
+                    }
                 }
             }
         },
@@ -235,6 +257,12 @@
         "code": {
             "range": {
                 "feet": "尺"
+            }
+        },
+        "creature-name": {
+            "wondrous-figurine": {
+                "bismuth-leopard": "铋石花豹",
+                "jade-serpent": "翠玉蛇"
             }
         }
     }
