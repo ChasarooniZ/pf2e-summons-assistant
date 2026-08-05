@@ -5,10 +5,12 @@ export const MODULE_ID = "pf2e-summons-assistant";
 export const DEF_TOKEN_CONFIGS = {
   name: "",
   imagePath: "",
+  doWildCard: false,
   scale: 1,
   ringEnabled: false,
   subjectTexture: "",
   subjectScaleCorrection: 1,
+  actorImg: "",
 };
 
 //Source is stored in the SYSTEM IT COMES FROM TO PREVENT ISSUES

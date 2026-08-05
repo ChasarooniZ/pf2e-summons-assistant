@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.10.5
+
+- **Updated**
+  - Fixed error introduced in `2.10.2` causing customization to not work (🐛 @A Helpful Drow)
+  - Added option to customize actor image for summons
+  - Added automated adding of bone speed bonus to summons
+  - Fixed thrall art override being swapped for `spirit` and `bone`
+
 ## 2.10.4
 
 - Updated Chinese translation (🌐 @AlphaStarguide)

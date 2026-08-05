@@ -77,6 +77,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Create Thrall`
     - _Puppeteer_ - Basic support (does not handle 1 / round atm)
     - _Spirit_ - Adds two new strike damage types
+    - *Bone* - Adds 5 speed to all thralls
     - _The Hallowed Dead_
   - `Inevitable Return`
   - `Living Graveyard`

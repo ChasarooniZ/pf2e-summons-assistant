@@ -141,7 +141,11 @@ async function customizeSummonedToken(tokenInfo, item) {
         </label>
         <range-picker value="${defCFG.subjectScaleCorrection}" min="0.5" max="3" step="0.01" name="subjectScaleCorrection">
       </div>
-    </fieldset
+    </fieldset>
+     <div class="form-group">
+      <label for="actorImg">${game.i18n.localize("DOCUMENT.Actor")} ${game.i18n.localize("DOCUMENT.FIELDS.img.label")}</label>
+      <input type="text" name="actorImg" value="${defCFG.actorImg}">
+    </div>
     `,
     ok: {
       label: "Save",
@@ -199,6 +203,9 @@ export function mapToActualModifications(cfg) {
   const updateData = {};
   if (cfg.name) {
     updateData.name = cfg.name;
+  }
+  if (cfg?.actorImg) {
+    updateData.img = cfg?.actorImg;
   }
   updateData.prototypeToken = {
     ...(cfg?.name ? { name: cfg.name } : {}),

@@ -244,7 +244,7 @@ function createThrallStrikeRuleElements(
   const damageTypes = [...baseDamageTypes];
 
   // Add spirit-monger damage types if the feature is present
-  if (rollOptions.includes("feature:spirit")) {
+  if (rollOptions?.includes("feature:spirit")) {
     damageTypes.push(...SPIRIT_MONGER_DAMAGE_TYPES);
   }
 
@@ -267,7 +267,7 @@ function createThrallStrikeRuleElements(
     );
   }
   ruleElements.push(getStrikeMod(slugs));
-  if (rollOptions.includes("feat:the-hallowed-dead")) {
+  if (rollOptions?.includes("feat:the-hallowed-dead")) {
     ruleElements.push(
       {
         key: "ActorTraits",
@@ -286,6 +286,14 @@ function createThrallStrikeRuleElements(
         damageType: "spirit",
       },
     );
+  }
+  if (rollOptions?.includes("feature:bone")) {
+    ruleElements.push({
+      key: "FlatModifier",
+      label: "Bone",
+      selector: ["speed"],
+      value: 5,
+    });
   }
   return ruleElements;
 }
@@ -346,21 +354,21 @@ async function autoDeleteThrall(effect, info) {
 }
 
 export function getBaseThrallArtConfig(rollOptions) {
-  if (rollOptions.includes("feature:bone")) {
+  if (rollOptions?.includes("feature:bone")) {
     return {
       prototypeToken: {
         texture: {
-          src: "modules/pf2e-tokens-monster-core/assets/tokens/ghost-commoner.webp",
+          src: "modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/skeleton-guard.webp",
         },
         ring: {
           subject: {
             texture:
-              "modules/pf2e-tokens-monster-core/assets/subjects/ghost-commoner.webp",
+              "modules/pf2e-tokens-bestiaries/subjects/undead/skeletal/skeleton-guard.webp",
           },
         },
       },
     };
-  } else if (rollOptions.includes("feature:blood")) {
+  } else if (rollOptions?.includes("feature:blood")) {
     return {
       prototypeToken: {
         texture: {
@@ -374,16 +382,16 @@ export function getBaseThrallArtConfig(rollOptions) {
         },
       },
     };
-  } else if (rollOptions.includes("feature:spirit")) {
+  } else if (rollOptions?.includes("feature:spirit")) {
     return {
       prototypeToken: {
         texture: {
-          src: "modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/skeleton-guard.webp",
+          src: "modules/pf2e-tokens-monster-core/assets/tokens/ghost-commoner.webp",
         },
         ring: {
           subject: {
             texture:
-              "modules/pf2e-tokens-bestiaries/subjects/undead/skeletal/skeleton-guard.webp",
+              "modules/pf2e-tokens-monster-core/assets/subjects/ghost-commoner.webp",
           },
         },
       },
