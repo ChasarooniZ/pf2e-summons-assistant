@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.10.4
+
+- Updated Chinese translation (🌐 @AlphaStarguide)
+
 ## 2.10.3
 
 - Fixed issue caused for `Create Thrall` in the last update
