@@ -154,8 +154,7 @@ async function customizeSummonedToken(tokenInfo, item) {
   });
 
   console.log({ data, tokenInfo });
-  const isChangesMade =
-    data && Object.keys(defCFG).some((key) => defCFG?.[key] !== data?.[key]);
+  const isChangesMade = data && JSON.stringify(defCFG) !== JSON.stringify(data);
 
   if (isChangesMade) {
     // Set Customization setting

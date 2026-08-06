@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.10.6
+
+- Fixed issue with customization not working
+
 ## 2.10.5
 
 - **Updated**
