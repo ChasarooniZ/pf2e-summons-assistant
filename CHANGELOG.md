@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.11.1
+
+- **Updated**
+  - Fixed damage on perfected thrall (@Suldrun45)
+
 ## 2.11.0
 
 - **New**

@@ -187,8 +187,8 @@ export function createThrallAttackInfo({
     [SOURCES.NECROMANCER.PERFECTED_THRALL]: {
       baseDamageTypes: ["bludgeoning"],
       config: {
-        die: "d10",
-        dice: 7,
+        die: "d6",
+        dice: defaultDiceCount,
         traits: ["magical"],
         name: "Perfect Thrall Strike",
       },
