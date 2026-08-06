@@ -1,0 +1,101 @@
+{
+  "name": "Spell Effect: Thrall Charge",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>Granted by @UUID[Compendium.pf2e.spells-srd.NWDTNTpfPEc821pu]{Thrall Charge}</p><p>You deal additional damage based on the spell rank.</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selector": "strike-damage",
+        "diceNumber": "match(when(lte(@item.level, 1), 1), when(btwn(@item.level, 2, 5), 2), when(btwn(@item.level, 6, 9), 3), when(gte(@item.level, 10), 4))",
+        "dieSize": "d6",
+        "label": "{item|name}"
+      },
+      {
+        "choices": [
+          {
+            "label": "Destroy",
+            "value": 1
+          },
+          {
+            "label": "Don't Destroy",
+            "value": 0
+          }
+        ],
+        "key": "ChoiceSet",
+        "prompt": "Destroy Thrall to gain a Status bonust to Attack",
+        "flag": "destroy",
+        "priority": 95
+      },
+      {
+        "key": "FlatModifier",
+        "value": "@item.level* @item.flags.system.rulesSelections.destroy",
+        "type": "status",
+        "selector": [
+          "strike-damage"
+        ],
+        "label": "Thrall Charge (Destroy)"
+      }
+    ],
+    "slug": "effect-thrall-charge",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": 1,
+      "unit": "rounds",
+      "expiry": "turn-start",
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "_id": "zFyeEWPXwfeQgYku",
+  "img": "icons/magic/death/undead-ghost-strike-white.webp",
+  "folder": "Jgr03TNBCPio6tdA",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.0",
+    "createdTime": 1786051927419,
+    "modifiedTime": 1786053506122,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "sort": 300000,
+  "_key": "!items!zFyeEWPXwfeQgYku"
+}

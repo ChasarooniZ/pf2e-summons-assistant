@@ -1,5 +1,15 @@
 ## Unreleased
 
+## 2.11.0
+
+- **New**
+  - Added a custom `Thrall Boost` spell
+    - This includes an effect which will boost thrall damage
+    - Added optional dependency for `PF2e Brewrata` to allow easy swapping of the spell
+- **Update**
+  - Modified all thralls with additional boosts to instead apply those when `Spell Effect: Thrall Boost` is on them
+  - Updated flag selection rule elements to work in SF2e
+
 ## 2.10.6
 
 - Fixed issue with customization not working

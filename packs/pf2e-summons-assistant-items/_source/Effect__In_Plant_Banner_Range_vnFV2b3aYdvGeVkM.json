@@ -59,11 +59,11 @@
     "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.vnFV2b3aYdvGeVkM",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "14.361",
+    "coreVersion": "14.365",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652696533,
-    "modifiedTime": 1778652696533,
+    "modifiedTime": 1786051927586,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "effects": [],
@@ -74,6 +74,6 @@
   },
   "flags": {},
   "_id": "vnFV2b3aYdvGeVkM",
-  "sort": 0,
+  "sort": 500000,
   "_key": "!items!vnFV2b3aYdvGeVkM"
 }

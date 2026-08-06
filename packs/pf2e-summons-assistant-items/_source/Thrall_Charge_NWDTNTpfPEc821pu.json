@@ -1,0 +1,83 @@
+{
+  "_id": "NWDTNTpfPEc821pu",
+  "folder": "9pwAlUtxsoEAX8Ah",
+  "img": "icons/magic/death/undead-ghost-strike-white.webp",
+  "name": "Thrall Charge",
+  "system": {
+    "description": {
+      "gm": "",
+      "value": "<p>You urge a thrall to move and attack. You command the target thrall to Stride and then make a Strike that deals an additional 1d6 damage. You can destroy the thrall as part of this Strike to add a status bonus to the Strike's damage equal to this spell's rank.</p><p>@UUID[Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.zFyeEWPXwfeQgYku]{Spell Effect: Thrall Charge}</p><hr><p><strong>Heightened (2nd)</strong> The additional damage increases to 2d6.</p><p><strong>Heightened (6th)</strong> The additional damage increases to 3d6.</p><p><strong>Heightened (10th)</strong> The additional damage increases to 4d6.</p>"
+    },
+    "rules": [],
+    "slug": "thrall-charge",
+    "_migration": {
+      "version": 0.959,
+      "lastMigration": null,
+      "previous": null
+    },
+    "traits": {
+      "otherTags": [],
+      "value": [
+        "cantrip",
+        "concentrate",
+        "manipulate",
+        "necromancer"
+      ],
+      "rarity": "uncommon",
+      "traditions": []
+    },
+    "publication": {
+      "title": "Pathfinder Impossible Magic",
+      "authors": "",
+      "license": "ORC",
+      "remaster": true
+    },
+    "level": {
+      "value": 1
+    },
+    "requirements": "",
+    "target": {
+      "value": "1 of your thralls"
+    },
+    "range": {
+      "value": "30 feet"
+    },
+    "area": null,
+    "time": {
+      "value": "2"
+    },
+    "duration": {
+      "value": "",
+      "sustained": false
+    },
+    "damage": {},
+    "defense": null,
+    "cost": {
+      "value": ""
+    },
+    "location": {
+      "value": null
+    },
+    "counteraction": false
+  },
+  "type": "spell",
+  "_stats": {
+    "coreVersion": "14.365",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.0",
+    "createdTime": 1786052555112,
+    "modifiedTime": 1786052561591,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "sort": 0,
+  "_key": "!items!NWDTNTpfPEc821pu"
+}

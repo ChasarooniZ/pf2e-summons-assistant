@@ -33,6 +33,7 @@ import { setupTurnReminders } from "./summonReminder.js";
 import { setupLightsHooks } from "./specificCases/lights.js";
 import { setupThaumaturgeHooks } from "./specificClasses/thaumaturge.js";
 import { setupBilocationHooks } from "./specificCases/bilocation.js";
+import { setupBrewrata } from "./lib/brewrata.js";
 
 Hooks.once("init", async function () {
   loadTemplates([`modules/${MODULE_ID}/templates/updateMessage.hbs`]);
@@ -52,6 +53,7 @@ Hooks.once("ready", async function () {
   setupSpecificHooks();
   setupDisableItemHooks();
   setupTurnReminders();
+  setupBrewrata();
 
   if (game.settings.get(MODULE_ID, "refresh.summons")) {
     setupSummonedTokenRefreshHooks();

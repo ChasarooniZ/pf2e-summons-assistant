@@ -215,8 +215,8 @@
     "skills": {},
     "traits": {
       "value": [
-        "undead",
-        "thrall"
+        "thrall",
+        "undead"
       ],
       "rarity": "uncommon",
       "size": {
@@ -430,7 +430,7 @@
           "remaster": false
         },
         "rules": [],
-        "slug": null,
+        "slug": "thrall-charge-multi-attack",
         "traits": {
           "otherTags": [],
           "value": []
@@ -464,7 +464,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785741054367,
-        "modifiedTime": 1785741778727,
+        "modifiedTime": 1786051983665,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -480,7 +480,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521640656,
-    "modifiedTime": 1785741031171,
+    "modifiedTime": 1786051984532,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

@@ -56,7 +56,7 @@
   },
   "_id": "w63eEfgLKghaxlJ3",
   "img": "icons/magic/life/heart-hand-gold-green-light.webp",
-  "sort": 0,
+  "sort": 600000,
   "ownership": {
     "default": 0,
     "vj8VUT8j7Wtzy3Y2": 3
@@ -66,11 +66,11 @@
     "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.w63eEfgLKghaxlJ3",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "14.361",
+    "coreVersion": "14.365",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652696533,
-    "modifiedTime": 1778652696533,
+    "modifiedTime": 1786051927586,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!items!w63eEfgLKghaxlJ3"

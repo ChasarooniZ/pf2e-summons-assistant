@@ -343,7 +343,7 @@
           "value": "free"
         },
         "description": {
-          "value": "<p><strong>Trigger </strong>This spell was cast or sustained.</p><hr><p><strong>Effect </strong>The dragon unleashes its breath in a @Template[type:cone|distance:60], dealing @Damage[13d8[@item.flags.pf2e.rulesSelections.tradition]] damage (@Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:concentrate,manipulate,@item.flags.pf2e.rulesSelections.tradition|basic:true]). The damage type depends on the tradition used to cast this spell: <strong>arcane</strong> force, <strong>divine</strong> spirit, <strong>occult</strong> mental, <strong>primal</strong> fire.</p>",
+          "value": "<p><strong>Trigger </strong>This spell was cast or sustained.</p><hr><p><strong>Effect </strong>The dragon unleashes its breath in a @Template[type:cone|distance:60], dealing @Damage[13d8[@item.flags.system.rulesSelections.tradition]] damage (@Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:concentrate,manipulate,@item.flags.system.rulesSelections.tradition|basic:true]). The damage type depends on the tradition used to cast this spell: <strong>arcane</strong> force, <strong>divine</strong> spirit, <strong>occult</strong> mental, <strong>primal</strong> fire.</p>",
           "gm": ""
         },
         "publication": {

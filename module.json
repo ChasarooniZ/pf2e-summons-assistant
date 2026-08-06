@@ -57,6 +57,12 @@
         "reason": "This module makes it easier to track what summons you are sustaining",
         "manifest": "https://github.com/Lank891/Foundry-Pf2e-Sustain-Reminder/releases/latest/download/module.json",
         "compatibility": {}
+      },
+      {
+        "id": "pf2e-brewrata",
+        "name": "PF2e Brewrata",
+        "type": "module",
+        "reason": "For Necromancer to modify Boost Thrall"
       }
     ]
   },

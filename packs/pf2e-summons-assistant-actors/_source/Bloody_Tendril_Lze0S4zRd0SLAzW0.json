@@ -226,8 +226,8 @@
     "skills": {},
     "traits": {
       "value": [
-        "undead",
-        "thrall"
+        "thrall",
+        "undead"
       ],
       "rarity": "common",
       "size": {
@@ -494,7 +494,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785739694803,
-    "modifiedTime": 1785739694803,
+    "modifiedTime": 1786051973659,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

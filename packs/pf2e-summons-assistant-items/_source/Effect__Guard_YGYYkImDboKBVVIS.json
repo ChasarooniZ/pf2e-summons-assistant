@@ -64,18 +64,18 @@
   },
   "_id": "YGYYkImDboKBVVIS",
   "img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
-  "sort": 0,
+  "sort": 200000,
   "ownership": {
     "default": 0,
     "vj8VUT8j7Wtzy3Y2": 3
   },
   "flags": {},
   "_stats": {
-    "coreVersion": "14.361",
+    "coreVersion": "14.365",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778774148288,
-    "modifiedTime": 1778774958667,
+    "modifiedTime": 1786051927585,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

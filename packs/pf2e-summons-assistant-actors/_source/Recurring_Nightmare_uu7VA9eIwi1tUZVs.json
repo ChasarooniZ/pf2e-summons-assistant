@@ -225,8 +225,8 @@
     "skills": {},
     "traits": {
       "value": [
-        "undead",
-        "thrall"
+        "thrall",
+        "undead"
       ],
       "rarity": "uncommon",
       "size": {
@@ -549,7 +549,7 @@
       "name": "Thrall Charge - Boost",
       "system": {
         "actionType": {
-          "value": "free"
+          "value": "passive"
         },
         "description": {
           "value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order this thrall to make a Strike</p><p>That Strike deals an additional @Damage[2d6] damage.</p><hr><p><strong>Heightened (8th)</strong> The additional damage increases to @Damage[3d6].</p>",
@@ -563,20 +563,12 @@
         },
         "rules": [
           {
-            "domain": "all",
-            "key": "RollOption",
-            "option": "thrall-charge",
-            "toggleable": true,
-            "label": "Thrall Charge",
-            "value": false
-          },
-          {
             "key": "DamageDice",
             "selector": "strike-damage",
             "diceNumber": "ternary(gte(max(@actor.flags.pf2e-summons-assistant.rank, 7), 8), 3, 2)",
             "dieSize": "d6",
             "predicate": [
-              "thrall-charge"
+              "self:effect:thrall-charge"
             ],
             "label": "{item|name}"
           }
@@ -614,7 +606,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785742718940,
-        "modifiedTime": 1785742747300,
+        "modifiedTime": 1786053010587,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
         "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
@@ -691,7 +683,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521656065,
-    "modifiedTime": 1785521866451,
+    "modifiedTime": 1786052271715,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

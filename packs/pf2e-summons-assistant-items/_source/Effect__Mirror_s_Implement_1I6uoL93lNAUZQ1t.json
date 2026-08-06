@@ -71,18 +71,18 @@
   },
   "_id": "1I6uoL93lNAUZQ1t",
   "img": "icons/commodities/treasure/token-silver-blue.webp",
-  "sort": 0,
+  "sort": 100000,
   "ownership": {
     "default": 0,
     "vj8VUT8j7Wtzy3Y2": 3
   },
   "flags": {},
   "_stats": {
-    "coreVersion": "14.363",
+    "coreVersion": "14.365",
     "systemId": "pf2e",
     "systemVersion": "8.2.0",
     "createdTime": 1781677163483,
-    "modifiedTime": 1781684505842,
+    "modifiedTime": 1786051927584,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

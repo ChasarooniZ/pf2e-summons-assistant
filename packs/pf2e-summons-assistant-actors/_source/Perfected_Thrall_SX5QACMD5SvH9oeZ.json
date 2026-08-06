@@ -220,8 +220,8 @@
     "skills": {},
     "traits": {
       "value": [
-        "undead",
-        "thrall"
+        "thrall",
+        "undead"
       ],
       "rarity": "uncommon",
       "size": {
@@ -360,76 +360,6 @@
       "_key": "!actors.items!SX5QACMD5SvH9oeZ.JbFXW4ACd8AyV07N"
     },
     {
-      "type": "melee",
-      "name": "Strike",
-      "effects": [],
-      "system": {
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.935,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "description": {
-          "value": "",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": [],
-          "config": {}
-        },
-        "damageRolls": {
-          "ZpgQM93OJYw8CpF7": {
-            "damage": "7d10",
-            "damageType": "bludgeoning",
-            "category": null
-          }
-        },
-        "bonus": {
-          "value": 0
-        },
-        "attackEffects": {
-          "value": []
-        },
-        "action": "strike",
-        "area": null,
-        "range": null,
-        "subjectToMAP": true
-      },
-      "_id": "Yh9Y9TKrPvHrMm0J",
-      "img": "systems/pf2e/icons/default-icons/melee.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "08H3OywEOnm7LqtN": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785521647341,
-        "modifiedTime": 1785521647341,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!SX5QACMD5SvH9oeZ.Yh9Y9TKrPvHrMm0J"
-    },
-    {
       "type": "action",
       "name": "Undestroyable",
       "system": {
@@ -566,7 +496,7 @@
       "name": "Thrall Charge - Perfected",
       "system": {
         "actionType": {
-          "value": "free"
+          "value": "passive"
         },
         "description": {
           "value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order this thrall to make a Strike</p><p>That Strike deals an additional @Damage[6d6] damage.</p>",
@@ -580,20 +510,12 @@
         },
         "rules": [
           {
-            "domain": "all",
-            "key": "RollOption",
-            "option": "thrall-charge",
-            "toggleable": true,
-            "label": "Thrall Charge",
-            "value": false
-          },
-          {
             "key": "DamageDice",
             "selector": "strike-damage",
             "diceNumber": 6,
             "dieSize": "d6",
             "predicate": [
-              "thrall-charge"
+              "self:effect:thrall-charge"
             ],
             "label": "{item|name}"
           }
@@ -631,7 +553,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.0",
         "createdTime": 1785743934502,
-        "modifiedTime": 1785743960536,
+        "modifiedTime": 1786052988367,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
         "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
@@ -648,7 +570,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521647341,
-    "modifiedTime": 1785743747361,
+    "modifiedTime": 1786052248111,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,
