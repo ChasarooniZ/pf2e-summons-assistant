@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.11.2
+
+- Fixed issue with perfected thrall (@Suldrun45)
+
 ## 2.11.1
 
 - **Update**
