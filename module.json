@@ -47,6 +47,22 @@
         "id": "socketlib",
         "type": "module",
         "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
+      },
+      {
+        "id": "tcal",
+        "type": "module",
+        "manifest": "https://github.com/ddbrown30/tcal/releases/latest/download/module.json",
+        "compatibility": {
+          "minimum": "0.3.0"
+        }
+      },
+      {
+        "id": "sequencer",
+        "type": "module",
+        "manifest": "https://github.com/fantasycalendar/FoundryVTT-Sequencer/releases/latest/download/module.json",
+        "compatibility": {
+          "minimum": "3.0.0"
+        }
       }
     ],
     "recommends": [
@@ -66,7 +82,9 @@
       }
     ]
   },
-  "esmodules": ["scripts/module.js"],
+  "esmodules": [
+    "scripts/module.js"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -92,7 +110,9 @@
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
-  "styles": ["styles/module.css"],
+  "styles": [
+    "styles/module.css"
+  ],
   "license": "LICENSE",
   "readme": "README.md",
   "socket": true,
