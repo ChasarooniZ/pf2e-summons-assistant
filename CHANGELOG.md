@@ -10,6 +10,7 @@
   - Modified all thralls with additional boosts to instead apply those when `Spell Effect: Thrall Boost` is on them
   - Updated flag selection rule elements to work in SF2e
   - Fixed damage on perfected thrall (@Suldrun45)
+  - Made the downstream requirements from Foundry Summons explicit in this module to prevent the old foundry no install dependencies meme
 
 
 ## 2.10.6
