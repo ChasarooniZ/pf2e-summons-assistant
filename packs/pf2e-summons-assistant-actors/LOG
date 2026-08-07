@@ -1,14 +1,15 @@
-2026/08/06-17:04:15.195 8a7c Recovering log #1149
-2026/08/06-17:04:15.505 8a7c Delete type=0 #1149
-2026/08/06-17:04:15.505 8a7c Delete type=3 #1147
-2026/08/06-17:04:15.548 8d18 Level-0 table #1154: started
-2026/08/06-17:04:15.594 8d18 Level-0 table #1154: 186658 bytes OK
-2026/08/06-17:04:15.647 8d18 Delete type=0 #1152
-2026/08/06-17:04:15.648 8d18 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 8859 : 1
-2026/08/06-17:04:15.648 8d18 Compacting 1@0 + 1@1 files
-2026/08/06-17:04:15.683 8d18 Generated table #1155@0: 221 keys, 186658 bytes
-2026/08/06-17:04:15.683 8d18 Compacted 1@0 + 1@1 files => 186658 bytes
-2026/08/06-17:04:15.735 8d18 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/08/06-17:04:15.736 8d18 Delete type=2 #1150
-2026/08/06-17:04:15.736 8d18 Delete type=2 #1154
-2026/08/06-17:04:15.736 8d18 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 8859 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/08/06-23:41:21.765 4348 Recovering log #1165
+2026/08/06-23:41:22.286 4348 Delete type=0 #1165
+2026/08/06-23:41:22.286 4348 Delete type=3 #1163
+2026/08/06-23:41:22.318 5a18 Level-0 table #1169: started
+2026/08/06-23:41:22.353 5a18 Level-0 table #1169: 186516 bytes OK
+2026/08/06-23:41:22.406 5a18 Delete type=0 #1167
+2026/08/06-23:41:22.406 5a18 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!d1333zUKqydfJM9b.xm3Y5cAoltUUS2im' @ 9238 : 1
+2026/08/06-23:41:22.406 5a18 Compacting 2@0 + 1@1 files
+2026/08/06-23:41:22.441 5a18 Generated table #1170@0: 221 keys, 186516 bytes
+2026/08/06-23:41:22.441 5a18 Compacted 2@0 + 1@1 files => 186516 bytes
+2026/08/06-23:41:22.505 5a18 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/08/06-23:41:22.505 5a18 Delete type=2 #1160
+2026/08/06-23:41:22.506 5a18 Delete type=2 #1164
+2026/08/06-23:41:22.506 5a18 Delete type=2 #1169
+2026/08/06-23:41:22.506 5a18 Manual compaction at level-0 from '!actors.items!d1333zUKqydfJM9b.xm3Y5cAoltUUS2im' @ 9238 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

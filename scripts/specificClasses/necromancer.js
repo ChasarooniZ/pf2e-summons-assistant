@@ -356,6 +356,7 @@ async function autoDeleteThrall(effect, info) {
 export function getBaseThrallArtConfig(rollOptions) {
   if (rollOptions?.includes("feature:bone")) {
     return {
+      img: "modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/skeleton-guard.webp",
       prototypeToken: {
         texture: {
           src: "modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/skeleton-guard.webp",
@@ -370,6 +371,7 @@ export function getBaseThrallArtConfig(rollOptions) {
     };
   } else if (rollOptions?.includes("feature:blood")) {
     return {
+      img: "modules/pf2e-tokens-bestiaries/portraits/undead/vampiric/vampire-spawn-rogue.webp",
       prototypeToken: {
         texture: {
           src: "modules/pf2e-tokens-bestiaries/tokens/undead/vampiric/vampire-spawn-rogue.webp",
@@ -384,19 +386,20 @@ export function getBaseThrallArtConfig(rollOptions) {
     };
   } else if (rollOptions?.includes("feature:spirit")) {
     return {
+      img: "modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/phantom-knight.webp",
       prototypeToken: {
         texture: {
-          src: "modules/pf2e-tokens-monster-core/assets/tokens/ghost-commoner.webp",
+          src: "modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/phantom-knight.webp",
         },
         ring: {
           subject: {
             texture:
-              "modules/pf2e-tokens-monster-core/assets/subjects/ghost-commoner.webp",
+              "modules/pf2e-tokens-bestiaries/subjects/undead/ghostly/phantom-knight.webp",
           },
         },
       },
     };
-  } else {
-    return {};
   }
+
+  return {};
 }

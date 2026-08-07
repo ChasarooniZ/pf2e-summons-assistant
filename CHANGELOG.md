@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.11.1
+
+- **Update**
+  - Updated art for most thralls to use `PF2e Bestiaries` (@ricothebold)
+
 ## 2.11.0
 
 - **New**
@@ -11,7 +16,6 @@
   - Updated flag selection rule elements to work in SF2e
   - Fixed damage on perfected thrall (@Suldrun45)
   - Made the downstream requirements from Foundry Summons explicit in this module to prevent the old foundry no install dependencies meme
-
 
 ## 2.10.6
 

@@ -15,12 +15,12 @@
     "appendNumber": false,
     "prependAdjective": false,
     "texture": {
-      "src": "modules/pf2e-tokens-myth-and-magic/assets/tokens/pzo2110_skeleton.webp",
+      "src": "modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/skeletal-giant.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
-      "scaleX": 2,
-      "scaleY": 2,
+      "scaleX": 1.5,
+      "scaleY": 1.5,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -82,8 +82,8 @@
       },
       "effects": 1,
       "subject": {
-        "scale": 2,
-        "texture": "modules/pf2e-tokens-myth-and-magic/assets/subjects/pzo2110_skeleton.webp"
+        "scale": 1.5,
+        "texture": "modules/pf2e-tokens-bestiaries/subjects/undead/skeletal/skeletal-giant.webp"
       }
     },
     "randomImg": false,
@@ -229,7 +229,7 @@
       }
     }
   },
-  "img": "modules/pf2e-tokens-myth-and-magic/assets/portraits/pzo2110_skeleton.webp",
+  "img": "modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/skeletal-giant.webp",
   "items": [
     {
       "type": "action",
@@ -618,7 +618,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521648839,
-    "modifiedTime": 1786052290559,
+    "modifiedTime": 1786077208358,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

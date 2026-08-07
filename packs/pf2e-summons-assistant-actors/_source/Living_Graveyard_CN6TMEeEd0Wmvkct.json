@@ -15,7 +15,7 @@
     "appendNumber": false,
     "prependAdjective": false,
     "texture": {
-      "src": "modules/pf2e-tokens-bestiaries/tokens/plant/yellow-musk-brute.webp",
+      "src": "modules/pf2e-tokens-bestiaries/tokens/undead/warsworn.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
@@ -83,7 +83,7 @@
       "effects": 1,
       "subject": {
         "scale": 1,
-        "texture": "modules/pf2e-tokens-bestiaries/subjects/plant/yellow-musk-brute.webp"
+        "texture": "modules/pf2e-tokens-bestiaries/subjects/undead/warsworn.webp"
       }
     },
     "randomImg": false,
@@ -224,7 +224,7 @@
       }
     }
   },
-  "img": "modules/pf2e-tokens-bestiaries/portraits/plant/yellow-musk-brute.webp",
+  "img": "modules/pf2e-tokens-bestiaries/portraits/undead/warsworn.webp",
   "items": [
     {
       "type": "action",
@@ -613,7 +613,7 @@
     "systemId": "pf2e",
     "systemVersion": "8.4.0",
     "createdTime": 1785521643004,
-    "modifiedTime": 1786052317258,
+    "modifiedTime": 1786076864609,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,
