@@ -1,10 +1,5 @@
 ## Unreleased
 
-## 2.11.1
-
-- **Updated**
-  - Fixed damage on perfected thrall (@Suldrun45)
-
 ## 2.11.0
 
 - **New**
@@ -14,6 +9,8 @@
 - **Update**
   - Modified all thralls with additional boosts to instead apply those when `Spell Effect: Thrall Boost` is on them
   - Updated flag selection rule elements to work in SF2e
+  - Fixed damage on perfected thrall (@Suldrun45)
+
 
 ## 2.10.6
 
