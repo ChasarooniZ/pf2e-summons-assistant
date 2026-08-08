@@ -1,8 +1,13 @@
 ## Unreleased
 
+## 2.11.3
+
+- Fixed issue with skeletal lancers thrall (🖥️@Suldrun45)
+
+
 ## 2.11.2
 
-- Fixed issue with perfected thrall (@Suldrun45)
+- Fixed issue with perfected thrall (🖥️@Suldrun45)
 
 ## 2.11.1
 
