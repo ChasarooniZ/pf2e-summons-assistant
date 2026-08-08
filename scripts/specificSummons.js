@@ -1343,6 +1343,7 @@ const handlers = {
             ]),
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
               uuid: SOURCES.NECROMANCER.SKELETAL_LANCERS,
+              necromancerLevel: data.summonerLevel,
               castRank: data.rank,
               rollOptions: data.summonerRollOptions,
             }),
