@@ -1291,6 +1291,7 @@ const handlers = {
           itemsToAdd: [
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
               uuid: SOURCES.NECROMANCER.CREATE_THRALL,
+              necromancerLevel: data.summonerLevel,
               castRank: data.rank,
               rollOptions: data.summonerRollOptions,
             }),
@@ -1308,6 +1309,7 @@ const handlers = {
           itemsToAdd: [
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
               uuid: SOURCES.NECROMANCER.PERFECTED_THRALL,
+              necromancerLevel: data.summonerLevel,
               castRank: data.rank,
               rollOptions: data.summonerRollOptions,
             }),
@@ -1351,6 +1353,7 @@ const handlers = {
             ]),
             EFFECTS.NECROMANCER.THRALL_EXPIRATION(data.duration, {
               uuid: SOURCES.NECROMANCER.SKELETAL_LANCERS,
+              necromancerLevel: data.summonerLevel,
               castRank: data.rank,
               rollOptions: data.summonerRollOptions,
             }),
