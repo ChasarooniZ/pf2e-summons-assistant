@@ -47,7 +47,7 @@ export async function summon(
       );
     }
     const amount = summonDetails?.amount || 1;
-    const summonLevel = getMaxSummonLevel(summonDetails.rank, itemUuid);
+    const summonLevel = summonDetails?.summonLevel ?? getMaxSummonLevel(summonDetails.rank, itemUuid);
 
     let selectedActorUuid;
     if (allowedSpecificUuids.length === 1) {

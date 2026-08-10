@@ -89,8 +89,9 @@ export const SOURCES = {
   },
 
   KINETICIST: {
-    TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
+    FEARSOME_FAMILIAR: "Compendium.pf2e.feats-srd.Item.PkQo8tb0Yby1pFU0",
     JAGGED_BERMS: "Compendium.pf2e.feats-srd.Item.9L6c9sxweM4IdOse",
+    TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
   },
 
   NECROMANCER: {
@@ -147,6 +148,7 @@ export const SLUG_TO_SOURCE = {
   "double-deployment": SOURCES.MECHANIC.DOUBLE_DEPLOYMENT,
   "dragon-turret": SOURCES.MISC.DRAGON_TURRET,
   "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
+  "fearsome-familiar": SOURCES.KINETICIST.FEARSOME_FAMILIAR,
   "floating-flame": SOURCES.MISC.FLOATING_FLAME,
   "healing-well": SOURCES.MISC.HEALING_WELL,
   "illusory-creature": SOURCES.MISC.ILLUSORY_CREATURE,

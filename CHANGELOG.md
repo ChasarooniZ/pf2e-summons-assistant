@@ -1,5 +1,8 @@
 ## Unreleased
 
+- **New**
+  - Fearsome Familiar (❔ @thecoolersub)
+
 ## 2.11.1
 
 - **Update**

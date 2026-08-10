@@ -67,9 +67,11 @@ const getSummonHandlers = () => ({
     handlers.incarnate.handleTempestOfShades,
 
   // Kineticist
+  [SOURCES.KINETICIST.FEARSOME_FAMILIAR]:
+    handlers.kineticist.handleFearsomeFamiliar,
+  [SOURCES.KINETICIST.JAGGED_BERMS]: handlers.kineticist.handleJaggedBerms,
   [SOURCES.KINETICIST.TIMBER_SENTINEL]:
     handlers.kineticist.handleTimberSentinel,
-  [SOURCES.KINETICIST.JAGGED_BERMS]: handlers.kineticist.handleJaggedBerms,
 
   // Mechanic
   [SOURCES.MECHANIC.DEPLOY_MINE]: handlers.mechanic.handleDeployMine,
@@ -227,6 +229,14 @@ const handlers = {
   },
 
   kineticist: {
+    handleFearsomeFamiliar: (data) => {
+      return [
+        {
+          summonerLevel: data.summonerLevel - 4,
+          traits: ["elemental"],
+        },
+      ];
+    },
     handleTimberSentinel: (data) => {
       return [
         {
