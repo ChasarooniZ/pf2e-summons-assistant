@@ -3,7 +3,7 @@
 ![](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dflat%26url%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2FChasarooniZ%2Fpf2e-summons-assistant%2Fmain%2Fmodule.json)
 
 ![All Downloads](https://img.shields.io/github/downloads/ChasarooniZ/pf2e-summons-assistant/total?color=5e0000&label=All%20Downloads)
-![Latest Release Download Count](https://img.shields.io/github/downloads/ChasarooniZ/pf2e-summons-assistant>/latest/module.zip)
+![Latest Release Download Count](https://img.shields.io/github/downloads/ChasarooniZ/pf2e-summons-assistant/latest/module.zip)
 ![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fpf2e-summons-assistant&colorB=4aa94a)
 
 [![gitlocalized ](https://gitlocalize.com/repo/10293/whole_project/badge.svg)](https://gitlocalize.com/repo/10293?utm_source=badge) [![](https://img.shields.io/badge/ko--fi-donate-%23FF5E5B?style=flat-square&logo=ko-fi&logoColor=white)](https://ko-fi.com/Chasarooni)
