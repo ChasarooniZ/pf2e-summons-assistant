@@ -1,7 +1,11 @@
 ## Unreleased
 
+## 2.12.0
+
 - **New**
   - Fearsome Familiar (❔ @thecoolersub)
+- **Update**
+  - Fixed customization not working for sf2e (🐛 @mechamaya)
 
 ## 2.11.3
 

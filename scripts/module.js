@@ -1,6 +1,7 @@
 import { MODULE_ID, SLUG_TO_SOURCE, SOURCE_UUIDS, SOURCES } from "./const.js";
 import {
   convertItemUUIDBasedOnSystem,
+  convertSpecificCreatureToSF2e,
   getSpellRange,
   messageItemHasRollOption,
   setupSummonedTokenRefreshHooks,
@@ -235,9 +236,12 @@ Hooks.once("ready", async function () {
 
   Hooks.on("renderItemSheet", async (app, html, data) => {
     const item = data.item;
-    const uuid =
+    const uuid = convertItemUUIDBasedOnSystem(
       item.sourceId ||
-      SLUG_TO_SOURCE[item?.slug || game.pf2e.system.sluggify(item?.name || "")];
+        SLUG_TO_SOURCE[
+          item?.slug || game.pf2e.system.sluggify(item?.name || "")
+        ],
+    );
     const dat = {
       rank:
         item?.system?.location?.heightenedLevel ?? item?.system?.level?.value,
@@ -258,7 +262,9 @@ Hooks.once("ready", async function () {
 
     // add onclick event
     button.click(() => {
-      const relevantUuids = summonDetails.flatMap((s) => s.specific_uuids);
+      const relevantUuids = convertSpecificCreatureToSF2e(
+        summonDetails.flatMap((s) => s.specific_uuids),
+      );
       Promise.all(relevantUuids.map(async (uuid) => await fromUuid(uuid))).then(
         (actors) => modifyActorsMenu({ actors, item }),
       );
