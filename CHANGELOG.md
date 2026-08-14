@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.12.1
+
+- **Update**
+  - Fixed bug with Fearsome Familiar where misnamed variable lead to no summon options
+
 ## 2.12.0
 
 - **New**

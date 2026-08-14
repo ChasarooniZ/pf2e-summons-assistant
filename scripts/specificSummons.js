@@ -232,7 +232,7 @@ const handlers = {
     handleFearsomeFamiliar: (data) => {
       return [
         {
-          summonerLevel: data.summonerLevel - 4,
+          summonLevel: data.summonerLevel - 4,
           traits: ["elemental"],
         },
       ];

@@ -30,7 +30,7 @@ _a Thanks to Vauxs for updating [Foundry Summons](https://foundryvtt.com/package
   - [Changelog](#changelog)
   - [Handled Spells and Features](#handled-spells-and-features)
     - [Spells](#spells)
-    - [Feats / Feaatures](#feats--feaatures)
+    - [Feats / Features](#feats--features)
     - [Items](#items)
     - [SF2e](#sf2e)
   - [Monster Actions](#monster-actions)
@@ -77,7 +77,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Create Thrall`
     - _Puppeteer_ - Basic support (does not handle 1 / round atm)
     - _Spirit_ - Adds two new strike damage types
-    - *Bone* - Adds 5 speed to all thralls
+    - _Bone_ - Adds 5 speed to all thralls
     - _The Hallowed Dead_
   - `Inevitable Return`
   - `Living Graveyard`
@@ -107,11 +107,12 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Telekinetic Hand` - Art Requires `JB2a`
   - `Wooden Double` - Places Wooden Double, and then asks you to step, also handles the damage overflow if you toggle the setting
 
-### Feats / Feaatures
+### Feats / Features
 
 - **Commander**
   - `Plant Banner` - Basic Case (no handling of feat interactions beyond base case atm)
 - **Kineticist**
+  - `Fearsome Familiar`
   - `Timber Sentinel` - Does not do any automation as of yet
   - `Jagged Berm` - Requires `JB2a` free for the spikes
 - **Thaumaturge**
