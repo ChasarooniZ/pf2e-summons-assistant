@@ -8,10 +8,7 @@ import {
 } from "./const.js";
 import { getSummonCustomizationData } from "./customizeTokens.js";
 import { handlePostSummon } from "./handlePostSummon.js";
-import {
-  addTraits,
-  convertSpecificCreatureToSF2e,
-} from "./helpers.js";
+import { addTraits, convertSpecificCreatureToSF2e } from "./helpers.js";
 import { scaleActorItems, scaleNPCToLevel } from "./scaleActor/scaleActor.js";
 
 export async function summon(
@@ -47,7 +44,9 @@ export async function summon(
       );
     }
     const amount = summonDetails?.amount || 1;
-    const summonLevel = summonDetails?.summonLevel ?? getMaxSummonLevel(summonDetails.rank, itemUuid);
+    const summonLevel =
+      summonDetails?.summonLevel ??
+      getMaxSummonLevel(summonDetails.rank, itemUuid);
 
     let selectedActorUuid;
     if (allowedSpecificUuids.length === 1) {
@@ -227,6 +226,7 @@ export async function summon(
           typeof crosshairParameters === "function"
             ? crosshairParameters({ cnt: i, prevSummonedToken })
             : crosshairParameters,
+        drawPing: game.settings.get(MODULE_ID, "config.ping-summon"),
       });
 
       const summonedActor = tokDoc.actor ?? game.actors.get(tokDoc.actorId);
@@ -383,9 +383,13 @@ function isMaxSummonLevelRuleActive(
 
 function isLinkedSummon(summonUUID) {
   return [
-    CREATURES.NECROMANCER.THRALL,
+    CREATURES.NECROMANCER.AMALGAMATION,
+    CREATURES.NECROMANCER.BLOODY_TENDRIL,
+    CREATURES.NECROMANCER.LIVING_GRAVEYARD,
     CREATURES.NECROMANCER.PERFECTED_THRALL,
+    CREATURES.NECROMANCER.RECURRING_NIGHTMARE,
     CREATURES.NECROMANCER.SKELETAL_LANCER,
+    CREATURES.NECROMANCER.THRALL,
     CREATURES.DRAGON_TURRET,
     CREATURES.FLOATING_FLAME,
     CREATURES.AVENGING_WILDWOOD,

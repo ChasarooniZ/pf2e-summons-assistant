@@ -66,11 +66,13 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Summon Monitor`
   - `Phantasmal Minion`
 - **Incarnate**
+  - `Incarnate Skeletal Giant`
   - `Tempest of Shades`
   - `Summon Healing Servitor`
   - `Summon Elemental Herald` - Art requires `Pathfinder Tokens: Bestiary`
   - `Call Fluxwraith`
 - **Necromancer**
+  - `Amalgamate`
   - `Bind Heroic Spirit` - On Successful Attack (Currently does nothing as the system doesn't have this effect)
   - `Bloody Tendril`
   - `Conglomerate of Limbs`
@@ -79,6 +81,7 @@ You can access the changelog [here](/CHANGELOG.md).
     - _Spirit_ - Adds two new strike damage types
     - _Bone_ - Adds 5 speed to all thralls
     - _The Hallowed Dead_
+    - _Become as Spririt_ - Applies the effect on thrall destroying spells
   - `Inevitable Return`
   - `Living Graveyard`
   - `Perfected Thrall`
@@ -102,6 +105,8 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Illusory Creature`
   - `Instant Minefield`
   - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)
+  - `Mislead`
+  - `Project Image`
   - `Protector Tree` - Does not do any automation as of yet
   - `Shadow Self`
   - `Telekinetic Hand` - Art Requires `JB2a`

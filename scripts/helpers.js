@@ -1,4 +1,9 @@
-import { CONDITIONS_AFFECTING_SPELL_DC, MODULE_ID } from "./const.js";
+import {
+  CONDITIONS_AFFECTING_SPELL_DC,
+  MODULE_ID,
+  SLUG_TO_SOURCE,
+  SOURCES,
+} from "./const.js";
 import { getStrikeMod, getStrikeRE } from "./specificClasses/necromancer.js";
 
 export function addTraits(type) {
@@ -402,4 +407,11 @@ export async function safeDelete(doc) {
   if (doc && !doc?._destroyed) {
     return doc.delete();
   }
+}
+
+export function populateSlugToSource() {
+  Object.values(SOURCES)
+    .map((group) => Object.entries(group))
+    .flat()
+    .forEach(([a, b]) => (SLUG_TO_SOURCE[game.pf2e.system.sluggify(a)] = b));
 }

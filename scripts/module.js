@@ -4,6 +4,7 @@ import {
   convertSpecificCreatureToSF2e,
   getSpellRange,
   messageItemHasRollOption,
+  populateSlugToSource,
   setupSummonedTokenRefreshHooks,
 } from "./helpers.js";
 import { extractDCValueRegex, isIncarnate } from "./specificCases/incarnate.js";
@@ -50,6 +51,7 @@ Hooks.once("setup", function () {
 });
 
 Hooks.once("ready", async function () {
+  populateSlugToSource();
   handleUpdateMessage();
   setupSpecificHooks();
   setupDisableItemHooks();

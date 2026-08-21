@@ -1,4 +1,10 @@
-import { MODULE_ID, SOURCES, CREATURES } from "../const.js";
+import {
+  MODULE_ID,
+  SOURCES,
+  CREATURES,
+  DESTROY_THRALL_SLUGS,
+  EFFECTS,
+} from "../const.js";
 import { capitalizeDamageType, getHeightenedValue } from "../helpers.js";
 import { getSpecificSummonDetails } from "../specificSummons.js";
 import { summon } from "../summon.js";
@@ -58,6 +64,37 @@ const SPIRIT_MONGER_DAMAGE_TYPES = ["spirit", "void"];
 
 export function setNecromancerHooks() {
   Hooks.on("preUpdateToken", livingGraveyardMovementHook);
+
+  Hooks.on("preCreateChatMessage", async (message, _info, _userID) => {
+    //Become as Spirit
+    const actor = message?.actor;
+    if (
+      actor?.rollOptions?.all?.["feat:become-as-spirit"] &&
+      !message?.flags?.pf2e?.context?.type
+    ) {
+      const item = message?.item;
+      if (DESTROY_THRALL_SLUGS.has(item?.slug)) {
+        const isDestroy = !["osteo-armaments", "thrall-charge"].includes(
+          item?.slug,
+        )
+          ? true
+          : await foundry.applications.api.DialogV2.confirm({
+              window: {
+                title: "pf2e-summons-assistant.dialog.thrall-destroyed.title",
+                icon: "fa-duotone fa-solid fa-person-burst",
+              },
+              content: game.i18n.localize(
+                "pf2e-summons-assistant.dialog.thrall-destroyed.content",
+              ),
+            });
+
+        if (isDestroy) {
+          const effect = await fromUuid(EFFECTS.NECROMANCER.BECOME_AS_SPIRIT);
+          await actor.createEmbeddedDocuments("Item", [effect]);
+        }
+      }
+    }
+  });
 
   if (game.settings.get(MODULE_ID, "necromancer.thrall.auto-expire")) {
     setupAutoDeleteThrallHook();
@@ -166,13 +203,22 @@ export function createThrallAttackInfo({
         name: "Thrall Strike",
       },
     },
+    [SOURCES.NECROMANCER.AMALGAMATE]: {
+      baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+      config: {
+        die: "d6",
+        dice: defaultDiceCount,
+        traits: ["magical", "reach-10"],
+        name: "Amalgamation Strike",
+      },
+    },
     [SOURCES.NECROMANCER.BLOODY_TENDRILS]: {
       baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
       config: {
         die: "d6",
         dice: defaultDiceCount,
         traits: ["magical", "reach-10"],
-        name: "Thrall Strike",
+        name: "Tendril Strike",
       },
     },
     [SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS]: {

@@ -1,5 +1,18 @@
 ## Unreleased
 
+## 2.13.0
+
+- **New**
+  - Support for:
+    - `Incarnate Skeletal Giant` (💡 @Sol (Veronica))
+    - `Amalgamate`
+    - `Project Image`
+    - `Mislead`
+  - Automation for `Become as Spirit` (💡 @Tenk)
+  - Added module setting to disable summon ping (💡 @dharkus5000)
+- **Update**
+  - Reworked slug backup so it doesn't need to be manually added
+
 ## 2.12.1
 
 - **Update**

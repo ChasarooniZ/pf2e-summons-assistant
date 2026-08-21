@@ -138,6 +138,15 @@ export function setupSettings() {
     type: Boolean,
   });
 
+   game.settings.register(MODULE_ID, "config.ping-summon", {
+    name: `${MODULE_ID}.module-settings.config.ping-summon.name`,
+    hint: `${MODULE_ID}.module-settings.config.ping-summon.hint`,
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+
   game.settings.register(MODULE_ID, "disabled-items", {
     name: `${MODULE_ID}.module-settings.disabled-items.name`,
     hint: `${MODULE_ID}.module-settings.disabled-items.hint`,

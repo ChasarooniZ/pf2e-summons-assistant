@@ -36,6 +36,8 @@ export const SOURCES = {
     SUMMON_HEALING_SERVITOR: "Compendium.pf2e.spells-srd.Item.3r897dYO8oYvuyn5",
     SUMMON_ELEMENTAL_HERALD: "Compendium.pf2e.spells-srd.Item.kVNo3ga0lwLKPrem",
     CALL_FLUXWRAITH: "Compendium.pf2e.spells-srd.Item.i6GUJCWdNu2278oA",
+    INCARNATE_SKELETAL_GIANT:
+      "Compendium.pf2e.spells-srd.Item.3LPFReFtMPiO0pAk",
   },
 
   WONDROUS_FIGURINE: {
@@ -54,8 +56,11 @@ export const SOURCES = {
     ILLUSORY_CREATURE: "Compendium.pf2e.spells-srd.Item.f8SBoXiXQjlCKqly",
     INSTANT_MINEFIELD: "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK",
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
+    MISLEAD:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.u7n6WN7OjHHXTvVa",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
     PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
+    PROJECT_IMAGE: "Compendium.pf2e.spells-srd.Item.0873MWM0qKDDv81O",
     RAISE_THE_HORDE: "Compendium.pf2e.actionspf2e.Item.ND1G3s4lXNUAXc1q",
     SHADOW_SELF: "Compendium.pf2e.feats-srd.Item.7YvOqcdp9Z0RALMp",
     SWARM_FORTH: "Compendium.pf2e.actionspf2e.Item.E48YTUyreo1kc9GM",
@@ -95,6 +100,7 @@ export const SOURCES = {
   },
 
   NECROMANCER: {
+    AMALGAMATE: "Compendium.pf2e.feats-srd.Item.R3nv6GqV8K6SjGoV",
     BLOODY_TENDRILS: "Compendium.pf2e.spells-srd.Item.qy5NVKy2A3LwNleW",
     CREATE_THRALL: "Compendium.pf2e.spells-srd.Item.1JaRoJvlf8EPvnnD",
     PERFECTED_THRALL: "Compendium.pf2e.spells-srd.Item.34d5j4TJFMwz4b8f",
@@ -134,79 +140,7 @@ export const SOURCES = {
 
 export const SOURCE_UUIDS = getAllSourceUUIDs();
 
-export const SLUG_TO_SOURCE = {
-  "avenging-wildwood": SOURCES.MISC.AVENGING_WILDWOOD,
-  bilocation: SOURCES.MISC.BILOCATION,
-  "bloody-tendrils": SOURCES.NECROMANCER.BLOODY_TENDRILS,
-  "call-fluxwraith": SOURCES.CALL_FLUXWRAITH,
-  "call-ursine-ally": SOURCES.CALL_URSINE_ALLY,
-  candle: SOURCES.MUNDANE.CANDLE,
-  "conglomerate-of-limbs": SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS,
-  "create-thrall": SOURCES.NECROMANCER.CREATE_THRALL,
-  "dancing-blade": SOURCES.PSYCHIC.DANCING_BLADE,
-  "deploy-mine": SOURCES.MECHANIC.DEPLOY_MINE,
-  "double-deployment": SOURCES.MECHANIC.DOUBLE_DEPLOYMENT,
-  "dragon-turret": SOURCES.MISC.DRAGON_TURRET,
-  "duplicate-foe": SOURCES.MISC.DUPLICATE_FOE,
-  "fearsome-familiar": SOURCES.KINETICIST.FEARSOME_FAMILIAR,
-  "floating-flame": SOURCES.MISC.FLOATING_FLAME,
-  "healing-well": SOURCES.MISC.HEALING_WELL,
-  "illusory-creature": SOURCES.MISC.ILLUSORY_CREATURE,
-  "inevitable-return": SOURCES.NECROMANCER.INEVITABLE_RETURN,
-  "instant-minefield": SOURCES.MISC.INSTANT_MINEFIELD,
-  "jagged-berms": SOURCES.KINETICIST.JAGGED_BERMS,
-  "lantern-bulls-eye": SOURCES.MUNDANE.LANTERN_BULLSEYE,
-  "lantern-hooded": SOURCES.MUNDANE.LANTERN_HOODED,
-  light: SOURCES.MISC.LIGHT,
-  "living-graveyard": SOURCES.NECROMANCER.LIVING_GRAVEYARD,
-  "manifest-eidolon": SOURCES.SUMMONER.MANIFEST_EIDOLON,
-  "mirrors-reflection": SOURCES.THAUMATURGE.MIRRORS_REFLECTION,
-  "perfected-thrall": SOURCES.NECROMANCER.PERFECTED_THRALL,
-  "phantasmal-minion": SOURCES.MISC.PHANTASMAL_MINION,
-  "plant-banner": SOURCES.COMMANDER.PLANT_BANNER,
-  "prismatic-sphere": SOURCES.WALL.PRISMATIC_SPHERE,
-  "prismatic-wall": SOURCES.WALL.PRISMATIC_WALL,
-  "protector-tree": SOURCES.MISC.PROTECTOR_TREE,
-  "raise-the-horde": SOURCES.MISC.RAISE_THE_HORDE,
-  "recurring-nightmare": SOURCES.NECROMANCER.RECURRING_NIGHTMARE,
-  "shadow-doubles": SOURCES.CREATURE_ABILITY.SHADOW_DOUBLES,
-  "shadow-self": SOURCES.SHADOW_SELF,
-  "skeletal-lancers": SOURCES.NECROMANCER.SKELETAL_LANCERS,
-  "summon-animal": SOURCES.SUMMON.SUMMON_ANIMAL,
-  "summon-celestial": SOURCES.SUMMON.SUMMON_CELESTIAL,
-  "summon-construct": SOURCES.SUMMON.SUMMON_CONSTRUCT,
-  "summon-dragon": SOURCES.SUMMON.SUMMON_DRAGON,
-  "summon-elemental": SOURCES.SUMMON.SUMMON_ELEMENTAL,
-  "summon-elemental-herald": SOURCES.SUMMON.SUMMON_ELEMENTAL_HERALD,
-  "summon-entity": SOURCES.SUMMON.SUMMON_ENTITY,
-  "summon-fey": SOURCES.SUMMON.SUMMON_FEY,
-  "summon-fiend": SOURCES.SUMMON.SUMMON_FIEND,
-  "summon-giant": SOURCES.SUMMON.SUMMON_GIANT,
-  "summon-healing-servitor": SOURCES.SUMMON.SUMMON_HEALING_SERVITOR,
-  "summon-lesser-servitor": SOURCES.SUMMON.SUMMON_LESSER_SERVITOR,
-  "summon-monitor": SOURCES.SUMMON.SUMMON_MONITOR,
-  "summon-plant-or-fungus": SOURCES.SUMMON.SUMMON_PLANT_OR_FUNGUS,
-  "summon-robot": SOURCES.SUMMON.SUMMON_ROBOT,
-  "summon-undead": SOURCES.SUMMON.SUMMON_UNDEAD,
-  "swarm-forth": SOURCES.MISC.SWARM_FORTH,
-  "telekinetic-hand": SOURCES.MISC.TELEKINETIC_HAND,
-  "tempest-of-shades": SOURCES.INCARNATE.TEMPEST_OF_SHADES,
-  torch: SOURCES.MUNDANE.TORCH,
-  "timber-sentinel": SOURCES.KINETICIST.TIMBER_SENTINEL,
-  "wondrous-figurine-jade-serpent": SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
-  "activation-wondrous-figurine-jade-serpent":
-    SOURCES.WONDROUS_FIGURINE.JADE_SERPENT,
-  "wondrous-figurine-bismuth-leopards":
-    SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
-  "activation-wondrous-figurine-bismuth-leopards":
-    SOURCES.WONDROUS_FIGURINE.BISMUTH_LEOPARDS,
-  "wall-of-ice": SOURCES.WALL.WALL_OF_ICE,
-  "wall-of-fire": SOURCES.WALL.WALL_OF_FIRE,
-  "wall-of-stone": SOURCES.WALL.WALL_OF_STONE,
-  "wall-of-shadow": SOURCES.WALL.WALL_OF_SHADOW,
-  "wall-of-thorns": SOURCES.WALL.WALL_OF_THORNS,
-  "wooden-double": SOURCES.MISC.WOODEN_DOUBLE,
-};
+export const SLUG_TO_SOURCE = {};
 
 export const CREATURES = {
   AVENGING_WILDWOOD:
@@ -247,6 +181,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uQjg9X2YxIUCuqyF",
   ILLUSORY_CREATURE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.VXLBDKFs8HmZvi1u",
+  INCARNATE_SKELETAL_GIANT:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.YtBMcgasOA6ladNo",
   KINETICIST: {
     JAGGED_BERMS:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.Q93AQlbUTJcPlxYI",
@@ -266,6 +202,7 @@ export const CREATURES = {
   MECHANIC: {
     MINE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.sAVuxP25VE126TdZ",
   },
+  MISLEAD: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.u7n6WN7OjHHXTvVa",
   MUNDANE: {
     CANDLE:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.fTM3vgcCM5bAJmrS",
@@ -279,6 +216,8 @@ export const CREATURES = {
   NECROLOGISTS_HORDE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NnaI8Zd5ZFfz8zs2",
   NECROMANCER: {
+    AMALGAMATION:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ju0OKvd9p06XXqS4",
     THRALL:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ",
     PERFECTED_THRALL:
@@ -303,6 +242,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.hHwCVmWjtt0h0R8m",
   PRISMATIC_WALL:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.pJAxxrQMgA9ColPy",
+  PROJECT_IMAGE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.IhP95dgj5Y3ics4a",
   PROTECTOR_TREE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.jVsAEp6bR4mXtwHQ",
   PSYCHIC: {
@@ -421,6 +362,7 @@ export const EFFECTS = {
       },
       img: "icons/magic/death/grave-tombstone-glow-teal.webp",
     }),
+    BECOME_AS_SPIRIT: "Compendium.pf2e.feat-effects.Item.BCWpJb8yCCA8aGT8",
   },
   THAUMATURGE: {
     MIRRORS_REFLECTION:
@@ -684,6 +626,12 @@ export const RULE_ELEMENTS = {
     path: "flags.pf2e-summons-assistant.rank",
     value: rank,
   }),
+  AMALGAMATE_DAMAGE_BONUS: {
+    key: "FlatModifier",
+    value: "@item.origin.level",
+    selector: ["strike-damage"],
+    label: "Amalgamate",
+  },
 };
 
 export const AFFECTED_BY_HOUSE_RULES = new Set(Object.values(SOURCES.SUMMON));
@@ -768,3 +716,26 @@ export const COLORS = {
 };
 
 export const SIZES = ["tiny", "sm", "med", "lg", "huge", "grg"];
+
+export const DESTROY_THRALL_SLUGS = new Set([
+  "amalgamate",
+  "beckoning-dirge",
+  "body-shield",
+  "bone-burst",
+  "osteo-armaments", //ask
+  "reach-of-the-dead",
+  "wings-of-bone-and-sinew",
+  "bind-heroic-spirit",
+  "blood-infusion",
+  "blossoming-gore",
+  "bone-spear",
+  "bony-barrage",
+  "calcification",
+  "dead-weight",
+  "flesh-tsunami",
+  "life-tap",
+  "necrotic-bomb",
+  "temporary-possession",
+  "thrall-charge", //ask
+  "zombie-horde",
+]);

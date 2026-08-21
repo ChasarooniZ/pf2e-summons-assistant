@@ -14,6 +14,12 @@
           "hint": "Limits the range of spells that include a range with them as well as shows the range limit"
         }
       },
+      "config": {
+        "ping-summon": {
+          "name": "Ping when Token is Summoned",
+          "hint": "Creates a ping when a token is summoned"
+        }
+      },
       "name-ownership": {
         "name": "Add Summoner's Name to Summon's Name",
         "hint": "Modify the Summon's name to show who summoned it, IE 'Giorno's Goblin' etc."
@@ -142,6 +148,10 @@
           "two": "{iconSummon} Summon {cnt} thralls",
           "one": "{iconSummon} Summon {cnt} thrall{s} & {iconCommand} Command that thrall"
         }
+      },
+      "thrall-destroyed": {
+        "title": "Destroy Thrall?",
+        "content": "Did you decide to destroy a thrall? (for the purposes of 'Become as Spirit')"
       },
       "light": {
         "title": "Summon a Light Orb",

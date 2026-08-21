@@ -65,6 +65,8 @@ const getSummonHandlers = () => ({
     handlers.incarnate.handleSummonHealingServitor,
   [SOURCES.INCARNATE.TEMPEST_OF_SHADES]:
     handlers.incarnate.handleTempestOfShades,
+  [SOURCES.INCARNATE.INCARNATE_SKELETAL_GIANT]:
+    handlers.incarnate.handleIncarnateSkeletalGiant,
 
   // Kineticist
   [SOURCES.KINETICIST.FEARSOME_FAMILIAR]:
@@ -87,9 +89,11 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
   [SOURCES.MISC.HEALING_WELL]: handlers.misc.handleHealingWell,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
+  [SOURCES.MISC.MISLEAD]: handlers.misc.handleMislead,
   [SOURCES.MISC.ILLUSORY_CREATURE]: handlers.misc.handleIllusoryCreature,
   [SOURCES.MISC.INSTANT_MINEFIELD]: handlers.misc.handleInstantMinefield,
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
+  [SOURCES.MISC.PROJECT_IMAGE]: handlers.misc.handleProjectImage,
   [SOURCES.MISC.RAISE_THE_HORDE]: handlers.misc.handleNecrologistsHorde,
   [SOURCES.MISC.SHADOW_SELF]: handlers.misc.handleShadowSelf,
   [SOURCES.MISC.SWARM_FORTH]: handlers.misc.handleSwarmkeepersSwarm,
@@ -116,6 +120,7 @@ const getSummonHandlers = () => ({
   [SOURCES.WALL.WALL_OF_THORNS]: handlers.wall.handleWallOfThorns,
 
   // Necromancer
+  [SOURCES.NECROMANCER.AMALGAMATE]: handlers.necromancer.handleAmalgamate,
   [SOURCES.NECROMANCER.BIND_HEROIC_SPIRIT_STRIKE]:
     handlers.necromancer.handleBindHeroicSpiritStrike,
   [SOURCES.NECROMANCER.BLOODY_TENDRILS]:
@@ -219,6 +224,18 @@ const handlers = {
         {
           ...incarnateDetails({
             uuids: [CREATURES.TEMPEST_OF_SHADES],
+            rank: data.rank,
+            dc: data.dc,
+          }),
+          noDefaultTraits: true,
+        },
+      ];
+    },
+    handleIncarnateSkeletalGiant: (data) => {
+      return [
+        {
+          ...incarnateDetails({
+            uuids: [CREATURES.INCARNATE_SKELETAL_GIANT],
             rank: data.rank,
             dc: data.dc,
           }),
@@ -836,6 +853,45 @@ const handlers = {
         },
       ];
     },
+
+    handleProjectImage: (data) => {
+      const token = canvas.tokens.placeables.find(
+        (t) => t?.actor?.id === data.summonerActorId,
+      )?.document;
+      return [
+        {
+          specific_uuids: [CREATURES.PROJECT_IMAGE],
+          noDefaultTraits: true,
+          modifications: {
+            img: token.actor.img,
+            prototypeToken: token.toObject(),
+            "system.attributes.ac.value":
+              token.actor?.system.attributes.ac.value,
+            "system.saves.fortitude.value":
+              token.actor?.system.saves.fortitude.value,
+            "system.saves.reflex.value": token.actor?.system.saves.reflex.value,
+            "system.saves.will.value": token.actor?.system.saves.will.value,
+          },
+        },
+      ];
+    },
+    handleMislead: async (data) => {
+      const token = canvas.tokens.placeables.find(
+        (t) => t?.actor?.id === data.summonerActorId,
+      )?.document;
+      const invisible = await fromUuid(EFFECTS.CONDITIONS.INVISIBLE);
+      await token.actor.createEmbeddedDocuments("Item", [invisible]);
+      return [
+        {
+          specific_uuids: [CREATURES.MISLEAD],
+          noDefaultTraits: true,
+          modifications: {
+            img: token.actor.img,
+            prototypeToken: token.toObject(),
+          },
+        },
+      ];
+    },
   },
   creatureAbility: {
     handleShadowDouble: async (_data) => {
@@ -1127,6 +1183,29 @@ const handlers = {
     },
   },
   necromancer: {
+    handleAmalgamate: (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.NECROMANCER.AMALGAMATE],
+          noDefaultTraits: true,
+          rank: data.rank,
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT([
+              RULE_ELEMENTS.SPELL_DC_FLAG,
+              RULE_ELEMENTS.AMALGAMATE_DAMAGE_BONUS,
+            ]),
+            EFFECTS.NECROMANCER.THRALL_EXPIRATION(
+              {},
+              {
+                uuid: SOURCES.NECROMANCER.AMALGAMATE,
+                necromancerLevel: data.summonerLevel,
+                rollOptions: data.summonerRollOptions,
+              },
+            ),
+          ],
+        },
+      ];
+    },
     handleBindHeroicSpiritStrike: (data) => {
       return [
         {
