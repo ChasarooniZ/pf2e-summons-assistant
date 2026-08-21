@@ -166,7 +166,7 @@ You can access the changelog [here](/CHANGELOG.md).
 
   <img width="400" alt="image" src="https://github.com/user-attachments/assets/a3dacc09-ef60-4305-99e9-68dee50c89cb" />
 
-- `Customizable Summons` - On item that summons (Spell/Action/Equipment/ etc.) there is a new sheet header button that will allow you to customize the summon as you wish
+- `Customizable Summons and their art` - On item that summons (Spell/Action/Equipment/ etc.) there is a new sheet header button that will allow you to customize the summon as you wish
 
   <img width="400" alt="image" src="https://github.com/user-attachments/assets/098566d5-74ff-4b24-bfd7-bd1ccc7279fe" />
 
