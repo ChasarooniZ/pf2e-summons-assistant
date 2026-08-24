@@ -1186,7 +1186,7 @@ const handlers = {
     handleAmalgamate: (data) => {
       return [
         {
-          specific_uuids: [CREATURES.NECROMANCER.AMALGAMATE],
+          specific_uuids: [CREATURES.NECROMANCER.AMALGAMATION],
           noDefaultTraits: true,
           rank: data.rank,
           itemsToAdd: [

@@ -138,7 +138,7 @@ export function setupSettings() {
     type: Boolean,
   });
 
-   game.settings.register(MODULE_ID, "config.ping-summon", {
+  game.settings.register(MODULE_ID, "config.ping-summon", {
     name: `${MODULE_ID}.module-settings.config.ping-summon.name`,
     hint: `${MODULE_ID}.module-settings.config.ping-summon.hint`,
     scope: "world",

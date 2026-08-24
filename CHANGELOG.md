@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.13.1
+
+- **Update**
+  - Fixed missing UUID for `Amalgamate`
+
 ## 2.13.0
 
 - **New**
