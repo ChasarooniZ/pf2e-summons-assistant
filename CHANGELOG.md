@@ -5,6 +5,8 @@
     - `Marvelous Mount`
     - `Ignite the Sun`
   - Automation for Grim Fascination `Blood` (💡💻 @idontplaythisgame)
+- **Update**
+  - Fixed bug causing `Become as Spirit` automation to fail on spell cast
 
 ## 2.13.1
 

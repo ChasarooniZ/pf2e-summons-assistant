@@ -70,7 +70,7 @@ export function setNecromancerHooks() {
     const actor = message?.actor;
     if (
       actor?.rollOptions?.all?.["feat:become-as-spirit"] &&
-      !message?.flags?.pf2e?.context?.type
+      isValidMessageContext(message?.flags?.pf2e?.context?.type)
     ) {
       const item = message?.item;
       if (DESTROY_THRALL_SLUGS.has(item?.slug)) {
@@ -98,7 +98,7 @@ export function setNecromancerHooks() {
     // Blood Healing
     if (
       actor?.rollOptions?.all?.["feature:blood"] &&
-      !message?.flags?.pf2e?.context?.type
+      isValidMessageContext(message?.flags?.pf2e?.context?.type)
     ) {
       const item = message?.item;
       if (DESTROY_THRALL_SLUGS.has(item?.slug)) {
@@ -123,7 +123,7 @@ export function setNecromancerHooks() {
           );
           const roll = new DamageRoll(`${healingAmount}[healing]`);
           roll.toMessage({
-            flavor: `Blood`,
+            flavor: `Grim Fascination - Blood (Healing)`,
             speaker: ChatMessage.getSpeaker({ actor }),
             flags: {
               "pf2e-toolbelt": {
@@ -144,6 +144,10 @@ export function setNecromancerHooks() {
   if (game.settings.get(MODULE_ID, "necromancer.thrall.auto-expire")) {
     setupAutoDeleteThrallHook();
   }
+}
+
+function isValidMessageContext(context) {
+  return !context || context === "spell-cast";
 }
 
 function livingGraveyardMovementHook(tokenDoc, data, id) {

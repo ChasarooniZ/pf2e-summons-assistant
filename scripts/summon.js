@@ -393,6 +393,7 @@ function isLinkedSummon(summonUUID) {
     CREATURES.DRAGON_TURRET,
     CREATURES.FLOATING_FLAME,
     CREATURES.AVENGING_WILDWOOD,
+    CREATURES.IGNITE_THE_SUN,
   ].includes(summonUUID);
 }
 

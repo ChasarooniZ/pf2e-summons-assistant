@@ -81,7 +81,8 @@ You can access the changelog [here](/CHANGELOG.md).
     - _Spirit_ - Adds two new strike damage types
     - _Bone_ - Adds 5 speed to all thralls
     - _The Hallowed Dead_
-    - _Become as Spririt_ - Applies the effect on thrall destroying spells
+    - _Become as Spirit_ - Applies the effect on thrall destroying spells
+    - _Blood_ - Heals on thrall destroying spells
   - `Inevitable Return`
   - `Living Graveyard`
   - `Perfected Thrall`
@@ -120,6 +121,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Fearsome Familiar`
   - `Timber Sentinel` - Does not do any automation as of yet
   - `Jagged Berm` - Requires `JB2a` free for the spikes
+  - `Ignite the Sun` - Requires `JB2a` for fx
 - **Thaumaturge**
   - `Mirror's Implement` - Also incldues automation on deletion of extra tokens, updating combatant, etc.
 - **Misc**
