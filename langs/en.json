@@ -153,6 +153,15 @@
         "title": "Destroy Thrall?",
         "content": "Did you decide to destroy a thrall? (for the purposes of 'Become as Spirit')"
       },
+      "wall-of-flesh": {
+        "arms": "Arms",
+        "eyes": "Eyes",
+        "mouths": "Mouths"
+      },
+      "wall": {
+        "line": "Line",
+        "circle": "Circle"
+      },
       "light": {
         "title": "Summon a Light Orb",
         "text": "Do you want to summon an orb of light that's not attached to a creature? (If you select no, you'll need to instead apply the effect to the creature you want to have the light)"

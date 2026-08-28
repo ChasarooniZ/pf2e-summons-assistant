@@ -10,6 +10,7 @@
   - Added support for single gate fire kineticist damage upgrade for `Ignite the Sun` (💡 @thecoolersub)
   - Fixed `Ignite the Sun` damage boost to exclude itself
   - Simplified code for `Wall of Shadow`
+  - Added more localization options for `Walls`
 
 ## 2.14.0
 

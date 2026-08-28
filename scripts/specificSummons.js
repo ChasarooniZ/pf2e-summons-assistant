@@ -26,6 +26,7 @@ import {
 } from "./specificCases/dancingWeapon.js";
 import {
   getBaseThrallArtConfig,
+  getStrikeMod,
   getStrikeRE,
 } from "./specificClasses/necromancer.js";
 
@@ -1065,12 +1066,12 @@ const handlers = {
             // but they are automatically localized.
             buttons: [
               {
-                label: "Circle",
+                label: "pf2e-summons-assistant.dialog.wall.circle",
                 action: "circle",
                 icon: "fa-regular fa-circle",
               },
               {
-                label: "Line",
+                label: "pf2e-summons-assistant.dialog.wall.line",
                 action: "line",
                 icon: "fa-solid fa-direction-up-down",
               },
@@ -1125,16 +1126,14 @@ const handlers = {
             content: await TextEditor.enrichHTML(
               `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FIRE}]</p>`,
             ),
-            // This example does not use i18n strings for the button labels,
-            // but they are automatically localized.
             buttons: [
               {
-                label: "Circle",
+                label: "pf2e-summons-assistant.dialog.wall.circle",
                 action: "circle",
                 icon: "fa-regular fa-circle",
               },
               {
-                label: "Line",
+                label: "pf2e-summons-assistant.dialog.wall.line",
                 action: "line",
                 icon: "fa-solid fa-direction-up-down",
               },
@@ -1185,21 +1184,19 @@ const handlers = {
             content: await TextEditor.enrichHTML(
               `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FLESH}]</p>`,
             ),
-            // This example does not use i18n strings for the button labels,
-            // but they are automatically localized.
             buttons: [
               {
-                label: "Mouths",
+                label: "pf2e-summons-assistant.dialog.wall-of-flesh.mouths",
                 action: "mouths",
                 icon: "fa-solid fa-teeth",
               },
               {
-                label: "Eyes",
+                label: "pf2e-summons-assistant.dialog.wall-of-flesh.eyes",
                 action: "eyes",
                 icon: "fa-solid fa-eye",
               },
               {
-                label: "Arms",
+                label: "pf2e-summons-assistant.dialog.wall-of-flesh.arms",
                 action: "arms",
                 icon: "fa-solid fa-bicep",
               },
@@ -1232,12 +1229,15 @@ const handlers = {
                         traits: ["magical"],
                         dice: 2 + Math.floor((data.rank - 5) / 2),
                       }),
+                      getStrikeMod(["mouths-bite"], true),
                     ]
                   : [],
                 RULE_ELEMENTS.WALL_OF_FLESH_ROLL_OPTION(type),
+                RULE_ELEMENTS.SPELL_DC_FLAG,
               ].flat(),
             ),
-          ],
+            type === "arms" ? [await fromUuid(ACTIONS.WALL_OF_FLESH.ARMS)] : [],
+          ].flat(),
           crosshairParameters: {
             label: {
               text: game.i18n.localize(
