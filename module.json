@@ -37,10 +37,9 @@
       {
         "id": "foundry-summons",
         "type": "module",
-        "manifest": "https://github.com/MrVauxs/foundry-summons-2/releases/latest/download/module.json",
         "compatibility": {
-          "minimum": "2.5.0",
-          "verified": "2.5.0"
+          "minimum": "2.6.0",
+          "verified": "2.6.0"
         }
       },
       {
@@ -82,9 +81,7 @@
       }
     ]
   },
-  "esmodules": [
-    "scripts/module.js"
-  ],
+  "esmodules": ["scripts/module.js"],
   "languages": [
     {
       "lang": "en",
@@ -110,9 +107,7 @@
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
-  "styles": [
-    "styles/module.css"
-  ],
+  "styles": ["styles/module.css"],
   "license": "LICENSE",
   "readme": "README.md",
   "socket": true,

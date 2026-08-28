@@ -1,5 +1,9 @@
 ## Unreleased
 
+- **Update**
+  - updated minimum `Foundry Summons` version to `2.6.0`
+  - Fixed bug with Automation for Grim Fascination `Blood` (💻 @idontplaythisgame)
+
 ## 2.14.0
 
 - **New**
