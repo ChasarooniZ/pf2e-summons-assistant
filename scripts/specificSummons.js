@@ -259,17 +259,23 @@ const handlers = {
     handleIgniteTheSun: (data) => {
       return [
         {
+          specific_uuids: [CREATURES.IGNITE_THE_SUN],
           noDefaultTraits: true,
           modifications: {
             "system.details.level.value": data.summonLevel,
             "prototypeToken.texture.src": Sequencer.Database.getEntry(
               "jb2a.fireball.loop_no_debris.orange",
-            )?.originalFile,
+            )?.file,
           },
           itemsToAdd: [
             EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG]),
             EFFECTS.KINETICIST.IGNITE_THE_SUN(),
           ],
+          crosshairParameters: {
+            snap: {
+              position: CONST.GRID_SNAPPING_MODES.VERTEX,
+            },
+          },
         },
       ];
     },
@@ -568,7 +574,7 @@ const handlers = {
     },
     handleMarvelousMount: async (data) => {
       const source = hasNoTargets()
-        ? summonerActor
+        ? data?.summonerActor
         : game.user.targets?.first()?.actor;
       return [
         {
@@ -584,6 +590,11 @@ const handlers = {
               source?.system?.saves?.reflex?.value ?? 0,
             "system.saves.will.value": source?.system?.saves?.will?.value ?? 0,
             "system.perception.value": source?.system?.perception?.value ?? 0,
+          },
+          crosshairParameters: {
+            snap: {
+              position: CONST.GRID_SNAPPING_MODES.VERTEX,
+            },
           },
         },
       ];

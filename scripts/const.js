@@ -395,7 +395,7 @@ export const EFFECTS = {
               texture: {
                 src: Sequencer.Database.getEntry(
                   "jb2a.fireball.loop_no_debris.orange",
-                )?.originalFile,
+                )?.file,
                 scale: 1.2,
               },
             },
