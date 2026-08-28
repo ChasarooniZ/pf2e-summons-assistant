@@ -1,0 +1,514 @@
+{
+  "folder": "vbIrzVZPMTgmlUMs",
+  "name": "Ignite The Sun",
+  "type": "npc",
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": false
+      },
+      "swarm": {
+        "isSwarm": false,
+        "swarmSize": 20,
+        "swarmSpeed": 1,
+        "animation": "circular"
+      }
+    },
+    "height": 2,
+    "width": 2,
+    "name": "The Sun",
+    "displayName": 30,
+    "actorLink": false,
+    "depth": 2,
+    "texture": {
+      "src": "modules/JB2A_DnD5e/Library/3rd_Level/Fireball/FireballLoopNoDebris_01_Orange_800x800.webm",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1.2,
+      "scaleY": 1.2,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "randomImg": true,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 0,
+        "temp": 0,
+        "max": 0,
+        "details": ""
+      },
+      "ac": {
+        "value": 0,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      },
+      "speed": {
+        "value": 0,
+        "otherSpeeds": [
+          {
+            "type": "fly",
+            "value": 30
+          }
+        ],
+        "details": ""
+      }
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 1
+      },
+      "blurb": "",
+      "publicNotes": "",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "size": {
+        "value": "lg"
+      }
+    }
+  },
+  "img": "icons/magic/fire/orb-lightning-sun.webp",
+  "items": [
+    {
+      "name": "Sun Radius",
+      "type": "effect",
+      "effects": [],
+      "system": {
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": 0.958,
+            "foundry": "14.360",
+            "system": "8.1.1"
+          }
+        },
+        "description": {
+          "value": "<p>The sun lasts until the end of your next turn, but you can Sustain it up to 1 minute. The first time you Sustain the impulse each round, you can choose to increase the size of the sun's burst by 5 feet, then make it Fly up to 30 feet. The sun can move through creatures, damaging them as described above.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "Aura",
+            "appearance": {
+              "border": {},
+              "highlight": {
+                "color": "#000000"
+              },
+              "texture": {
+                "src": "modules/JB2A_DnD5e/Library/3rd_Level/Fireball/FireballLoopNoDebris_01_Orange_800x800.webm",
+                "scale": 1.2
+              }
+            },
+            "radius": "(@item.badge.value - 1) * 5",
+            "predicate": [
+              {
+                "not": "self:effect:sun-radius:1"
+              }
+            ]
+          },
+          {
+            "key": "TokenImage",
+            "predicate": [
+              {
+                "not": "self:effect:sun-radius:1"
+              }
+            ],
+            "ring": null,
+            "value": "modules/pf2e-summons-assistant/assets/indicator.svg",
+            "scale": 1,
+            "alpha": 0.1
+          }
+        ],
+        "slug": "sun-radius",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "level": {
+          "value": 1
+        },
+        "duration": {
+          "value": -1,
+          "unit": "unlimited",
+          "expiry": null,
+          "sustained": false
+        },
+        "tokenIcon": {
+          "show": false
+        },
+        "unidentified": false,
+        "start": {
+          "value": 2579212,
+          "initiative": null
+        },
+        "badge": {
+          "type": "counter",
+          "value": 1,
+          "labels": [
+            "5 ft",
+            "10 ft",
+            "15 ft",
+            "20 ft",
+            "25 ft",
+            "30 ft",
+            "35 ft",
+            "40 ft",
+            "45 ft",
+            "50 ft"
+          ],
+          "min": null,
+          "max": null,
+          "loop": false
+        },
+        "fromSpell": false,
+        "context": null
+      },
+      "img": "icons/magic/fire/explosion-fireball-large-orange.webp",
+      "folder": null,
+      "sort": 5700000,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.1",
+        "createdTime": 1787780899273,
+        "modifiedTime": 1787780899273,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_id": "MQ5Hlfvn8TG9eB5w",
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!oBZKl72tsjTAHaZ9.MQ5Hlfvn8TG9eB5w"
+    },
+    {
+      "type": "action",
+      "name": "Ignite the Sun",
+      "system": {
+        "actionType": {
+          "value": "free"
+        },
+        "description": {
+          "value": "<p>A creature takes @Damage[7d6[fire]|options:area-damage] damage any time it's in the miniature sun, with a @Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|basic|options:area-effect] save against your class DC. A creature can take this damage no more than once per round. </p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": "ignite-the-sun",
+        "traits": {
+          "otherTags": [],
+          "value": [
+            "fire",
+            "impulse",
+            "kineticist",
+            "light",
+            "primal"
+          ]
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.367",
+            "system": "8.4.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "offensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "XtSzdrtpFZVkcqsp",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.1",
+        "createdTime": 1787780899273,
+        "modifiedTime": 1787780899273,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!oBZKl72tsjTAHaZ9.XtSzdrtpFZVkcqsp"
+    },
+    {
+      "type": "action",
+      "name": "Light",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>The sun sheds bright light in a @Template[emanation|distance:500] (and dim light for another 500 feet); this is sunlight for creatures with a particular vulnerability to sunlight.</p><p>The sun continually channels fire into you and your allies. You and each of your allies within the sun's light deal an additional @Damage[1d6[fire]] damage with all Strikes, spells that deal fire damage, and impulses that deal fire damage (except for Ignite the Sun itself). These aren't cumulative with multiple suns.</p><p>@UUID[Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.7DGShEmenLxHiNfa]{Effect: Ignite the Sun}</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "TokenLight",
+            "value": {
+              "dim": 1000,
+              "bright": 500,
+              "animation": {
+                "type": "sunburst",
+                "speed": 1,
+                "intensity": 2
+              },
+              "color": "#e4b681",
+              "alpha": 0.2
+            }
+          },
+          {
+            "key": "Aura",
+            "radius": 1000,
+            "appearance": {
+              "border": {},
+              "highlight": {}
+            },
+            "effects": [
+              {
+                "uuid": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.7DGShEmenLxHiNfa",
+                "affects": "allies",
+                "includesSelf": false
+              }
+            ],
+            "traits": [
+              "fire",
+              "light"
+            ],
+            "mergeExisting": false
+          }
+        ],
+        "slug": "light",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.367",
+            "system": "8.4.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "interaction",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "9sgx0kcgygoRKAPw",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.1",
+        "createdTime": 1787780899273,
+        "modifiedTime": 1787780899273,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!oBZKl72tsjTAHaZ9.9sgx0kcgygoRKAPw"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1787780899273,
+    "modifiedTime": 1787891889330,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "_id": "oBZKl72tsjTAHaZ9",
+  "sort": 0,
+  "_key": "!actors!oBZKl72tsjTAHaZ9"
+}

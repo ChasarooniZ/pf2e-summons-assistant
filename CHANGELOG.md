@@ -1,5 +1,11 @@
 ## Unreleased
 
+- **New**
+  - Added Support for:
+    - `Marvelous Mount`
+    - `Ignite the Sun`
+  - Automation for Grim Fascination `Blood` (💡💻 @idontplaythisgame)
+
 ## 2.13.1
 
 - **Update**

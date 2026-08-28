@@ -71,6 +71,7 @@ const getSummonHandlers = () => ({
   // Kineticist
   [SOURCES.KINETICIST.FEARSOME_FAMILIAR]:
     handlers.kineticist.handleFearsomeFamiliar,
+  [SOURCES.KINETICIST.IGNITE_THE_SUN]: handlers.kineticist.handleIgniteTheSun,
   [SOURCES.KINETICIST.JAGGED_BERMS]: handlers.kineticist.handleJaggedBerms,
   [SOURCES.KINETICIST.TIMBER_SENTINEL]:
     handlers.kineticist.handleTimberSentinel,
@@ -89,6 +90,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
   [SOURCES.MISC.HEALING_WELL]: handlers.misc.handleHealingWell,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
+  [SOURCES.MISC.MARVELOUS_MOUNT]: handlers.misc.handleMarvelousMount,
   [SOURCES.MISC.MISLEAD]: handlers.misc.handleMislead,
   [SOURCES.MISC.ILLUSORY_CREATURE]: handlers.misc.handleIllusoryCreature,
   [SOURCES.MISC.INSTANT_MINEFIELD]: handlers.misc.handleInstantMinefield,
@@ -251,6 +253,23 @@ const handlers = {
         {
           summonLevel: data.summonerLevel - 4,
           traits: ["elemental"],
+        },
+      ];
+    },
+    handleIgniteTheSun: (data) => {
+      return [
+        {
+          noDefaultTraits: true,
+          modifications: {
+            "system.details.level.value": data.summonLevel,
+            "prototypeToken.texture.src": Sequencer.Database.getEntry(
+              "jb2a.fireball.loop_no_debris.orange",
+            )?.originalFile,
+          },
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG]),
+            EFFECTS.KINETICIST.IGNITE_THE_SUN(),
+          ],
         },
       ];
     },
@@ -546,6 +565,28 @@ const handlers = {
         ];
       }
       return null;
+    },
+    handleMarvelousMount: async (data) => {
+      const source = hasNoTargets()
+        ? summonerActor
+        : game.user.targets?.first()?.actor;
+      return [
+        {
+          specific_uuids: [CREATURES.MARVELOUS_MOUNT],
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.attributes.ac.value":
+              source?.system?.attributes?.ac?.value ?? 0,
+            "system.saves.fortitude.value":
+              source?.system?.saves?.fortitude?.value ?? 0,
+            "system.saves.reflex.value":
+              source?.system?.saves?.reflex?.value ?? 0,
+            "system.saves.will.value": source?.system?.saves?.will?.value ?? 0,
+            "system.perception.value": source?.system?.perception?.value ?? 0,
+          },
+        },
+      ];
     },
     handleIllusoryCreature: async (data) => {
       const maxSizeNumber = Math.min(data.rank + 1, SIZES.length);

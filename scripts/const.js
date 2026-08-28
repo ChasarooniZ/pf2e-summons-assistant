@@ -56,6 +56,7 @@ export const SOURCES = {
     ILLUSORY_CREATURE: "Compendium.pf2e.spells-srd.Item.f8SBoXiXQjlCKqly",
     INSTANT_MINEFIELD: "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK",
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
+    MARVELOUS_MOUNT: "Compendium.pf2e.spells-srd.Item.WPKJOhEihhcIm2uQ",
     MISLEAD:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.u7n6WN7OjHHXTvVa",
     PHANTASMAL_MINION: "Compendium.pf2e.spells-srd.Item.xqmHD8JIjak15lRk",
@@ -95,6 +96,7 @@ export const SOURCES = {
 
   KINETICIST: {
     FEARSOME_FAMILIAR: "Compendium.pf2e.feats-srd.Item.PkQo8tb0Yby1pFU0",
+    IGNITE_THE_SUN: "Compendium.pf2e.feats-srd.Item.uKeUPPqV1cNnIy0h",
     JAGGED_BERMS: "Compendium.pf2e.feats-srd.Item.9L6c9sxweM4IdOse",
     TIMBER_SENTINEL: "Compendium.pf2e.feats-srd.Item.aHlcMMNQ85VLK7QT",
   },
@@ -177,6 +179,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gqrW5aGfnjqNse2T",
   HEALING_WELL:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.4JEJfYNtUzSuYxPW",
+  IGNITE_THE_SUN:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.oBZKl72tsjTAHaZ9",
   INSTANT_MINEFIELD_MINE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uQjg9X2YxIUCuqyF",
   ILLUSORY_CREATURE:
@@ -199,10 +203,13 @@ export const CREATURES = {
     YELLOW:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.wth1JZ22hGEusEC5",
   },
+  MARVELOUS_MOUNT:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.dZw7g9790wfCL9d5",
   MECHANIC: {
     MINE: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.sAVuxP25VE126TdZ",
   },
-  MISLEAD: "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.u7n6WN7OjHHXTvVa",
+  MISLEAD:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.u7n6WN7OjHHXTvVa",
   MUNDANE: {
     CANDLE:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.fTM3vgcCM5bAJmrS",
@@ -367,6 +374,81 @@ export const EFFECTS = {
   THAUMATURGE: {
     MIRRORS_REFLECTION:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.1I6uoL93lNAUZQ1t",
+  },
+  KINETICIST: {
+    IGNITE_THE_SUN: () => ({
+      name: "Sun Radius",
+      type: "effect",
+      system: {
+        description: {
+          value:
+            "<p>The sun lasts until the end of your next turn, but you can Sustain it up to 1 minute. The first time you Sustain the impulse each round, you can choose to increase the size of the sun's burst by 5 feet, then make it Fly up to 30 feet. The sun can move through creatures, damaging them as described above.</p>",
+        },
+        rules: [
+          {
+            key: "Aura",
+            appearance: {
+              border: {},
+              highlight: {
+                color: "#000000",
+              },
+              texture: {
+                src: Sequencer.Database.getEntry(
+                  "jb2a.fireball.loop_no_debris.orange",
+                )?.originalFile,
+                scale: 1.2,
+              },
+            },
+            radius: "(@item.badge.value - 1) * 5",
+            predicate: [
+              {
+                not: "self:effect:sun-radius:1",
+              },
+            ],
+          },
+          {
+            key: "TokenImage",
+            predicate: [
+              {
+                not: "self:effect:sun-radius:1",
+              },
+            ],
+            ring: null,
+            value: "modules/pf2e-summons-assistant/assets/indicator.svg",
+            scale: 1,
+            alpha: 0.1,
+          },
+        ],
+        slug: "sun-radius",
+        level: {
+          value: 1,
+        },
+        duration: {
+          value: -1,
+          unit: "unlimited",
+        },
+        badge: {
+          type: "counter",
+          value: 1,
+          labels: [
+            "5 ft",
+            "10 ft",
+            "15 ft",
+            "20 ft",
+            "25 ft",
+            "30 ft",
+            "35 ft",
+            "40 ft",
+            "45 ft",
+            "50 ft",
+          ],
+          min: null,
+          max: null,
+          loop: false,
+        },
+      },
+      img: "icons/magic/fire/explosion-fireball-large-orange.webp",
+    }),
   },
   COMMANDER: {
     IN_PLANT_BANNER_RANGE:

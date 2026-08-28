@@ -1,0 +1,399 @@
+{
+  "folder": "gGy6LNAsZa9IaIjf",
+  "name": "Marvelous Mount",
+  "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": false
+      }
+    },
+    "height": 2,
+    "width": 2,
+    "name": "Marvelous Mount",
+    "displayName": 30,
+    "actorLink": false,
+    "depth": 1,
+    "texture": {
+      "src": "modules/pf2e-tokens-bestiaries/tokens/fey/kelpie.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": "modules/pf2e-tokens-bestiaries/subjects/fey/kelpie.webp"
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 10,
+        "temp": 0,
+        "max": 10,
+        "details": ""
+      },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      },
+      "speed": {
+        "value": 40,
+        "otherSpeeds": [],
+        "details": ""
+      }
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 1
+      },
+      "blurb": "",
+      "publicNotes": "",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "size": {
+        "value": "lg"
+      }
+    }
+  },
+  "_id": "dZw7g9790wfCL9d5",
+  "img": "modules/pf2e-tokens-bestiaries/portraits/fey/kelpie.webp",
+  "items": [
+    {
+      "type": "action",
+      "name": "Movement Bonuses",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>The Mount has no extra bonuses to movement.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "BaseSpeed",
+            "selector": "fly",
+            "value": "ternary(gte(@actor.level,6),80,60)",
+            "predicate": [
+              {
+                "gte": [
+                  "self:level",
+                  5
+                ]
+              }
+            ],
+            "slug": "marvelous-mount"
+          },
+          {
+            "key": "BaseSpeed",
+            "value": "ternary(gte(@actor.level,6),80,60)",
+            "predicate": [
+              {
+                "gte": [
+                  "self:level",
+                  4
+                ]
+              }
+            ],
+            "selector": "land",
+            "slug": "marvelous-mount"
+          },
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": [
+              "item:slug:mount-scaling"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "text": "The mount can walk on water, but it must end its turn on solid ground or sink.",
+                "predicate": [
+                  "self:level:3"
+                ]
+              },
+              {
+                "text": "The mount can walk on water.",
+                "predicate": [
+                  "self:level:4"
+                ]
+              },
+              {
+                "text": "The mount can walk on water. Additionally while using its fly speed it must end its turn on a surface or fall",
+                "predicate": [
+                  "self:level:5"
+                ]
+              }
+            ]
+          }
+        ],
+        "slug": "mount-scaling",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.367",
+            "system": "8.4.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "0HMV7ka4r7mX8ifZ",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.1",
+        "createdTime": 1787781095204,
+        "modifiedTime": 1787891194016,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!dZw7g9790wfCL9d5.0HMV7ka4r7mX8ifZ"
+    },
+    {
+      "type": "action",
+      "name": "Mount Defenses",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>The mount uses the target's AC and saves, but it's destroyed if it takes more than 10 damage at one time, ending the spell.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": "mount-defenses",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.367",
+            "system": "8.4.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "jJRrmF6W5yj6MaZf",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.1",
+        "createdTime": 1787891219740,
+        "modifiedTime": 1787891572048,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!dZw7g9790wfCL9d5.jJRrmF6W5yj6MaZf"
+    }
+  ],
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1787781028198,
+    "modifiedTime": 1787891576596,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!dZw7g9790wfCL9d5"
+}

@@ -1,0 +1,101 @@
+{
+  "folder": "Jgr03TNBCPio6tdA",
+  "name": "Effect: Ignite the Sun",
+  "type": "effect",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>Granted by @UUID[Compendium.pf2e.feats-srd.uKeUPPqV1cNnIy0h]{Ignite the Sun}</p><p>The sun continually channels fire into you and your allies. You and each of your allies within the sun's light deal an additional @Damage[1d6[fire]] damage with all Strikes, spells that deal fire damage, and impulses that deal fire damage (except for Ignite the Sun itself). These aren't cumulative with multiple suns.</p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [
+      {
+        "key": "DamageDice",
+        "selector": "strike-damage",
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": [],
+        "label": "Ignite the Sun"
+      },
+      {
+        "key": "DamageDice",
+        "selector": "spell-damage",
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": [
+          "fire"
+        ],
+        "label": "Ignite the Sun"
+      },
+      {
+        "key": "DamageDice",
+        "selector": "damage",
+        "diceNumber": 1,
+        "dieSize": "d6",
+        "damageType": "fire",
+        "predicate": [
+          "fire",
+          "impulse"
+        ],
+        "label": "Ignite the Sun"
+      }
+    ],
+    "slug": "effect-ignite-the-sun",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": null,
+      "sustained": false
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "unidentified": false,
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "badge": null,
+    "fromSpell": false,
+    "context": null
+  },
+  "_id": "7DGShEmenLxHiNfa",
+  "img": "icons/magic/fire/orb-lightning-sun.webp",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1787780231801,
+    "modifiedTime": 1787780673102,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!7DGShEmenLxHiNfa"
+}
