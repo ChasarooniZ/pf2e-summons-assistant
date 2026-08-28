@@ -82,15 +82,6 @@ export function setNecromancerHooks() {
         roll.toMessage({
           flavor: `Grim Fascination - Blood (Healing)`,
           speaker: ChatMessage.getSpeaker({ actor: necromancer }),
-          flags: {
-            "pf2e-toolbelt": {
-              targetHelper: {
-                type: "action",
-                author: message?.token?.document?.uuid,
-                item: "Compendium.pf2e.classfeatures.Item.gyN8OZZ3txxIAKLf",
-                targets: [message?.token?.document?.uuid],
-              },
-            },
           },
         });
       }
