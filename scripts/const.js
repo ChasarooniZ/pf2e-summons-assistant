@@ -708,6 +708,11 @@ export const RULE_ELEMENTS = {
     path: "flags.pf2e-summons-assistant.rank",
     value: rank,
   }),
+  FIRE_IMPULSE_SINGLE_GATE_FLAG: {
+    key: "RollOption",
+    domain: "all",
+    option: "fire-impulse-upgrade",
+  },
   AMALGAMATE_DAMAGE_BONUS: {
     key: "FlatModifier",
     value: "@item.origin.level",

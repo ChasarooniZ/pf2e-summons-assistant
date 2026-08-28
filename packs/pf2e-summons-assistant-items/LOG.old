@@ -1,5 +1,3 @@
-2026/08/28-00:01:05.998 bba8 Recovering log #1181
-2026/08/28-00:01:05.998 bba8 Level-0 table #1183: started
-2026/08/28-00:01:06.030 bba8 Level-0 table #1183: 6697 bytes OK
-2026/08/28-00:01:06.162 bba8 Delete type=0 #1181
-2026/08/28-00:01:06.162 bba8 Delete type=3 #1180
+2026/08/28-07:17:50.115246 ffff7c9d0010 Recovering log #1192
+2026/08/28-07:17:50.122468 ffff7c9d0010 Delete type=0 #1192
+2026/08/28-07:17:50.122491 ffff7c9d0010 Delete type=3 #1190

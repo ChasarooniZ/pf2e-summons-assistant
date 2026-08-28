@@ -1,6 +1,6 @@
 {
   "folder": "Jgr03TNBCPio6tdA",
-  "name": "Effect: Ignite the Sun",
+  "name": "Effect: Ignite the Sun (Single Gate)",
   "type": "effect",
   "effects": [],
   "system": {
@@ -9,7 +9,7 @@
       "previous": null
     },
     "description": {
-      "value": "<p>Granted by @UUID[Compendium.pf2e.feats-srd.uKeUPPqV1cNnIy0h]{Ignite the Sun}</p><p>The sun continually channels fire into you and your allies. You and each of your allies within the sun's light deal an additional @Damage[1d6[fire]] damage with all Strikes, spells that deal fire damage, and impulses that deal fire damage (except for Ignite the Sun itself). These aren't cumulative with multiple suns.</p>",
+      "value": "<p>Granted by @UUID[Compendium.pf2e.feats-srd.uKeUPPqV1cNnIy0h]{Ignite the Sun}</p><p>The sun continually channels fire into you and your allies. You and each of your allies within the sun's light deal an additional @Damage[1d8[fire]] damage with all Strikes, spells that deal fire damage, and impulses that deal fire damage (except for Ignite the Sun itself). These aren't cumulative with multiple suns.</p>",
       "gm": ""
     },
     "publication": {
@@ -23,7 +23,7 @@
         "key": "DamageDice",
         "selector": "strike-damage",
         "diceNumber": 1,
-        "dieSize": "d6",
+        "dieSize": "d8",
         "damageType": "fire",
         "predicate": [],
         "label": "Ignite the Sun"
@@ -32,7 +32,7 @@
         "key": "DamageDice",
         "selector": "spell-damage",
         "diceNumber": 1,
-        "dieSize": "d6",
+        "dieSize": "d8",
         "damageType": "fire",
         "predicate": [
           "fire"
@@ -43,7 +43,7 @@
         "key": "DamageDice",
         "selector": "damage",
         "diceNumber": 1,
-        "dieSize": "d6",
+        "dieSize": "d8",
         "damageType": "fire",
         "predicate": [
           "fire",
@@ -81,9 +81,7 @@
     "fromSpell": false,
     "context": null
   },
-  "_id": "7DGShEmenLxHiNfa",
   "img": "icons/magic/fire/orb-lightning-sun.webp",
-  "sort": 0,
   "ownership": {
     "default": 0,
     "vj8VUT8j7Wtzy3Y2": 3
@@ -93,12 +91,14 @@
     "coreVersion": "14.367",
     "systemId": "pf2e",
     "systemVersion": "8.4.1",
-    "createdTime": 1787780231801,
-    "modifiedTime": 1787940589154,
+    "createdTime": 1787940340246,
+    "modifiedTime": 1787940579515,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!items!7DGShEmenLxHiNfa"
+  "_id": "aFwIXgT5UbyCvph7",
+  "sort": 0,
+  "_key": "!items!aFwIXgT5UbyCvph7"
 }

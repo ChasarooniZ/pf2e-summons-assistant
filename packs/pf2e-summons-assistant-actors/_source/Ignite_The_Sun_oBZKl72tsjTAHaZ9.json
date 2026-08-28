@@ -338,7 +338,7 @@
           "value": "free"
         },
         "description": {
-          "value": "<p>A creature takes @Damage[7d6[fire]|options:area-damage] damage any time it's in the miniature sun, with a @Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|basic|options:area-effect] save against your class DC. A creature can take this damage no more than once per round. </p>",
+          "value": "<p>A creature takes @Damage[7d6)[fire]|options:area-damage] damage any time it's in the miniature sun, with a @Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|basic|options:area-effect] save against your class DC. A creature can take this damage no more than once per round.</p>",
           "gm": ""
         },
         "publication": {
@@ -347,7 +347,19 @@
           "license": "OGL",
           "remaster": false
         },
-        "rules": [],
+        "rules": [
+          {
+            "key": "DamageAlteration",
+            "mode": "upgrade",
+            "property": "dice-faces",
+            "selectors": [
+              "inline-damage"
+            ],
+            "predicate": [
+              "fire-impulse-upgrade"
+            ]
+          }
+        ],
         "slug": "ignite-the-sun",
         "traits": {
           "otherTags": [],
@@ -388,7 +400,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.1",
         "createdTime": 1787780899273,
-        "modifiedTime": 1787780899273,
+        "modifiedTime": 1787942825933,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -439,7 +451,20 @@
               {
                 "uuid": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.7DGShEmenLxHiNfa",
                 "affects": "allies",
-                "includesSelf": false
+                "includesSelf": false,
+                "predicate": [
+                  {
+                    "not": "fire-impulse-upgrade"
+                  }
+                ]
+              },
+              {
+                "uuid": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.aFwIXgT5UbyCvph7",
+                "affects": "allies",
+                "includesSelf": false,
+                "predicate": [
+                  "fire-impulse-upgrade"
+                ]
               }
             ],
             "traits": [
@@ -483,7 +508,7 @@
         "systemId": "pf2e",
         "systemVersion": "8.4.1",
         "createdTime": 1787780899273,
-        "modifiedTime": 1787780899273,
+        "modifiedTime": 1787942984505,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,

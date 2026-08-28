@@ -268,7 +268,14 @@ const handlers = {
             )?.file,
           },
           itemsToAdd: [
-            EFFECTS.RULE_EFFECT([RULE_ELEMENTS.SPELL_DC_FLAG]),
+            EFFECTS.RULE_EFFECT(
+              [
+                RULE_ELEMENTS.SPELL_DC_FLAG,
+                data.summonerRollOptions?.includes("junction:fire:impulse")
+                  ? [RULE_ELEMENTS.FIRE_IMPULSE_SINGLE_GATE_FLAG]
+                  : [],
+              ].flat(),
+            ),
             EFFECTS.KINETICIST.IGNITE_THE_SUN(),
           ],
           crosshairParameters: {
