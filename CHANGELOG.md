@@ -1,8 +1,10 @@
 ## Unreleased
 
 - **Update**
-  - updated minimum `Foundry Summons` version to `2.6.0`
+  - Updated minimum `Foundry Summons` version to `2.6.0`
   - Fixed bug with Automation for Grim Fascination `Blood` (💻 @idontplaythisgame)
+  - Added support for single gate fire kineticist damage upgrade for `Ignite the Sun` (💡 @thecoolersub)
+  - Fixed `Ignite the Sun` damage boost to exclude itself
 
 ## 2.14.0
 
