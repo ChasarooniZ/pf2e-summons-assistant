@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.15.1
+
+- Removed vestigial toolbelt code causing issue
+
 ## 2.15.0
 
 - **New**
