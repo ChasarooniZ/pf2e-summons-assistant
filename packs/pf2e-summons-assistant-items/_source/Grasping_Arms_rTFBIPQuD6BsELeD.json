@@ -1,0 +1,56 @@
+{
+  "folder": "ecP3OJIpXi5P0fYv",
+  "name": "Grasping Arms",
+  "type": "action",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "description": {
+      "value": "<p><strong>Trigger</strong> A creature ends its turn within 5 feet of the wall</p><hr><p>Any creature that ends its turn within 5 feet of the wall must attempt a @Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] save.</p><ul><li><p><strong>Success</strong> The creature is unaffected.</p></li><li><p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.kWc1fhmv9LBiTuei]{Grabbed} by the wall for 1 round or until it Escapes against your spell DC, whichever comes first.</p></li><li><p><strong>Critical Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.VcDeM8A5oI6VqhbM]{Restrained} by the wall for 1 round or until it Escapes against your spell DC, whichever comes first.</p></li></ul>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [],
+    "slug": "grasping-arms",
+    "traits": {
+      "otherTags": [],
+      "value": []
+    },
+    "actionType": {
+      "value": "free"
+    },
+    "actions": {
+      "value": null
+    },
+    "category": "defensive",
+    "deathNote": false
+  },
+  "_id": "rTFBIPQuD6BsELeD",
+  "img": "systems/pf2e/icons/default-icons/action.svg",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1787945552967,
+    "modifiedTime": 1787945682953,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!items!rTFBIPQuD6BsELeD"
+}

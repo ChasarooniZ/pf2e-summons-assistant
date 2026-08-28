@@ -1,0 +1,386 @@
+{
+  "folder": "L8iTXojMnoiabKyR",
+  "name": "Wall of Flesh",
+  "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": false
+      },
+      "swarm": {
+        "isSwarm": false,
+        "swarmSize": 20,
+        "swarmSpeed": 1,
+        "animation": "circular"
+      }
+    },
+    "height": 1,
+    "width": 1,
+    "name": "Wall of Flesh",
+    "displayName": 30,
+    "actorLink": false,
+    "depth": 1,
+    "texture": {
+      "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 0.5,
+      "scaleY": 0.5,
+      "tint": "#b25072",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 0.5,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 75,
+        "temp": 0,
+        "max": 75,
+        "details": ""
+      },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      },
+      "speed": {
+        "value": 25,
+        "otherSpeeds": [],
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities",
+          "exceptions": []
+        }
+      ]
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 5
+      },
+      "blurb": "",
+      "publicNotes": "",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "size": {
+        "value": "med"
+      }
+    }
+  },
+  "_id": "SDxVVhW9HBDb9HVS",
+  "img": "icons/skills/wounds/injury-stitched-flesh-red.webp",
+  "items": [
+    {
+      "type": "action",
+      "name": "Wall Type",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<ul><li><p><strong>Mouths</strong> The wall has countless toothy mouths along its surface. The mouths Strike any creature that ends its turn within 5 feet of the wall, using your spell attack modifier for these Strikes and dealing @Damage[(1+(ceil((@item.level - 4) / 2)))d6[piercing]] damage. The mouths are capable of consuming potions; since the wall is alive, it can recover Hit Points from a @UUID[Compendium.pf2e.equipment-srd.Item.2RuepCemJhrpKKao]{Healing Potion}, but it can't benefit from any effect that would give it the ability to move. Otherwise, the GM determines which potions can affect the wall.</p></li><li><p><strong>Eyes</strong> The wall sprouts hundreds of unblinking eyes. You can see through these eyes, gaining a +2 circumstance bonus to visual Perception checks within the wall's line of sight. You can also use the eyes for determining line of sight for ranged attacks and spells, but you don't have line of effect through the wall.</p></li><li><p><strong>Arms</strong> The wall is a mass of grasping arms. Any creature that ends its turn within 5 feet of the wall must attempt a Reflex save.</p><ul><li><p><strong>Success</strong> The creature is unaffected.</p></li><li><p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.kWc1fhmv9LBiTuei]{Grabbed} by the wall for 1 round or until it Escapes against your spell DC, whichever comes first.</p></li><li><p><strong>Critical Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.VcDeM8A5oI6VqhbM]{Restrained} by the wall for 1 round or until it Escapes against your spell DC, whichever comes first.</p></li></ul></li></ul>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [],
+        "slug": "wall-type",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.367",
+            "system": "8.4.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "ZDfHzlEXHH7ytsD9",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.1",
+        "createdTime": 1787944598382,
+        "modifiedTime": 1787946879713,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!SDxVVhW9HBDb9HVS.ZDfHzlEXHH7ytsD9"
+    },
+    {
+      "type": "action",
+      "name": "Defenses",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>The wall can't be Repaired but can be healed by vitality, and healing spells and abilities.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "itemType": "action",
+            "key": "ItemAlteration",
+            "mode": "override",
+            "predicate": [
+              "item:slug:wall-type"
+            ],
+            "property": "description",
+            "value": [
+              {
+                "title": "Eyes",
+                "text": "The wall sprouts hundreds of unblinking eyes. You can see through these eyes, gaining a +2 circumstance bonus to visual Perception checks within the wall's line of sight. You can also use the eyes for determining line of sight for ranged attacks and spells, but you don't have line of effect through the wall.",
+                "predicate": [
+                  "wall-type-eyes"
+                ]
+              },
+              {
+                "title": "Mouths",
+                "text": "The wall has countless toothy mouths along its surface. The mouths Strike any creature that ends its turn within 5 feet of the wall, using your spell attack modifier for these Strikes and dealing @Damage[(1+(ceil((@actor.level - 4) / 2)))d6[piercing]] damage. The mouths are capable of consuming potions; since the wall is alive, it can recover Hit Points from a @UUID[Compendium.pf2e.equipment-srd.Item.2RuepCemJhrpKKao]{Healing Potion}, but it can't benefit from any effect that would give it the ability to move. Otherwise, the GM determines which potions can affect the wall.",
+                "predicate": [
+                  "wall-type-mouths"
+                ]
+              },
+              {
+                "title": "Arms",
+                "text": "The wall is a mass of grasping arms. Any creature that ends its turn within 5 feet of the wall must attempt a Reflex save.",
+                "predicate": [
+                  "wall-type-arms"
+                ]
+              }
+            ]
+          }
+        ],
+        "slug": "defenses",
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.367",
+            "system": "8.4.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "IFjBD61gqgOY7zip",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "pf2e",
+        "systemVersion": "8.4.1",
+        "createdTime": 1787944626055,
+        "modifiedTime": 1787945925162,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!SDxVVhW9HBDb9HVS.IFjBD61gqgOY7zip"
+    }
+  ],
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1787944443092,
+    "modifiedTime": 1787948699985,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!SDxVVhW9HBDb9HVS"
+}

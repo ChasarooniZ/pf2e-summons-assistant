@@ -24,7 +24,10 @@ import {
   dancingWeaponDialog,
   getJB2aPath,
 } from "./specificCases/dancingWeapon.js";
-import { getBaseThrallArtConfig } from "./specificClasses/necromancer.js";
+import {
+  getBaseThrallArtConfig,
+  getStrikeRE,
+} from "./specificClasses/necromancer.js";
 
 export async function getSpecificSummonDetails(
   uuid,
@@ -117,6 +120,7 @@ const getSummonHandlers = () => ({
   [SOURCES.WALL.PRISMATIC_WALL]: handlers.wall.handlePrismaticWall,
   [SOURCES.WALL.WALL_OF_ICE]: handlers.wall.handleWallOfIce,
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
+  [SOURCES.WALL.WALL_OF_FLESH]: handlers.wall.handleWallOfFlesh,
   [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
   [SOURCES.WALL.WALL_OF_SHADOW]: handlers.wall.handleWallOfShadow,
   [SOURCES.WALL.WALL_OF_THORNS]: handlers.wall.handleWallOfThorns,
@@ -1166,6 +1170,81 @@ const handlers = {
                   },
                 },
               }),
+        },
+      ];
+    },
+    handleWallOfFlesh: async (data) => {
+      if (!hasAnyJB2A()) {
+        return null;
+      }
+
+      const type = data.ignoreDialogue
+        ? "mouth"
+        : await foundry.applications.api.DialogV2.wait({
+            window: { title: "Wall of Flesh" },
+            content: await TextEditor.enrichHTML(
+              `<p>${game.i18n.localize("pf2e-summons-assistant.dialog.choose-type-of")} @UUID[${SOURCES.WALL.WALL_OF_FLESH}]</p>`,
+            ),
+            // This example does not use i18n strings for the button labels,
+            // but they are automatically localized.
+            buttons: [
+              {
+                label: "Mouths",
+                action: "mouths",
+                icon: "fa-solid fa-teeth",
+              },
+              {
+                label: "Eyes",
+                action: "eyes",
+                icon: "fa-solid fa-eye",
+              },
+              {
+                label: "Arms",
+                action: "arms",
+                icon: "fa-solid fa-bicep",
+              },
+            ],
+          });
+
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_FLESH],
+          noDefaultTraits: true,
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.details.blurb": type,
+            "system.attributes.hp.max":
+              75 + Math.floor((data.rank - 5) / 2) * 10,
+            "system.attributes.hp.value":
+              75 + Math.floor((data.rank - 5) / 2) * 10,
+          },
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT(
+              [
+                type === "mouths"
+                  ? [
+                      getStrikeRE({
+                        name: "Mouths Bite",
+                        slug: "mouths-bite",
+                        damageType: "piercing",
+                        die: "d6",
+                        traits: ["magical"],
+                        dice: 2 + Math.floor((data.rank - 5) / 2),
+                      }),
+                    ]
+                  : [],
+                RULE_ELEMENTS.WALL_OF_FLESH_ROLL_OPTION(type),
+              ].flat(),
+            ),
+          ],
+          crosshairParameters: {
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.wall.start-point",
+              ),
+            },
+          },
         },
       ];
     },

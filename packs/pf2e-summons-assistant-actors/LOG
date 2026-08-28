@@ -1,16 +1,15 @@
-2026/08/28-13:56:37.394 9250 Recovering log #1256
-2026/08/28-13:56:37.608 9250 Delete type=2 #1251
-2026/08/28-13:56:37.608 9250 Delete type=2 #1255
-2026/08/28-13:56:37.608 9250 Delete type=0 #1256
-2026/08/28-13:56:37.608 9250 Delete type=3 #1254
-2026/08/28-13:56:37.663 769c Level-0 table #1261: started
-2026/08/28-13:56:37.741 769c Level-0 table #1261: 201179 bytes OK
-2026/08/28-13:56:37.841 769c Delete type=0 #1259
-2026/08/28-13:56:37.841 769c Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 10945 : 1
-2026/08/28-13:56:37.841 769c Compacting 1@0 + 1@1 files
-2026/08/28-13:56:37.963 769c Generated table #1262@0: 237 keys, 201179 bytes
-2026/08/28-13:56:37.963 769c Compacted 1@0 + 1@1 files => 201179 bytes
-2026/08/28-13:56:38.039 769c compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/08/28-13:56:38.039 769c Delete type=2 #1257
-2026/08/28-13:56:38.039 769c Delete type=2 #1261
-2026/08/28-13:56:38.039 769c Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 10945 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/08/28-16:05:07.182 8ca8 Recovering log #1263
+2026/08/28-16:05:07.381 8ca8 Delete type=0 #1263
+2026/08/28-16:05:07.381 8ca8 Delete type=3 #1262
+2026/08/28-16:05:07.459 9068 Level-0 table #1267: started
+2026/08/28-16:05:07.510 9068 Level-0 table #1267: 205081 bytes OK
+2026/08/28-16:05:07.559 9068 Delete type=0 #1265
+2026/08/28-16:05:07.560 9068 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!SDxVVhW9HBDb9HVS.ZDfHzlEXHH7ytsD9' @ 10851 : 1
+2026/08/28-16:05:07.560 9068 Compacting 2@0 + 1@1 files
+2026/08/28-16:05:07.627 9068 Generated table #1268@0: 240 keys, 205081 bytes
+2026/08/28-16:05:07.627 9068 Compacted 2@0 + 1@1 files => 205081 bytes
+2026/08/28-16:05:07.692 9068 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/08/28-16:05:07.692 9068 Delete type=2 #1256
+2026/08/28-16:05:07.693 9068 Delete type=2 #1260
+2026/08/28-16:05:07.693 9068 Delete type=2 #1267
+2026/08/28-16:05:07.693 9068 Manual compaction at level-0 from '!actors.items!SDxVVhW9HBDb9HVS.ZDfHzlEXHH7ytsD9' @ 10851 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

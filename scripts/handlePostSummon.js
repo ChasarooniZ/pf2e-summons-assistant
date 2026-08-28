@@ -5,6 +5,7 @@ import {
   getWallData,
   setupStraightWall,
   setupStraightWallRegionsTokensSequences,
+  setupStraightWallTokens,
   setupWallCircle,
   WALL_ART,
 } from "./specificCases/walls.js";
@@ -40,6 +41,9 @@ export async function handlePostSummon(
       break;
     case SOURCES.WALL.WALL_OF_FIRE:
       postSummonHelper.WALL_OF_FIRE(summonedActorID);
+      break;
+    case SOURCES.WALL.WALL_OF_FLESH:
+      postSummonHelper.WALL_OF_FLESH(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_SHADOW:
       postSummonHelper.WALL_OF_SHADOW(summonedActorID);
@@ -303,34 +307,29 @@ const postSummonHelper = {
         .play();
     }
   },
-  WALL_OF_SHADOW: async (summonedActorID) => {
+  WALL_OF_FLESH: async (summonedActorID) => {
     const summonedToken = getTokenFromActorID(summonedActorID);
-    const pos = await defaultTokenRayCrosshair({
-      token: summonedToken,
-      maxDistance: 60,
-      texture: WALL_ART.SHADOW,
+    const type = summonedToken.actor.system.details.blurb;
+
+    setupStraightWallTokens({
+      summonedWallToken: summonedToken,
+      distance: 60,
+      segFt: 5,
+      art: WALL_ART.FLESH?.[type],
     });
-
-    const r = foundry.canvas.geometry.Ray.fromAngle(
-      pos.x,
-      pos.y,
-      Math.toRadians(pos.direction),
-      pos.distance * canvas.dimensions.distancePixels,
-    );
-
-    const wallDataArray = [
-      getWallData({
-        c: [r.A.x, r.A.y, r.B.x, r.B.y],
+  },
+  WALL_OF_SHADOW: async (summonedActorID) => {
+    const summonedWallToken = getTokenFromActorID(summonedActorID);
+    await setupStraightWall({
+      summonedWallToken,
+      distance: 60,
+      segFt: 60,
+      art: WALL_ART.SHADOW,
+      senses: {
         move: SENSE_MODES.NONE,
         sound: SENSE_MODES.NONE,
-        art: WALL_ART.SHADOW,
-        summonedtokenID: summonedToken.id,
-      }),
-    ];
-
-    await socketlib.modules
-      .get(MODULE_ID)
-      .executeAsGM("createWalls", wallDataArray);
+      },
+    });
   },
   WALL_OF_STONE: async (summonedActorID) => {
     const summonedWallToken = getTokenFromActorID(summonedActorID);

@@ -6,17 +6,19 @@ import {
   WALLS_TO_SYNC_DELETE,
 } from "../const.js";
 import { defaultTokenRayCrosshair, safeDelete } from "../helpers.js";
-
+const MODULE_ASSET_PATH = "modules/pf2e-summons-assistant/assets";
 export const WALL_ART = {
   ICE: {
-    LINE: "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_ice.webp",
-    CIRCLE:
-      "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_ice_circle.webp",
+    LINE: `${MODULE_ASSET_PATH}/tokens/token/wall_of_ice.webp`,
+    CIRCLE: `${MODULE_ASSET_PATH}/tokens/token/wall_of_ice_circle.webp`,
   },
-  SHADOW:
-    "modules/pf2e-summons-assistant/assets/tokens/token/wall_of_shadow.webp",
-  THORNS:
-    "modules/pf2e-summons-assistant/assets/tokens/token/wall-of-thorns.webp",
+  FLESH: {
+    arms: `${MODULE_ASSET_PATH}/tokens/token/wall_of_flesh.arms.webp`,
+    mouths: `${MODULE_ASSET_PATH}/tokens/token/wall_of_flesh.mouths.webp`,
+    eyes: `${MODULE_ASSET_PATH}/tokens/token/wall_of_flesh.eyes.webp`,
+  },
+  SHADOW: `${MODULE_ASSET_PATH}/tokens/token/wall_of_shadow.webp`,
+  THORNS: `${MODULE_ASSET_PATH}/tokens/token/wall-of-thorns.webp`,
 };
 
 export function setupWallHooks() {
@@ -121,7 +123,13 @@ export async function setupWallCircle({
   return walls;
 }
 
-export async function setupStraightWall({ summonedWallToken, distance, art }) {
+export async function setupStraightWall({
+  summonedWallToken,
+  distance,
+  art,
+  segFt = 10,
+  senses = {},
+}) {
   const pos = await defaultTokenRayCrosshair({
     token: summonedWallToken,
     maxDistance: distance,
@@ -132,12 +140,11 @@ export async function setupStraightWall({ summonedWallToken, distance, art }) {
     const angleRad = Math.toRadians(pos.direction);
 
     const totalDistanceFt = pos.distance;
-    const segmentSizeFt = 10;
 
     // Split into segments
-    const fullSegments = Math.floor(totalDistanceFt / segmentSizeFt);
-    const remainder = totalDistanceFt % segmentSizeFt;
-    const segments = new Array(fullSegments).fill(segmentSizeFt);
+    const fullSegments = Math.floor(totalDistanceFt / segFt);
+    const remainder = totalDistanceFt % segFt;
+    const segments = new Array(fullSegments).fill(segFt);
     if (remainder >= 5) segments.push(remainder); // allow 5ft remainder
 
     let currentDistanceFt = 0;
@@ -149,6 +156,7 @@ export async function setupStraightWall({ summonedWallToken, distance, art }) {
       const wallData = getWallData({
         c,
         art,
+        ...senses,
         summonedtokenID: summonedWallToken.id,
       });
       wallDataArray.push(wallData);
@@ -242,6 +250,76 @@ export async function setupStraightWallRegionsTokensSequences({
   await socketlib.modules.get(MODULE_ID).executeAsGM("createRegions", regions);
 }
 
+export async function setupStraightWallTokens({
+  summonedWallToken,
+  distance,
+  segFt = 10,
+  art,
+}) {
+  const pos = await defaultTokenRayCrosshair({
+    token: summonedWallToken,
+    maxDistance: distance,
+    texture: Array.isArray(art) ? art[0] : art,
+  });
+  if (pos) {
+    const origin = { x: pos.x, y: pos.y };
+    const angleRad = Math.toRadians(pos.direction);
+
+    const totalDistanceFt = pos.distance;
+
+    // Split into segments
+    const fullSegments = Math.floor(totalDistanceFt / segFt);
+    const remainder = totalDistanceFt % segFt;
+    const segments = new Array(fullSegments).fill(segFt);
+    if (remainder >= 5) segments.push(remainder); // allow 5ft remainder
+
+    let currentDistanceFt = 0;
+    const wallDataArray = [];
+
+    const t = summonedWallToken.document.toObject();
+    let i = 0;
+    for (const segFt of segments) {
+      const [startX, startY, endX, endY] = getFlatWallPoints(
+        currentDistanceFt,
+        segFt,
+        origin,
+        angleRad,
+      );
+      const start = { x: startX, y: startY };
+      const offset = (t.width * canvas.dimensions.size) / 2;
+      t.x = (startX + endX) / 2 - offset;
+      t.y = (startY + endY) / 2 - offset;
+      const flagData = {
+        flags: {
+          [MODULE_ID]: {
+            "wall-shape": start,
+            "wall-source": summonedWallToken.id,
+          },
+        },
+      };
+      foundry.utils.mergeObject(t, flagData);
+      const td = await TokenDocument.create(t, { parent: canvas.scene });
+
+      const wallData = getWallData({
+        c: [startX, startY, endX, endY],
+        art: Array.isArray(art) ? art[i % art.length] : art,
+        summonedtokenID: summonedWallToken.id,
+        segmentTokenID: td?.id,
+      });
+      wallDataArray.push(wallData);
+      currentDistanceFt += segFt;
+      i++;
+    }
+
+    // Create all wall segments via GM socket
+    const walls = await socketlib.modules
+      .get(MODULE_ID)
+      .executeAsGM("createWalls", wallDataArray);
+
+    return walls;
+  }
+}
+
 /**
  *
  * @param {number} currentDistanceFt
@@ -306,6 +384,7 @@ export function getWallData({
   sound = SENSE_MODES.NORMAL,
   art,
   summonedtokenID,
+  segmentTokenID,
 }) {
   return {
     c: c,
@@ -327,7 +406,8 @@ export function getWallData({
     },
     flags: {
       "pf2e-summons-assistant": {
-        wallSegmentTokenID: `${summonedtokenID}`,
+        wallSegmentTokenID: segmentTokenID,
+        wallTokenID: summonedtokenID,
       },
     },
   };
