@@ -233,6 +233,7 @@ Hooks.once("ready", async function () {
       summonType,
       summonDetailsGroup,
       config,
+      chatMessage?.item,
     );
   });
 

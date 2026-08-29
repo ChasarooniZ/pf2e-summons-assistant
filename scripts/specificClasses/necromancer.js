@@ -55,6 +55,7 @@ $(document).on("click", ".living-graveyard-move-yes", async function () {
       SOURCES.NECROMANCER.CREATE_THRALL,
       "thrall",
       summonDetailsGroup,
+      SOURCES.NECROMANCER.CREATE_THRALL,
     );
     await t.delete();
   }

@@ -1,5 +1,7 @@
 ## Unreleased
 
+- Added Rudimentary flag support for `Trigger Animations`
+
 ## 2.15.0
 
 - **New**

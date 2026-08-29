@@ -18,6 +18,7 @@ export async function summon(
   summonType,
   summonDetailsGroup,
   config = {},
+  originalItem = null,
 ) {
   const additionalTraits = addTraits(summonType);
   const summonerToken = summonerActor.getActiveTokens()[0];
@@ -223,10 +224,28 @@ export async function summon(
         uuid: selectedActorUuid,
         updateData: actorUpdateData,
         tokenData: tokenModifications,
-        crosshairParameters:
+        crosshairParameters: foundry.utils.mergeObject(
+          {
+            flags: {
+              [game.system.id]: {
+                areaShape: "burst",
+                messageId: undefined,
+                origin: {
+                  actor: summonerActor.uuid,
+                  rollOptions: [
+                    originalItem?.getRollOptions("origin") ?? [],
+                    summonerActor.getRollOptions("origin"),
+                  ].flat(),
+                  type: originalItem?.type ?? "",
+                  uuid: originalItem?.uuid ?? "",
+                },
+              },
+            },
+          },
           typeof crosshairParameters === "function"
             ? crosshairParameters({ cnt: i, prevSummonedToken })
             : crosshairParameters,
+        ),
         drawPing: game.settings.get(MODULE_ID, "config.ping-summon"),
       });
 
