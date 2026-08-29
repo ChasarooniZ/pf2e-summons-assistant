@@ -82,7 +82,6 @@ export function setNecromancerHooks() {
         roll.toMessage({
           flavor: `Grim Fascination - Blood (Healing)`,
           speaker: ChatMessage.getSpeaker({ actor: necromancer }),
-          },
         });
       }
     }
@@ -102,20 +101,21 @@ export function setNecromancerHooks() {
         )
           ? true
           : await foundry.applications.api.DialogV2.confirm({
-              window: {
-                title: "pf2e-summons-assistant.dialog.thrall-destroyed.title",
-                icon: "fa-duotone fa-solid fa-person-burst",
-              },
-              content: game.i18n.localize(
-                "pf2e-summons-assistant.dialog.thrall-destroyed.content",
-              ),
-            });
+            window: {
+              title: "pf2e-summons-assistant.dialog.thrall-destroyed.title",
+              icon: "fa-duotone fa-solid fa-person-burst",
+            },
+            content: game.i18n.localize(
+              "pf2e-summons-assistant.dialog.thrall-destroyed.content",
+            ),
+          });
 
         if (isDestroy) {
           const effect = await fromUuid(EFFECTS.NECROMANCER.BECOME_AS_SPIRIT);
           await actor.createEmbeddedDocuments("Item", [effect]);
         }
       }
+
     }
   });
 
