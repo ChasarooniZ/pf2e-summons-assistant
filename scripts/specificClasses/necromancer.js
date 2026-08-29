@@ -87,9 +87,14 @@ export function setNecromancerHooks() {
             "pf2e-toolbelt": {
               targetHelper: {
                 type: "action",
-                author: message?.token?.document?.uuid,
+                author: necromancer.uuid,
                 item: "Compendium.pf2e.classfeatures.Item.gyN8OZZ3txxIAKLf",
-                targets: [message?.token?.document?.uuid],
+                targets: [
+                  necromancer?.getActiveTokens(
+                    (linked = true),
+                    (document = true),
+                  )?.[0]?.uuid,
+                ],
               },
             },
           },
