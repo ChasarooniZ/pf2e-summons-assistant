@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 2.15.3
+
+- Updated `Blood` automation to auto populate the necromancer as the target for `Target Helper` (💻 @idontplaythisgame)
+- Removed erroneous `Jb2a` requirement for `Wall of Flesh` (🐛 @Tan)
+- Added one to `Ignite the Sun`
+- Added a notification the first time a JB2a requiring summon is used each session letting the user know they're missing it
+
 ## 2.15.2
 
 - Fixed the error caused in `2.15.1` (🐛 @MrVauxs)

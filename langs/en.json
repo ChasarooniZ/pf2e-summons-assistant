@@ -116,7 +116,8 @@
         }
       },
       "illusory-creature": "[Illusory Creature] Select what creature for your illusion to be in the shape and size of",
-      "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>"
+      "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>",
+      "missing-jb2a": "[{moduleName}] This summon requires some form of JB2a, install and enable a version of this module to use it, or just ignore this message if you aren't planning to."
     },
     "dialog": {
       "summon": {

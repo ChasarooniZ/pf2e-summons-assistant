@@ -262,6 +262,9 @@ const handlers = {
       ];
     },
     handleIgniteTheSun: (data) => {
+      if (!hasAnyJB2A()) {
+        return null;
+      }
       return [
         {
           specific_uuids: [CREATURES.IGNITE_THE_SUN],
@@ -1173,10 +1176,6 @@ const handlers = {
       ];
     },
     handleWallOfFlesh: async (data) => {
-      if (!hasAnyJB2A()) {
-        return null;
-      }
-
       const type = data.ignoreDialogue
         ? "mouth"
         : await foundry.applications.api.DialogV2.wait({
