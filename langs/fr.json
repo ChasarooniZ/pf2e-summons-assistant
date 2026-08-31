@@ -14,6 +14,12 @@
           "hint": "Limite la portée des sorts qui incluent une portée et affiche également la limite de portée."
         }
       },
+      "config": {
+        "ping-summon": {
+          "name": "Signaler lors de l'invocation du jeton",
+          "hint": "Émet un signal lorsqu'un jeton est invoqué."
+        }
+      },
       "name-ownership": {
         "name": "Ajouter le nom du convocateur au nom de la convocation",
         "hint": "Modifier le nom de la convocation pour montrer qui l'a convoqué, ex 'Gobelin d'Herendil' etc."
@@ -135,6 +141,17 @@
           "title": "Configurer les déclencheurs d'invocation activés",
           "hint": "Configurez les sources d'invocation actives."
         }
+      },
+      "create-thrall": {
+        "title": "Créer un séide",
+        "options": {
+          "two": "{iconSummon} Invoquer {cnt} séides",
+          "one": "{iconSummon} Invoquer {cnt} séide{s} & {iconCommand} Diriger ce séide"
+        }
+      },
+      "thrall-destroyed": {
+        "title": "Détruire le séide ?",
+        "content": "Avez-vous décidé de détruire un séide ? (pour les besoins de 'Ressembler à un esprit')"
       },
       "light": {
         "title": "Invoque un orbe de lumière",
