@@ -153,6 +153,15 @@
         "title": "Détruire le séide ?",
         "content": "Avez-vous décidé de détruire un séide ? (pour les besoins de 'Ressembler à un esprit')"
       },
+      "wall-of-flesh": {
+        "arms": "Bras",
+        "eyes": "Yeux",
+        "mouths": "Bouches"
+      },
+      "wall": {
+        "line": "Ligne",
+        "circle": "Cercle"
+      },
       "light": {
         "title": "Invoque un orbe de lumière",
         "text": "Souhaitez-vous invoquer un orbe de lumière qui ne soit pas attaché à une créature ? (Si vous choisissez non, vous devrez appliquer l'effet à la créature à laquelle vous souhaitez attribuer la lumière.)"
