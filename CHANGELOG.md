@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.15.4
+
+- **Update**
+  - Fixed issue introduced by code changes for `Blood` automation in `2.15.3`
+
 ## 2.15.3
 
 - Updated `Blood` automation to auto populate the necromancer as the target for `Target Helper` (💻 @idontplaythisgame)

@@ -88,12 +88,7 @@ export function setNecromancerHooks() {
                 type: "action",
                 author: necromancer.uuid,
                 item: "Compendium.pf2e.classfeatures.Item.gyN8OZZ3txxIAKLf",
-                targets: [
-                  necromancer.getActiveTokens(
-                    (linked = true),
-                    (document = true),
-                  )?.[0]?.uuid,
-                ],
+                targets: [necromancer.getActiveTokens(true, true)?.[0]?.uuid],
               },
             },
           },
