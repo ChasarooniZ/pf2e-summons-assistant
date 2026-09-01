@@ -29,10 +29,19 @@ export function onlyHasJB2AFree() {
 }
 
 export function hasAnyJB2A() {
-  return (
+  const isActive =
     game.modules.get("JB2A_DnD5e")?.active ||
-    game.modules.get("jb2a_patreon")?.active
-  );
+    game.modules.get("jb2a_patreon")?.active;
+
+  if (!isActive && !window?.pf2eSummonsAssistantJb2aReminder) {
+    ui.notifications.warn(
+      game.i18n.format("pf2e-summons-assistant.notification.missing-jb2a", {
+        moduleName: game.modules.get(MODULE_ID).title,
+      }),
+    );
+    window.pf2eSummonsAssistantJb2aReminder = true;
+  }
+  return isActive;
 }
 
 export function capitalizeDamageType(type) {
