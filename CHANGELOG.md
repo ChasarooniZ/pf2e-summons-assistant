@@ -1,9 +1,13 @@
 ## Unreleased
 
-## 2.15.4
+## 2.15.5
 
 - **Update**
   - Fixed issue introduced by code changes for `Blood` automation in `2.15.3`
+
+## 2.15.4
+
+- Updated french translation (🌐 @rectulo)
 
 ## 2.15.3
 
