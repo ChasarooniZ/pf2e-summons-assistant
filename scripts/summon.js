@@ -120,7 +120,8 @@ export async function summon({
       drawPing: game.settings.get(MODULE_ID, "config.ping-summon"),
     });
 
-    const summonedActor = tokDoc.actor ?? game.actors.get(tokDoc.actorId);
+    const summonedCreatureActor =
+      tokDoc.actor ?? game.actors.get(tokDoc.actorId);
     if (
       isMaxSummonLevelRuleActive(
         selectedActor,
@@ -129,24 +130,28 @@ export async function summon({
         itemUuid,
       )
     ) {
-      await scaleActorItems(summonedActor, originalActorLevel, summonLevel);
+      await scaleActorItems(
+        summonedCreatureActor,
+        originalActorLevel,
+        summonLevel,
+      );
     }
 
     if (isLinkedSummon(selectedActorUuid)) {
-      summonActorUUIDList.push(summonedActor.uuid);
+      summonActorUUIDList.push(summonedCreatureActor.uuid);
     }
 
     if (itemsToAdd.length > 0) {
-      await summonedActor?.createEmbeddedDocuments("Item", itemsToAdd);
+      await summonedCreatureActor?.createEmbeddedDocuments("Item", itemsToAdd);
     }
-    await summonedActor?.setFlag(MODULE_ID, "summoner", {
+    await summonedCreatureActor?.setFlag(MODULE_ID, "summoner", {
       uuid: summonerActor.uuid,
       id: summonerActor.id,
       signature: summonerActor.signature,
     });
 
     // Set Share timeEvents
-    summonedActor.setFlag("pf2e-toolbelt", "shareData", {
+    summonedCreatureActor.setFlag("pf2e-toolbelt", "shareData", {
       data: {
         master: summonerActor.id,
         health: false,
@@ -162,8 +167,8 @@ export async function summon({
 
     await handlePostSummon(
       itemUuid,
-      summonedActor.uuid,
-      summonedActor.id,
+      summonedCreatureActor.uuid,
+      summonedCreatureActor.id,
       summonerToken,
       tokDoc,
     );
