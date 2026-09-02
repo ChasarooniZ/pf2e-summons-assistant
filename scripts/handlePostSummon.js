@@ -242,7 +242,7 @@ const postSummonHelper = {
         master: summonerToken.actor.id,
         health: true,
         languages: false,
-        timeEvents: false,
+        timeEvents: true,
         armorRunes: false,
         heroPoints: false,
         skills: false,

@@ -90,8 +90,6 @@ Hooks.once("ready", async function () {
 
     if (chatMessage?.flags?.[game.system.id]?.appliedDamage) return;
 
-    let summonLevel = 20;
-
     const summonerActor = ChatMessage.getSpeakerActor(chatMessage.speaker);
 
     const spellRank =
@@ -179,10 +177,7 @@ Hooks.once("ready", async function () {
         spellRelevantInfo?.range &&
         !group?.crosshairParameters?.location
       ) {
-        if (
-          summonerToken &&
-          !(group?.crosshairParameters instanceof Function)
-        ) {
+        if (summonerToken && typeof group?.crosshairParameters !== "function") {
           foundry.utils.mergeObject(group, {
             crosshairParameters: {
               location: {
@@ -227,13 +222,13 @@ Hooks.once("ready", async function () {
     };
 
     const summonType = getSummonType(chatMessage);
-    await summon(
+    await summon({
       summonerActor,
       itemUuid,
       summonType,
       summonDetailsGroup,
       config,
-    );
+    });
   });
 
   Hooks.on("renderItemSheet", async (app, html, data) => {

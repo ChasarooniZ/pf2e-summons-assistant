@@ -420,7 +420,6 @@ export async function safeDelete(doc) {
 
 export function populateSlugToSource() {
   Object.values(SOURCES)
-    .map((group) => Object.entries(group))
-    .flat()
+    .flatMap((group) => Object.entries(group))
     .forEach(([a, b]) => (SLUG_TO_SOURCE[game.pf2e.system.sluggify(a)] = b));
 }

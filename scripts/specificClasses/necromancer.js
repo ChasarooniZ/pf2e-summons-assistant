@@ -50,12 +50,12 @@ $(document).on("click", ".living-graveyard-move-yes", async function () {
       summonDetails.amount = 3;
     }
 
-    await summon(
+    await summon({
       summonerActor,
-      SOURCES.NECROMANCER.CREATE_THRALL,
-      "thrall",
+      itemUuid: SOURCES.NECROMANCER.CREATE_THRALL,
+      summonType: "thrall",
       summonDetailsGroup,
-    );
+    });
     await t.delete();
   }
 });
@@ -66,34 +66,8 @@ export function setNecromancerHooks() {
   Hooks.on("preUpdateToken", livingGraveyardMovementHook);
 
   Hooks.on("preDeleteToken", async (token, _action, _id) => {
-    // only continue if token is a Thrall
-    if (token.actor?.flags?.pf2e?.rollOptions?.all?.["self:trait:thrall"]) {
-      // get parent actor
-      const necromancer = game.actors.get(
-        token.actor?.flags?.["pf2e-summons-assistant"].summoner?.id,
-      );
-      // only provide healing if parent is a Grim Fascination: Blood Necromancer
-      if (necromancer?.rollOptions?.all?.["feature:blood"]) {
-        const healingAmount = Math.ceil((necromancer?.level ?? 1) / 4);
-        const DamageRoll = CONFIG.Dice.rolls.find(
-          (r) => r.name === "DamageRoll",
-        );
-        const roll = new DamageRoll(`${healingAmount}[healing]`);
-        roll.toMessage({
-          flavor: `Grim Fascination - Blood (Healing)`,
-          speaker: ChatMessage.getSpeaker({ actor: necromancer }),
-          flags: {
-            "pf2e-toolbelt": {
-              targetHelper: {
-                type: "action",
-                author: necromancer.uuid,
-                item: "Compendium.pf2e.classfeatures.Item.gyN8OZZ3txxIAKLf",
-                targets: [necromancer.getActiveTokens(true, true)?.[0]?.uuid],
-              },
-            },
-          },
-        });
-      }
+    if (isThrall(token.actor) && token?.system?.attributes?.hp?.value !== 0) {
+      bloodFascinationMessage(token?.actor);
     }
   });
 
@@ -128,8 +102,48 @@ export function setNecromancerHooks() {
     }
   });
 
+  Hooks.on("updateActor", (actor, updates, _info, userID) => {
+    if (game.user.id !== userID) {
+      return;
+    }
+
+    if (isThrall(actor) && updates?.system?.attributes?.hp?.value === 0) {
+      bloodFascinationMessage(actor);
+    }
+  });
+
   if (game.settings.get(MODULE_ID, "necromancer.thrall.auto-expire")) {
     setupAutoDeleteThrallHook();
+  }
+}
+
+function isThrall(actor) {
+  return actor?.flags?.pf2e?.rollOptions?.all?.["self:trait:thrall"];
+}
+
+function bloodFascinationMessage(thrallActor) {
+  const necromancer = game.actors.get(
+    thrallActor?.flags?.["pf2e-summons-assistant"].summoner?.id,
+  );
+  // only provide healing if parent is a Grim Fascination: Blood Necromancer
+  if (necromancer?.rollOptions?.all?.["feature:blood"]) {
+    const healingAmount = Math.ceil((necromancer?.level ?? 1) / 4);
+    const DamageRoll = CONFIG.Dice.rolls.find((r) => r.name === "DamageRoll");
+    const roll = new DamageRoll(`${healingAmount}[healing]`);
+    roll.toMessage({
+      flavor: `Grim Fascination - Blood (Healing)`,
+      speaker: ChatMessage.getSpeaker({ actor: necromancer }),
+      flags: {
+        "pf2e-toolbelt": {
+          targetHelper: {
+            type: "action",
+            author: necromancer.uuid,
+            item: "Compendium.pf2e.classfeatures.Item.gyN8OZZ3txxIAKLf",
+            targets: [necromancer.getActiveTokens(true, true)?.[0]?.uuid],
+          },
+        },
+      },
+    });
   }
 }
 

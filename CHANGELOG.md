@@ -1,9 +1,14 @@
 ## Unreleased
 
+- **New**
+  - Added an API to access the `summon` feature
+- **Update**
+  - Updated all summons to use `PF2e Toolbelt`'s share timestamp feature atm (💡 @Vauxs)
+  - Refactored some code to remove bugs and increase readability
+
 ## 2.15.5
 
-- **Update**
-  - Fixed issue introduced by code changes for `Blood` automation in `2.15.3`
+- Fixed issue introduced by code changes for `Blood` automation in `2.15.3`
 
 ## 2.15.4
 
