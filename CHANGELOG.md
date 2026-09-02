@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.16.1
+
+- Fixed incorrect linking of `Health` as opposed to `TimeEvents`
+
 ## 2.16.0
 
 - **New**

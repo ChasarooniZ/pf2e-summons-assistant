@@ -149,9 +149,9 @@ export async function summon({
     summonerActor.setFlag("pf2e-toolbelt", "shareData", {
       data: {
         master: summonedActor.id,
-        health: true,
+        health: false,
         languages: false,
-        timeEvents: false,
+        timeEvents: true,
         armorRunes: false,
         heroPoints: false,
         skills: false,
