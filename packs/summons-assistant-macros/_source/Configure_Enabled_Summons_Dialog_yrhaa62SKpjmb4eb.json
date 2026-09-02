@@ -1,0 +1,28 @@
+{
+  "name": "Configure Enabled Summons Dialog",
+  "type": "script",
+  "_id": "yrhaa62SKpjmb4eb",
+  "author": "vj8VUT8j7Wtzy3Y2",
+  "img": "icons/commodities/tech/cog-large-steel-white.webp",
+  "scope": "global",
+  "command": "window[\"pf2e-summons-assistant\"].disableItemsDialog()",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1788332812745,
+    "modifiedTime": 1788346886222,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!macros!yrhaa62SKpjmb4eb"
+}

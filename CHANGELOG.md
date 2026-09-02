@@ -1,7 +1,13 @@
 ## Unreleased
 
+## 2.16.0
+
 - **New**
-  - Added an API to access the `summon` feature
+  - Added an API to access the `summon` function
+  - Added the following new macros:
+    - `Configure Enabled Summons Dialog` - Quick macro to access the menu in the settings
+  - `Delete all your Thralls on Scene` - If the user has permission to, will delete either all thralls of their selected token or of their character (after a yes/no prompt)
+  - `Summon API - Example A` - Provided a basic example to summon a single elemental based on your level
 - **Update**
   - Updated all summons to use `PF2e Toolbelt`'s share timestamp feature atm (💡 @Vauxs)
   - Refactored some code to remove bugs and increase readability

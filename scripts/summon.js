@@ -17,8 +17,7 @@ export async function summon({
   summonType,
   summonDetailsGroup,
   config = {},
-}
-) {
+}) {
   const additionalTraits = addTraits(summonType);
   const summonerToken = summonerActor.getActiveTokens()?.[0];
   const summonerAlliance = summonerActor.system.details.alliance;
@@ -55,6 +54,7 @@ export async function summon({
         : await summonPicker({
             allowedSpecificUuids,
             requiredTraits,
+            summonLevel,
           });
 
     const { actorUpdateData, selectedActor, originalActorLevel } =
@@ -346,7 +346,11 @@ function isAffectedByHouseRules(itemUUID) {
   return AFFECTED_BY_HOUSE_RULES.has(itemUUID);
 }
 
-async function summonPicker({ allowedSpecificUuids, requiredTraits }) {
+async function summonPicker({
+  allowedSpecificUuids,
+  requiredTraits,
+  summonLevel,
+}) {
   return await foundrySummons.SummonMenu.start({
     //packs: ['pf2e.pathfinder-monster-core'],
     noSummon: true,

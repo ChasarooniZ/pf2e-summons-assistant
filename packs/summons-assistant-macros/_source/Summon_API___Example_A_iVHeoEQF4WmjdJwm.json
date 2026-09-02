@@ -1,0 +1,28 @@
+{
+  "name": "Summon API - Example A",
+  "type": "script",
+  "_id": "iVHeoEQF4WmjdJwm",
+  "author": "vj8VUT8j7Wtzy3Y2",
+  "img": "icons/magic/symbols/runes-star-pentagon-blue.webp",
+  "scope": "global",
+  "command": "// This example will pull up them menu to summon based on the selected token for a summon of elemental trait with level <= actor level\n\nconst maxLevel = token.actor?.level;\nconst traits = [\"elemental\"];\nconst summoner = token?.actor;\nconst itemUuid = \"Compendium.pf2e.spells-srd.Item.lpT6LotUaQPfinjj\"\n\nwindow[\"pf2e-summons-assistant\"].summon({\n  summonerActor: summoner,\n  itemUuid: itemUuid,\n  summonType: \"summon\",\n  summonDetailsGroup: [\n    {\n        summonLevel: maxLevel ?? 1,\n        traits: [\"elemental\"],\n      },\n  ],\n  config: {}\n})",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1788332714362,
+    "modifiedTime": 1788347675774,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!macros!iVHeoEQF4WmjdJwm"
+}

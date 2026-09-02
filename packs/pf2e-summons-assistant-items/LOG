@@ -1,15 +1,14 @@
-2026/08/28-16:05:07.765 8ca8 Recovering log #1206
-2026/08/28-16:05:07.904 8ca8 Delete type=0 #1206
-2026/08/28-16:05:07.904 8ca8 Delete type=3 #1205
-2026/08/28-16:05:07.957 9068 Level-0 table #1210: started
-2026/08/28-16:05:08.004 9068 Level-0 table #1210: 20560 bytes OK
-2026/08/28-16:05:08.068 9068 Delete type=0 #1208
-2026/08/28-16:05:08.068 9068 Manual compaction at level-0 from '!folders!9pwAlUtxsoEAX8Ah' @ 72057594037927935 : 1 .. '!items!zFyeEWPXwfeQgYku' @ 0 : 0; will stop at '!items!rTFBIPQuD6BsELeD' @ 1170 : 1
-2026/08/28-16:05:08.068 9068 Compacting 2@0 + 1@1 files
-2026/08/28-16:05:08.115 9068 Generated table #1211@0: 33 keys, 20560 bytes
-2026/08/28-16:05:08.115 9068 Compacted 2@0 + 1@1 files => 20560 bytes
-2026/08/28-16:05:08.167 9068 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/08/28-16:05:08.168 9068 Delete type=2 #1199
-2026/08/28-16:05:08.168 9068 Delete type=2 #1203
-2026/08/28-16:05:08.168 9068 Delete type=2 #1210
-2026/08/28-16:05:08.168 9068 Manual compaction at level-0 from '!items!rTFBIPQuD6BsELeD' @ 1170 : 1 .. '!items!zFyeEWPXwfeQgYku' @ 0 : 0; will stop at (end)
+2026/09/02-06:25:12.897 aa2c Recovering log #1224
+2026/09/02-06:25:13.011 aa2c Delete type=0 #1224
+2026/09/02-06:25:13.011 aa2c Delete type=3 #1223
+2026/09/02-06:25:13.054 a8a0 Level-0 table #1228: started
+2026/09/02-06:25:13.089 a8a0 Level-0 table #1228: 20560 bytes OK
+2026/09/02-06:25:13.153 a8a0 Delete type=0 #1226
+2026/09/02-06:25:13.154 a8a0 Manual compaction at level-0 from '!folders!9pwAlUtxsoEAX8Ah' @ 72057594037927935 : 1 .. '!items!zFyeEWPXwfeQgYku' @ 0 : 0; will stop at '!items!zFyeEWPXwfeQgYku' @ 1273 : 1
+2026/09/02-06:25:13.154 a8a0 Compacting 1@0 + 1@1 files
+2026/09/02-06:25:13.189 a8a0 Generated table #1229@0: 33 keys, 20560 bytes
+2026/09/02-06:25:13.189 a8a0 Compacted 1@0 + 1@1 files => 20560 bytes
+2026/09/02-06:25:13.253 a8a0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/09/02-06:25:13.253 a8a0 Delete type=2 #1216
+2026/09/02-06:25:13.254 a8a0 Delete type=2 #1228
+2026/09/02-06:25:13.254 a8a0 Manual compaction at level-0 from '!items!zFyeEWPXwfeQgYku' @ 1273 : 1 .. '!items!zFyeEWPXwfeQgYku' @ 0 : 0; will stop at (end)

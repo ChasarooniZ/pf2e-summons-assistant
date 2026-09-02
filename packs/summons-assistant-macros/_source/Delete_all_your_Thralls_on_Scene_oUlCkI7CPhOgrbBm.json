@@ -1,0 +1,28 @@
+{
+  "name": "Delete all your Thralls on Scene",
+  "type": "script",
+  "_id": "oUlCkI7CPhOgrbBm",
+  "author": "vj8VUT8j7Wtzy3Y2",
+  "img": "icons/magic/death/skull-poison-green.webp",
+  "scope": "global",
+  "command": "const actorID = token?.actor?.id || game.user?.character?.id;\nif (!actorID) {\n  ui.notifications.warn(\"No selected token or character assigned to you\")\n  return;\n}\n\n\nconst thralls = canvas.tokens.placeables.filter((tok) => \n  tok?.document?.actor?.flags?.[\"pf2e-summons-assistant\"]?.summoner?.id === actorID &&\n    tok?.document?.actor?.flags?.pf2e?.rollOptions?.all?.[\"self:trait:thrall\"]\n)\n\nconst proceed = await foundry.applications.api.DialogV2.confirm({\n  content:`Delete all thralls (${thralls?.length}) for ${game.actors?.get(actorID)?.name}`,\n  rejectClose: false,\n  modal: true\n});\nif ( proceed )  {\n    canvas.scene.deleteEmbeddedDocuments(\"Token\", thralls?.map(t => t?.id))\n  ui.notifications.info(\"Thralls deleted\")\n}",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "pf2e",
+    "systemVersion": "8.4.1",
+    "createdTime": 1788332920493,
+    "modifiedTime": 1788335754177,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!macros!oUlCkI7CPhOgrbBm"
+}
