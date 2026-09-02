@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.16.2
+
+- Fixed the `PF2e Toolbelt` flags being used to function properly
+
 ## 2.16.1
 
 - Fixed incorrect linking of `Health` as opposed to `TimeEvents`

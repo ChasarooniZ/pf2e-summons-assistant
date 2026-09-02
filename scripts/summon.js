@@ -146,9 +146,9 @@ export async function summon({
     });
 
     // Set Share timeEvents
-    summonerActor.setFlag("pf2e-toolbelt", "shareData", {
+    summonedActor.setFlag("pf2e-toolbelt", "shareData", {
       data: {
-        master: summonedActor.id,
+        master: summonerActor.id,
         health: false,
         languages: false,
         timeEvents: true,
