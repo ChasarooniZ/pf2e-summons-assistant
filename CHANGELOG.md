@@ -3,6 +3,7 @@
 ## 2.16.1
 
 - Fixed incorrect linking of `Health` as opposed to `TimeEvents`
+- Updated french translation (🌐 @rectulo)
 
 ## 2.16.0
 
