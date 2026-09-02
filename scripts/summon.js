@@ -22,7 +22,7 @@ export async function summon({
   const additionalTraits = addTraits(summonType);
   const summonerToken = summonerActor.getActiveTokens()?.[0];
   const summonerAlliance = summonerActor.system.details.alliance;
-  // No Summon Spell Found0
+  // No Summon Spell Found
   if (summonDetailsGroup === null) return;
 
   const summonerItem = config?.item ?? (await fromUuid(itemUuid));

@@ -66,7 +66,10 @@ export function setNecromancerHooks() {
   Hooks.on("preUpdateToken", livingGraveyardMovementHook);
 
   Hooks.on("preDeleteToken", async (token, _action, _id) => {
-    if (isThrall(token.actor) && token?.system?.attributes?.hp?.value !== 0) {
+    if (
+      isThrall(token.actor) &&
+      token?.actor?.system?.attributes?.hp?.value !== 0
+    ) {
       bloodFascinationMessage(token?.actor);
     }
   });
