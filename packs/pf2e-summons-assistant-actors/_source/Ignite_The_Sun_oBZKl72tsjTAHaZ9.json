@@ -338,7 +338,7 @@
           "value": "free"
         },
         "description": {
-          "value": "<p>A creature takes @Damage[7d6)[fire]|options:area-damage] damage any time it's in the miniature sun, with a @Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|basic|options:area-effect] save against your class DC. A creature can take this damage no more than once per round.</p>",
+          "value": "<p>A creature takes @Damage[(7d6)[fire]|options:area-damage] damage any time it's in the miniature sun, with a @Check[reflex|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|basic|options:area-effect] save against your class DC. A creature can take this damage no more than once per round.</p>",
           "gm": ""
         },
         "publication": {

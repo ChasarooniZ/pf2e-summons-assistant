@@ -1,14 +1,14 @@
-2026/09/02-06:25:12.082 aa2c Recovering log #1281
-2026/09/02-06:25:12.613 aa2c Delete type=0 #1281
-2026/09/02-06:25:12.613 aa2c Delete type=3 #1280
-2026/09/02-06:25:12.645 a8a0 Level-0 table #1285: started
-2026/09/02-06:25:12.680 a8a0 Level-0 table #1285: 205110 bytes OK
-2026/09/02-06:25:12.733 a8a0 Delete type=0 #1283
-2026/09/02-06:25:12.734 a8a0 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 11566 : 1
-2026/09/02-06:25:12.734 a8a0 Compacting 1@0 + 1@1 files
-2026/09/02-06:25:12.769 a8a0 Generated table #1286@0: 240 keys, 205110 bytes
-2026/09/02-06:25:12.769 a8a0 Compacted 1@0 + 1@1 files => 205110 bytes
-2026/09/02-06:25:12.822 a8a0 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/09/02-06:25:12.822 a8a0 Delete type=2 #1273
-2026/09/02-06:25:12.822 a8a0 Delete type=2 #1285
-2026/09/02-06:25:12.823 a8a0 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 11566 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/09/14-16:20:18.765 1eac Recovering log #1284
+2026/09/14-16:20:18.879 1eac Delete type=0 #1284
+2026/09/14-16:20:18.879 1eac Delete type=3 #1282
+2026/09/14-16:20:18.976 7d98 Level-0 table #1290: started
+2026/09/14-16:20:19.022 7d98 Level-0 table #1290: 205105 bytes OK
+2026/09/14-16:20:19.077 7d98 Delete type=0 #1288
+2026/09/14-16:20:19.077 7d98 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 11806 : 1
+2026/09/14-16:20:19.077 7d98 Compacting 1@0 + 1@1 files
+2026/09/14-16:20:19.132 7d98 Generated table #1291@0: 240 keys, 205105 bytes
+2026/09/14-16:20:19.132 7d98 Compacted 1@0 + 1@1 files => 205105 bytes
+2026/09/14-16:20:19.209 7d98 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/09/14-16:20:19.209 7d98 Delete type=2 #1286
+2026/09/14-16:20:19.210 7d98 Delete type=2 #1290
+2026/09/14-16:20:19.210 7d98 Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 11806 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
