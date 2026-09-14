@@ -218,10 +218,10 @@ function checkLivingGraveyardMovement(tokenDoc) {
 
   ChatMessage.create(data);
 }
-export function isBindHeroicSpiritHit(chatMessage) {
+export function isBindHeroicSpiritCriticalHit(chatMessage) {
   return (
     chatMessage?.flags?.[game.system.id]?.context?.type === "attack-roll" &&
-    ["success", "criticalSuccess"].includes(
+    ["criticalSuccess"].includes(
       chatMessage?.flags?.[game.system.id]?.context?.outcome,
     ) &&
     chatMessage?.flags?.[game.system.id]?.context?.options?.includes(

@@ -1,5 +1,9 @@
 ## Unreleased
 
+- **Updated**
+  - Fixed issue with `Ignite the Sun` damage in summon (🐛 @thecoolersub)
+  - Fixed issue with `Bind Heroic Thrall` summoning on success not critical success (🐛 @august-k)
+
 ## 2.16.2
 
 - Fixed the `PF2e Toolbelt` flags being used to function properly

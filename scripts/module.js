@@ -21,7 +21,7 @@ import { getSpecificSummonDetails } from "./specificSummons.js";
 import { handleUpdateMessage } from "./updateMessage.js";
 import { summon, getTraditionalSummonerSpellDetails } from "./summon.js";
 import {
-  isBindHeroicSpiritHit,
+  isBindHeroicSpiritCriticalHit,
   setNecromancerHooks,
 } from "./specificClasses/necromancer.js";
 import { setupCommanderHooks } from "./specificClasses/commander.js";
@@ -65,7 +65,7 @@ Hooks.once("ready", async function () {
   Hooks.on("createChatMessage", async (chatMessage, _info, userID) => {
     if (userID !== game.user.id) return;
 
-    const isBindHeroicSpiritSuccess = isBindHeroicSpiritHit(chatMessage);
+    const isBindHeroicSpiritSuccess = isBindHeroicSpiritCriticalHit(chatMessage);
 
     if (chatMessage.isDamageRoll) return;
     if (chatMessage.isRoll && !isBindHeroicSpiritSuccess) return;
