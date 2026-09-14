@@ -171,7 +171,8 @@
       "customize": {
         "summoned-token": {
           "title": "Customize Summoned Token"
-        }
+        },
+        "reset": "Reset to Default"
       },
       "thaumaturge": {
         "title": {

@@ -99,6 +99,13 @@ async function customizeSummonedToken(tokenInfo, item) {
   const data = await foundry.applications.api.DialogV2.input({
     window: {
       title: `${game.i18n.localize("pf2e-summons-assistant.dialog.customize.summoned-token.title")} (${tokenInfo.name})`,
+      controls: [
+        {
+          action: "reset",
+          icon: "fa-solid fa-rotate-left",
+          label: "pf2e-summons-assistant.dialog.customize.reset",
+        },
+      ],
     },
     content: `
     <div class="form-group">
@@ -151,10 +158,31 @@ async function customizeSummonedToken(tokenInfo, item) {
       label: "Save",
       icon: "fa-solid fa-floppy-disk",
     },
+    actions: {
+      reset: async function (event, target) {
+        if (item) {
+          //set item
+          const prevSettings =
+            item.getFlag(MODULE_ID, "customized-summons") ?? {};
+          prevSettings[replacePeriods(tokenInfo.uuid)] = defCFG;
+          await item.setFlag(MODULE_ID, "customized-summons", prevSettings);
+        } else {
+          //set world
+          const prevSettings =
+            game.settings.get(MODULE_ID, "customized-summons") ?? {};
+          prevSettings[replacePeriods(tokenInfo.uuid)] = defCFG;
+          await game.settings.set(
+            MODULE_ID,
+            "customized-summons",
+            prevSettings,
+          );
+        }
+      },
+    },
   });
 
   console.log({ data, tokenInfo });
-  const isChangesMade = data && JSON.stringify(defCFG) !== JSON.stringify(data);
+  const isChangesMade = data && !foundry.utils.equals(defCFG, data);
 
   if (isChangesMade) {
     // Set Customization setting
