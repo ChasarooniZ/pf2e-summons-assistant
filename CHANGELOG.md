@@ -1,9 +1,12 @@
 ## Unreleased
 
+## 2.16.3
+
 - **Updated**
   - Fixed issue with `Ignite the Sun` damage in summon (🐛 @thecoolersub)
   - Fixed issue with `Bind Heroic Thrall` summoning on success not critical success (🐛 @august-k)
   - Changed setting comparison and added a reset settings button to the header (🐛 @Airanuva)
+  - Removed system version requirement
 
 ## 2.16.2
 
