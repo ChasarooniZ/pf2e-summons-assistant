@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 2.17.0
+
 - **New**
   - `Horde of Underlings`
 - **Updated**
