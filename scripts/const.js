@@ -727,6 +727,12 @@ export const RULE_ELEMENTS = {
     path: "flags.pf2e-summons-assistant.dc",
     value: "@item.origin.system.attributes.spellDC.value",
   },
+  CLASS_DC_FLAG: {
+    key: "ActiveEffectLike",
+    mode: "add",
+    path: "flags.pf2e-summons-assistant.dc",
+    value: "@item.origin.system.attributes.classDC.value",
+  },
   SPELL_RANK_FLAG: (rank) => ({
     key: "ActiveEffectLike",
     mode: "add",

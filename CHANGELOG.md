@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.16.4
+
+- Fixed issue with `Ignite the Sun` dc in summon (🐛 @thecoolersub)
+
 ## 2.16.3
 
 - **Updated**
