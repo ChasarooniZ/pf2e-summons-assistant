@@ -228,9 +228,23 @@ async function modifyActorDataForSummon({
   };
 
   if (game.settings.get(MODULE_ID, "name-ownership")) {
-    actorUpdateData.name = `${actorUpdateData?.name ?? summonerActor.name}'s ${selectedActor.name}`;
-    actorUpdateData["prototypeToken.name"] =
-      `${actorUpdateData?.prototypeToken?.name ?? summonerActor.prototypeToken.name}'s ${selectedActor.prototypeToken.name}`;
+    actorUpdateData.name = game.i18n.format(
+      "pf2e-summons-assistant.display-text.summon-name-ownership",
+      {
+        summonerName: summonerActor.name,
+        summonName: actorUpdateData?.name ?? selectedActor.name,
+      },
+    );
+
+    actorUpdateData["prototypeToken.name"] = game.i18n.format(
+      "pf2e-summons-assistant.display-text.summon-name-ownership",
+      {
+        summonerName: summonerActor.prototypeToken.name,
+        summonName:
+          actorUpdateData?.prototypeToken?.name ??
+          selectedActor.prototypeToken.name,
+      },
+    );
   }
   return { actorUpdateData, selectedActor, originalActorLevel };
 }

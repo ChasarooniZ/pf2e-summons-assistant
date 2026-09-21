@@ -1,5 +1,12 @@
 ## Unreleased
 
+- **New**
+  - `Horde of Underlings`
+- **Updated**
+  - Fixed uuid link for `Bind Heroic Spirit`
+  - Fixed issue with customizing names of summons working incorrectly (🐛 @TheTenk)
+  - Added localization for the `<Summoner>'s <Summon Name>` to better fit other languages
+
 ## 2.16.4
 
 - Fixed issue with `Ignite the Sun` dc in summon (🐛 @thecoolersub)

@@ -1,14 +1,14 @@
-2026/09/14-16:20:22.603 1eac Recovering log #9
-2026/09/14-16:20:22.738 1eac Delete type=0 #9
-2026/09/14-16:20:22.739 1eac Delete type=3 #7
-2026/09/14-16:20:22.823 7d98 Level-0 table #15: started
-2026/09/14-16:20:22.875 7d98 Level-0 table #15: 1804 bytes OK
-2026/09/14-16:20:22.935 7d98 Delete type=0 #13
-2026/09/14-16:20:22.935 7d98 Manual compaction at level-0 from '!macros!iVHeoEQF4WmjdJwm' @ 72057594037927935 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at '!macros!yrhaa62SKpjmb4eb' @ 23 : 1
-2026/09/14-16:20:22.935 7d98 Compacting 1@0 + 1@1 files
-2026/09/14-16:20:22.979 7d98 Generated table #16@0: 3 keys, 1804 bytes
-2026/09/14-16:20:22.979 7d98 Compacted 1@0 + 1@1 files => 1804 bytes
-2026/09/14-16:20:23.045 7d98 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/09/14-16:20:23.046 7d98 Delete type=2 #11
-2026/09/14-16:20:23.072 7d98 Delete type=2 #15
-2026/09/14-16:20:23.072 7d98 Manual compaction at level-0 from '!macros!yrhaa62SKpjmb4eb' @ 23 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at (end)
+2026/09/21-13:04:49.829 42f0 Recovering log #71
+2026/09/21-13:04:49.961 42f0 Delete type=0 #71
+2026/09/21-13:04:49.961 42f0 Delete type=3 #69
+2026/09/21-13:04:49.994 2e9c Level-0 table #77: started
+2026/09/21-13:04:50.042 2e9c Level-0 table #77: 1804 bytes OK
+2026/09/21-13:04:50.092 2e9c Delete type=0 #75
+2026/09/21-13:04:50.092 2e9c Manual compaction at level-0 from '!macros!iVHeoEQF4WmjdJwm' @ 72057594037927935 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at '!macros!yrhaa62SKpjmb4eb' @ 29 : 1
+2026/09/21-13:04:50.092 2e9c Compacting 1@0 + 1@1 files
+2026/09/21-13:04:50.127 2e9c Generated table #78@0: 3 keys, 1804 bytes
+2026/09/21-13:04:50.128 2e9c Compacted 1@0 + 1@1 files => 1804 bytes
+2026/09/21-13:04:50.191 2e9c compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/09/21-13:04:50.192 2e9c Delete type=2 #73
+2026/09/21-13:04:50.192 2e9c Delete type=2 #77
+2026/09/21-13:04:50.192 2e9c Manual compaction at level-0 from '!macros!yrhaa62SKpjmb4eb' @ 29 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at (end)

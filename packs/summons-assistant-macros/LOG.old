@@ -1,14 +1,14 @@
-2026/09/02-06:25:14.250 aa2c Recovering log #6
-2026/09/02-06:25:14.371 aa2c Delete type=0 #6
-2026/09/02-06:25:14.371 aa2c Delete type=3 #4
-2026/09/02-06:25:14.425 a8a0 Level-0 table #10: started
-2026/09/02-06:25:14.499 a8a0 Level-0 table #10: 1804 bytes OK
-2026/09/02-06:25:14.568 a8a0 Delete type=0 #8
-2026/09/02-06:25:14.569 a8a0 Manual compaction at level-0 from '!macros!iVHeoEQF4WmjdJwm' @ 72057594037927935 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at '!macros!yrhaa62SKpjmb4eb' @ 3 : 1
-2026/09/02-06:25:14.569 a8a0 Compacting 2@0 + 0@1 files
-2026/09/02-06:25:14.603 a8a0 Generated table #11@0: 3 keys, 1804 bytes
-2026/09/02-06:25:14.603 a8a0 Compacted 2@0 + 0@1 files => 1804 bytes
-2026/09/02-06:25:14.668 a8a0 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/09/02-06:25:14.668 a8a0 Delete type=2 #5
-2026/09/02-06:25:14.668 a8a0 Delete type=2 #10
-2026/09/02-06:25:14.669 a8a0 Manual compaction at level-0 from '!macros!yrhaa62SKpjmb4eb' @ 3 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at (end)
+2026/09/21-12:13:19.532 13a4 Recovering log #68
+2026/09/21-12:13:19.696 13a4 Delete type=0 #68
+2026/09/21-12:13:19.696 13a4 Delete type=3 #67
+2026/09/21-12:13:19.730 7e84 Level-0 table #72: started
+2026/09/21-12:13:19.810 7e84 Level-0 table #72: 1804 bytes OK
+2026/09/21-12:13:19.872 7e84 Delete type=0 #70
+2026/09/21-12:13:19.872 7e84 Manual compaction at level-0 from '!macros!iVHeoEQF4WmjdJwm' @ 72057594037927935 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at '!macros!yrhaa62SKpjmb4eb' @ 26 : 1
+2026/09/21-12:13:19.872 7e84 Compacting 1@0 + 1@1 files
+2026/09/21-12:13:19.908 7e84 Generated table #73@0: 3 keys, 1804 bytes
+2026/09/21-12:13:19.908 7e84 Compacted 1@0 + 1@1 files => 1804 bytes
+2026/09/21-12:13:19.960 7e84 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/09/21-12:13:19.961 7e84 Delete type=2 #16
+2026/09/21-12:13:19.961 7e84 Delete type=2 #72
+2026/09/21-12:13:19.961 7e84 Manual compaction at level-0 from '!macros!yrhaa62SKpjmb4eb' @ 26 : 1 .. '!macros!yrhaa62SKpjmb4eb' @ 0 : 0; will stop at (end)

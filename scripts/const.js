@@ -53,6 +53,7 @@ export const SOURCES = {
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
     FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
     HEALING_WELL: "Compendium.pf2e.spells-srd.Item.CzjQtkRuRlzRvwzg",
+    HORDE_OF_UNDERLINGS: "Compendium.pf2e.spells-srd.Item.y5amezSt82FYu9HG",
     ILLUSORY_CREATURE: "Compendium.pf2e.spells-srd.Item.f8SBoXiXQjlCKqly",
     INSTANT_MINEFIELD: "Compendium.pf2e.spells-srd.Item.vuehhQN8gPSpqcEK",
     LIGHT: "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4",
@@ -115,9 +116,8 @@ export const SOURCES = {
     INEVITABLE_RETURN: "Compendium.pf2e.actionspf2e.Item.9KkkDjNz5HMtutwA",
 
     // Does not need slug, special case
-    // TODO updated it when it is added
     BIND_HEROIC_SPIRIT_STRIKE:
-      "Compendium.pf2e-playtest-data.impossible-playtest-effects.Item.MTYxqIqJVzza1Lro",
+      "Compendium.pf2e.spell-effects.Item.z5eKhhGw4vIFg9a9",
   },
 
   PSYCHIC: {
@@ -266,6 +266,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.llXyX6eS8UHGqpnn",
   TEMPEST_OF_SHADES:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.EwmHOiQTdCEmBKfA",
+  UNDERLING:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.qD5tzD7qKpfLYuHf",
   WALL_OF_ICE:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.gGDK0P3m075eIq6A",
   WALL_OF_FIRE:
@@ -733,6 +735,13 @@ export const RULE_ELEMENTS = {
     path: "flags.pf2e-summons-assistant.dc",
     value: "@item.origin.system.attributes.classDC.value",
   },
+  BASIC_STRIKE: ({ damageType, dice, die, attackModifier, label }) => ({
+    damage: { base: { damageType, dice, die } },
+    attackModifier: attackModifier,
+    key: "Strike",
+    slug: game.pf2e.system.sluggify(label),
+    label,
+  }),
   SPELL_RANK_FLAG: (rank) => ({
     key: "ActiveEffectLike",
     mode: "add",

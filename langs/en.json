@@ -150,6 +150,9 @@
           "one": "{iconSummon} Summon {cnt} thrall{s} & {iconCommand} Command that thrall"
         }
       },
+      "horde-of-underlings": {
+        "title": "Horde of Underlings"
+      },
       "thrall-destroyed": {
         "title": "Destroy Thrall?",
         "content": "Did you decide to destroy a thrall? (for the purposes of 'Become as Spirit')"
@@ -187,6 +190,7 @@
       }
     },
     "display-text": {
+      "summon-name-ownership": "{summonerName}'s {summonName}",
       "wooden-double": {
         "place-double": "Left Click to place your Wooden Double",
         "step": "Choose where to Step to"

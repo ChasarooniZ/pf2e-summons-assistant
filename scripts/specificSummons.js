@@ -93,6 +93,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.DUPLICATE_FOE]: handlers.misc.handleDuplicateFoe,
   [SOURCES.MISC.FLOATING_FLAME]: handlers.misc.handleFloatingFlame,
   [SOURCES.MISC.HEALING_WELL]: handlers.misc.handleHealingWell,
+  [SOURCES.MISC.HORDE_OF_UNDERLINGS]: handlers.misc.handleHordeOfUnderlings,
   [SOURCES.MISC.LIGHT]: handlers.misc.handleLight,
   [SOURCES.MISC.MARVELOUS_MOUNT]: handlers.misc.handleMarvelousMount,
   [SOURCES.MISC.MISLEAD]: handlers.misc.handleMislead,
@@ -531,6 +532,66 @@ const handlers = {
           modifications: {
             "system.details.level.value": data.rank,
           },
+        },
+      ];
+    },
+
+    handleHordeOfUnderlings: async (data) => {
+      const damageType = data?.ignoreDialogue
+        ? { choice: "bludgeoning" }
+        : await foundry.applications.api.DialogV2.input({
+            window: {
+              title: "pf2e-summons-assistant.dialog.horde-of-underlings.title",
+              icon: "fa-solid fa-hat-wizard",
+            },
+            content: `
+              <label><input type="radio" name="choice" value="bludgeoning" checked> ${game.i18n.format("PF2E.TraitBludgeoning")}</label>
+              <label><input type="radio" name="choice" value="piercing"> ${game.i18n.format("PF2E.TraitPiercing")}</label>
+              <label><input type="radio" name="choice" value="slashing"> ${game.i18n.format("PF2E.TraitSlashing")}</label>
+            `,
+            ok: {
+              label: "CONTROLS.CommonSelect",
+              icon: "fa-solid fa-sword",
+            },
+          });
+
+      const size = data?.ignoreDialogue
+        ? { choice: "med" }
+        : await foundry.applications.api.DialogV2.input({
+            window: {
+              title: "pf2e-summons-assistant.dialog.horde-of-underlings.title",
+              icon: "fa-solid fa-hat-wizard",
+            },
+            content: `
+              <label><input type="radio" name="choice" value="sm"> ${game.i18n.format("PF2E.ActorSizeSmall")}</label>
+              <label><input type="radio" name="choice" value="med" checked> ${game.i18n.format("PF2E.ActorSizeMedium")}</label>
+            `,
+            ok: {
+              label: "CONTROLS.CommonSelect",
+              icon: "fa-solid fa-arrow-up-small-big",
+            },
+          });
+      return [
+        {
+          specific_uuids: [CREATURES.UNDERLING],
+          noDefaultTraits: true,
+          amount: data.rank * 2,
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.traits.size.value": size,
+          },
+          itemsToAdd: [
+            EFFECTS.RULE_EFFECT([
+              RULE_ELEMENTS.BASIC_STRIKE({
+                damageType,
+                dice: 1,
+                die: "d4",
+                attackModifier: 0,
+                label: "Underling Attack",
+              }),
+            ]),
+          ],
         },
       ];
     },
