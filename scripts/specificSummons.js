@@ -537,40 +537,46 @@ const handlers = {
     },
 
     handleHordeOfUnderlings: async (data) => {
-      const damageType = data?.ignoreDialogue
-        ? { choice: "bludgeoning" }
-        : await foundry.applications.api.DialogV2.input({
-            window: {
-              title: "pf2e-summons-assistant.dialog.horde-of-underlings.title",
-              icon: "fa-solid fa-hat-wizard",
-            },
-            content: `
+      const damageType = (
+        data?.ignoreDialogue
+          ? { choice: "bludgeoning" }
+          : await foundry.applications.api.DialogV2.input({
+              window: {
+                title:
+                  "pf2e-summons-assistant.dialog.horde-of-underlings.title",
+                icon: "fa-solid fa-hat-wizard",
+              },
+              content: `
               <label><input type="radio" name="choice" value="bludgeoning" checked> ${game.i18n.format("PF2E.TraitBludgeoning")}</label>
               <label><input type="radio" name="choice" value="piercing"> ${game.i18n.format("PF2E.TraitPiercing")}</label>
               <label><input type="radio" name="choice" value="slashing"> ${game.i18n.format("PF2E.TraitSlashing")}</label>
             `,
-            ok: {
-              label: "CONTROLS.CommonSelect",
-              icon: "fa-solid fa-sword",
-            },
-          });
+              ok: {
+                label: "CONTROLS.CommonSelect",
+                icon: "fa-solid fa-sword",
+              },
+            })
+      )?.choice;
 
-      const size = data?.ignoreDialogue
-        ? { choice: "med" }
-        : await foundry.applications.api.DialogV2.input({
-            window: {
-              title: "pf2e-summons-assistant.dialog.horde-of-underlings.title",
-              icon: "fa-solid fa-hat-wizard",
-            },
-            content: `
+      const size = (
+        data?.ignoreDialogue
+          ? { choice: "med" }
+          : await foundry.applications.api.DialogV2.input({
+              window: {
+                title:
+                  "pf2e-summons-assistant.dialog.horde-of-underlings.title",
+                icon: "fa-solid fa-hat-wizard",
+              },
+              content: `
               <label><input type="radio" name="choice" value="sm"> ${game.i18n.format("PF2E.ActorSizeSmall")}</label>
               <label><input type="radio" name="choice" value="med" checked> ${game.i18n.format("PF2E.ActorSizeMedium")}</label>
             `,
-            ok: {
-              label: "CONTROLS.CommonSelect",
-              icon: "fa-solid fa-arrow-up-small-big",
-            },
-          });
+              ok: {
+                label: "CONTROLS.CommonSelect",
+                icon: "fa-solid fa-arrow-up-small-big",
+              },
+            })
+      )?.choice;
       return [
         {
           specific_uuids: [CREATURES.UNDERLING],

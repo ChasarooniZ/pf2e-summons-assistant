@@ -104,6 +104,7 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Duplicate Foe` - Note: Does not work on Kineticist, does not copy over magical weapons only the strike form of them
   - `Floating Flame` - Art Requires `JB2a`
   - `Healing Well`
+  - `Horde of Underlings`
   - `Illusory Creature`
   - `Instant Minefield`
   - `Light` - Only works when not targetting anyone (Art Requires `JB2a`)

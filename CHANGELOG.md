@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.17.1
+
+- Fixed an issue with the choices for `Horde of Underlings` not working as expected
+
 ## 2.17.0
 
 - **New**
