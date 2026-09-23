@@ -128,7 +128,9 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Mirror's Implement` - Also incldues automation on deletion of extra tokens, updating combatant, etc.
 - **Misc**
   - `Call Ursine Ally`
+  - `Channel Draconic Essence`
   - `Necrologist Dedication` - Can sync health automatically to the summoner if you have the `PF2e Toolbelt` feature enabled
+  - `Reflexive Devotion`
   - `Swarmkeeper Dedication` - Can sync health automatically to the summoner if you have the `PF2e Toolbelt` feature enabled
 
 ### Items

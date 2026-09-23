@@ -43,6 +43,10 @@
           "name": "[Necromancer] Handle Living Graveyard Movement",
           "hint": "If enabled when a Living Graveyard is moved it will send a chat message which when clicked will cause the graveyard to spawn a thrall (as in accordance with the rules)"
         },
+        "handle-thrall-charge": {
+          "name": "[Necromancer] Handle Applying Thrall Charge Effect",
+          "hint": "If enabled when you cast thrall charge it will get your first target and apply the Thrall Charge spell effect to them"
+        },
         "thrall": {
           "auto-expire": {
             "name": "[Necromancer] Automatically Delete Expired Thralls",

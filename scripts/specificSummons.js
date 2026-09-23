@@ -88,6 +88,8 @@ const getSummonHandlers = () => ({
   // Misc
   [SOURCES.MISC.AVENGING_WILDWOOD]: handlers.misc.handleAvengingWildwood,
   [SOURCES.MISC.BILOCATION]: handlers.misc.handleBilocation,
+  [SOURCES.MISC.CHANNEL_DRACONIC_ESSENCE]:
+    handlers.misc.handleChannelDraconicEssence,
   [SOURCES.MISC.CALL_URSINE_ALLY]: handlers.misc.handleCallUrsineAlly,
   [SOURCES.MISC.DRAGON_TURRET]: handlers.misc.handleDragonTurret,
   [SOURCES.MISC.DUPLICATE_FOE]: handlers.misc.handleDuplicateFoe,
@@ -102,6 +104,7 @@ const getSummonHandlers = () => ({
   [SOURCES.MISC.PROTECTOR_TREE]: handlers.misc.handleProtectorTree,
   [SOURCES.MISC.PROJECT_IMAGE]: handlers.misc.handleProjectImage,
   [SOURCES.MISC.RAISE_THE_HORDE]: handlers.misc.handleNecrologistsHorde,
+  [SOURCES.MISC.REFLEXIVE_DEVOTION]: handlers.misc.handleChannelDraconicEssence,
   [SOURCES.MISC.SHADOW_SELF]: handlers.misc.handleShadowSelf,
   [SOURCES.MISC.SWARM_FORTH]: handlers.misc.handleSwarmkeepersSwarm,
   [SOURCES.MISC.TELEKINETIC_HAND]: handlers.misc.handleTelekineticHand,
@@ -440,6 +443,23 @@ const handlers = {
       } else {
         return [{ specific_uuids: [CREATURES.CAVE_BEAR], rank: 6 }];
       }
+    },
+    handleChannelDraconicEssence: (data) => {
+      const token = canvas.tokens.placeables.find(
+        (t) => t?.actor?.id === data.summonerActorId,
+      );
+      return [
+        {
+          specific_uuids: [CREATURES.DRACONIC_ESSENCE],
+          noDefaultTraits: true,
+          crosshairParameters: {
+            location: {
+              obj: token,
+              limitMaxRange: getGridUnitsFromFeet(30),
+            },
+          },
+        },
+      ];
     },
     handleDuplicateFoe: async (data) => {
       const token = await fromUuid(data.targetTokenUUID);
@@ -1698,10 +1718,11 @@ const handlers = {
   summoner: {
     handleManifestEidolon: async (data) => {
       const uuid = await getEidolon(data.summonerActorId);
-      if (uuid)
-        return [
-          { specific_uuids: [uuid], noDefaultTraits: true, isCharacter: true },
-        ];
+      if (uuid) {
+        foundrySummons.pick({
+          uuid: uuid,
+        });
+      }
       return null;
     },
   },

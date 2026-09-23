@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.18.0
+
+- **New**
+  - Handled `Channel Draconic Essence` & `Reflexive Devotion` (💡 @t-santana)
+  - Added a new setting to automatically apply `Thrall Charge` effect to your first target (💡 @TheTenk)
+- **Updated**
+  - Fixed how Eidolons are handled to be handled properly (🐛 @JacksonBockus)
+
 ## 2.17.1
 
 - Fixed an issue with the choices for `Horde of Underlings` not working as expected

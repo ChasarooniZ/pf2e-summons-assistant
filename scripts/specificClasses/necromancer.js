@@ -103,6 +103,17 @@ export function setNecromancerHooks() {
         }
       }
     }
+
+    if (
+      message?.item?.slug === "thrall-charge" &&
+      game.settings.get(MODULE_ID, "necromancer.handle-thrall-charge")
+    ) {
+      const target = game.user.targets.first();
+      if (target?.isOwner) {
+        const effect = await fromUuid(EFFECTS.NECROMANCER.THRALL_CHARGE);
+        await target.actor.createEmbeddedDocuments("Item", [effect]);
+      }
+    }
   });
 
   Hooks.on("updateActor", (actor, updates, _info, userID) => {

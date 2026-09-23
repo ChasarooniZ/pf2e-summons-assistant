@@ -1,14 +1,15 @@
-2026/09/21-13:04:48.057 42f0 Recovering log #1348
-2026/09/21-13:04:48.180 42f0 Delete type=0 #1348
-2026/09/21-13:04:48.180 42f0 Delete type=3 #1346
-2026/09/21-13:04:48.245 2e9c Level-0 table #1354: started
-2026/09/21-13:04:48.281 2e9c Level-0 table #1354: 208215 bytes OK
-2026/09/21-13:04:48.345 2e9c Delete type=0 #1352
-2026/09/21-13:04:48.345 2e9c Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!folders!vbIrzVZPMTgmlUMs' @ 12328 : 1
-2026/09/21-13:04:48.345 2e9c Compacting 1@0 + 1@1 files
-2026/09/21-13:04:48.380 2e9c Generated table #1355@0: 243 keys, 208215 bytes
-2026/09/21-13:04:48.380 2e9c Compacted 1@0 + 1@1 files => 208215 bytes
-2026/09/21-13:04:48.444 2e9c compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/09/21-13:04:48.445 2e9c Delete type=2 #1350
-2026/09/21-13:04:48.445 2e9c Delete type=2 #1354
-2026/09/21-13:04:48.445 2e9c Manual compaction at level-0 from '!folders!vbIrzVZPMTgmlUMs' @ 12328 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/09/22-22:31:10.173 1160 Recovering log #1365
+2026/09/22-22:31:10.308 1160 Delete type=0 #1365
+2026/09/22-22:31:10.308 1160 Delete type=3 #1363
+2026/09/22-22:31:10.340 8b48 Level-0 table #1369: started
+2026/09/22-22:31:10.439 8b48 Level-0 table #1369: 209133 bytes OK
+2026/09/22-22:31:10.572 8b48 Delete type=0 #1367
+2026/09/22-22:31:10.572 8b48 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors!4PAXYKGTh9bJWnAU' @ 12713 : 1
+2026/09/22-22:31:10.572 8b48 Compacting 2@0 + 1@1 files
+2026/09/22-22:31:10.663 8b48 Generated table #1370@0: 244 keys, 209133 bytes
+2026/09/22-22:31:10.663 8b48 Compacted 2@0 + 1@1 files => 209133 bytes
+2026/09/22-22:31:10.738 8b48 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/09/22-22:31:10.739 8b48 Delete type=2 #1360
+2026/09/22-22:31:10.739 8b48 Delete type=2 #1364
+2026/09/22-22:31:10.740 8b48 Delete type=2 #1369
+2026/09/22-22:31:10.740 8b48 Manual compaction at level-0 from '!actors!4PAXYKGTh9bJWnAU' @ 12713 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

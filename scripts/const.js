@@ -49,6 +49,8 @@ export const SOURCES = {
     AVENGING_WILDWOOD: "Compendium.pf2e.spells-srd.Item.T7N0LrYOLk3SwrFW",
     BILOCATION: "Compendium.pf2e.spells-srd.Item.HHCgEEkeeShVQf8d",
     CALL_URSINE_ALLY: "Compendium.pf2e.feats-srd.Item.kYYB7ziQZjlgQWWu",
+    CHANNEL_DRACONIC_ESSENCE:
+      "Compendium.pf2e.actionspf2e.Item.Ce9vzE3XWn0u5NcL",
     DRAGON_TURRET: "Compendium.pf2e.spells-srd.Item.eAOClJ1KRSPik8SX",
     DUPLICATE_FOE: "Compendium.pf2e.spells-srd.Item.73rToy0v5Ra9NvL6",
     FLOATING_FLAME: "Compendium.pf2e.spells-srd.Item.2ZdHjnpEQJuqOYSG",
@@ -64,6 +66,7 @@ export const SOURCES = {
     PROTECTOR_TREE: "Compendium.pf2e.spells-srd.Item.K9gI08enGtmih5X1",
     PROJECT_IMAGE: "Compendium.pf2e.spells-srd.Item.0873MWM0qKDDv81O",
     RAISE_THE_HORDE: "Compendium.pf2e.actionspf2e.Item.ND1G3s4lXNUAXc1q",
+    REFLEXIVE_DEVOTION: "Compendium.pf2e.feats-srd.Item.eAcMHQgfsOePtYgp",
     SHADOW_SELF: "Compendium.pf2e.feats-srd.Item.7YvOqcdp9Z0RALMp",
     SWARM_FORTH: "Compendium.pf2e.actionspf2e.Item.E48YTUyreo1kc9GM",
     TELEKINETIC_HAND: "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w",
@@ -154,6 +157,8 @@ export const CREATURES = {
     PLANTED_BANNER:
       "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW",
   },
+  DRACONIC_ESSENCE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.4PAXYKGTh9bJWnAU",
   DRAGON_TURRET:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
   DUPLICATE_FOE:
@@ -394,6 +399,8 @@ export const EFFECTS = {
       img: "icons/magic/death/grave-tombstone-glow-teal.webp",
     }),
     BECOME_AS_SPIRIT: "Compendium.pf2e.feat-effects.Item.BCWpJb8yCCA8aGT8",
+    THRALL_CHARGE:
+      "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.zFyeEWPXwfeQgYku",
   },
   THAUMATURGE: {
     MIRRORS_REFLECTION:
