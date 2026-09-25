@@ -89,6 +89,7 @@ export const SOURCES = {
     PRISMATIC_WALL: "Compendium.pf2e.spells-srd.Item.iL6TujgTCtRRa0Y0",
     WALL_OF_FIRE: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu",
     WALL_OF_FLESH: "Compendium.pf2e.spells-srd.Item.ZLLY6ThJXCCrO0rL",
+    WALL_OF_FORCE: "Compendium.pf2e.spells-srd.Item.7Iela4GgVeO3LfAo",
     WALL_OF_ICE: "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t",
     WALL_OF_SHADOW: "Compendium.pf2e.spells-srd.Item.DeF63UTmr7rchF60",
     WALL_OF_STONE: "Compendium.pf2e.spells-srd.Item.kOa055FIrO9Smnya",
@@ -279,6 +280,8 @@ export const CREATURES = {
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.r60N6I3qmqC8K965",
   WALL_OF_FLESH:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.SDxVVhW9HBDb9HVS",
+  WALL_OF_FORCE:
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.TyWLi9O3b4LFA9SZ",
   WALL_OF_SHADOW:
     "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.omSEou6InnxMi78O",
   WALL_OF_STONE:
@@ -314,6 +317,7 @@ export const FEATS = {
 export const WALLS_TO_SYNC_DELETE = new Set([
   CREATURES.WALL_OF_STONE,
   CREATURES.WALL_OF_ICE,
+  CREATURES.WALL_OF_FORCE,
   CREATURES.WALL_OF_FLESH,
   CREATURES.WALL_OF_SHADOW,
   CREATURES.PRISMATIC_SPHERE,

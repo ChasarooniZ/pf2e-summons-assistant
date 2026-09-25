@@ -21,6 +21,7 @@ import { getSpecificSummonDetails } from "./specificSummons.js";
 import { handleUpdateMessage } from "./updateMessage.js";
 import { summon, getTraditionalSummonerSpellDetails } from "./summon.js";
 import {
+  handleReachOfTheDead,
   isBindHeroicSpiritCriticalHit,
   setNecromancerHooks,
 } from "./specificClasses/necromancer.js";
@@ -65,7 +66,8 @@ Hooks.once("ready", async function () {
   Hooks.on("createChatMessage", async (chatMessage, _info, userID) => {
     if (userID !== game.user.id) return;
 
-    const isBindHeroicSpiritSuccess = isBindHeroicSpiritCriticalHit(chatMessage);
+    const isBindHeroicSpiritSuccess =
+      isBindHeroicSpiritCriticalHit(chatMessage);
 
     if (chatMessage.isDamageRoll) return;
     if (chatMessage.isRoll && !isBindHeroicSpiritSuccess) return;
@@ -193,6 +195,12 @@ Hooks.once("ready", async function () {
             },
           });
         }
+      }
+
+      if (group?.crosshairParameters?.location?.obj) {
+        group.crosshairParameters.location.obj =
+          handleReachOfTheDead(spellRelevantInfo?.summonerRollOptions) ||
+          group?.crosshairParameters?.location?.obj;
       }
 
       if (summonerToken) {

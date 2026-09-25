@@ -81,8 +81,10 @@ You can access the changelog [here](/CHANGELOG.md).
     - _Spirit_ - Adds two new strike damage types
     - _Bone_ - Adds 5 speed to all thralls
     - _The Hallowed Dead_
+    - _The Unholy Dead_
     - _Become as Spirit_ - Applies the effect on thrall destroying spells
     - _Blood_ - Heals on thrall destroying spells
+    - _Reach of the Dead_ - Handle summon range change
   - `Inevitable Return`
   - `Living Graveyard`
   - `Perfected Thrall`
@@ -93,7 +95,8 @@ You can access the changelog [here](/CHANGELOG.md).
   - `Prismatic Wall`
   - `Wall of Ice`
   - `Wall of Fire` - Requires `JB2a` of some kind (does NOT actually auto roll damage)
-  - `Wall of Flesh` (does NOT actually auto roll damage)
+  - `Wall of Flesh` - does NOT actually auto roll damage or do vision for eyes
+  - `Wall of Force`
   - `Wall of Stone` - Implementation Detail, each segment has the stats of 10 ft. of wall
   - `Wall of Shadow`
   - `Wall of Thorns` - Does not implement cover

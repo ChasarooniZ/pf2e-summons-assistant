@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.19.0
+
+- **New**
+  - Added support for:
+    - `Wall of Force`
+    - `Reach of the Dead` - Have the Roll Option active (will require you to fix the Roll Option rule element yourself or wait till the system does) and then cast a summoning spell handled in this module while targetting your thrall that will be the source (💡 @TheTenk)
+    - `The Unholy Dead`
+
 ## 2.18.0
 
 - **New**

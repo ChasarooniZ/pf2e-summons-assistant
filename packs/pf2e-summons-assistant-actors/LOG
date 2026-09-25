@@ -1,15 +1,15 @@
-2026/09/22-22:31:10.173 1160 Recovering log #1365
-2026/09/22-22:31:10.308 1160 Delete type=0 #1365
-2026/09/22-22:31:10.308 1160 Delete type=3 #1363
-2026/09/22-22:31:10.340 8b48 Level-0 table #1369: started
-2026/09/22-22:31:10.439 8b48 Level-0 table #1369: 209133 bytes OK
-2026/09/22-22:31:10.572 8b48 Delete type=0 #1367
-2026/09/22-22:31:10.572 8b48 Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors!4PAXYKGTh9bJWnAU' @ 12713 : 1
-2026/09/22-22:31:10.572 8b48 Compacting 2@0 + 1@1 files
-2026/09/22-22:31:10.663 8b48 Generated table #1370@0: 244 keys, 209133 bytes
-2026/09/22-22:31:10.663 8b48 Compacted 2@0 + 1@1 files => 209133 bytes
-2026/09/22-22:31:10.738 8b48 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/09/22-22:31:10.739 8b48 Delete type=2 #1360
-2026/09/22-22:31:10.739 8b48 Delete type=2 #1364
-2026/09/22-22:31:10.740 8b48 Delete type=2 #1369
-2026/09/22-22:31:10.740 8b48 Manual compaction at level-0 from '!actors!4PAXYKGTh9bJWnAU' @ 12713 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)
+2026/09/25-03:29:46.451 8b6c Recovering log #1388
+2026/09/25-03:29:47.175 8b6c Delete type=0 #1388
+2026/09/25-03:29:47.175 8b6c Delete type=3 #1386
+2026/09/25-03:29:47.218 4e6c Level-0 table #1392: started
+2026/09/25-03:29:47.254 4e6c Level-0 table #1392: 210942 bytes OK
+2026/09/25-03:29:47.317 4e6c Delete type=0 #1390
+2026/09/25-03:29:47.318 4e6c Manual compaction at level-0 from '!actors!03gFpid5kBiI3vXS' @ 72057594037927935 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at '!actors.items!TyWLi9O3b4LFA9SZ.zAcCiMHXwcxOvR5b' @ 13213 : 1
+2026/09/25-03:29:47.318 4e6c Compacting 2@0 + 1@1 files
+2026/09/25-03:29:47.353 4e6c Generated table #1393@0: 247 keys, 210942 bytes
+2026/09/25-03:29:47.353 4e6c Compacted 2@0 + 1@1 files => 210942 bytes
+2026/09/25-03:29:47.439 4e6c compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/09/25-03:29:47.439 4e6c Delete type=2 #1375
+2026/09/25-03:29:47.439 4e6c Delete type=2 #1387
+2026/09/25-03:29:47.439 4e6c Delete type=2 #1392
+2026/09/25-03:29:47.439 4e6c Manual compaction at level-0 from '!actors.items!TyWLi9O3b4LFA9SZ.zAcCiMHXwcxOvR5b' @ 13213 : 1 .. '!folders!vbIrzVZPMTgmlUMs' @ 0 : 0; will stop at (end)

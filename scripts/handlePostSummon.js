@@ -45,6 +45,9 @@ export async function handlePostSummon(
     case SOURCES.WALL.WALL_OF_FLESH:
       postSummonHelper.WALL_OF_FLESH(summonedActorID);
       break;
+    case SOURCES.WALL.WALL_OF_FORCE:
+      postSummonHelper.WALL_OF_FORCE(summonedActorID);
+      break;
     case SOURCES.WALL.WALL_OF_SHADOW:
       postSummonHelper.WALL_OF_SHADOW(summonedActorID);
       break;
@@ -316,6 +319,21 @@ const postSummonHelper = {
       distance: 60,
       segFt: 5,
       art: WALL_ART.FLESH?.[type],
+    });
+  },
+  WALL_OF_FORCE: async (summonedActorID) => {
+    const summonedWallToken = getTokenFromActorID(summonedActorID);
+    await setupStraightWall({
+      summonedWallToken,
+      distance: 50,
+      segFt: 50,
+      art: WALL_ART.FORCE,
+      senses: {
+        move: SENSE_MODES.NORMAL,
+        sound: SENSE_MODES.NONE,
+        light: SENSE_MODES.NONE,
+        sight: SENSE_MODES.NONE,
+      },
     });
   },
   WALL_OF_SHADOW: async (summonedActorID) => {

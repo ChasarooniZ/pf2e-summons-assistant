@@ -17,6 +17,7 @@ export const WALL_ART = {
     mouths: `${MODULE_ASSET_PATH}/tokens/token/wall_of_flesh.mouths.webp`,
     eyes: `${MODULE_ASSET_PATH}/tokens/token/wall_of_flesh.eyes.webp`,
   },
+  FORCE: `${MODULE_ASSET_PATH}/tokens/token/wall_of_force.webp`,
   SHADOW: `${MODULE_ASSET_PATH}/tokens/token/wall_of_shadow.webp`,
   THORNS: `${MODULE_ASSET_PATH}/tokens/token/wall-of-thorns.webp`,
 };
@@ -109,7 +110,7 @@ export async function setupWallCircle({
     const wallData = getWallData({
       c: [x1, y1, x2, y2],
       art,
-      ...(wallConfig ? wallConfig : {}),
+      ...wallConfig,
       summonedtokenID: summonedWallToken.id,
     });
 

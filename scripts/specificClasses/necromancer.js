@@ -397,6 +397,26 @@ function createThrallStrikeRuleElements(
       },
     );
   }
+  if (rollOptions?.includes("feat:the-unholy-dead")) {
+    ruleElements.push(
+      {
+        key: "ActorTraits",
+        add: ["unholy"],
+      },
+      {
+        key: "AdjustStrike",
+        mode: "add",
+        property: "weapon-traits",
+        value: "unholy",
+      },
+      {
+        key: "FlatModifier",
+        selector: ["damage"],
+        value: necromancerLevel < 10 ? 1 : 2,
+        damageType: "spirit",
+      },
+    );
+  }
   if (rollOptions?.includes("feature:bone")) {
     ruleElements.push({
       key: "FlatModifier",
@@ -512,4 +532,15 @@ export function getBaseThrallArtConfig(rollOptions) {
   }
 
   return {};
+}
+
+export function handleReachOfTheDead(summonerRollOptions) {
+  if (
+    summonerRollOptions?.includes("spellshape:reach-of-the-dead") &&
+    game.user.targets.size
+  ) {
+    return game.user.targets.first();
+  } else {
+    return null;
+  }
 }

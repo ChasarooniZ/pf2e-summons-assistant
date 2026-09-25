@@ -126,6 +126,7 @@ const getSummonHandlers = () => ({
   [SOURCES.WALL.WALL_OF_ICE]: handlers.wall.handleWallOfIce,
   [SOURCES.WALL.WALL_OF_FIRE]: handlers.wall.handleWallOfFire,
   [SOURCES.WALL.WALL_OF_FLESH]: handlers.wall.handleWallOfFlesh,
+  [SOURCES.WALL.WALL_OF_FORCE]: handlers.wall.handleWallOfForce,
   [SOURCES.WALL.WALL_OF_STONE]: handlers.wall.handleWallOfStone,
   [SOURCES.WALL.WALL_OF_SHADOW]: handlers.wall.handleWallOfShadow,
   [SOURCES.WALL.WALL_OF_THORNS]: handlers.wall.handleWallOfThorns,
@@ -1324,6 +1325,27 @@ const handlers = {
             ),
             type === "arms" ? [await fromUuid(ACTIONS.WALL_OF_FLESH.ARMS)] : [],
           ].flat(),
+          crosshairParameters: {
+            label: {
+              text: game.i18n.localize(
+                "pf2e-summons-assistant.display-text.wall.start-point",
+              ),
+            },
+          },
+        },
+      ];
+    },
+    handleWallOfForce: async (data) => {
+      return [
+        {
+          specific_uuids: [CREATURES.WALL_OF_FORCE],
+          noDefaultTraits: true,
+          rank: data.rank,
+          modifications: {
+            "system.details.level.value": data.rank,
+            "system.attributes.hp.max": Math.floor(data.rank / 2) * 20,
+            "system.attributes.hp.value": Math.floor(data.rank / 2) * 20,
+          },
           crosshairParameters: {
             label: {
               text: game.i18n.localize(

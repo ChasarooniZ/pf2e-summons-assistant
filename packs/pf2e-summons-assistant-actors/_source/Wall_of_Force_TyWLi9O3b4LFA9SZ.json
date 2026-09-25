@@ -1,0 +1,361 @@
+{
+  "folder": "L8iTXojMnoiabKyR",
+  "name": "Wall of Force",
+  "type": "npc",
+  "ownership": {
+    "default": 0,
+    "vj8VUT8j7Wtzy3Y2": 3
+  },
+  "prototypeToken": {
+    "flags": {
+      "pf2e": {
+        "linkToActorSize": true,
+        "autoscale": true
+      }
+    },
+    "height": 1,
+    "width": 1,
+    "name": "Wall of Force",
+    "displayName": 30,
+    "actorLink": false,
+    "depth": 1,
+    "texture": {
+      "src": "modules/pf2e-summons-assistant/assets/indicator.svg",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "scaleX": 0.5,
+      "scaleY": 0.5,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": true,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": {},
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "effects": [],
+  "system": {
+    "attributes": {
+      "hp": {
+        "value": 60,
+        "temp": 0,
+        "max": 60,
+        "details": ""
+      },
+      "ac": {
+        "value": 10,
+        "details": ""
+      },
+      "allSaves": {
+        "value": ""
+      },
+      "speed": {
+        "value": 25,
+        "otherSpeeds": [],
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "critical-hits",
+          "exceptions": []
+        },
+        {
+          "type": "precision",
+          "exceptions": []
+        }
+      ]
+    },
+    "initiative": {
+      "statistic": "perception"
+    },
+    "details": {
+      "languages": {
+        "value": [],
+        "details": ""
+      },
+      "level": {
+        "value": 6
+      },
+      "blurb": "",
+      "publicNotes": "",
+      "privateNotes": "",
+      "publication": {
+        "title": "",
+        "authors": "",
+        "license": "OGL",
+        "remaster": false
+      }
+    },
+    "resources": {},
+    "_migration": {
+      "version": 0.959,
+      "previous": null
+    },
+    "abilities": {
+      "str": {
+        "mod": 0
+      },
+      "dex": {
+        "mod": 0
+      },
+      "con": {
+        "mod": 0
+      },
+      "int": {
+        "mod": 0
+      },
+      "wis": {
+        "mod": 0
+      },
+      "cha": {
+        "mod": 0
+      }
+    },
+    "perception": {
+      "details": "",
+      "mod": 0,
+      "senses": [],
+      "vision": true
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "reflex": {
+        "value": 0,
+        "saveDetail": ""
+      },
+      "will": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "skills": {},
+    "traits": {
+      "value": [],
+      "rarity": "common",
+      "size": {
+        "value": "med"
+      }
+    }
+  },
+  "_id": "TyWLi9O3b4LFA9SZ",
+  "img": "icons/magic/air/air-wave-gust-blue.webp",
+  "items": [
+    {
+      "type": "action",
+      "name": "Defenses",
+      "system": {
+        "actionType": {
+          "value": "passive"
+        },
+        "description": {
+          "value": "<p>Teleportation effects can pass through the barrier, as can visual effects (since the wall is invisible). Wall of force is immune to counteracting effects of its level or lower, but the wall is automatically destroyed by a @UUID[Compendium.pf2e.spells-srd.r7ihOgKv19eJQnik]{Disintegrate} spell of any rank.</p>",
+          "gm": ""
+        },
+        "publication": {
+          "title": "",
+          "authors": "",
+          "license": "OGL",
+          "remaster": false
+        },
+        "rules": [
+          {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.hardness.value",
+            "phase": "afterDerived",
+            "value": 30
+          }
+        ],
+        "slug": null,
+        "traits": {
+          "otherTags": [],
+          "value": []
+        },
+        "_migration": {
+          "version": 0.959,
+          "previous": {
+            "schema": null,
+            "foundry": "14.368",
+            "system": "8.5.1"
+          }
+        },
+        "actions": {
+          "value": null
+        },
+        "category": "defensive",
+        "deathNote": false
+      },
+      "effects": [],
+      "_id": "zAcCiMHXwcxOvR5b",
+      "img": "systems/pf2e/icons/default-icons/action.svg",
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.368",
+        "systemId": "pf2e",
+        "systemVersion": "8.5.1",
+        "createdTime": 1790321417066,
+        "modifiedTime": 1790321538757,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!actors.items!TyWLi9O3b4LFA9SZ.zAcCiMHXwcxOvR5b"
+    },
+    {
+      "img": "systems/pf2e/icons/conditions/invisible.webp",
+      "name": "Invisible",
+      "system": {
+        "description": {
+          "value": "<p>You can't be seen. You're @UUID[Compendium.pf2e.conditionitems.Item.VRSef5y1LmL2Hkjf]{Undetected} to everyone. Creatures can @UUID[Compendium.pf2e.actionspf2e.Item.BlAOM2X92SI6HMtJ]{Seek} to detect you; if a creature succeeds at its Perception check against your Stealth DC, you become @UUID[Compendium.pf2e.conditionitems.Item.iU0fEDdBp3rXpTMC]{Hidden} to that creature until you @UUID[Compendium.pf2e.actionspf2e.Item.VMozDqMMuK5kpoX4]{Sneak} to become undetected again. If you become invisible while someone can already see you, you start out hidden to them (instead of undetected) until you successfully Sneak. You can't become @UUID[Compendium.pf2e.conditionitems.Item.1wQY3JYyhMYeeV2G]{Observed} while invisible except via special abilities or magic.</p>",
+          "gm": ""
+        },
+        "group": "senses",
+        "overrides": [],
+        "publication": {
+          "license": "ORC",
+          "remaster": true,
+          "title": "Pathfinder Player Core",
+          "authors": ""
+        },
+        "references": {
+          "children": [],
+          "overriddenBy": [],
+          "overrides": [],
+          "parent": null
+        },
+        "rules": [],
+        "traits": {
+          "value": [],
+          "otherTags": []
+        },
+        "value": {
+          "isValued": false,
+          "value": null
+        },
+        "slug": "invisible",
+        "_migration": {
+          "version": 0.959,
+          "previous": null
+        },
+        "fromSpell": false,
+        "persistent": null
+      },
+      "type": "condition",
+      "_stats": {
+        "coreVersion": "14.368",
+        "systemId": "pf2e",
+        "systemVersion": "8.5.1",
+        "compendiumSource": "Compendium.pf2e.conditionitems.Item.zJxUflt9np0q4yML",
+        "createdTime": 1790321509862,
+        "modifiedTime": 1790321509862,
+        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "vj8VUT8j7Wtzy3Y2": 3
+      },
+      "flags": {},
+      "_id": "KPnEVw7xOtBeXVDo",
+      "_key": "!actors.items!TyWLi9O3b4LFA9SZ.KPnEVw7xOtBeXVDo"
+    }
+  ],
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.368",
+    "systemId": "pf2e",
+    "systemVersion": "8.5.1",
+    "createdTime": 1790321373423,
+    "modifiedTime": 1790321496432,
+    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null
+  },
+  "_key": "!actors!TyWLi9O3b4LFA9SZ"
+}
