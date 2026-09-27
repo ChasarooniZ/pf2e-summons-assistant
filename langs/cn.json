@@ -23,13 +23,17 @@
             "necromancer": {
                 "handle-living-graveyard-movement": {
                     "name": "[死灵师] 处理活体坟场的移动",
-                    "hint": "若启用，当活体坟场移动时，会往聊天栏发送一条消息，点击该消息将使该坟场（根据规则）生成一个残骸"
+                    "hint": "若启用，当活体坟场移动时，会往聊天栏发送一条消息，点击该消息将使该坟场（根据规则）生成一个奴仆"
                 },
                 "thrall": {
                     "auto-expire": {
-                        "name": "[死灵师] 自动删除过期的残骸",
-                        "hint": "若启用，则当“残骸崩解时间”效果过期时，自动删除该残骸"
+                        "name": "[死灵师] 自动删除过期的奴仆",
+                        "hint": "若启用，则当“奴仆自毁时间”效果过期时，自动删除该奴仆"
                     }
+                },
+                "handle-thrall-charge": {
+                    "name": "[死灵师] 处理奴仆冲锋效果应用",
+                    "hint": "若启用，当你施放奴仆冲锋时，该功能会锁定你的第一个目标并对其应用奴仆冲锋法术效果"
                 }
             },
             "refresh": {
@@ -73,12 +77,18 @@
                     "hint": "限制了具备射程的召唤法术的召唤物生成范围，并将其范围显示在场景上",
                     "name": "召唤物生成范围自动化限制"
                 }
+            },
+            "config": {
+                "ping-summon": {
+                    "name": "生成召唤指示物时高亮显示",
+                    "hint": "创建召唤物指示物的同时生成高亮信号"
+                }
             }
         },
         "name": "PF2e Summon's Assistant",
         "message": {
             "living-graveyard": {
-                "thralls": "活体坟场已移动。如果这来自维持法术的效果，你要在其路径上召唤3个新的残骸吗？",
+                "thralls": "活体坟场已移动。如果这来自维持法术的效果，你要在其路径上召唤3个新的奴仆吗？",
                 "summon": "召唤！"
             },
             "wooden-double": "木制替身的溢出伤害已转移给施法者"
@@ -105,7 +115,8 @@
             "bilocation": {
                 "error": "[错误] 你未在当前场景中激活二重身克隆"
             },
-            "illusory-creature": "[幻象生物] 选择你的幻象所呈现的生物形态与体型"
+            "illusory-creature": "[幻象生物] 选择你的幻象所呈现的生物形态与体型",
+            "missing-jb2a": "[{moduleName}] 此次召唤依赖JB2A的部分资源，安装并启用该模组后即可使用。如果你不打算使用其资源，可以忽略此消息。"
         },
         "dialog": {
             "duplicate-foe": "该目标豁免失败了吗？",
@@ -122,7 +133,8 @@
             "customize": {
                 "summoned-token": {
                     "title": "自定义召唤物指示物"
-                }
+                },
+                "reset": "重制为默认设置"
             },
             "dancing-weapon": {
                 "choose": "选择该武器",
@@ -153,11 +165,27 @@
                 }
             },
             "create-thrall": {
-                "title": "创造残骸",
+                "title": "创造奴仆",
                 "options": {
-                    "two": "{iconSummon}召唤了{cnt}个残骸",
-                    "one": "{iconSummon}召唤{cnt}个残骸并立即指挥残骸"
+                    "two": "{iconSummon}召唤了{cnt}个奴仆",
+                    "one": "{iconSummon}召唤{cnt}个奴仆并立即命令奴仆"
                 }
+            },
+            "thrall-destroyed": {
+                "title": "摧毁奴仆？",
+                "content": "你决定摧毁一个奴仆吗？（用于“化为精魂”）"
+            },
+            "wall": {
+                "line": "线形",
+                "circle": "环形"
+            },
+            "wall-of-flesh": {
+                "arms": "手臂",
+                "eyes": "眼睛",
+                "mouths": "嘴巴"
+            },
+            "horde-of-underlings": {
+                "title": "喽啰成群"
             }
         },
         "display-text": {
@@ -208,7 +236,8 @@
                     "block": "阻挡法术从球体外指定目标（区域效果如常穿过）。",
                     "text": "穿过墙体的生物必须尝试一次@Check[will|dc:resolve(@actor.system.resources.dc.value)]豁免，否则陷入@UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{缓慢 Slowed 1}，持续1分钟；若大失败，该生物改为被如@UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]的效果送往其他位面"
                 }
-            }
+            },
+            "summon-name-ownership": "{summonerName}的{summonName}"
         },
         "items": {
             "actions": {
@@ -224,8 +253,8 @@
                     "name": "召唤物归属者"
                 },
                 "thrall-expiration": {
-                    "description": "该效果用于测算这只残骸的崩解时间。",
-                    "name": "效果：残骸崩解时间"
+                    "description": "该效果用于测算这只奴仆的自毁时间。",
+                    "name": "效果：奴仆自毁时间"
                 },
                 "duplicate-foe": {
                     "name": "效果：仿敌拟像 Duplicate Foe",
