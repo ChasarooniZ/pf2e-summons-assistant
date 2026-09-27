@@ -2,7 +2,7 @@
 
 ## 2.19.2
 
-- Actually included the setting to automatically apply `Thrall Charge` effect to your first target
+- Actually included the setting to automatically apply `Thrall Charge` effect to your first target (🐛 @Tthief)
 
 ## 2.19.1
 
