@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.19.2
+
+- Actually included the setting to automatically apply `Thrall Charge` effect to your first target
+
 ## 2.19.1
 
 - Updated Chinese translation (🌐 @AlphaStarguide)

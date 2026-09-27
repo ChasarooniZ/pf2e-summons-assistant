@@ -108,6 +108,18 @@ export function setupSettings() {
     type: Boolean,
   });
 
+  
+  game.settings.register(MODULE_ID, "necromancer.thrall.handle-thrall-charge", {
+    name: `${MODULE_ID}.module-settings.necromancer.thrall.handle-thrall-charge.name`,
+    hint: `${MODULE_ID}.module-settings.necromancer.thrall.handle-thrall-charge.hint`,
+    requiresReload: true,
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+
+
   game.settings.register(MODULE_ID, "specific-case.handle.bilocation", {
     name: `${MODULE_ID}.module-settings.specific-case.handle.bilocation.name`,
     hint: `${MODULE_ID}.module-settings.specific-case.handle.bilocation.hint`,
