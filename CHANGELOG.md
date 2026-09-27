@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.19.1
+
+- Updated Chinese translation (🌐 @AlphaStarguide)
+
 ## 2.19.0
 
 - **New**
