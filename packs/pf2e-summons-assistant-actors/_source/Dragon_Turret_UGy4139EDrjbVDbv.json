@@ -47,8 +47,8 @@
         "visionMasterTokenId": ""
       }
     },
-    "height": 2,
-    "width": 2,
+    "height": 4,
+    "width": 4,
     "name": "Dragon Turret",
     "displayName": 30,
     "actorLink": false,
@@ -328,7 +328,7 @@
       "value": [],
       "rarity": "common",
       "size": {
-        "value": "lg"
+        "value": "grg"
       }
     }
   },
@@ -483,11 +483,11 @@
     "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.UGy4139EDrjbVDbv",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "14.361",
+    "coreVersion": "14.368",
     "systemId": "pf2e",
-    "systemVersion": "8.1.2",
+    "systemVersion": "8.5.1",
     "createdTime": 1778652689017,
-    "modifiedTime": 1778772159559,
+    "modifiedTime": 1790567866540,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!UGy4139EDrjbVDbv"

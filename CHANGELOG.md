@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 2.20.0
+
+- **New**
+  - Added support for:
+    - `Architect of Flame` (💡 @thecoolersub)
+- **Updated**
+  - Fixed size on Dragon Turret (🐛 @bengiyo)
+
 ## 2.19.2
 
 - Actually included the setting to automatically apply `Thrall Charge` effect to your first target (🐛 @Tthief)

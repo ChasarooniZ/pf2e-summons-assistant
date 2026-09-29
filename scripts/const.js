@@ -101,6 +101,7 @@ export const SOURCES = {
   },
 
   KINETICIST: {
+    ARCHITECT_OF_FLAME: "Compendium.pf2e.feats-srd.Item.cg6iASOmkTadIYCd",
     FEARSOME_FAMILIAR: "Compendium.pf2e.feats-srd.Item.PkQo8tb0Yby1pFU0",
     IGNITE_THE_SUN: "Compendium.pf2e.feats-srd.Item.uKeUPPqV1cNnIy0h",
     JAGGED_BERMS: "Compendium.pf2e.feats-srd.Item.9L6c9sxweM4IdOse",

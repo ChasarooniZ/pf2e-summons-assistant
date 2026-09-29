@@ -73,6 +73,8 @@ const getSummonHandlers = () => ({
     handlers.incarnate.handleIncarnateSkeletalGiant,
 
   // Kineticist
+  [SOURCES.KINETICIST.ARCHITECT_OF_FLAME]:
+    handlers.kineticist.handleArchitectOfFlame,
   [SOURCES.KINETICIST.FEARSOME_FAMILIAR]:
     handlers.kineticist.handleFearsomeFamiliar,
   [SOURCES.KINETICIST.IGNITE_THE_SUN]: handlers.kineticist.handleIgniteTheSun,
@@ -258,6 +260,13 @@ const handlers = {
   },
 
   kineticist: {
+    handleArchitectOfFlame: async (data) => {
+      const rankEquivalent = Math.floor(data.summonerLevel / 3);
+      return await handlers.wall.handleWallOfFire({
+        ...data,
+        rank: rankEquivalent,
+      });
+    },
     handleFearsomeFamiliar: (data) => {
       return [
         {

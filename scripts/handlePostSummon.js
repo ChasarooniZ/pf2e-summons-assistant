@@ -39,6 +39,7 @@ export async function handlePostSummon(
     case SOURCES.WALL.WALL_OF_ICE:
       postSummonHelper.WALL_OF_ICE(summonedActorID);
       break;
+    case SOURCES.KINETICIST.ARCHITECT_OF_FLAME:
     case SOURCES.WALL.WALL_OF_FIRE:
       postSummonHelper.WALL_OF_FIRE(summonedActorID);
       break;
@@ -56,6 +57,9 @@ export async function handlePostSummon(
       break;
     case SOURCES.WALL.WALL_OF_THORNS:
       postSummonHelper.WALL_OF_THORNS(summonedActorID);
+      break;
+    case SOURCES.WALL.WALL_OF_SHRUBS:
+      postSummonHelper.WALL_OF_SHRUBS(summonedActorID);
       break;
     case SOURCES.MISC.RAISE_THE_HORDE:
     case SOURCES.MISC.SWARM_FORTH:
@@ -347,6 +351,35 @@ const postSummonHelper = {
         move: SENSE_MODES.NONE,
         sound: SENSE_MODES.NONE,
       },
+    });
+  },
+    WALL_OF_SHRUBS: async (summonedActorID) => {
+    // TODO finish me
+    const summonedToken = getTokenFromActorID(summonedActorID);
+    const pos = await defaultTokenRayCrosshair({
+      token: summonedToken,
+      maxDistance: 60,
+      texture: WALL_ART.SHRUBS,
+    });
+
+    setupStraightWallRegionsTokensSequences({
+      origin: pos,
+      distance: pos.distance,
+      angleRad: Math.toRadians(pos.direction),
+      segFt: 10,
+      summonedWallToken: summonedToken,
+      art: WALL_ART.SHRUBS,
+      behaviors: [
+        {
+          name: "Difficult Terrain",
+          type: "modifyMovementCost",
+          system: {
+            difficulties: {
+              walk: 2,
+            },
+          },
+        },
+      ],
     });
   },
   WALL_OF_STONE: async (summonedActorID) => {

@@ -20,6 +20,7 @@ export const WALL_ART = {
   FORCE: `${MODULE_ASSET_PATH}/tokens/token/wall_of_force.webp`,
   SHADOW: `${MODULE_ASSET_PATH}/tokens/token/wall_of_shadow.webp`,
   THORNS: `${MODULE_ASSET_PATH}/tokens/token/wall-of-thorns.webp`,
+  SHRUBS: `${MODULE_ASSET_PATH}/tokens/token/wall_of_shrubs.webp`,
 };
 
 export function setupWallHooks() {
