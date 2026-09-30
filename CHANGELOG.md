@@ -7,6 +7,7 @@
     - `Architect of Flame` (💡 @thecoolersub)
 - **Updated**
   - Fixed size on Dragon Turret (🐛 @bengiyo)
+  - Fixed sizing issue on `Duplicate Foe` (🐛 @TheTenk)
 
 ## 2.19.2
 

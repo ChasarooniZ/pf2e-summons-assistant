@@ -79,7 +79,7 @@ export async function getFoeInfo(token, rank) {
     prototypeToken: {
       ring: token.ring,
       texture: token.texture,
-      "flags.pf2e.linkToActorSize": false,
+      "flags.pf2e.linkToActorSize": token?.flags?.pf2e?.linkToActorSize,
     },
   };
 
