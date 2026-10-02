@@ -1,5 +1,10 @@
 ## Unreleased
 
+## 2.20.1
+
+- **Updated**
+  - Queries the owner of the `Mirror Thaumaturge` as opposed to the GM if the owner is active for any related automation (💡 @sasane)
+
 ## 2.20.0
 
 - **New**

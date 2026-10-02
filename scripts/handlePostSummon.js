@@ -19,54 +19,54 @@ export async function handlePostSummon(
 ) {
   switch (itemUUID) {
     case SOURCES.COMMANDER.PLANT_BANNER:
-      postSummonHelper.PLANT_BANNER(summonedActorUUID);
+      await postSummonHelper.PLANT_BANNER(summonedActorUUID);
       break;
     case SOURCES.WALL.PRISMATIC_SPHERE:
-      postSummonHelper.PRISMATIC_SPHERE(summonedActorID, summonerToken);
+      await postSummonHelper.PRISMATIC_SPHERE(summonedActorID, summonerToken);
       break;
     case SOURCES.WALL.PRISMATIC_WALL:
-      postSummonHelper.PRISMATIC_WALL(summonedActorID, summonerToken);
+      await postSummonHelper.PRISMATIC_WALL(summonedActorID, summonerToken);
       break;
     case SOURCES.MISC.WOODEN_DOUBLE: {
-      postSummonHelper.WOODEN_DOUBLE(summonerToken);
+      await postSummonHelper.WOODEN_DOUBLE(summonerToken);
       break;
     }
     case SOURCES.KINETICIST.JAGGED_BERMS: {
-      postSummonHelper.JAGGED_BERMS(summonedActorID);
+      await postSummonHelper.JAGGED_BERMS(summonedActorID);
       break;
     }
 
     case SOURCES.WALL.WALL_OF_ICE:
-      postSummonHelper.WALL_OF_ICE(summonedActorID);
+      await postSummonHelper.WALL_OF_ICE(summonedActorID);
       break;
     case SOURCES.KINETICIST.ARCHITECT_OF_FLAME:
     case SOURCES.WALL.WALL_OF_FIRE:
-      postSummonHelper.WALL_OF_FIRE(summonedActorID);
+      await postSummonHelper.WALL_OF_FIRE(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_FLESH:
-      postSummonHelper.WALL_OF_FLESH(summonedActorID);
+      await postSummonHelper.WALL_OF_FLESH(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_FORCE:
-      postSummonHelper.WALL_OF_FORCE(summonedActorID);
+      await postSummonHelper.WALL_OF_FORCE(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_SHADOW:
-      postSummonHelper.WALL_OF_SHADOW(summonedActorID);
+      await postSummonHelper.WALL_OF_SHADOW(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_STONE:
-      postSummonHelper.WALL_OF_STONE(summonedActorID);
+      await postSummonHelper.WALL_OF_STONE(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_THORNS:
-      postSummonHelper.WALL_OF_THORNS(summonedActorID);
+      await postSummonHelper.WALL_OF_THORNS(summonedActorID);
       break;
     case SOURCES.WALL.WALL_OF_SHRUBS:
-      postSummonHelper.WALL_OF_SHRUBS(summonedActorID);
+      await postSummonHelper.WALL_OF_SHRUBS(summonedActorID);
       break;
     case SOURCES.MISC.RAISE_THE_HORDE:
     case SOURCES.MISC.SWARM_FORTH:
-      postSummonHelper.SHARED_HEALTH_SETUP(summonedActorID);
+      await postSummonHelper.SHARED_HEALTH_SETUP(summonedActorID);
       break;
     case SOURCES.THAUMATURGE.MIRRORS_REFLECTION:
-      postSummonHelper.MIRRORS_REFLECTION(summonedToken);
+      await postSummonHelper.MIRRORS_REFLECTION(summonedToken);
     //TO do set
     default:
       break;
@@ -318,7 +318,7 @@ const postSummonHelper = {
     const summonedToken = getTokenFromActorID(summonedActorID);
     const type = summonedToken.actor.system.details.blurb;
 
-    setupStraightWallTokens({
+    await setupStraightWallTokens({
       summonedWallToken: summonedToken,
       distance: 60,
       segFt: 5,
@@ -353,7 +353,7 @@ const postSummonHelper = {
       },
     });
   },
-    WALL_OF_SHRUBS: async (summonedActorID) => {
+  WALL_OF_SHRUBS: async (summonedActorID) => {
     // TODO finish me
     const summonedToken = getTokenFromActorID(summonedActorID);
     const pos = await defaultTokenRayCrosshair({
@@ -362,7 +362,7 @@ const postSummonHelper = {
       texture: WALL_ART.SHRUBS,
     });
 
-    setupStraightWallRegionsTokensSequences({
+    await setupStraightWallRegionsTokensSequences({
       origin: pos,
       distance: pos.distance,
       angleRad: Math.toRadians(pos.direction),

@@ -767,7 +767,7 @@ const handlers = {
                     "aberration",
                     "fiend",
                   ]
-                    .toSorted()
+                    .toSorted((a, b) => a.localeCompare(b))
                     .map((traitName) => ({
                       label: game.i18n.localize(
                         `PF2E.Trait${traitName[0].toUpperCase()}${traitName.slice(1)}`,

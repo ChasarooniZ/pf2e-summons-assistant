@@ -312,24 +312,38 @@ export async function cloneToKeepDialog(
   );
   if (tokens.length < 2) {
     ui.notifications.error(
-      error
-        ? error
-        : game.i18n.localize(
-            "pf2e-summons-assistant.notification.thaumaturge.mirror-implement.error",
-          ),
+      error ||
+        game.i18n.localize(
+          "pf2e-summons-assistant.notification.thaumaturge.mirror-implement.error",
+        ),
     );
     return;
   }
+
   const arrows = getDirectionalArrows(tokens);
-  const selectedTokenId = await foundry.applications.api.DialogV2.wait({
-    window: {
-      title: title,
-    },
-    position: { width: 400 },
-    content: tokens
-      .map(
-        (tok, cnt) =>
-          `<label style="display:flex" class="mirror-token" data-id="${tok.id}">
+
+  const playerOwnerUserID = Object.entries(actor.ownership)?.find(
+    ([userID, perms]) =>
+      perms === CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER &&
+      !game.users.get(userID)?.isGM,
+  )?.[0];
+
+  const userToQuery = game.users.get(playerOwnerUserID)?.active
+    ? game.users.get(playerOwnerUserID)
+    : game.users.activeGM;
+
+  const selectedTokenId = await foundry.applications.api.DialogV2.query(
+    userToQuery,
+    "input",
+    {
+      window: {
+        title: title,
+      },
+      position: { width: 400 },
+      content: tokens
+        .map(
+          (tok, cnt) =>
+            `<label style="display:flex" class="mirror-token" data-id="${tok.id}">
                 <input type="radio" name="choice" class="mirror-token" value="${tok.id}"
                   ${(!defaultTokenId ? cnt === 0 : tok.id === defaultTokenId) ? "checked" : ""}
                   >
@@ -337,47 +351,43 @@ export async function cloneToKeepDialog(
                 <i class="fas fa-arrow-${arrows[cnt]}"></i> ${cnt + 1} ${tok.name}
                 </span>
             </label>`,
-      )
-      .join(""),
-    render: (_event, app) => {
-      const html = app.element ? app.element : app;
-      html.querySelectorAll("label.mirror-token").forEach((label) => {
-        label.addEventListener("mouseover", (event) => {
-          const tid = label.dataset.id;
-          const token = canvas.tokens.get(tid);
-          if (token) {
-            token._onHoverIn(event);
-          }
-        });
-        label.addEventListener("mouseout", (event) => {
-          const tid = label.dataset.id;
-          const token = canvas.tokens.get(tid);
-          if (token) {
-            token._onHoverOut(event);
-          }
-        });
+        )
+        .join(""),
+      render: (_event, app) => {
+        const html = app.element ? app.element : app;
+        html.querySelectorAll("label.mirror-token").forEach((label) => {
+          label.addEventListener("mouseover", (event) => {
+            const tid = label.dataset.id;
+            const token = canvas.tokens.get(tid);
+            if (token) {
+              token._onHoverIn(event);
+            }
+          });
+          label.addEventListener("mouseout", (event) => {
+            const tid = label.dataset.id;
+            const token = canvas.tokens.get(tid);
+            if (token) {
+              token._onHoverOut(event);
+            }
+          });
 
-        label.addEventListener("click", (event) => {
-          const tid = label.dataset.id;
-          const token = canvas.tokens.get(tid);
-          if (token) {
-            canvas.ping(token.center);
-          }
+          label.addEventListener("click", (event) => {
+            const tid = label.dataset.id;
+            const token = canvas.tokens.get(tid);
+            if (token) {
+              canvas.ping(token.center);
+            }
+          });
         });
-      });
-    },
-    buttons: [
-      {
+      },
+      ok: {
         action: "choose",
         label: button,
-        default: true,
-        callback: (event, button, dialog) => {
-          return button.form.elements.choice.value;
-        },
+        icon: "fa-solid fa-circle-bookmark",
       },
-    ],
-  });
-  return { tokens, selectedTokenId };
+    },
+  );
+  return { tokens, selectedTokenId: selectedTokenId?.choice };
 }
 
 function getDirectionalArrows(coords) {
