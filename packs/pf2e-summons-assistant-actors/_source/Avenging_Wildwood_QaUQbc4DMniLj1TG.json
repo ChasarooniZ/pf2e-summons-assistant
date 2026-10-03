@@ -1,6 +1,6 @@
 {
   "folder": "gGy6LNAsZa9IaIjf",
-  "name": "Marvelous Mount",
+  "name": "Avenging Wildwood",
   "type": "npc",
   "ownership": {
     "default": 0,
@@ -13,19 +13,19 @@
         "autoscale": false
       }
     },
-    "height": 2,
-    "width": 2,
-    "name": "Marvelous Mount",
+    "height": 1,
+    "width": 1,
+    "name": "Avenging Wildwood",
     "displayName": 30,
     "actorLink": false,
     "depth": 1,
     "texture": {
-      "src": "modules/pf2e-tokens-bestiaries/tokens/fey/kelpie.webp",
+      "src": "modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/awakened-tree.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "fit": "contain",
-      "scaleX": 1,
-      "scaleY": 1,
+      "scaleX": 1.5,
+      "scaleY": 1.5,
       "tint": "#ffffff",
       "alphaThreshold": 0.75
     },
@@ -88,8 +88,8 @@
       },
       "effects": 1,
       "subject": {
-        "scale": 1,
-        "texture": "modules/pf2e-tokens-bestiaries/subjects/fey/kelpie.webp"
+        "scale": 1.5,
+        "texture": "modules/pf2e-tokens-bestiaries/subjects/plant/arboreal/awakened-tree.webp"
       }
     },
     "turnMarker": {
@@ -107,9 +107,9 @@
   "system": {
     "attributes": {
       "hp": {
-        "value": 10,
+        "value": 20,
         "temp": 0,
-        "max": 10,
+        "max": 20,
         "details": ""
       },
       "ac": {
@@ -120,7 +120,7 @@
         "value": ""
       },
       "speed": {
-        "value": 40,
+        "value": 25,
         "otherSpeeds": [],
         "details": ""
       }
@@ -149,7 +149,11 @@
     "resources": {},
     "_migration": {
       "version": 0.959,
-      "previous": null
+      "previous": {
+        "schema": 0.953,
+        "foundry": "14.368",
+        "system": "8.5.1"
+      }
     },
     "abilities": {
       "str": {
@@ -196,140 +200,22 @@
       "value": [],
       "rarity": "common",
       "size": {
-        "value": "lg"
+        "value": "med"
       }
     }
   },
-  "_id": "dZw7g9790wfCL9d5",
-  "img": "modules/pf2e-tokens-bestiaries/portraits/fey/kelpie.webp",
+  "_id": "QaUQbc4DMniLj1TG",
+  "img": "modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/awakened-tree.webp",
   "items": [
     {
       "type": "action",
-      "name": "Movement Bonuses",
+      "name": "Pass Through",
       "system": {
         "actionType": {
           "value": "passive"
         },
         "description": {
-          "value": "<p>The Mount has no extra bonuses to movement.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [
-          {
-            "key": "BaseSpeed",
-            "selector": "fly",
-            "value": "ternary(gte(@actor.level,6),80,60)",
-            "predicate": [
-              {
-                "gte": [
-                  "self:level",
-                  5
-                ]
-              }
-            ],
-            "slug": "marvelous-mount"
-          },
-          {
-            "key": "BaseSpeed",
-            "value": "ternary(gte(@actor.level,6),80,60)",
-            "predicate": [
-              {
-                "gte": [
-                  "self:level",
-                  4
-                ]
-              }
-            ],
-            "selector": "land",
-            "slug": "marvelous-mount"
-          },
-          {
-            "itemType": "action",
-            "key": "ItemAlteration",
-            "mode": "override",
-            "predicate": [
-              "item:slug:mount-scaling"
-            ],
-            "property": "description",
-            "value": [
-              {
-                "text": "The mount can walk on water, but it must end its turn on solid ground or sink.",
-                "predicate": [
-                  "self:level:3"
-                ]
-              },
-              {
-                "text": "The mount can walk on water.",
-                "predicate": [
-                  "self:level:4"
-                ]
-              },
-              {
-                "text": "The mount can walk on water. Additionally while using its fly speed it must end its turn on a surface or fall",
-                "predicate": [
-                  "self:level:5"
-                ]
-              }
-            ]
-          }
-        ],
-        "slug": "mount-scaling",
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": null,
-            "foundry": "14.367",
-            "system": "8.4.1"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "0HMV7ka4r7mX8ifZ",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.367",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.1",
-        "createdTime": 1787781095204,
-        "modifiedTime": 1787891194016,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!dZw7g9790wfCL9d5.0HMV7ka4r7mX8ifZ"
-    },
-    {
-      "type": "action",
-      "name": "Mount Defenses",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>The mount uses the target's AC and saves, but it's destroyed if it takes more than 10 damage at one time, ending the spell.</p>",
+          "value": "<p>Other creatures can’t occupy its space, but allies can pass through its space.</p>",
           "gm": ""
         },
         "publication": {
@@ -339,7 +225,7 @@
           "remaster": false
         },
         "rules": [],
-        "slug": "mount-defenses",
+        "slug": null,
         "traits": {
           "otherTags": [],
           "value": []
@@ -347,9 +233,9 @@
         "_migration": {
           "version": 0.959,
           "previous": {
-            "schema": null,
-            "foundry": "14.367",
-            "system": "8.4.1"
+            "schema": 0.953,
+            "foundry": "14.368",
+            "system": "8.5.1"
           }
         },
         "actions": {
@@ -359,41 +245,40 @@
         "deathNote": false
       },
       "effects": [],
-      "_id": "jJRrmF6W5yj6MaZf",
+      "_id": "EEzWMY1HiWS7JIeA",
       "img": "systems/pf2e/icons/default-icons/action.svg",
       "folder": null,
       "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
       "flags": {},
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.368",
         "systemId": "pf2e",
-        "systemVersion": "8.4.1",
-        "createdTime": 1787891219740,
-        "modifiedTime": 1787891572048,
+        "systemVersion": "8.5.1",
+        "createdTime": 1791068659422,
+        "modifiedTime": 1791068734638,
         "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
       },
-      "_key": "!actors.items!dZw7g9790wfCL9d5.jJRrmF6W5yj6MaZf"
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!QaUQbc4DMniLj1TG.EEzWMY1HiWS7JIeA"
     }
   ],
-  "sort": 300000,
   "flags": {},
   "_stats": {
     "coreVersion": "14.368",
     "systemId": "pf2e",
-    "systemVersion": "8.4.1",
-    "createdTime": 1787781028198,
+    "systemVersion": "8.5.1",
+    "createdTime": 1791068659422,
     "modifiedTime": 1791068659936,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null
   },
-  "_key": "!actors!dZw7g9790wfCL9d5"
+  "sort": 400000,
+  "_key": "!actors!QaUQbc4DMniLj1TG"
 }

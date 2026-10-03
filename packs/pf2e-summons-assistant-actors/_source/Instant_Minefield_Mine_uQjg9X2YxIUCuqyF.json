@@ -414,11 +414,11 @@
     "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.uQjg9X2YxIUCuqyF",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "14.361",
+    "coreVersion": "14.368",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652689098,
-    "modifiedTime": 1778652689098,
+    "modifiedTime": 1791068659938,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "ownership": {
@@ -426,6 +426,6 @@
     "vj8VUT8j7Wtzy3Y2": 3
   },
   "_id": "uQjg9X2YxIUCuqyF",
-  "sort": 0,
+  "sort": 800000,
   "_key": "!actors!uQjg9X2YxIUCuqyF"
 }

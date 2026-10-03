@@ -365,18 +365,18 @@
       "_key": "!actors.items!l4LKNqL0Vp9dUAvF.yAnG5FrgLLQP43yQ"
     }
   ],
-  "sort": 0,
+  "sort": 500000,
   "flags": {
     "pf2e": {
       "maxhealingRank": 0
     }
   },
   "_stats": {
-    "coreVersion": "14.361",
+    "coreVersion": "14.368",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778772562511,
-    "modifiedTime": 1778791867027,
+    "modifiedTime": 1791068659937,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
     "compendiumSource": null,
     "duplicateSource": null,

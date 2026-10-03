@@ -152,7 +152,7 @@ export const SLUG_TO_SOURCE = {};
 
 export const CREATURES = {
   AVENGING_WILDWOOD:
-    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.LB2e6ze90XNiwFcW",
+    "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.QaUQbc4DMniLj1TG",
   BLACK_BEAR: "Compendium.pf2e.pathfinder-bestiary-2.Actor.xxP5FJotshmUQNtY",
   CAVE_BEAR: "Compendium.pf2e.pathfinder-monster-core.Actor.AZIG0COCaDBronJa",
   COMMANDER: {

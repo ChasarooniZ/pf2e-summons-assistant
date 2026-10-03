@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.20.2
+
+- Fixed accidental exclusion of `Avenging Wildwood` from packs
+
 ## 2.20.1
 
 - **Updated**

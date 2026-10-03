@@ -545,14 +545,14 @@
     "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.NnaI8Zd5ZFfz8zs2",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "14.361",
+    "coreVersion": "14.368",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652689110,
-    "modifiedTime": 1778652689110,
+    "modifiedTime": 1791068659938,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_id": "NnaI8Zd5ZFfz8zs2",
-  "sort": 50000,
+  "sort": 900000,
   "_key": "!actors!NnaI8Zd5ZFfz8zs2"
 }

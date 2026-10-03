@@ -384,17 +384,17 @@
       "_key": "!actors.items!nodnIFYW56Lk3mcY.KgdCBSFInVR0VO1G"
     }
   ],
-  "sort": 600000,
+  "sort": 1100000,
   "flags": {},
   "_stats": {
     "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.nodnIFYW56Lk3mcY",
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "14.361",
+    "coreVersion": "14.368",
     "systemId": "pf2e",
     "systemVersion": "8.1.2",
     "createdTime": 1778652689021,
-    "modifiedTime": 1778652689021,
+    "modifiedTime": 1791068659940,
     "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
   },
   "_key": "!actors!nodnIFYW56Lk3mcY"
