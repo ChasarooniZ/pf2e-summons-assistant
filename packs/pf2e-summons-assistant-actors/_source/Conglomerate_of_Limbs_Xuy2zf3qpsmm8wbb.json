@@ -1,497 +1,494 @@
 {
-  "prototypeToken": {
-    "displayName": 30,
-    "displayBars": 20,
-    "flags": {
-      "pf2e": {
-        "linkToActorSize": true,
-        "autoscale": false
-      }
-    },
-    "height": 3,
-    "width": 3,
-    "name": "Conglomerate of Limbs",
-    "actorLink": false,
-    "appendNumber": false,
-    "prependAdjective": false,
-    "texture": {
-      "src": "modules/pf2e-tokens-myth-and-magic/assets/tokens/pzo9311_kuworsys.webp",
-      "anchorX": 0.5,
-      "anchorY": 0.5,
-      "fit": "contain",
-      "scaleX": 1,
-      "scaleY": 1,
-      "tint": "#ffffff",
-      "alphaThreshold": 0.75
-    },
-    "lockRotation": true,
-    "rotation": 0,
-    "alpha": 1,
-    "disposition": -1,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "light": {
-      "negative": false,
-      "priority": 0,
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "color": null,
-      "coloration": 1,
-      "dim": 0,
-      "attenuation": 0.5,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "type": null,
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      }
-    },
-    "sight": {
-      "enabled": false,
-      "range": 0,
-      "angle": 360,
-      "visionMode": "basic",
-      "color": null,
-      "attenuation": 0.1,
-      "brightness": 0,
-      "saturation": 0,
-      "contrast": 0
-    },
-    "detectionModes": {},
-    "occludable": {
-      "radius": 0
-    },
-    "ring": {
-      "enabled": true,
-      "colors": {
-        "ring": null,
-        "background": null
-      },
-      "effects": 1,
-      "subject": {
-        "scale": 1,
-        "texture": "modules/pf2e-tokens-myth-and-magic/assets/subjects/pzo9311_kuworsys.webp"
-      }
-    },
-    "randomImg": false,
-    "turnMarker": {
-      "mode": 1,
-      "animation": null,
-      "src": null,
-      "disposition": false
-    },
-    "movementAction": null,
-    "depth": 3
-  },
-  "name": "Conglomerate of Limbs",
-  "type": "npc",
-  "effects": [],
-  "system": {
-    "attributes": {
-      "hp": {
-        "value": 40,
-        "temp": 0,
-        "max": 40,
-        "details": ""
-      },
-      "ac": {
-        "value": 0,
-        "details": ""
-      },
-      "allSaves": {
-        "value": ""
-      },
-      "speed": {
-        "value": 25,
-        "otherSpeeds": [],
-        "details": ""
-      },
-      "immunities": [
-        {
-          "type": "bleed",
-          "exceptions": []
-        },
-        {
-          "type": "death-effects",
-          "exceptions": []
-        },
-        {
-          "type": "disease",
-          "exceptions": []
-        },
-        {
-          "type": "poison",
-          "exceptions": []
-        },
-        {
-          "type": "mental",
-          "exceptions": []
-        }
-      ]
-    },
-    "initiative": {
-      "statistic": "perception"
-    },
-    "details": {
-      "languages": {
-        "value": [],
-        "details": ""
-      },
-      "level": {
-        "value": -1
-      },
-      "blurb": "",
-      "publicNotes": "<p>Thralls are undead creatures, but they are not minions with the summoned trait. They can’t take actions, but they can be used for various abilities. Unless noted otherwise, a thrall is Small or Medium (chosen by you when you create it) and must be created in an unoccupied space. A thrall can contribute to flanking as though it were able to make melee unarmed Strikes. A thrall has 1 Hit Point, is automatically hit by attacks, and automatically fails all saving throws. A thrall is immune to bleed, death effects, disease, mental, and poison. A thrall is level –1 if an effect needs to refer to its level. Spells or abilities that create thralls have the thrall trait.</p>",
-      "privateNotes": "",
-      "publication": {
-        "title": "Pathfinder Impossible Playtest",
-        "authors": "",
-        "license": "ORC",
-        "remaster": true
-      }
-    },
-    "resources": {},
-    "_migration": {
-      "version": 0.959,
-      "previous": {
-        "schema": 0.941,
-        "foundry": "14.365",
-        "system": "8.4.0"
-      }
-    },
-    "abilities": {
-      "str": {
-        "mod": 0
-      },
-      "dex": {
-        "mod": 0
-      },
-      "con": {
-        "mod": 0
-      },
-      "int": {
-        "mod": 0
-      },
-      "wis": {
-        "mod": 0
-      },
-      "cha": {
-        "mod": 0
-      }
-    },
-    "perception": {
-      "details": "",
-      "mod": 0,
-      "senses": [],
-      "vision": true
-    },
-    "saves": {
-      "fortitude": {
-        "value": 0,
-        "saveDetail": ""
-      },
-      "reflex": {
-        "value": 0,
-        "saveDetail": ""
-      },
-      "will": {
-        "value": 0,
-        "saveDetail": ""
-      }
-    },
-    "skills": {},
-    "traits": {
-      "value": [
-        "thrall",
-        "undead"
-      ],
-      "rarity": "uncommon",
-      "size": {
-        "value": "huge"
-      }
-    }
-  },
-  "img": "modules/pf2e-tokens-myth-and-magic/assets/portraits/pzo9311_kuworsys.webp",
-  "items": [
-    {
-      "type": "action",
-      "name": "Thrall - Fails all Saving Throws",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>A thrall automatically fails all saving throws. </p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [
-          {
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "saving-throw",
-            "adjustment": {
-              "all": "to-failure"
-            }
-          }
-        ],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.941,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "YWrK36KFQZp3cKYU",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785521640656,
-        "modifiedTime": 1785521640656,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_key": "!actors.items!Xuy2zf3qpsmm8wbb.YWrK36KFQZp3cKYU"
-    },
-    {
-      "type": "action",
-      "name": "Thrall - Automatically Hit",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>A thrall is automatically hit.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.941,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "JbFXW4ACd8AyV07N",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": -100000,
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785521640656,
-        "modifiedTime": 1785521640656,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_key": "!actors.items!Xuy2zf3qpsmm8wbb.JbFXW4ACd8AyV07N"
-    },
-    {
-      "type": "action",
-      "name": "Thrall - Moveable",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>Thralls can't hold their ground—a creature can move into a thrall's space as though it were unoccupied. The thrall's space is difficult terrain, and the moving creature can automatically push the thrall into an adjacent space that's not in its path.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": null,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785741018088,
-        "modifiedTime": 1785741018088,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
-        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
-        "exportSource": null
-      },
-      "_id": "vIKCFjZFvf33IqPV",
-      "_key": "!actors.items!Xuy2zf3qpsmm8wbb.vIKCFjZFvf33IqPV"
-    },
-    {
-      "type": "action",
-      "name": "Thrall Charge - Multi Attack",
-      "system": {
-        "actionType": {
-          "value": "free"
-        },
-        "description": {
-          "value": "<p><strong>Trigger </strong>When you use @UUID[Compendium.pf2e.spells-srd.NWDTNTpfPEc821pu]{Thrall Charge} to order this thrall to make a Strike</p><hr><p><strong>Effect </strong>It makes two melee unarmed Strikes instead of one, each against a different creature within 10 feet. Your multiple attack penalty doesn’t increase until after the thrall makes both Strikes. A creature hit by one of these Strikes must also succeed at a @Check[fortitude|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] throw or become @UUID[Compendium.pf2e.conditionitems.kWc1fhmv9LBiTuei]{Grabbed} by the thrall for 1 round (or restrained on a critical failure) or until it Escapes.</p><p>Attempts to Escape don’t automatically succeed, and the Escape [[/act escape]] DC is your spell DC.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": "thrall-charge-multi-attack",
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": null,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "offensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "x1L9T2ISXUEMELBT",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785741054367,
-        "modifiedTime": 1786051983665,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!Xuy2zf3qpsmm8wbb.x1L9T2ISXUEMELBT"
-    }
-  ],
-  "folder": "fK7WhxBprTawxabU",
-  "flags": {},
-  "_stats": {
-    "coreVersion": "14.365",
-    "systemId": "pf2e",
-    "systemVersion": "8.4.0",
-    "createdTime": 1785521640656,
-    "modifiedTime": 1786051984532,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-    "compendiumSource": null,
-    "duplicateSource": null,
-    "exportSource": null
-  },
-  "ownership": {
-    "default": 0,
-    "qA45GVv5hySaf9b5": 3,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
-  "_id": "Xuy2zf3qpsmm8wbb",
-  "sort": 100000,
-  "_key": "!actors!Xuy2zf3qpsmm8wbb"
+	"prototypeToken": {
+		"displayName": 30,
+		"displayBars": 20,
+		"flags": {
+			"pf2e": {
+				"linkToActorSize": true,
+				"autoscale": false
+			}
+		},
+		"height": 3,
+		"width": 3,
+		"name": "Conglomerate of Limbs",
+		"actorLink": false,
+		"appendNumber": false,
+		"prependAdjective": false,
+		"texture": {
+			"src": "modules/pf2e-tokens-myth-and-magic/assets/tokens/pzo9311_kuworsys.webp",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"scaleX": 1,
+			"scaleY": 1,
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
+		},
+		"lockRotation": true,
+		"rotation": 0,
+		"alpha": 1,
+		"disposition": -1,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"light": {
+			"negative": false,
+			"priority": 0,
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"attenuation": 0.5,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"type": null,
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			}
+		},
+		"sight": {
+			"enabled": false,
+			"range": 0,
+			"angle": 360,
+			"visionMode": "basic",
+			"color": null,
+			"attenuation": 0.1,
+			"brightness": 0,
+			"saturation": 0,
+			"contrast": 0
+		},
+		"detectionModes": {},
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": true,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": "modules/pf2e-tokens-myth-and-magic/assets/subjects/pzo9311_kuworsys.webp"
+			}
+		},
+		"randomImg": false,
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null,
+		"depth": 3
+	},
+	"name": "Conglomerate of Limbs",
+	"type": "npc",
+	"effects": [],
+	"system": {
+		"attributes": {
+			"hp": {
+				"value": 40,
+				"temp": 0,
+				"max": 40,
+				"details": ""
+			},
+			"ac": {
+				"value": 0,
+				"details": ""
+			},
+			"allSaves": {
+				"value": ""
+			},
+			"speed": {
+				"value": 25,
+				"otherSpeeds": [],
+				"details": ""
+			},
+			"immunities": [
+				{
+					"type": "bleed",
+					"exceptions": []
+				},
+				{
+					"type": "death-effects",
+					"exceptions": []
+				},
+				{
+					"type": "disease",
+					"exceptions": []
+				},
+				{
+					"type": "poison",
+					"exceptions": []
+				},
+				{
+					"type": "mental",
+					"exceptions": []
+				}
+			]
+		},
+		"initiative": {
+			"statistic": "perception"
+		},
+		"details": {
+			"languages": {
+				"value": [],
+				"details": ""
+			},
+			"level": {
+				"value": -1
+			},
+			"blurb": "",
+			"publicNotes": "<p>Thralls are undead creatures, but they are not minions with the summoned trait. They can’t take actions, but they can be used for various abilities. Unless noted otherwise, a thrall is Small or Medium (chosen by you when you create it) and must be created in an unoccupied space. A thrall can contribute to flanking as though it were able to make melee unarmed Strikes. A thrall has 1 Hit Point, is automatically hit by attacks, and automatically fails all saving throws. A thrall is immune to bleed, death effects, disease, mental, and poison. A thrall is level –1 if an effect needs to refer to its level. Spells or abilities that create thralls have the thrall trait.</p>",
+			"privateNotes": "",
+			"publication": {
+				"title": "Pathfinder Impossible Playtest",
+				"authors": "",
+				"license": "ORC",
+				"remaster": true
+			}
+		},
+		"resources": {},
+		"_migration": {
+			"version": 0.959,
+			"previous": {
+				"schema": 0.941,
+				"foundry": "14.365",
+				"system": "8.4.0"
+			}
+		},
+		"abilities": {
+			"str": {
+				"mod": 0
+			},
+			"dex": {
+				"mod": 0
+			},
+			"con": {
+				"mod": 0
+			},
+			"int": {
+				"mod": 0
+			},
+			"wis": {
+				"mod": 0
+			},
+			"cha": {
+				"mod": 0
+			}
+		},
+		"perception": {
+			"details": "",
+			"mod": 0,
+			"senses": [],
+			"vision": true
+		},
+		"saves": {
+			"fortitude": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"reflex": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"will": {
+				"value": 0,
+				"saveDetail": ""
+			}
+		},
+		"skills": {},
+		"traits": {
+			"value": ["thrall", "undead"],
+			"rarity": "uncommon",
+			"size": {
+				"value": "huge"
+			}
+		}
+	},
+	"img": "modules/pf2e-tokens-myth-and-magic/assets/portraits/pzo9311_kuworsys.webp",
+	"items": [
+		{
+			"type": "action",
+			"name": "Thrall - Fails all Saving Throws",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>A thrall automatically fails all saving throws. </p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [
+					{
+						"key": "AdjustDegreeOfSuccess",
+						"selector": "saving-throw",
+						"adjustment": {
+							"all": "to-failure"
+						}
+					}
+				],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": 0.941,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "YWrK36KFQZp3cKYU",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785521640656,
+				"modifiedTime": 1785521640656,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"ownership": {
+				"default": 0
+			},
+			"_key": "!actors.items!Xuy2zf3qpsmm8wbb.YWrK36KFQZp3cKYU"
+		},
+		{
+			"type": "action",
+			"name": "Thrall - Automatically Hit",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>A thrall is automatically hit.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": 0.941,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "JbFXW4ACd8AyV07N",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": -100000,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785521640656,
+				"modifiedTime": 1785521640656,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"ownership": {
+				"default": 0
+			},
+			"_key": "!actors.items!Xuy2zf3qpsmm8wbb.JbFXW4ACd8AyV07N"
+		},
+		{
+			"type": "action",
+			"name": "Thrall - Moveable",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>Thralls can't hold their ground—a creature can move into a thrall's space as though it were unoccupied. The thrall's space is difficult terrain, and the moving creature can automatically push the thrall into an adjacent space that's not in its path.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": null,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"vj8VUT8j7Wtzy3Y2": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785741018088,
+				"modifiedTime": 1785741018088,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+				"duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.ISmLeI8zNc6YWysQ.Item.qk2aEpk2bsz5DSnV",
+				"exportSource": null
+			},
+			"_id": "vIKCFjZFvf33IqPV",
+			"_key": "!actors.items!Xuy2zf3qpsmm8wbb.vIKCFjZFvf33IqPV"
+		},
+		{
+			"type": "action",
+			"name": "Thrall Charge - Multi Attack",
+			"system": {
+				"actionType": {
+					"value": "free"
+				},
+				"description": {
+					"value": "<p><strong>Trigger </strong>When you use @UUID[Compendium.pf2e.spells-srd.NWDTNTpfPEc821pu]{Thrall Charge} to order this thrall to make a Strike</p><hr><p><strong>Effect </strong>It makes two melee unarmed Strikes instead of one, each against a different creature within 10 feet. Your multiple attack penalty doesn’t increase until after the thrall makes both Strikes. A creature hit by one of these Strikes must also succeed at a @Check[fortitude|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)] throw or become @UUID[Compendium.pf2e.conditionitems.kWc1fhmv9LBiTuei]{Grabbed} by the thrall for 1 round (or @UUID[Compendium.pf2e.conditionitems.Item.VcDeM8A5oI6VqhbM]{Restrained} on a critical failure) or until it Escapes.</p><p>Attempts to Escape don’t automatically succeed, and the Escape [[/act escape]] DC is your spell DC.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": "thrall-charge-multi-attack",
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": null,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "offensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "x1L9T2ISXUEMELBT",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"vj8VUT8j7Wtzy3Y2": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785741054367,
+				"modifiedTime": 1786051983665,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"_key": "!actors.items!Xuy2zf3qpsmm8wbb.x1L9T2ISXUEMELBT"
+		}
+	],
+	"folder": "fK7WhxBprTawxabU",
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.365",
+		"systemId": "pf2e",
+		"systemVersion": "8.4.0",
+		"createdTime": 1785521640656,
+		"modifiedTime": 1786051984532,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null
+	},
+	"ownership": {
+		"default": 0,
+		"qA45GVv5hySaf9b5": 3,
+		"vj8VUT8j7Wtzy3Y2": 3
+	},
+	"_id": "Xuy2zf3qpsmm8wbb",
+	"sort": 100000,
+	"_key": "!actors!Xuy2zf3qpsmm8wbb"
 }

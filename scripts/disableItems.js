@@ -1,34 +1,34 @@
 import { MODULE_ID, SOURCES } from "./const.js";
 
 export function disableItemsDialog() {
-  createToggleDialog(
-    getAllSpecificOptions(),
-    (result) => {
-      console.log(result);
-      if (result === "cancel") return;
-      ui.notifications.notify(
-        game.i18n.format(
-          "pf2e-summons-assistant.notification.disable-items.saved",
-          {
-            list: Object.keys(result)
-              ?.map((uuid) => getItemName(uuid))
-              .join(", "),
-          }
-        )
-      );
-      game.settings.set(MODULE_ID, "disabled-items", result);
-    },
-    { disabled: game.settings.get(MODULE_ID, "disabled-items") }
-  );
+	createToggleDialog(
+		getAllSpecificOptions(),
+		(result) => {
+			console.log(result);
+			if (result === "cancel") return;
+			ui.notifications.notify(
+				game.i18n.format(
+					"pf2e-summons-assistant.notification.disable-items.saved",
+					{
+						list: Object.keys(result)
+							?.map(uuid => getItemName(uuid))
+							.join(", "),
+					},
+				),
+			);
+			game.settings.set(MODULE_ID, "disabled-items", result);
+		},
+		{ disabled: game.settings.get(MODULE_ID, "disabled-items") },
+	);
 }
 
 export function setupDisableItemHooks() {
-  Hooks.on("renderSettingsConfig", (_cfg, form) => {
-    form
-      .querySelector("section[data-tab='pf2e-summons-assistant']")
-      .insertAdjacentHTML(
-        "afterbegin",
-        `
+	Hooks.on("renderSettingsConfig", (_cfg, form) => {
+		form
+			.querySelector("section[data-tab='pf2e-summons-assistant']")
+			.insertAdjacentHTML(
+				"afterbegin",
+				`
         <a
           class='button'
           data-tooltip="${game.i18n.localize("pf2e-summon s-assistant.dialog.disable-specific.button.hint")}"
@@ -37,20 +37,20 @@ export function setupDisableItemHooks() {
           <i class="fa-solid fa-gears"></i>
           ${game.i18n.localize("pf2e-summons-assistant.dialog.disable-specific.button.title")}
         </a>
-        `
-      );
-  });
+        `,
+			);
+	});
 }
 
 async function createToggleDialog(items, callback, options = {}) {
-  const disabled = options.disabled || {};
+	const disabled = options.disabled || {};
 
-  const result = await foundry.applications.api.DialogV2.wait({
-    window: {
-      title: game.i18n.localize(`${MODULE_ID}.dialog.disable-specific.title`),
-      icon: "fa-solid fa-list-check",
-    },
-    content: `
+	const result = await foundry.applications.api.DialogV2.wait({
+		window: {
+			title: game.i18n.localize(`${MODULE_ID}.dialog.disable-specific.title`),
+			icon: "fa-solid fa-list-check",
+		},
+		content: `
         <div style="display: flex; flex-direction: column; gap: 12px;">
           <input 
             type="text" 
@@ -60,8 +60,8 @@ async function createToggleDialog(items, callback, options = {}) {
           />
           <div id="items-container" style="display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto;">
             ${items
-              .map(
-                (item) => `
+				.map(
+					item => `
               <label data-uuid="${item.uuid}" data-name="${item.name}" style="display: flex; align-items: center; gap: 8px;">
                 <input 
                   type="checkbox" 
@@ -71,84 +71,84 @@ async function createToggleDialog(items, callback, options = {}) {
                 />
                 <span>${item.name}</span>
               </label>
-            `
-              )
-              .join("")}
+            `,
+				)
+				.join("")}
           </div>
         </div>
       `,
-    buttons: [
-      {
-        action: "save",
-        label: "Save",
-        icon: "fa-solid fa-check",
-        default: true,
-        callback: (_event, _button, dialog) => {
-          const resultObj = {};
-          const html = dialog.element;
-          items.forEach((item) => {
-            const checkbox = html.querySelector(`input[name ="${item.uuid}"]`);
-            // Only include items that are unchecked (disabled)
-            if (!checkbox?.checked) {
-              resultObj[item.uuid] = true;
-            }
-          });
-          return resultObj;
-        },
-      },
-      {
-        action: "cancel",
-        label: "Cancel",
-        icon: "fa-solid fa-times",
-      },
-    ],
-    render: (event) => {
-      const html = event.target.element;
-      const searchInput = html.querySelector("#search-input");
-      const container = html.querySelector("#items-container");
+		buttons: [
+			{
+				action: "save",
+				label: "Save",
+				icon: "fa-solid fa-check",
+				default: true,
+				callback: (_event, _button, dialog) => {
+					const resultObj = {};
+					const html = dialog.element;
+					items.forEach((item) => {
+						const checkbox = html.querySelector(`input[name ="${item.uuid}"]`);
+						// Only include items that are unchecked (disabled)
+						if (!checkbox?.checked) {
+							resultObj[item.uuid] = true;
+						}
+					});
+					return resultObj;
+				},
+			},
+			{
+				action: "cancel",
+				label: "Cancel",
+				icon: "fa-solid fa-times",
+			},
+		],
+		render: (event) => {
+			const html = event.target.element;
+			const searchInput = html.querySelector("#search-input");
+			const container = html.querySelector("#items-container");
 
-      searchInput.addEventListener("input", (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const labels = container.querySelectorAll("label");
+			searchInput.addEventListener("input", (e) => {
+				const searchTerm = e.target.value.toLowerCase();
+				const labels = container.querySelectorAll("label");
 
-        labels.forEach((label) => {
-          const name = label.dataset.name.toLowerCase();
-          if (name.includes(searchTerm)) {
-            label.style.display = "flex";
-          } else {
-            label.style.display = "none";
-          }
-        });
-      });
-    },
-  });
+				labels.forEach((label) => {
+					const name = label.dataset.name.toLowerCase();
+					if (name.includes(searchTerm)) {
+						label.style.display = "flex";
+					} else {
+						label.style.display = "none";
+					}
+				});
+			});
+		},
+	});
 
-  if (result && callback) {
-    callback(result);
-  }
+	if (result && callback) {
+		callback(result);
+	}
 
-  return result;
+	return result;
 }
 
 function getAllSpecificOptions() {
-  return getSourceValues(SOURCES)
-    .map((uuid) => ({
-      uuid,
-      name: getItemName(uuid),
-    }))
-    .filter((item) => item?.name)
-    .sort((a, b) => a.name.localeCompare(b.name));
+	return getSourceValues(SOURCES)
+		.map(uuid => ({
+			uuid,
+			name: getItemName(uuid),
+		}))
+		.filter(item => item?.name)
+		.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function getItemName(uuid) {
-  const [pack, id] = uuid.replace("Compendium.", "").split(".Item.");
-  return game?.packs?.get(pack)?.index?.get(id)?.name;
+	const [pack, id] = uuid.replace("Compendium.", "").split(".Item.");
+	return game?.packs?.get(pack)?.index?.get(id)?.name;
 }
 
 function getSourceValues(sources) {
-  return Object.values(sources).flatMap((category) => Object.values(category));
+	return Object.values(sources).flatMap(category => Object.values(category));
 }
 
 export function isSummonSourceDisabled(uuid) {
-  return game.settings.get(MODULE_ID, "disabled-items")[uuid];
+	return game.settings.get(MODULE_ID, "disabled-items")[uuid];
 }

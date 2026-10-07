@@ -1,10 +1,10 @@
 {
-    "i18n-ally.localesPaths": [
-        "languages",
-        "langs"
-    ],
-    "i18n-ally.keystyle": "nested",
-    "cSpell.words": [
-        "KINETICIST"
-    ]
+	"i18n-ally.localesPaths": [
+		"languages",
+		"langs"
+	],
+	"i18n-ally.keystyle": "nested",
+	"cSpell.words": [
+		"KINETICIST"
+	]
 }

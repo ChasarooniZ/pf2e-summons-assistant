@@ -1,79 +1,79 @@
 {
-  "img": "icons/sundries/flags/banner-standard-brown.webp",
-  "name": "Effect: In Plant Banner Range",
-  "system": {
-    "description": {
-      "value": "<p>Granted by @UUID[Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW.Item.vidOKIYqEJb5aXE5]</p><p></p><p>This item is used by PF2e Summons to mark creatures in the <strong>Plant Banner</strong> range in order to use module automation to apply effects to them. This effect does nothing on its own.</p><p></p>",
-      "gm": ""
-    },
-    "duration": {
-      "expiry": null,
-      "sustained": false,
-      "unit": "unlimited",
-      "value": -1
-    },
-    "fromSpell": false,
-    "level": {
-      "value": 1
-    },
-    "publication": {
-      "license": "ORC",
-      "remaster": true,
-      "title": "PF2e Summons Assistant",
-      "authors": ""
-    },
-    "rules": [
-      {
-        "key": "ActiveEffectLike",
-        "mode": "upgrade",
-        "path": "flags.pf2eSummonsAssistant.champion.plantBanner.level",
-        "value": "@item.level"
-      }
-    ],
-    "start": {
-      "initiative": null,
-      "value": 0
-    },
-    "tokenIcon": {
-      "show": true
-    },
-    "traits": {
-      "value": [],
-      "otherTags": []
-    },
-    "slug": "effect-in-plant-banner-range",
-    "_migration": {
-      "version": 0.959,
-      "previous": {
-        "schema": 0.942,
-        "foundry": "14.361",
-        "system": "8.1.2"
-      }
-    },
-    "unidentified": false,
-    "badge": null,
-    "context": null
-  },
-  "type": "effect",
-  "_stats": {
-    "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.vnFV2b3aYdvGeVkM",
-    "duplicateSource": null,
-    "exportSource": null,
-    "coreVersion": "14.365",
-    "systemId": "pf2e",
-    "systemVersion": "8.1.2",
-    "createdTime": 1778652696533,
-    "modifiedTime": 1786051927586,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
-  },
-  "effects": [],
-  "folder": "Jgr03TNBCPio6tdA",
-  "ownership": {
-    "default": 0,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
-  "flags": {},
-  "_id": "vnFV2b3aYdvGeVkM",
-  "sort": 500000,
-  "_key": "!items!vnFV2b3aYdvGeVkM"
+	"img": "icons/sundries/flags/banner-standard-brown.webp",
+	"name": "Effect: In Plant Banner Range",
+	"system": {
+		"description": {
+			"value": "<p>Granted by @UUID[Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.D8gtAM19NQKqbBfW.Item.vidOKIYqEJb5aXE5]</p><p></p><p>This item is used by PF2e Summons to mark creatures in the <strong>Plant Banner</strong> range in order to use module automation to apply effects to them. This effect does nothing on its own.</p><p></p>",
+			"gm": ""
+		},
+		"duration": {
+			"expiry": null,
+			"sustained": false,
+			"unit": "unlimited",
+			"value": -1
+		},
+		"fromSpell": false,
+		"level": {
+			"value": 1
+		},
+		"publication": {
+			"license": "ORC",
+			"remaster": true,
+			"title": "PF2e Summons Assistant",
+			"authors": ""
+		},
+		"rules": [
+			{
+				"key": "ActiveEffectLike",
+				"mode": "upgrade",
+				"path": "flags.pf2eSummonsAssistant.champion.plantBanner.level",
+				"value": "@item.level"
+			}
+		],
+		"start": {
+			"initiative": null,
+			"value": 0
+		},
+		"tokenIcon": {
+			"show": true
+		},
+		"traits": {
+			"value": [],
+			"otherTags": []
+		},
+		"slug": "effect-in-plant-banner-range",
+		"_migration": {
+			"version": 0.959,
+			"previous": {
+				"schema": 0.942,
+				"foundry": "14.361",
+				"system": "8.1.2"
+			}
+		},
+		"unidentified": false,
+		"badge": null,
+		"context": null
+	},
+	"type": "effect",
+	"_stats": {
+		"compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-items.Item.vnFV2b3aYdvGeVkM",
+		"duplicateSource": null,
+		"exportSource": null,
+		"coreVersion": "14.365",
+		"systemId": "pf2e",
+		"systemVersion": "8.1.2",
+		"createdTime": 1778652696533,
+		"modifiedTime": 1786051927586,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+	},
+	"effects": [],
+	"folder": "Jgr03TNBCPio6tdA",
+	"ownership": {
+		"default": 0,
+		"vj8VUT8j7Wtzy3Y2": 3
+	},
+	"flags": {},
+	"_id": "vnFV2b3aYdvGeVkM",
+	"sort": 500000,
+	"_key": "!items!vnFV2b3aYdvGeVkM"
 }

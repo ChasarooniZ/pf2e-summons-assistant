@@ -1,695 +1,695 @@
 {
-  "prototypeToken": {
-    "displayName": 30,
-    "displayBars": 20,
-    "flags": {
-      "pf2e": {
-        "linkToActorSize": true,
-        "autoscale": false
-      }
-    },
-    "height": 1,
-    "width": 1,
-    "name": "Recurring Nightmare",
-    "actorLink": false,
-    "appendNumber": false,
-    "prependAdjective": false,
-    "texture": {
-      "src": "modules/pf2e-tokens-monster-core/assets/tokens/shadow.webp",
-      "anchorX": 0.5,
-      "anchorY": 0.5,
-      "fit": "contain",
-      "scaleX": 1,
-      "scaleY": 1,
-      "tint": "#ffffff",
-      "alphaThreshold": 0.75
-    },
-    "lockRotation": true,
-    "rotation": 0,
-    "alpha": 1,
-    "disposition": -1,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "light": {
-      "negative": false,
-      "priority": 0,
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "color": null,
-      "coloration": 1,
-      "dim": 0,
-      "attenuation": 0.5,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "type": null,
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      }
-    },
-    "sight": {
-      "enabled": false,
-      "range": 0,
-      "angle": 360,
-      "visionMode": "basic",
-      "color": null,
-      "attenuation": 0.1,
-      "brightness": 0,
-      "saturation": 0,
-      "contrast": 0
-    },
-    "detectionModes": {},
-    "occludable": {
-      "radius": 0
-    },
-    "ring": {
-      "enabled": true,
-      "colors": {
-        "ring": null,
-        "background": null
-      },
-      "effects": 1,
-      "subject": {
-        "scale": 1,
-        "texture": "modules/pf2e-tokens-monster-core/assets/subjects/shadow.webp"
-      }
-    },
-    "randomImg": false,
-    "turnMarker": {
-      "mode": 1,
-      "animation": null,
-      "src": null,
-      "disposition": false
-    },
-    "movementAction": null,
-    "depth": 1
-  },
-  "name": "Recurring Nightmare",
-  "type": "npc",
-  "ownership": {
-    "default": 0,
-    "08H3OywEOnm7LqtN": 3,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
-  "effects": [],
-  "system": {
-    "attributes": {
-      "hp": {
-        "value": 1,
-        "temp": 0,
-        "max": 1,
-        "details": ""
-      },
-      "ac": {
-        "value": 0,
-        "details": ""
-      },
-      "allSaves": {
-        "value": ""
-      },
-      "speed": {
-        "value": 0,
-        "otherSpeeds": [
-          {
-            "type": "fly",
-            "value": 60
-          }
-        ],
-        "details": ""
-      },
-      "immunities": [
-        {
-          "type": "bleed",
-          "exceptions": []
-        },
-        {
-          "type": "death-effects",
-          "exceptions": []
-        },
-        {
-          "type": "disease",
-          "exceptions": []
-        },
-        {
-          "type": "poison",
-          "exceptions": []
-        },
-        {
-          "type": "mental",
-          "exceptions": []
-        }
-      ]
-    },
-    "initiative": {
-      "statistic": "perception"
-    },
-    "details": {
-      "languages": {
-        "value": [],
-        "details": ""
-      },
-      "level": {
-        "value": -1
-      },
-      "blurb": "",
-      "publicNotes": "<p>Thralls are undead creatures, but they are not minions with the summoned trait. They can’t take actions, but they can be used for various abilities. Unless noted otherwise, a thrall is Small or Medium (chosen by you when you create it) and must be created in an unoccupied space. A thrall can contribute to flanking as though it were able to make melee unarmed Strikes. A thrall has 1 Hit Point, is automatically hit by attacks, and automatically fails all saving throws. A thrall is immune to bleed, death effects, disease, mental, and poison. A thrall is level –1 if an effect needs to refer to its level. Spells or abilities that create thralls have the thrall trait.</p>",
-      "privateNotes": "",
-      "publication": {
-        "title": "Pathfinder Impossible Playtest",
-        "authors": "",
-        "license": "ORC",
-        "remaster": true
-      }
-    },
-    "resources": {},
-    "_migration": {
-      "version": 0.959,
-      "previous": {
-        "schema": 0.935,
-        "foundry": "14.365",
-        "system": "8.4.0"
-      }
-    },
-    "abilities": {
-      "str": {
-        "mod": 0
-      },
-      "dex": {
-        "mod": 0
-      },
-      "con": {
-        "mod": 0
-      },
-      "int": {
-        "mod": 0
-      },
-      "wis": {
-        "mod": 0
-      },
-      "cha": {
-        "mod": 0
-      }
-    },
-    "perception": {
-      "details": "",
-      "mod": 0,
-      "senses": [],
-      "vision": true
-    },
-    "saves": {
-      "fortitude": {
-        "value": 0,
-        "saveDetail": ""
-      },
-      "reflex": {
-        "value": 0,
-        "saveDetail": ""
-      },
-      "will": {
-        "value": 0,
-        "saveDetail": ""
-      }
-    },
-    "skills": {},
-    "traits": {
-      "value": [
-        "thrall",
-        "undead"
-      ],
-      "rarity": "uncommon",
-      "size": {
-        "value": "med"
-      }
-    }
-  },
-  "img": "modules/pf2e-tokens-monster-core/assets/portraits/shadow.webp",
-  "items": [
-    {
-      "type": "action",
-      "name": "Thrall - Fails all Saving Throws",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>A thrall automatically fails all saving throws. </p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [
-          {
-            "key": "AdjustDegreeOfSuccess",
-            "selector": "saving-throw",
-            "adjustment": {
-              "all": "to-failure"
-            }
-          }
-        ],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.935,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "YWrK36KFQZp3cKYU",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "08H3OywEOnm7LqtN": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785521656065,
-        "modifiedTime": 1785738484028,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!uu7VA9eIwi1tUZVs.YWrK36KFQZp3cKYU"
-    },
-    {
-      "type": "action",
-      "name": "Thrall - Automatically Hit",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>A thrall is automatically hit.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.935,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "JbFXW4ACd8AyV07N",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": -100000,
-      "ownership": {
-        "default": 0,
-        "08H3OywEOnm7LqtN": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785521656065,
-        "modifiedTime": 1785738479899,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!uu7VA9eIwi1tUZVs.JbFXW4ACd8AyV07N"
-    },
-    {
-      "type": "action",
-      "name": "Share Space",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>Unlike other thralls, the nightmare can share space with other creatures, and other creatures can move through its space with ease.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.935,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "UK9yU9tur4MNhB5V",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "08H3OywEOnm7LqtN": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785521656065,
-        "modifiedTime": 1785738489020,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!uu7VA9eIwi1tUZVs.UK9yU9tur4MNhB5V"
-    },
-    {
-      "type": "action",
-      "name": "Fearsome Spacemate",
-      "system": {
-        "actionType": {
-          "value": "free"
-        },
-        "description": {
-          "value": "<p><strong>Trigger </strong>If this thrall is summoned into or ends its movement in a creature's space</p><hr><p><strong>Effect </strong>the creature must succeed at a @Check[will|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:emotion,fear,mental] throw or become @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]{Frightened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]{Frightened 2} on a critical failure); this is an emotion, fear, and mental effect.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": "fearsome-spacemate",
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": null,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "offensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "bn2vfQlnQMduyc3M",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785742493994,
-        "modifiedTime": 1785742603322,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!uu7VA9eIwi1tUZVs.bn2vfQlnQMduyc3M"
-    },
-    {
-      "type": "action",
-      "name": "Phantom Movement",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>The thrall has a fly Speed of 60 feet and remains airborne at the end of your turn even if it didn’t Fly that turn. Any ability you use that would make the thrall Stride allows it to Fly instead.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": null,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "interaction",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "0xVrAxdcfJQ4FvNx",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785742617791,
-        "modifiedTime": 1785742645139,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!uu7VA9eIwi1tUZVs.0xVrAxdcfJQ4FvNx"
-    },
-    {
-      "type": "action",
-      "name": "Thrall Charge - Boost",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order this thrall to make a Strike</p><p>That Strike deals an additional @Damage[2d6] damage.</p><hr><p><strong>Heightened (8th)</strong> The additional damage increases to @Damage[3d6].</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [
-          {
-            "key": "DamageDice",
-            "selector": "strike-damage",
-            "diceNumber": "ternary(gte(max(@actor.flags.pf2e-summons-assistant.rank, 7), 8), 3, 2)",
-            "dieSize": "d6",
-            "predicate": [
-              "self:effect:thrall-charge"
-            ],
-            "label": "{item|name}"
-          }
-        ],
-        "slug": "thrall-charge-pierce",
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": null,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "offensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785742718940,
-        "modifiedTime": 1786053010587,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
-        "duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
-        "exportSource": null
-      },
-      "_id": "6t7awsEo8RtzrGds",
-      "_key": "!actors.items!uu7VA9eIwi1tUZVs.6t7awsEo8RtzrGds"
-    },
-    {
-      "type": "action",
-      "name": "Undying",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>If the thrall has been destroyed, you can Sustain this spell to resummon the thrall. You can do this only once per round.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": null,
-            "foundry": "14.365",
-            "system": "8.4.0"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "xPUiZUeZq9q2Bjkw",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0,
-        "vj8VUT8j7Wtzy3Y2": 3
-      },
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.365",
-        "systemId": "pf2e",
-        "systemVersion": "8.4.0",
-        "createdTime": 1785742765849,
-        "modifiedTime": 1785742780249,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "_key": "!actors.items!uu7VA9eIwi1tUZVs.xPUiZUeZq9q2Bjkw"
-    }
-  ],
-  "folder": "fK7WhxBprTawxabU",
-  "flags": {},
-  "_stats": {
-    "coreVersion": "14.365",
-    "systemId": "pf2e",
-    "systemVersion": "8.4.0",
-    "createdTime": 1785521656065,
-    "modifiedTime": 1786052271715,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-    "compendiumSource": null,
-    "duplicateSource": null,
-    "exportSource": null
-  },
-  "_id": "uu7VA9eIwi1tUZVs",
-  "sort": 300000,
-  "_key": "!actors!uu7VA9eIwi1tUZVs"
+	"prototypeToken": {
+		"displayName": 30,
+		"displayBars": 20,
+		"flags": {
+			"pf2e": {
+				"linkToActorSize": true,
+				"autoscale": false
+			}
+		},
+		"height": 1,
+		"width": 1,
+		"name": "Recurring Nightmare",
+		"actorLink": false,
+		"appendNumber": false,
+		"prependAdjective": false,
+		"texture": {
+			"src": "modules/pf2e-tokens-monster-core/assets/tokens/shadow.webp",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"scaleX": 1,
+			"scaleY": 1,
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
+		},
+		"lockRotation": true,
+		"rotation": 0,
+		"alpha": 1,
+		"disposition": -1,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"light": {
+			"negative": false,
+			"priority": 0,
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"attenuation": 0.5,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"type": null,
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			}
+		},
+		"sight": {
+			"enabled": false,
+			"range": 0,
+			"angle": 360,
+			"visionMode": "basic",
+			"color": null,
+			"attenuation": 0.1,
+			"brightness": 0,
+			"saturation": 0,
+			"contrast": 0
+		},
+		"detectionModes": {},
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": true,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": "modules/pf2e-tokens-monster-core/assets/subjects/shadow.webp"
+			}
+		},
+		"randomImg": false,
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null,
+		"depth": 1
+	},
+	"name": "Recurring Nightmare",
+	"type": "npc",
+	"ownership": {
+		"default": 0,
+		"08H3OywEOnm7LqtN": 3,
+		"vj8VUT8j7Wtzy3Y2": 3
+	},
+	"effects": [],
+	"system": {
+		"attributes": {
+			"hp": {
+				"value": 1,
+				"temp": 0,
+				"max": 1,
+				"details": ""
+			},
+			"ac": {
+				"value": 0,
+				"details": ""
+			},
+			"allSaves": {
+				"value": ""
+			},
+			"speed": {
+				"value": 0,
+				"otherSpeeds": [
+					{
+						"type": "fly",
+						"value": 60
+					}
+				],
+				"details": ""
+			},
+			"immunities": [
+				{
+					"type": "bleed",
+					"exceptions": []
+				},
+				{
+					"type": "death-effects",
+					"exceptions": []
+				},
+				{
+					"type": "disease",
+					"exceptions": []
+				},
+				{
+					"type": "poison",
+					"exceptions": []
+				},
+				{
+					"type": "mental",
+					"exceptions": []
+				}
+			]
+		},
+		"initiative": {
+			"statistic": "perception"
+		},
+		"details": {
+			"languages": {
+				"value": [],
+				"details": ""
+			},
+			"level": {
+				"value": -1
+			},
+			"blurb": "",
+			"publicNotes": "<p>Thralls are undead creatures, but they are not minions with the summoned trait. They can’t take actions, but they can be used for various abilities. Unless noted otherwise, a thrall is Small or Medium (chosen by you when you create it) and must be created in an unoccupied space. A thrall can contribute to flanking as though it were able to make melee unarmed Strikes. A thrall has 1 Hit Point, is automatically hit by attacks, and automatically fails all saving throws. A thrall is immune to bleed, death effects, disease, mental, and poison. A thrall is level –1 if an effect needs to refer to its level. Spells or abilities that create thralls have the thrall trait.</p>",
+			"privateNotes": "",
+			"publication": {
+				"title": "Pathfinder Impossible Playtest",
+				"authors": "",
+				"license": "ORC",
+				"remaster": true
+			}
+		},
+		"resources": {},
+		"_migration": {
+			"version": 0.959,
+			"previous": {
+				"schema": 0.935,
+				"foundry": "14.365",
+				"system": "8.4.0"
+			}
+		},
+		"abilities": {
+			"str": {
+				"mod": 0
+			},
+			"dex": {
+				"mod": 0
+			},
+			"con": {
+				"mod": 0
+			},
+			"int": {
+				"mod": 0
+			},
+			"wis": {
+				"mod": 0
+			},
+			"cha": {
+				"mod": 0
+			}
+		},
+		"perception": {
+			"details": "",
+			"mod": 0,
+			"senses": [],
+			"vision": true
+		},
+		"saves": {
+			"fortitude": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"reflex": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"will": {
+				"value": 0,
+				"saveDetail": ""
+			}
+		},
+		"skills": {},
+		"traits": {
+			"value": [
+				"thrall",
+				"undead"
+			],
+			"rarity": "uncommon",
+			"size": {
+				"value": "med"
+			}
+		}
+	},
+	"img": "modules/pf2e-tokens-monster-core/assets/portraits/shadow.webp",
+	"items": [
+		{
+			"type": "action",
+			"name": "Thrall - Fails all Saving Throws",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>A thrall automatically fails all saving throws. </p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [
+					{
+						"key": "AdjustDegreeOfSuccess",
+						"selector": "saving-throw",
+						"adjustment": {
+							"all": "to-failure"
+						}
+					}
+				],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": 0.935,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "YWrK36KFQZp3cKYU",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"08H3OywEOnm7LqtN": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785521656065,
+				"modifiedTime": 1785738484028,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"_key": "!actors.items!uu7VA9eIwi1tUZVs.YWrK36KFQZp3cKYU"
+		},
+		{
+			"type": "action",
+			"name": "Thrall - Automatically Hit",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>A thrall is automatically hit.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": 0.935,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "JbFXW4ACd8AyV07N",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": -100000,
+			"ownership": {
+				"default": 0,
+				"08H3OywEOnm7LqtN": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785521656065,
+				"modifiedTime": 1785738479899,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"_key": "!actors.items!uu7VA9eIwi1tUZVs.JbFXW4ACd8AyV07N"
+		},
+		{
+			"type": "action",
+			"name": "Share Space",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>Unlike other thralls, the nightmare can share space with other creatures, and other creatures can move through its space with ease.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": 0.935,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "UK9yU9tur4MNhB5V",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"08H3OywEOnm7LqtN": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785521656065,
+				"modifiedTime": 1785738489020,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"_key": "!actors.items!uu7VA9eIwi1tUZVs.UK9yU9tur4MNhB5V"
+		},
+		{
+			"type": "action",
+			"name": "Fearsome Spacemate",
+			"system": {
+				"actionType": {
+					"value": "free"
+				},
+				"description": {
+					"value": "<p><strong>Trigger </strong>If this thrall is summoned into or ends its movement in a creature's space</p><hr><p><strong>Effect </strong>the creature must succeed at a @Check[will|dc:resolve(@actor.flags.pf2e-summons-assistant.dc)|traits:emotion,fear,mental] throw or become @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]{Frightened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.TBSHQspnbcqxsmjL]{Frightened 2} on a critical failure); this is an emotion, fear, and mental effect.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": "fearsome-spacemate",
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": null,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "offensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "bn2vfQlnQMduyc3M",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"vj8VUT8j7Wtzy3Y2": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785742493994,
+				"modifiedTime": 1785742603322,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"_key": "!actors.items!uu7VA9eIwi1tUZVs.bn2vfQlnQMduyc3M"
+		},
+		{
+			"type": "action",
+			"name": "Phantom Movement",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>The thrall has a fly Speed of 60 feet and remains airborne at the end of your turn even if it didn’t Fly that turn. Any ability you use that would make the thrall Stride allows it to Fly instead.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": null,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "interaction",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "0xVrAxdcfJQ4FvNx",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"vj8VUT8j7Wtzy3Y2": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785742617791,
+				"modifiedTime": 1785742645139,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"_key": "!actors.items!uu7VA9eIwi1tUZVs.0xVrAxdcfJQ4FvNx"
+		},
+		{
+			"type": "action",
+			"name": "Thrall Charge - Boost",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p><strong>Effect </strong>When you use @UUID[Compendium.pf2e.spells-srd.Item.NWDTNTpfPEc821pu]{thrall charge} to order this thrall to make a Strike</p><p>That Strike deals an additional @Damage[2d6] damage.</p><hr><p><strong>Heightened (8th)</strong> The additional damage increases to @Damage[3d6].</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [
+					{
+						"key": "DamageDice",
+						"selector": "strike-damage",
+						"diceNumber": "ternary(gte(max(@actor.flags.pf2e-summons-assistant.rank, 7), 8), 3, 2)",
+						"dieSize": "d6",
+						"predicate": [
+							"self:effect:thrall-charge"
+						],
+						"label": "{item|name}"
+					}
+				],
+				"slug": "thrall-charge-pierce",
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": null,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "offensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"vj8VUT8j7Wtzy3Y2": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785742718940,
+				"modifiedTime": 1786053010587,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
+				"duplicateSource": "Compendium.pf2e-summons-assistant.pf2e-summons-assistant-actors.Actor.d1333zUKqydfJM9b.Item.TbJJeUktCjWMI3p3",
+				"exportSource": null
+			},
+			"_id": "6t7awsEo8RtzrGds",
+			"_key": "!actors.items!uu7VA9eIwi1tUZVs.6t7awsEo8RtzrGds"
+		},
+		{
+			"type": "action",
+			"name": "Undying",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>If the thrall has been destroyed, you can Sustain this spell to resummon the thrall. You can do this only once per round.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": null,
+						"foundry": "14.365",
+						"system": "8.4.0"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "xPUiZUeZq9q2Bjkw",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0,
+				"vj8VUT8j7Wtzy3Y2": 3
+			},
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.365",
+				"systemId": "pf2e",
+				"systemVersion": "8.4.0",
+				"createdTime": 1785742765849,
+				"modifiedTime": 1785742780249,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"_key": "!actors.items!uu7VA9eIwi1tUZVs.xPUiZUeZq9q2Bjkw"
+		}
+	],
+	"folder": "fK7WhxBprTawxabU",
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.365",
+		"systemId": "pf2e",
+		"systemVersion": "8.4.0",
+		"createdTime": 1785521656065,
+		"modifiedTime": 1786052271715,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null
+	},
+	"_id": "uu7VA9eIwi1tUZVs",
+	"sort": 300000,
+	"_key": "!actors!uu7VA9eIwi1tUZVs"
 }

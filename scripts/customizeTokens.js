@@ -1,12 +1,12 @@
 import { DEF_TOKEN_CONFIGS, MODULE_ID } from "./const.js";
 
 export async function modifyActorsMenu({
-  actors = game.packs.get(
-    "pf2e-summons-assistant.pf2e-summons-assistant-actors",
-  ).index.contents,
-  item = null,
+	actors = game.packs.get(
+		"pf2e-summons-assistant.pf2e-summons-assistant-actors",
+	).index.contents,
+	item = null,
 }) {
-  const content = `
+	const content = `
   <div>
     <input 
       type="text" 
@@ -15,99 +15,99 @@ export async function modifyActorsMenu({
     />
     <div id="summons-items-container">
       ${actors
-        .toSorted((a, b) => a.name.localeCompare(b.name))
-        .map(
-          (actor) => `
+			.toSorted((a, b) => a.name.localeCompare(b.name))
+			.map(
+				actor => `
         <div class="summon-token-item" data-name="${actor.name}" data-uuid="${actor.uuid}" data-itemUuid="${item.uuid}">
           <img src="${actor.img}" alt="${actor.name}">
-          <span>${actor.name} ${getIsActorCustomized(actor.uuid, item) ? '<i class="fa-solid fa-circle-exclamation" data-tooltip="This Summon has been customized"></i>' : ""}</span>
+          <span>${actor.name} ${getIsActorCustomized(actor.uuid, item) ? "<i class=\"fa-solid fa-circle-exclamation\" data-tooltip=\"This Summon has been customized\"></i>" : ""}</span>
         </div>
       `,
-        )
-        .join("")}
+			)
+			.join("")}
     </div>
   </div>
 `;
 
-  const data = await foundry.applications.api.DialogV2.wait({
-    window: {
-      title: game.i18n.localize(
-        "pf2e-summons-assistant.dialog.customize.summoned-token.title",
-      ),
-    },
-    position: { width: 300 },
-    content,
-    buttons: [
-      {
-        label: "Close",
-        action: "close",
-      },
-    ],
-    render: (event) => {
-      const html = event.target.element;
-      const searchInput = html.querySelector("#search-input");
-      const container = html.querySelector("#summons-items-container");
+	const data = await foundry.applications.api.DialogV2.wait({
+		window: {
+			title: game.i18n.localize(
+				"pf2e-summons-assistant.dialog.customize.summoned-token.title",
+			),
+		},
+		position: { width: 300 },
+		content,
+		buttons: [
+			{
+				label: "Close",
+				action: "close",
+			},
+		],
+		render: (event) => {
+			const html = event.target.element;
+			const searchInput = html.querySelector("#search-input");
+			const container = html.querySelector("#summons-items-container");
 
-      // Add click handlers to token items
-      const tokenItems = container.querySelectorAll(".summon-token-item");
-      tokenItems.forEach((item) => {
-        item.addEventListener("click", async (e) => {
-          const src = e.currentTarget;
-          const name = src.dataset.name;
-          const uuid = src.dataset.uuid;
-          const item = src.dataset.itemuuid
-            ? await fromUuid(src.dataset.itemuuid)
-            : null;
-          customizeSummonedToken({ name, uuid }, item);
-        });
-      });
+			// Add click handlers to token items
+			const tokenItems = container.querySelectorAll(".summon-token-item");
+			tokenItems.forEach((item) => {
+				item.addEventListener("click", async (e) => {
+					const src = e.currentTarget;
+					const name = src.dataset.name;
+					const uuid = src.dataset.uuid;
+					const item = src.dataset.itemuuid
+						? await fromUuid(src.dataset.itemuuid)
+						: null;
+					customizeSummonedToken({ name, uuid }, item);
+				});
+			});
 
-      // Add search functionality
-      searchInput.addEventListener("input", (e) => {
-        const searchTerm = e.target.value.toLowerCase();
+			// Add search functionality
+			searchInput.addEventListener("input", (e) => {
+				const searchTerm = e.target.value.toLowerCase();
 
-        tokenItems.forEach((item) => {
-          const name = item.dataset.name.toLowerCase();
-          if (name.includes(searchTerm)) {
-            item.style.display = "flex";
-          } else {
-            item.style.display = "none";
-          }
-        });
-      });
-    },
-  });
+				tokenItems.forEach((item) => {
+					const name = item.dataset.name.toLowerCase();
+					if (name.includes(searchTerm)) {
+						item.style.display = "flex";
+					} else {
+						item.style.display = "none";
+					}
+				});
+			});
+		},
+	});
 }
 
 async function customizeSummonedToken(tokenInfo, item) {
-  let defCFG = DEF_TOKEN_CONFIGS;
-  // Get customization setting
-  if (item) {
-    // get item
-    const tokenCFG = item.getFlag(MODULE_ID, "customized-summons");
-    if (tokenInfo?.uuid && tokenCFG?.[replacePeriods(tokenInfo?.uuid)]) {
-      defCFG = tokenCFG?.[replacePeriods(tokenInfo?.uuid)];
-    }
-  } else {
-    //get world
-    const tokenCFG = game.settings.get(MODULE_ID, "customized-summons");
-    if (tokenInfo?.uuid) {
-      defCFG = tokenCFG[replacePeriods(tokenInfo?.uuid)];
-    }
-  }
+	let defCFG = DEF_TOKEN_CONFIGS;
+	// Get customization setting
+	if (item) {
+		// get item
+		const tokenCFG = item.getFlag(MODULE_ID, "customized-summons");
+		if (tokenInfo?.uuid && tokenCFG?.[replacePeriods(tokenInfo?.uuid)]) {
+			defCFG = tokenCFG?.[replacePeriods(tokenInfo?.uuid)];
+		}
+	} else {
+		// get world
+		const tokenCFG = game.settings.get(MODULE_ID, "customized-summons");
+		if (tokenInfo?.uuid) {
+			defCFG = tokenCFG[replacePeriods(tokenInfo?.uuid)];
+		}
+	}
 
-  const data = await foundry.applications.api.DialogV2.input({
-    window: {
-      title: `${game.i18n.localize("pf2e-summons-assistant.dialog.customize.summoned-token.title")} (${tokenInfo.name})`,
-      controls: [
-        {
-          action: "reset",
-          icon: "fa-solid fa-rotate-left",
-          label: "pf2e-summons-assistant.dialog.customize.reset",
-        },
-      ],
-    },
-    content: `
+	const data = await foundry.applications.api.DialogV2.input({
+		window: {
+			title: `${game.i18n.localize("pf2e-summons-assistant.dialog.customize.summoned-token.title")} (${tokenInfo.name})`,
+			controls: [
+				{
+					action: "reset",
+					icon: "fa-solid fa-rotate-left",
+					label: "pf2e-summons-assistant.dialog.customize.reset",
+				},
+			],
+		},
+		content: `
     <div class="form-group">
       <label for="name">${game.i18n.localize("TOKEN.FIELDS.name.label")}</label>
       <input type="text" name="name" value="${defCFG.name}">
@@ -154,117 +154,117 @@ async function customizeSummonedToken(tokenInfo, item) {
       <input type="text" name="actorImg" value="${defCFG.actorImg}">
     </div>
     `,
-    ok: {
-      label: "Save",
-      icon: "fa-solid fa-floppy-disk",
-    },
-    actions: {
-      reset: async function (event, target) {
-        if (item) {
-          //set item
-          const prevSettings =
-            item.getFlag(MODULE_ID, "customized-summons") ?? {};
-          prevSettings[replacePeriods(tokenInfo.uuid)] = defCFG;
-          await item.setFlag(MODULE_ID, "customized-summons", prevSettings);
-        } else {
-          //set world
-          const prevSettings =
-            game.settings.get(MODULE_ID, "customized-summons") ?? {};
-          prevSettings[replacePeriods(tokenInfo.uuid)] = defCFG;
-          await game.settings.set(
-            MODULE_ID,
-            "customized-summons",
-            prevSettings,
-          );
-        }
-      },
-    },
-  });
+		ok: {
+			label: "Save",
+			icon: "fa-solid fa-floppy-disk",
+		},
+		actions: {
+			async reset(event, target) {
+				if (item) {
+					// set item
+					const prevSettings
+            = item.getFlag(MODULE_ID, "customized-summons") ?? {};
+					prevSettings[replacePeriods(tokenInfo.uuid)] = defCFG;
+					await item.setFlag(MODULE_ID, "customized-summons", prevSettings);
+				} else {
+					// set world
+					const prevSettings
+            = game.settings.get(MODULE_ID, "customized-summons") ?? {};
+					prevSettings[replacePeriods(tokenInfo.uuid)] = defCFG;
+					await game.settings.set(
+						MODULE_ID,
+						"customized-summons",
+						prevSettings,
+					);
+				}
+			},
+		},
+	});
 
-  console.log({ data, tokenInfo });
-  const isChangesMade = data && !foundry.utils.equals(defCFG, data);
+	console.log({ data, tokenInfo });
+	const isChangesMade = data && !foundry.utils.equals(defCFG, data);
 
-  if (isChangesMade) {
-    // Set Customization setting
-    if (item) {
-      //set item
-      const prevSettings = item.getFlag(MODULE_ID, "customized-summons") ?? {};
-      prevSettings[replacePeriods(tokenInfo.uuid)] = data;
-      await item.setFlag(MODULE_ID, "customized-summons", prevSettings);
-    } else {
-      //set world
-      const prevSettings =
-        game.settings.get(MODULE_ID, "customized-summons") ?? {};
-      prevSettings[replacePeriods(tokenInfo.uuid)] = data;
-      await game.settings.set(MODULE_ID, "customized-summons", prevSettings);
-    }
+	if (isChangesMade) {
+		// Set Customization setting
+		if (item) {
+			// set item
+			const prevSettings = item.getFlag(MODULE_ID, "customized-summons") ?? {};
+			prevSettings[replacePeriods(tokenInfo.uuid)] = data;
+			await item.setFlag(MODULE_ID, "customized-summons", prevSettings);
+		} else {
+			// set world
+			const prevSettings
+        = game.settings.get(MODULE_ID, "customized-summons") ?? {};
+			prevSettings[replacePeriods(tokenInfo.uuid)] = data;
+			await game.settings.set(MODULE_ID, "customized-summons", prevSettings);
+		}
 
-    ui.notifications.info(
-      `${game.i18n.localize("pf2e-summons-assistant.notification.customization.saved")} <code>${tokenInfo.name}</code>`,
-    );
-  }
+		ui.notifications.info(
+			`${game.i18n.localize("pf2e-summons-assistant.notification.customization.saved")} <code>${tokenInfo.name}</code>`,
+		);
+	}
 }
 
 export function getSummonCustomizationData(summonUUID, item) {
-  const itemCustomization = mapToActualModifications(
-    item?.getFlag(MODULE_ID, "customized-summons")?.[
-      replacePeriods(summonUUID)
-    ],
-  );
-  if (itemCustomization) {
-    return itemCustomization;
-  }
-  const settingsCustomization = mapToActualModifications(
-    game.settings.get(MODULE_ID, "customized-summons")?.[
-      replacePeriods(summonUUID)
-    ],
-  );
-  if (settingsCustomization) {
-    return settingsCustomization;
-  }
-  return {};
+	const itemCustomization = mapToActualModifications(
+		item?.getFlag(MODULE_ID, "customized-summons")?.[
+			replacePeriods(summonUUID)
+		],
+	);
+	if (itemCustomization) {
+		return itemCustomization;
+	}
+	const settingsCustomization = mapToActualModifications(
+		game.settings.get(MODULE_ID, "customized-summons")?.[
+			replacePeriods(summonUUID)
+		],
+	);
+	if (settingsCustomization) {
+		return settingsCustomization;
+	}
+	return {};
 }
 
 export function mapToActualModifications(cfg) {
-  if (!cfg) return {};
-  const updateData = {};
-  if (cfg.name) {
-    updateData.name = cfg.name;
-  }
-  if (cfg?.actorImg) {
-    updateData.img = cfg?.actorImg;
-  }
-  updateData.prototypeToken = {
-    ...(cfg?.name ? { name: cfg.name } : {}),
-    texture: {
-      ...(cfg?.imagePath ? { src: cfg.imagePath } : {}),
-      scaleX: cfg.scale,
-      scaleY: cfg.scale,
-    },
-    randomImg: !!cfg?.doWildCard,
-    ring: {
-      enabled: cfg.ringEnabled,
-      subject: {
-        scale: cfg.subjectScaleCorrection,
-        ...(cfg?.subjectTexture ? { texture: cfg.subjectTexture } : {}),
-      },
-    },
-  };
-  return updateData;
+	if (!cfg) return {};
+	const updateData = {};
+	if (cfg.name) {
+		updateData.name = cfg.name;
+	}
+	if (cfg?.actorImg) {
+		updateData.img = cfg?.actorImg;
+	}
+	updateData.prototypeToken = {
+		...(cfg?.name ? { name: cfg.name } : {}),
+		texture: {
+			...(cfg?.imagePath ? { src: cfg.imagePath } : {}),
+			scaleX: cfg.scale,
+			scaleY: cfg.scale,
+		},
+		randomImg: !!cfg?.doWildCard,
+		ring: {
+			enabled: cfg.ringEnabled,
+			subject: {
+				scale: cfg.subjectScaleCorrection,
+				...(cfg?.subjectTexture ? { texture: cfg.subjectTexture } : {}),
+			},
+		},
+	};
+	return updateData;
 }
 
 export function getIsActorCustomized(actorUuid, item = null) {
-  if (item) {
-    return !!item?.getFlag(MODULE_ID, "customized-summons")?.[
-      replacePeriods(actorUuid)
-    ];
-  } else {
-    return !!game.settings.get(MODULE_ID, "customized-summons")?.[
-      replacePeriods(actorUuid)
-    ];
-  }
+	if (item) {
+		return !!item?.getFlag(MODULE_ID, "customized-summons")?.[
+			replacePeriods(actorUuid)
+		];
+	} else {
+		return !!game.settings.get(MODULE_ID, "customized-summons")?.[
+			replacePeriods(actorUuid)
+		];
+	}
 }
 
 function replacePeriods(uuid) {
-  return uuid.replaceAll(".", ":");
+	return uuid.replaceAll(".", ":");
 }

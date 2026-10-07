@@ -1,5 +1,9 @@
 ## Unreleased
 
+## 2.20.3
+
+- Added link to restrained in Conglomeraate of Limbs
+
 ## 2.20.2
 
 - Fixed accidental exclusion of `Avenging Wildwood` from packs

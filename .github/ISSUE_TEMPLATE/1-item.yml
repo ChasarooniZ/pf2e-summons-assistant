@@ -1,15 +1,15 @@
-name: "👾 Add a Summon"
+name: 👾 Add a Summon
 description: Request support for a new summon trigger (IE Item/Spell/Feat/ETC.)
 title: "[Item] "
-labels: ["New-Item"]
-assignees: ["chasarooniZ"]
-projects: ["ChasarooniZ/2"]
+labels: [New-Item]
+assignees: [chasarooniZ]
+projects: [ChasarooniZ/2]
 body:
   - type: input
     id: feature_link
     attributes:
-      label: "Feature/Spell Link"
-      description: "Please provide a link to the feature you want added (Archives of Nethys etc.)"
+      label: Feature/Spell Link
+      description: Please provide a link to the feature you want added (Archives of Nethys etc.)
       placeholder: "https://2e.aonprd.com/Spells.aspx?ID=864"
     validations:
       required: true
@@ -17,14 +17,14 @@ body:
   - type: input
     id: feature_uuid
     attributes:
-      label: "Feature/Spell UUID (SF2e Only)"
+      label: Feature/Spell UUID (SF2e Only)
       description: "Please provide the uuid of this feature /spell ESPECIALLY if it is from SF2e as I don't have easy access"
-      placeholder: "Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu"
+      placeholder: Compendium.pf2e.spells-srd.Item.IarZrgCeaiUqOuRu
 
   - type: textarea
     id: description
     attributes:
-      label: "Description"
+      label: Description
       description: "Provide a detailed description of what you want it to do. Include information about automation, use cases, expected behavior, etc."
       placeholder: "Describe the feature you'd like to see implemented..."
     validations:
@@ -33,10 +33,10 @@ body:
   - type: checkboxes
     id: confirmation
     attributes:
-      label: "Pre-submission Checklist"
+      label: Pre-submission Checklist
       description: "Please confirm you have completed the following:"
       options:
-        - label: "I have verified that this feature is not already available in the module"
+        - label: I have verified that this feature is not already available in the module
           required: true
         - label: "I have searched existing issues to ensure this request hasn't been made before"
           required: true

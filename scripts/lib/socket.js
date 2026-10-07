@@ -1,55 +1,55 @@
 import { MODULE_ID } from "../const.js";
 
-let socketlibSocket = undefined;
+let socketlibSocket;
 async function createEffects({ actorUUIDs, effectUUID }) {
-  const source = (await fromUuid(effectUUID)).toObject();
-  source.flags = foundry.utils.mergeObject(source.flags ?? {}, {
-    core: { sourceId: effectUUID },
-  });
+	const source = (await fromUuid(effectUUID)).toObject();
+	source.flags = foundry.utils.mergeObject(source.flags ?? {}, {
+		core: { sourceId: effectUUID },
+	});
 
-  await Promise.all(
-    actorUUIDs.map(async (actorUUID) => {
-      const actor = await fromUuid(actorUUID);
-      return actor.createEmbeddedDocuments("Item", [source]);
-    }),
-  );
+	await Promise.all(
+		actorUUIDs.map(async (actorUUID) => {
+			const actor = await fromUuid(actorUUID);
+			return actor.createEmbeddedDocuments("Item", [source]);
+		}),
+	);
 }
 
 async function deleteToken(tokenId) {
-  const token = canvas.tokens.get(tokenId);
-  if (token) {
-    return token?.document?.delete();
-  }
+	const token = canvas.tokens.get(tokenId);
+	if (token) {
+		return token?.document?.delete();
+	}
 }
 
 async function updateCombatant(combatantId, updateData) {
-  const combatant = game?.combat?.combatants?.get(combatantId);
-  if (combatant) {
-    return combatant.update(updateData);
-  }
+	const combatant = game?.combat?.combatants?.get(combatantId);
+	if (combatant) {
+		return combatant.update(updateData);
+	}
 }
 
 async function createWalls(wallDocs) {
-  return await canvas.scene.createEmbeddedDocuments("Wall", wallDocs);
+	return await canvas.scene.createEmbeddedDocuments("Wall", wallDocs);
 }
 
 async function createLights(lightDocs) {
-  return await canvas.scene.createEmbeddedDocuments("AmbientLight", lightDocs);
+	return await canvas.scene.createEmbeddedDocuments("AmbientLight", lightDocs);
 }
 
 async function createRegions(regionDocs) {
-  return await canvas.scene.createEmbeddedDocuments("Region", regionDocs);
+	return await canvas.scene.createEmbeddedDocuments("Region", regionDocs);
 }
 
-export const setupSocket = () => {
-  if (globalThis.socketlib) {
-    socketlibSocket = globalThis.socketlib.registerModule(MODULE_ID);
-    socketlibSocket.register("createEffects", createEffects);
-    socketlibSocket.register("createLights", createLights);
-    socketlibSocket.register("createRegions", createRegions);
-    socketlibSocket.register("createWalls", createWalls);
-    socketlibSocket.register("deleteToken", deleteToken);
-    socketlibSocket.register("updateCombatant", updateCombatant);
-  }
-  return !!globalThis.socketlib;
-};
+export function setupSocket() {
+	if (globalThis.socketlib) {
+		socketlibSocket = globalThis.socketlib.registerModule(MODULE_ID);
+		socketlibSocket.register("createEffects", createEffects);
+		socketlibSocket.register("createLights", createLights);
+		socketlibSocket.register("createRegions", createRegions);
+		socketlibSocket.register("createWalls", createWalls);
+		socketlibSocket.register("deleteToken", deleteToken);
+		socketlibSocket.register("updateCombatant", updateCombatant);
+	}
+	return !!globalThis.socketlib;
+}

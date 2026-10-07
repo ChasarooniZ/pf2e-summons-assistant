@@ -1,23 +1,23 @@
 {
-  "type": "Actor",
-  "folder": "gGy6LNAsZa9IaIjf",
-  "name": "Incarnate",
-  "color": "#762d7c",
-  "sorting": "a",
-  "_id": "Bbkt5XGxBdx0Jgj0",
-  "description": "",
-  "sort": 0,
-  "flags": {},
-  "_stats": {
-    "compendiumSource": null,
-    "duplicateSource": null,
-    "exportSource": null,
-    "coreVersion": "13.346",
-    "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752469382679,
-    "modifiedTime": 1752469382679,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
-  },
-  "_key": "!folders!Bbkt5XGxBdx0Jgj0"
+	"type": "Actor",
+	"folder": "gGy6LNAsZa9IaIjf",
+	"name": "Incarnate",
+	"color": "#762d7c",
+	"sorting": "a",
+	"_id": "Bbkt5XGxBdx0Jgj0",
+	"description": "",
+	"sort": 0,
+	"flags": {},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null,
+		"coreVersion": "13.346",
+		"systemId": "pf2e",
+		"systemVersion": "7.2.3",
+		"createdTime": 1752469382679,
+		"modifiedTime": 1752469382679,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+	},
+	"_key": "!folders!Bbkt5XGxBdx0Jgj0"
 }

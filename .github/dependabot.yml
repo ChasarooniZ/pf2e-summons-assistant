@@ -4,8 +4,8 @@
 version: 2
 updates:
   # GitHub Actions
-  - package-ecosystem: "github-actions"
+  - package-ecosystem: github-actions
     open-pull-requests-limit: 10
-    directory: "/"
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily

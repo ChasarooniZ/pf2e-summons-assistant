@@ -1,284 +1,284 @@
 {
-  "folder": "gGy6LNAsZa9IaIjf",
-  "name": "Avenging Wildwood",
-  "type": "npc",
-  "ownership": {
-    "default": 0,
-    "vj8VUT8j7Wtzy3Y2": 3
-  },
-  "prototypeToken": {
-    "flags": {
-      "pf2e": {
-        "linkToActorSize": true,
-        "autoscale": false
-      }
-    },
-    "height": 1,
-    "width": 1,
-    "name": "Avenging Wildwood",
-    "displayName": 30,
-    "actorLink": false,
-    "depth": 1,
-    "texture": {
-      "src": "modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/awakened-tree.webp",
-      "anchorX": 0.5,
-      "anchorY": 0.5,
-      "fit": "contain",
-      "scaleX": 1.5,
-      "scaleY": 1.5,
-      "tint": "#ffffff",
-      "alphaThreshold": 0.75
-    },
-    "lockRotation": true,
-    "rotation": 0,
-    "alpha": 1,
-    "disposition": -1,
-    "displayBars": 20,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "light": {
-      "negative": false,
-      "priority": 0,
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "color": null,
-      "coloration": 1,
-      "dim": 0,
-      "attenuation": 0.5,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "type": null,
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      }
-    },
-    "sight": {
-      "enabled": false,
-      "range": 0,
-      "angle": 360,
-      "visionMode": "basic",
-      "color": null,
-      "attenuation": 0.1,
-      "brightness": 0,
-      "saturation": 0,
-      "contrast": 0
-    },
-    "detectionModes": {},
-    "occludable": {
-      "radius": 0
-    },
-    "ring": {
-      "enabled": true,
-      "colors": {
-        "ring": null,
-        "background": null
-      },
-      "effects": 1,
-      "subject": {
-        "scale": 1.5,
-        "texture": "modules/pf2e-tokens-bestiaries/subjects/plant/arboreal/awakened-tree.webp"
-      }
-    },
-    "turnMarker": {
-      "mode": 1,
-      "animation": null,
-      "src": null,
-      "disposition": false
-    },
-    "movementAction": null,
-    "randomImg": false,
-    "appendNumber": false,
-    "prependAdjective": false
-  },
-  "effects": [],
-  "system": {
-    "attributes": {
-      "hp": {
-        "value": 20,
-        "temp": 0,
-        "max": 20,
-        "details": ""
-      },
-      "ac": {
-        "value": 10,
-        "details": ""
-      },
-      "allSaves": {
-        "value": ""
-      },
-      "speed": {
-        "value": 25,
-        "otherSpeeds": [],
-        "details": ""
-      }
-    },
-    "initiative": {
-      "statistic": "perception"
-    },
-    "details": {
-      "languages": {
-        "value": [],
-        "details": ""
-      },
-      "level": {
-        "value": 1
-      },
-      "blurb": "",
-      "publicNotes": "",
-      "privateNotes": "",
-      "publication": {
-        "title": "",
-        "authors": "",
-        "license": "OGL",
-        "remaster": false
-      }
-    },
-    "resources": {},
-    "_migration": {
-      "version": 0.959,
-      "previous": {
-        "schema": 0.953,
-        "foundry": "14.368",
-        "system": "8.5.1"
-      }
-    },
-    "abilities": {
-      "str": {
-        "mod": 0
-      },
-      "dex": {
-        "mod": 0
-      },
-      "con": {
-        "mod": 0
-      },
-      "int": {
-        "mod": 0
-      },
-      "wis": {
-        "mod": 0
-      },
-      "cha": {
-        "mod": 0
-      }
-    },
-    "perception": {
-      "details": "",
-      "mod": 0,
-      "senses": [],
-      "vision": true
-    },
-    "saves": {
-      "fortitude": {
-        "value": 0,
-        "saveDetail": ""
-      },
-      "reflex": {
-        "value": 0,
-        "saveDetail": ""
-      },
-      "will": {
-        "value": 0,
-        "saveDetail": ""
-      }
-    },
-    "skills": {},
-    "traits": {
-      "value": [],
-      "rarity": "common",
-      "size": {
-        "value": "med"
-      }
-    }
-  },
-  "_id": "QaUQbc4DMniLj1TG",
-  "img": "modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/awakened-tree.webp",
-  "items": [
-    {
-      "type": "action",
-      "name": "Pass Through",
-      "system": {
-        "actionType": {
-          "value": "passive"
-        },
-        "description": {
-          "value": "<p>Other creatures can’t occupy its space, but allies can pass through its space.</p>",
-          "gm": ""
-        },
-        "publication": {
-          "title": "",
-          "authors": "",
-          "license": "OGL",
-          "remaster": false
-        },
-        "rules": [],
-        "slug": null,
-        "traits": {
-          "otherTags": [],
-          "value": []
-        },
-        "_migration": {
-          "version": 0.959,
-          "previous": {
-            "schema": 0.953,
-            "foundry": "14.368",
-            "system": "8.5.1"
-          }
-        },
-        "actions": {
-          "value": null
-        },
-        "category": "defensive",
-        "deathNote": false
-      },
-      "effects": [],
-      "_id": "EEzWMY1HiWS7JIeA",
-      "img": "systems/pf2e/icons/default-icons/action.svg",
-      "folder": null,
-      "sort": 0,
-      "flags": {},
-      "_stats": {
-        "coreVersion": "14.368",
-        "systemId": "pf2e",
-        "systemVersion": "8.5.1",
-        "createdTime": 1791068659422,
-        "modifiedTime": 1791068734638,
-        "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      },
-      "ownership": {
-        "default": 0
-      },
-      "_key": "!actors.items!QaUQbc4DMniLj1TG.EEzWMY1HiWS7JIeA"
-    }
-  ],
-  "flags": {},
-  "_stats": {
-    "coreVersion": "14.368",
-    "systemId": "pf2e",
-    "systemVersion": "8.5.1",
-    "createdTime": 1791068659422,
-    "modifiedTime": 1791068659936,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
-    "compendiumSource": null,
-    "duplicateSource": null,
-    "exportSource": null
-  },
-  "sort": 400000,
-  "_key": "!actors!QaUQbc4DMniLj1TG"
+	"folder": "gGy6LNAsZa9IaIjf",
+	"name": "Avenging Wildwood",
+	"type": "npc",
+	"ownership": {
+		"default": 0,
+		"vj8VUT8j7Wtzy3Y2": 3
+	},
+	"prototypeToken": {
+		"flags": {
+			"pf2e": {
+				"linkToActorSize": true,
+				"autoscale": false
+			}
+		},
+		"height": 1,
+		"width": 1,
+		"name": "Avenging Wildwood",
+		"displayName": 30,
+		"actorLink": false,
+		"depth": 1,
+		"texture": {
+			"src": "modules/pf2e-tokens-bestiaries/tokens/plant/arboreal/awakened-tree.webp",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"scaleX": 1.5,
+			"scaleY": 1.5,
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
+		},
+		"lockRotation": true,
+		"rotation": 0,
+		"alpha": 1,
+		"disposition": -1,
+		"displayBars": 20,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"light": {
+			"negative": false,
+			"priority": 0,
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"color": null,
+			"coloration": 1,
+			"dim": 0,
+			"attenuation": 0.5,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"type": null,
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			}
+		},
+		"sight": {
+			"enabled": false,
+			"range": 0,
+			"angle": 360,
+			"visionMode": "basic",
+			"color": null,
+			"attenuation": 0.1,
+			"brightness": 0,
+			"saturation": 0,
+			"contrast": 0
+		},
+		"detectionModes": {},
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": true,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1.5,
+				"texture": "modules/pf2e-tokens-bestiaries/subjects/plant/arboreal/awakened-tree.webp"
+			}
+		},
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null,
+		"randomImg": false,
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"effects": [],
+	"system": {
+		"attributes": {
+			"hp": {
+				"value": 20,
+				"temp": 0,
+				"max": 20,
+				"details": ""
+			},
+			"ac": {
+				"value": 10,
+				"details": ""
+			},
+			"allSaves": {
+				"value": ""
+			},
+			"speed": {
+				"value": 25,
+				"otherSpeeds": [],
+				"details": ""
+			}
+		},
+		"initiative": {
+			"statistic": "perception"
+		},
+		"details": {
+			"languages": {
+				"value": [],
+				"details": ""
+			},
+			"level": {
+				"value": 1
+			},
+			"blurb": "",
+			"publicNotes": "",
+			"privateNotes": "",
+			"publication": {
+				"title": "",
+				"authors": "",
+				"license": "OGL",
+				"remaster": false
+			}
+		},
+		"resources": {},
+		"_migration": {
+			"version": 0.959,
+			"previous": {
+				"schema": 0.953,
+				"foundry": "14.368",
+				"system": "8.5.1"
+			}
+		},
+		"abilities": {
+			"str": {
+				"mod": 0
+			},
+			"dex": {
+				"mod": 0
+			},
+			"con": {
+				"mod": 0
+			},
+			"int": {
+				"mod": 0
+			},
+			"wis": {
+				"mod": 0
+			},
+			"cha": {
+				"mod": 0
+			}
+		},
+		"perception": {
+			"details": "",
+			"mod": 0,
+			"senses": [],
+			"vision": true
+		},
+		"saves": {
+			"fortitude": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"reflex": {
+				"value": 0,
+				"saveDetail": ""
+			},
+			"will": {
+				"value": 0,
+				"saveDetail": ""
+			}
+		},
+		"skills": {},
+		"traits": {
+			"value": [],
+			"rarity": "common",
+			"size": {
+				"value": "med"
+			}
+		}
+	},
+	"_id": "QaUQbc4DMniLj1TG",
+	"img": "modules/pf2e-tokens-bestiaries/portraits/plant/arboreal/awakened-tree.webp",
+	"items": [
+		{
+			"type": "action",
+			"name": "Pass Through",
+			"system": {
+				"actionType": {
+					"value": "passive"
+				},
+				"description": {
+					"value": "<p>Other creatures can’t occupy its space, but allies can pass through its space.</p>",
+					"gm": ""
+				},
+				"publication": {
+					"title": "",
+					"authors": "",
+					"license": "OGL",
+					"remaster": false
+				},
+				"rules": [],
+				"slug": null,
+				"traits": {
+					"otherTags": [],
+					"value": []
+				},
+				"_migration": {
+					"version": 0.959,
+					"previous": {
+						"schema": 0.953,
+						"foundry": "14.368",
+						"system": "8.5.1"
+					}
+				},
+				"actions": {
+					"value": null
+				},
+				"category": "defensive",
+				"deathNote": false
+			},
+			"effects": [],
+			"_id": "EEzWMY1HiWS7JIeA",
+			"img": "systems/pf2e/icons/default-icons/action.svg",
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "pf2e",
+				"systemVersion": "8.5.1",
+				"createdTime": 1791068659422,
+				"modifiedTime": 1791068734638,
+				"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"ownership": {
+				"default": 0
+			},
+			"_key": "!actors.items!QaUQbc4DMniLj1TG.EEzWMY1HiWS7JIeA"
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "pf2e",
+		"systemVersion": "8.5.1",
+		"createdTime": 1791068659422,
+		"modifiedTime": 1791068659936,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2",
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null
+	},
+	"sort": 400000,
+	"_key": "!actors!QaUQbc4DMniLj1TG"
 }

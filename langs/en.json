@@ -1,298 +1,298 @@
 {
-  "I18N.LANGUAGE": "English",
-  "pf2e-summons-assistant": {
-    "name": "PF2e Summon's Assistant",
-    "code": {
-      "range": {
-        "feet": "feet"
-      }
-    },
-    "module-settings": {
-      "automation": {
-        "limit-range": {
-          "name": "Automate Limit Range of Summons",
-          "hint": "Limits the range of spells that include a range with them as well as shows the range limit"
-        }
-      },
-      "config": {
-        "ping-summon": {
-          "name": "Ping when Token is Summoned",
-          "hint": "Creates a ping when a token is summoned"
-        }
-      },
-      "name-ownership": {
-        "name": "Add Summoner's Name to Summon's Name",
-        "hint": "Modify the Summon's name to show who summoned it, IE 'Giorno's Goblin' etc."
-      },
-      "effect-ownership": {
-        "name": "Add Summon's Owner Effect",
-        "hint": "Adds an effect to summons with an icon of the token that summoned them for easier tracking"
-      },
-      "house-rule": {
-        "rank-upgrade": {
-          "name": "[House Rule] Summon Spells are Rank + 1",
-          "hint": "Warning: I take no responsibility for how this might impact the balance of your games. This rule treats summon spells as if they were 1 rank higher for the sake of which creatures they summon"
-        },
-        "scale-to-max-summon-level-for-rank": {
-          "name": "[House Rule] Summon Spells Scale to Max Level",
-          "hint": "Warning: I take no responsibility for how this might impact the balance of your games. This uses PF2e Workbench's Scale to level code to scale creatures summoned via traditional summoning spells (IE Summon Animals etc.) to the stats of a creature of the highest level that spell rank can summon."
-        }
-      },
-      "necromancer": {
-        "handle-living-graveyard-movement": {
-          "name": "[Necromancer] Handle Living Graveyard Movement",
-          "hint": "If enabled when a Living Graveyard is moved it will send a chat message which when clicked will cause the graveyard to spawn a thrall (as in accordance with the rules)"
-        },
-        "handle-thrall-charge": {
-          "name": "[Necromancer] Handle Applying Thrall Charge Effect",
-          "hint": "If enabled when you cast thrall charge it will get your first target and apply the Thrall Charge spell effect to them"
-        },
-        "thrall": {
-          "auto-expire": {
-            "name": "[Necromancer] Automatically Delete Expired Thralls",
-            "hint": "When enabled if the thrall expiration date effect expires it will automatically delete the thrall"
-          }
-        }
-      },
-      "refresh": {
-        "summons": {
-          "name": "Refresh Summons Attacks/Saves",
-          "hint": "When this is active it will cause any updates to the Summoner's Spell DC (Currently only conditions) to trigger a refresh of their summons, thus updating the DC/attacks to match properly"
-        }
-      },
-      "specific-case": {
-        "handle": {
-          "bilocation": {
-            "name": "Handle Bilocation",
-            "hint": "Handles bilocation for PCs (IE clone + removal of clone upon effect removal)"
-          },
-          "thaumaturge": {
-            "name": "Handle Thaumaturge Mirror Implement",
-            "hint": "Handles thaumaturge features specifically the Mirror Implement"
-          },
-          "wooden-double": {
-            "name": "Handle Wooden Double's Damage",
-            "hint": "When a Wooden Double takes damage above its max health it will roll damage equivalent to the extra damage (this damage is typeless)"
-          }
-        }
-      },
-      "filter": {
-        "default": {
-          "token-with-art": {
-            "name": "[Filter] Default to Tokens with Art Only",
-            "hint": "Have the actor picker default to showing only actors with art by default"
-          }
-        }
-      },
-      "reminder": {
-        "message": {
-          "name": "[Reminder] Get Reminder about a Combatants's Minions",
-          "hint": "Get a private chat reminder about a combatant's minions at the start of each round"
-        }
-      }
-    },
-    "message": {
-      "living-graveyard": {
-        "thralls": "The Living Graveyard has moved. If this was from Sustain, Do you want to summon 3 new Thralls along its path?",
-        "summon": "Summon!"
-      },
-      "wooden-double": "Wooden Double's Damage Passed to the Caster"
-    },
-    "notification": {
-      "summoner": {
-        "too-many-eidolons": "You own too many eidolons."
-      },
-      "duplicate-foe": {
-        "too-high": "The foe is too high level for this rank of Duplicate Foe"
-      },
-      "disable-items": {
-        "saved": "Saved! The following Summons Assistant Automation have been disabled {list}"
-      },
-      "customization": {
-        "saved": "Saved the customization of the summon"
-      },
-      "bilocation": {
-        "error": "[Error] You don't have a bilocation clone active on this scene"
-      },
-      "thaumaturge": {
-        "mirror-implement": {
-          "error": "[Error] You don't have a Mirrored Self clone active on this scene"
-        }
-      },
-      "illusory-creature": "[Illusory Creature] Select what creature for your illusion to be in the shape and size of",
-      "active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>",
-      "missing-jb2a": "[{moduleName}] This summon requires some form of JB2a, install and enable a version of this module to use it, or just ignore this message if you aren't planning to."
-    },
-    "dialog": {
-      "summon": {
-        "filter": {
-          "only-with-art": "Only with Art"
-        },
-        "sort": {
-          "descending": "(Descending)"
-        }
-      },
-      "dancing-weapon": {
-        "choose": "Choose Weapon",
-        "title": "Choose your Dancing Blade",
-        "damage-types": "Damage Types"
-      },
-      "duplicate-foe": "Did the target fail their save?",
-      "telekinetic-hand": "Do you choose to make the hand you summon invisible?",
-      "disable-specific": {
-        "title": "Select Summon Sources to Disable",
-        "search": "Search...",
-        "button": {
-          "title": "Configure Enabled Summon Triggers",
-          "hint": "Configure what summon sources are active"
-        }
-      },
-      "create-thrall": {
-        "title": "Create Thrall",
-        "options": {
-          "two": "{iconSummon} Summon {cnt} thralls",
-          "one": "{iconSummon} Summon {cnt} thrall{s} & {iconCommand} Command that thrall"
-        }
-      },
-      "horde-of-underlings": {
-        "title": "Horde of Underlings"
-      },
-      "thrall-destroyed": {
-        "title": "Destroy Thrall?",
-        "content": "Did you decide to destroy a thrall? (for the purposes of 'Become as Spirit')"
-      },
-      "wall-of-flesh": {
-        "arms": "Arms",
-        "eyes": "Eyes",
-        "mouths": "Mouths"
-      },
-      "wall": {
-        "line": "Line",
-        "circle": "Circle"
-      },
-      "light": {
-        "title": "Summon a Light Orb",
-        "text": "Do you want to summon an orb of light that's not attached to a creature? (If you select no, you'll need to instead apply the effect to the creature you want to have the light)"
-      },
-      "choose-type-of": "Choose the type of",
-      "customize": {
-        "summoned-token": {
-          "title": "Customize Summoned Token"
-        },
-        "reset": "Reset to Default"
-      },
-      "thaumaturge": {
-        "title": {
-          "default": "Choose which Mirrored Self Token to keep",
-          "unconscious": "You're Unconscious! Choose which Mirrored Self Token stays",
-          "adept-action": "You Shatter a Mirrored Self! Choose which one doesn't Shatter"
-        },
-        "choose": "Keep Selected Token"
-      },
-      "bilocation": {
-        "title": "Choose which Bilocated Self Token to keep"
-      }
-    },
-    "display-text": {
-      "summon-name-ownership": "{summonerName}'s {summonName}",
-      "wooden-double": {
-        "place-double": "Left Click to place your Wooden Double",
-        "step": "Choose where to Step to"
-      },
-      "wall": {
-        "start-point": "Select the start point of your wall"
-      },
-      "jagged-berms": {
-        "spikes": "Left Click to place Spikes ({count}), Right click to stop",
-        "berm": "Place Jagged Berm"
-      },
-      "prismatic-sphere": {
-        "red": {
-          "title": "Red",
-          "text": "Deals @Damage[20[fire]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
-          "block": "Destroys ranged weapon ammunition (such as arrows and crossbow bolts) that would pass through."
-        },
-        "orange": {
-          "title": "Orange",
-          "text": "Deals @Damage[25[acid]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
-          "block": "Destroys thrown weapons that would pass through."
-        },
-        "yellow": {
-          "title": "Yellow",
-          "text": "Deals @Damage[30[electricity]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
-          "block": "Stops acid, cold, electricity, fire, force, sonic, vitality, and void effects from passing through."
-        },
-        "green": {
-          "title": "Green",
-          "text": "Deals @Damage[10[poison]] damage to anyone passing, with a @Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic] save and makes them @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Enfeebled 1} for 1 minute on a failure.",
-          "block": "Stops toxins, gases, and breath weapons from passing through."
-        },
-        "blue": {
-          "title": "Blue",
-          "text": "Creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify} with a @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]",
-          "block": "Stops auditory, petrification, sonic and visual effects from passing through."
-        },
-        "indigo": {
-          "title": "Indigo",
-          "text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)].",
-          "block": "Stops divination and mental effects from passing through."
-        },
-        "violet": {
-          "title": "Violet",
-          "text": "Creatures passing through must succeed at a @Check[will|dc:resolve(@actor.system.resources.dc.value)] save or they are @UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{Slowed 1} for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect of @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]{Interplanar Teleport}",
-          "block": "Prevents spells from targeting the other side (area effects still cross as normal)."
-        }
-      }
-    },
-    "items": {
-      "actions": {
-        "mechanic": {
-          "critical-explosion": {
-            "name": "Critical Explosion",
-            "description": "Your mines explode in a cloud of shrapnel that shreds through a creature's weakest points to cause lasting harm. Add your Intelligence modifier to your mines' damage. A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier. If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine."
-          }
-        }
-      },
-      "effects": {
-        "summon's-owner": {
-          "name": "Summon's Owner"
-        },
-        "thrall-expiration": {
-          "name": "Effect: Thrall Expiration Date",
-          "description": "This measures how long till this thrall expires."
-        },
-        "rule-elements": {
-          "name": "Effect: Rule Elements",
-          "description": "This effect adds various rule elements to a particular summon in order to add automation like strikes etc."
-        },
-        "duplicate-foe": {
-          "name": "Effect: Duplicate Foe",
-          "successful-save": {
-            "title": "Duplicate Foe - Successful Save",
-            "text": "Due to the successful save, targets only take half the damage of this duplicate's strikes"
-          }
-        },
-        "dancing-blade": {
-          "title": "Effect: Dancing Blade"
-        },
-        "wondrous-figurine": {
-          "duration": "Effect: Wondrous Figurine",
-          "bismuth-leopard": {
-            "flash-aura": "Effect: Bismuth Leopard Flash Aura"
-          }
-        }
-      }
-    },
-    "controls": {
-      "scroll": "Scroll",
-      "adjust-length": "Adjust Length",
-      "rotate-wall": "Rotate Wall"
-    },
-    "creature-name": {
-      "wondrous-figurine": {
-        "bismuth-leopard": "Bismuth Leopard",
-        "jade-serpent": "Jade Serpent"
-      }
-    }
-  }
+	"I18N.LANGUAGE": "English",
+	"pf2e-summons-assistant": {
+		"name": "PF2e Summon's Assistant",
+		"code": {
+			"range": {
+				"feet": "feet"
+			}
+		},
+		"module-settings": {
+			"automation": {
+				"limit-range": {
+					"name": "Automate Limit Range of Summons",
+					"hint": "Limits the range of spells that include a range with them as well as shows the range limit"
+				}
+			},
+			"config": {
+				"ping-summon": {
+					"name": "Ping when Token is Summoned",
+					"hint": "Creates a ping when a token is summoned"
+				}
+			},
+			"name-ownership": {
+				"name": "Add Summoner's Name to Summon's Name",
+				"hint": "Modify the Summon's name to show who summoned it, IE 'Giorno's Goblin' etc."
+			},
+			"effect-ownership": {
+				"name": "Add Summon's Owner Effect",
+				"hint": "Adds an effect to summons with an icon of the token that summoned them for easier tracking"
+			},
+			"house-rule": {
+				"rank-upgrade": {
+					"name": "[House Rule] Summon Spells are Rank + 1",
+					"hint": "Warning: I take no responsibility for how this might impact the balance of your games. This rule treats summon spells as if they were 1 rank higher for the sake of which creatures they summon"
+				},
+				"scale-to-max-summon-level-for-rank": {
+					"name": "[House Rule] Summon Spells Scale to Max Level",
+					"hint": "Warning: I take no responsibility for how this might impact the balance of your games. This uses PF2e Workbench's Scale to level code to scale creatures summoned via traditional summoning spells (IE Summon Animals etc.) to the stats of a creature of the highest level that spell rank can summon."
+				}
+			},
+			"necromancer": {
+				"handle-living-graveyard-movement": {
+					"name": "[Necromancer] Handle Living Graveyard Movement",
+					"hint": "If enabled when a Living Graveyard is moved it will send a chat message which when clicked will cause the graveyard to spawn a thrall (as in accordance with the rules)"
+				},
+				"handle-thrall-charge": {
+					"name": "[Necromancer] Handle Applying Thrall Charge Effect",
+					"hint": "If enabled when you cast thrall charge it will get your first target and apply the Thrall Charge spell effect to them"
+				},
+				"thrall": {
+					"auto-expire": {
+						"name": "[Necromancer] Automatically Delete Expired Thralls",
+						"hint": "When enabled if the thrall expiration date effect expires it will automatically delete the thrall"
+					}
+				}
+			},
+			"refresh": {
+				"summons": {
+					"name": "Refresh Summons Attacks/Saves",
+					"hint": "When this is active it will cause any updates to the Summoner's Spell DC (Currently only conditions) to trigger a refresh of their summons, thus updating the DC/attacks to match properly"
+				}
+			},
+			"specific-case": {
+				"handle": {
+					"bilocation": {
+						"name": "Handle Bilocation",
+						"hint": "Handles bilocation for PCs (IE clone + removal of clone upon effect removal)"
+					},
+					"thaumaturge": {
+						"name": "Handle Thaumaturge Mirror Implement",
+						"hint": "Handles thaumaturge features specifically the Mirror Implement"
+					},
+					"wooden-double": {
+						"name": "Handle Wooden Double's Damage",
+						"hint": "When a Wooden Double takes damage above its max health it will roll damage equivalent to the extra damage (this damage is typeless)"
+					}
+				}
+			},
+			"filter": {
+				"default": {
+					"token-with-art": {
+						"name": "[Filter] Default to Tokens with Art Only",
+						"hint": "Have the actor picker default to showing only actors with art by default"
+					}
+				}
+			},
+			"reminder": {
+				"message": {
+					"name": "[Reminder] Get Reminder about a Combatants's Minions",
+					"hint": "Get a private chat reminder about a combatant's minions at the start of each round"
+				}
+			}
+		},
+		"message": {
+			"living-graveyard": {
+				"thralls": "The Living Graveyard has moved. If this was from Sustain, Do you want to summon 3 new Thralls along its path?",
+				"summon": "Summon!"
+			},
+			"wooden-double": "Wooden Double's Damage Passed to the Caster"
+		},
+		"notification": {
+			"summoner": {
+				"too-many-eidolons": "You own too many eidolons."
+			},
+			"duplicate-foe": {
+				"too-high": "The foe is too high level for this rank of Duplicate Foe"
+			},
+			"disable-items": {
+				"saved": "Saved! The following Summons Assistant Automation have been disabled {list}"
+			},
+			"customization": {
+				"saved": "Saved the customization of the summon"
+			},
+			"bilocation": {
+				"error": "[Error] You don't have a bilocation clone active on this scene"
+			},
+			"thaumaturge": {
+				"mirror-implement": {
+					"error": "[Error] You don't have a Mirrored Self clone active on this scene"
+				}
+			},
+			"illusory-creature": "[Illusory Creature] Select what creature for your illusion to be in the shape and size of",
+			"active-minions": "Active <u data-tooltip=\"{minionTooltip}\">minion(s)</u> for <b>{summonerName}</b>",
+			"missing-jb2a": "[{moduleName}] This summon requires some form of JB2a, install and enable a version of this module to use it, or just ignore this message if you aren't planning to."
+		},
+		"dialog": {
+			"summon": {
+				"filter": {
+					"only-with-art": "Only with Art"
+				},
+				"sort": {
+					"descending": "(Descending)"
+				}
+			},
+			"dancing-weapon": {
+				"choose": "Choose Weapon",
+				"title": "Choose your Dancing Blade",
+				"damage-types": "Damage Types"
+			},
+			"duplicate-foe": "Did the target fail their save?",
+			"telekinetic-hand": "Do you choose to make the hand you summon invisible?",
+			"disable-specific": {
+				"title": "Select Summon Sources to Disable",
+				"search": "Search...",
+				"button": {
+					"title": "Configure Enabled Summon Triggers",
+					"hint": "Configure what summon sources are active"
+				}
+			},
+			"create-thrall": {
+				"title": "Create Thrall",
+				"options": {
+					"two": "{iconSummon} Summon {cnt} thralls",
+					"one": "{iconSummon} Summon {cnt} thrall{s} & {iconCommand} Command that thrall"
+				}
+			},
+			"horde-of-underlings": {
+				"title": "Horde of Underlings"
+			},
+			"thrall-destroyed": {
+				"title": "Destroy Thrall?",
+				"content": "Did you decide to destroy a thrall? (for the purposes of 'Become as Spirit')"
+			},
+			"wall-of-flesh": {
+				"arms": "Arms",
+				"eyes": "Eyes",
+				"mouths": "Mouths"
+			},
+			"wall": {
+				"line": "Line",
+				"circle": "Circle"
+			},
+			"light": {
+				"title": "Summon a Light Orb",
+				"text": "Do you want to summon an orb of light that's not attached to a creature? (If you select no, you'll need to instead apply the effect to the creature you want to have the light)"
+			},
+			"choose-type-of": "Choose the type of",
+			"customize": {
+				"summoned-token": {
+					"title": "Customize Summoned Token"
+				},
+				"reset": "Reset to Default"
+			},
+			"thaumaturge": {
+				"title": {
+					"default": "Choose which Mirrored Self Token to keep",
+					"unconscious": "You're Unconscious! Choose which Mirrored Self Token stays",
+					"adept-action": "You Shatter a Mirrored Self! Choose which one doesn't Shatter"
+				},
+				"choose": "Keep Selected Token"
+			},
+			"bilocation": {
+				"title": "Choose which Bilocated Self Token to keep"
+			}
+		},
+		"display-text": {
+			"summon-name-ownership": "{summonerName}'s {summonName}",
+			"wooden-double": {
+				"place-double": "Left Click to place your Wooden Double",
+				"step": "Choose where to Step to"
+			},
+			"wall": {
+				"start-point": "Select the start point of your wall"
+			},
+			"jagged-berms": {
+				"spikes": "Left Click to place Spikes ({count}), Right click to stop",
+				"berm": "Place Jagged Berm"
+			},
+			"prismatic-sphere": {
+				"red": {
+					"title": "Red",
+					"text": "Deals @Damage[20[fire]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
+					"block": "Destroys ranged weapon ammunition (such as arrows and crossbow bolts) that would pass through."
+				},
+				"orange": {
+					"title": "Orange",
+					"text": "Deals @Damage[25[acid]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
+					"block": "Destroys thrown weapons that would pass through."
+				},
+				"yellow": {
+					"title": "Yellow",
+					"text": "Deals @Damage[30[electricity]] damage to anyone passing through, with a @Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic] save.",
+					"block": "Stops acid, cold, electricity, fire, force, sonic, vitality, and void effects from passing through."
+				},
+				"green": {
+					"title": "Green",
+					"text": "Deals @Damage[10[poison]] damage to anyone passing, with a @Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic] save and makes them @UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{Enfeebled 1} for 1 minute on a failure.",
+					"block": "Stops toxins, gases, and breath weapons from passing through."
+				},
+				"blue": {
+					"title": "Blue",
+					"text": "Creatures passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]{Petrify} with a @Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]",
+					"block": "Stops auditory, petrification, sonic and visual effects from passing through."
+				},
+				"indigo": {
+					"title": "Indigo",
+					"text": "Those passing through are subject to the effects of @UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]{Warp Mind} with a @Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)].",
+					"block": "Stops divination and mental effects from passing through."
+				},
+				"violet": {
+					"title": "Violet",
+					"text": "Creatures passing through must succeed at a @Check[will|dc:resolve(@actor.system.resources.dc.value)] save or they are @UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{Slowed 1} for 1 minute; on a critical failure, the creature is instead sent to another plane, with the effect of @UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]{Interplanar Teleport}",
+					"block": "Prevents spells from targeting the other side (area effects still cross as normal)."
+				}
+			}
+		},
+		"items": {
+			"actions": {
+				"mechanic": {
+					"critical-explosion": {
+						"name": "Critical Explosion",
+						"description": "Your mines explode in a cloud of shrapnel that shreds through a creature's weakest points to cause lasting harm. Add your Intelligence modifier to your mines' damage. A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier. If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine."
+					}
+				}
+			},
+			"effects": {
+				"summon's-owner": {
+					"name": "Summon's Owner"
+				},
+				"thrall-expiration": {
+					"name": "Effect: Thrall Expiration Date",
+					"description": "This measures how long till this thrall expires."
+				},
+				"rule-elements": {
+					"name": "Effect: Rule Elements",
+					"description": "This effect adds various rule elements to a particular summon in order to add automation like strikes etc."
+				},
+				"duplicate-foe": {
+					"name": "Effect: Duplicate Foe",
+					"successful-save": {
+						"title": "Duplicate Foe - Successful Save",
+						"text": "Due to the successful save, targets only take half the damage of this duplicate's strikes"
+					}
+				},
+				"dancing-blade": {
+					"title": "Effect: Dancing Blade"
+				},
+				"wondrous-figurine": {
+					"duration": "Effect: Wondrous Figurine",
+					"bismuth-leopard": {
+						"flash-aura": "Effect: Bismuth Leopard Flash Aura"
+					}
+				}
+			}
+		},
+		"controls": {
+			"scroll": "Scroll",
+			"adjust-length": "Adjust Length",
+			"rotate-wall": "Rotate Wall"
+		},
+		"creature-name": {
+			"wondrous-figurine": {
+				"bismuth-leopard": "Bismuth Leopard",
+				"jade-serpent": "Jade Serpent"
+			}
+		}
+	}
 }

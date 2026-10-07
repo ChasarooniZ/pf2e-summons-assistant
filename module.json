@@ -1,177 +1,177 @@
 {
-  "id": "pf2e-summons-assistant",
-  "title": "PF2e Summons Assistant",
-  "description": "A module that supports summoning in PF2e out of the box, using Foundry Summons",
-  "version": "#{VERSION}#",
-  "library": "false",
-  "compatibility": {
-    "minimum": 13,
-    "verified": 14
-  },
-  "authors": [
-    {
-      "name": "chasarooniZ",
-      "url": "https://chasarooniz.github.io/"
-    }
-  ],
-  "relationships": {
-    "systems": [
-      {
-        "id": "pf2e",
-        "type": "system",
-        "manifest": "https://github.com/foundryvtt/pf2e/releases/download/latest/system.json"
-      },
-      {
-        "id": "sf2e",
-        "type": "system",
-        "manifest": "https://github.com/foundryvtt/pf2e/releases/download/latest/system.json",
-        "compatibility": {
-          "minimum": "0.0.3"
-        }
-      }
-    ],
-    "requires": [
-      {
-        "id": "foundry-summons",
-        "type": "module",
-        "compatibility": {
-          "minimum": "2.6.0",
-          "verified": "2.6.0"
-        }
-      },
-      {
-        "id": "socketlib",
-        "type": "module",
-        "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
-      },
-      {
-        "id": "tcal",
-        "type": "module",
-        "manifest": "https://github.com/ddbrown30/tcal/releases/latest/download/module.json",
-        "compatibility": {
-          "minimum": "0.3.0"
-        }
-      },
-      {
-        "id": "sequencer",
-        "type": "module",
-        "manifest": "https://github.com/fantasycalendar/FoundryVTT-Sequencer/releases/latest/download/module.json",
-        "compatibility": {
-          "minimum": "3.0.0"
-        }
-      }
-    ],
-    "recommends": [
-      {
-        "id": "pf2e-sustain-reminder",
-        "name": "PF2e Sustain Reminder",
-        "type": "module",
-        "reason": "This module makes it easier to track what summons you are sustaining",
-        "manifest": "https://github.com/Lank891/Foundry-Pf2e-Sustain-Reminder/releases/latest/download/module.json",
-        "compatibility": {}
-      },
-      {
-        "id": "pf2e-brewrata",
-        "name": "PF2e Brewrata",
-        "type": "module",
-        "reason": "For Necromancer to modify Boost Thrall"
-      }
-    ]
-  },
-  "esmodules": ["scripts/module.js"],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "langs/en.json"
-    },
-    {
-      "lang": "pl",
-      "name": "Polski",
-      "path": "langs/pl.json"
-    },
-    {
-      "lang": "fr",
-      "name": "Français",
-      "path": "langs/fr.json"
-    },
-    {
-      "lang": "cn",
-      "name": "简体中文",
-      "path": "langs/cn.json"
-    }
-  ],
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
-  "styles": ["styles/module.css"],
-  "license": "LICENSE",
-  "readme": "README.md",
-  "socket": true,
-  "packs": [
-    {
-      "name": "pf2e-summons-assistant-actors",
-      "label": "PF2e Summons Assistant Actors",
-      "path": "packs/pf2e-summons-assistant-actors",
-      "type": "Actor",
-      "system": "pf2e",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "pf2e-summons-assistant-items",
-      "label": "PF2e Summons Assistant Items",
-      "path": "packs/pf2e-summons-assistant-items",
-      "type": "Item",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      },
-      "system": "pf2e"
-    },
-    {
-      "name": "sf2e-summons-assistant-actors",
-      "label": "SF2e Summons Assistant Actors",
-      "path": "packs/sf2e-summons-assistant-actors",
-      "type": "Actor",
-      "system": "sf2e",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "sf2e-summons-assistant-items",
-      "label": "SF2e Summons Assistant Items",
-      "path": "packs/sf2e-summons-assistant-items",
-      "type": "Item",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      },
-      "system": "sf2e"
-    },
-    {
-      "name": "summons-assistant-macros",
-      "label": "Summons Assistant Macros",
-      "path": "packs/summons-assistant-macros",
-      "type": "Macro",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      },
-      "flags": {}
-    }
-  ],
-  "flags": {
-    "galleryDatasheets": {
-      "pf2e-summons-assistant": {
-        "label": "PF2e Summons Assistant Artwork",
-        "hint": "Artwork from PF2e Summons Assistant.",
-        "sheet": "modules/pf2e-summons-assistant/assets/datasheet/datasheet.json"
-      }
-    }
-  }
+	"id": "pf2e-summons-assistant",
+	"title": "PF2e Summons Assistant",
+	"description": "A module that supports summoning in PF2e out of the box, using Foundry Summons",
+	"version": "#{VERSION}#",
+	"library": "false",
+	"compatibility": {
+		"minimum": 13,
+		"verified": 14
+	},
+	"authors": [
+		{
+			"name": "chasarooniZ",
+			"url": "https://chasarooniz.github.io/"
+		}
+	],
+	"relationships": {
+		"systems": [
+			{
+				"id": "pf2e",
+				"type": "system",
+				"manifest": "https://github.com/foundryvtt/pf2e/releases/download/latest/system.json"
+			},
+			{
+				"id": "sf2e",
+				"type": "system",
+				"manifest": "https://github.com/foundryvtt/pf2e/releases/download/latest/system.json",
+				"compatibility": {
+					"minimum": "0.0.3"
+				}
+			}
+		],
+		"requires": [
+			{
+				"id": "foundry-summons",
+				"type": "module",
+				"compatibility": {
+					"minimum": "2.6.0",
+					"verified": "2.6.0"
+				}
+			},
+			{
+				"id": "socketlib",
+				"type": "module",
+				"manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
+			},
+			{
+				"id": "tcal",
+				"type": "module",
+				"manifest": "https://github.com/ddbrown30/tcal/releases/latest/download/module.json",
+				"compatibility": {
+					"minimum": "0.3.0"
+				}
+			},
+			{
+				"id": "sequencer",
+				"type": "module",
+				"manifest": "https://github.com/fantasycalendar/FoundryVTT-Sequencer/releases/latest/download/module.json",
+				"compatibility": {
+					"minimum": "3.0.0"
+				}
+			}
+		],
+		"recommends": [
+			{
+				"id": "pf2e-sustain-reminder",
+				"name": "PF2e Sustain Reminder",
+				"type": "module",
+				"reason": "This module makes it easier to track what summons you are sustaining",
+				"manifest": "https://github.com/Lank891/Foundry-Pf2e-Sustain-Reminder/releases/latest/download/module.json",
+				"compatibility": {}
+			},
+			{
+				"id": "pf2e-brewrata",
+				"name": "PF2e Brewrata",
+				"type": "module",
+				"reason": "For Necromancer to modify Boost Thrall"
+			}
+		]
+	},
+	"esmodules": ["scripts/module.js"],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "langs/en.json"
+		},
+		{
+			"lang": "pl",
+			"name": "Polski",
+			"path": "langs/pl.json"
+		},
+		{
+			"lang": "fr",
+			"name": "Français",
+			"path": "langs/fr.json"
+		},
+		{
+			"lang": "cn",
+			"name": "简体中文",
+			"path": "langs/cn.json"
+		}
+	],
+	"url": "#{URL}#",
+	"manifest": "#{MANIFEST}#",
+	"download": "#{DOWNLOAD}#",
+	"styles": ["styles/module.css"],
+	"license": "LICENSE",
+	"readme": "README.md",
+	"socket": true,
+	"packs": [
+		{
+			"name": "pf2e-summons-assistant-actors",
+			"label": "PF2e Summons Assistant Actors",
+			"path": "packs/pf2e-summons-assistant-actors",
+			"type": "Actor",
+			"system": "pf2e",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "pf2e-summons-assistant-items",
+			"label": "PF2e Summons Assistant Items",
+			"path": "packs/pf2e-summons-assistant-items",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"system": "pf2e"
+		},
+		{
+			"name": "sf2e-summons-assistant-actors",
+			"label": "SF2e Summons Assistant Actors",
+			"path": "packs/sf2e-summons-assistant-actors",
+			"type": "Actor",
+			"system": "sf2e",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "sf2e-summons-assistant-items",
+			"label": "SF2e Summons Assistant Items",
+			"path": "packs/sf2e-summons-assistant-items",
+			"type": "Item",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"system": "sf2e"
+		},
+		{
+			"name": "summons-assistant-macros",
+			"label": "Summons Assistant Macros",
+			"path": "packs/summons-assistant-macros",
+			"type": "Macro",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			},
+			"flags": {}
+		}
+	],
+	"flags": {
+		"galleryDatasheets": {
+			"pf2e-summons-assistant": {
+				"label": "PF2e Summons Assistant Artwork",
+				"hint": "Artwork from PF2e Summons Assistant.",
+				"sheet": "modules/pf2e-summons-assistant/assets/datasheet/datasheet.json"
+			}
+		}
+	}
 }

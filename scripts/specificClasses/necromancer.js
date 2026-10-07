@@ -1,546 +1,546 @@
 import {
-  MODULE_ID,
-  SOURCES,
-  CREATURES,
-  DESTROY_THRALL_SLUGS,
-  EFFECTS,
+	CREATURES,
+	DESTROY_THRALL_SLUGS,
+	EFFECTS,
+	MODULE_ID,
+	SOURCES,
 } from "../const.js";
 import { capitalizeDamageType, getHeightenedValue } from "../helpers.js";
 import { getSpecificSummonDetails } from "../specificSummons.js";
 import { summon } from "../summon.js";
 
 $(document).on("click", ".living-graveyard-move-yes", async function () {
-  const messageId = $(this).parent().parent().parent().data("message-id");
-  if (messageId) {
-    const t = game.messages.get(messageId);
-    const sceneId = t.getFlag(MODULE_ID, "sceneId");
-    const tokenId = t.getFlag(MODULE_ID, "tokenId");
-    const scene = game.scenes.get(sceneId);
-    const token = scene.tokens.get(tokenId);
-    const actor = token.actor;
-    const summonerId = actor.getFlag(MODULE_ID, "summoner.id");
-    const expirationEffect = actor.itemTypes.effect.find(
-      (p) => p.system.slug === "effect-thrall-expiration-date",
-    );
-    const currentTime = game.time.worldTime;
-    const startTime = expirationEffect.system.start.value;
-    const delta = currentTime - startTime;
-    let duration = 60;
-    if (delta > 0) {
-      duration -= delta;
-    }
+	const messageId = $(this).parent().parent().parent().data("message-id");
+	if (messageId) {
+		const t = game.messages.get(messageId);
+		const sceneId = t.getFlag(MODULE_ID, "sceneId");
+		const tokenId = t.getFlag(MODULE_ID, "tokenId");
+		const scene = game.scenes.get(sceneId);
+		const token = scene.tokens.get(tokenId);
+		const actor = token.actor;
+		const summonerId = actor.getFlag(MODULE_ID, "summoner.id");
+		const expirationEffect = actor.itemTypes.effect.find(
+			p => p.system.slug === "effect-thrall-expiration-date",
+		);
+		const currentTime = game.time.worldTime;
+		const startTime = expirationEffect.system.start.value;
+		const delta = currentTime - startTime;
+		let duration = 60;
+		if (delta > 0) {
+			duration -= delta;
+		}
 
-    const summonerActor = game.actors.get(summonerId);
+		const summonerActor = game.actors.get(summonerId);
 
-    const spellRank = Math.floor(summonerActor.level / 2);
+		const spellRank = Math.floor(summonerActor.level / 2);
 
-    const durationInfo = { value: Math.floor(duration / 6), unit: "rounds" };
-    const spellRelevantInfo = {
-      rank: spellRank,
-      summonerLevel: summonerActor.level,
-      duration: durationInfo,
-    };
+		const durationInfo = { value: Math.floor(duration / 6), unit: "rounds" };
+		const spellRelevantInfo = {
+			rank: spellRank,
+			summonerLevel: summonerActor.level,
+			duration: durationInfo,
+		};
 
-    const summonDetailsGroup = getSpecificSummonDetails(
-      SOURCES.NECROMANCER.CREATE_THRALL,
-      spellRelevantInfo,
-    );
+		const summonDetailsGroup = getSpecificSummonDetails(
+			SOURCES.NECROMANCER.CREATE_THRALL,
+			spellRelevantInfo,
+		);
 
-    for (const summonDetails of summonDetailsGroup) {
-      summonDetails.amount = 3;
-    }
+		for (const summonDetails of summonDetailsGroup) {
+			summonDetails.amount = 3;
+		}
 
-    await summon({
-      summonerActor,
-      itemUuid: SOURCES.NECROMANCER.CREATE_THRALL,
-      summonType: "thrall",
-      summonDetailsGroup,
-    });
-    await t.delete();
-  }
+		await summon({
+			summonerActor,
+			itemUuid: SOURCES.NECROMANCER.CREATE_THRALL,
+			summonType: "thrall",
+			summonDetailsGroup,
+		});
+		await t.delete();
+	}
 });
 
 const SPIRIT_MONGER_DAMAGE_TYPES = ["spirit", "void"];
 
 export function setNecromancerHooks() {
-  Hooks.on("preUpdateToken", livingGraveyardMovementHook);
+	Hooks.on("preUpdateToken", livingGraveyardMovementHook);
 
-  Hooks.on("preDeleteToken", async (token, _action, _id) => {
-    if (
-      isThrall(token.actor) &&
-      token?.actor?.system?.attributes?.hp?.value !== 0
-    ) {
-      bloodFascinationMessage(token?.actor);
-    }
-  });
+	Hooks.on("preDeleteToken", async (token, _action, _id) => {
+		if (
+			isThrall(token.actor)
+			&& token?.actor?.system?.attributes?.hp?.value !== 0
+		) {
+			bloodFascinationMessage(token?.actor);
+		}
+	});
 
-  Hooks.on("preCreateChatMessage", async (message, _info, _userID) => {
-    //Become as Spirit
-    const actor = message?.actor;
-    if (
-      actor?.rollOptions?.all?.["feat:become-as-spirit"] &&
-      isValidMessageContext(message?.flags?.pf2e?.context?.type)
-    ) {
-      const item = message?.item;
-      if (DESTROY_THRALL_SLUGS.has(item?.slug)) {
-        const isDestroy = !["osteo-armaments", "thrall-charge"].includes(
-          item?.slug,
-        )
-          ? true
-          : await foundry.applications.api.DialogV2.confirm({
-              window: {
-                title: "pf2e-summons-assistant.dialog.thrall-destroyed.title",
-                icon: "fa-duotone fa-solid fa-person-burst",
-              },
-              content: game.i18n.localize(
-                "pf2e-summons-assistant.dialog.thrall-destroyed.content",
-              ),
-            });
+	Hooks.on("preCreateChatMessage", async (message, _info, _userID) => {
+		// Become as Spirit
+		const actor = message?.actor;
+		if (
+			actor?.rollOptions?.all?.["feat:become-as-spirit"]
+			&& isValidMessageContext(message?.flags?.pf2e?.context?.type)
+		) {
+			const item = message?.item;
+			if (DESTROY_THRALL_SLUGS.has(item?.slug)) {
+				const isDestroy = !["osteo-armaments", "thrall-charge"].includes(
+					item?.slug,
+				)
+					? true
+					: await foundry.applications.api.DialogV2.confirm({
+							window: {
+								title: "pf2e-summons-assistant.dialog.thrall-destroyed.title",
+								icon: "fa-duotone fa-solid fa-person-burst",
+							},
+							content: game.i18n.localize(
+								"pf2e-summons-assistant.dialog.thrall-destroyed.content",
+							),
+						});
 
-        if (isDestroy) {
-          const effect = await fromUuid(EFFECTS.NECROMANCER.BECOME_AS_SPIRIT);
-          await actor.createEmbeddedDocuments("Item", [effect]);
-        }
-      }
-    }
+				if (isDestroy) {
+					const effect = await fromUuid(EFFECTS.NECROMANCER.BECOME_AS_SPIRIT);
+					await actor.createEmbeddedDocuments("Item", [effect]);
+				}
+			}
+		}
 
-    if (
-      message?.item?.slug === "thrall-charge" &&
-      game.settings.get(MODULE_ID, "necromancer.handle-thrall-charge")
-    ) {
-      const target = game.user.targets.first();
-      if (target?.isOwner) {
-        const effect = await fromUuid(EFFECTS.NECROMANCER.THRALL_CHARGE);
-        await target.actor.createEmbeddedDocuments("Item", [effect]);
-      }
-    }
-  });
+		if (
+			message?.item?.slug === "thrall-charge"
+			&& game.settings.get(MODULE_ID, "necromancer.handle-thrall-charge")
+		) {
+			const target = game.user.targets.first();
+			if (target?.isOwner) {
+				const effect = await fromUuid(EFFECTS.NECROMANCER.THRALL_CHARGE);
+				await target.actor.createEmbeddedDocuments("Item", [effect]);
+			}
+		}
+	});
 
-  Hooks.on("updateActor", (actor, updates, _info, userID) => {
-    if (game.user.id !== userID) {
-      return;
-    }
+	Hooks.on("updateActor", (actor, updates, _info, userID) => {
+		if (game.user.id !== userID) {
+			return;
+		}
 
-    if (isThrall(actor) && updates?.system?.attributes?.hp?.value === 0) {
-      bloodFascinationMessage(actor);
-    }
-  });
+		if (isThrall(actor) && updates?.system?.attributes?.hp?.value === 0) {
+			bloodFascinationMessage(actor);
+		}
+	});
 
-  if (game.settings.get(MODULE_ID, "necromancer.thrall.auto-expire")) {
-    setupAutoDeleteThrallHook();
-  }
+	if (game.settings.get(MODULE_ID, "necromancer.thrall.auto-expire")) {
+		setupAutoDeleteThrallHook();
+	}
 }
 
 function isThrall(actor) {
-  return actor?.flags?.pf2e?.rollOptions?.all?.["self:trait:thrall"];
+	return actor?.flags?.pf2e?.rollOptions?.all?.["self:trait:thrall"];
 }
 
 function bloodFascinationMessage(thrallActor) {
-  const necromancer = game.actors.get(
-    thrallActor?.flags?.["pf2e-summons-assistant"].summoner?.id,
-  );
-  // only provide healing if parent is a Grim Fascination: Blood Necromancer
-  if (necromancer?.rollOptions?.all?.["feature:blood"]) {
-    const healingAmount = Math.ceil((necromancer?.level ?? 1) / 4);
-    const DamageRoll = CONFIG.Dice.rolls.find((r) => r.name === "DamageRoll");
-    const roll = new DamageRoll(`${healingAmount}[healing]`);
-    roll.toMessage({
-      flavor: `Grim Fascination - Blood (Healing)`,
-      speaker: ChatMessage.getSpeaker({ actor: necromancer }),
-      flags: {
-        "pf2e-toolbelt": {
-          targetHelper: {
-            type: "action",
-            author: necromancer.uuid,
-            item: "Compendium.pf2e.classfeatures.Item.gyN8OZZ3txxIAKLf",
-            targets: [necromancer.getActiveTokens(true, true)?.[0]?.uuid],
-          },
-        },
-      },
-    });
-  }
+	const necromancer = game.actors.get(
+		thrallActor?.flags?.["pf2e-summons-assistant"].summoner?.id,
+	);
+	// only provide healing if parent is a Grim Fascination: Blood Necromancer
+	if (necromancer?.rollOptions?.all?.["feature:blood"]) {
+		const healingAmount = Math.ceil((necromancer?.level ?? 1) / 4);
+		const DamageRoll = CONFIG.Dice.rolls.find(r => r.name === "DamageRoll");
+		const roll = new DamageRoll(`${healingAmount}[healing]`);
+		roll.toMessage({
+			flavor: `Grim Fascination - Blood (Healing)`,
+			speaker: ChatMessage.getSpeaker({ actor: necromancer }),
+			flags: {
+				"pf2e-toolbelt": {
+					targetHelper: {
+						type: "action",
+						author: necromancer.uuid,
+						item: "Compendium.pf2e.classfeatures.Item.gyN8OZZ3txxIAKLf",
+						targets: [necromancer.getActiveTokens(true, true)?.[0]?.uuid],
+					},
+				},
+			},
+		});
+	}
 }
 
 function isValidMessageContext(context) {
-  return !context || context === "spell-cast";
+	return !context || context === "spell-cast";
 }
 
 function livingGraveyardMovementHook(tokenDoc, data, id) {
-  if (
-    !game.settings.get(
-      MODULE_ID,
-      "necromancer.handle-living-graveyard-movement",
-    )
-  ) {
-    return;
-  }
-  if (tokenDoc?.actor?.isDead || !game?.combats?.active) {
-    return;
-  }
-  if (!data.x && !data.y) {
-    return;
-  }
-  if (data.x === tokenDoc.x && data.y === tokenDoc.y) {
-    return;
-  }
-  if (game.combat) {
-    if (game?.skipMoveTrigger?.[id]) {
-      return;
-    }
-    if (tokenDoc.actor.sourceId === CREATURES.NECROMANCER.LIVING_GRAVEYARD) {
-      checkLivingGraveyardMovement(tokenDoc);
-    }
-  }
+	if (
+		!game.settings.get(
+			MODULE_ID,
+			"necromancer.handle-living-graveyard-movement",
+		)
+	) {
+		return;
+	}
+	if (tokenDoc?.actor?.isDead || !game?.combats?.active) {
+		return;
+	}
+	if (!data.x && !data.y) {
+		return;
+	}
+	if (data.x === tokenDoc.x && data.y === tokenDoc.y) {
+		return;
+	}
+	if (game.combat) {
+		if (game?.skipMoveTrigger?.[id]) {
+			return;
+		}
+		if (tokenDoc.actor.sourceId === CREATURES.NECROMANCER.LIVING_GRAVEYARD) {
+			checkLivingGraveyardMovement(tokenDoc);
+		}
+	}
 }
 
 function checkLivingGraveyardMovement(tokenDoc) {
-  const combatant = game.combat.combatant;
-  const check = {
-    cId: combatant.id,
-    sceneId: tokenDoc.scene.id,
-    tokenId: tokenDoc.id,
-    actorId: tokenDoc.actorId,
-    actorUuid: tokenDoc.actor.uuid,
-    actionName: "living-graveyard-move",
-  };
-  let whispers = ChatMessage.getWhisperRecipients("GM").map((u) => u.id);
-  if (combatant.players) {
-    whispers = whispers.concat(combatant.players.map((u) => u.id));
-  }
-  let data = {
-    flavor: "",
-    user: null,
-    speaker: {
-      scene: null,
-      actor: null,
-      token: null,
-      alias: "System",
-    },
-    style: CONST.CHAT_MESSAGE_STYLES.OOC,
-    content: `<div>
+	const combatant = game.combat.combatant;
+	const check = {
+		cId: combatant.id,
+		sceneId: tokenDoc.scene.id,
+		tokenId: tokenDoc.id,
+		actorId: tokenDoc.actorId,
+		actorUuid: tokenDoc.actor.uuid,
+		actionName: "living-graveyard-move",
+	};
+	let whispers = ChatMessage.getWhisperRecipients("GM").map(u => u.id);
+	if (combatant.players) {
+		whispers = whispers.concat(combatant.players.map(u => u.id));
+	}
+	const data = {
+		flavor: "",
+		user: null,
+		speaker: {
+			scene: null,
+			actor: null,
+			token: null,
+			alias: "System",
+		},
+		style: CONST.CHAT_MESSAGE_STYLES.OOC,
+		content: `<div>
                 ${game.i18n.localize("pf2e-summons-assistant.message.living-graveyard.thralls")}
                 </div>
             <div class="message-buttons">
                 <button class="living-graveyard-move-yes">${game.i18n.localize("pf2e-summons-assistant.message.living-graveyard.summon")}</button>
             </div>`,
-    whisper: whispers,
-    flags: { "pf2e-summons-assistant": check },
-  };
+		whisper: whispers,
+		flags: { "pf2e-summons-assistant": check },
+	};
 
-  ChatMessage.create(data);
+	ChatMessage.create(data);
 }
 export function isBindHeroicSpiritCriticalHit(chatMessage) {
-  return (
-    chatMessage?.flags?.[game.system.id]?.context?.type === "attack-roll" &&
-    ["criticalSuccess"].includes(
-      chatMessage?.flags?.[game.system.id]?.context?.outcome,
-    ) &&
-    chatMessage?.flags?.[game.system.id]?.context?.options?.includes(
-      "self:effect:bind-heroic-spirit",
-    )
-  );
+	return (
+		chatMessage?.flags?.[game.system.id]?.context?.type === "attack-roll"
+		&& ["criticalSuccess"].includes(
+			chatMessage?.flags?.[game.system.id]?.context?.outcome,
+		)
+		&& chatMessage?.flags?.[game.system.id]?.context?.options?.includes(
+			"self:effect:bind-heroic-spirit",
+		)
+	);
 }
 
 export function createThrallAttackInfo({
-  uuid = "",
-  castRank = 1,
-  necromancerLevel = 1,
-  rollOptions = [],
+	uuid = "",
+	castRank = 1,
+	necromancerLevel = 1,
+	rollOptions = [],
 }) {
-  if (!uuid) return [];
-  const defaultDiceCount = getHeightenedValue({
-    baseVal: 1,
-    startLvl: 1,
-    currLvl: necromancerLevel,
-    heightenEvery: 4,
-    heightenBonus: 1,
-  });
+	if (!uuid) return [];
+	const defaultDiceCount = getHeightenedValue({
+		baseVal: 1,
+		startLvl: 1,
+		currLvl: necromancerLevel,
+		heightenEvery: 4,
+		heightenBonus: 1,
+	});
 
-  // Configuration map for each thrall type
-  const thrallConfigs = {
-    [SOURCES.NECROMANCER.CREATE_THRALL]: {
-      baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical"],
-        name: "Thrall Strike",
-      },
-    },
-    [SOURCES.NECROMANCER.AMALGAMATE]: {
-      baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical", "reach-10"],
-        name: "Amalgamation Strike",
-      },
-    },
-    [SOURCES.NECROMANCER.BLOODY_TENDRILS]: {
-      baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical", "reach-10"],
-        name: "Tendril Strike",
-      },
-    },
-    [SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS]: {
-      baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical"],
-        name: "Limbs Strike",
-      },
-    },
-    [SOURCES.NECROMANCER.PERFECTED_THRALL]: {
-      baseDamageTypes: ["bludgeoning"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical"],
-        name: "Perfect Thrall Strike",
-      },
-    },
-    [SOURCES.NECROMANCER.RECURRING_NIGHTMARE]: {
-      baseDamageTypes: ["void"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical", "reach-0"],
-        name: "Recurring Nightmare Strike",
-      },
-    },
-    [SOURCES.NECROMANCER.LIVING_GRAVEYARD]: {
-      baseDamageTypes: ["bludgeoning"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical", "reach-15"],
-        name: "Living Graveyard Strike",
-      },
-    },
-    [SOURCES.NECROMANCER.SKELETAL_LANCERS]: {
-      baseDamageTypes: ["piercing"],
-      config: {
-        die: "d6",
-        dice: defaultDiceCount,
-        traits: ["magical", "reach-10"],
-        name: "Skeletal Lance",
-      },
-    },
-  };
+	// Configuration map for each thrall type
+	const thrallConfigs = {
+		[SOURCES.NECROMANCER.CREATE_THRALL]: {
+			baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical"],
+				name: "Thrall Strike",
+			},
+		},
+		[SOURCES.NECROMANCER.AMALGAMATE]: {
+			baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical", "reach-10"],
+				name: "Amalgamation Strike",
+			},
+		},
+		[SOURCES.NECROMANCER.BLOODY_TENDRILS]: {
+			baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical", "reach-10"],
+				name: "Tendril Strike",
+			},
+		},
+		[SOURCES.NECROMANCER.CONGLOMERATE_OF_LIMBS]: {
+			baseDamageTypes: ["bludgeoning", "piercing", "slashing"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical"],
+				name: "Limbs Strike",
+			},
+		},
+		[SOURCES.NECROMANCER.PERFECTED_THRALL]: {
+			baseDamageTypes: ["bludgeoning"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical"],
+				name: "Perfect Thrall Strike",
+			},
+		},
+		[SOURCES.NECROMANCER.RECURRING_NIGHTMARE]: {
+			baseDamageTypes: ["void"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical", "reach-0"],
+				name: "Recurring Nightmare Strike",
+			},
+		},
+		[SOURCES.NECROMANCER.LIVING_GRAVEYARD]: {
+			baseDamageTypes: ["bludgeoning"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical", "reach-15"],
+				name: "Living Graveyard Strike",
+			},
+		},
+		[SOURCES.NECROMANCER.SKELETAL_LANCERS]: {
+			baseDamageTypes: ["piercing"],
+			config: {
+				die: "d6",
+				dice: defaultDiceCount,
+				traits: ["magical", "reach-10"],
+				name: "Skeletal Lance",
+			},
+		},
+	};
 
-  const thrallConfig = thrallConfigs[uuid];
-  if (!thrallConfig) {
-    return []; // or throw an error if preferred
-  }
+	const thrallConfig = thrallConfigs[uuid];
+	if (!thrallConfig) {
+		return []; // or throw an error if preferred
+	}
 
-  return createThrallStrikeRuleElements(
-    thrallConfig.baseDamageTypes,
-    rollOptions,
-    thrallConfig.config,
-    necromancerLevel,
-  );
+	return createThrallStrikeRuleElements(
+		thrallConfig.baseDamageTypes,
+		rollOptions,
+		thrallConfig.config,
+		necromancerLevel,
+	);
 }
 
 function createThrallStrikeRuleElements(
-  baseDamageTypes,
-  rollOptions,
-  config,
-  necromancerLevel = 1,
+	baseDamageTypes,
+	rollOptions,
+	config,
+	necromancerLevel = 1,
 ) {
-  const damageTypes = [...baseDamageTypes];
+	const damageTypes = [...baseDamageTypes];
 
-  // Add spirit-monger damage types if the feature is present
-  if (rollOptions?.includes("feature:spirit")) {
-    damageTypes.push(...SPIRIT_MONGER_DAMAGE_TYPES);
-  }
+	// Add spirit-monger damage types if the feature is present
+	if (rollOptions?.includes("feature:spirit")) {
+		damageTypes.push(...SPIRIT_MONGER_DAMAGE_TYPES);
+	}
 
-  const ruleElements = [];
-  const slugs = [];
-  for (const type of damageTypes) {
-    const damageName = game.i18n.localize(
-      `PF2E.Trait${capitalizeDamageType(type)}`,
-    );
-    const name = `${config.name} (${damageName})`;
-    const slug = game?.pf2e.system.sluggify(name);
-    slugs.push(slug);
-    ruleElements.push(
-      getStrikeRE({
-        ...config,
-        name: name,
-        slug: slug,
-        damageType: type,
-      }),
-    );
-  }
-  ruleElements.push(getStrikeMod(slugs));
-  if (rollOptions?.includes("feat:the-hallowed-dead")) {
-    ruleElements.push(
-      {
-        key: "ActorTraits",
-        add: ["holy"],
-      },
-      {
-        key: "AdjustStrike",
-        mode: "add",
-        property: "weapon-traits",
-        value: "holy",
-      },
-      {
-        key: "FlatModifier",
-        selector: ["damage"],
-        value: necromancerLevel < 10 ? 1 : 2,
-        damageType: "spirit",
-      },
-    );
-  }
-  if (rollOptions?.includes("feat:the-unholy-dead")) {
-    ruleElements.push(
-      {
-        key: "ActorTraits",
-        add: ["unholy"],
-      },
-      {
-        key: "AdjustStrike",
-        mode: "add",
-        property: "weapon-traits",
-        value: "unholy",
-      },
-      {
-        key: "FlatModifier",
-        selector: ["damage"],
-        value: necromancerLevel < 10 ? 1 : 2,
-        damageType: "spirit",
-      },
-    );
-  }
-  if (rollOptions?.includes("feature:bone")) {
-    ruleElements.push({
-      key: "FlatModifier",
-      label: "Bone",
-      selector: ["speed"],
-      value: 5,
-    });
-  }
-  return ruleElements;
+	const ruleElements = [];
+	const slugs = [];
+	for (const type of damageTypes) {
+		const damageName = game.i18n.localize(
+			`PF2E.Trait${capitalizeDamageType(type)}`,
+		);
+		const name = `${config.name} (${damageName})`;
+		const slug = game?.pf2e.system.sluggify(name);
+		slugs.push(slug);
+		ruleElements.push(
+			getStrikeRE({
+				...config,
+				name,
+				slug,
+				damageType: type,
+			}),
+		);
+	}
+	ruleElements.push(getStrikeMod(slugs));
+	if (rollOptions?.includes("feat:the-hallowed-dead")) {
+		ruleElements.push(
+			{
+				key: "ActorTraits",
+				add: ["holy"],
+			},
+			{
+				key: "AdjustStrike",
+				mode: "add",
+				property: "weapon-traits",
+				value: "holy",
+			},
+			{
+				key: "FlatModifier",
+				selector: ["damage"],
+				value: necromancerLevel < 10 ? 1 : 2,
+				damageType: "spirit",
+			},
+		);
+	}
+	if (rollOptions?.includes("feat:the-unholy-dead")) {
+		ruleElements.push(
+			{
+				key: "ActorTraits",
+				add: ["unholy"],
+			},
+			{
+				key: "AdjustStrike",
+				mode: "add",
+				property: "weapon-traits",
+				value: "unholy",
+			},
+			{
+				key: "FlatModifier",
+				selector: ["damage"],
+				value: necromancerLevel < 10 ? 1 : 2,
+				damageType: "spirit",
+			},
+		);
+	}
+	if (rollOptions?.includes("feature:bone")) {
+		ruleElements.push({
+			key: "FlatModifier",
+			label: "Bone",
+			selector: ["speed"],
+			value: 5,
+		});
+	}
+	return ruleElements;
 }
 
 export function getStrikeRE(config) {
-  const base = {
-    damage: {
-      base: {
-        die: config?.die ?? "d4",
-        dice: config?.dice ?? 0,
-        damageType: config.damageType,
-        modifier: config?.mod ?? 0,
-      },
-    },
-    attackModifier: config?.attackModifier ?? 1,
-    traits: config?.traits ?? [],
-    img:
+	const base = {
+		damage: {
+			base: {
+				die: config?.die ?? "d4",
+				dice: config?.dice ?? 0,
+				damageType: config.damageType,
+				modifier: config?.mod ?? 0,
+			},
+		},
+		attackModifier: config?.attackModifier ?? 1,
+		traits: config?.traits ?? [],
+		img:
       config?.image ?? "icons/magic/death/hand-undead-skeleton-fire-green.webp",
-    key: "Strike",
-    slug: config.slug,
-    label: config?.name,
-    priority: 95,
-  };
+		key: "Strike",
+		slug: config.slug,
+		label: config?.name,
+		priority: 95,
+	};
 
-  if (config?.group) base.group = config.group;
-  if (config?.range) base.range = { increment: config.range };
+	if (config?.group) base.group = config.group;
+	if (config?.range) base.range = { increment: config.range };
 
-  return base;
+	return base;
 }
 
 export function getStrikeMod(slugs, dynamic = true) {
-  return {
-    key: "AdjustModifier",
-    selector: "attack",
-    slug: "base",
-    value: dynamic
-      ? "@item.origin.system.attributes.spellDC.value - 10"
-      : "@actor.flags.pf2e-summons-assistant.dc - 10",
-    mode: "upgrade",
-    predicate: [
-      {
-        or: slugs.map((slug) => `item:slug:${slug}`),
-      },
-    ],
-  };
+	return {
+		key: "AdjustModifier",
+		selector: "attack",
+		slug: "base",
+		value: dynamic
+			? "@item.origin.system.attributes.spellDC.value - 10"
+			: "@actor.flags.pf2e-summons-assistant.dc - 10",
+		mode: "upgrade",
+		predicate: [
+			{
+				or: slugs.map(slug => `item:slug:${slug}`),
+			},
+		],
+	};
 }
 
 function setupAutoDeleteThrallHook() {
-  Hooks.on("deleteItem", autoDeleteThrall);
+	Hooks.on("deleteItem", autoDeleteThrall);
 }
 
 async function autoDeleteThrall(effect, info) {
-  if (!game.user.isGM) return;
-  if (effect.rollOptionSlug !== "thrall-expiration-date") return;
+	if (!game.user.isGM) return;
+	if (effect.rollOptionSlug !== "thrall-expiration-date") return;
 
-  const tokDoc = info?.parent?.parent;
-  return await tokDoc.delete();
+	const tokDoc = info?.parent?.parent;
+	return await tokDoc.delete();
 }
 
 export function getBaseThrallArtConfig(rollOptions) {
-  if (rollOptions?.includes("feature:bone")) {
-    return {
-      img: "modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/skeleton-guard.webp",
-      prototypeToken: {
-        texture: {
-          src: "modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/skeleton-guard.webp",
-        },
-        ring: {
-          subject: {
-            texture:
+	if (rollOptions?.includes("feature:bone")) {
+		return {
+			img: "modules/pf2e-tokens-bestiaries/portraits/undead/skeletal/skeleton-guard.webp",
+			prototypeToken: {
+				texture: {
+					src: "modules/pf2e-tokens-bestiaries/tokens/undead/skeletal/skeleton-guard.webp",
+				},
+				ring: {
+					subject: {
+						texture:
               "modules/pf2e-tokens-bestiaries/subjects/undead/skeletal/skeleton-guard.webp",
-          },
-        },
-      },
-    };
-  } else if (rollOptions?.includes("feature:blood")) {
-    return {
-      img: "modules/pf2e-tokens-bestiaries/portraits/undead/vampiric/vampire-spawn-rogue.webp",
-      prototypeToken: {
-        texture: {
-          src: "modules/pf2e-tokens-bestiaries/tokens/undead/vampiric/vampire-spawn-rogue.webp",
-        },
-        ring: {
-          subject: {
-            texture:
+					},
+				},
+			},
+		};
+	} else if (rollOptions?.includes("feature:blood")) {
+		return {
+			img: "modules/pf2e-tokens-bestiaries/portraits/undead/vampiric/vampire-spawn-rogue.webp",
+			prototypeToken: {
+				texture: {
+					src: "modules/pf2e-tokens-bestiaries/tokens/undead/vampiric/vampire-spawn-rogue.webp",
+				},
+				ring: {
+					subject: {
+						texture:
               "modules/pf2e-tokens-bestiaries/subjects/undead/vampiric/vampire-spawn-rogue.webp",
-          },
-        },
-      },
-    };
-  } else if (rollOptions?.includes("feature:spirit")) {
-    return {
-      img: "modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/phantom-knight.webp",
-      prototypeToken: {
-        texture: {
-          src: "modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/phantom-knight.webp",
-        },
-        ring: {
-          subject: {
-            texture:
+					},
+				},
+			},
+		};
+	} else if (rollOptions?.includes("feature:spirit")) {
+		return {
+			img: "modules/pf2e-tokens-bestiaries/portraits/undead/ghostly/phantom-knight.webp",
+			prototypeToken: {
+				texture: {
+					src: "modules/pf2e-tokens-bestiaries/tokens/undead/ghostly/phantom-knight.webp",
+				},
+				ring: {
+					subject: {
+						texture:
               "modules/pf2e-tokens-bestiaries/subjects/undead/ghostly/phantom-knight.webp",
-          },
-        },
-      },
-    };
-  }
+					},
+				},
+			},
+		};
+	}
 
-  return {};
+	return {};
 }
 
 export function handleReachOfTheDead(summonerRollOptions) {
-  if (
-    summonerRollOptions?.includes("spellshape:reach-of-the-dead") &&
-    game.user.targets.size
-  ) {
-    return game.user.targets.first();
-  } else {
-    return null;
-  }
+	if (
+		summonerRollOptions?.includes("spellshape:reach-of-the-dead")
+		&& game.user.targets.size
+	) {
+		return game.user.targets.first();
+	} else {
+		return null;
+	}
 }

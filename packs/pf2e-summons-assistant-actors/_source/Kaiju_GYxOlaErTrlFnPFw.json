@@ -1,23 +1,23 @@
 {
-  "type": "Actor",
-  "folder": "Bbkt5XGxBdx0Jgj0",
-  "name": "Kaiju",
-  "color": "#198f68",
-  "sorting": "a",
-  "_id": "GYxOlaErTrlFnPFw",
-  "description": "",
-  "sort": 0,
-  "flags": {},
-  "_stats": {
-    "compendiumSource": null,
-    "duplicateSource": null,
-    "exportSource": null,
-    "coreVersion": "13.346",
-    "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752645500040,
-    "modifiedTime": 1752645511427,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
-  },
-  "_key": "!folders!GYxOlaErTrlFnPFw"
+	"type": "Actor",
+	"folder": "Bbkt5XGxBdx0Jgj0",
+	"name": "Kaiju",
+	"color": "#198f68",
+	"sorting": "a",
+	"_id": "GYxOlaErTrlFnPFw",
+	"description": "",
+	"sort": 0,
+	"flags": {},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null,
+		"coreVersion": "13.346",
+		"systemId": "pf2e",
+		"systemVersion": "7.2.3",
+		"createdTime": 1752645500040,
+		"modifiedTime": 1752645511427,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+	},
+	"_key": "!folders!GYxOlaErTrlFnPFw"
 }

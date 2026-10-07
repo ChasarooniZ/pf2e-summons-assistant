@@ -1,23 +1,23 @@
 {
-  "type": "Actor",
-  "folder": null,
-  "name": "Pf2e Summons Assistant",
-  "color": "#392f60",
-  "sorting": "a",
-  "_id": "gGy6LNAsZa9IaIjf",
-  "description": "",
-  "sort": 100000,
-  "flags": {},
-  "_stats": {
-    "compendiumSource": null,
-    "duplicateSource": null,
-    "exportSource": null,
-    "coreVersion": "13.346",
-    "systemId": "pf2e",
-    "systemVersion": "7.2.3",
-    "createdTime": 1752469382679,
-    "modifiedTime": 1752469382898,
-    "lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
-  },
-  "_key": "!folders!gGy6LNAsZa9IaIjf"
+	"type": "Actor",
+	"folder": null,
+	"name": "Pf2e Summons Assistant",
+	"color": "#392f60",
+	"sorting": "a",
+	"_id": "gGy6LNAsZa9IaIjf",
+	"description": "",
+	"sort": 100000,
+	"flags": {},
+	"_stats": {
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": null,
+		"coreVersion": "13.346",
+		"systemId": "pf2e",
+		"systemVersion": "7.2.3",
+		"createdTime": 1752469382679,
+		"modifiedTime": 1752469382898,
+		"lastModifiedBy": "vj8VUT8j7Wtzy3Y2"
+	},
+	"_key": "!folders!gGy6LNAsZa9IaIjf"
 }

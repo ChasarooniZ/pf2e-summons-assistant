@@ -1,298 +1,298 @@
 {
-    "I18N.LANGUAGE": "简体中文",
-    "pf2e-summons-assistant": {
-        "module-settings": {
-            "name-ownership": {
-                "name": "为召唤物名称添加召唤者署名",
-                "hint": "修饰召唤物的名称以显示其召唤者，例如“乔鲁诺的地精”等。"
-            },
-            "house-rule": {
-                "rank-upgrade": {
-                    "name": "[房规] 召唤法术的环级+1",
-                    "hint": "警告：我不会为该房规可能对您的游戏平衡性造成的影响负责。此规则将召唤法术视为比释放时高出1个环级，以决定其可召唤的生物"
-                },
-                "scale-to-max-summon-level-for-rank": {
-                    "name": "[房规] 召唤法术扩增至最高等级",
-                    "hint": "警告：我不会为该房规可能对您的游戏平衡性造成的影响负责。此功能使用PF2e Workbench的“等级扩增”代码，将通过传统召唤法术（如“召唤动物”等）召唤出的生物，扩增至该法术环级可召唤的最高等级生物。"
-                }
-            },
-            "effect-ownership": {
-                "name": "添加召唤物归属者效果",
-                "hint": "为召唤物添加一个效果，该效果的图标为其召唤者的指示物图标，便于追踪其主人"
-            },
-            "necromancer": {
-                "handle-living-graveyard-movement": {
-                    "name": "[死灵师] 处理活体坟场的移动",
-                    "hint": "若启用，当活体坟场移动时，会往聊天栏发送一条消息，点击该消息将使该坟场（根据规则）生成一个奴仆"
-                },
-                "thrall": {
-                    "auto-expire": {
-                        "name": "[死灵师] 自动删除过期的奴仆",
-                        "hint": "若启用，则当“奴仆自毁时间”效果过期时，自动删除该奴仆"
-                    }
-                },
-                "handle-thrall-charge": {
-                    "name": "[死灵师] 处理奴仆冲锋效果应用",
-                    "hint": "若启用，当你施放奴仆冲锋时，该功能会锁定你的第一个目标并对其应用奴仆冲锋法术效果"
-                }
-            },
-            "refresh": {
-                "summons": {
-                    "name": "刷新召唤物攻击/豁免",
-                    "hint": "若激活该功能，将使任何对召唤者法术DC的更新（当前仅限状态）触发对其召唤物进行刷新，进而更新相匹配的DC/攻击调整值"
-                }
-            },
-            "specific-case": {
-                "handle": {
-                    "wooden-double": {
-                        "name": "处理木制替身的伤害",
-                        "hint": "当木制替身受到超过其最大生命值的伤害时，它将骰掷等同于溢出伤害的伤害（该伤害无伤害类型）"
-                    },
-                    "thaumaturge": {
-                        "name": "处理奇术师镜奇具",
-                        "hint": "特别处理奇术师的镜奇具特性"
-                    },
-                    "bilocation": {
-                        "name": "处理二重身法术",
-                        "hint": "为玩家角色处理二重身法术（例如：克隆+效果移除时删除克隆指示物）"
-                    }
-                }
-            },
-            "filter": {
-                "default": {
-                    "token-with-art": {
-                        "name": "[筛选] 默认仅显示带有立绘的指示物",
-                        "hint": "使角色选择器默认仅显示拥有立绘的角色"
-                    }
-                }
-            },
-            "reminder": {
-                "message": {
-                    "name": "[提醒] 接收参战者仆从的提醒信息",
-                    "hint": "允许在参战者的每回合开始时，接收其仆从的私人提醒信息"
-                }
-            },
-            "automation": {
-                "limit-range": {
-                    "hint": "限制了具备射程的召唤法术的召唤物生成范围，并将其范围显示在场景上",
-                    "name": "召唤物生成范围自动化限制"
-                }
-            },
-            "config": {
-                "ping-summon": {
-                    "name": "生成召唤指示物时高亮显示",
-                    "hint": "创建召唤物指示物的同时生成高亮信号"
-                }
-            }
-        },
-        "name": "PF2e Summon's Assistant",
-        "message": {
-            "living-graveyard": {
-                "thralls": "活体坟场已移动。如果这来自维持法术的效果，你要在其路径上召唤3个新的奴仆吗？",
-                "summon": "召唤！"
-            },
-            "wooden-double": "木制替身的溢出伤害已转移给施法者"
-        },
-        "notification": {
-            "summoner": {
-                "too-many-eidolons": "你拥有的幻灵太多了。"
-            },
-            "duplicate-foe": {
-                "too-high": "对于该环级的“仿敌拟像”法术而言，该敌人的等级太高了"
-            },
-            "disable-items": {
-                "saved": "已保存！以下召唤自动化选项已被禁用 {list}"
-            },
-            "customization": {
-                "saved": "召唤物自定义设置已保存"
-            },
-            "active-minions": "<b>{summonerName}</b>当前控制的<u data-tooltip=\"{minionTooltip}\">仆从</u>",
-            "thaumaturge": {
-                "mirror-implement": {
-                    "error": "[错误] 你未在当前场景中激活自身镜像克隆"
-                }
-            },
-            "bilocation": {
-                "error": "[错误] 你未在当前场景中激活二重身克隆"
-            },
-            "illusory-creature": "[幻象生物] 选择你的幻象所呈现的生物形态与体型",
-            "missing-jb2a": "[{moduleName}] 此次召唤依赖JB2A的部分资源，安装并启用该模组后即可使用。如果你不打算使用其资源，可以忽略此消息。"
-        },
-        "dialog": {
-            "duplicate-foe": "该目标豁免失败了吗？",
-            "telekinetic-hand": "你是否选择让你召唤的魔法手隐形？",
-            "disable-specific": {
-                "search": "搜索…",
-                "button": {
-                    "title": "召唤自动化选项启用配置",
-                    "hint": "对是否激活召唤自动化选项进行配置"
-                },
-                "title": "取消勾选，以禁用该召唤自动化"
-            },
-            "choose-type-of": "选择墙体形状，当前为",
-            "customize": {
-                "summoned-token": {
-                    "title": "自定义召唤物指示物"
-                },
-                "reset": "重制为默认设置"
-            },
-            "dancing-weapon": {
-                "choose": "选择该武器",
-                "title": "选择武器作为你的飞舞之刃",
-                "damage-types": "伤害类型"
-            },
-            "light": {
-                "title": "召唤光球",
-                "text": "你想召唤一个不附着生物的球形光亮吗？（如果选择否，则需要将效果应用至你想附加光亮的生物身上）"
-            },
-            "thaumaturge": {
-                "title": {
-                    "default": "选择要保留的自身镜像指示物",
-                    "unconscious": "你失去意识！选择要保留的自身镜像指示物",
-                    "adept-action": "你使自身镜像碎裂！选择不会碎裂的那个指示物"
-                },
-                "choose": "保留所选指示物"
-            },
-            "bilocation": {
-                "title": "选择要保留的二重身克隆指示物"
-            },
-            "summon": {
-                "sort": {
-                    "descending": "（降序）"
-                },
-                "filter": {
-                    "only-with-art": "附带美术资产"
-                }
-            },
-            "create-thrall": {
-                "title": "创造奴仆",
-                "options": {
-                    "two": "{iconSummon}召唤了{cnt}个奴仆",
-                    "one": "{iconSummon}召唤{cnt}个奴仆并立即命令奴仆"
-                }
-            },
-            "thrall-destroyed": {
-                "title": "摧毁奴仆？",
-                "content": "你决定摧毁一个奴仆吗？（用于“化为精魂”）"
-            },
-            "wall": {
-                "line": "线形",
-                "circle": "环形"
-            },
-            "wall-of-flesh": {
-                "arms": "手臂",
-                "eyes": "眼睛",
-                "mouths": "嘴巴"
-            },
-            "horde-of-underlings": {
-                "title": "喽啰成群"
-            }
-        },
-        "display-text": {
-            "wooden-double": {
-                "step": "选择要“快步”至的位置",
-                "place-double": "左键单击以放置你的木制替身"
-            },
-            "wall": {
-                "start-point": "选择你所创造墙体的起始点"
-            },
-            "jagged-berms": {
-                "berm": "放置城垛土堆",
-                "spikes": "左键单击放置尖刺木桩（{count}），右键单击以停止放置"
-            },
-            "prismatic-sphere": {
-                "red": {
-                    "title": "红色",
-                    "block": "摧毁穿过墙体的远程武器弹药（例如箭和弩矢）。",
-                    "text": "对任何穿过墙体的目标造成@Damage[20[fire]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。"
-                },
-                "orange": {
-                    "title": "橙色",
-                    "text": "对任何穿过墙体的目标造成@Damage[25[acid]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
-                    "block": "摧毁穿过墙体的投掷武器。"
-                },
-                "yellow": {
-                    "title": "黄色",
-                    "text": "对任何穿过墙体的目标造成@Damage[30[electricity]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
-                    "block": "阻挡穿过墙体的酸蚀，寒冷，电击，火焰，力场，音波，命能以及虚能效果。"
-                },
-                "green": {
-                    "title": "绿色",
-                    "text": "对任何穿过墙体的目标造成@Damage[10[poison]]伤害，需尝试一次@Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic]豁免，并使豁免失败的目标陷入@UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{力竭 Enfeebled 1}，持续1分钟。",
-                    "block": "阻挡穿过墙体的毒气，气体，以及吐息武器。"
-                },
-                "blue": {
-                    "title": "蓝色",
-                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]的效果，需尝试一次@Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]豁免",
-                    "block": "阻挡穿过墙体的听觉，石化，音波以及视觉效果。"
-                },
-                "indigo": {
-                    "title": "靛青",
-                    "text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]的效果，需尝试一次@Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)]豁免。",
-                    "block": "阻挡穿过墙体的预言系和心灵效果。"
-                },
-                "violet": {
-                    "title": "紫色",
-                    "block": "阻挡法术从球体外指定目标（区域效果如常穿过）。",
-                    "text": "穿过墙体的生物必须尝试一次@Check[will|dc:resolve(@actor.system.resources.dc.value)]豁免，否则陷入@UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{缓慢 Slowed 1}，持续1分钟；若大失败，该生物改为被如@UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]的效果送往其他位面"
-                }
-            },
-            "summon-name-ownership": "{summonerName}的{summonName}"
-        },
-        "items": {
-            "actions": {
-                "mechanic": {
-                    "critical-explosion": {
-                        "name": "致命爆炸",
-                        "description": "你的地雷爆炸时会产生一团弹片云，撕裂生物最脆弱的部位，造成持续伤害。将你的智力调整值添加到地雷的伤害上。在对抗你的地雷时豁免检定大失败的生物，会额外受到等同于你智力调整值的持续伤害。如果地雷造成的是物理伤害，那么这是持续流血伤害。否则，该持续伤害的类型与地雷造成的伤害类型相同。"
-                    }
-                }
-            },
-            "effects": {
-                "summon's-owner": {
-                    "name": "召唤物归属者"
-                },
-                "thrall-expiration": {
-                    "description": "该效果用于测算这只奴仆的自毁时间。",
-                    "name": "效果：奴仆自毁时间"
-                },
-                "duplicate-foe": {
-                    "name": "效果：仿敌拟像 Duplicate Foe",
-                    "successful-save": {
-                        "title": "仿敌拟像 - 豁免成功",
-                        "text": "由于豁免成功，目标仅承受此复制体打击的一半伤害"
-                    }
-                },
-                "rule-elements": {
-                    "name": "效果：规则元素",
-                    "description": "该效果会为特定召唤物添加各类规则元素，以实现诸如打击等自动化操作。"
-                },
-                "dancing-blade": {
-                    "title": "效果：飞舞之刃 Dancing Blade"
-                },
-                "wondrous-figurine": {
-                    "duration": "效果：奇妙雕像 Wondrous Figurine",
-                    "bismuth-leopard": {
-                        "flash-aura": "效果：铋石花豹闪烁灵光 Bismuth Leopard Flash Aura"
-                    }
-                }
-            }
-        },
-        "controls": {
-            "adjust-length": "调整长度",
-            "rotate-wall": "旋转墙体",
-            "scroll": "鼠标滚轮"
-        },
-        "code": {
-            "range": {
-                "feet": "尺"
-            }
-        },
-        "creature-name": {
-            "wondrous-figurine": {
-                "bismuth-leopard": "铋石花豹",
-                "jade-serpent": "翠玉蛇"
-            }
-        }
-    }
+	"I18N.LANGUAGE": "简体中文",
+	"pf2e-summons-assistant": {
+		"module-settings": {
+			"name-ownership": {
+				"name": "为召唤物名称添加召唤者署名",
+				"hint": "修饰召唤物的名称以显示其召唤者，例如“乔鲁诺的地精”等。"
+			},
+			"house-rule": {
+				"rank-upgrade": {
+					"name": "[房规] 召唤法术的环级+1",
+					"hint": "警告：我不会为该房规可能对您的游戏平衡性造成的影响负责。此规则将召唤法术视为比释放时高出1个环级，以决定其可召唤的生物"
+				},
+				"scale-to-max-summon-level-for-rank": {
+					"name": "[房规] 召唤法术扩增至最高等级",
+					"hint": "警告：我不会为该房规可能对您的游戏平衡性造成的影响负责。此功能使用PF2e Workbench的“等级扩增”代码，将通过传统召唤法术（如“召唤动物”等）召唤出的生物，扩增至该法术环级可召唤的最高等级生物。"
+				}
+			},
+			"effect-ownership": {
+				"name": "添加召唤物归属者效果",
+				"hint": "为召唤物添加一个效果，该效果的图标为其召唤者的指示物图标，便于追踪其主人"
+			},
+			"necromancer": {
+				"handle-living-graveyard-movement": {
+					"name": "[死灵师] 处理活体坟场的移动",
+					"hint": "若启用，当活体坟场移动时，会往聊天栏发送一条消息，点击该消息将使该坟场（根据规则）生成一个奴仆"
+				},
+				"thrall": {
+					"auto-expire": {
+						"name": "[死灵师] 自动删除过期的奴仆",
+						"hint": "若启用，则当“奴仆自毁时间”效果过期时，自动删除该奴仆"
+					}
+				},
+				"handle-thrall-charge": {
+					"name": "[死灵师] 处理奴仆冲锋效果应用",
+					"hint": "若启用，当你施放奴仆冲锋时，该功能会锁定你的第一个目标并对其应用奴仆冲锋法术效果"
+				}
+			},
+			"refresh": {
+				"summons": {
+					"name": "刷新召唤物攻击/豁免",
+					"hint": "若激活该功能，将使任何对召唤者法术DC的更新（当前仅限状态）触发对其召唤物进行刷新，进而更新相匹配的DC/攻击调整值"
+				}
+			},
+			"specific-case": {
+				"handle": {
+					"wooden-double": {
+						"name": "处理木制替身的伤害",
+						"hint": "当木制替身受到超过其最大生命值的伤害时，它将骰掷等同于溢出伤害的伤害（该伤害无伤害类型）"
+					},
+					"thaumaturge": {
+						"name": "处理奇术师镜奇具",
+						"hint": "特别处理奇术师的镜奇具特性"
+					},
+					"bilocation": {
+						"name": "处理二重身法术",
+						"hint": "为玩家角色处理二重身法术（例如：克隆+效果移除时删除克隆指示物）"
+					}
+				}
+			},
+			"filter": {
+				"default": {
+					"token-with-art": {
+						"name": "[筛选] 默认仅显示带有立绘的指示物",
+						"hint": "使角色选择器默认仅显示拥有立绘的角色"
+					}
+				}
+			},
+			"reminder": {
+				"message": {
+					"name": "[提醒] 接收参战者仆从的提醒信息",
+					"hint": "允许在参战者的每回合开始时，接收其仆从的私人提醒信息"
+				}
+			},
+			"automation": {
+				"limit-range": {
+					"hint": "限制了具备射程的召唤法术的召唤物生成范围，并将其范围显示在场景上",
+					"name": "召唤物生成范围自动化限制"
+				}
+			},
+			"config": {
+				"ping-summon": {
+					"name": "生成召唤指示物时高亮显示",
+					"hint": "创建召唤物指示物的同时生成高亮信号"
+				}
+			}
+		},
+		"name": "PF2e Summon's Assistant",
+		"message": {
+			"living-graveyard": {
+				"thralls": "活体坟场已移动。如果这来自维持法术的效果，你要在其路径上召唤3个新的奴仆吗？",
+				"summon": "召唤！"
+			},
+			"wooden-double": "木制替身的溢出伤害已转移给施法者"
+		},
+		"notification": {
+			"summoner": {
+				"too-many-eidolons": "你拥有的幻灵太多了。"
+			},
+			"duplicate-foe": {
+				"too-high": "对于该环级的“仿敌拟像”法术而言，该敌人的等级太高了"
+			},
+			"disable-items": {
+				"saved": "已保存！以下召唤自动化选项已被禁用 {list}"
+			},
+			"customization": {
+				"saved": "召唤物自定义设置已保存"
+			},
+			"active-minions": "<b>{summonerName}</b>当前控制的<u data-tooltip=\"{minionTooltip}\">仆从</u>",
+			"thaumaturge": {
+				"mirror-implement": {
+					"error": "[错误] 你未在当前场景中激活自身镜像克隆"
+				}
+			},
+			"bilocation": {
+				"error": "[错误] 你未在当前场景中激活二重身克隆"
+			},
+			"illusory-creature": "[幻象生物] 选择你的幻象所呈现的生物形态与体型",
+			"missing-jb2a": "[{moduleName}] 此次召唤依赖JB2A的部分资源，安装并启用该模组后即可使用。如果你不打算使用其资源，可以忽略此消息。"
+		},
+		"dialog": {
+			"duplicate-foe": "该目标豁免失败了吗？",
+			"telekinetic-hand": "你是否选择让你召唤的魔法手隐形？",
+			"disable-specific": {
+				"search": "搜索…",
+				"button": {
+					"title": "召唤自动化选项启用配置",
+					"hint": "对是否激活召唤自动化选项进行配置"
+				},
+				"title": "取消勾选，以禁用该召唤自动化"
+			},
+			"choose-type-of": "选择墙体形状，当前为",
+			"customize": {
+				"summoned-token": {
+					"title": "自定义召唤物指示物"
+				},
+				"reset": "重制为默认设置"
+			},
+			"dancing-weapon": {
+				"choose": "选择该武器",
+				"title": "选择武器作为你的飞舞之刃",
+				"damage-types": "伤害类型"
+			},
+			"light": {
+				"title": "召唤光球",
+				"text": "你想召唤一个不附着生物的球形光亮吗？（如果选择否，则需要将效果应用至你想附加光亮的生物身上）"
+			},
+			"thaumaturge": {
+				"title": {
+					"default": "选择要保留的自身镜像指示物",
+					"unconscious": "你失去意识！选择要保留的自身镜像指示物",
+					"adept-action": "你使自身镜像碎裂！选择不会碎裂的那个指示物"
+				},
+				"choose": "保留所选指示物"
+			},
+			"bilocation": {
+				"title": "选择要保留的二重身克隆指示物"
+			},
+			"summon": {
+				"sort": {
+					"descending": "（降序）"
+				},
+				"filter": {
+					"only-with-art": "附带美术资产"
+				}
+			},
+			"create-thrall": {
+				"title": "创造奴仆",
+				"options": {
+					"two": "{iconSummon}召唤了{cnt}个奴仆",
+					"one": "{iconSummon}召唤{cnt}个奴仆并立即命令奴仆"
+				}
+			},
+			"thrall-destroyed": {
+				"title": "摧毁奴仆？",
+				"content": "你决定摧毁一个奴仆吗？（用于“化为精魂”）"
+			},
+			"wall": {
+				"line": "线形",
+				"circle": "环形"
+			},
+			"wall-of-flesh": {
+				"arms": "手臂",
+				"eyes": "眼睛",
+				"mouths": "嘴巴"
+			},
+			"horde-of-underlings": {
+				"title": "喽啰成群"
+			}
+		},
+		"display-text": {
+			"wooden-double": {
+				"step": "选择要“快步”至的位置",
+				"place-double": "左键单击以放置你的木制替身"
+			},
+			"wall": {
+				"start-point": "选择你所创造墙体的起始点"
+			},
+			"jagged-berms": {
+				"berm": "放置城垛土堆",
+				"spikes": "左键单击放置尖刺木桩（{count}），右键单击以停止放置"
+			},
+			"prismatic-sphere": {
+				"red": {
+					"title": "红色",
+					"block": "摧毁穿过墙体的远程武器弹药（例如箭和弩矢）。",
+					"text": "对任何穿过墙体的目标造成@Damage[20[fire]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。"
+				},
+				"orange": {
+					"title": "橙色",
+					"text": "对任何穿过墙体的目标造成@Damage[25[acid]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
+					"block": "摧毁穿过墙体的投掷武器。"
+				},
+				"yellow": {
+					"title": "黄色",
+					"text": "对任何穿过墙体的目标造成@Damage[30[electricity]]伤害，需尝试一次@Check[reflex|dc:resolve(@actor.system.resources.dc.value)|basic]豁免。",
+					"block": "阻挡穿过墙体的酸蚀，寒冷，电击，火焰，力场，音波，命能以及虚能效果。"
+				},
+				"green": {
+					"title": "绿色",
+					"text": "对任何穿过墙体的目标造成@Damage[10[poison]]伤害，需尝试一次@Check[fortitude|dc:resolve(@actor.system.resources.dc.value)|basic]豁免，并使豁免失败的目标陷入@UUID[Compendium.pf2e.conditionitems.Item.MIRkyAjyBeXivMa7]{力竭 Enfeebled 1}，持续1分钟。",
+					"block": "阻挡穿过墙体的毒气，气体，以及吐息武器。"
+				},
+				"blue": {
+					"title": "蓝色",
+					"text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.znv4ECL7ZtuiagtA]的效果，需尝试一次@Check[fortitude|traits:earth|dc:resolve(@actor.system.resources.dc.value)]豁免",
+					"block": "阻挡穿过墙体的听觉，石化，音波以及视觉效果。"
+				},
+				"indigo": {
+					"title": "靛青",
+					"text": "穿过墙体的生物会承受@UUID[Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs]的效果，需尝试一次@Check[will|traits:incapacitation,emotion,mental|dc:resolve(@actor.system.resources.dc.value)]豁免。",
+					"block": "阻挡穿过墙体的预言系和心灵效果。"
+				},
+				"violet": {
+					"title": "紫色",
+					"block": "阻挡法术从球体外指定目标（区域效果如常穿过）。",
+					"text": "穿过墙体的生物必须尝试一次@Check[will|dc:resolve(@actor.system.resources.dc.value)]豁免，否则陷入@UUID[Compendium.pf2e.conditionitems.Item.xYTAsEpcJE1Ccni3]{缓慢 Slowed 1}，持续1分钟；若大失败，该生物改为被如@UUID[Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ]的效果送往其他位面"
+				}
+			},
+			"summon-name-ownership": "{summonerName}的{summonName}"
+		},
+		"items": {
+			"actions": {
+				"mechanic": {
+					"critical-explosion": {
+						"name": "致命爆炸",
+						"description": "你的地雷爆炸时会产生一团弹片云，撕裂生物最脆弱的部位，造成持续伤害。将你的智力调整值添加到地雷的伤害上。在对抗你的地雷时豁免检定大失败的生物，会额外受到等同于你智力调整值的持续伤害。如果地雷造成的是物理伤害，那么这是持续流血伤害。否则，该持续伤害的类型与地雷造成的伤害类型相同。"
+					}
+				}
+			},
+			"effects": {
+				"summon's-owner": {
+					"name": "召唤物归属者"
+				},
+				"thrall-expiration": {
+					"description": "该效果用于测算这只奴仆的自毁时间。",
+					"name": "效果：奴仆自毁时间"
+				},
+				"duplicate-foe": {
+					"name": "效果：仿敌拟像 Duplicate Foe",
+					"successful-save": {
+						"title": "仿敌拟像 - 豁免成功",
+						"text": "由于豁免成功，目标仅承受此复制体打击的一半伤害"
+					}
+				},
+				"rule-elements": {
+					"name": "效果：规则元素",
+					"description": "该效果会为特定召唤物添加各类规则元素，以实现诸如打击等自动化操作。"
+				},
+				"dancing-blade": {
+					"title": "效果：飞舞之刃 Dancing Blade"
+				},
+				"wondrous-figurine": {
+					"duration": "效果：奇妙雕像 Wondrous Figurine",
+					"bismuth-leopard": {
+						"flash-aura": "效果：铋石花豹闪烁灵光 Bismuth Leopard Flash Aura"
+					}
+				}
+			}
+		},
+		"controls": {
+			"adjust-length": "调整长度",
+			"rotate-wall": "旋转墙体",
+			"scroll": "鼠标滚轮"
+		},
+		"code": {
+			"range": {
+				"feet": "尺"
+			}
+		},
+		"creature-name": {
+			"wondrous-figurine": {
+				"bismuth-leopard": "铋石花豹",
+				"jade-serpent": "翠玉蛇"
+			}
+		}
+	}
 }
