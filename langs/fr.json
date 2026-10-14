@@ -44,6 +44,7 @@
           "hint": "En cas d'activation, lorsqu'un Cimetière vivant est déplacé , il enverra un message dans la conversation. En cliquant dessus, cela provoquera l'apparition d'un thrall du cimetière (comme prévu par les règles)"
         },
         "handle-thrall-charge": {
+          "name": "[Nécromancien] Gestion de l'application de l'effet de Charge du séide",
           "hint": "Si cette option est activée, lorsque vous lancez Charge de séide, elle appliquera l'effet du sort à votre première cible."
         },
         "thrall": {
