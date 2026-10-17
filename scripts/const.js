@@ -140,9 +140,9 @@ export const SOURCES = {
 	// SF2e
 	MECHANIC: {
 		DEPLOY_MINE:
-      "Compendium.starfinder-field-test-for-pf2e.actions.Item.ccVcznj9KVYHLVaY",
+      "Compendium.sf2e.actions.Item.ljJlGPTH8ZNH6DZj",
 		DOUBLE_DEPLOYMENT:
-      "Compendium.starfinder-field-test-for-pf2e.feats.Item.x5rhl6ThqqjHGglD",
+      "Compendium.sf2e.feats.Item.FwHl8SuyRHkMXLOg",
 	},
 };
 
@@ -311,7 +311,7 @@ export const LINKED_SUMMONS = [
 export const FEATS = {
 	MECHANIC: {
 		CRITICAL_EXPLOSION:
-      "Compendium.starfinder-field-test-for-pf2e.feats.Item.zsXV8mcHVZqx6FVj",
+      "Compendium.sf2e.feats.Item.dabyrIoWR77x8f3A",
 	},
 };
 

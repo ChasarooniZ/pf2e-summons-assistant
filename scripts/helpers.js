@@ -168,7 +168,7 @@ export function notifyRayControls(rotateOnly = false) {
 export function convertItemUUIDBasedOnSystem(uuid) {
 	if (!uuid) return null;
 	let finalUUID = uuid;
-	if (game.system.id === "sf2e") {
+	if (game.system.id === "sf2e") {		
 		finalUUID = finalUUID
 			.replace(".sf2e.", ".pf2e.")
 			.replace(".pf2e-anachronism.", ".pf2e.")
@@ -200,6 +200,37 @@ export function convertItemUUIDBasedOnSystem(uuid) {
 			.replace(".feats-srd.", ".feats.")
 			.replace(".pf2e-macros.", ".macros.")
 			.replace(".spells-srd.", ".spells.");
+	} else if (
+		game.system.id === "pf2e"
+		&& uuid?.includes(".sf2e.")
+	) {
+		finalUUID = finalUUID.replace('.sf2e.', '.sf2e-anachronism.')
+	}
+
+	return finalUUID;
+}
+
+export function convertSF2eItemUUIDBasedOnSystem(uuid) {
+	if (!uuid) return null;
+	let finalUUID = uuid;
+	if (
+		game.system.id === "pf2e"
+		&& uuid?.includes(".sf2e-anachronism.")
+	) {
+		finalUUID = finalUUID
+			.replace(".sf2e-anachronism.", ".sf2e.")
+			.replace(".actionspf2e.", ".actions.")
+			.replace(".classfeatures.", ".class-features.")
+			.replace(".conditionitems.", ".conditions.")
+			.replace(".equipment-srd.", ".equipment.")
+			.replace(".feats-srd.", ".feats.")
+			.replace(".pf2e-macros.", ".macros.")
+			.replace(".spells-srd.", ".spells.");
+	} else if (
+		game.system.id === "pf2e"
+		&& uuid?.includes(".sf2e.")
+	) {
+		finalUUID = finalUUID.replace('.sf2e.', '.sf2e-anachronism.')
 	}
 
 	return finalUUID;

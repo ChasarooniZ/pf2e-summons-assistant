@@ -249,7 +249,7 @@
 				"mechanic": {
 					"critical-explosion": {
 						"name": "Critical Explosion",
-						"description": "Your mines explode in a cloud of shrapnel that shreds through a creature's weakest points to cause lasting harm. Add your Intelligence modifier to your mines' damage. A creature that critically fails its saving throw against one of your mines is additionally dealt persistent damage equal to your Intelligence modifier. If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine."
+						"description": "Your mines use bursts of shrapnel that shred through a creature, causing lasting harm. A creature that fails its saving throw against one of your mines takes an additional 1 persistent damage (or persistent damage equal to your Intelligence modifier on a critical failure). If the mine dealt physical damage, this is persistent bleed damage. Otherwise, the persistent damage is of the same type dealt by the mine."
 					}
 				}
 			},
