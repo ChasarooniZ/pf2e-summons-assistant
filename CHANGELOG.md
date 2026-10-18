@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 2.20.6
+
+- **Updated**
+  - Added missing `Mindless` and `Thrall` traits from Thralls (🐛 @NidomeUK)
+  - Disabled Flaanking on many of the summons including `Wall of Thorns` (🐛 @MothMariner)
+
 ## 2.20.5
 
 - Actually packed previous release

@@ -293,6 +293,12 @@
 				"bismuth-leopard": "Bismuth Leopard",
 				"jade-serpent": "Jade Serpent"
 			}
+		},
+		"traits": {
+			"thrall": {
+				"label": "Thrall",
+				"description": "The mindless undead you can create as a necromancer are called thralls. Spells or abilities that create thralls have the thrall trait."
+			}
 		}
 	}
 }

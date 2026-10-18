@@ -362,7 +362,7 @@
           {
             "key": "ItemAlteration",
             "mode": "add",
-			"label":"Critical Explosion",
+            "label": "Critical Explosion",
             "property": "description",
             "itemId": "{item|id}",
             "predicate": [
@@ -393,8 +393,7 @@
                   }
                 ]
               }
-            ],
-            "label": "Critical Explosion"
+            ]
           },
           {
             "key": "Note",
@@ -431,6 +430,18 @@
                 ]
               }
             ]
+          },
+          {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.flankable",
+            "value": false
+          },
+          {
+            "key": "ActiveEffectLike",
+            "mode": "override",
+            "path": "system.attributes.flanking.canFlank",
+            "value": false
           }
         ],
         "slug": "detonate-mine",
