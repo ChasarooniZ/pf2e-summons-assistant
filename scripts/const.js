@@ -856,6 +856,16 @@ export const WEAPON_DAMAGE_TYPE_MODIFIERS = {
   },
 };
 
+export const ICONS = {
+  DAMAGE_TYPES: {
+    bludgeoning: "icons/weapons/hammers/hammer-double-bronze.webp",
+    piercing: "icons/weapons/polearms/glaive-simple.webp",
+    slashing: "icons/weapons/swords/scimitar-worn-blue.webp",
+    spirit: "icons/magic/death/undead-ghost-strike-white.webp",
+    void: "icons/magic/death/projectile-skull-fire-purple.webp",
+  },
+};
+
 export const COLORS = {
   PRISMATIC: {
     violet: "#EE82EE",

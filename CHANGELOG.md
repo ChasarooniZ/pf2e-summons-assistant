@@ -1,5 +1,9 @@
 ## Unreleased
 
+- **Updated**
+  - `Thralls` - Added Icons for each damage type to improve `PF2e HUD` usability
+  - Fixed issue with `Thrall Charge` setting and localization (🐛 @Sant1FG)
+
 ## 2.20.6
 
 - **Updated**
