@@ -120,21 +120,32 @@ export async function summon({
         typeof crosshairParameters === "function"
           ? crosshairParameters({ cnt: i, prevSummonedToken })
           : crosshairParameters,
-      crosshairCallbacks: {
-        [Sequencer.Crosshair.CALLBACKS.PLACED]: (crosshair) => {
-          Hooks.callAll("pf2eSummonPlace", {
-            crosshair,
-            item: summonerItem,
-            summoner: summonerActor,
-            summon: selectedActor,
-          });
-          // if (globalThis?.triggerAnimations) {
-          // 	globalThis?.triggerAnimations?.api?.runFromTrigger({})
-          // }
-        },
-      },
+      //   crosshairCallbacks: {
+      //     [Sequencer.Crosshair.CALLBACKS.PLACED]: async (crosshair) => {
+      //       if (globalThis?.triggerAnimations) {
+      //         await globalThis?.triggerAnimations?.api?.runFromTrigger({
+      //           name: `summon:${summonerItem?.uuid}, summon:${summonerItem?.slug}`,
+      //           actor: { actor: summonerActor },
+      //           item: summonerItem,
+      //           sources: [{ actor: summonerActor }],
+      //           targets: [
+      //             {
+      //               token: foundry.utils.mergeObject(crosshair?.source, {
+      //                 elevation:
+      //                   summonerActor?.getActiveTokens()?.[0]?.document
+      //                     ?.elevation ?? 0,
+      //               }),
+      //               actor: selectedActor,
+      //             },
+      //           ],
+      //         });
+      //       }
+      //     },
+      //   },
       drawPing: game.settings.get(MODULE_ID, "config.ping-summon"),
     });
+
+    Hooks.callAll("postPf2eSummon", tokDoc, summonerItem, summonerActor);
 
     const summonedCreatureActor =
       tokDoc.actor ?? game.actors.get(tokDoc.actorId);
