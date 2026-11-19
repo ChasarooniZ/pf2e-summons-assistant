@@ -246,7 +246,7 @@ const postSummonHelper = {
 		const actor = getTokenFromActorID(summonedActorID)?.actor;
 		await actor.setFlag("pf2e-toolbelt", "shareData", {
 			data: {
-				master: summonerToken.actor.id,
+				master: summonedActorID,
 				health: true,
 				languages: false,
 				timeEvents: true,
