@@ -61,7 +61,7 @@ $(document).on("click", ".living-graveyard-move-yes", async function () {
   }
 });
 
-const SPIRIT_MONGER_DAMAGE_TYPES = ["spirit", "void"];
+const SPIRIT_MONGER_DAMAGE_TYPES = ["spirit", "void", "vitality"];
 
 export function setNecromancerHooks() {
   Hooks.on("preUpdateToken", livingGraveyardMovementHook);
